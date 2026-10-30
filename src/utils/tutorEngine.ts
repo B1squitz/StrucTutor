@@ -895,7 +895,7 @@ export const INITIAL_MILESTONE_A_BARS: MilestoneSkillBar[] = [
   {
     id: 'reactions',
     label: 'Reactions & Equilibrium',
-    completed: 1,
+    completed: 0,
     target: 3,
     unitDescription: 'Determinate support reactions & pressure takedown',
   },
@@ -909,7 +909,7 @@ export const INITIAL_MILESTONE_A_BARS: MilestoneSkillBar[] = [
   {
     id: 'section_bending',
     label: 'Section & Bending Stress',
-    completed: 1,
+    completed: 0,
     target: 2,
     unitDescription: 'Elastic modulus Wₑₗ & extreme-fibre stress σ = M / Wₑₗ',
   },
@@ -929,35 +929,7 @@ export const INITIAL_MILESTONE_A_BARS: MilestoneSkillBar[] = [
   },
 ];
 
-export const INITIAL_RECENT_SESSIONS: RecentSessionItem[] = [
-  {
-    id: 'sess-1',
-    topicTitle: 'Consistent Structural Unit Conversions',
-    moduleLabel: 'Module 0 • Topic 0.1',
-    badgeText: '✅ 4/4 Mastered',
-    badgeTone: 'emerald',
-    relativeTime: 'Today, 2:15 PM',
-    targetStepId: '1a',
-  },
-  {
-    id: 'sess-2',
-    topicTitle: 'Equivalent Stress Units & Bending Scaling',
-    moduleLabel: 'Module 0 • Topic 0.1',
-    badgeText: '⚠️ 2/5 Needs Review',
-    badgeTone: 'amber',
-    relativeTime: 'Yesterday, 6:40 PM',
-    targetStepId: '2a',
-  },
-  {
-    id: 'sess-3',
-    topicTitle: 'Surface Pressure & Tributary Floor Loading',
-    moduleLabel: 'Module 0 • Topic 0.1',
-    badgeText: '✅ 3/3 Mastered',
-    badgeTone: 'emerald',
-    relativeTime: 'Oct 26, 5:10 PM',
-    targetStepId: '1b',
-  },
-];
+export const INITIAL_RECENT_SESSIONS: RecentSessionItem[] = [];
 
 export const SYLLABUS_MODULES: SyllabusModuleItem[] = [
   {
@@ -967,7 +939,7 @@ export const SYLLABUS_MODULES: SyllabusModuleItem[] = [
     subtitle: 'Dimensional homogeneity, (mm, N) base unit fluency, and stress scaling',
     durationWeeks: '4–6 weeks',
     status: 'In Progress',
-    progressPercent: 45,
+    progressPercent: 0,
     unlockRequirement: 'Active Foundation Module (Entry Point)',
     overview:
       'Establishes rock-solid fluency converting between kN·m and N·mm, MPa and N/mm², and resolving force components before tackling statics and section mechanics.',
@@ -994,7 +966,7 @@ export const SYLLABUS_MODULES: SyllabusModuleItem[] = [
         code: '0.2',
         title: '0.2 Right-Trigonometry, Force Resolution & Slope Ratios',
         durationMins: 20,
-        status: 'Mastered',
+        status: 'Up Next',
         questionsCount: 6,
         summary:
           'Resolve inclined raking shore and truss member forces into orthogonal horizontal and vertical components using sine, cosine, and 3-4-5 slope geometry.',
@@ -1005,7 +977,7 @@ export const SYLLABUS_MODULES: SyllabusModuleItem[] = [
         code: '0.3',
         title: '0.3 Visual Calculus for Engineers: Slopes (dy/dx) & Areas',
         durationMins: 20,
-        status: 'Locked',
+        status: 'Up Next',
         questionsCount: 6,
         summary:
           'Connect the slope of the Bending Moment Diagram to Shear Force (dM/dx = V) and the area under the Shear Force Diagram to change in Bending Moment.',
@@ -1679,10 +1651,10 @@ export function runSelfVerificationChecks(): VerificationCheckItem[] {
     },
     {
       id: 11,
-      title: 'Consolidated Home Dashboard',
-      requirement: 'Single Hero Resume card, 5 Milestone A portfolio bars, humanized activity feed, and 3-card active pathway strip.',
-      passed: INITIAL_MILESTONE_A_BARS.length === 5 && INITIAL_RECENT_SESSIONS.length === 3,
-      liveProof: 'Hero Resume Card + 5 Milestone A skill bars + 3 humanized sessions + 3-card Active Pathway strip (Modules 0, 1, 2).',
+      title: 'Consolidated Home Dashboard (Zero Fabricated Activity)',
+      requirement: 'All initial progress starts at 0% with 0 completed modules and empty initial session history.',
+      passed: INITIAL_MILESTONE_A_BARS.every((b) => b.completed === 0) && INITIAL_RECENT_SESSIONS.length === 0,
+      liveProof: '0% initial progress + 0/20 completed modules + 0 fabricated sessions.',
     },
     {
       id: 12,

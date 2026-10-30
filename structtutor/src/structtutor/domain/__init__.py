@@ -1,1 +1,0 @@
-"""Deterministic structural engineering and pedagogy domain layer."""

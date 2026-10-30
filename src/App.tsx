@@ -1,48 +1,73 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   ArrowLeft,
   ArrowRight,
   Award,
   BookOpen,
   Calculator,
-  Check,
   CheckCircle2,
   ChevronDown,
   ChevronRight,
+  ChevronUp,
+  Clock,
   Compass,
-  Flame,
+  FileSpreadsheet,
+  FileText,
   HelpCircle,
+  Info,
+  Layers,
   LayoutDashboard,
   Lightbulb,
-  Lock,
   Map,
+  Moon,
   PanelLeftClose,
   PanelLeftOpen,
   Play,
   RotateCcw,
   Search,
-  Sparkles,
+  ShieldAlert,
+  Sliders,
   Sun,
-  Moon,
-  Zap,
 } from 'lucide-react';
 import {
   APP_BUILD_DATE,
   APP_VERSION,
+  GradeOutcome,
   INITIAL_MILESTONE_A_BARS,
-  INITIAL_RECENT_SESSIONS,
+  MilestoneSkillBar,
   ObjectiveItem,
   SESSION_QUESTIONS,
-  SYLLABUS_MODULES,
   StepId,
   StepStatus,
   SyllabusModuleItem,
   computeAdaptiveTransition,
   convertEngineeringUnit,
   evaluateQuestionAttempt,
-  runSelfVerificationChecks,
-  GradeOutcome,
 } from './utils/tutorEngine';
+import {
+  ALL_SYLLABUS_MODULES,
+  getModuleByNumber,
+  getTopicById,
+} from './data/fullSyllabus';
+import {
+  COURSE_DEVELOPMENT_REQUIREMENTS,
+  FIVE_STUDY_RULES,
+} from './data/syllabusMetadata';
+import {
+  AssessmentSubmissionResult,
+  CourseProgressState,
+  NormalizedSyllabusModule,
+  SyllabusTopic,
+} from './types/syllabus';
+import {
+  computeCourseProgressSummary,
+  loadCourseProgressState,
+  recordAssessmentAttempt,
+  resetCourseProgressState,
+  saveCourseProgressState,
+} from './utils/assessmentEngine';
+import { AssessmentView } from './components/AssessmentView';
+import { CoverageAndMilestonesView } from './components/CoverageAndMilestonesView';
 import { MathFraction, UnitBadge } from './components/MathFormula';
 import { QuestionDiagram } from './components/QuestionDiagram';
 import { WorkedSolutionDrawer } from './components/WorkedSolutionDrawer';
@@ -50,32 +75,143 @@ import {
   CalculatorPopover,
   SyllabusInspectorDrawer,
   UnitsReferenceDrawer,
-  VerificationSelfTestDrawer,
 } from './components/UtilityModals';
 
-type MainView = 'dashboard' | 'tutor' | 'map';
+type MainView = 'dashboard' | 'tutor' | 'map' | 'coverage' | 'assessment';
 
-interface SessionAttemptLogItem {
-  stepId: string;
-  questionTitle: string;
-  submittedDisplay: string;
-  status: 'Mastered First-Try' | 'Completed (Assisted)' | 'Needs Retry';
-  timeAgo: string;
+interface ActiveAssessmentTarget {
+  moduleNumber: number;
+  topicId?: string; // undefined means End-of-Module Assessment
+}
+
+function getModuleStage(moduleNumber: number): 1 | 2 | 3 {
+  if (moduleNumber <= 8) return 1;
+  if (moduleNumber <= 14) return 2;
+  return 3;
+}
+
+function toLegacyModuleItem(
+  mod: NormalizedSyllabusModule,
+  progressState: CourseProgressState
+): SyllabusModuleItem {
+  const modProg = progressState.modules[mod.id];
+  const passedTopics = mod.topics.filter(
+    (t) => progressState.topics[t.id]?.passed
+  ).length;
+  const anyAttempted =
+    (modProg?.attemptsCount ?? 0) > 0 ||
+    mod.topics.some((t) => (progressState.topics[t.id]?.attemptsCount ?? 0) > 0);
+
+  return {
+    moduleNumber: mod.moduleNumber,
+    stage: getModuleStage(mod.moduleNumber),
+    title: mod.title,
+    subtitle: mod.summary,
+    durationWeeks: mod.suggestedDuration ?? mod.yearPathway ?? '6–10 weeks',
+    status: modProg?.passed
+      ? 'Mastered'
+      : anyAttempted || mod.moduleNumber === 0
+      ? 'In Progress'
+      : 'Locked',
+    progressPercent: modProg?.passed
+      ? 100
+      : mod.topics.length > 0
+      ? Math.round((passedTopics / mod.topics.length) * 100)
+      : 0,
+    unlockRequirement: `Syllabus Gate: ${mod.learningGate}`,
+    overview: `${mod.summary} ${mod.whyItMatters}`,
+    eurocodeReference:
+      mod.standardsNotice ??
+      mod.topics[0]?.futureContentNote ??
+      'Prepared for personal textbook and Eurocode / UK National Annex excerpts.',
+    keyFormulas: mod.objectives.slice(0, 4),
+    objectives: mod.topics.map((t) => {
+      const tProg = progressState.topics[t.id];
+      return {
+        code: t.code,
+        title: `${t.code} ${t.title}`,
+        durationMins: 25,
+        status: tProg?.passed
+          ? 'Mastered'
+          : (tProg?.attemptsCount ?? 0) > 0
+          ? 'In Progress'
+          : 'Up Next',
+        questionsCount: t.assessmentQuestions.length,
+        summary: t.summary,
+        keyFormulas: t.subtopics.slice(0, 4),
+        eurocodeContext: `Topic Assessment: ${t.assessmentQuestions.length} Questions (90% Pass Mark) • Module Gate: ${mod.learningGate}`,
+      };
+    }),
+  };
 }
 
 export default function App() {
-  // Primary Navigation View ('dashboard' | 'tutor' | 'map')
-  const [activeView, setActiveView] = useState<MainView>('dashboard');
+  // 1. Course Progress State (starts at 0% with 0 completed modules and 0 attempts on fresh load)
+  const [progressState, setProgressState] = useState<CourseProgressState>(() =>
+    loadCourseProgressState(ALL_SYLLABUS_MODULES)
+  );
+
+  useEffect(() => {
+    saveCourseProgressState(progressState);
+  }, [progressState]);
+
+  const progressSummary = useMemo(
+    () => computeCourseProgressSummary(progressState, ALL_SYLLABUS_MODULES),
+    [progressState]
+  );
+
+  // 2. Shell Layout & Hybrid Light-Card Polish State (defaults to true for the signature white-card / dark-shell look)
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
   const [hybridLightCards, setHybridLightCards] = useState<boolean>(true);
+  const [activeView, setActiveView] = useState<MainView>('dashboard');
+  const [confirmResetOpen, setConfirmResetOpen] = useState<boolean>(false);
 
-  // Tutor Session State Machine
+  // 3. Active Module & Topic Selection (across all 20 Modules 0..19)
+  const [selectedModuleNumber, setSelectedModuleNumber] = useState<number>(0);
+  const [selectedTopicId, setSelectedTopicId] = useState<string>('M0-T1');
+  const [topicSwitcherOpen, setTopicSwitcherOpen] = useState<boolean>(false);
+  const [assessmentTarget, setAssessmentTarget] =
+    useState<ActiveAssessmentTarget | null>(null);
+
+  const activeModule = useMemo(
+    () =>
+      getModuleByNumber(selectedModuleNumber) ?? ALL_SYLLABUS_MODULES[0],
+    [selectedModuleNumber]
+  );
+
+  const activeTopic = useMemo(
+    () =>
+      activeModule.topics.find((t) => t.id === selectedTopicId) ??
+      activeModule.topics[0],
+    [activeModule, selectedTopicId]
+  );
+
+  // 4. Interactive Unit & Bending Stress Sandbox State (Card 2 on [📖 Learn])
+  const [sandboxMomentKnm, setSandboxMomentKnm] = useState<string>('18');
+  const [sandboxWelMm3, setSandboxWelMm3] = useState<string>('666666.7');
+
+  const sandboxComputed = useMemo(() => {
+    const mVal = Number(sandboxMomentKnm);
+    const wVal = Number(sandboxWelMm3);
+    if (!Number.isFinite(mVal) || !Number.isFinite(wVal) || wVal <= 0) {
+      return { momentNmm: '—', stressMpa: '—', stressGpa: '—' };
+    }
+    const nmm = convertEngineeringUnit(mVal, 'kN·m', 'N·mm');
+    const sigma = nmm / wVal;
+    return {
+      momentNmm: nmm.toLocaleString('en-GB', { maximumFractionDigits: 0 }),
+      stressMpa: Number(sigma.toPrecision(4)).toString(),
+      stressGpa: Number((sigma / 1000).toPrecision(4)).toString(),
+    };
+  }, [sandboxMomentKnm, sandboxWelMm3]);
+
+  // 5. Stepped Tutor State ([📖 Learn], [1a]..[5a], [🏁 Summary])
   const [currentStep, setCurrentStep] = useState<StepId>('learn');
   const [remedialInjected, setRemedialInjected] = useState<boolean>(false);
   const [stepStatuses, setStepStatuses] = useState<Record<StepId, StepStatus>>({
     learn: 'active',
-    '1a': 'mastered',
-    '1b': 'mastered',
+    '1a': 'unseen',
+    '1b': 'unseen',
     '2a': 'unseen',
     '2a-R': 'unseen',
     '2b': 'unseen',
@@ -85,10 +221,8 @@ export default function App() {
     '5a': 'unseen',
     summary: 'unseen',
   });
-
-  // Active Question Form State
   const [answerInput, setAnswerInput] = useState<string>('');
-  const [selectedUnit, setSelectedUnit] = useState<string>('MPa');
+  const [selectedUnit, setSelectedUnit] = useState<string>('N·mm');
   const [hintsRevealed, setHintsRevealed] = useState<number>(0);
   const [fullSolutionUnlockedByStep, setFullSolutionUnlockedByStep] = useState<
     Record<string, boolean>
@@ -98,56 +232,41 @@ export default function App() {
   );
   const [gradeOutcome, setGradeOutcome] = useState<GradeOutcome | null>(null);
   const [adaptiveBanner, setAdaptiveBanner] = useState<string | null>(null);
-  const [fastTrackAvailable, setFastTrackAvailable] = useState<boolean>(false);
-  const [xpPoints, setXpPoints] = useState<number>(1240);
-  const [sessionHistory, setSessionHistory] = useState<SessionAttemptLogItem[]>([
-    {
-      stepId: '1a',
-      questionTitle: 'Bending Moment Conversion to Base (mm, N) Units',
-      submittedDisplay: '5,000,000 N·mm',
-      status: 'Mastered First-Try',
-      timeAgo: '8 mins ago',
-    },
-    {
-      stepId: '1b',
-      questionTitle: 'Surface Pressure Conversion (kN/m² to N/mm²)',
-      submittedDisplay: '0.025 N/mm²',
-      status: 'Mastered First-Try',
-      timeAgo: '4 mins ago',
-    },
-  ]);
-
-  // Learn Tab Sandbox State
-  const [sandboxMomentKnM, setSandboxMomentKnM] = useState<number>(18);
-  const [sandboxModulusMm3, setSandboxModulusMm3] = useState<number>(600000);
-
-  // Modals & Drawers
   const [workedSolutionDrawerOpen, setWorkedSolutionDrawerOpen] =
     useState<boolean>(false);
   const [unitsDrawerOpen, setUnitsDrawerOpen] = useState<boolean>(false);
   const [calculatorOpen, setCalculatorOpen] = useState<boolean>(false);
-  const [topicSwitcherOpen, setTopicSwitcherOpen] = useState<boolean>(false);
-  const [activeTopicLabel, setActiveTopicLabel] = useState<string>(
-    'Topic 0.1: Dimensional Homogeneity & Stress Units'
-  );
 
-  // Learning Map State
-  const [selectedStage, setSelectedStage] = useState<1 | 2 | 3>(1);
+  // 6. Milestone A Skill Bars (all start at 0, increment on genuine practice/assessments)
+  const [milestoneBars, setMilestoneBars] = useState<MilestoneSkillBar[]>(
+    INITIAL_MILESTONE_A_BARS
+  );
+  const [creditedQuestions, setCreditedQuestions] = useState<
+    Record<string, boolean>
+  >({});
+
+  // 7. Unified Visual Learning Map State
+  const [mapStageFilter, setMapStageFilter] = useState<'all' | 1 | 2 | 3>(
+    'all'
+  );
   const [mapSearchQuery, setMapSearchQuery] = useState<string>('');
   const [mapStatusFilter, setMapStatusFilter] = useState<
-    'All' | 'In Progress' | 'Mastered' | 'Locked'
-  >('All');
-  const [expandedModules, setExpandedModules] = useState<Record<number, boolean>>({
-    0: true, // Module 0 expanded by default per specification
+    'all' | 'not-started' | 'in-progress' | 'passed'
+  >('all');
+  const [expandedMapModules, setExpandedMapModules] = useState<
+    Record<number, boolean>
+  >({
+    0: true,
   });
-  const [inspectorTarget, setInspectorTarget] = useState<{
+  const [inspectorDrawerTarget, setInspectorDrawerTarget] = useState<{
     moduleItem: SyllabusModuleItem;
     objectiveItem: ObjectiveItem | null;
+    moduleNumber: number;
+    topicId?: string;
   } | null>(null);
 
-  // Visible Stepper Sequence
   const visibleSteps = useMemo<StepId[]>(() => {
-    const base: StepId[] = [
+    return [
       'learn',
       '1a',
       '1b',
@@ -160,64 +279,138 @@ export default function App() {
       '5a',
       'summary',
     ];
-    return base;
   }, [remedialInjected]);
-
-  // Continuous Session Progress %
-  const sessionProgressPercent = useMemo(() => {
-    const questionSteps = visibleSteps.filter(
-      (s) => s !== 'learn' && s !== 'summary'
-    );
-    const completed = questionSteps.filter(
-      (s) => stepStatuses[s] === 'mastered' || stepStatuses[s] === 'assisted'
-    ).length;
-    return Math.round((completed / questionSteps.length) * 100);
-  }, [visibleSteps, stepStatuses]);
-
-  // Dynamic Milestone A Portfolio Bars (updates live as questions are mastered)
-  const milestoneABars = useMemo(() => {
-    const extraSectionBending =
-      (stepStatuses['2a'] === 'mastered' ? 1 : 0) +
-      (stepStatuses['2b'] === 'mastered' ? 1 : 0);
-    const extraDeflection = stepStatuses['4'] === 'mastered' ? 1 : 0;
-    const extraSfdBmd = stepStatuses['5a'] === 'mastered' ? 1 : 0;
-    const extraReactions = stepStatuses['3'] === 'mastered' ? 1 : 0;
-
-    return INITIAL_MILESTONE_A_BARS.map((bar) => {
-      if (bar.id === 'section_bending') {
-        return {
-          ...bar,
-          completed: Math.min(bar.target, bar.completed + extraSectionBending),
-        };
-      }
-      if (bar.id === 'deflection') {
-        return {
-          ...bar,
-          completed: Math.min(bar.target, bar.completed + extraDeflection),
-        };
-      }
-      if (bar.id === 'sfd_bmd') {
-        return {
-          ...bar,
-          completed: Math.min(bar.target, bar.completed + extraSfdBmd),
-        };
-      }
-      if (bar.id === 'reactions') {
-        return {
-          ...bar,
-          completed: Math.min(bar.target, bar.completed + extraReactions),
-        };
-      }
-      return bar;
-    });
-  }, [stepStatuses]);
 
   const activeQuestion =
     currentStep !== 'learn' && currentStep !== 'summary'
       ? SESSION_QUESTIONS[currentStep]
-      : SESSION_QUESTIONS['2a'];
+      : SESSION_QUESTIONS['1a'];
 
-  // Navigate to a specific step in the Tutor Stepper
+  const completedStepsCount = useMemo(() => {
+    return visibleSteps.filter(
+      (s) => stepStatuses[s] === 'mastered' || stepStatuses[s] === 'assisted'
+    ).length;
+  }, [visibleSteps, stepStatuses]);
+
+  const tutorProgressPercent = Math.round(
+    (completedStepsCount / visibleSteps.length) * 100
+  );
+
+  // Navigation & Action Handlers
+  const handleSelectModuleAndTopic = (
+    moduleNumber: number,
+    topicId?: string,
+    targetView: MainView = 'tutor'
+  ) => {
+    const mod = getModuleByNumber(moduleNumber) ?? ALL_SYLLABUS_MODULES[0];
+    setSelectedModuleNumber(mod.moduleNumber);
+    const chosenTopic = topicId
+      ? mod.topics.find((t) => t.id === topicId) ?? mod.topics[0]
+      : mod.topics[0];
+    if (chosenTopic) {
+      setSelectedTopicId(chosenTopic.id);
+    }
+    setTopicSwitcherOpen(false);
+    if (targetView === 'tutor') {
+      setCurrentStep('learn');
+      setGradeOutcome(null);
+      setAdaptiveBanner(null);
+    }
+    if (targetView === 'map') {
+      setExpandedMapModules((prev) => ({ ...prev, [mod.moduleNumber]: true }));
+    }
+    setActiveView(targetView);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleOpenModuleInMap = (moduleNumber: number) => {
+    const mod = getModuleByNumber(moduleNumber) ?? ALL_SYLLABUS_MODULES[0];
+    setSelectedModuleNumber(mod.moduleNumber);
+    if (mod.topics[0]) setSelectedTopicId(mod.topics[0].id);
+    setMapStageFilter('all');
+    setExpandedMapModules((prev) => ({ ...prev, [mod.moduleNumber]: true }));
+    setActiveView('map');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleStartTopicAssessment = (
+    module: NormalizedSyllabusModule,
+    topic: SyllabusTopic
+  ) => {
+    setSelectedModuleNumber(module.moduleNumber);
+    setSelectedTopicId(topic.id);
+    setAssessmentTarget({
+      moduleNumber: module.moduleNumber,
+      topicId: topic.id,
+    });
+    setActiveView('assessment');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleStartModuleAssessment = (module: NormalizedSyllabusModule) => {
+    setSelectedModuleNumber(module.moduleNumber);
+    if (module.topics[0]) setSelectedTopicId(module.topics[0].id);
+    setAssessmentTarget({
+      moduleNumber: module.moduleNumber,
+      topicId: undefined,
+    });
+    setActiveView('assessment');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleCompleteAssessmentAttempt = (
+    targetModule: NormalizedSyllabusModule,
+    targetTopic: SyllabusTopic | undefined,
+    result: AssessmentSubmissionResult
+  ) => {
+    const isTopic = Boolean(targetTopic);
+    const title = targetTopic
+      ? `Mod ${targetModule.moduleNumber} • Topic ${targetTopic.code}: ${targetTopic.title}`
+      : `Module ${targetModule.moduleNumber} End-of-Module Assessment: ${targetModule.shortTitle}`;
+
+    setProgressState((prev) =>
+      recordAssessmentAttempt(prev, {
+        assessmentId: result.assessmentId,
+        assessmentType: isTopic ? 'topic' : 'module',
+        moduleId: targetModule.id,
+        moduleNumber: targetModule.moduleNumber,
+        topicId: targetTopic?.id,
+        title,
+        scorePercent: result.scorePercent,
+        correctCount: result.correctCount,
+        totalQuestions: result.totalQuestions,
+        passed: result.passed,
+        timestampIso: result.submittedAtIso,
+      })
+    );
+  };
+
+  const handleResetAllProgress = () => {
+    const fresh = resetCourseProgressState(ALL_SYLLABUS_MODULES);
+    setProgressState(fresh);
+    setMilestoneBars(INITIAL_MILESTONE_A_BARS);
+    setCreditedQuestions({});
+    setStepStatuses({
+      learn: 'active',
+      '1a': 'unseen',
+      '1b': 'unseen',
+      '2a': 'unseen',
+      '2a-R': 'unseen',
+      '2b': 'unseen',
+      '2c': 'unseen',
+      '3': 'unseen',
+      '4': 'unseen',
+      '5a': 'unseen',
+      summary: 'unseen',
+    });
+    setRemedialInjected(false);
+    setFailuresByStep({});
+    setFullSolutionUnlockedByStep({});
+    setGradeOutcome(null);
+    setAdaptiveBanner(null);
+    setConfirmResetOpen(false);
+  };
+
   const goToTutorStep = (targetStep: StepId) => {
     setCurrentStep(targetStep);
     setGradeOutcome(null);
@@ -228,43 +421,25 @@ export default function App() {
       setSelectedUnit(SESSION_QUESTIONS[targetStep].defaultUnit);
     }
     setActiveView('tutor');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Start or Resume Practice Session from Dashboard / Map
-  const startOrResumeTutor = (
-    initialStep: StepId = 'learn',
-    topicName?: string
-  ) => {
-    if (topicName) {
-      setActiveTopicLabel(topicName);
-    }
-    goToTutorStep(initialStep);
-  };
-
-  // Handle Answer Check Submission
-  const handleCheckAnswer = (e?: React.FormEvent) => {
+  const handleCheckTutorAnswer = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (currentStep === 'learn' || currentStep === 'summary') return;
-
     const q = SESSION_QUESTIONS[currentStep];
     try {
       const outcome = evaluateQuestionAttempt(q, answerInput, selectedUnit);
       setGradeOutcome(outcome);
-
       const prevFails = failuresByStep[currentStep] ?? 0;
       const newFailCount = outcome.isCorrect ? prevFails : prevFails + 1;
       if (!outcome.isCorrect) {
-        setFailuresByStep((prev) => ({
-          ...prev,
-          [currentStep]: newFailCount,
-        }));
+        setFailuresByStep((prev) => ({ ...prev, [currentStep]: newFailCount }));
       }
-
       const usedHelp =
         hintsRevealed > 0 ||
         Boolean(fullSolutionUnlockedByStep[currentStep]) ||
         prevFails > 0;
-
       const transition = computeAdaptiveTransition(
         currentStep,
         outcome.isCorrect,
@@ -273,11 +448,8 @@ export default function App() {
         stepStatuses,
         remedialInjected
       );
-
       setStepStatuses(transition.nextStepStatuses);
-      if (transition.remedialInjected) {
-        setRemedialInjected(true);
-      }
+      if (transition.remedialInjected) setRemedialInjected(true);
       if (transition.autoRevealWorkedSolution) {
         setFullSolutionUnlockedByStep((prev) => ({
           ...prev,
@@ -285,26 +457,17 @@ export default function App() {
         }));
       }
       setAdaptiveBanner(transition.adaptiveBannerMessage);
-      setFastTrackAvailable(transition.fastTrackEligible);
 
-      if (outcome.isCorrect) {
-        setXpPoints((prev) => prev + (usedHelp ? 25 : 50));
+      if (outcome.isCorrect && !creditedQuestions[currentStep]) {
+        setCreditedQuestions((prev) => ({ ...prev, [currentStep]: true }));
+        setMilestoneBars((prev) =>
+          prev.map((bar) =>
+            bar.id === q.milestoneCategory
+              ? { ...bar, completed: Math.min(bar.target, bar.completed + 1) }
+              : bar
+          )
+        );
       }
-
-      setSessionHistory((prev) => [
-        {
-          stepId: currentStep,
-          questionTitle: q.title,
-          submittedDisplay: `${answerInput.trim()} ${selectedUnit}`,
-          status: outcome.isCorrect
-            ? usedHelp
-              ? 'Completed (Assisted)'
-              : 'Mastered First-Try'
-            : 'Needs Retry',
-          timeAgo: 'Just now',
-        },
-        ...prev.filter((item) => item.stepId !== currentStep),
-      ]);
     } catch (err) {
       setGradeOutcome({
         isCorrect: false,
@@ -317,13 +480,12 @@ export default function App() {
         diagnosticDetail:
           err instanceof Error
             ? err.message
-            : 'Enter a number in the answer box before checking.',
+            : 'Enter a number before checking.',
         unitConversionNote: '',
       });
     }
   };
 
-  // Advance to Next Step in Sequence
   const handleAdvanceToNextStep = () => {
     const idx = visibleSteps.indexOf(currentStep);
     if (idx >= 0 && idx < visibleSteps.length - 1) {
@@ -331,105 +493,123 @@ export default function App() {
         setStepStatuses((prev) => ({ ...prev, learn: 'mastered' }));
       }
       goToTutorStep(visibleSteps[idx + 1]);
-    } else {
-      goToTutorStep('summary');
     }
   };
 
-  // One-click simulator for 2-strike remedial injection on Question 2a
-  const handleSimulateTwoStrikeOn2a = () => {
-    setActiveView('tutor');
-    setCurrentStep('2a');
-    setAnswerInput('0.027');
-    setSelectedUnit('MPa');
-    const q2a = SESSION_QUESTIONS['2a'];
-    const outcome = evaluateQuestionAttempt(q2a, '0.027', 'MPa');
-    setGradeOutcome(outcome);
-    setFailuresByStep((prev) => ({ ...prev, '2a': 2 }));
-    const transition = computeAdaptiveTransition(
-      '2a',
-      false,
-      2,
-      false,
-      stepStatuses,
-      remedialInjected
-    );
-    setStepStatuses(transition.nextStepStatuses);
-    setRemedialInjected(true);
-    setFullSolutionUnlockedByStep((prev) => ({ ...prev, '2a': true }));
-    setAdaptiveBanner(transition.adaptiveBannerMessage);
-  };
+  // Resolve active assessment target if in 'assessment' view
+  const resolvedAssessment = useMemo(() => {
+    if (!assessmentTarget) return null;
+    const mod = getModuleByNumber(assessmentTarget.moduleNumber);
+    if (!mod) return null;
+    if (assessmentTarget.topicId) {
+      const top = mod.topics.find((t) => t.id === assessmentTarget.topicId);
+      if (!top) return null;
+      return {
+        module: mod,
+        topic: top,
+        questions: top.assessmentQuestions,
+      };
+    }
+    return {
+      module: mod,
+      topic: undefined,
+      questions: mod.moduleAssessment,
+    };
+  }, [assessmentTarget]);
 
-  // Filtered Learning Map Modules
-  const filteredSyllabusModules = useMemo(() => {
-    return SYLLABUS_MODULES.filter((m) => {
-      if (m.stage !== selectedStage) return false;
-      if (mapStatusFilter !== 'All' && m.status !== mapStatusFilter) return false;
+  // Filtered Modules for Unified Visual Learning Map
+  const filteredMapModules = useMemo(() => {
+    return ALL_SYLLABUS_MODULES.filter((mod) => {
+      const stage = getModuleStage(mod.moduleNumber);
+      if (mapStageFilter !== 'all' && stage !== mapStageFilter) return false;
+
+      const modProg = progressState.modules[mod.id];
+      const anyAttempted =
+        (modProg?.attemptsCount ?? 0) > 0 ||
+        mod.topics.some(
+          (t) => (progressState.topics[t.id]?.attemptsCount ?? 0) > 0
+        );
+      const isPassed = Boolean(modProg?.passed);
+
+      if (mapStatusFilter === 'passed' && !isPassed) return false;
+      if (
+        mapStatusFilter === 'in-progress' &&
+        (!anyAttempted || isPassed)
+      )
+        return false;
+      if (
+        mapStatusFilter === 'not-started' &&
+        (anyAttempted || isPassed)
+      )
+        return false;
+
       if (mapSearchQuery.trim()) {
         const q = mapSearchQuery.toLowerCase();
-        const matchTitle = m.title.toLowerCase().includes(q);
-        const matchSub = m.subtitle.toLowerCase().includes(q);
-        const matchObj = m.objectives.some((o) =>
-          o.title.toLowerCase().includes(q)
+        const matchesModule =
+          mod.title.toLowerCase().includes(q) ||
+          mod.summary.toLowerCase().includes(q) ||
+          mod.learningGate.toLowerCase().includes(q);
+        const matchesTopic = mod.topics.some(
+          (t) =>
+            t.title.toLowerCase().includes(q) ||
+            t.code.toLowerCase().includes(q) ||
+            t.summary.toLowerCase().includes(q)
         );
-        return matchTitle || matchSub || matchObj;
+        if (!matchesModule && !matchesTopic) return false;
       }
+
       return true;
     });
-  }, [selectedStage, mapStatusFilter, mapSearchQuery]);
+  }, [mapStageFilter, mapStatusFilter, mapSearchQuery, progressState]);
 
-  const verificationChecks = useMemo(() => runSelfVerificationChecks(), []);
-
-  // Card theme classes (Sparx-inspired Hybrid crisp white cards vs Deep Slate cards)
-  const cardSurfaceClass = hybridLightCards
-    ? 'bg-white text-slate-900 border border-slate-200/90 shadow-md'
-    : 'bg-slate-900 text-slate-100 border border-slate-800 shadow-md';
-
-  const subCardSurfaceClass = hybridLightCards
-    ? 'bg-slate-50/90 text-slate-900 border border-slate-200'
-    : 'bg-slate-800/60 text-slate-100 border border-slate-700/80';
-
-  const mutedTextClass = hybridLightCards ? 'text-slate-600' : 'text-slate-400';
+  // Circular SVG Ring Geometry for Hero Card
+  const ringRadius = 46;
+  const ringCircumference = 2 * Math.PI * ringRadius;
+  const ringOffset =
+    ringCircumference -
+    (progressSummary.overallProgressPercent / 100) * ringCircumference;
 
   return (
     <div className={hybridLightCards ? '' : 'dark'}>
-      <div className="min-h-screen flex bg-[#0B1120] text-slate-100 selection:bg-blue-600 selection:text-white">
-        {/* ================================================================ */}
-        {/* COLLAPSIBLE LEFT NAVIGATION RAIL (240px Expanded / 72px Compact) */}
-        {/* ================================================================ */}
+      <div className="min-h-screen bg-[#0B1120] text-slate-100 flex font-sans">
+        {/* ================================================================= */}
+        {/* LEFT COLLAPSIBLE SIDEBAR (Original Polished Navigation Rail)      */}
+        {/* ================================================================= */}
         <aside
-          aria-label="Primary Sidebar Navigation"
           className={`${
-            sidebarCollapsed ? 'w-[72px]' : 'w-[240px]'
-          } shrink-0 bg-[#070B14] border-r border-slate-800/90 flex flex-col justify-between transition-all duration-150 select-none`}
+            sidebarCollapsed ? 'w-16' : 'w-64'
+          } shrink-0 bg-slate-900/95 border-r border-slate-800/90 flex flex-col justify-between transition-all duration-200 sticky top-0 h-screen z-30`}
         >
-          <div className="p-4 space-y-6">
+          {/* Top Brand + Primary Nav */}
+          <div className="p-3 space-y-6">
             {/* Brand Header */}
-            <div className="flex items-center justify-between gap-2 px-1">
-              {!sidebarCollapsed && (
-                <button
-                  type="button"
-                  onClick={() => setActiveView('dashboard')}
-                  className="text-left group cursor-pointer"
-                >
-                  <div className="font-display text-lg font-bold tracking-tight text-white flex items-center gap-2">
-                    <span className="w-7 h-7 rounded-lg bg-blue-600 inline-flex items-center justify-center text-xs font-extrabold text-white">
-                      ST
-                    </span>
-                    <span>StructTutor</span>
+            <div className="flex items-center justify-between gap-2 px-1 pt-1">
+              <button
+                type="button"
+                onClick={() => setActiveView('dashboard')}
+                className="flex items-center gap-2.5 text-left cursor-pointer overflow-hidden"
+              >
+                <div className="w-9 h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white shadow-md shrink-0">
+                  <Compass className="w-5 h-5" />
+                </div>
+                {!sidebarCollapsed && (
+                  <div className="min-w-0">
+                    <div className="font-display text-base font-bold tracking-tight text-white truncate">
+                      StructTutor
+                    </div>
+                    <div className="text-[11px] text-slate-400 truncate">
+                      UK Structural Mechanics
+                    </div>
                   </div>
-                  <div className="text-[11px] text-slate-400 pl-9">
-                    Structural Engineering
-                  </div>
-                </button>
-              )}
+                )}
+              </button>
               <button
                 type="button"
                 onClick={() => setSidebarCollapsed((prev) => !prev)}
                 aria-label={
-                  sidebarCollapsed ? 'Expand navigation rail' : 'Collapse navigation rail'
+                  sidebarCollapsed ? 'Expand sidebar' : 'Collapse sidebar'
                 }
-                className="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800/70 transition-colors cursor-pointer"
+                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition-colors cursor-pointer shrink-0"
               >
                 {sidebarCollapsed ? (
                   <PanelLeftOpen className="w-4 h-4" />
@@ -439,1638 +619,2033 @@ export default function App() {
               </button>
             </div>
 
-            {/* Primary Nav Items */}
-            <nav aria-label="Main Views" className="space-y-1.5">
-              {(
-                [
-                  {
-                    id: 'dashboard',
-                    label: 'Home Dashboard',
-                    icon: LayoutDashboard,
-                  },
-                  {
-                    id: 'tutor',
-                    label: 'Tutor & Practice',
-                    icon: BookOpen,
-                  },
-                  {
-                    id: 'map',
-                    label: 'Learning Map',
-                    icon: Map,
-                  },
-                ] as const
-              ).map((item) => {
-                const IconComponent = item.icon;
-                const isActive = activeView === item.id;
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => {
-                      if (item.id === 'tutor') {
-                        setActiveView('tutor');
-                      } else {
-                        setActiveView(item.id);
-                      }
-                    }}
-                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
-                      isActive
-                        ? 'bg-blue-600 text-white shadow-sm'
-                        : 'text-slate-300 hover:text-white hover:bg-slate-800/60'
-                    }`}
-                  >
-                    <IconComponent className="w-4 h-4 shrink-0" />
-                    {!sidebarCollapsed && (
-                      <span className="truncate">{item.label}</span>
-                    )}
-                  </button>
-                );
-              })}
+            {/* Primary Navigation Links */}
+            <nav className="space-y-1.5" aria-label="Primary Navigation">
+              <button
+                type="button"
+                onClick={() => setActiveView('dashboard')}
+                data-testid="nav-dashboard"
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  activeView === 'dashboard'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
+                }`}
+                title="Home Dashboard"
+              >
+                <LayoutDashboard className="w-4 h-4 shrink-0" />
+                {!sidebarCollapsed && <span>Home Dashboard</span>}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveView('tutor');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                data-testid="nav-tutor"
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  activeView === 'tutor'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
+                }`}
+                title="Tutor & Guided Practice"
+              >
+                <BookOpen className="w-4 h-4 shrink-0" />
+                {!sidebarCollapsed && <span>Tutor / Practice</span>}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveView('map');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                data-testid="nav-course"
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  activeView === 'map' || activeView === 'assessment'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
+                }`}
+                title="Unified Visual Learning Map (Modules 0 to 19)"
+              >
+                <Map className="w-4 h-4 shrink-0" />
+                {!sidebarCollapsed && <span>Learning Map (Mod 0–19)</span>}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setActiveView('coverage');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                data-testid="nav-coverage"
+                className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  activeView === 'coverage'
+                    ? 'bg-blue-600 text-white shadow-sm'
+                    : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
+                }`}
+                title="Syllabus Coverage Map & Milestones A–F"
+              >
+                <FileSpreadsheet className="w-4 h-4 shrink-0" />
+                {!sidebarCollapsed && <span>Coverage &amp; Milestones</span>}
+              </button>
             </nav>
 
-            {/* Quick Engineering Utilities */}
+            {/* Quick Utilities & Card Theme Polish Switch */}
             {!sidebarCollapsed && (
-              <div className="pt-4 border-t border-slate-800/80 space-y-2">
-                <div className="px-3 text-[11px] font-semibold text-slate-400">
-                  Quick Engineering Tools
+              <div className="pt-3 border-t border-slate-800/80 space-y-1.5">
+                <div className="px-2 text-[10px] font-mono uppercase tracking-wider text-slate-400">
+                  Workbench Utilities
                 </div>
                 <button
                   type="button"
                   onClick={() => setUnitsDrawerOpen(true)}
-                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors cursor-pointer"
+                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors cursor-pointer"
                 >
-                  <Compass className="w-4 h-4 text-sky-400 shrink-0" />
+                  <Layers className="w-4 h-4 text-sky-400 shrink-0" />
                   <span>Units Reference Drawer</span>
                 </button>
                 <button
                   type="button"
                   onClick={() => setCalculatorOpen(true)}
-                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/60 transition-colors cursor-pointer"
+                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors cursor-pointer"
                 >
                   <Calculator className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Scratchpad Calculator</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setHybridLightCards((prev) => !prev)}
+                  className="w-full flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors cursor-pointer"
+                >
+                  <span className="flex items-center gap-2.5">
+                    {hybridLightCards ? (
+                      <Sun className="w-4 h-4 text-amber-400 shrink-0" />
+                    ) : (
+                      <Moon className="w-4 h-4 text-sky-400 shrink-0" />
+                    )}
+                    <span>
+                      {hybridLightCards ? 'Hybrid Light Cards' : 'Dark Cards'}
+                    </span>
+                  </span>
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">
+                    Switch
+                  </span>
                 </button>
               </div>
             )}
           </div>
 
-          {/* Bottom Theme Toggle & Learner Profile Summary */}
-          <div className="p-4 border-t border-slate-800/80 space-y-3">
-            <button
-              type="button"
-              onClick={() => setHybridLightCards((prev) => !prev)}
-              className="w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-xs font-medium bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-colors cursor-pointer"
-            >
-              <span className="flex items-center gap-2 truncate">
-                {hybridLightCards ? (
-                  <Sun className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                ) : (
-                  <Moon className="w-3.5 h-3.5 text-sky-400 shrink-0" />
-                )}
-                {!sidebarCollapsed && (
-                  <span>
-                    {hybridLightCards ? 'Sparx Crisp Cards' : 'Dark Slate Cards'}
+          {/* Bottom Sidebar Course Progress & Version Summary */}
+          <div className="p-3 border-t border-slate-800/90 space-y-2.5 text-xs">
+            {!sidebarCollapsed ? (
+              <div className="rounded-xl bg-slate-950/90 border border-slate-800/90 p-3 space-y-2">
+                <div className="flex items-center justify-between text-[11px] font-mono text-slate-300">
+                  <span>Overall Mastery</span>
+                  <span className="font-bold text-sky-400">
+                    {progressSummary.overallProgressPercent}%
                   </span>
-                )}
-              </span>
-            </button>
-
-            {!sidebarCollapsed && (
-              <div className="px-2 py-1 text-[11px] text-slate-400 space-y-0.5">
-                <div className="font-semibold text-slate-200">
-                  Year 1 Core Mechanics
                 </div>
-                <div>Sagging = +M (tension face)</div>
-                <div className="pt-1 text-[10px] font-mono text-slate-400">
-                  v{APP_VERSION} ({APP_BUILD_DATE})
+                <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-blue-500 transition-all duration-300"
+                    style={{
+                      width: `${progressSummary.overallProgressPercent}%`,
+                    }}
+                  />
                 </div>
+                <div className="space-y-0.5 text-[11px] font-mono text-slate-400 pt-0.5">
+                  <div>
+                    Modules Passed: {progressSummary.completedModulesCount}/
+                    {progressSummary.totalModulesCount}
+                  </div>
+                  <div>
+                    Topics Passed: {progressSummary.passedTopicsCount}/
+                    {progressSummary.totalTopicsCount}
+                  </div>
+                  <div>
+                    Saved Attempts: {progressSummary.totalAttemptsCount}
+                  </div>
+                </div>
+                <div className="pt-1.5 border-t border-slate-800/80 text-[10px] text-slate-500 leading-snug">
+                  <div>
+                    StructTutor v{APP_VERSION} ({APP_BUILD_DATE})
+                  </div>
+                  <div>
+                    Educational portfolio only. Independent check required.
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="text-center font-mono text-[11px] font-bold text-sky-400">
+                {progressSummary.overallProgressPercent}%
               </div>
             )}
           </div>
         </aside>
 
-        {/* ================================================================ */}
-        {/* MAIN WORKSPACE AREA                                              */}
-        {/* ================================================================ */}
-        <div className="flex-1 min-w-0 flex flex-col">
-          {/* ============================================================== */}
-          {/* VIEW 1: TUTOR & PRACTICE WORKSPACE (SPARX MATHS FLOW)          */}
-          {/* ============================================================== */}
-          {activeView === 'tutor' && (
-            <div className="flex-1 flex flex-col">
-              {/* 1. TOP SESSION HEADER BAR (Replaces Mid-Page Filter Dropdowns) */}
-              <header className="sticky top-0 z-30 bg-[#0F172A]/95 backdrop-blur border-b border-slate-800 px-6 py-3">
-                <div className="max-w-[920px] mx-auto flex flex-wrap items-center justify-between gap-4">
-                  {/* Left: Exit to Dashboard + Clean Breadcrumb + Subtle Topic Switcher */}
-                  <div className="flex items-center gap-3 min-w-0">
-                    <button
-                      type="button"
-                      onClick={() => setActiveView('dashboard')}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors shrink-0 cursor-pointer"
-                    >
-                      <ArrowLeft className="w-3.5 h-3.5" />
-                      <span>Exit to Dashboard</span>
-                    </button>
-
-                    <div className="hidden sm:flex items-center gap-1.5 text-xs text-slate-300 truncate">
-                      <span className="font-medium text-slate-400">
-                        Module 0: Structural Units &amp; Stress
-                      </span>
-                      <ChevronRight className="w-3.5 h-3.5 text-slate-500 shrink-0" />
-                      <span className="font-semibold text-white truncate">
-                        {activeTopicLabel}
-                      </span>
-                    </div>
-
-                    {/* Subtle [Switch Topic ▾] Popover in Top Header */}
-                    <div className="relative">
-                      <button
-                        type="button"
-                        onClick={() => setTopicSwitcherOpen((prev) => !prev)}
-                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-medium text-sky-400 hover:bg-slate-800 transition-colors shrink-0 cursor-pointer"
-                      >
-                        <span>Switch Topic</span>
-                        <ChevronDown className="w-3.5 h-3.5" />
-                      </button>
-
-                      {topicSwitcherOpen && (
-                        <div className="absolute left-0 mt-2 w-80 rounded-xl bg-slate-900 border border-slate-700 shadow-2xl p-2 z-50 space-y-1">
-                          <div className="px-2.5 py-1 text-[11px] font-bold text-slate-400">
-                            SELECT MODULE 0 PRACTICE TOPIC
-                          </div>
-                          {[
-                            {
-                              label:
-                                'Topic 0.1: Dimensional Homogeneity & Stress Units',
-                              step: 'learn' as StepId,
-                            },
-                            {
-                              label:
-                                'Topic 0.1 — Elastic Bending Stress (Question 2a)',
-                              step: '2a' as StepId,
-                            },
-                            {
-                              label:
-                                'Topic 0.1 — Direct Axial Tie Stress (Question 3)',
-                              step: '3' as StepId,
-                            },
-                            {
-                              label:
-                                'Topic 0.1 — Midspan UDL Bending Check (Question 5a)',
-                              step: '5a' as StepId,
-                            },
-                          ].map((t) => (
-                            <button
-                              key={t.label}
-                              type="button"
-                              onClick={() => {
-                                setActiveTopicLabel(t.label);
-                                setTopicSwitcherOpen(false);
-                                goToTutorStep(t.step);
-                              }}
-                              className="w-full text-left px-3 py-2 rounded-lg text-xs text-slate-200 hover:bg-blue-600 hover:text-white transition-colors cursor-pointer"
-                            >
-                              {t.label}
-                            </button>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Right: Quick Utility Buttons (Units Drawer, Calculator, XP Streak) */}
-                  <div className="flex items-center gap-2 shrink-0">
-                    <button
-                      type="button"
-                      onClick={() => setUnitsDrawerOpen(true)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors cursor-pointer"
-                    >
-                      <Compass className="w-3.5 h-3.5 text-sky-400" />
-                      <span>Units Reference</span>
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => setCalculatorOpen(true)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 transition-colors cursor-pointer"
-                    >
-                      <Calculator className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>Calculator</span>
-                    </button>
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold bg-blue-950/80 border border-blue-800/70 text-sky-300 tabular-nums">
-                      <Flame className="w-3.5 h-3.5 text-amber-400" />
-                      <span>{xpPoints.toLocaleString()} XP</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* 2. HORIZONTAL QUESTION STEPPER BAR + VISUAL PROGRESS BAR */}
-                <div className="max-w-[920px] mx-auto pt-3 space-y-2">
-                  <div
-                    role="tablist"
-                    aria-label="Session question stepper"
-                    className="flex items-center gap-1.5 overflow-x-auto pb-1"
-                  >
-                    {visibleSteps.map((stepId) => {
-                      const isCurrent = currentStep === stepId;
-                      const status = stepStatuses[stepId];
-                      const isRemedial = stepId === '2a-R';
-
-                      let pillStyle =
-                        'bg-slate-800/90 text-slate-300 hover:bg-slate-700 border border-slate-700';
-                      if (isCurrent) {
-                        pillStyle =
-                          'bg-[#2563EB] text-white font-bold shadow-sm ring-2 ring-blue-400/50 border-blue-500';
-                      } else if (status === 'mastered') {
-                        pillStyle =
-                          'bg-emerald-600/90 text-white font-semibold border border-emerald-500';
-                      } else if (status === 'assisted' || isRemedial) {
-                        pillStyle =
-                          'bg-amber-500/90 text-slate-950 font-bold border border-amber-400';
-                      }
-
-                      const label =
-                        stepId === 'learn'
-                          ? '📖 Learn'
-                          : stepId === 'summary'
-                          ? '🏁 Summary'
-                          : stepId === '2a-R'
-                          ? '2a-R ⚡'
-                          : stepId;
-
-                      return (
-                        <button
-                          key={stepId}
-                          role="tab"
-                          aria-selected={isCurrent}
-                          type="button"
-                          onClick={() => goToTutorStep(stepId)}
-                          className={`px-3 py-1.5 rounded-lg text-xs whitespace-nowrap shrink-0 flex items-center gap-1.5 transition-all cursor-pointer ${pillStyle}`}
-                        >
-                          <span>{label}</span>
-                          {status === 'mastered' && stepId !== 'learn' && (
-                            <Check className="w-3.5 h-3.5 stroke-[2.5]" />
-                          )}
-                        </button>
-                      );
-                    })}
-                  </div>
-
-                  {/* Continuous Smooth Progress Bar (0% to 100%) */}
-                  <div className="flex items-center gap-3">
-                    <div
-                      role="progressbar"
-                      aria-valuenow={sessionProgressPercent}
-                      aria-valuemin={0}
-                      aria-valuemax={100}
-                      aria-label="Session completion percentage"
-                      className="flex-1 h-2 bg-slate-800 rounded-full overflow-hidden"
-                    >
-                      <div
-                        className="h-full bg-emerald-500 transition-all duration-200"
-                        style={{ width: `${sessionProgressPercent}%` }}
-                      />
-                    </div>
-                    <span className="text-[11px] font-mono font-semibold text-slate-400 tabular-nums shrink-0">
-                      {sessionProgressPercent}% Session Complete
+        {/* ================================================================= */}
+        {/* MAIN WORKSPACE CONTENT AREA                                       */}
+        {/* ================================================================= */}
+        <main className="flex-1 min-w-0 px-4 sm:px-8 py-6 sm:py-8 overflow-y-auto">
+          {/* =============================================================== */}
+          {/* VIEW 1: CONSOLIDATED HOME DASHBOARD (max-w-[1200px] mx-auto)    */}
+          {/* =============================================================== */}
+          {activeView === 'dashboard' && (
+            <div
+              className="max-w-[1200px] mx-auto space-y-6"
+              data-testid="dashboard-view"
+            >
+              {/* 1. HERO RESUME / START CARD WITH CIRCULAR SVG RING */}
+              <div className="rounded-2xl bg-gradient-to-br from-blue-700 via-blue-800 to-slate-900 border border-blue-500/30 p-6 sm:p-8 text-white shadow-xl flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+                <div className="space-y-4 max-w-3xl">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-white/15 text-sky-200 border border-white/15">
+                      Stage {getModuleStage(activeModule.moduleNumber)} • Module{' '}
+                      {activeModule.moduleNumber} Active
+                    </span>
+                    <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-950/40 text-slate-200 border border-white/10">
+                      {activeModule.suggestedDuration ??
+                        activeModule.yearPathway ??
+                        '6–10 weeks'}{' '}
+                      • 90% Assessment Pass Standard
                     </span>
                   </div>
-                </div>
-              </header>
 
-              {/* CENTERED TUTOR WORKSPACE CONTAINER (max-width: 920px) */}
-              <main className="flex-1 w-full max-w-[920px] mx-auto px-6 py-8">
-                {/* ========================================================== */}
-                {/* PHASE 1 — INFORMATION FIRST ([📖 Learn] Step)              */}
-                {/* ========================================================== */}
-                {currentStep === 'learn' && (
-                  <div className={`${cardSurfaceClass} rounded-2xl p-7 space-y-8`}>
-                    <div className="border-b border-slate-200 dark:border-slate-800 pb-5 space-y-2">
-                      <div className="text-xs font-bold text-blue-600 dark:text-sky-400">
-                        CONCEPT WALKTHROUGH • MODULE 0: TOPIC 0.1
-                      </div>
-                      <h1 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">
-                        Dimensional Homogeneity &amp; Structural Base Units (mm, N)
-                      </h1>
-                      <p
-                        className={`text-base ${mutedTextClass} leading-relaxed max-w-[70ch]`}
-                      >
-                        Before substituting numbers into any beam or column equation, every quantity must speak the same unit language. In UK structural design, drawings specify dimensions in{' '}
-                        <strong>millimetres (mm)</strong> and material strengths in{' '}
-                        <strong>MPa (N/mm²)</strong>.
-                      </p>
+                  <div>
+                    <h1 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-white">
+                      {activeModule.title}
+                    </h1>
+                    <p className="text-sm text-blue-100/90 mt-1.5 leading-relaxed">
+                      {activeModule.summary}
+                    </p>
+                  </div>
+
+                  <div className="rounded-xl bg-slate-950/35 border border-white/10 p-3.5 text-xs text-blue-100 space-y-1">
+                    <div className="font-semibold text-sky-200">
+                      Active Topic {activeTopic.code}: {activeTopic.title}
                     </div>
-
-                    {/* Card A: Core Concept in Plain English */}
-                    <section className="space-y-3">
-                      <h2 className="font-display text-lg font-bold flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs font-bold inline-flex items-center justify-center">
-                          A
-                        </span>
-                        <span>Core Concept in Plain English: The Four Structural Quantities</span>
-                      </h2>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div className={`${subCardSurfaceClass} rounded-xl p-4 space-y-1.5`}>
-                          <div className="flex items-center justify-between">
-                            <span className="font-display text-sm font-bold">
-                              1. Force (Pushing or Pulling)
-                            </span>
-                            <UnitBadge unit="1 kN = 1,000 N" />
-                          </div>
-                          <p className={`text-sm ${mutedTextClass} leading-relaxed`}>
-                            Gravity loads and support reactions are measured in kilonewtons (kN), while section stress equations work in newtons (N).
-                          </p>
-                        </div>
-
-                        <div className={`${subCardSurfaceClass} rounded-xl p-4 space-y-1.5`}>
-                          <div className="flex items-center justify-between">
-                            <span className="font-display text-sm font-bold">
-                              2. Bending Moment (Force × Lever Arm)
-                            </span>
-                            <UnitBadge unit="1 kN·m = 10⁶ N·mm" />
-                          </div>
-                          <p className={`text-sm ${mutedTextClass} leading-relaxed`}>
-                            Because both Force (kN → 10³ N) and Lever Arm (m → 10³ mm) scale by 1,000, converting kN·m to N·mm multiplies by{' '}
-                            <strong>1,000,000 (10⁶)</strong>.
-                          </p>
-                        </div>
-
-                        <div className={`${subCardSurfaceClass} rounded-xl p-4 space-y-1.5`}>
-                          <div className="flex items-center justify-between">
-                            <span className="font-display text-sm font-bold">
-                              3. Distributed Line Load (Force ÷ Length)
-                            </span>
-                            <UnitBadge unit="1 kN/m = 1 N/mm" />
-                          </div>
-                          <p className={`text-sm ${mutedTextClass} leading-relaxed`}>
-                            When dividing 1,000 N by 1,000 mm, the factors of 1,000 cancel out! A beam load of 7.5 kN/m is numerically identical to 7.5 N/mm.
-                          </p>
-                        </div>
-
-                        <div className={`${subCardSurfaceClass} rounded-xl p-4 space-y-1.5`}>
-                          <div className="flex items-center justify-between">
-                            <span className="font-display text-sm font-bold">
-                              4. Stress &amp; Elastic Modulus (Force ÷ Area)
-                            </span>
-                            <UnitBadge unit="1 MPa = 1 N/mm²" />
-                          </div>
-                          <p className={`text-sm ${mutedTextClass} leading-relaxed`}>
-                            One Megapascal (10⁶ N/m²) divided by 10⁶ mm²/m² equals exactly 1 N/mm². And 1 GPa equals 1,000 N/mm².
-                          </p>
-                        </div>
-                      </div>
-                    </section>
-
-                    {/* Card B: Interactive Unit Conversion Sandbox / Cheat Sheet */}
-                    <section className="space-y-3">
-                      <h2 className="font-display text-lg font-bold flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs font-bold inline-flex items-center justify-center">
-                          B
-                        </span>
-                        <span>Interactive Bending Stress Unit Sandbox</span>
-                      </h2>
-                      <div className={`${subCardSurfaceClass} rounded-xl p-5 space-y-4`}>
-                        <p className={`text-sm ${mutedTextClass}`}>
-                          Drag the sliders to see how converting bending moment{' '}
-                          <strong>M (kN·m → N·mm)</strong> aligns cleanly with section modulus{' '}
-                          <strong>Wₑₗ (mm³)</strong> to produce stress directly in{' '}
-                          <strong>MPa (N/mm²)</strong>:
-                        </p>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <div className="space-y-1.5">
-                            <label
-                              htmlFor="sandbox-moment-slider"
-                              className="flex justify-between text-xs font-semibold"
-                            >
-                              <span>Applied Moment M:</span>
-                              <span className="font-mono text-blue-600 dark:text-sky-400">
-                                {sandboxMomentKnM} kN·m ={' '}
-                                {(sandboxMomentKnM * 1_000_000).toLocaleString()} N·mm
-                              </span>
-                            </label>
-                            <input
-                              id="sandbox-moment-slider"
-                              type="range"
-                              min={5}
-                              max={60}
-                              step={1}
-                              value={sandboxMomentKnM}
-                              onChange={(e) =>
-                                setSandboxMomentKnM(Number(e.target.value))
-                              }
-                              className="w-full accent-blue-600 cursor-pointer"
-                            />
-                          </div>
-
-                          <div className="space-y-1.5">
-                            <label
-                              htmlFor="sandbox-modulus-slider"
-                              className="flex justify-between text-xs font-semibold"
-                            >
-                              <span>Elastic Section Modulus Wₑₗ:</span>
-                              <span className="font-mono text-emerald-600 dark:text-emerald-400">
-                                {sandboxModulusMm3.toLocaleString()} mm³
-                              </span>
-                            </label>
-                            <input
-                              id="sandbox-modulus-slider"
-                              type="range"
-                              min={200000}
-                              max={1000000}
-                              step={50000}
-                              value={sandboxModulusMm3}
-                              onChange={(e) =>
-                                setSandboxModulusMm3(Number(e.target.value))
-                              }
-                              className="w-full accent-emerald-600 cursor-pointer"
-                            />
-                          </div>
-                        </div>
-
-                        <div className="pt-2 flex flex-wrap items-center justify-between gap-4 border-t border-slate-200 dark:border-slate-700/80">
-                          <MathFraction
-                            lhs="σ"
-                            num={`${(sandboxMomentKnM * 1_000_000).toLocaleString()} N·mm`}
-                            den={`${sandboxModulusMm3.toLocaleString()} mm³`}
-                            rhs={`${(
-                              (sandboxMomentKnM * 1_000_000) /
-                              sandboxModulusMm3
-                            ).toFixed(1)} N/mm² (MPa)`}
-                          />
-                          <div className="text-xs font-mono text-slate-500 dark:text-slate-400">
-                            Equivalent in GPa:{' '}
-                            <strong>
-                              {(
-                                (sandboxMomentKnM * 1_000_000) /
-                                sandboxModulusMm3 /
-                                1000
-                              ).toFixed(4)}{' '}
-                              GPa
-                            </strong>
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-
-                    {/* Card C: Step-by-Step Verified Worked Example */}
-                    <section className="space-y-3">
-                      <h2 className="font-display text-lg font-bold flex items-center gap-2">
-                        <span className="w-6 h-6 rounded-full bg-blue-600 text-white text-xs font-bold inline-flex items-center justify-center">
-                          C
-                        </span>
-                        <span>Step-by-Step Worked Example: Four Core Conversions</span>
-                      </h2>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {[
-                          {
-                            step: 'Step 1',
-                            title: 'Young’s Modulus (200 GPa → N/mm²)',
-                            work: '200 GPa × 1,000 (MPa/GPa) = 200,000 MPa',
-                            ans: '200,000 N/mm²',
-                          },
-                          {
-                            step: 'Step 2',
-                            title: 'Surface Pressure (25 kN/m² → N/mm²)',
-                            work: '(25 × 10³ N) ÷ (10⁶ mm²) = 25 ÷ 1,000',
-                            ans: '0.025 N/mm²',
-                          },
-                          {
-                            step: 'Step 3',
-                            title: 'Bending Moment (5 kN·m → N·mm)',
-                            work: '5 × (10³ N) × (10³ mm) = 5 × 10⁶',
-                            ans: '5,000,000 N·mm',
-                          },
-                          {
-                            step: 'Step 4',
-                            title: 'Line Load (7.5 kN/m → N/mm)',
-                            work: '(7.5 × 10³ N) ÷ (10³ mm) = 1:1 ratio',
-                            ans: '7.5 N/mm',
-                          },
-                        ].map((ex) => (
-                          <div
-                            key={ex.step}
-                            className={`${subCardSurfaceClass} rounded-xl p-4 flex flex-col justify-between space-y-2`}
-                          >
-                            <div className="flex items-center justify-between">
-                              <span className="text-xs font-bold text-blue-600 dark:text-sky-400">
-                                {ex.step}
-                              </span>
-                              <span className="text-xs font-semibold">
-                                {ex.title}
-                              </span>
-                            </div>
-                            <div className="font-mono text-xs text-slate-600 dark:text-slate-300">
-                              {ex.work}
-                            </div>
-                            <div className="font-mono text-sm font-bold text-emerald-700 dark:text-emerald-400">
-                              = {ex.ans}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </section>
-
-                    {/* Bottom Action Bar on Learn Card */}
-                    <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                      <span className={`text-xs ${mutedTextClass}`}>
-                        Ready to apply these four rules? Start with guided Question 1a or jump to any step above.
-                      </span>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setStepStatuses((prev) => ({
-                            ...prev,
-                            learn: 'mastered',
-                          }));
-                          goToTutorStep('1a');
-                        }}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#2563EB] hover:bg-blue-700 text-white shadow-sm transition-colors cursor-pointer"
-                      >
-                        <span>Start Practice: Question 1a</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </button>
+                    <div className="text-blue-100/80">
+                      <strong>Syllabus Learning Gate:</strong>{' '}
+                      {activeModule.learningGate}
                     </div>
                   </div>
-                )}
 
-                {/* ========================================================== */}
-                {/* PHASE 2 — FOCUSED QUESTION CARDS (1a..5a & 2a-R)           */}
-                {/* ========================================================== */}
-                {currentStep !== 'learn' && currentStep !== 'summary' && (
-                  <div className={`${cardSurfaceClass} rounded-2xl p-7 space-y-6`}>
-                    {/* Top Pill Row inside Question Card */}
-                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 dark:border-slate-800 pb-4">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="px-3 py-1 rounded-lg text-xs font-bold bg-blue-600 text-white">
-                          {activeQuestion.badgeLabel}
-                        </span>
-                        <span
-                          className={`px-2.5 py-1 rounded-lg text-xs font-semibold ${
-                            hintsRevealed === 0 &&
-                            !fullSolutionUnlockedByStep[currentStep]
-                              ? 'bg-emerald-100 dark:bg-emerald-950/70 text-emerald-800 dark:text-emerald-300'
-                              : 'bg-amber-100 dark:bg-amber-950/70 text-amber-800 dark:text-amber-300'
-                          }`}
-                        >
-                          {hintsRevealed === 0 &&
-                          !fullSolutionUnlockedByStep[currentStep]
-                            ? '★ First-Try Mastery Eligible'
-                            : 'Assisted Mode (Hints / Solution Active)'}
-                        </span>
-                      </div>
-
-                      <span className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500 dark:text-slate-400">
-                        <Calculator className="w-3.5 h-3.5 text-emerald-500" />
-                        <span>Calculator Allowed</span>
-                      </span>
-                    </div>
-
-                    {/* Clear Problem Statement & Formatted Math */}
-                    <div className="space-y-4">
-                      <h1 className="font-display text-xl sm:text-2xl font-bold tracking-tight">
-                        {activeQuestion.title}
-                      </h1>
-                      <p className="text-base sm:text-[17px] leading-relaxed max-w-[70ch]">
-                        {activeQuestion.promptLead}
-                      </p>
-
-                      {activeQuestion.promptFormula && (
-                        <div className="flex flex-wrap items-center gap-4 pt-1">
-                          <MathFraction
-                            size="lg"
-                            lhs={activeQuestion.promptFormula.lhs}
-                            num={activeQuestion.promptFormula.num}
-                            den={activeQuestion.promptFormula.den}
-                          />
-                          {activeQuestion.promptFormula.rhsNote && (
-                            <span className={`text-xs ${mutedTextClass}`}>
-                              {activeQuestion.promptFormula.rhsNote}
-                            </span>
-                          )}
-                        </div>
-                      )}
-
-                      {/* Given Parameters Bar */}
-                      <div className="flex flex-wrap items-center gap-3 pt-1">
-                        {activeQuestion.givenParameters.map((param) => (
-                          <div
-                            key={param.label}
-                            className={`${subCardSurfaceClass} px-3.5 py-2 rounded-xl flex items-center gap-2 text-xs`}
-                          >
-                            <span className={mutedTextClass}>{param.label}:</span>
-                            <span className="font-mono font-bold text-blue-700 dark:text-sky-300">
-                              {param.symbol}
-                              {param.sub && <sub>{param.sub}</sub>} ={' '}
-                              {param.valueDisplay}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Interactive SVG Structural Diagram + [🔍 Zoom] Lightbox */}
-                    <QuestionDiagram
-                      diagramType={activeQuestion.diagramType}
-                      caption={activeQuestion.diagramCaption}
-                    />
-
-                    {/* Focused Input Cluster (180-240px input + 120px unit selector) */}
-                    <form
-                      onSubmit={handleCheckAnswer}
-                      className={`${subCardSurfaceClass} rounded-2xl p-5 space-y-4`}
+                  <div className="flex flex-wrap items-center gap-3 pt-1">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setCurrentStep('learn');
+                        setActiveView('tutor');
+                      }}
+                      data-testid="hero-start-tutor-btn"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-white text-blue-900 hover:bg-blue-50 shadow-sm transition-colors cursor-pointer"
                     >
-                      <div className="flex flex-wrap items-center justify-center gap-3">
-                        <label
-                          htmlFor="tutor-numeric-answer"
-                          className="text-sm font-bold shrink-0"
-                        >
-                          Your Answer:
-                        </label>
-                        <input
-                          id="tutor-numeric-answer"
-                          type="text"
-                          inputMode="decimal"
-                          value={answerInput}
-                          onChange={(e) => setAnswerInput(e.target.value)}
-                          placeholder={activeQuestion.placeholder}
-                          className="w-[200px] px-3.5 py-2.5 text-base font-mono font-semibold rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white border-2 border-slate-300 dark:border-slate-700 focus:border-blue-600 focus:outline-none tabular-nums"
-                        />
-                        <select
-                          aria-label="Select engineering unit"
-                          value={selectedUnit}
-                          onChange={(e) => setSelectedUnit(e.target.value)}
-                          className="w-[120px] px-3 py-2.5 text-sm font-mono font-bold rounded-xl bg-white dark:bg-slate-900 text-slate-900 dark:text-white border-2 border-slate-300 dark:border-slate-700 focus:border-blue-600 focus:outline-none cursor-pointer"
-                        >
-                          {activeQuestion.unitChoices.map((u) => (
-                            <option key={u} value={u}>
-                              {u}
-                            </option>
-                          ))}
-                        </select>
-                      </div>
+                      <Play className="w-4 h-4 fill-blue-900" />
+                      <span>
+                        Start / Resume Module {activeModule.moduleNumber} Tutor
+                      </span>
+                    </button>
 
-                      {/* Quick-Fill Evaluator Presets on Question 2a for Instant Equivalence Testing */}
-                      {currentStep === '2a' && (
-                        <div className="flex flex-wrap items-center justify-center gap-2 pt-1 text-xs">
-                          <span className={mutedTextClass}>
-                            Quick-fill test values:
-                          </span>
+                    <button
+                      type="button"
+                      onClick={() =>
+                        handleStartTopicAssessment(activeModule, activeTopic)
+                      }
+                      data-testid="hero-start-topic-exam-btn"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-blue-600/80 hover:bg-blue-500 text-white border border-white/20 transition-colors cursor-pointer"
+                    >
+                      <span>
+                        Topic {activeTopic.code} Assessment (
+                        {activeTopic.assessmentQuestions.length} Qs)
+                      </span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => handleStartModuleAssessment(activeModule)}
+                      data-testid="hero-start-module-exam-btn"
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-slate-900/70 hover:bg-slate-900 text-sky-200 border border-white/15 transition-colors cursor-pointer"
+                    >
+                      <Award className="w-4 h-4 text-amber-300" />
+                      <span>
+                        Module {activeModule.moduleNumber} Exam (
+                        {activeModule.moduleAssessment.length} Qs • 90% Pass)
+                      </span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => handleOpenModuleInMap(selectedModuleNumber)}
+                      data-testid="dashboard-open-syllabus-btn"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-slate-900/40 hover:bg-slate-900/70 text-white border border-white/10 transition-colors cursor-pointer"
+                    >
+                      <span>Open in Learning Map</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+
+                {/* Circular SVG Progress Ring (0% Initial Progress) */}
+                <div className="flex items-center gap-5 bg-slate-950/40 border border-white/15 rounded-2xl p-5 shrink-0 self-start lg:self-center">
+                  <div className="relative w-28 h-28 flex items-center justify-center">
+                    <svg
+                      className="w-28 h-28 -rotate-90"
+                      viewBox="0 0 112 112"
+                      aria-label={`Overall course progress ${progressSummary.overallProgressPercent}%`}
+                    >
+                      <circle
+                        cx="56"
+                        cy="56"
+                        r={ringRadius}
+                        stroke="rgba(255,255,255,0.15)"
+                        strokeWidth="9"
+                        fill="transparent"
+                      />
+                      <circle
+                        cx="56"
+                        cy="56"
+                        r={ringRadius}
+                        stroke="#38BDF8"
+                        strokeWidth="9"
+                        strokeDasharray={ringCircumference}
+                        strokeDashoffset={ringOffset}
+                        strokeLinecap="round"
+                        fill="transparent"
+                      />
+                    </svg>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
+                      <span
+                        className="font-display text-2xl font-bold text-white tabular-nums"
+                        data-testid="overall-progress-percent"
+                      >
+                        {progressSummary.overallProgressPercent}%
+                      </span>
+                      <span className="text-[10px] font-mono uppercase tracking-wider text-sky-200">
+                        Mastered
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5 text-xs">
+                    <div className="font-semibold text-white">
+                      Course Gate Progress
+                    </div>
+                    <div className="font-mono text-sky-200">
+                      <span data-testid="completed-modules-count">
+                        {progressSummary.completedModulesCount} /{' '}
+                        {progressSummary.totalModulesCount}
+                      </span>{' '}
+                      Modules
+                    </div>
+                    <div className="font-mono text-emerald-300">
+                      <span data-testid="passed-topics-count">
+                        {progressSummary.passedTopicsCount} /{' '}
+                        {progressSummary.totalTopicsCount}
+                      </span>{' '}
+                      Topics
+                    </div>
+                    <div className="font-mono text-slate-300">
+                      <span data-testid="total-attempts-count">
+                        {progressSummary.totalAttemptsCount}
+                      </span>{' '}
+                      Attempts
+                    </div>
+                    <div className="pt-1">
+                      {!confirmResetOpen ? (
+                        <button
+                          type="button"
+                          onClick={() => setConfirmResetOpen(true)}
+                          data-testid="reset-progress-trigger"
+                          className="inline-flex items-center gap-1 text-[11px] font-medium text-slate-300 hover:text-white underline cursor-pointer"
+                        >
+                          <RotateCcw className="w-3 h-3" />
+                          <span>Reset Progress</span>
+                        </button>
+                      ) : (
+                        <div className="flex items-center gap-1.5 pt-0.5">
                           <button
                             type="button"
-                            onClick={() => {
-                              setAnswerInput('27');
-                              setSelectedUnit('MPa');
-                            }}
-                            className="px-2.5 py-1 rounded-md font-mono bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-slate-700 hover:bg-blue-100 cursor-pointer"
+                            onClick={handleResetAllProgress}
+                            data-testid="confirm-reset-progress-btn"
+                            className="px-2 py-0.5 rounded text-[11px] font-bold bg-rose-600 hover:bg-rose-500 text-white cursor-pointer"
                           >
-                            27 MPa
+                            Confirm 0%
                           </button>
                           <button
                             type="button"
-                            onClick={() => {
-                              setAnswerInput('27');
-                              setSelectedUnit('N/mm²');
-                            }}
-                            className="px-2.5 py-1 rounded-md font-mono bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-slate-700 hover:bg-blue-100 cursor-pointer"
+                            onClick={() => setConfirmResetOpen(false)}
+                            className="px-1.5 py-0.5 rounded text-[11px] text-slate-300 hover:text-white cursor-pointer"
                           >
-                            27 N/mm²
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setAnswerInput('0.027');
-                              setSelectedUnit('GPa');
-                            }}
-                            className="px-2.5 py-1 rounded-md font-mono bg-emerald-50 dark:bg-slate-800 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-slate-700 hover:bg-emerald-100 cursor-pointer"
-                          >
-                            0.027 GPa (Equivalent!)
-                          </button>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setAnswerInput('0.027');
-                              setSelectedUnit('MPa');
-                            }}
-                            className="px-2.5 py-1 rounded-md font-mono bg-amber-50 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-slate-700 hover:bg-amber-100 cursor-pointer"
-                          >
-                            0.027 MPa (×10⁻³ Scale Error)
+                            Cancel
                           </button>
                         </div>
                       )}
-                    </form>
-
-                    {/* Progressive Graduated Hints Callout */}
-                    {hintsRevealed > 0 && (
-                      <div className="rounded-xl bg-amber-50/90 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/80 p-4 space-y-2.5">
-                        <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-amber-900 dark:text-amber-300 flex items-center gap-1.5">
-                            <Lightbulb className="w-4 h-4 text-amber-600" />
-                            <span>
-                              Progressive Engineering Hints ({hintsRevealed}/2)
-                            </span>
-                          </span>
-                        </div>
-                        <div className="space-y-2 text-sm text-amber-950 dark:text-amber-100">
-                          <div className="p-2.5 rounded-lg bg-white/80 dark:bg-slate-900/70 border border-amber-200/60 dark:border-amber-800/50">
-                            <strong>Hint 1 (Unit Alignment):</strong>{' '}
-                            {activeQuestion.hints[0]}
-                          </div>
-                          {hintsRevealed >= 2 && (
-                            <div className="p-2.5 rounded-lg bg-white/80 dark:bg-slate-900/70 border border-amber-200/60 dark:border-amber-800/50">
-                              <strong>Hint 2 (Formula Substitution):</strong>{' '}
-                              {activeQuestion.hints[1]}
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Deterministic Grading & Misconception Feedback Banner */}
-                    {gradeOutcome && (
-                      <div
-                        role="status"
-                        className={`rounded-xl p-5 border space-y-3 ${
-                          gradeOutcome.isCorrect
-                            ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-emerald-950 dark:text-emerald-100'
-                            : 'bg-rose-50 dark:bg-rose-950/40 border-rose-300 dark:border-rose-800 text-rose-950 dark:text-rose-100'
-                        }`}
-                      >
-                        <div className="flex items-start justify-between gap-3">
-                          <div className="space-y-1">
-                            <div className="font-display text-base font-bold flex items-center gap-2">
-                              {gradeOutcome.isCorrect ? (
-                                <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                              ) : (
-                                <HelpCircle className="w-5 h-5 text-rose-600 dark:text-rose-400 shrink-0" />
-                              )}
-                              <span>{gradeOutcome.headline}</span>
-                            </div>
-                            <p className="text-sm leading-relaxed">
-                              {gradeOutcome.diagnosticDetail}
-                            </p>
-                          </div>
-                          {gradeOutcome.unitConversionNote && (
-                            <span className="text-xs font-mono px-2.5 py-1 rounded bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-700 shrink-0">
-                              {gradeOutcome.unitConversionNote}
-                            </span>
-                          )}
-                        </div>
-
-                        {/* Automatic Pedagogical State Machine Routing Banner */}
-                        {adaptiveBanner && (
-                          <div className="rounded-xl bg-amber-100/90 dark:bg-amber-950/70 border border-amber-300 dark:border-amber-700 p-3.5 flex flex-wrap items-center justify-between gap-3 text-amber-950 dark:text-amber-100">
-                            <div className="flex items-center gap-2.5 text-xs sm:text-sm font-medium">
-                              <Zap className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                              <span>{adaptiveBanner}</span>
-                            </div>
-                            {fastTrackAvailable && (
-                              <button
-                                type="button"
-                                onClick={() => goToTutorStep('3')}
-                                className="px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-600 hover:bg-emerald-500 text-white shrink-0 cursor-pointer"
-                              >
-                                Fast-Track to Question 3 →
-                              </button>
-                            )}
-                          </div>
-                        )}
-
-                        {/* Auto-Revealed Inline Worked Solution after 2 Failed Attempts */}
-                        {fullSolutionUnlockedByStep[currentStep] &&
-                          !gradeOutcome.isCorrect && (
-                            <div className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 space-y-2 text-slate-900 dark:text-slate-100">
-                              <div className="text-xs font-bold text-blue-600 dark:text-sky-400">
-                                AUTOMATICALLY UNLOCKED STEP-BY-STEP WORKED SOLUTION
-                              </div>
-                              {activeQuestion.fullSolutionSteps.map((st) => (
-                                <div
-                                  key={st.stepNum}
-                                  className="text-xs font-mono flex flex-wrap items-center justify-between gap-2 py-1 border-b last:border-b-0 border-slate-100 dark:border-slate-800"
-                                >
-                                  <span>
-                                    <strong>Step {st.stepNum}:</strong>{' '}
-                                    {st.substitution}
-                                  </span>
-                                  <span className="font-bold text-emerald-600 dark:text-emerald-400">
-                                    = {st.result}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                      </div>
-                    )}
-
-                    {/* BOTTOM ACTION BAR (Sparx Maths Layout) */}
-                    <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
-                      {/* Bottom-Left Secondary Support Buttons */}
-                      <div className="flex flex-wrap items-center gap-2.5">
-                        <button
-                          type="button"
-                          onClick={() =>
-                            setHintsRevealed((prev) => Math.min(2, prev + 1))
-                          }
-                          disabled={hintsRevealed >= 2}
-                          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 disabled:opacity-50 transition-colors cursor-pointer"
-                        >
-                          <Lightbulb className="w-4 h-4 text-amber-500" />
-                          <span>Need a Hint ({hintsRevealed}/2)</span>
-                        </button>
-
-                        <button
-                          type="button"
-                          onClick={() => setWorkedSolutionDrawerOpen(true)}
-                          className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 transition-colors cursor-pointer"
-                        >
-                          <BookOpen className="w-4 h-4 text-blue-600 dark:text-sky-400" />
-                          <span>Show Worked Solution</span>
-                        </button>
-                      </div>
-
-                      {/* Bottom-Right Primary CTA */}
-                      <div className="flex items-center gap-2.5">
-                        <button
-                          type="button"
-                          onClick={() => handleCheckAnswer()}
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-[#2563EB] hover:bg-blue-700 text-white shadow-xs transition-colors cursor-pointer"
-                        >
-                          <span>Check Answer</span>
-                        </button>
-
-                        {(gradeOutcome?.isCorrect ||
-                          (failuresByStep[currentStep] ?? 0) >= 2) && (
-                          <button
-                            type="button"
-                            onClick={handleAdvanceToNextStep}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-emerald-600 hover:bg-emerald-500 text-white shadow-xs transition-colors cursor-pointer"
-                          >
-                            <span>
-                              {currentStep === '2a' &&
-                              remedialInjected &&
-                              stepStatuses['2a-R'] === 'unseen'
-                                ? 'Next: Warm-Up 2a-R ⚡ →'
-                                : 'Next Question →'}
-                            </span>
-                          </button>
-                        )}
-                      </div>
                     </div>
-                  </div>
-                )}
-
-                {/* ========================================================== */}
-                {/* PHASE 3 — END-OF-SESSION [🏁 Summary] TAB                  */}
-                {/* ========================================================== */}
-                {currentStep === 'summary' && (
-                  <div className={`${cardSurfaceClass} rounded-2xl p-7 space-y-7`}>
-                    <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-5">
-                      <div className="space-y-1">
-                        <div className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                          SESSION SUMMARY &amp; PORTFOLIO CREDIT
-                        </div>
-                        <h1 className="font-display text-2xl sm:text-3xl font-bold">
-                          Topic 0.1 Practice Summary
-                        </h1>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800 text-center">
-                          <div className="text-[11px] font-semibold text-emerald-700 dark:text-emerald-300">
-                            Session Progress
-                          </div>
-                          <div className="font-display text-xl font-bold text-emerald-700 dark:text-emerald-300 tabular-nums">
-                            {sessionProgressPercent}%
-                          </div>
-                        </div>
-                        <div className="px-4 py-2 rounded-xl bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-800 text-center">
-                          <div className="text-[11px] font-semibold text-blue-700 dark:text-blue-300">
-                            Time Spent
-                          </div>
-                          <div className="font-display text-xl font-bold text-blue-700 dark:text-blue-300 tabular-nums">
-                            14 mins
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Milestone A Portfolio Progress Bars */}
-                    <section className="space-y-3">
-                      <h2 className="font-display text-base font-bold">
-                        Milestone A Core Mechanics Portfolio Progress
-                      </h2>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {milestoneABars.map((bar) => {
-                          const pct = Math.round(
-                            (bar.completed / bar.target) * 100
-                          );
-                          return (
-                            <div
-                              key={bar.id}
-                              className={`${subCardSurfaceClass} rounded-xl p-4 space-y-2`}
-                            >
-                              <div className="flex items-center justify-between text-xs font-bold">
-                                <span>{bar.label}</span>
-                                <span className="font-mono text-blue-600 dark:text-sky-400 tabular-nums">
-                                  {bar.completed}/{bar.target}
-                                </span>
-                              </div>
-                              <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                                <div
-                                  className="h-full bg-emerald-500 transition-all duration-200"
-                                  style={{ width: `${pct}%` }}
-                                />
-                              </div>
-                              <div className={`text-[11px] ${mutedTextClass}`}>
-                                {bar.unitDescription}
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </section>
-
-                    {/* Human-Readable Questions Attempted in This Session */}
-                    <section className="space-y-3">
-                      <h2 className="font-display text-base font-bold">
-                        Questions Attempted in This Session
-                      </h2>
-                      <div className="space-y-2">
-                        {sessionHistory.map((item, idx) => (
-                          <div
-                            key={`${item.stepId}-${idx}`}
-                            className={`${subCardSurfaceClass} rounded-xl p-3.5 flex flex-wrap items-center justify-between gap-3`}
-                          >
-                            <div className="space-y-0.5">
-                              <div className="text-xs font-bold">
-                                Step {item.stepId}: {item.questionTitle}
-                              </div>
-                              <div className={`text-xs font-mono ${mutedTextClass}`}>
-                                Submitted: {item.submittedDisplay} • {item.timeAgo}
-                              </div>
-                            </div>
-                            <div className="flex items-center gap-2">
-                              <span
-                                className={`px-2.5 py-1 rounded-md text-xs font-semibold ${
-                                  item.status === 'Mastered First-Try'
-                                    ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
-                                    : item.status === 'Completed (Assisted)'
-                                    ? 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300'
-                                    : 'bg-rose-100 dark:bg-rose-950 text-rose-800 dark:text-rose-300'
-                                }`}
-                              >
-                                {item.status}
-                              </span>
-                              <button
-                                type="button"
-                                onClick={() =>
-                                  goToTutorStep(item.stepId as StepId)
-                                }
-                                className="px-2.5 py-1 text-xs font-semibold text-blue-600 dark:text-sky-400 hover:underline cursor-pointer"
-                              >
-                                Review
-                              </button>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
-                    </section>
-
-                    {/* Primary CTA to Next Objective */}
-                    <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
-                      <button
-                        type="button"
-                        onClick={() => setActiveView('dashboard')}
-                        className="px-4 py-2.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 cursor-pointer"
-                      >
-                        Return to Home Dashboard
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setActiveTopicLabel(
-                            'Topic 0.2: Right-Trigonometry, Force Resolution & Slope Ratios'
-                          );
-                          goToTutorStep('1a');
-                        }}
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#2563EB] hover:bg-blue-700 text-white shadow-sm cursor-pointer"
-                      >
-                        <span>Continue to Next Objective (0.2) →</span>
-                      </button>
-                    </div>
-                  </div>
-                )}
-              </main>
-            </div>
-          )}
-
-          {/* ============================================================== */}
-          {/* VIEW 2: HOME DASHBOARD (LEARNER-FRIENDLY ANCHOR, <= 1200px)    */}
-          {/* ============================================================== */}
-          {activeView === 'dashboard' && (
-            <main className="flex-1 w-full max-w-[1200px] mx-auto px-6 py-8 space-y-8">
-              {/* 1. SINGLE HERO "UP NEXT / RESUME" CARD */}
-              <section
-                aria-labelledby="hero-resume-heading"
-                className="rounded-2xl bg-gradient-to-br from-[#1E3A8A] via-[#1E293B] to-[#0F172A] border border-blue-500/40 p-7 text-white shadow-xl space-y-5"
-              >
-                <div className="space-y-2.5">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 border border-blue-400/30 text-sky-300">
-                    <Sparkles className="w-3.5 h-3.5" />
-                    <span>YEAR 1 PATHWAY • MODULE 0: CORE MECHANICS</span>
-                  </div>
-                  <h1
-                    id="hero-resume-heading"
-                    className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-white"
-                  >
-                    0.1 Structural Units, Dimensional Homogeneity &amp; Stress Scaling
-                  </h1>
-                  <div className="flex flex-wrap items-center gap-4 text-xs sm:text-sm text-slate-200 pt-1">
-                    <span>⏱️ ~12 mins remaining</span>
-                    <span>•</span>
-                    <span>📝 Step 2a of 5a</span>
-                    <span>•</span>
-                    <span>🎯 Unlocks Milestone A Credit</span>
                   </div>
                 </div>
+              </div>
 
-                <div className="flex flex-wrap items-center gap-3 pt-1">
-                  <button
-                    type="button"
-                    onClick={() => startOrResumeTutor('2a')}
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#2563EB] hover:bg-blue-500 text-white shadow-md transition-colors cursor-pointer"
-                  >
-                    <Play className="w-4 h-4 fill-current" />
-                    <span>Resume Practice Session (Question 2a)</span>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => startOrResumeTutor('learn')}
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold bg-slate-800/90 hover:bg-slate-700 text-slate-100 border border-slate-600/80 transition-colors cursor-pointer"
-                  >
-                    <BookOpen className="w-4 h-4 text-sky-400" />
-                    <span>Review Concept Notes</span>
-                  </button>
-                </div>
-              </section>
-
-              {/* 2. VISUAL PROGRESS & MILESTONE A PORTFOLIO GRID (2-Column Middle Section) */}
-              <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-                {/* Left Card — Year 1 Mastery & Milestone A Portfolio Tracker */}
-                <div
-                  className={`lg:col-span-7 ${cardSurfaceClass} rounded-2xl p-6 flex flex-col justify-between space-y-6`}
-                >
-                  <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
-                    <div>
-                      <h2 className="font-display text-lg font-bold">
-                        Year 1 Mastery &amp; Milestone A Portfolio Tracker
-                      </h2>
-                      <p className={`text-xs ${mutedTextClass}`}>
-                        Complete verified independent calculations across all 5 core mechanics pillars.
-                      </p>
-                    </div>
-
-                    {/* Circular Progress Ring */}
-                    <div className="flex items-center gap-3">
-                      <svg className="w-14 h-14 -rotate-90" viewBox="0 0 36 36">
-                        <path
-                          className="text-slate-200 dark:text-slate-800"
-                          strokeWidth="3.8"
-                          stroke="currentColor"
-                          fill="none"
-                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                        />
-                        <path
-                          className="text-emerald-500"
-                          strokeDasharray="45, 100"
-                          strokeWidth="3.8"
-                          strokeLinecap="round"
-                          stroke="currentColor"
-                          fill="none"
-                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                        />
-                      </svg>
-                      <div>
-                        <div className="font-display text-lg font-bold tabular-nums">
-                          45%
-                        </div>
-                        <div className={`text-[11px] ${mutedTextClass}`}>
-                          Module 0 Active
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* 5 Skill Progress Bars for Milestone A Verification */}
-                  <div className="space-y-3.5">
-                    {milestoneABars.map((bar) => {
-                      const pct = Math.round(
-                        (bar.completed / bar.target) * 100
-                      );
-                      return (
-                        <div key={bar.id} className="space-y-1.5">
-                          <div className="flex items-center justify-between text-xs font-semibold">
-                            <span>{bar.label}</span>
-                            <span className="font-mono font-bold text-blue-600 dark:text-sky-400 tabular-nums">
-                              [{bar.completed}/{bar.target}]
-                            </span>
-                          </div>
-                          <div className="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                            <div
-                              className={`h-full transition-all duration-200 ${
-                                pct >= 100 ? 'bg-emerald-500' : 'bg-blue-600'
-                              }`}
-                              style={{ width: `${Math.max(8, pct)}%` }}
-                            />
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-
-                {/* Right Card — Recent Learning Sessions (Humanized) */}
-                <div
-                  className={`lg:col-span-5 ${cardSurfaceClass} rounded-2xl p-6 flex flex-col justify-between space-y-5`}
-                >
+              {/* 2. TWO-COLUMN MIDDLE GRID: MILESTONE TRACKER & RECENT SESSIONS */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                {/* Left Card: Core Mechanics & Portfolio Milestones Tracker */}
+                <div className="lg:col-span-7 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs flex flex-col justify-between space-y-5">
                   <div className="space-y-4">
-                    <div className="border-b border-slate-200 dark:border-slate-800 pb-4">
-                      <h2 className="font-display text-lg font-bold">
-                        Recent Learning Sessions
-                      </h2>
-                      <p className={`text-xs ${mutedTextClass}`}>
-                        Jump back into any recent topic with 1 click.
-                      </p>
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <div>
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-sky-400">
+                          Core Mechanics &amp; Portfolio Verification
+                        </span>
+                        <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white mt-0.5">
+                          Year 1 Mastery &amp; Milestone A–F Portfolio Tracker
+                        </h2>
+                      </div>
+                      <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                        {milestoneBars.reduce((acc, b) => acc + b.completed, 0)}{' '}
+                        / {milestoneBars.reduce((acc, b) => acc + b.target, 0)}{' '}
+                        Core Checks
+                      </span>
                     </div>
 
                     <div className="space-y-3">
-                      {INITIAL_RECENT_SESSIONS.map((sess) => (
-                        <div
-                          key={sess.id}
-                          className={`${subCardSurfaceClass} rounded-xl p-3.5 flex items-center justify-between gap-3`}
-                        >
-                          <div className="space-y-1 min-w-0">
-                            <div className="text-sm font-bold truncate">
-                              {sess.topicTitle}
-                            </div>
-                            <div className="flex flex-wrap items-center gap-2 text-xs">
-                              <span
-                                className={`font-semibold ${
-                                  sess.badgeTone === 'emerald'
-                                    ? 'text-emerald-600 dark:text-emerald-400'
-                                    : 'text-amber-600 dark:text-amber-400'
-                                }`}
-                              >
-                                {sess.badgeText}
+                      {milestoneBars.map((bar) => {
+                        const pct = Math.round(
+                          (bar.completed / bar.target) * 100
+                        );
+                        return (
+                          <div key={bar.id} className="space-y-1.5">
+                            <div className="flex items-center justify-between text-xs">
+                              <span className="font-semibold text-slate-800 dark:text-slate-200">
+                                {bar.label}
                               </span>
-                              <span className={mutedTextClass}>•</span>
-                              <span className={mutedTextClass}>
-                                {sess.relativeTime}
+                              <span className="font-mono text-slate-500 dark:text-slate-400">
+                                {bar.completed}/{bar.target} ({pct}%)
                               </span>
                             </div>
+                            <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                              <div
+                                className="h-full bg-blue-600 dark:bg-sky-500 transition-all duration-300"
+                                style={{ width: `${pct}%` }}
+                              />
+                            </div>
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                              {bar.unitDescription}
+                            </p>
                           </div>
-
-                          <button
-                            type="button"
-                            onClick={() =>
-                              startOrResumeTutor(
-                                sess.targetStepId,
-                                sess.topicTitle
-                              )
-                            }
-                            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shrink-0 transition-colors cursor-pointer"
-                          >
-                            Review
-                          </button>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </div>
 
-                  <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
-                    <span className={mutedTextClass}>
-                      Study Rhythm: 3 focused sessions / week
-                    </span>
+                  <div className="pt-4 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {COURSE_DEVELOPMENT_REQUIREMENTS.slice(0, 3).map((req) => (
+                        <button
+                          key={req.id}
+                          type="button"
+                          onClick={() =>
+                            handleSelectModuleAndTopic(
+                              req.targetModules[0],
+                              undefined,
+                              'tutor'
+                            )
+                          }
+                          className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-blue-700 dark:text-sky-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
+                        >
+                          [UI1] {req.topic}
+                        </button>
+                      ))}
+                    </div>
                     <button
                       type="button"
-                      onClick={() => startOrResumeTutor('summary')}
-                      className="font-semibold text-blue-600 dark:text-sky-400 hover:underline cursor-pointer"
+                      onClick={() => setActiveView('coverage')}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-sky-400 hover:underline cursor-pointer"
                     >
-                      View Session Summary →
+                      <span>Inspect Milestones A–F &amp; Coverage Map</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </button>
                   </div>
                 </div>
-              </section>
 
-              {/* 3. 3-CARD "ACTIVE PATHWAY" STRIP (Replaces the 20-Module Bottom Wall) */}
-              <section className="space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-3">
+                {/* Right Card: Recent Learning & Assessment Sessions (Zero Fabricated Activity) */}
+                <div className="lg:col-span-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs flex flex-col justify-between space-y-4">
+                  <div className="space-y-4">
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-sky-400">
+                          Verified Activity Log
+                        </span>
+                        <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white mt-0.5">
+                          Recent Learning &amp; Assessment Sessions
+                        </h2>
+                      </div>
+                      <span className="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                        {progressState.attemptHistory.length} saved
+                      </span>
+                    </div>
+
+                    {progressState.attemptHistory.length === 0 ? (
+                      <div
+                        data-testid="empty-attempt-history"
+                        className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-6 text-center space-y-2.5"
+                      >
+                        <Clock className="w-8 h-8 text-slate-400 dark:text-slate-600 mx-auto" />
+                        <div className="text-sm font-bold text-slate-800 dark:text-slate-200">
+                          No sessions or assessment attempts recorded yet
+                        </div>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                          All course progress starts at 0% with zero fabricated
+                          activity. Complete a guided lesson or submit any Topic
+                          (5 Qs) or Module (20 Qs) Assessment to log your
+                          progress here.
+                        </p>
+                        <div className="pt-1">
+                          <button
+                            type="button"
+                            onClick={() => {
+                              setCurrentStep('learn');
+                              setActiveView('tutor');
+                            }}
+                            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white cursor-pointer"
+                          >
+                            <Play className="w-3.5 h-3.5" />
+                            <span>Start First Lesson (Module 0)</span>
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div
+                        className="space-y-2.5 max-h-[320px] overflow-y-auto pr-1"
+                        data-testid="attempt-history-list"
+                      >
+                        {progressState.attemptHistory.slice(0, 12).map((att) => (
+                          <div
+                            key={att.attemptId}
+                            className="rounded-xl bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 p-3.5 flex items-center justify-between gap-3"
+                          >
+                            <div className="space-y-1 min-w-0">
+                              <div className="flex items-center gap-2">
+                                <span
+                                  className={`text-[11px] font-mono font-bold px-2 py-0.5 rounded ${
+                                    att.passed
+                                      ? 'bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300'
+                                      : 'bg-rose-100 dark:bg-rose-500/20 text-rose-800 dark:text-rose-300'
+                                  }`}
+                                >
+                                  {att.passed
+                                    ? 'PASSED (≥90%)'
+                                    : 'NOT PASSED (<90%)'}
+                                </span>
+                                <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                                  {att.correctCount}/{att.totalQuestions} (
+                                  {att.scorePercent.toFixed(0)}%)
+                                </span>
+                              </div>
+                              <p className="text-xs font-semibold text-slate-900 dark:text-white truncate">
+                                {att.title}
+                              </p>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const mod = getModuleByNumber(att.moduleNumber);
+                                if (!mod) return;
+                                if (att.topicId) {
+                                  const found = getTopicById(att.topicId);
+                                  if (found) {
+                                    handleStartTopicAssessment(
+                                      found.module,
+                                      found.topic
+                                    );
+                                    return;
+                                  }
+                                }
+                                handleStartModuleAssessment(mod);
+                              }}
+                              className="text-xs font-semibold text-blue-600 dark:text-sky-400 hover:underline shrink-0 cursor-pointer"
+                            >
+                              Retake →
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                    <span>Pass threshold: 90% on all assessments</span>
+                    <button
+                      type="button"
+                      onClick={() => setActiveView('map')}
+                      className="font-semibold text-blue-600 dark:text-sky-400 hover:underline cursor-pointer"
+                    >
+                      Open Learning Map →
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3. COMPLETE 20-MODULE SYLLABUS PATHWAY CARDS (Modules 0 to 19) */}
+              <div className="space-y-4">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <div>
                     <h2 className="font-display text-xl font-bold text-white">
-                      Active Year 1 Learning Pathway
+                      Active Syllabus Pathway: Modules 0 to 19
                     </h2>
-                    <p className="text-xs text-slate-400">
-                      Focused 3-module progression window — complete Module 0 to unlock Statics &amp; Equilibrium.
+                    <p className="text-xs text-slate-400 mt-0.5">
+                      Open any module in the Guided Tutor, inspect its topics in
+                      the Unified Learning Map, or launch its 20-question
+                      End-of-Module Exam (90% pass mark).
                     </p>
                   </div>
                   <button
                     type="button"
                     onClick={() => setActiveView('map')}
-                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold bg-slate-800 hover:bg-slate-700 text-sky-300 border border-slate-700 transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-sky-400 hover:text-sky-300 cursor-pointer"
                   >
-                    <span>Explore Full 20-Module Learning Map</span>
+                    <span>Open Unified Visual Learning Map (Stages 1–3)</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                  {/* Card 1 (Active): Module 0 */}
-                  <div
-                    className={`${cardSurfaceClass} rounded-2xl p-6 flex flex-col justify-between space-y-5 ring-2 ring-blue-500/80`}
+                <div
+                  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+                  data-testid="dashboard-modules-grid"
+                >
+                  {ALL_SYLLABUS_MODULES.map((mod) => {
+                    const modProg = progressState.modules[mod.id];
+                    const passedTopics = mod.topics.filter(
+                      (t) => progressState.topics[t.id]?.passed
+                    ).length;
+                    const anyTopicAttempted = mod.topics.some(
+                      (t) => (progressState.topics[t.id]?.attemptsCount ?? 0) > 0
+                    );
+                    const isCompleted = Boolean(modProg?.passed);
+                    const isAttempted =
+                      (modProg?.attemptsCount ?? 0) > 0 || anyTopicAttempted;
+
+                    return (
+                      <div
+                        key={mod.id}
+                        data-testid={`dashboard-module-card-${mod.moduleNumber}`}
+                        className={`bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border rounded-2xl p-4 shadow-xs flex flex-col justify-between space-y-4 transition-all ${
+                          isCompleted
+                            ? 'border-emerald-400 dark:border-emerald-500/50'
+                            : isAttempted
+                            ? 'border-amber-400 dark:border-amber-500/50'
+                            : 'border-slate-200 dark:border-slate-800 hover:border-blue-300 dark:hover:border-slate-700'
+                        }`}
+                      >
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-sky-500/30">
+                              Module {mod.moduleNumber}
+                            </span>
+                            <span
+                              className={`text-[11px] font-mono font-semibold px-2 py-0.5 rounded-lg ${
+                                isCompleted
+                                  ? 'bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300'
+                                  : isAttempted
+                                  ? 'bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300'
+                                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                              }`}
+                            >
+                              {isCompleted
+                                ? `Passed (${modProg.bestScorePercent.toFixed(
+                                    0
+                                  )}%)`
+                                : isAttempted
+                                ? 'In Progress'
+                                : 'Not Started'}
+                            </span>
+                          </div>
+
+                          <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white leading-snug">
+                            {mod.title}
+                          </h3>
+                          <p className="text-xs text-slate-600 dark:text-slate-400 line-clamp-2">
+                            {mod.summary}
+                          </p>
+                        </div>
+
+                        <div className="space-y-3 pt-2.5 border-t border-slate-200 dark:border-slate-800">
+                          <div className="flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                            <span>
+                              Topics: {passedTopics}/{mod.topics.length} passed
+                            </span>
+                            <span>
+                              Exam:{' '}
+                              {modProg?.attemptsCount
+                                ? `${modProg.bestScorePercent.toFixed(0)}%`
+                                : '0%'}
+                            </span>
+                          </div>
+
+                          <div className="flex items-center gap-2">
+                            <button
+                              type="button"
+                              onClick={() =>
+                                handleSelectModuleAndTopic(
+                                  mod.moduleNumber,
+                                  mod.topics[0]?.id,
+                                  'tutor'
+                                )
+                              }
+                              data-testid={`open-module-btn-${mod.moduleNumber}`}
+                              className="flex-1 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
+                            >
+                              Study Module
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => handleStartModuleAssessment(mod)}
+                              data-testid={`quick-exam-btn-${mod.moduleNumber}`}
+                              className="px-3 py-1.5 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors cursor-pointer"
+                              title={`Start Module ${mod.moduleNumber} End-of-Module Assessment (20 Questions)`}
+                            >
+                              20-Q Exam
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* =============================================================== */}
+          {/* VIEW 2: POLISHED STEPPED TUTOR & PRACTICE (max-w-[920px])       */}
+          {/* =============================================================== */}
+          {activeView === 'tutor' && (
+            <div
+              className="max-w-[920px] mx-auto space-y-5"
+              data-testid="tutor-view"
+            >
+              {/* 1. COMPACT TOP SESSION HEADER WITH TOPIC SWITCHER POPOVER */}
+              <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-xs flex flex-wrap items-center justify-between gap-3 relative">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => setActiveView('dashboard')}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
                   >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="font-bold text-blue-600 dark:text-sky-400">
-                          ACTIVE MODULE • 45% COMPLETE
-                        </span>
-                        <span className="font-mono font-semibold text-emerald-600 dark:text-emerald-400">
-                          In Progress
-                        </span>
+                    <ArrowLeft className="w-3.5 h-3.5" />
+                    <span>Exit</span>
+                  </button>
+
+                  <div className="h-4 w-px bg-slate-200 dark:bg-slate-700 hidden sm:block" />
+
+                  <div className="relative">
+                    <button
+                      type="button"
+                      onClick={() => setTopicSwitcherOpen((prev) => !prev)}
+                      data-testid="tutor-topic-switcher-btn"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl text-xs font-semibold bg-blue-50 dark:bg-slate-800 text-blue-800 dark:text-sky-300 border border-blue-200 dark:border-slate-700 hover:bg-blue-100 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                    >
+                      <span className="font-mono font-bold">
+                        Mod {activeModule.moduleNumber} • Topic{' '}
+                        {activeTopic.code}
+                      </span>
+                      <span className="truncate max-w-[200px] sm:max-w-[280px]">
+                        {activeTopic.title}
+                      </span>
+                      <ChevronDown className="w-3.5 h-3.5 shrink-0" />
+                    </button>
+
+                    {/* Switch Module / Topic Popover (All 20 Modules & 62 Topics) */}
+                    {topicSwitcherOpen && (
+                      <div className="absolute left-0 mt-2 w-[340px] sm:w-[460px] max-h-[420px] overflow-y-auto rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-2xl p-3 z-40 space-y-2">
+                        <div className="flex items-center justify-between px-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+                          <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
+                            Switch Module or Topic (Modules 0 to 19)
+                          </span>
+                          <button
+                            type="button"
+                            onClick={() => setTopicSwitcherOpen(false)}
+                            className="text-xs text-slate-500 hover:text-slate-800 dark:hover:text-white cursor-pointer"
+                          >
+                            Close
+                          </button>
+                        </div>
+                        {ALL_SYLLABUS_MODULES.map((mod) => (
+                          <div
+                            key={mod.id}
+                            className="rounded-xl border border-slate-200/80 dark:border-slate-800 p-2.5 space-y-1.5"
+                          >
+                            <div className="flex items-center justify-between gap-2">
+                              <span className="text-xs font-bold text-slate-900 dark:text-white">
+                                {mod.title}
+                              </span>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setTopicSwitcherOpen(false);
+                                  handleStartModuleAssessment(mod);
+                                }}
+                                className="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-blue-600 text-white hover:bg-blue-500 shrink-0 cursor-pointer"
+                              >
+                                20-Q Exam
+                              </button>
+                            </div>
+                            <div className="space-y-1">
+                              {mod.topics.map((top) => {
+                                const isCurrent =
+                                  mod.moduleNumber ===
+                                    activeModule.moduleNumber &&
+                                  top.id === activeTopic.id;
+                                const passed =
+                                  progressState.topics[top.id]?.passed;
+                                return (
+                                  <div
+                                    key={top.id}
+                                    className="flex items-center justify-between gap-2"
+                                  >
+                                    <button
+                                      type="button"
+                                      onClick={() =>
+                                        handleSelectModuleAndTopic(
+                                          mod.moduleNumber,
+                                          top.id,
+                                          'tutor'
+                                        )
+                                      }
+                                      className={`flex-1 text-left px-2.5 py-1.5 rounded-lg text-xs transition-colors cursor-pointer ${
+                                        isCurrent
+                                          ? 'bg-blue-50 dark:bg-sky-500/20 text-blue-700 dark:text-sky-300 font-semibold'
+                                          : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                      }`}
+                                    >
+                                      <span className="font-mono font-bold mr-1.5">
+                                        {top.code}
+                                      </span>
+                                      <span>{top.title}</span>
+                                      {passed && (
+                                        <span className="ml-1.5 text-[10px] font-mono text-emerald-600 dark:text-emerald-400">
+                                          ✓ 90%+
+                                        </span>
+                                      )}
+                                    </button>
+                                    <button
+                                      type="button"
+                                      onClick={() => {
+                                        setTopicSwitcherOpen(false);
+                                        handleStartTopicAssessment(mod, top);
+                                      }}
+                                      className="text-[11px] font-mono px-2 py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 shrink-0 cursor-pointer"
+                                    >
+                                      5-Q Quiz
+                                    </button>
+                                  </div>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                      <h3 className="font-display text-lg font-bold">
-                        Module 0: Engineering Maths, Units &amp; Physical Quantities
-                      </h3>
-                      <p className={`text-xs ${mutedTextClass} leading-relaxed`}>
-                        Dimensional homogeneity, (mm, N) base unit conversions, right-triangle force resolution, and visual slope/area calculus.
+                    )}
+                  </div>
+                </div>
+
+                {/* Right Utilities: Topic Exam, Module Exam, Units Reference, Calculator */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      handleStartTopicAssessment(activeModule, activeTopic)
+                    }
+                    data-testid="tutor-launch-topic-exam-btn"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors cursor-pointer"
+                  >
+                    <span>
+                      Topic {activeTopic.code} Exam (
+                      {activeTopic.assessmentQuestions.length} Qs)
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleStartModuleAssessment(activeModule)}
+                    data-testid="tutor-launch-module-exam-btn"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors cursor-pointer"
+                  >
+                    <Award className="w-3.5 h-3.5" />
+                    <span>
+                      Mod {activeModule.moduleNumber} Exam (
+                      {activeModule.moduleAssessment.length} Qs)
+                    </span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setUnitsDrawerOpen(true)}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 cursor-pointer"
+                  >
+                    <Compass className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400" />
+                    <span className="hidden sm:inline">Units</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCalculatorOpen(true)}
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 cursor-pointer"
+                  >
+                    <Calculator className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                    <span className="hidden sm:inline">Calculator</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* 2. HORIZONTAL STEPPED QUESTION BAR + CONTINUOUS VISUAL PROGRESS BAR */}
+              <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-xs space-y-3">
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                  <div
+                    className="flex flex-wrap items-center gap-1.5"
+                    role="tablist"
+                    aria-label="Lesson and Practice Steps"
+                  >
+                    {visibleSteps.map((stepId) => {
+                      const isCurrent = currentStep === stepId;
+                      const status = stepStatuses[stepId];
+                      return (
+                        <button
+                          key={stepId}
+                          type="button"
+                          role="tab"
+                          aria-selected={isCurrent}
+                          onClick={() => goToTutorStep(stepId)}
+                          data-testid={`tutor-step-${stepId}`}
+                          className={`px-3 py-1.5 rounded-xl text-xs font-mono font-semibold border transition-all cursor-pointer ${
+                            isCurrent
+                              ? 'bg-blue-600 text-white border-blue-600 shadow-2xs'
+                              : status === 'mastered'
+                              ? 'bg-emerald-50 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-500/30'
+                              : status === 'assisted'
+                              ? 'bg-amber-50 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-500/30'
+                              : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800'
+                          }`}
+                        >
+                          {stepId === 'learn'
+                            ? 'Learn'
+                            : stepId === 'summary'
+                            ? 'Summary'
+                            : stepId === '2a-R'
+                            ? '2a-R Warm-Up'
+                            : stepId}
+                        </button>
+                      );
+                    })}
+                  </div>
+
+                  <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                    Session Progress: {tutorProgressPercent}%
+                  </span>
+                </div>
+
+                <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-blue-600 dark:bg-sky-500 transition-all duration-300"
+                    style={{ width: `${tutorProgressPercent}%` }}
+                  />
+                </div>
+              </div>
+
+              {/* 3. STEP CONTENT: [📖 Learn] (3 DIGESTIBLE CONCEPT CARDS) */}
+              {currentStep === 'learn' && (
+                <div className="space-y-5" data-testid="tutor-learn-cards">
+                  {/* CARD A: PLAIN-ENGLISH CONCEPT, SUBTOPICS & STRUCTURAL INTUITION */}
+                  <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-sky-500/30">
+                        Card 1 of 3 • Plain-English Concept &amp; Syllabus Scope
+                      </span>
+                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                        Module {activeModule.moduleNumber} • Topic{' '}
+                        {activeTopic.code}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h1 className="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+                        {activeTopic.code}: {activeTopic.title}
+                      </h1>
+                      <p className="text-sm text-slate-700 dark:text-slate-300 mt-2 leading-relaxed">
+                        {activeTopic.summary}
                       </p>
-                      <div className="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
-                        <div
-                          className="h-full bg-blue-600"
-                          style={{ width: '45%' }}
-                        />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1">
+                      <div className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-4 space-y-2">
+                        <div className="text-xs font-bold uppercase tracking-wider text-blue-700 dark:text-sky-300">
+                          Why Module {activeModule.moduleNumber} Matters in
+                          Practice
+                        </div>
+                        <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
+                          {activeModule.whyItMatters}
+                        </p>
                       </div>
+
+                      <div className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-4 space-y-2">
+                        <div className="text-xs font-bold uppercase tracking-wider text-emerald-700 dark:text-emerald-300">
+                          Topic {activeTopic.code} Technical Subtopics
+                        </div>
+                        <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300">
+                          {activeTopic.subtopics.map((sub, i) => (
+                            <li key={i} className="flex items-start gap-2">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                              <span>{sub}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Topic Selector Pills within Active Module */}
+                    <div className="pt-2 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
+                      <div className="flex flex-wrap items-center gap-1.5">
+                        <span className="text-xs font-semibold text-slate-500 dark:text-slate-400 mr-1">
+                          Module {activeModule.moduleNumber} Topics:
+                        </span>
+                        {activeModule.topics.map((t) => {
+                          const isSelected = t.id === activeTopic.id;
+                          const isPassed = progressState.topics[t.id]?.passed;
+                          return (
+                            <button
+                              key={t.id}
+                              type="button"
+                              onClick={() => setSelectedTopicId(t.id)}
+                              className={`px-3 py-1 rounded-lg text-xs font-mono font-semibold border transition-colors cursor-pointer ${
+                                isSelected
+                                  ? 'bg-blue-600 text-white border-blue-600'
+                                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
+                              }`}
+                            >
+                              {t.code} {isPassed ? '✓' : ''}
+                            </button>
+                          );
+                        })}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleStartTopicAssessment(activeModule, activeTopic)
+                        }
+                        data-testid={`start-topic-assessment-${activeTopic.id}`}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-sky-400 hover:underline cursor-pointer"
+                      >
+                        <span>
+                          Take Topic {activeTopic.code} Assessment (5 Qs • 90%
+                          Pass)
+                        </span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* CARD B: INTERACTIVE DIMENSIONAL SANDBOX & SYLLABUS LEARNING GATE */}
+                  <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
+                        Card 2 of 3 • Interactive Unit &amp; Bending Stress
+                        Sandbox
+                      </span>
+                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                        1 kN·m = 10⁶ N·mm • 1 MPa = 1 N/mm²
+                      </span>
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-between gap-4">
+                      <div className="space-y-1 max-w-xl">
+                        <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
+                          Live Consistent (mm, N) Stress Verifier
+                        </h2>
+                        <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+                          Adjust Bending Moment <strong>M</strong> (in kN·m) and
+                          Elastic Section Modulus <strong>Wₑₗ</strong> (in mm³)
+                          to see how converting to <strong>N·mm</strong>{' '}
+                          produces stress directly in{' '}
+                          <strong>N/mm² = MPa</strong>:
+                        </p>
+                      </div>
+                      <MathFraction
+                        lhs="σ"
+                        num="M (in N·mm)"
+                        den="Wₑₗ (in mm³)"
+                        rhs={`${sandboxComputed.stressMpa} MPa`}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-4">
+                      <div className="space-y-1">
+                        <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400">
+                          Moment M (kN·m):
+                        </label>
+                        <input
+                          type="text"
+                          value={sandboxMomentKnm}
+                          onChange={(e) => setSandboxMomentKnm(e.target.value)}
+                          aria-label="Sandbox bending moment in kN·m"
+                          className="w-full px-3 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-mono text-sm text-slate-900 dark:text-white"
+                        />
+                        <div className="text-[11px] font-mono text-blue-600 dark:text-sky-400">
+                          = {sandboxComputed.momentNmm} N·mm
+                        </div>
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="block text-xs font-semibold text-slate-600 dark:text-slate-400">
+                          Section Modulus Wₑₗ (mm³):
+                        </label>
+                        <input
+                          type="text"
+                          value={sandboxWelMm3}
+                          onChange={(e) => setSandboxWelMm3(e.target.value)}
+                          aria-label="Sandbox elastic section modulus in mm³"
+                          className="w-full px-3 py-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 font-mono text-sm text-slate-900 dark:text-white"
+                        />
+                        <div className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                          Major-axis elastic modulus
+                        </div>
+                      </div>
+
+                      <div className="rounded-xl bg-blue-50/80 dark:bg-slate-900 border border-blue-200 dark:border-slate-700 p-3 flex flex-col justify-center">
+                        <div className="text-[11px] font-mono uppercase text-blue-700 dark:text-sky-300">
+                          Resulting Bending Stress σ
+                        </div>
+                        <div className="font-mono text-xl font-bold text-slate-900 dark:text-white mt-0.5 tabular-nums">
+                          {sandboxComputed.stressMpa} MPa
+                        </div>
+                        <div className="text-[11px] font-mono text-emerald-700 dark:text-emerald-400">
+                          = {sandboxComputed.stressMpa} N/mm² (
+                          {sandboxComputed.stressGpa} GPa)
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Syllabus Learning Gate & Future Textbook Expansion Slot */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+                      <div className="rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 p-3.5 space-y-1">
+                        <div className="text-xs font-bold text-amber-900 dark:text-amber-300">
+                          Module {activeModule.moduleNumber} Syllabus Learning
+                          Gate
+                        </div>
+                        <p className="text-xs text-amber-800 dark:text-amber-200/90 leading-relaxed">
+                          {activeModule.learningGate}
+                        </p>
+                      </div>
+                      <div className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-3.5 space-y-1">
+                        <div className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
+                          <FileText className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400" />
+                          <span>Future Textbook &amp; Standard Expansion</span>
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                          {activeTopic.futureContentNote ||
+                            activeModule.standardsNotice ||
+                            'Ready for your personal textbooks, worked examples, and Eurocode / UK National Annex references.'}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* CARD C: STEP-BY-STEP WORKED EXAMPLES & TRANSITION TO QUESTIONS */}
+                  <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <span className="text-xs font-mono font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-purple-50 dark:bg-purple-500/15 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-500/30">
+                        Card 3 of 3 • Verified Worked Examples &amp; Self-Review
+                      </span>
+                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                        {activeModule.workedExamples.length} Syllabus Worked{' '}
+                        {activeModule.workedExamples.length === 1
+                          ? 'Example'
+                          : 'Examples'}
+                      </span>
+                    </div>
+
+                    <div className="space-y-4">
+                      {activeModule.workedExamples.map((ex) => (
+                        <div
+                          key={ex.id}
+                          className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-4 space-y-3"
+                        >
+                          <div>
+                            <h3 className="font-display text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                              {ex.title}
+                            </h3>
+                            <p className="text-xs text-slate-700 dark:text-slate-300 mt-1 leading-relaxed">
+                              <strong>Engineering Brief &amp; Scope:</strong>{' '}
+                              {ex.brief}
+                            </p>
+                          </div>
+
+                          <div className="rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 space-y-1.5 text-xs">
+                            <div className="font-bold text-emerald-700 dark:text-emerald-300">
+                              Independent Verification &amp; Self-Review
+                              Checklist:
+                            </div>
+                            <ul className="space-y-1 text-slate-600 dark:text-slate-300 pt-0.5">
+                              {ex.checklist.map((chk, idx) => (
+                                <li
+                                  key={idx}
+                                  className="flex items-start gap-1.5"
+                                >
+                                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
+                                  <span>{chk}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleStartTopicAssessment(
+                              activeModule,
+                              activeTopic
+                            )
+                          }
+                          className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition-colors cursor-pointer"
+                        >
+                          Take Topic {activeTopic.code} Assessment (5 Qs • 90%
+                          Pass)
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleStartModuleAssessment(activeModule)
+                          }
+                          data-testid="start-module-assessment-btn"
+                          className="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
+                        >
+                          Module {activeModule.moduleNumber} Exam (20 Qs • 90%
+                          Pass)
+                        </button>
+                      </div>
+
+                      <button
+                        type="button"
+                        onClick={handleAdvanceToNextStep}
+                        data-testid="continue-to-question-1a-btn"
+                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-xs transition-colors cursor-pointer"
+                      >
+                        <span>Continue to Guided Question 1a</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* 4. STEP CONTENT: GUIDED & INDEPENDENT QUESTIONS ([1a]..[5a]) */}
+              {currentStep !== 'learn' && currentStep !== 'summary' && (
+                <div
+                  className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-5"
+                  data-testid={`question-step-card-${currentStep}`}
+                >
+                  {/* Top Question Badge & Help Controls */}
+                  <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-sky-500/30">
+                        {activeQuestion.badgeLabel}
+                      </span>
+                      <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                        Target Dimension:{' '}
+                        {activeQuestion.dimension.replace('_', ' ')}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setHintsRevealed((prev) => Math.min(2, prev + 1))
+                        }
+                        data-testid="need-a-hint-btn"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-amber-50 dark:bg-slate-800 hover:bg-amber-100 dark:hover:bg-slate-700 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-slate-700 transition-colors cursor-pointer"
+                      >
+                        <Lightbulb className="w-3.5 h-3.5" />
+                        <span>Need a Hint ({hintsRevealed}/2)</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setWorkedSolutionDrawerOpen(true)}
+                        data-testid="show-worked-solution-btn"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-blue-50 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-slate-700 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-slate-700 transition-colors cursor-pointer"
+                      >
+                        <HelpCircle className="w-3.5 h-3.5" />
+                        <span>Show Worked Solution</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Title & Prompt Lead */}
+                  <div className="space-y-2">
+                    <h1 className="font-display text-xl font-bold text-slate-900 dark:text-white">
+                      {activeQuestion.title}
+                    </h1>
+                    <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed">
+                      {activeQuestion.promptLead}
+                    </p>
+                  </div>
+
+                  {/* Formatted Engineering Math Fraction & Given Parameters */}
+                  <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
+                    {activeQuestion.promptFormula && (
+                      <MathFraction
+                        lhs={activeQuestion.promptFormula.lhs}
+                        num={activeQuestion.promptFormula.num}
+                        den={activeQuestion.promptFormula.den}
+                        rhs={activeQuestion.promptFormula.rhsNote}
+                      />
+                    )}
+
+                    <div className="flex flex-wrap items-center gap-2">
+                      {activeQuestion.givenParameters.map((param, idx) => (
+                        <div
+                          key={idx}
+                          className="px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs font-mono"
+                        >
+                          <span className="font-bold text-blue-700 dark:text-sky-300">
+                            {param.symbol}
+                            {param.sub && <sub>{param.sub}</sub>}
+                          </span>
+                          <span className="text-slate-500 dark:text-slate-400">
+                            {' '}
+                            ({param.label}):{' '}
+                          </span>
+                          <span className="font-semibold text-slate-900 dark:text-white">
+                            {param.valueDisplay}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Interactive SVG Diagram with [🔍 Zoom] Modal */}
+                  <QuestionDiagram
+                    diagramType={activeQuestion.diagramType}
+                    caption={activeQuestion.diagramCaption}
+                  />
+
+                  {/* Graduated Hints Box */}
+                  {hintsRevealed > 0 && (
+                    <div className="rounded-xl bg-amber-50/90 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-500/40 p-4 space-y-2">
+                      {activeQuestion.hints
+                        .slice(0, hintsRevealed)
+                        .map((h, i) => (
+                          <p
+                            key={i}
+                            className="text-xs sm:text-sm text-amber-900 dark:text-amber-200"
+                          >
+                            <strong>Graduated Hint {i + 1}:</strong> {h}
+                          </p>
+                        ))}
+                    </div>
+                  )}
+
+                  {/* Adaptive Routing Banner */}
+                  {adaptiveBanner && (
+                    <div className="rounded-xl bg-blue-50 dark:bg-sky-950/50 border border-blue-200 dark:border-sky-500/40 p-4 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm text-blue-900 dark:text-sky-200">
+                      <span>{adaptiveBanner}</span>
+                      {remedialInjected && currentStep === '2a' && (
+                        <button
+                          type="button"
+                          onClick={() => goToTutorStep('2a-R')}
+                          className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shrink-0 cursor-pointer"
+                        >
+                          Open 2a-R Warm-Up →
+                        </button>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Compact Numeric Input (w-[200px]) + Unit Selector (w-[120px]) */}
+                  <form
+                    onSubmit={handleCheckTutorAnswer}
+                    className="pt-2 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-4"
+                  >
+                    <div className="flex flex-wrap items-center gap-2.5">
+                      <label
+                        htmlFor="tutor-numeric-answer"
+                        className="text-xs font-semibold text-slate-600 dark:text-slate-300"
+                      >
+                        Your Answer:
+                      </label>
+                      <input
+                        id="tutor-numeric-answer"
+                        type="text"
+                        inputMode="decimal"
+                        value={answerInput}
+                        onChange={(e) => setAnswerInput(e.target.value)}
+                        placeholder={activeQuestion.placeholder}
+                        data-testid="tutor-answer-input"
+                        className="w-[200px] px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 focus:border-blue-600 dark:focus:border-sky-400 focus:outline-none font-mono text-sm text-slate-900 dark:text-white"
+                      />
+                      <select
+                        value={selectedUnit}
+                        onChange={(e) => setSelectedUnit(e.target.value)}
+                        aria-label="Select engineering unit"
+                        data-testid="tutor-unit-select"
+                        className="w-[120px] px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 font-mono text-sm font-semibold text-slate-900 dark:text-white"
+                      >
+                        {activeQuestion.unitChoices.map((u) => (
+                          <option key={u} value={u}>
+                            {u}
+                          </option>
+                        ))}
+                      </select>
+                      <button
+                        type="submit"
+                        data-testid="tutor-check-answer-btn"
+                        className="px-5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-2xs transition-colors cursor-pointer"
+                      >
+                        Check Answer
+                      </button>
                     </div>
 
                     <button
                       type="button"
-                      onClick={() => startOrResumeTutor('learn')}
-                      className="w-full py-2.5 px-4 rounded-xl text-xs font-bold bg-[#2563EB] hover:bg-blue-700 text-white transition-colors cursor-pointer"
+                      onClick={handleAdvanceToNextStep}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
                     >
-                      Continue Module 0 →
+                      <span>Next Step</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </form>
+
+                  {/* Deterministic Diagnostic Feedback */}
+                  {gradeOutcome && (
+                    <div
+                      data-testid="tutor-grade-feedback"
+                      className={`rounded-xl p-4 border text-xs sm:text-sm space-y-1.5 ${
+                        gradeOutcome.isCorrect
+                          ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-500/40 text-emerald-950 dark:text-emerald-200'
+                          : 'bg-rose-50/90 dark:bg-rose-950/40 border-rose-300 dark:border-rose-500/40 text-rose-950 dark:text-rose-200'
+                      }`}
+                    >
+                      <div className="font-bold text-sm">
+                        {gradeOutcome.headline}
+                      </div>
+                      <p className="leading-relaxed">
+                        {gradeOutcome.diagnosticDetail}
+                      </p>
+                      {gradeOutcome.unitConversionNote && (
+                        <div className="pt-1 flex items-center gap-2 text-xs text-slate-600 dark:text-slate-300">
+                          <UnitBadge unit={gradeOutcome.expectedCanonicalUnit} />
+                          <span>{gradeOutcome.unitConversionNote}</span>
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* 5. STEP CONTENT: [🏁 Summary] */}
+              {currentStep === 'summary' && (
+                <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-5">
+                  <div>
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                      Session Summary &amp; Formal Syllabus Gate
+                    </span>
+                    <h2 className="font-display text-2xl font-bold text-slate-900 dark:text-white mt-1">
+                      Ready for Your 90% Pass-Mark Syllabus Assessments
+                    </h2>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                      You have completed {completedStepsCount} of{' '}
+                      {visibleSteps.length} guided session steps. Now prove your
+                      mastery on the formal End-of-Topic Assessments (5
+                      questions each, 90% pass mark) or the 20-question
+                      End-of-Module Assessment.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    {activeModule.topics.map((t) => {
+                      const tProg = progressState.topics[t.id];
+                      return (
+                        <div
+                          key={t.id}
+                          className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-4 flex flex-col justify-between space-y-3"
+                        >
+                          <div>
+                            <div className="text-xs font-mono font-bold text-blue-600 dark:text-sky-400">
+                              Topic {t.code} Assessment
+                            </div>
+                            <div className="text-sm font-bold text-slate-900 dark:text-white mt-0.5">
+                              {t.title}
+                            </div>
+                            <div className="text-xs font-mono text-slate-500 dark:text-slate-400 mt-1">
+                              {t.assessmentQuestions.length} Questions • 90%
+                              Pass Mark
+                            </div>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() =>
+                              handleStartTopicAssessment(activeModule, t)
+                            }
+                            className="w-full py-2 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white cursor-pointer"
+                          >
+                            {tProg?.passed
+                              ? `Retake (${tProg.bestScorePercent.toFixed(0)}%)`
+                              : 'Start 5-Q Assessment'}
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                    <button
+                      type="button"
+                      onClick={() => goToTutorStep('learn')}
+                      className="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 cursor-pointer"
+                    >
+                      ← Back to Concept Cards
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleStartModuleAssessment(activeModule)}
+                      className="px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-600 hover:bg-emerald-500 text-white cursor-pointer"
+                    >
+                      Start Module {activeModule.moduleNumber} Exam (20 Qs • 90%
+                      Pass) →
                     </button>
                   </div>
-
-                  {/* Card 2 (Next Up - Locked): Module 1 */}
-                  <div
-                    className={`${cardSurfaceClass} rounded-2xl p-6 flex flex-col justify-between space-y-5 opacity-90`}
-                  >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="inline-flex items-center gap-1 font-bold text-slate-500 dark:text-slate-400">
-                          <Lock className="w-3.5 h-3.5" />
-                          <span>NEXT UP • PREREQUISITE GATED</span>
-                        </span>
-                      </div>
-                      <h3 className="font-display text-lg font-bold">
-                        🔒 Module 1: Statics, Equilibrium &amp; Load Paths
-                      </h3>
-                      <p className={`text-xs ${mutedTextClass} leading-relaxed`}>
-                        Free-body diagrams, roller/pin/fixed support reactions, tributary floor loading, and vertical/lateral load paths.
-                      </p>
-                    </div>
-
-                    <div className={`${subCardSurfaceClass} rounded-xl p-3 text-xs font-medium text-center ${mutedTextClass}`}>
-                      Unlocks after mastering Module 0 Gate
-                    </div>
-                  </div>
-
-                  {/* Card 3 (Upcoming - Locked): Module 2 */}
-                  <div
-                    className={`${cardSurfaceClass} rounded-2xl p-6 flex flex-col justify-between space-y-5 opacity-85`}
-                  >
-                    <div className="space-y-3">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="inline-flex items-center gap-1 font-bold text-slate-500 dark:text-slate-400">
-                          <Lock className="w-3.5 h-3.5" />
-                          <span>UPCOMING • STAGE 1 CORE</span>
-                        </span>
-                      </div>
-                      <h3 className="font-display text-lg font-bold">
-                        🔒 Module 2: Internal Actions, Shear Force &amp; Bending Moment
-                      </h3>
-                      <p className={`text-xs ${mutedTextClass} leading-relaxed`}>
-                        Method of sections, SFD/BMD construction, load-shear-moment relationships, and tension-face plotting.
-                      </p>
-                    </div>
-
-                    <div className={`${subCardSurfaceClass} rounded-xl p-3 text-xs font-medium text-center ${mutedTextClass}`}>
-                      Unlocks after Module 0 &amp; Module 1
-                    </div>
-                  </div>
                 </div>
-              </section>
-            </main>
+              )}
+            </div>
           )}
 
-          {/* ============================================================== */}
-          {/* VIEW 3: LEARNING MAP & MASTER SYLLABUS (VISUAL ROADMAP)        */}
-          {/* ============================================================== */}
+          {/* =============================================================== */}
+          {/* VIEW 3: UNIFIED VISUAL LEARNING MAP (max-w-[1200px] mx-auto)    */}
+          {/* =============================================================== */}
           {activeView === 'map' && (
-            <main className="flex-1 w-full max-w-[1200px] mx-auto px-6 py-8 space-y-6">
-              <div className="flex flex-wrap items-end justify-between gap-4">
-                <div>
-                  <div className="text-xs font-bold text-sky-400">
-                    INTERACTIVE CURRICULUM ROADMAP • 20 MODULES
+            <div
+              className="max-w-[1200px] mx-auto space-y-6"
+              data-testid="learning-map-view"
+            >
+              {/* Top Header, Stage 1–3 Tabs & Search/Filter Controls */}
+              <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-5">
+                <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                  <div>
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-sky-400">
+                      Complete 20-Module Rebuild Curriculum
+                    </span>
+                    <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white mt-0.5">
+                      Unified Visual Learning Map (Modules 0 to 19)
+                    </h1>
+                    <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                      Structured around all 20 syllabus modules across 3 stages.
+                      Expand any module to study its topics, inspect its
+                      learning gate, or take its 5-question Topic Assessments
+                      and 20-question End-of-Module Exam (90% pass mark).
+                    </p>
                   </div>
-                  <h1 className="font-display text-2xl sm:text-3xl font-bold text-white">
-                    Learning Map &amp; Master Syllabus
-                  </h1>
+
+                  {/* Stage Filter Tabs */}
+                  <div className="flex flex-wrap items-center gap-1.5 bg-slate-100 dark:bg-slate-800 p-1.5 rounded-xl self-start">
+                    {(
+                      [
+                        { id: 'all', label: 'All 20 Modules (0–19)' },
+                        { id: 1, label: 'Stage 1: Core Mechanics (0–8)' },
+                        { id: 2, label: 'Stage 2: Materials & Geotech (9–14)' },
+                        { id: 3, label: 'Stage 3: Analysis & Practice (15–19)' },
+                      ] as const
+                    ).map((tab) => (
+                      <button
+                        key={String(tab.id)}
+                        type="button"
+                        onClick={() => setMapStageFilter(tab.id)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+                          mapStageFilter === tab.id
+                            ? 'bg-white dark:bg-slate-900 text-blue-600 dark:text-sky-400 shadow-2xs'
+                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
+                        }`}
+                      >
+                        {tab.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Quick Module Selector Strip (Mod 0 .. Mod 19) */}
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-1">
+                  {ALL_SYLLABUS_MODULES.map((mod) => {
+                    const isPassed = Boolean(
+                      progressState.modules[mod.id]?.passed
+                    );
+                    const isExpanded = Boolean(
+                      expandedMapModules[mod.moduleNumber]
+                    );
+                    return (
+                      <button
+                        key={mod.id}
+                        type="button"
+                        onClick={() => {
+                          setSelectedModuleNumber(mod.moduleNumber);
+                          setMapStageFilter('all');
+                          setExpandedMapModules((prev) => ({
+                            ...prev,
+                            [mod.moduleNumber]: true,
+                          }));
+                        }}
+                        data-testid={`module-selector-${mod.moduleNumber}`}
+                        className={`px-2.5 py-1.5 rounded-lg text-xs font-mono font-semibold border shrink-0 transition-colors cursor-pointer ${
+                          selectedModuleNumber === mod.moduleNumber &&
+                          isExpanded
+                            ? 'bg-blue-600 text-white border-blue-600'
+                            : isPassed
+                            ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-500/40'
+                            : 'bg-slate-50 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800'
+                        }`}
+                      >
+                        Mod {mod.moduleNumber}
+                      </button>
+                    );
+                  })}
                 </div>
 
                 {/* Search & Status Filters */}
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <div className="relative">
-                    <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2 border-t border-slate-200 dark:border-slate-800">
+                  <div className="relative flex-1 max-w-md">
+                    <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                     <input
                       type="text"
                       value={mapSearchQuery}
                       onChange={(e) => setMapSearchQuery(e.target.value)}
-                      placeholder="Search modules or topics..."
-                      aria-label="Search modules or topics"
-                      className="pl-9 pr-3 py-2 text-xs rounded-xl bg-slate-900 border border-slate-700 text-white focus:outline-none focus:border-blue-500"
+                      placeholder="Search modules, topics, or learning gates..."
+                      aria-label="Search syllabus modules and topics"
+                      className="w-full pl-9 pr-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-xs sm:text-sm text-slate-900 dark:text-white"
                     />
                   </div>
 
-                  <div className="flex items-center gap-1 p-1 bg-slate-900 border border-slate-800 rounded-xl">
-                    {(['All', 'In Progress', 'Mastered', 'Locked'] as const).map(
-                      (st) => (
-                        <button
-                          key={st}
-                          type="button"
-                          onClick={() => setMapStatusFilter(st)}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
-                            mapStatusFilter === st
-                              ? 'bg-blue-600 text-white'
-                              : 'text-slate-400 hover:text-white'
-                          }`}
-                        >
-                          {st}
-                        </button>
-                      )
-                    )}
+                  <div className="flex flex-wrap items-center gap-1.5">
+                    {(
+                      [
+                        { id: 'all', label: 'All Statuses' },
+                        { id: 'not-started', label: 'Not Started' },
+                        { id: 'in-progress', label: 'In Progress' },
+                        { id: 'passed', label: 'Passed (≥90%)' },
+                      ] as const
+                    ).map((st) => (
+                      <button
+                        key={st.id}
+                        type="button"
+                        onClick={() => setMapStatusFilter(st.id)}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors cursor-pointer ${
+                          mapStatusFilter === st.id
+                            ? 'bg-blue-600 text-white border-blue-600'
+                            : 'bg-slate-50 dark:bg-slate-950 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800'
+                        }`}
+                      >
+                        {st.label}
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
 
-              {/* 1. STAGE FILTER TABS AT THE TOP */}
-              <div
-                role="tablist"
-                aria-label="Syllabus Stage Filter Tabs"
-                className="grid grid-cols-1 md:grid-cols-3 gap-3"
-              >
-                {(
-                  [
-                    {
-                      stage: 1 as const,
-                      title: 'Stage 1: Core Mechanics (Modules 0–6)',
-                      sub: 'Units, Statics, SFD/BMD, Stress, Sections, Deflection & Buckling',
-                    },
-                    {
-                      stage: 2 as const,
-                      title: 'Stage 2: Structural Design & Eurocodes (Modules 7–11)',
-                      sub: 'EN 1990 Combinations, EC3 Steel, EC5 Timber & EC6 Masonry',
-                    },
-                    {
-                      stage: 3 as const,
-                      title: 'Stage 3: Geotechnics & Advanced Structures (Modules 12–19)',
-                      sub: 'Soil Mechanics, Foundations, EC2 Concrete, Frames & Temporary Works',
-                    },
-                  ]
-                ).map((tab) => {
-                  const isSelected = selectedStage === tab.stage;
+              {/* VERTICAL TIMELINE CONNECTOR & NESTED MODULE -> TOPIC ACCORDION */}
+              <div className="relative pl-6 sm:pl-8 space-y-5 before:content-[''] before:absolute before:left-2.5 sm:before:left-3.5 before:top-4 before:bottom-4 before:w-0.5 before:bg-slate-700/70">
+                {filteredMapModules.map((mod) => {
+                  const modProg = progressState.modules[mod.id];
+                  const passedTopicsCount = mod.topics.filter(
+                    (t) => progressState.topics[t.id]?.passed
+                  ).length;
+                  const anyAttempted =
+                    (modProg?.attemptsCount ?? 0) > 0 ||
+                    mod.topics.some(
+                      (t) =>
+                        (progressState.topics[t.id]?.attemptsCount ?? 0) > 0
+                    );
+                  const isPassed = Boolean(modProg?.passed);
+                  const isExpanded = Boolean(
+                    expandedMapModules[mod.moduleNumber]
+                  );
+                  const stageNum = getModuleStage(mod.moduleNumber);
+                  const modulePct = isPassed
+                    ? 100
+                    : mod.topics.length > 0
+                    ? Math.round((passedTopicsCount / mod.topics.length) * 100)
+                    : 0;
+
                   return (
-                    <button
-                      key={tab.stage}
-                      role="tab"
-                      aria-selected={isSelected}
-                      type="button"
-                      onClick={() => setSelectedStage(tab.stage)}
-                      className={`text-left p-4 rounded-2xl border transition-all cursor-pointer ${
-                        isSelected
-                          ? 'bg-blue-600 text-white border-blue-400 shadow-lg'
-                          : 'bg-slate-900/90 text-slate-300 border-slate-800 hover:border-slate-700'
-                      }`}
+                    <div
+                      key={mod.id}
+                      data-testid={`map-module-card-${mod.moduleNumber}`}
+                      className="relative"
                     >
-                      <div className="font-display text-sm font-bold">
-                        {tab.title}
-                      </div>
+                      {/* Timeline Node Marker */}
                       <div
-                        className={`text-xs mt-1 ${
-                          isSelected ? 'text-blue-100' : 'text-slate-400'
+                        className={`absolute -left-6 sm:-left-8 top-6 w-6 h-6 rounded-full flex items-center justify-center text-[11px] font-mono font-bold border-2 z-10 ${
+                          isPassed
+                            ? 'bg-emerald-600 text-white border-emerald-300'
+                            : anyAttempted || mod.moduleNumber === 0
+                            ? 'bg-blue-600 text-white border-blue-300'
+                            : 'bg-slate-900 text-slate-400 border-slate-700'
                         }`}
                       >
-                        {tab.sub}
+                        {isPassed ? '✓' : mod.moduleNumber}
                       </div>
-                    </button>
-                  );
-                })}
-              </div>
 
-              {/* 2. UNIFIED ACCORDION ROADMAP (With Vertical Flow Connectors) */}
-              <div className="space-y-0">
-                {filteredSyllabusModules.map((mod, idx) => {
-                  const isExpanded = Boolean(expandedModules[mod.moduleNumber]);
-                  const isUnlocked = mod.status !== 'Locked';
-
-                  return (
-                    <React.Fragment key={mod.moduleNumber}>
-                      {/* Vertical Prerequisite Connector Line (│ and ▼) */}
-                      {idx > 0 && (
-                        <div
-                          aria-hidden="true"
-                          className="flex flex-col items-center py-1 text-slate-600 select-none"
-                        >
-                          <div className="w-0.5 h-5 bg-slate-700" />
-                          <div className="text-[10px] leading-none text-slate-500">
-                            ▼
-                          </div>
-                        </div>
-                      )}
-
-                      <div
-                        className={`${cardSurfaceClass} rounded-2xl overflow-hidden transition-all`}
-                      >
-                        {/* Module Accordion Header */}
-                        <div
-                          onClick={() =>
-                            setExpandedModules((prev) => ({
-                              ...prev,
-                              [mod.moduleNumber]: !prev[mod.moduleNumber],
-                            }))
-                          }
-                          className="p-5 flex flex-wrap items-center justify-between gap-4 cursor-pointer hover:bg-slate-50/50 dark:hover:bg-slate-800/40"
-                        >
-                          <div className="flex items-start gap-3.5 min-w-0">
-                            <div
-                              className={`w-10 h-10 rounded-xl flex items-center justify-center font-display text-sm font-bold shrink-0 ${
-                                isUnlocked
-                                  ? 'bg-blue-600 text-white'
-                                  : 'bg-slate-200 dark:bg-slate-800 text-slate-500'
-                              }`}
-                            >
-                              {isUnlocked ? (
-                                `M${mod.moduleNumber}`
-                              ) : (
-                                <Lock className="w-4 h-4" />
-                              )}
+                      {/* Module Accordion Card */}
+                      <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xs overflow-hidden">
+                        {/* Accordion Header */}
+                        <div className="p-5 sm:p-6 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+                          <div
+                            className="space-y-1.5 flex-1 cursor-pointer"
+                            onClick={() =>
+                              setExpandedMapModules((prev) => ({
+                                ...prev,
+                                [mod.moduleNumber]: !prev[mod.moduleNumber],
+                              }))
+                            }
+                          >
+                            <div className="flex flex-wrap items-center gap-2">
+                              <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-sky-500/30">
+                                Stage {stageNum} • Module {mod.moduleNumber}
+                              </span>
+                              <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                                {mod.suggestedDuration ??
+                                  mod.yearPathway ??
+                                  '6–10 weeks'}
+                              </span>
+                              <span
+                                className={`text-xs font-mono font-semibold px-2.5 py-0.5 rounded-lg ${
+                                  isPassed
+                                    ? 'bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300'
+                                    : anyAttempted
+                                    ? 'bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300'
+                                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                                }`}
+                              >
+                                {isPassed
+                                  ? `Module Passed (${modProg.bestScorePercent.toFixed(
+                                      0
+                                    )}%)`
+                                  : anyAttempted
+                                  ? 'In Progress'
+                                  : 'Not Started'}
+                              </span>
                             </div>
 
-                            <div className="space-y-1 min-w-0">
-                              <div className="flex flex-wrap items-center gap-2">
-                                <h2 className="font-display text-base sm:text-lg font-bold">
-                                  {mod.title}
-                                </h2>
-                                <span
-                                  className={`px-2.5 py-0.5 rounded-md text-xs font-semibold ${
-                                    mod.status === 'In Progress'
-                                      ? 'bg-blue-100 dark:bg-blue-950 text-blue-800 dark:text-sky-300'
-                                      : mod.status === 'Mastered'
-                                      ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
-                                      : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                                  }`}
-                                >
-                                  {mod.status === 'In Progress'
-                                    ? `In Progress • ${mod.progressPercent}%`
-                                    : mod.status}
-                                </span>
+                            <h2 className="font-display text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
+                              {mod.title}
+                            </h2>
+                            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                              {mod.summary}
+                            </p>
+                          </div>
+
+                          {/* Header Actions & Progress */}
+                          <div className="flex flex-wrap items-center gap-2.5 shrink-0">
+                            <div className="text-right mr-2 hidden sm:block">
+                              <div className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                                Topics: {passedTopicsCount}/{mod.topics.length}{' '}
+                                • {modulePct}%
                               </div>
-                              <p className={`text-xs ${mutedTextClass}`}>
-                                {mod.subtitle} • {mod.durationWeeks} •{' '}
-                                {mod.unlockRequirement}
-                              </p>
+                              <div className="w-28 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mt-1">
+                                <div
+                                  className="h-full bg-blue-600 dark:bg-sky-500"
+                                  style={{ width: `${modulePct}%` }}
+                                />
+                              </div>
                             </div>
-                          </div>
 
-                          <div className="flex items-center gap-2 shrink-0">
                             <button
                               type="button"
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                setInspectorTarget({
-                                  moduleItem: mod,
+                              onClick={() =>
+                                setInspectorDrawerTarget({
+                                  moduleItem: toLegacyModuleItem(
+                                    mod,
+                                    progressState
+                                  ),
                                   objectiveItem: null,
-                                });
-                              }}
-                              className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 cursor-pointer"
+                                  moduleNumber: mod.moduleNumber,
+                                })
+                              }
+                              className="px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 cursor-pointer"
                             >
-                              Details / Syllabus Info
+                              Syllabus Info
                             </button>
-                            <span className="p-1.5 text-slate-400">
+
+                            <button
+                              type="button"
+                              onClick={() =>
+                                handleSelectModuleAndTopic(
+                                  mod.moduleNumber,
+                                  mod.topics[0]?.id,
+                                  'tutor'
+                                )
+                              }
+                              className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-blue-50 dark:bg-slate-800 hover:bg-blue-100 dark:hover:bg-slate-700 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-slate-700 cursor-pointer"
+                            >
+                              Open in Tutor
+                            </button>
+
+                            <button
+                              type="button"
+                              onClick={() => handleStartModuleAssessment(mod)}
+                              data-testid={
+                                mod.moduleNumber === selectedModuleNumber
+                                  ? 'start-module-assessment-btn'
+                                  : `start-module-assessment-btn-${mod.moduleNumber}`
+                              }
+                              className="px-3.5 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-2xs cursor-pointer"
+                            >
+                              20-Q Module Exam
+                            </button>
+
+                            <button
+                              type="button"
+                              onClick={() =>
+                                setExpandedMapModules((prev) => ({
+                                  ...prev,
+                                  [mod.moduleNumber]: !prev[mod.moduleNumber],
+                                }))
+                              }
+                              aria-label={`Toggle Module ${mod.moduleNumber} topics`}
+                              className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer"
+                            >
                               {isExpanded ? (
-                                <ChevronDown className="w-5 h-5" />
+                                <ChevronUp className="w-4 h-4" />
                               ) : (
-                                <ChevronRight className="w-5 h-5" />
+                                <ChevronDown className="w-4 h-4" />
                               )}
-                            </span>
+                            </button>
                           </div>
                         </div>
 
-                        {/* Nested Learning Objectives (Inside the Module Accordion) */}
+                        {/* Expanded Module Body: Learning Gate, Nested Topics & End-of-Module Exam */}
                         {isExpanded && (
-                          <div className="border-t border-slate-200 dark:border-slate-800 px-5 py-4 bg-slate-50/60 dark:bg-slate-950/40 space-y-2.5">
-                            <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
-                              NESTED LEARNING OBJECTIVES ({mod.objectives.length})
+                          <div className="px-5 sm:px-6 pb-6 pt-3 border-t border-slate-200 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-950/50 space-y-4">
+                            {/* Learning Gate Banner */}
+                            <div className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+                              <div className="space-y-1">
+                                <span className="font-mono font-bold uppercase text-blue-600 dark:text-sky-400">
+                                  Syllabus Learning Gate:
+                                </span>{' '}
+                                <span className="text-slate-700 dark:text-slate-300">
+                                  {mod.learningGate}
+                                </span>
+                              </div>
+                              <span className="font-mono text-slate-500 dark:text-slate-400 shrink-0">
+                                {mod.workedExamples.length} Worked Examples •{' '}
+                                {mod.moduleAssessment.length} Exam Qs
+                              </span>
                             </div>
-                            {mod.objectives.map((obj) => {
-                              const objUnlocked = obj.status !== 'Locked';
-                              return (
-                                <div
-                                  key={obj.code}
-                                  className={`${subCardSurfaceClass} rounded-xl p-4 flex flex-wrap items-center justify-between gap-3`}
-                                >
-                                  <div className="space-y-1 min-w-0">
-                                    <div className="flex flex-wrap items-center gap-2">
-                                      <span className="font-display text-sm font-bold">
-                                        {obj.title}
-                                      </span>
-                                      <span
-                                        className={`px-2 py-0.5 rounded text-[11px] font-semibold ${
-                                          obj.status === 'Mastered'
-                                            ? 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
-                                            : obj.status === 'Up Next' ||
-                                              obj.status === 'In Progress'
-                                            ? 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300'
-                                            : 'bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                                        }`}
-                                      >
-                                        {obj.status === 'Mastered'
-                                          ? '✅ Mastered'
-                                          : obj.status === 'Up Next'
-                                          ? '🎯 Up Next'
-                                          : '🔒 Locked'}
-                                      </span>
-                                    </div>
-                                    <p className={`text-xs ${mutedTextClass}`}>
-                                      {obj.summary}
-                                    </p>
-                                  </div>
 
-                                  <div className="flex items-center gap-2 shrink-0">
-                                    <button
-                                      type="button"
-                                      onClick={() =>
-                                        setInspectorTarget({
-                                          moduleItem: mod,
-                                          objectiveItem: obj,
-                                        })
-                                      }
-                                      className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 cursor-pointer"
-                                    >
-                                      Details / Syllabus Info
-                                    </button>
-                                    {objUnlocked && (
+                            {/* Nested Topics List */}
+                            <div className="space-y-2.5">
+                              {mod.topics.map((topic) => {
+                                const tProg = progressState.topics[topic.id];
+                                const tPassed = Boolean(tProg?.passed);
+                                const tAttempted =
+                                  (tProg?.attemptsCount ?? 0) > 0;
+                                const legacyMod = toLegacyModuleItem(
+                                  mod,
+                                  progressState
+                                );
+                                const legacyObj =
+                                  legacyMod.objectives.find(
+                                    (o) => o.code === topic.code
+                                  ) ?? null;
+
+                                return (
+                                  <div
+                                    key={topic.id}
+                                    data-testid={`topic-card-${topic.id}`}
+                                    className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 flex flex-col md:flex-row md:items-center justify-between gap-4"
+                                  >
+                                    <div className="space-y-1.5 flex-1">
+                                      <div className="flex flex-wrap items-center gap-2">
+                                        <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300">
+                                          Topic {topic.code}
+                                        </span>
+                                        <h3 className="font-display text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                                          {topic.title}
+                                        </h3>
+                                        <span
+                                          className={`text-[11px] font-mono font-semibold px-2 py-0.5 rounded ${
+                                            tPassed
+                                              ? 'bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300'
+                                              : tAttempted
+                                              ? 'bg-amber-100 dark:bg-amber-500/20 text-amber-800 dark:text-amber-300'
+                                              : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                                          }`}
+                                        >
+                                          {tPassed
+                                            ? `Passed (${tProg.bestScorePercent.toFixed(
+                                                0
+                                              )}%)`
+                                            : tAttempted
+                                            ? `Best: ${tProg.bestScorePercent.toFixed(
+                                                0
+                                              )}% (<90%)`
+                                            : 'Not Started'}
+                                        </span>
+                                      </div>
+
+                                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                        {topic.summary}
+                                      </p>
+                                    </div>
+
+                                    <div className="flex flex-wrap items-center gap-2 shrink-0">
                                       <button
                                         type="button"
                                         onClick={() =>
-                                          startOrResumeTutor(
-                                            obj.code === '0.1' ? 'learn' : '1a',
-                                            obj.title
+                                          setInspectorDrawerTarget({
+                                            moduleItem: legacyMod,
+                                            objectiveItem: legacyObj,
+                                            moduleNumber: mod.moduleNumber,
+                                            topicId: topic.id,
+                                          })
+                                        }
+                                        className="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 cursor-pointer"
+                                      >
+                                        Details
+                                      </button>
+
+                                      <button
+                                        type="button"
+                                        onClick={() =>
+                                          handleSelectModuleAndTopic(
+                                            mod.moduleNumber,
+                                            topic.id,
+                                            'tutor'
                                           )
                                         }
-                                        className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold bg-[#2563EB] hover:bg-blue-700 text-white cursor-pointer"
+                                        className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-blue-700 dark:text-sky-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
                                       >
-                                        <Play className="w-3 h-3 fill-current" />
-                                        <span>Practice</span>
+                                        Study Topic
                                       </button>
-                                    )}
+
+                                      <button
+                                        type="button"
+                                        onClick={() =>
+                                          handleStartTopicAssessment(mod, topic)
+                                        }
+                                        data-testid={`start-topic-assessment-${topic.id}`}
+                                        className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white cursor-pointer"
+                                      >
+                                        Topic Assessment (
+                                        {topic.assessmentQuestions.length} Qs)
+                                      </button>
+                                    </div>
                                   </div>
+                                );
+                              })}
+                            </div>
+
+                            {/* End-of-Module Assessment Callout Bar */}
+                            <div className="rounded-xl bg-blue-50/80 dark:bg-slate-900 border border-blue-200 dark:border-slate-800 p-4 flex flex-wrap items-center justify-between gap-4">
+                              <div className="space-y-0.5">
+                                <div className="text-xs font-mono font-bold uppercase text-blue-700 dark:text-sky-300">
+                                  End-of-Module {mod.moduleNumber} Gate
+                                  Assessment • 90% Pass Mark (18/20 Required)
                                 </div>
-                              );
-                            })}
+                                <p className="text-xs text-slate-700 dark:text-slate-300">
+                                  Comprehensive 20-question engineering exam
+                                  covering all topics, calculations, load paths,
+                                  and assumptions in {mod.shortTitle}.
+                                </p>
+                              </div>
+                              <button
+                                type="button"
+                                onClick={() => handleStartModuleAssessment(mod)}
+                                className="px-4 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white shadow-2xs cursor-pointer"
+                              >
+                                Start 20-Question Module Exam →
+                              </button>
+                            </div>
                           </div>
                         )}
                       </div>
-                    </React.Fragment>
+                    </div>
                   );
                 })}
               </div>
-            </main>
+            </div>
           )}
 
-          <footer className="mt-auto border-t border-slate-800/80 px-6 py-3 text-xs text-slate-400 flex flex-wrap items-center justify-between gap-2">
-            <span>StructTutor personal structural engineering tutor</span>
-            <span className="font-mono">
-              Version {APP_VERSION}, built {APP_BUILD_DATE}
-            </span>
-          </footer>
-        </div>
+          {/* =============================================================== */}
+          {/* VIEW 4: TOPIC OR END-OF-MODULE ASSESSMENT RUNNER                */}
+          {/* =============================================================== */}
+          {activeView === 'assessment' && resolvedAssessment && (
+            <AssessmentView
+              key={
+                resolvedAssessment.topic
+                  ? `TOPIC-${resolvedAssessment.topic.id}`
+                  : `MODULE-${resolvedAssessment.module.id}`
+              }
+              module={resolvedAssessment.module}
+              topic={resolvedAssessment.topic}
+              questions={resolvedAssessment.questions}
+              previousBestScorePercent={
+                resolvedAssessment.topic
+                  ? progressState.topics[resolvedAssessment.topic.id]
+                      ?.bestScorePercent ?? null
+                  : progressState.modules[resolvedAssessment.module.id]
+                      ?.bestScorePercent ?? null
+              }
+              previousPassed={
+                resolvedAssessment.topic
+                  ? Boolean(
+                      progressState.topics[resolvedAssessment.topic.id]?.passed
+                    )
+                  : Boolean(
+                      progressState.modules[resolvedAssessment.module.id]
+                        ?.passed
+                    )
+              }
+              previousAttemptsCount={
+                resolvedAssessment.topic
+                  ? progressState.topics[resolvedAssessment.topic.id]
+                      ?.attemptsCount ?? 0
+                  : progressState.modules[resolvedAssessment.module.id]
+                      ?.attemptsCount ?? 0
+              }
+              onCompleteAttempt={(res) =>
+                handleCompleteAssessmentAttempt(
+                  resolvedAssessment.module,
+                  resolvedAssessment.topic,
+                  res
+                )
+              }
+              onBackToModule={() =>
+                handleOpenModuleInMap(resolvedAssessment.module.moduleNumber)
+              }
+            />
+          )}
 
-        {/* ================================================================ */}
-        {/* SLIDE-OVER DRAWERS & SELF-VERIFICATION SUITE                     */}
-        {/* ================================================================ */}
+          {/* =============================================================== */}
+          {/* VIEW 5: COVERAGE MAP, MILESTONES A-F & STUDY STANDARDS          */}
+          {/* =============================================================== */}
+          {activeView === 'coverage' && (
+            <CoverageAndMilestonesView
+              modules={ALL_SYLLABUS_MODULES}
+              progressState={progressState}
+              onSelectModule={(modNum) =>
+                handleSelectModuleAndTopic(modNum, undefined, 'tutor')
+              }
+            />
+          )}
+        </main>
+
+        {/* ================================================================= */}
+        {/* SLIDE-OVER DRAWERS & UTILITY MODALS                               */}
+        {/* ================================================================= */}
         <WorkedSolutionDrawer
           isOpen={workedSolutionDrawerOpen}
           onClose={() => setWorkedSolutionDrawerOpen(false)}
           question={activeQuestion}
           fullSolutionUnlocked={Boolean(
-            fullSolutionUnlockedByStep[currentStep] || gradeOutcome?.isCorrect
+            fullSolutionUnlockedByStep[currentStep]
           )}
           onUnlockFullSolution={() =>
             setFullSolutionUnlockedByStep((prev) => ({
@@ -2098,21 +2673,17 @@ export default function App() {
         />
 
         <SyllabusInspectorDrawer
-          moduleItem={inspectorTarget?.moduleItem ?? null}
-          objectiveItem={inspectorTarget?.objectiveItem ?? null}
-          onClose={() => setInspectorTarget(null)}
+          moduleItem={inspectorDrawerTarget?.moduleItem ?? null}
+          objectiveItem={inspectorDrawerTarget?.objectiveItem ?? null}
+          onClose={() => setInspectorDrawerTarget(null)}
           onStartTopic={() => {
-            const title =
-              inspectorTarget?.objectiveItem?.title ??
-              inspectorTarget?.moduleItem.title;
-            startOrResumeTutor('learn', title);
+            if (!inspectorDrawerTarget) return;
+            handleSelectModuleAndTopic(
+              inspectorDrawerTarget.moduleNumber,
+              inspectorDrawerTarget.topicId,
+              'tutor'
+            );
           }}
-        />
-
-        <VerificationSelfTestDrawer
-          checks={verificationChecks}
-          onQuickJumpQuestion2a={() => goToTutorStep('2a')}
-          onSimulateTwoStrikeRemedial={handleSimulateTwoStrikeOn2a}
         />
       </div>
     </div>
