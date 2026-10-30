@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0.0",
+  "provenance": "STARTER_CURRICULUM_UNRECONCILED",
+  "misconceptions": [
+    {
+      "id": "MISC-UNIT-MOMENT-STRESS",
+      "category": "unit_dimension_error",
+      "title": "Forgetting 1 kN·m = 10⁶ N·mm in Bending Stress",
+      "description": "Dividing bending moment in kN·m by section modulus in mm³ without multiplying by 10⁶ (or only multiplying by 10³).",
+      "remediation_strategy": "Write units explicitly at every step: 1 kN = 10³ N and 1 m = 10³ mm, so 1 kN·m = 10⁶ N·mm. Verify that N·mm / mm³ = N/mm² = MPa."
+    },
+    {
+      "id": "MISC-SECT-Q-VS-WEL",
+      "category": "section_property_interpretation",
+      "title": "Confusing First Moment of Area (Q) with Elastic Section Modulus (W_el)",
+      "description": "Treating First Moment of Area Q and Elastic Section Modulus W_el as interchangeable because both have units of mm³ (L³).",
+      "remediation_strategy": "Contrast their physical definitions: Q = ∫y dA measures area moment of a slice for shear flow (τ = VQ/Ib), whereas W_el = I / y_max relates total bending moment to extreme-fibre normal stress (σ = M / W_el)."
+    },
+    {
+      "id": "MISC-SECT-I-VS-STRENGTH",
+      "category": "section_property_interpretation",
+      "title": "Treating Second Moment of Area (I) as Material Strength or Resistance Alone",
+      "description": "Assuming I (mm⁴) directly gives bending strength without considering extreme fibre distance y_max, material yield strength f_y, or elastic modulus E.",
+      "remediation_strategy": "Distinguish geometry (I in mm⁴), flexural stiffness (EI in N·mm²), elastic stress governor (W_el = I/y_max in mm³), and material resistance."
+    },
+    {
+      "id": "MISC-STAT-FBD-OMITTED-REACTION",
+      "category": "incorrect_fbd",
+      "title": "Incomplete Free-Body Diagram or Incorrect Support Restraint",
+      "description": "Omitting a moment restraint at a fixed support, or adding a horizontal reaction where a roller permits free translation.",
+      "remediation_strategy": "Ask: 'Which translations and rotations does this support physically prevent?' Each prevented degree of freedom corresponds to exactly one reaction component."
+    },
+    {
+      "id": "MISC-STAT-MOMENT-ARM-TRIG",
+      "category": "wrong_moment_arm",
+      "title": "Using Inclined Member Length Instead of Perpendicular Lever Arm",
+      "description": "Multiplying a force by the total distance to the pivot rather than the perpendicular distance (or failing to resolve the force into orthogonal components first).",
+      "remediation_strategy": "Use Varignon's principle: resolve the inclined force into horizontal and vertical components at a known point, then multiply each by its clear orthogonal coordinate distance."
+    },
+    {
+      "id": "MISC-BEAM-SHEAR-JUMP-SIGN",
+      "category": "sign_convention",
+      "title": "Reversing Shear Jump Direction or Sign Convention at Point Loads",
+      "description": "Losing track of whether a downward point load causes a downward step in the SFD under the UK left-up/right-down positive shear convention.",
+      "remediation_strategy": "Draw a tiny differential beam slice Δx straddling the point load and enforce vertical equilibrium ΣF_y = 0."
+    },
+    {
+      "id": "MISC-BEAM-BMD-COUPLE-JUMP",
+      "category": "diagram_shape_error",
+      "title": "Expecting a Concentrated Couple to Jump the Shear Diagram Instead of the BMD",
+      "description": "Applying a point moment (couple) as a jump on the SFD rather than a sudden vertical discontinuity on the BMD.",
+      "remediation_strategy": "Show from ΣF_y = 0 that a pure couple adds zero net vertical force (no jump in V), while ΣM = 0 across an infinitesimal slice produces an immediate step ΔM in the BMD."
+    },
+    {
+      "id": "MISC-FORMULA-PL4-OVERUSE",
+      "category": "unsupported_formula_use",
+      "title": "Applying M = PL/4 or wL²/8 Outside Simply Supported Symmetric Conditions",
+      "description": "Using standard textbook formulas when the beam has an overhang, off-centre load, cantilever support, or end couple.",
+      "remediation_strategy": "Always verify boundary conditions first; determine reactions from global equilibrium and make an explicit section cut."
+    }
+  ],
+  "objectives": [
+    {
+      "id": "MATH-01",
+      "domain_code": "A",
+      "domain_title": "Mathematical Fluency & Units (Just-in-Time)",
+      "title": "Structural Units, Dimensional Homogeneity & Power Scaling",
+      "observable_competency": "Convert fluently between N/kN/MN, mm/cm/m, mm²/mm³/mm⁴, kN·m/N·mm, and MPa/N/mm², and verify dimensional consistency of structural equations before substituting numbers.",
+      "why_it_matters": "Factor-of-1,000 errors in kN·m to N·mm or m⁴ to mm⁴ invalidate otherwise sound engineering analysis.",
+      "prerequisite_ids": [],
+      "target_balance": "40% Conceptual / 60% Calculation"
+    },
+    {
+      "id": "MATH-02",
+      "domain_code": "A",
+      "domain_title": "Mathematical Fluency & Units (Just-in-Time)",
+      "title": "Rapid Trigonometry, Force Resolution & Slope Ratios",
+      "observable_competency": "Decompose inclined forces and member geometries into orthogonal components using both angles (sin/cos) and 3-4-5 / rise-run slope ratios without sign confusion.",
+      "why_it_matters": "Fast, reliable component resolution is essential for trusses, raking props, and triangulated brackets.",
+      "prerequisite_ids": ["MATH-01"],
+      "target_balance": "40% Conceptual / 60% Calculation"
+    },
+    {
+      "id": "MATH-03",
+      "domain_code": "A",
+      "domain_title": "Mathematical Fluency & Units (Just-in-Time)",
+      "title": "Visual Calculus for Engineers: Slopes (d/dx) and Accumulated Areas (∫ dx)",
+      "observable_competency": "Interpret derivatives as local diagram gradients and integrals as accumulated areas under curves to link load intensity w(x), shear V(x), moment M(x), slope θ(x), and deflection δ(x).",
+      "why_it_matters": "Eliminates memorisation of SFD/BMD curve shapes by revealing why constant load gives linear shear and parabolic moment.",
+      "prerequisite_ids": ["MATH-01"],
+      "target_balance": "60% Conceptual / 40% Calculation"
+    },
+    {
+      "id": "STAT-01",
+      "domain_code": "B",
+      "domain_title": "Core Statics & Load Paths",
+      "title": "Support Idealisations, Restraints & Free-Body Diagrams (FBDs)",
+      "observable_competency": "Translate real structural connections into idealised pin, roller, fixed, or hanger supports, isolate a valid FBD, and justify every reaction component.",
+      "why_it_matters": "Every hand calculation and finite-element model stands or falls on whether the boundary conditions match physical reality.",
+      "prerequisite_ids": ["MATH-01", "MATH-02"],
+      "target_balance": "60% Conceptual / 40% Calculation"
+    },
+    {
+      "id": "STAT-02",
+      "domain_code": "B",
+      "domain_title": "Core Statics & Load Paths",
+      "title": "Translational & Rotational Equilibrium (ΣFx = 0, ΣFy = 0, ΣM = 0)",
+      "observable_competency": "Calculate global support reactions for asymmetric beams, cantilevers, and frames with eccentric loads and applied couples, and verify using an independent moment point.",
+      "why_it_matters": "If support reactions are wrong, every downstream internal force, SFD, and BMD is guaranteed to be wrong.",
+      "prerequisite_ids": ["STAT-01"],
+      "target_balance": "45% Conceptual / 55% Calculation"
+    },
+    {
+      "id": "STAT-03",
+      "domain_code": "B",
+      "domain_title": "Core Statics & Load Paths",
+      "title": "Static Determinacy, Stability, Mechanisms & Load Paths",
+      "observable_competency": "Trace how gravity and lateral loads travel from application point to foundation, and distinguish stable determinate structures from unstable mechanisms or indeterminate systems.",
+      "why_it_matters": "Recognising an unstable arrangement or missing bracing path prevents catastrophic collapses and software modelling blunders.",
+      "prerequisite_ids": ["STAT-02"],
+      "target_balance": "65% Conceptual / 35% Calculation"
+    },
+    {
+      "id": "STAT-04",
+      "domain_code": "B",
+      "domain_title": "Core Statics & Load Paths",
+      "title": "Method of Sections & Internal Resultants (N, V, M)",
+      "observable_competency": "Cut an arbitrary structural member, expose internal axial force N, shear force V, and bending moment M using the UK sign convention, and solve for them via equilibrium of the isolated sub-body.",
+      "why_it_matters": "Connects external loads to the internal actions that material cross-sections must actually resist.",
+      "prerequisite_ids": ["STAT-02"],
+      "target_balance": "50% Conceptual / 50% Calculation"
+    },
+    {
+      "id": "BEAM-01",
+      "domain_code": "C",
+      "domain_title": "Beam Behaviour, SFDs & BMDs",
+      "title": "Simply Supported & Cantilever Beams under Point Loads and UDLs",
+      "observable_competency": "Construct accurate SFDs and BMDs (plotted on the tension face) for simply supported and cantilever beams, explaining shear jumps and moment peaks from equilibrium.",
+      "why_it_matters": "Forms the everyday baseline of member sizing and quick sense-checking of structural software.",
+      "prerequisite_ids": ["STAT-04", "MATH-03"],
+      "target_balance": "50% Conceptual / 50% Calculation"
+    },
+    {
+      "id": "BEAM-02",
+      "domain_code": "C",
+      "domain_title": "Beam Behaviour, SFDs & BMDs",
+      "title": "Differential Load–Shear–Moment Relationships & Extrema",
+      "observable_competency": "Use dV/dx = -w(x) and dM/dx = V(x) to locate zero-shear points, calculate exact maximum sagging/hogging moments, and handle Concentrated Point Couples.",
+      "why_it_matters": "Allows rapid analysis of partial UDLs and asymmetric loads where maximum moment does not occur at midspan.",
+      "prerequisite_ids": ["BEAM-01"],
+      "target_balance": "50% Conceptual / 50% Calculation"
+    },
+    {
+      "id": "BEAM-03",
+      "domain_code": "C",
+      "domain_title": "Beam Behaviour, SFDs & BMDs",
+      "title": "Complex Beams: Overhangs, Piecewise Regions & Triangular Loads",
+      "observable_competency": "Segment multi-region beams with overhangs, combined point/partial-UDL/triangular loads, identify sagging-to-hogging contraflexure points, and perform independent boundary checks.",
+      "why_it_matters": "Real-world beams frequently cantilever past supports or carry hydrostatic/earth triangular pressures.",
+      "prerequisite_ids": ["BEAM-02"],
+      "target_balance": "45% Conceptual / 55% Calculation"
+    },
+    {
+      "id": "SYS-01",
+      "domain_code": "D",
+      "domain_title": "Trusses, Frames, Brackets & Structural Systems",
+      "title": "Pin-Jointed Trusses, Zero-Force Members & Method of Joints/Sections",
+      "observable_competency": "Determine tension/compression in truss members, identify zero-force members by inspection, and explain the assumptions behind pin-jointed truss idealisations.",
+      "why_it_matters": "Enables quick manual verification of roof trusses, lattice girders, and bracing frames.",
+      "prerequisite_ids": ["STAT-03", "STAT-04"],
+      "target_balance": "50% Conceptual / 50% Calculation"
+    },
+    {
+      "id": "SYS-02",
+      "domain_code": "D",
+      "domain_title": "Trusses, Frames, Brackets & Structural Systems",
+      "title": "Triangulated Wall Brackets, Eccentric Connections & Portal/Braced Frames",
+      "observable_competency": "Analyse force flow through wall-mounted triangular brackets and simple frames, distinguishing global wall anchor reactions from local member axial/shear/bending actions.",
+      "why_it_matters": "Directly bridges theoretical statics with practical steelwork brackets, platforms, and frame stability.",
+      "prerequisite_ids": ["SYS-01", "BEAM-02"],
+      "target_balance": "50% Conceptual / 50% Calculation"
+    },
+    {
+      "id": "SECT-01",
+      "domain_code": "E",
+      "domain_title": "Section Properties & Cross-Sectional Behaviour",
+      "title": "Area (A), Centroids & First Moment of Area (Q)",
+      "observable_competency": "Compute cross-sectional area, locate the centroid of asymmetric shapes (T-sections, channels, angles), and calculate First Moment of Area Q (mm³) while distinguishing it from Section Modulus.",
+      "why_it_matters": "Finding the neutral axis and understanding Q (L³) is prerequisite to bending and shear stress analysis.",
+      "prerequisite_ids": ["MATH-01"],
+      "target_balance": "50% Conceptual / 50% Calculation"
+    },
+    {
+      "id": "SECT-02",
+      "domain_code": "E",
+      "domain_title": "Section Properties & Cross-Sectional Behaviour",
+      "title": "Second Moment of Area (I), Parallel Axis Theorem & Section Moduli (W_el vs W_pl)",
+      "observable_competency": "Calculate planar I = bd³/12 and composite I via the Parallel Axis Theorem (I_total = Σ(I_c + A·d²)), compute W_el and W_pl, and explain why depth cubed dominates flexural stiffness.",
+      "why_it_matters": "Explains why I-beams, channels, and deep timber joists work efficiently and how to read steel/timber section tables accurately.",
+      "prerequisite_ids": ["SECT-01"],
+      "target_balance": "50% Conceptual / 50% Calculation"
+    },
+    {
+      "id": "MAT-01",
+      "domain_code": "F",
+      "domain_title": "Internal Forces, Stress, Deflection & Buckling",
+      "title": "Axial, Bending (σ = My/I = M/W_el) & Shear Stress Distributions",
+      "observable_competency": "Calculate combined axial and bending stresses with strict unit consistency, sketch stress blocks across elastic and plastic sections, and distinguish stiffness (E, EI) from strength (f_y).",
+      "why_it_matters": "Links internal actions (N, V, M) and section geometry (A, W_el, I) to material stress limits.",
+      "prerequisite_ids": ["BEAM-02", "SECT-02"],
+      "target_balance": "50% Conceptual / 50% Calculation"
+    },
+    {
+      "id": "MAT-02",
+      "domain_code": "F",
+      "domain_title": "Internal Forces, Stress, Deflection & Buckling",
+      "title": "Flexural Stiffness (EI), Beam Deflection, Slenderness & Buckling Stability",
+      "observable_competency": "Evaluate how span, boundary conditions, E, and I govern beam deflection and Euler/member buckling (effective length L_cr, radius of gyration i, slenderness λ).",
+      "why_it_matters": "Slender compression struts and unbraced beams frequently fail by buckling or serviceability deflection long before material yield.",
+      "prerequisite_ids": ["MAT-01"],
+      "target_balance": "55% Conceptual / 45% Calculation"
+    },
+    {
+      "id": "CODE-01",
+      "domain_code": "G",
+      "domain_title": "Structural Design Practice & Eurocodes",
+      "title": "Eurocode Basis of Design (EN 1990/1991), Limit States & Software Output Interrogation",
+      "observable_competency": "Formulate ULS and SLS load combinations, trace partial factors, and independently interrogate structural analysis software reactions, deformed shapes, and equilibrium checks.",
+      "why_it_matters": "Ensures code compliance and guards against 'garbage-in, garbage-out' reliance on analysis software.",
+      "prerequisite_ids": ["MAT-02", "BEAM-03"],
+      "target_balance": "55% Conceptual / 45% Calculation"
+    },
+    {
+      "id": "CODE-02",
+      "domain_code": "G",
+      "domain_title": "Structural Design Practice & Eurocodes",
+      "title": "Steel (EN 1993) & Timber (EN 1995 / Eurocode 5) Member Design Workflows",
+      "observable_competency": "Execute source-grounded member checks for steel (cross-section classification, shear, bending, LTB, compression buckling) and timber (grain directionality, k_mod, k_def, combined stresses) using supplied code editions.",
+      "why_it_matters": "Translates mechanics fundamentals into verifiable UK Eurocode design calculations.",
+      "prerequisite_ids": ["CODE-01"],
+      "target_balance": "45% Conceptual / 55% Calculation"
+    },
+    {
+      "id": "TEMP-01",
+      "domain_code": "H",
+      "domain_title": "Temporary Works Applications (Secondary Practical Bridge)",
+      "title": "Propping, Needling, Falsework Load Paths & BS 5975 Context",
+      "observable_competency": "Apply statics, load paths, eccentricity, stability bracing, and bearing checks to temporary propping and needling schemes while distinguishing BS 5975 procedural guidance from Eurocode member checks.",
+      "why_it_matters": "Connects your practical temporary-works design experience directly to rigorous first-principles mechanics.",
+      "prerequisite_ids": ["SYS-02", "CODE-01"],
+      "target_balance": "50% Conceptual / 50% Calculation"
+    }
+  ]
+}

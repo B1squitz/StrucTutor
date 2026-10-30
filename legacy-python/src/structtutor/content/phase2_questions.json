@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "description": "Original compact Phase 2 practice bank; not copied textbook exercises. Deterministic marking; authored content is not independently peer-reviewed.",
+  "questions": [
+    {
+      "id": "P2-UNITS-01",
+      "objective_id": "MATH-01",
+      "title": "Moment conversion",
+      "task_type": "calculation",
+      "difficulty": 1,
+      "prompt": "Convert 3 kN·m to N·mm. Enter a value and choose its unit.",
+      "kind": "numeric",
+      "answer": 3000000,
+      "unit": "N·mm",
+      "unit_choices": [
+        "N·mm"
+      ],
+      "relative_tolerance": 0.01,
+      "absolute_tolerance": 1e-09,
+      "hints": [
+        "Convert the force and the length separately.",
+        "1 kN = 1,000 N and 1 m = 1,000 mm."
+      ],
+      "solution": "3 kN·m = 3 × 1,000 N × 1,000 mm = 3,000,000 N·mm.",
+      "reference": "",
+      "provenance": "AI_GENERAL_KNOWLEDGE",
+      "verification_status": "SELF_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+      "version": 1
+    },
+    {
+      "id": "P2-UNITS-02",
+      "objective_id": "MATH-01",
+      "title": "Equivalent stress units",
+      "task_type": "transfer",
+      "difficulty": 1,
+      "prompt": "A positive bending moment is 18 kN·m and the elastic section modulus is 666,666.7 mm³. Calculate the signed elastic stress M / W_el. Enter the value in any listed unit.",
+      "kind": "numeric",
+      "answer": 0.027,
+      "unit": "GPa",
+      "unit_choices": [
+        "GPa",
+        "MPa",
+        "N/mm²"
+      ],
+      "relative_tolerance": 0.01,
+      "absolute_tolerance": 1e-09,
+      "hints": [
+        "Convert the moment into N·mm before dividing by W_el in mm³.",
+        "1 kN·m = 1,000,000 N·mm; 1 GPa = 1,000 MPa."
+      ],
+      "solution": "M = 18 kN·m = 18,000,000 N·mm.\nStress = 18,000,000 N·mm / 666,666.7 mm³ = approximately 27 MPa = 0.027 GPa.",
+      "reference": "",
+      "provenance": "AI_GENERAL_KNOWLEDGE",
+      "verification_status": "SELF_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+      "version": 1
+    },
+    {
+      "id": "P2-UNITS-03",
+      "objective_id": "MATH-01",
+      "title": "Area scaling",
+      "task_type": "calculation",
+      "difficulty": 1,
+      "prompt": "Convert 4 cm² to mm².",
+      "kind": "numeric",
+      "answer": 400,
+      "unit": "mm²",
+      "unit_choices": [
+        "mm²"
+      ],
+      "relative_tolerance": 0.01,
+      "absolute_tolerance": 1e-09,
+      "hints": [
+        "Area has two length dimensions.",
+        "1 cm² = (10 mm)² = 100 mm²."
+      ],
+      "solution": "4 cm² = 4 × 100 mm² = 400 mm².",
+      "reference": "",
+      "provenance": "AI_GENERAL_KNOWLEDGE",
+      "verification_status": "SELF_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+      "version": 1
+    },
+    {
+      "id": "P2-FBD-01",
+      "objective_id": "STAT-01",
+      "title": "Pin and roller reactions",
+      "task_type": "concept",
+      "difficulty": 1,
+      "prompt": "A horizontal beam has an ideal pin at A and a frictionless roller on a horizontal surface at B. Which support reactions belong on its free-body diagram?",
+      "kind": "choice",
+      "options": {
+        "a": "A horizontal and vertical; B vertical.",
+        "b": "A and B each resist a moment.",
+        "c": "A vertical only; B horizontal only."
+      },
+      "answer": "a",
+      "hints": [
+        "Identify the translation each support restrains.",
+        "The ideal pin provides two force components; this roller provides one vertical component."
+      ],
+      "solution": "Show A horizontal and vertical reactions and B vertical reaction. Ideal pin and roller do not apply reaction couples.",
+      "wrong_misconceptions": {
+        "c": "MISC-STAT-FBD-OMITTED-REACTION"
+      },
+      "reference": "Background reference: R. C. Hibbeler, Structural Analysis, 9th edition (2015), section 2.4, printed page 50; 001-180.pdf page 71. The question is original, not a textbook exercise.",
+      "provenance": "AI_GENERAL_KNOWLEDGE",
+      "verification_status": "SELF_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+      "version": 1
+    },
+    {
+      "id": "P2-FBD-02",
+      "objective_id": "STAT-01",
+      "title": "Isolating a beam",
+      "task_type": "concept",
+      "difficulty": 1,
+      "prompt": "You remove a supported beam from its surroundings to draw its free-body diagram. What replaces the supports?",
+      "kind": "choice",
+      "options": {
+        "a": "The applied support forces and any support moments permitted by the idealisation.",
+        "b": "Nothing; supports have no forces once removed.",
+        "c": "Only the applied loads, not the support actions."
+      },
+      "answer": "a",
+      "hints": [
+        "The isolated body must still represent the actions of its surroundings.",
+        "Replace each removed restraint by its permitted reaction components."
+      ],
+      "solution": "Isolate the beam, show applied loads and replace supports with the forces and moments consistent with the support idealisations.",
+      "wrong_misconceptions": {
+        "b": "MISC-STAT-FBD-OMITTED-REACTION",
+        "c": "MISC-STAT-FBD-OMITTED-REACTION"
+      },
+      "reference": "Background reference: R. C. Hibbeler, Structural Analysis, 9th edition (2015), section 2.4, printed page 50; 001-180.pdf page 71. The question is original, not a textbook exercise.",
+      "provenance": "AI_GENERAL_KNOWLEDGE",
+      "verification_status": "SELF_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+      "version": 1
+    },
+    {
+      "id": "P2-FBD-03",
+      "objective_id": "STAT-01",
+      "title": "Change the restraint",
+      "task_type": "transfer",
+      "difficulty": 1,
+      "prompt": "If an ideal roller rests against a smooth vertical wall instead of a horizontal surface, what is its single reaction direction?",
+      "kind": "choice",
+      "options": {
+        "a": "Horizontal, normal to the wall.",
+        "b": "Vertical, parallel to the wall.",
+        "c": "A reaction couple only."
+      },
+      "answer": "a",
+      "hints": [
+        "A smooth contact cannot transmit a friction force.",
+        "Its contact force is normal to the surface."
+      ],
+      "solution": "A smooth vertical wall exerts a horizontal normal reaction; it has no tangential friction reaction in this idealisation.",
+      "wrong_misconceptions": {},
+      "reference": "Background reference: R. C. Hibbeler, Structural Analysis, 9th edition (2015), section 2.4, printed page 50; 001-180.pdf page 71. The question is original, not a textbook exercise.",
+      "provenance": "AI_GENERAL_KNOWLEDGE",
+      "verification_status": "SELF_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+      "version": 1
+    },
+    {
+      "id": "P2-EQ-01",
+      "objective_id": "STAT-02",
+      "title": "Find the right reaction",
+      "task_type": "calculation",
+      "difficulty": 1,
+      "prompt": "A horizontal simply supported 6 m beam has an ideal pin at A and a roller at B. A 24 kN downward point load acts 2 m from A. Neglect self-weight. Find the upward vertical reaction at B.",
+      "kind": "numeric",
+      "answer": 8,
+      "unit": "kN",
+      "unit_choices": [
+        "kN",
+        "N",
+        "MN"
+      ],
+      "relative_tolerance": 0.01,
+      "absolute_tolerance": 1e-09,
+      "hints": [
+        "Take moments about A to eliminate the reaction at A.",
+        "B is 6 m from A; the load is 2 m from A."
+      ],
+      "solution": "ΣM about A = 0: R_B × 6 m = 24 kN × 2 m.\nR_B = 48 kN·m / 6 m = 8 kN upward.\nCheck: R_A = 24 kN − 8 kN = 16 kN upward.",
+      "reference": "Background reference: R. C. Hibbeler, Structural Analysis, 9th edition (2015), section 2.4, printed page 50; 001-180.pdf page 71. The question is original, not a textbook exercise.",
+      "provenance": "AI_GENERAL_KNOWLEDGE",
+      "verification_status": "SELF_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+      "version": 1
+    },
+    {
+      "id": "P2-EQ-02",
+      "objective_id": "STAT-02",
+      "title": "Move the load",
+      "task_type": "transfer",
+      "difficulty": 1,
+      "prompt": "Use the same 6 m simply supported beam and 24 kN downward point load, now 4 m from A. Neglect self-weight. Find the upward reaction at B.",
+      "kind": "numeric",
+      "answer": 16,
+      "unit": "kN",
+      "unit_choices": [
+        "kN",
+        "N",
+        "MN"
+      ],
+      "relative_tolerance": 0.01,
+      "absolute_tolerance": 1e-09,
+      "hints": [
+        "The load moved towards B, so which support should carry more?",
+        "Take moments about A: R_B × 6 m = 24 kN × 4 m."
+      ],
+      "solution": "R_B = 24 kN × 4 m / 6 m = 16 kN upward.\nCheck: R_A = 24 kN − 16 kN = 8 kN upward.",
+      "reference": "Background reference: R. C. Hibbeler, Structural Analysis, 9th edition (2015), section 2.4, printed page 50; 001-180.pdf page 71. The question is original, not a textbook exercise.",
+      "provenance": "AI_GENERAL_KNOWLEDGE",
+      "verification_status": "SELF_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+      "version": 1
+    },
+    {
+      "id": "P2-EQ-03",
+      "objective_id": "STAT-02",
+      "title": "Choose a moment centre",
+      "task_type": "concept",
+      "difficulty": 1,
+      "prompt": "For the beam above, why can taking moments about A eliminate the vertical reaction at A from the moment equation?",
+      "kind": "choice",
+      "options": {
+        "a": "Its line of action passes through A, giving zero perpendicular moment arm.",
+        "b": "The reaction at A is necessarily zero.",
+        "c": "Vertical forces never produce moments."
+      },
+      "answer": "a",
+      "hints": [
+        "A force produces moment through its perpendicular distance from the moment centre.",
+        "What is that distance for a force acting at A?"
+      ],
+      "solution": "The vertical reaction at A acts through A, so its moment arm about A is zero. It can still be non-zero.",
+      "wrong_misconceptions": {
+        "b": "MISC-STAT-MOMENT-ARM-TRIG",
+        "c": "MISC-STAT-MOMENT-ARM-TRIG"
+      },
+      "reference": "Background reference: R. C. Hibbeler, Structural Analysis, 9th edition (2015), section 2.4, printed page 50; 001-180.pdf page 71. The question is original, not a textbook exercise.",
+      "provenance": "AI_GENERAL_KNOWLEDGE",
+      "verification_status": "SELF_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+      "version": 1
+    }
+  ]
+}

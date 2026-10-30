@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "structtutor"
+version = "0.1.0"
+description = "Local-first personal structural engineering tutor and deterministic verification workbench"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "Proprietary - Personal Educational Use"}
+authors = [
+    {name = "StructTutor Project"}
+]
+dependencies = [
+    "PySide6>=6.7.0",
+    "matplotlib>=3.8.0",
+    "numpy>=1.26.0",
+    "pymupdf>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+
+[project.scripts]
+structtutor = "structtutor.app:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+structtutor = ["content/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-v"
