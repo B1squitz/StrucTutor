@@ -150,7 +150,7 @@ test('All 20 legacy syllabus items and session questions pass 12/12 self-verific
     assert.equal(/\b27\b/.test(h), false, `Step 2a hint leaked answer 27: ${h}`);
   }
   for (const h of SESSION_QUESTIONS['2a-R'].hints) {
-    assert.equal(/\b20\b/.test(h), false, `Step 2a-R hint leaked answer 20: ${h}`);
+    assert.equal(/\b9(\.0)?\b/.test(h), false, `Step 2a-R hint leaked answer 9.0: ${h}`);
   }
 });
 
