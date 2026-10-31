@@ -9,8 +9,17 @@
     <meta property="og:description" content="Personal, local-first structural engineering tutor for practising UK engineers." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary" />
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('structtutor_theme_v1');
+          var isDark = saved === 'dark' || saved === 'false';
+          document.documentElement.classList.toggle('dark', isDark);
+        } catch (e) {}
+      })();
+    </script>
   </head>
-  <body class="bg-[#0F172A] text-[#F8FAFC] antialiased selection:bg-[#0284C7]/30 selection:text-white">
+  <body class="bg-slate-100 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 antialiased selection:bg-[#0284C7]/30 selection:text-white">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,6 +1,6 @@
 export type QuestionType = 'numeric' | 'mcq' | 'scenario';
 
-export type ReviewStatus = 'Verified' | 'Draft' | 'Pending Review' | 'Corrected' | 'Reviewed' | 'Flagged';
+export type ReviewStatus = 'Verified' | 'Draft';
 export type QuestionReviewStatus = ReviewStatus;
 
 export interface QuestionCitation {

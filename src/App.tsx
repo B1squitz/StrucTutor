@@ -7,12 +7,12 @@ import { TutorSessionView } from './components/TutorSessionView';
 import { LearningMapView } from './components/LearningMapView';
 import { AssessmentView } from './components/AssessmentView';
 import { CoverageAndMilestonesView } from './components/CoverageAndMilestonesView';
+import { SettingsView } from './components/SettingsView';
 import { WorkedSolutionDrawer } from './components/WorkedSolutionDrawer';
 import {
   CalculatorPopover,
   SyllabusInspectorDrawer,
   UnitsReferenceDrawer,
-  VerificationSelfTestDrawer,
 } from './components/UtilityModals';
 
 export default function App() {
@@ -29,7 +29,6 @@ export default function App() {
         if (ws.workedSolutionDrawerOpen) ws.setWorkedSolutionDrawerOpen(false);
         if (ws.unitsDrawerOpen) ws.setUnitsDrawerOpen(false);
         if (ws.calculatorOpen) ws.setCalculatorOpen(false);
-        if (ws.verificationDrawerOpen) ws.setVerificationDrawerOpen(false);
         if (ws.inspectorDrawerTarget) ws.setInspectorDrawerTarget(null);
         if (ws.confirmResetOpen) ws.setConfirmResetOpen(false);
       } else if (e.altKey && !e.ctrlKey && !e.metaKey) {
@@ -45,6 +44,9 @@ export default function App() {
         } else if (e.key === '4') {
           e.preventDefault();
           ws.setActiveView('coverage');
+        } else if (e.key === '5') {
+          e.preventDefault();
+          ws.setActiveView('settings');
         }
       }
     };
@@ -77,7 +79,6 @@ export default function App() {
           setHybridLightCards={ws.setHybridLightCards}
           setUnitsDrawerOpen={ws.setUnitsDrawerOpen}
           setCalculatorOpen={ws.setCalculatorOpen}
-          setVerificationDrawerOpen={ws.setVerificationDrawerOpen}
           progressSummary={ws.progressSummary}
         />
 
@@ -231,6 +232,17 @@ export default function App() {
               onUpdateProgressState={(next) => ws.setProgressState(next)}
             />
           )}
+
+          {ws.activeView === 'settings' && (
+            <SettingsView
+              progressState={ws.progressState}
+              modules={ALL_SYLLABUS_MODULES}
+              hybridLightCards={ws.hybridLightCards}
+              setHybridLightCards={ws.setHybridLightCards}
+              onImportProgressState={(newState) => ws.setProgressState(newState)}
+              onResetAllProgress={ws.handleResetAllProgress}
+            />
+          )}
         </main>
 
         <WorkedSolutionDrawer
@@ -277,23 +289,6 @@ export default function App() {
               'tutor'
             );
           }}
-        />
-
-        <VerificationSelfTestDrawer
-          isOpen={ws.verificationDrawerOpen}
-          onClose={() => ws.setVerificationDrawerOpen(false)}
-          progressState={ws.progressState}
-          modules={ALL_SYLLABUS_MODULES}
-          onImportProgressState={(newState) => ws.setProgressState(newState)}
-          onUpdateQuestionReviewStatus={(questionId, status) =>
-            ws.setProgressState((prev) => ({
-              ...prev,
-              questionReviewOverrides: {
-                ...(prev.questionReviewOverrides ?? {}),
-                [questionId]: status,
-              },
-            }))
-          }
         />
       </div>
     </div>

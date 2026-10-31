@@ -15,6 +15,7 @@ import {
 import {
   ALL_SYLLABUS_MODULES,
   getModuleByNumber,
+  getTopicById,
 } from '../data/fullSyllabus';
 import {
   AssessmentSubmissionResult,
@@ -24,13 +25,22 @@ import {
 } from '../types/syllabus';
 import {
   computeCourseProgressSummary,
+  loadCourseProgressFromIndexedDB,
   loadCourseProgressState,
   recordAssessmentAttempt,
   resetCourseProgressState,
   saveCourseProgressState,
 } from '../utils/assessmentEngine';
 
-export type MainView = 'dashboard' | 'tutor' | 'map' | 'coverage' | 'assessment';
+export const THEME_STORAGE_KEY = 'structtutor_theme_v1';
+
+export type MainView =
+  | 'dashboard'
+  | 'tutor'
+  | 'map'
+  | 'coverage'
+  | 'assessment'
+  | 'settings';
 
 export interface ActiveAssessmentTarget {
   moduleNumber: number;
@@ -78,7 +88,7 @@ export function toLegacyModuleItem(
       : mod.topics.length > 0
       ? Math.round((passedTopics / mod.topics.length) * 100)
       : 0,
-    unlockRequirement: `Syllabus Gate: ${mod.learningGate}`,
+    unlockRequirement: `What you'll be able to do after this module: ${mod.learningGate}`,
     overview: `${mod.summary} ${mod.whyItMatters}`,
     eurocodeReference:
       mod.standardsNotice ??
@@ -99,7 +109,7 @@ export function toLegacyModuleItem(
         questionsCount: t.assessmentQuestions.length,
         summary: t.summary,
         keyFormulas: t.subtopics.slice(0, 4),
-        eurocodeContext: `Topic Assessment: ${t.assessmentQuestions.length} Questions (90% Pass Mark) • Module Gate: ${mod.learningGate}`,
+        eurocodeContext: `Topic Assessment: ${t.assessmentQuestions.length} Questions (90% Pass Mark) • What you'll be able to do after this module: ${mod.learningGate}`,
       };
     }),
   };
@@ -110,17 +120,14 @@ export function useStructTutorWorkspace() {
   const [progressState, setProgressState] = useState<CourseProgressState>(() =>
     loadCourseProgressState(ALL_SYLLABUS_MODULES)
   );
-
-  useEffect(() => {
-    saveCourseProgressState(progressState);
-  }, [progressState]);
+  const [hydrated, setHydrated] = useState<boolean>(false);
 
   const progressSummary = useMemo(
     () => computeCourseProgressSummary(progressState, ALL_SYLLABUS_MODULES),
     [progressState]
   );
 
-  // 2. Shell Layout & Theme State
+  // 2. Shell Layout & Theme State (persisted under structtutor_theme_v1)
   const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(() =>
     typeof window !== 'undefined' ? window.innerWidth < 768 : false
   );
@@ -134,13 +141,36 @@ export function useStructTutorWorkspace() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const [hybridLightCards, setHybridLightCards] = useState<boolean>(true);
+  const [hybridLightCards, setHybridLightCards] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return true;
+    try {
+      const saved = window.localStorage.getItem(THEME_STORAGE_KEY);
+      if (saved === 'dark' || saved === 'false') return false;
+      if (saved === 'light' || saved === 'true') return true;
+    } catch {
+      // Ignore storage access errors
+    }
+    return true;
+  });
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      window.localStorage.setItem(
+        THEME_STORAGE_KEY,
+        hybridLightCards ? 'light' : 'dark'
+      );
+    } catch {
+      // Ignore storage quota errors
+    }
+  }, [hybridLightCards]);
+
   const [activeView, setActiveView] = useState<MainView>('dashboard');
   const [confirmResetOpen, setConfirmResetOpen] = useState<boolean>(false);
 
   // 3. Active Module & Topic Selection (across all 20 Modules 0..19)
   const [selectedModuleNumber, setSelectedModuleNumber] = useState<number>(0);
-  const [selectedTopicId, setSelectedTopicId] = useState<string>('M0-T1');
+  const [selectedTopicId, setSelectedTopicId] = useState<string>('MOD00-T1');
   const [topicSwitcherOpen, setTopicSwitcherOpen] = useState<boolean>(false);
   const [assessmentTarget, setAssessmentTarget] =
     useState<ActiveAssessmentTarget | null>(null);
@@ -214,8 +244,6 @@ export function useStructTutorWorkspace() {
     useState<boolean>(false);
   const [unitsDrawerOpen, setUnitsDrawerOpen] = useState<boolean>(false);
   const [calculatorOpen, setCalculatorOpen] = useState<boolean>(false);
-  const [verificationDrawerOpen, setVerificationDrawerOpen] =
-    useState<boolean>(false);
 
   // 6. Milestone A Skill Bars
   const [milestoneBars, setMilestoneBars] = useState<MilestoneSkillBar[]>(
@@ -231,8 +259,72 @@ export function useStructTutorWorkspace() {
     Record<string, boolean>
   >(() => progressState.tutorPractice?.creditedQuestions ?? {});
 
-  // Persist Stepped Tutor session state into CourseProgressState (B1)
+  // Restore IndexedDB on startup after mount; only replace state if IDB record is newer
   useEffect(() => {
+    let cancelled = false;
+    loadCourseProgressFromIndexedDB(ALL_SYLLABUS_MODULES)
+      .then((idbState) => {
+        if (cancelled || !idbState) return;
+        setProgressState((prev) => {
+          const idbTime = Date.parse(idbState.lastUpdatedAtIso || '');
+          const localTime = Date.parse(prev.lastUpdatedAtIso || '');
+          const isNewer =
+            Number.isFinite(idbTime) &&
+            (!Number.isFinite(localTime) || idbTime > localTime);
+          if (isNewer) {
+            if (idbState.tutorPractice) {
+              setCurrentStep(
+                (idbState.tutorPractice.currentStep as StepId) || 'learn'
+              );
+              setRemedialInjected(
+                Boolean(idbState.tutorPractice.remedialInjected)
+              );
+              if (idbState.tutorPractice.stepStatuses) {
+                setStepStatuses(
+                  idbState.tutorPractice.stepStatuses as Record<
+                    StepId,
+                    StepStatus
+                  >
+                );
+              }
+              if (idbState.tutorPractice.milestoneBars) {
+                setMilestoneBars(
+                  idbState.tutorPractice.milestoneBars.map((b) => ({
+                    ...b,
+                    score: b.completed,
+                  }))
+                );
+              }
+              if (idbState.tutorPractice.creditedQuestions) {
+                setCreditedQuestions(
+                  idbState.tutorPractice.creditedQuestions
+                );
+              }
+            }
+            return idbState;
+          }
+          return prev;
+        });
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setHydrated(true);
+        }
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Guard save effect with hydrated flag so fresh state does not overwrite newer IDB data
+  useEffect(() => {
+    if (!hydrated) return;
+    saveCourseProgressState(progressState);
+  }, [progressState, hydrated]);
+
+  // Persist Stepped Tutor session state into CourseProgressState (B1) once hydrated
+  useEffect(() => {
+    if (!hydrated) return;
     setProgressState((prev) => ({
       ...prev,
       lastUpdatedAtIso: new Date().toISOString(),
@@ -251,7 +343,14 @@ export function useStructTutorWorkspace() {
         lastUpdatedIso: new Date().toISOString(),
       },
     }));
-  }, [currentStep, stepStatuses, remedialInjected, milestoneBars, creditedQuestions]);
+  }, [
+    hydrated,
+    currentStep,
+    stepStatuses,
+    remedialInjected,
+    milestoneBars,
+    creditedQuestions,
+  ]);
 
   // 7. Unified Visual Learning Map State
   const [mapStageFilter, setMapStageFilter] = useState<'all' | 1 | 2 | 3>('all');
@@ -304,11 +403,17 @@ export function useStructTutorWorkspace() {
     topicId?: string,
     targetView: MainView = 'tutor'
   ) => {
-    const mod = getModuleByNumber(moduleNumber) ?? ALL_SYLLABUS_MODULES[0];
+    const resolvedFromTopic = topicId ? getTopicById(topicId) : undefined;
+    const mod =
+      resolvedFromTopic?.module ??
+      getModuleByNumber(moduleNumber) ??
+      ALL_SYLLABUS_MODULES[0];
     setSelectedModuleNumber(mod.moduleNumber);
-    const chosenTopic = topicId
-      ? mod.topics.find((t) => t.id === topicId) ?? mod.topics[0]
-      : mod.topics[0];
+    const chosenTopic =
+      resolvedFromTopic?.topic ??
+      (topicId
+        ? mod.topics.find((t) => t.id === topicId) ?? mod.topics[0]
+        : mod.topics[0]);
     if (chosenTopic) {
       setSelectedTopicId(chosenTopic.id);
     }
@@ -603,8 +708,6 @@ export function useStructTutorWorkspace() {
     setUnitsDrawerOpen,
     calculatorOpen,
     setCalculatorOpen,
-    verificationDrawerOpen,
-    setVerificationDrawerOpen,
     milestoneBars,
     mapStageFilter,
     setMapStageFilter,

@@ -121,6 +121,16 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
       String(userAnswers[q.id]).trim() !== ''
   ).length;
 
+  const draftCount = useMemo(
+    () =>
+      activeQuestions.filter(
+        (q) => (questionReviewOverrides[q.id] ?? q.reviewStatus) === 'Draft'
+      ).length,
+    [activeQuestions, questionReviewOverrides]
+  );
+  const allDraft =
+    activeQuestions.length > 0 && draftCount === activeQuestions.length;
+
   const handleSelectAnswer = (questionId: string, value: string | number) => {
     if (submissionResult) return;
     setUserAnswers((prev) => ({
@@ -256,12 +266,27 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
         </div>
       </div>
 
+      {/* Draft Warning Banner */}
+      {draftCount > 0 && (
+        <div
+          data-testid="assessment-draft-warning-banner"
+          className="rounded-2xl bg-amber-50/90 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-500/40 p-4 flex items-center gap-3 text-xs sm:text-sm text-amber-950 dark:text-amber-200"
+        >
+          <ShieldAlert className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0" />
+          <span className="font-medium">
+            {draftCount} of {activeQuestions.length} questions are Draft — results are practice feedback, not a pass gate.
+          </span>
+        </div>
+      )}
+
       {/* Submission Result Banner */}
       {submissionResult && (
         <div
           data-testid="assessment-result-banner"
           className={`rounded-2xl border p-6 shadow-sm ${
-            submissionResult.passed
+            allDraft
+              ? 'bg-amber-50/90 dark:bg-amber-950/40 border-amber-300 dark:border-amber-500/40 text-amber-950 dark:text-amber-100'
+              : submissionResult.passed
               ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-500/40 text-emerald-950 dark:text-emerald-100'
               : 'bg-rose-50/90 dark:bg-rose-950/40 border-rose-300 dark:border-rose-500/40 text-rose-950 dark:text-rose-100'
           }`}
@@ -270,14 +295,20 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
             <div className="flex items-start gap-3.5">
               <div
                 className={`p-3 rounded-xl text-white shrink-0 ${
-                  submissionResult.passed ? 'bg-emerald-600' : 'bg-rose-600'
+                  allDraft
+                    ? 'bg-amber-600'
+                    : submissionResult.passed
+                    ? 'bg-emerald-600'
+                    : 'bg-rose-600'
                 }`}
               >
                 <Award className="w-6 h-6" />
               </div>
               <div className="space-y-1">
                 <div className="text-xs font-mono font-bold uppercase tracking-wider">
-                  {submissionResult.passed
+                  {allDraft
+                    ? 'Practice feedback only — no pass gate applied.'
+                    : submissionResult.passed
                     ? 'ASSESSMENT PASSED (≥ 90% THRESHOLD MET)'
                     : 'NOT YET PASSED (90% REQUIRED TO PASS GATE)'}
                 </div>
@@ -291,7 +322,9 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
                   {submissionResult.totalQuestions} Correct)
                 </h2>
                 <p className="text-xs sm:text-sm opacity-90">
-                  {submissionResult.passed
+                  {allDraft
+                    ? 'Practice feedback only — no pass gate applied.'
+                    : submissionResult.passed
                     ? 'This syllabus gate has been recorded as Passed in your local course profile.'
                     : 'Review the detailed first-principles explanations and unit diagnostics below, then click Retake Assessment for a freshly shuffled attempt.'}
                 </p>

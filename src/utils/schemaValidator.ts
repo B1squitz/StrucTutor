@@ -100,14 +100,7 @@ export function validateQuestionSchema(rawQ: Record<string, unknown>): string[] 
   if (typeof rawQ.caseFamilyId !== 'string' || !rawQ.caseFamilyId.trim()) {
     errs.push(`${id}: missing caseFamilyId`);
   }
-  if (
-    rawQ.reviewStatus !== 'Draft' &&
-    rawQ.reviewStatus !== 'Verified' &&
-    rawQ.reviewStatus !== 'Reviewed' &&
-    rawQ.reviewStatus !== 'Flagged' &&
-    rawQ.reviewStatus !== 'Pending Review' &&
-    rawQ.reviewStatus !== 'Corrected'
-  ) {
+  if (rawQ.reviewStatus !== 'Draft' && rawQ.reviewStatus !== 'Verified') {
     errs.push(`${id}: invalid reviewStatus "${String(rawQ.reviewStatus)}"`);
   }
   if (rawQ.reviewStatus === 'Verified') {

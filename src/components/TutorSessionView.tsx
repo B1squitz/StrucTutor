@@ -543,7 +543,7 @@ export const TutorSessionView: React.FC<TutorSessionViewProps> = ({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
               <div className="rounded-xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 p-3.5 space-y-1">
                 <div className="text-xs font-bold text-amber-900 dark:text-amber-300">
-                  Module {activeModule.moduleNumber} Syllabus Learning Gate
+                  What you&apos;ll be able to do after this module
                 </div>
                 <p className="text-xs text-amber-800 dark:text-amber-200/90 leading-relaxed">
                   {activeModule.learningGate}

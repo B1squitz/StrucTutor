@@ -213,7 +213,7 @@ export const ModuleWorkspaceView: React.FC<ModuleWorkspaceViewProps> = ({
               <Award className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
               <div className="space-y-1">
                 <p className="text-xs font-bold uppercase tracking-wider text-amber-300">
-                  Mandatory Syllabus Learning Gate (Module {activeModule.moduleNumber})
+                  What you&apos;ll be able to do after this module (Module {activeModule.moduleNumber})
                 </p>
                 <p className="text-sm font-medium text-white">
                   {activeModule.learningGate}

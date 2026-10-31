@@ -17,6 +17,7 @@ import type {
   CourseProgressState,
   NormalizedSyllabusModule,
 } from '../types/syllabus';
+import { getTopicById } from '../data/fullSyllabus';
 import {
   CALCULATION_NOTE_STRUCTURE,
   COURSE_DEVELOPMENT_REQUIREMENTS,
@@ -175,10 +176,10 @@ export const CoverageAndMilestonesView: React.FC<
       <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
         <div>
           <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-sky-400">
-            Syllabus Architecture, Portfolio Milestones &amp; Eurocode Workbench
+            Syllabus Architecture, Project checkpoints &amp; Eurocode Workbench
           </span>
           <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white mt-0.5">
-            Syllabus Coverage Map, Milestones A–F &amp; Design Standards
+            Syllabus Coverage Map, Project checkpoints &amp; Design Standards
           </h1>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-4xl leading-relaxed">
             {PROFESSIONAL_SAFEGUARD_NOTICE}
@@ -211,7 +212,7 @@ export const CoverageAndMilestonesView: React.FC<
             }`}
           >
             <Award className="w-3.5 h-3.5" />
-            <span>Milestones A–F &amp; [UI1]</span>
+            <span>Project checkpoints &amp; Extra practice</span>
           </button>
 
           <button
@@ -332,7 +333,7 @@ export const CoverageAndMilestonesView: React.FC<
               >
                 <div className="flex items-center justify-between gap-2">
                   <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300">
-                    Milestone {ms.code} • {ms.Timing}
+                    Project checkpoint {ms.code} • {ms.Timing}
                   </span>
                   <button
                     type="button"
@@ -365,7 +366,7 @@ export const CoverageAndMilestonesView: React.FC<
 
           <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
             <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
-              Syllabus Comment [UI1] Course Development Requirements
+              Extra practice Course Development Requirements
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {COURSE_DEVELOPMENT_REQUIREMENTS.map((req) => (
@@ -375,7 +376,7 @@ export const CoverageAndMilestonesView: React.FC<
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-mono font-bold text-blue-600 dark:text-sky-400">
-                      {req.id}: {req.topic}
+                      Extra practice ({req.id}): {req.topic}
                     </span>
                     <span className="font-mono text-[11px] text-slate-500">
                       Modules: {req.targetModules.join(', ')}
@@ -595,12 +596,23 @@ export const CoverageAndMilestonesView: React.FC<
               </div>
               <button
                 type="button"
-                onClick={() =>
-                  onSelectModule(
-                    adaptivePlan.nextRecommendedTopic.moduleNumber,
+                onClick={() => {
+                  const resolved = getTopicById(
                     adaptivePlan.nextRecommendedTopic.topicId
-                  )
-                }
+                  );
+                  if (resolved) {
+                    onSelectModule(
+                      resolved.module.moduleNumber,
+                      resolved.topic.id
+                    );
+                  } else {
+                    onSelectModule(
+                      adaptivePlan.nextRecommendedTopic.moduleNumber,
+                      adaptivePlan.nextRecommendedTopic.topicId
+                    );
+                  }
+                }}
+                data-testid="open-recommended-topic-btn"
                 className="px-3.5 py-2 rounded-xl bg-blue-600 text-white text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer"
               >
                 <span>Open Recommended Topic</span>

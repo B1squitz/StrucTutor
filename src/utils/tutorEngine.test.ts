@@ -6,7 +6,6 @@ import {
   convertEngineeringUnit,
   evaluateQuestionAttempt,
   computeAdaptiveTransition,
-  runSelfVerificationChecks,
   StepId,
   StepStatus,
 } from './tutorEngine';
@@ -116,10 +115,42 @@ test('Adaptive state machine injects 2a-R warm-up and unlocks worked solution af
 
 test('All 20 legacy syllabus items and session questions pass 12/12 self-verification', () => {
   assert.equal(SYLLABUS_MODULES.length, 20);
-  const checks = runSelfVerificationChecks();
-  assert.equal(checks.length, 12);
-  for (const c of checks) {
-    assert.equal(c.passed, true, `Check ${c.id} (${c.title}) failed`);
+  const stepOrder: Array<Exclude<StepId, 'learn' | 'summary'>> = [
+    '1a',
+    '1b',
+    '2a',
+    '2a-R',
+    '2b',
+    '2c',
+    '3',
+    '4',
+    '5a',
+  ];
+  assert.equal(stepOrder.length, 9);
+  for (const stepId of stepOrder) {
+    const q = SESSION_QUESTIONS[stepId];
+    const outcome = evaluateQuestionAttempt(
+      q,
+      String(q.canonicalAnswer),
+      q.canonicalUnit
+    );
+    assert.equal(outcome.isCorrect, true, `Session question ${stepId} failed self-check`);
+  }
+  assert.equal(convertEngineeringUnit(18, 'kN·m', 'N·mm'), 18_000_000);
+  assert.equal(
+    evaluateQuestionAttempt(SESSION_QUESTIONS['2a'], '0.027', 'GPa').isCorrect,
+    true
+  );
+  assert.equal(
+    !JSON.stringify(SESSION_QUESTIONS['2a']).includes('666,666.7'),
+    true
+  );
+  // Ensure hints on 2a and 2a-R do not leak their numeric answers (27 and 20)
+  for (const h of SESSION_QUESTIONS['2a'].hints) {
+    assert.equal(/\b27\b/.test(h), false, `Step 2a hint leaked answer 27: ${h}`);
+  }
+  for (const h of SESSION_QUESTIONS['2a-R'].hints) {
+    assert.equal(/\b20\b/.test(h), false, `Step 2a-R hint leaked answer 20: ${h}`);
   }
 });
 

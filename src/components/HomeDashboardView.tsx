@@ -110,7 +110,7 @@ export const HomeDashboardView: React.FC<HomeDashboardViewProps> = ({
               Active Topic {activeTopic.code}: {activeTopic.title}
             </div>
             <div className="text-blue-100/80">
-              <strong>Syllabus Learning Gate:</strong>{' '}
+              <strong>What you&apos;ll be able to do after this module:</strong>{' '}
               {activeModule.learningGate}
             </div>
           </div>
@@ -281,7 +281,7 @@ export const HomeDashboardView: React.FC<HomeDashboardViewProps> = ({
                   Core Mechanics &amp; Portfolio Verification
                 </span>
                 <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white mt-0.5">
-                  Core Skills &amp; Project Milestones (A–F)
+                  Core Skills &amp; Project checkpoints
                 </h2>
               </div>
               <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
@@ -334,7 +334,7 @@ export const HomeDashboardView: React.FC<HomeDashboardViewProps> = ({
                   }
                   className="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-blue-700 dark:text-sky-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
                 >
-                  [UI1] {req.topic}
+                  Extra practice: {req.topic}
                 </button>
               ))}
             </div>
@@ -343,7 +343,7 @@ export const HomeDashboardView: React.FC<HomeDashboardViewProps> = ({
               onClick={() => setActiveView('coverage')}
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-sky-400 hover:underline cursor-pointer"
             >
-              <span>Inspect Milestones A–F &amp; Coverage Map</span>
+              <span>Inspect Project checkpoints &amp; Coverage Map</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

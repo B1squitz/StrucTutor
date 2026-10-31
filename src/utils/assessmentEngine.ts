@@ -20,7 +20,7 @@ const LEGACY_STORAGE_KEYS = [
   'structtutor_progress',
 ];
 
-const IDB_DB_NAME = 'StructTutorOfflineDB';
+export const IDB_DB_NAME = 'StructTutorOfflineDB';
 const IDB_STORE_NAME = 'course_progress';
 const IDB_RECORD_KEY = 'active_learner_profile';
 
@@ -855,12 +855,25 @@ export function computeAdaptiveStudyPlan(
   const dueReviews: AdaptiveStudyPlanResult['dueReviews'] = [];
   const nowMs = Date.now();
 
+  const topicLookup = new Map<string, { code: string; title: string }>();
+  if (modules) {
+    for (const mod of modules) {
+      for (const top of mod.topics) {
+        topicLookup.set(top.id, { code: top.code, title: top.title });
+      }
+    }
+  }
+
   for (const topRec of Object.values(state.topics)) {
+    const meta = topicLookup.get(topRec.topicId);
+    const displayTitle = meta
+      ? `${meta.code}: ${meta.title}`
+      : `Topic ${topRec.topicId} (Module ${topRec.moduleNumber})`;
     if (topRec.attemptsCount > 0 && !topRec.passed) {
       dueReviews.push({
         targetId: topRec.topicId,
         moduleNumber: topRec.moduleNumber,
-        title: `Topic ${topRec.topicId} (Module ${topRec.moduleNumber})`,
+        title: displayTitle,
         reason: `Best score ${topRec.bestScorePercent.toFixed(
           0
         )}% is below the 90% pass gate.`,
@@ -874,7 +887,7 @@ export function computeAdaptiveStudyPlan(
         dueReviews.push({
           targetId: topRec.topicId,
           moduleNumber: topRec.moduleNumber,
-          title: `Topic ${topRec.topicId} (Module ${topRec.moduleNumber})`,
+          title: displayTitle,
           reason: `Spaced retention review (${days} days since last pass).`,
           priorityScore: 50 + days,
         });
@@ -884,10 +897,14 @@ export function computeAdaptiveStudyPlan(
 
   dueReviews.sort((a, b) => b.priorityScore - a.priorityScore);
 
-  // Pick next unpassed topic in sequence
-  let nextModNum = 0;
-  let nextTopId = 'M0-T1';
-  let nextTitle = 'Topic 0.1: Units, Conversions & Dimensional Consistency';
+  // Pick next unpassed topic in sequence using real topic.id (e.g. MOD00-T1)
+  const firstMod = modules && modules.length > 0 ? modules[0] : undefined;
+  const firstTopic = firstMod?.topics[0];
+  let nextModNum = firstMod?.moduleNumber ?? 0;
+  let nextTopId = firstTopic?.id ?? 'MOD00-T1';
+  let nextTitle = firstTopic
+    ? `${firstTopic.code}: ${firstTopic.title}`
+    : 'Topic 0.1: Units, Conversions & Dimensional Consistency';
   let rationale =
     'Start with Module 0 Topic 0.1 to establish strict SI dimensional consistency.';
 

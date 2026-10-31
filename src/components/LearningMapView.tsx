@@ -288,7 +288,22 @@ export const LearningMapView: React.FC<LearningMapViewProps> = ({
                     </div>
 
                     <h2 className="font-display text-lg sm:text-xl font-bold text-slate-900 dark:text-white">
-                      {mod.title}
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setInspectorDrawerTarget({
+                            moduleItem: toLegacyModuleItem(mod, progressState),
+                            objectiveItem: null,
+                            moduleNumber: mod.moduleNumber,
+                          });
+                        }}
+                        data-testid={`module-title-info-btn-${mod.moduleNumber}`}
+                        className="text-left hover:text-blue-600 dark:hover:text-sky-400 transition-colors cursor-pointer"
+                        title="Click to inspect module syllabus details"
+                      >
+                        {mod.title}
+                      </button>
                     </h2>
                     <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                       {mod.summary}
@@ -309,20 +324,6 @@ export const LearningMapView: React.FC<LearningMapViewProps> = ({
                         />
                       </div>
                     </div>
-
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setInspectorDrawerTarget({
-                          moduleItem: toLegacyModuleItem(mod, progressState),
-                          objectiveItem: null,
-                          moduleNumber: mod.moduleNumber,
-                        })
-                      }
-                      className="px-3 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 cursor-pointer"
-                    >
-                      Syllabus Info
-                    </button>
 
                     <button
                       type="button"
@@ -378,7 +379,7 @@ export const LearningMapView: React.FC<LearningMapViewProps> = ({
                     <div className="rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
                       <div className="space-y-1">
                         <span className="font-mono font-bold uppercase text-blue-600 dark:text-sky-400">
-                          Syllabus Learning Gate:
+                          What you&apos;ll be able to do after this module:
                         </span>{' '}
                         <span className="text-slate-700 dark:text-slate-300">
                           {mod.learningGate}
