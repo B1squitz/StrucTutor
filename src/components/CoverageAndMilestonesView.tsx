@@ -1,423 +1,391 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
-  CheckCircle2,
-  FileSpreadsheet,
-  FolderKanban,
-  ShieldAlert,
+  AlertTriangle,
   ArrowRight,
+  Award,
   BookOpen,
-  ClipboardCheck,
+  CheckCircle2,
+  Clock,
+  Compass,
+  FileSpreadsheet,
+  FileText,
+  Layers,
+  Search,
+  Sparkles,
 } from 'lucide-react';
-import {
-  NormalizedSyllabusModule,
+import type {
   CourseProgressState,
+  NormalizedSyllabusModule,
 } from '../types/syllabus';
-import { buildSyllabusCoverageMap } from '../utils/assessmentEngine';
 import {
-  INTEGRATED_PROJECT_MILESTONES,
+  CALCULATION_NOTE_STRUCTURE,
   COURSE_DEVELOPMENT_REQUIREMENTS,
   FIVE_STUDY_RULES,
-  CALCULATION_NOTE_STRUCTURE,
+  INTEGRATED_PROJECT_MILESTONES,
+  PROFESSIONAL_SAFEGUARD_NOTICE,
 } from '../data/syllabusMetadata';
+import {
+  buildSyllabusCoverageMap,
+  computeAdaptiveStudyPlan,
+} from '../utils/assessmentEngine';
+import {
+  EUROCODE_DESIGN_SCENARIOS,
+  evaluateEurocodeDesignScenario,
+  type ScenarioEvaluationResult,
+} from '../utils/questionGenerators';
+import {
+  loadUserReferenceDocs,
+  queryGroundedReferenceLibrary,
+  saveUserReferenceDocs,
+  type UserUploadedReferenceDoc,
+} from '../utils/localRagEngine';
 
-interface CoverageAndMilestonesViewProps {
+export interface CoverageAndMilestonesViewProps {
   modules: NormalizedSyllabusModule[];
   progressState: CourseProgressState;
-  onSelectModule: (moduleNumber: number) => void;
+  onSelectModule: (moduleNumber: number, topicId?: string) => void;
+  onUpdateProgressState?: (next: CourseProgressState) => void;
 }
 
 export const CoverageAndMilestonesView: React.FC<
   CoverageAndMilestonesViewProps
-> = ({ modules, progressState, onSelectModule }) => {
-  const [activeTab, setActiveTab] = useState<
-    'coverage' | 'milestones' | 'standards'
+> = ({
+  modules,
+  progressState,
+  onSelectModule,
+  onUpdateProgressState,
+}) => {
+  const [activeSubtab, setActiveSubtab] = useState<
+    'coverage' | 'milestones' | 'standards' | 'workbench'
   >('coverage');
-  const coverageMap = buildSyllabusCoverageMap(modules);
 
-  const totalTopics = coverageMap.reduce((acc, m) => acc + m.topicCount, 0);
-  const totalTopicQuestions = coverageMap.reduce(
-    (acc, m) => acc + m.totalTopicQuestions,
-    0
+  const coverageRows = useMemo(
+    () => buildSyllabusCoverageMap(modules),
+    [modules]
   );
-  const totalModuleQuestions = coverageMap.reduce(
-    (acc, m) => acc + m.moduleAssessmentQuestions,
-    0
+
+  // Workbench: 1. Multi-Step Eurocode Scenarios (Section 5)
+  const [selectedScenarioId, setSelectedScenarioId] = useState<string>(
+    EUROCODE_DESIGN_SCENARIOS[0].id
   );
-  const grandTotalQuestions = totalTopicQuestions + totalModuleQuestions;
+  const activeScenario =
+    EUROCODE_DESIGN_SCENARIOS.find((s) => s.id === selectedScenarioId) ??
+    EUROCODE_DESIGN_SCENARIOS[0];
+
+  const [wEdInput, setWEdInput] = useState<string>(
+    String(activeScenario.expectedGoverningValues.wEdKnM)
+  );
+  const [mEdInput, setMEdInput] = useState<string>(
+    String(activeScenario.expectedGoverningValues.MEdKnM)
+  );
+  const [vEdInput, setVEdInput] = useState<string>(
+    String(activeScenario.expectedGoverningValues.VEdKn)
+  );
+  const [selectedSection, setSelectedSection] = useState<string>(
+    activeScenario.candidateSections[1]?.designation ??
+      activeScenario.candidateSections[0].designation
+  );
+  const [scenarioResult, setScenarioResult] =
+    useState<ScenarioEvaluationResult | null>(null);
+
+  const handleScenarioSwitch = (id: string) => {
+    setSelectedScenarioId(id);
+    const next = EUROCODE_DESIGN_SCENARIOS.find((s) => s.id === id);
+    if (next) {
+      setWEdInput(String(next.expectedGoverningValues.wEdKnM));
+      setMEdInput(String(next.expectedGoverningValues.MEdKnM));
+      setVEdInput(String(next.expectedGoverningValues.VEdKn));
+      setSelectedSection(
+        next.candidateSections[1]?.designation ??
+          next.candidateSections[0].designation
+      );
+      setScenarioResult(null);
+    }
+  };
+
+  const handleVerifyScenario = () => {
+    const res = evaluateEurocodeDesignScenario(activeScenario, {
+      wEdKnM: Number.parseFloat(wEdInput) || 0,
+      MEdKnM: Number.parseFloat(mEdInput) || 0,
+      VEdKn: Number.parseFloat(vEdInput) || 0,
+      selectedDesignation: selectedSection,
+    });
+    setScenarioResult(res);
+    if (
+      res.passedAllSteps &&
+      onUpdateProgressState &&
+      !progressState.completedDesignScenarios.includes(activeScenario.id)
+    ) {
+      onUpdateProgressState({
+        ...progressState,
+        completedDesignScenarios: [
+          ...progressState.completedDesignScenarios,
+          activeScenario.id,
+        ],
+      });
+    }
+  };
+
+  // Workbench: 2. Adaptive Study Plan
+  const adaptivePlan = useMemo(
+    () => computeAdaptiveStudyPlan(progressState, modules),
+    [progressState, modules]
+  );
+
+  // Workbench: 3. Offline Citation-Grounded RAG Reference Library
+  const [userDocs, setUserDocs] = useState<UserUploadedReferenceDoc[]>(() =>
+    loadUserReferenceDocs()
+  );
+  const [ragQuery, setRagQuery] = useState<string>(
+    'lateral torsional buckling restraint'
+  );
+  const [newDocTitle, setNewDocTitle] = useState<string>('');
+  const [newDocCitation, setNewDocCitation] = useState<string>('');
+  const [newDocText, setNewDocText] = useState<string>('');
+
+  const ragResult = useMemo(
+    () => queryGroundedReferenceLibrary(ragQuery, userDocs),
+    [ragQuery, userDocs]
+  );
+
+  const handleAddUserReferenceDoc = () => {
+    if (!newDocTitle.trim() || !newDocText.trim()) return;
+    const doc: UserUploadedReferenceDoc = {
+      docId: `USER-DOC-${Date.now()}`,
+      title: newDocTitle.trim(),
+      sourceCitation:
+        newDocCitation.trim() || 'User Uploaded Structural Reference Note',
+      uploadedAt: new Date().toISOString(),
+      rawText: newDocText.trim(),
+    };
+    const next = [doc, ...userDocs];
+    setUserDocs(next);
+    saveUserReferenceDocs(next);
+    setNewDocTitle('');
+    setNewDocCitation('');
+    setNewDocText('');
+  };
 
   return (
-    <div className="max-w-[1200px] mx-auto space-y-6">
-      {/* Header & Sub-Navigation */}
+    <div
+      className="max-w-[1200px] mx-auto space-y-6"
+      data-testid="coverage-milestones-view"
+    >
+      {/* Top Header & Subtab Selector */}
       <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <p className="text-xs font-mono uppercase tracking-wider text-blue-600 dark:text-sky-400 font-semibold">
-              Syllabus Verification &amp; Portfolio Architecture
-            </p>
-            <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white mt-1">
-              Coverage Map, Integrated Milestones (A–F) &amp; Study Standards
-            </h1>
-            <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">
-              Full traceability linking every syllabus module (0 to 19) and
-              topic to its assessment question bank, integrated design
-              milestones, and calculation note standards.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setActiveTab('coverage')}
-              data-testid="subtab-coverage"
-              className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
-                activeTab === 'coverage'
-                  ? 'bg-blue-600 text-white shadow-2xs'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              <FileSpreadsheet className="w-4 h-4" />
-              <span>Coverage Map ({grandTotalQuestions} Qs)</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab('milestones')}
-              data-testid="subtab-milestones"
-              className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
-                activeTab === 'milestones'
-                  ? 'bg-blue-600 text-white shadow-2xs'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              <FolderKanban className="w-4 h-4" />
-              <span>Milestones A–F &amp; [UI1] Requirements</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab('standards')}
-              data-testid="subtab-standards"
-              className={`inline-flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs font-semibold transition-colors cursor-pointer ${
-                activeTab === 'standards'
-                  ? 'bg-blue-600 text-white shadow-2xs'
-                  : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
-              }`}
-            >
-              <ClipboardCheck className="w-4 h-4" />
-              <span>5 Study Rules &amp; 9-Part Calc Note</span>
-            </button>
-          </div>
+        <div>
+          <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-sky-400">
+            Syllabus Architecture, Portfolio Milestones &amp; Eurocode Workbench
+          </span>
+          <h1 className="font-display text-2xl font-bold text-slate-900 dark:text-white mt-0.5">
+            Syllabus Coverage Map, Milestones A–F &amp; Design Standards
+          </h1>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1 max-w-4xl leading-relaxed">
+            {PROFESSIONAL_SAFEGUARD_NOTICE}
+          </p>
         </div>
 
-        {/* Summary Metrics Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-          <div className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-3.5">
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Syllabus Modules
-            </p>
-            <p className="text-xl font-bold font-mono text-slate-900 dark:text-white mt-0.5">
-              {coverageMap.length}{' '}
-              <span className="text-xs font-normal text-slate-500 dark:text-slate-400">
-                (Modules 0–19)
-              </span>
-            </p>
-          </div>
-          <div className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-3.5">
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Assessed Syllabus Topics
-            </p>
-            <p className="text-xl font-bold font-mono text-blue-600 dark:text-sky-400 mt-0.5">
-              {totalTopics}{' '}
-              <span className="text-xs font-normal text-slate-500 dark:text-slate-400">
-                (≥5 Qs each)
-              </span>
-            </p>
-          </div>
-          <div className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-3.5">
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Topic Assessment Bank
-            </p>
-            <p className="text-xl font-bold font-mono text-emerald-600 dark:text-emerald-400 mt-0.5">
-              {totalTopicQuestions}{' '}
-              <span className="text-xs font-normal text-slate-500 dark:text-slate-400">
-                Questions
-              </span>
-            </p>
-          </div>
-          <div className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-3.5">
-            <p className="text-xs text-slate-500 dark:text-slate-400">
-              Module Exam Bank
-            </p>
-            <p className="text-xl font-bold font-mono text-amber-600 dark:text-amber-400 mt-0.5">
-              {totalModuleQuestions}{' '}
-              <span className="text-xs font-normal text-slate-500 dark:text-slate-400">
-                Questions (20/mod)
-              </span>
-            </p>
-          </div>
+        <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center gap-2">
+          <button
+            type="button"
+            onClick={() => setActiveSubtab('coverage')}
+            data-testid="subtab-coverage"
+            className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
+              activeSubtab === 'coverage'
+                ? 'bg-blue-600 text-white'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+            }`}
+          >
+            <FileSpreadsheet className="w-3.5 h-3.5" />
+            <span>Coverage Map (20 Modules)</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveSubtab('milestones')}
+            data-testid="subtab-milestones"
+            className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
+              activeSubtab === 'milestones'
+                ? 'bg-blue-600 text-white'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+            }`}
+          >
+            <Award className="w-3.5 h-3.5" />
+            <span>Milestones A–F &amp; [UI1]</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveSubtab('standards')}
+            data-testid="subtab-standards"
+            className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
+              activeSubtab === 'standards'
+                ? 'bg-blue-600 text-white'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+            }`}
+          >
+            <FileText className="w-3.5 h-3.5" />
+            <span>5 Study Rules &amp; 9-Part Calc Note</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={() => setActiveSubtab('workbench')}
+            data-testid="subtab-workbench"
+            className={`px-3.5 py-2 rounded-xl text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer ${
+              activeSubtab === 'workbench'
+                ? 'bg-blue-600 text-white'
+                : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+            }`}
+          >
+            <Compass className="w-3.5 h-3.5" />
+            <span>Eurocode Scenarios &amp; Local RAG</span>
+          </button>
         </div>
       </div>
 
-      {/* TAB 1: COVERAGE MAP */}
-      {activeTab === 'coverage' && (
-        <div className="space-y-4" data-testid="coverage-map-section">
-          {coverageMap.map((report) => {
-            const modState = progressState.modules[report.moduleId];
-            const sourceModule = modules.find(
-              (m) => m.moduleNumber === report.moduleNumber
-            );
-            return (
-              <div
-                key={report.moduleId}
-                className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs space-y-4"
-              >
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-sky-500/30">
-                        Module {report.moduleNumber} ({report.moduleId})
-                      </span>
-                      <span className="text-xs font-mono px-2.5 py-0.5 rounded-lg bg-emerald-50 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-500/30">
-                        {report.totalTopicQuestions} Topic Qs +{' '}
-                        {report.moduleAssessmentQuestions} Module Qs
-                      </span>
-                      {modState?.passed && (
-                        <span className="text-xs font-semibold px-2.5 py-0.5 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300">
-                          Module Passed ({modState.bestScorePercent.toFixed(1)}%)
-                        </span>
-                      )}
-                    </div>
-                    <h2 className="font-display text-base sm:text-lg font-bold text-slate-900 dark:text-white mt-1.5">
-                      {report.title}
-                    </h2>
-                  </div>
+      {/* SUBTAB 1: COVERAGE MAP */}
+      {activeSubtab === 'coverage' && (
+        <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
+              Complete 20-Module Assessment &amp; Topic Coverage Matrix
+            </h2>
+            <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+              {coverageRows.reduce((a, r) => a + r.totalQuestions, 0)} Verified
+              &amp; Schema-Validated Questions Across 62 Topics
+            </span>
+          </div>
 
-                  <button
-                    type="button"
-                    onClick={() => onSelectModule(report.moduleNumber)}
-                    className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
-                  >
-                    <span>Open Module {report.moduleNumber} in Tutor</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-
-                {/* Topics Table */}
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left border-collapse text-xs">
-                    <thead>
-                      <tr className="border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-mono uppercase">
-                        <th className="py-2 pr-3">Topic Code</th>
-                        <th className="py-2 px-3">Syllabus Topic Title</th>
-                        <th className="py-2 px-3">Topic Assessment</th>
-                        <th className="py-2 px-3">Module Exam Link</th>
-                        <th className="py-2 pl-3 text-right">Pass Status</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-200/70 dark:divide-slate-800/60">
-                      {report.topics.map((t) => {
-                        const tProg = progressState.topics[t.topicId];
-                        return (
-                          <tr
-                            key={t.topicId}
-                            className="text-slate-700 dark:text-slate-300"
-                          >
-                            <td className="py-2.5 pr-3 font-mono font-bold text-blue-600 dark:text-sky-300 whitespace-nowrap">
-                              Topic {t.code}
-                            </td>
-                            <td className="py-2.5 px-3 font-medium text-slate-900 dark:text-white">
-                              {t.title}
-                            </td>
-                            <td className="py-2.5 px-3 font-mono text-emerald-700 dark:text-emerald-300">
-                              {t.topicQuestionCount} questions (90% pass)
-                            </td>
-                            <td className="py-2.5 px-3 font-mono text-slate-500 dark:text-slate-400">
-                              +{t.moduleQuestionCount} in Module Exam
-                            </td>
-                            <td className="py-2.5 pl-3 text-right font-mono">
-                              {tProg?.passed ? (
-                                <span className="text-emerald-600 dark:text-emerald-400 font-bold">
-                                  Passed ({tProg.bestScorePercent.toFixed(0)}%)
-                                </span>
-                              ) : tProg && tProg.attemptsCount > 0 ? (
-                                <span className="text-amber-600 dark:text-amber-400">
-                                  Attempted ({tProg.bestScorePercent.toFixed(0)}
-                                  %)
-                                </span>
-                              ) : (
-                                <span className="text-slate-400 dark:text-slate-500">
-                                  Not Started (0%)
-                                </span>
-                              )}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
-
-                {sourceModule && (
-                  <div className="bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600 dark:text-slate-400">
-                    <span>
-                      <strong className="text-slate-900 dark:text-slate-200">
-                        Learning Gate:
-                      </strong>{' '}
-                      {sourceModule.learningGate}
-                    </span>
-                    <span className="font-mono text-slate-500 dark:text-slate-300">
-                      Worked Examples: {sourceModule.workedExamples.length} •
-                      Module Exam: {report.moduleAssessmentQuestions} Qs (90%
-                      Pass)
-                    </span>
-                  </div>
-                )}
-              </div>
-            );
-          })}
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse text-xs">
+              <thead>
+                <tr className="border-b border-slate-200 dark:border-slate-800 text-slate-500 dark:text-slate-400 font-mono uppercase">
+                  <th className="py-3 px-3">Module</th>
+                  <th className="py-3 px-3">Syllabus Title</th>
+                  <th className="py-3 px-3">Topics</th>
+                  <th className="py-3 px-3">Topic Qs</th>
+                  <th className="py-3 px-3">Module Exam</th>
+                  <th className="py-3 px-3">Gate Status</th>
+                  <th className="py-3 px-3 text-right">Action</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200 dark:divide-slate-800">
+                {coverageRows.map((row) => {
+                  const modProg = progressState.modules[row.moduleId];
+                  const isPassed = Boolean(modProg?.passed);
+                  return (
+                    <tr
+                      key={row.moduleId}
+                      className="hover:bg-slate-50 dark:hover:bg-slate-800/50"
+                    >
+                      <td className="py-3 px-3 font-mono font-bold text-blue-600 dark:text-sky-400">
+                        {row.code}
+                      </td>
+                      <td className="py-3 px-3 font-semibold text-slate-900 dark:text-white">
+                        {row.title}
+                      </td>
+                      <td className="py-3 px-3 font-mono">
+                        {row.topicsCount} topics
+                      </td>
+                      <td className="py-3 px-3 font-mono">
+                        {row.totalTopicQuestions} Qs
+                      </td>
+                      <td className="py-3 px-3 font-mono">
+                        {row.moduleAssessmentQuestions} Qs
+                      </td>
+                      <td className="py-3 px-3 font-mono">
+                        {isPassed ? (
+                          <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                            Passed ({modProg.bestScorePercent.toFixed(0)}%)
+                          </span>
+                        ) : (
+                          <span className="text-slate-500">0% (Pending)</span>
+                        )}
+                      </td>
+                      <td className="py-3 px-3 text-right">
+                        <button
+                          type="button"
+                          onClick={() => onSelectModule(row.moduleNumber)}
+                          className="px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-slate-800 text-blue-700 dark:text-sky-300 font-semibold hover:bg-blue-100 cursor-pointer"
+                        >
+                          Open →
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
 
-      {/* TAB 2: MILESTONES A-F & COURSE DEVELOPMENT REQUIREMENTS [UI1] */}
-      {activeTab === 'milestones' && (
-        <div className="space-y-6" data-testid="milestones-section">
-          {/* Integrated Project Milestones A to F */}
-          <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
-            <div>
-              <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
-                Integrated Project Milestones (Milestones A to F)
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
-                From the Civil Engineering Syllabus: these six portfolio
-                milestones turn theoretical modules into auditable engineering
-                deliverables.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {INTEGRATED_PROJECT_MILESTONES.map((ms) => {
-                const isCompleted = ms.prerequisiteModuleNumbers.every(
-                  (mNum) =>
-                    progressState.modules[
-                      `MOD-${String(mNum).padStart(2, '0')}`
-                    ]?.passed
-                );
-                return (
-                  <div
-                    key={ms.id}
-                    className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-5 flex flex-col justify-between space-y-4"
+      {/* SUBTAB 2: INTEGRATED MILESTONES A–F & [UI1] REQUIREMENTS */}
+      {activeSubtab === 'milestones' && (
+        <div className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {INTEGRATED_PROJECT_MILESTONES.map((ms) => (
+              <div
+                key={ms.id}
+                className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 shadow-xs space-y-3"
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300">
+                    Milestone {ms.code} • {ms.Timing}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => onSelectModule(ms.afterModule)}
+                    className="text-xs font-semibold text-blue-600 dark:text-sky-400 hover:underline cursor-pointer"
                   >
-                    <div className="space-y-2.5">
-                      <div className="flex items-center justify-between gap-2">
-                        <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-sky-500/30">
-                          {ms.code} ({ms.Timing})
-                        </span>
-                        <span
-                          className={`text-xs font-mono px-2.5 py-0.5 rounded-lg ${
-                            isCompleted
-                              ? 'bg-emerald-100 dark:bg-emerald-500/20 text-emerald-800 dark:text-emerald-300'
-                              : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                          }`}
-                        >
-                          {isCompleted ? 'Prereqs Passed' : 'Not Completed'}
-                        </span>
-                      </div>
-
-                      <h3 className="font-display text-base font-bold text-slate-900 dark:text-white">
-                        {ms.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-                        {ms.description}
-                      </p>
-
-                      <div className="space-y-1 pt-1">
-                        <p className="text-xs font-semibold text-slate-700 dark:text-slate-200">
-                          Required Deliverables:
-                        </p>
-                        <ul className="list-disc list-inside text-xs text-slate-600 dark:text-slate-300 space-y-1">
-                          {ms.deliverables.map((deliv, i) => (
-                            <li key={i}>{deliv}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="pt-3 border-t border-slate-200 dark:border-slate-800/80 space-y-2">
-                      <p className="text-xs text-amber-800 dark:text-amber-300/90">
-                        <strong>Pass Condition:</strong> {ms.passCondition}
-                      </p>
-                      <div className="flex flex-wrap items-center gap-1.5">
-                        <span className="text-[11px] font-mono text-slate-500 dark:text-slate-400">
-                          Linked Modules:
-                        </span>
-                        {ms.prerequisiteModuleNumbers.map((mNum) => (
-                          <button
-                            key={mNum}
-                            type="button"
-                            onClick={() => onSelectModule(mNum)}
-                            className="text-[11px] font-mono px-2 py-0.5 rounded bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-blue-600 dark:text-sky-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
-                          >
-                            Mod {mNum}
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+                    Go to Module {ms.afterModule} →
+                  </button>
+                </div>
+                <h3 className="font-display text-base font-bold text-slate-900 dark:text-white">
+                  {ms.title}
+                </h3>
+                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                  {ms.description}
+                </p>
+                <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300">
+                  {ms.deliverables.map((del, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                      <span>{del}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="pt-2 border-t border-slate-200 dark:border-slate-800 text-xs text-amber-700 dark:text-amber-300 font-medium">
+                  Pass Condition: {ms.passCondition}
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Syllabus Comment [UI1] Course-Development Requirements */}
           <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
-            <div className="flex items-start gap-3">
-              <ShieldAlert className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-              <div>
-                <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
-                  Syllabus Comment [UI1] Course-Development Requirements &amp;
-                  Source Boundaries
-                </h2>
-                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1">
-                  The syllabus includes comment [UI1] requesting straightforward
-                  examples for precast, backpropping, lifting, geotechnical
-                  reports, and Category 2 checking. Each item is tracked below
-                  with explicit engineering scope and source-boundary safeguards:
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-3">
+            <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
+              Syllabus Comment [UI1] Course Development Requirements
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {COURSE_DEVELOPMENT_REQUIREMENTS.map((req) => (
                 <div
                   key={req.id}
-                  className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-4 space-y-2"
+                  className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-4 space-y-2 text-xs"
                 >
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-lg bg-amber-50 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-500/30">
-                        {req.sourceRef}
-                      </span>
-                      <h3 className="font-display text-sm font-bold text-slate-900 dark:text-white">
-                        {req.topic}
-                      </h3>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      {req.targetModules.map((mNum) => (
-                        <button
-                          key={mNum}
-                          type="button"
-                          onClick={() => onSelectModule(mNum)}
-                          className="text-xs font-mono px-2.5 py-1 rounded-lg bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-blue-600 dark:text-sky-300 border border-slate-200 dark:border-slate-700 cursor-pointer"
-                        >
-                          Open Module {mNum}
-                        </button>
-                      ))}
-                    </div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="font-mono font-bold text-blue-600 dark:text-sky-400">
+                      {req.id}: {req.topic}
+                    </span>
+                    <span className="font-mono text-[11px] text-slate-500">
+                      Modules: {req.targetModules.join(', ')}
+                    </span>
                   </div>
-                  <p className="text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
-                    <strong>Syllabus Requirement:</strong> {req.syllabusComment}
+                  <p className="font-semibold text-slate-900 dark:text-white">
+                    {req.title}
                   </p>
-                  <p className="text-xs text-amber-800 dark:text-amber-300/90 leading-relaxed">
-                    <strong>Verification &amp; Source Boundary:</strong>{' '}
-                    {req.handlingNote}
+                  <p className="text-slate-600 dark:text-slate-300">
+                    {req.statusNote}
                   </p>
                 </div>
               ))}
@@ -426,70 +394,286 @@ export const CoverageAndMilestonesView: React.FC<
         </div>
       )}
 
-      {/* TAB 3: FIVE STUDY RULES & 9-PART CALCULATION NOTE STRUCTURE */}
-      {activeTab === 'standards' && (
-        <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6"
-          data-testid="standards-section"
-        >
-          <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
-            <div className="flex items-center gap-2.5">
-              <BookOpen className="w-5 h-5 text-blue-600 dark:text-sky-400" />
-              <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
-                The Five Mandatory Study Rules
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-              Every topic across Modules 0 to 19 must be studied using these
-              five non-negotiable engineering steps:
-            </p>
+      {/* SUBTAB 3: FIVE STUDY RULES & 9-SECTION CALCULATION NOTE */}
+      {activeSubtab === 'standards' && (
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div className="lg:col-span-5 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
+              The Five Mandatory Study Rules
+            </h2>
             <div className="space-y-3">
               {FIVE_STUDY_RULES.map((rule) => (
                 <div
-                  key={rule.number}
-                  className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex items-start gap-3"
+                  key={rule.id}
+                  className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-4 space-y-1 text-xs"
                 >
-                  <span className="w-6 h-6 rounded-full bg-blue-100 dark:bg-sky-500/20 border border-blue-200 dark:border-sky-500/40 text-blue-700 dark:text-sky-300 font-mono text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
-                    {rule.number}
-                  </span>
-                  <div>
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-white">
-                      {rule.title}
-                    </h3>
-                    <p className="text-xs text-slate-600 dark:text-slate-300 mt-1 leading-relaxed">
-                      {rule.description}
-                    </p>
+                  <div className="font-mono font-bold text-blue-600 dark:text-sky-400">
+                    Rule {rule.stepNumber}: {rule.title}
                   </div>
+                  <p className="font-semibold text-slate-800 dark:text-slate-200">
+                    {rule.instruction}
+                  </p>
+                  <p className="text-slate-600 dark:text-slate-400">
+                    {rule.description}
+                  </p>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
-            <div className="flex items-center gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-              <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
-                Nine-Part Calculation-Note Structure
-              </h2>
-            </div>
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-              Every worked example and portfolio milestone deliverable follows
-              this industry-standard UK design office calculation structure:
-            </p>
-            <div className="space-y-2.5">
-              {CALCULATION_NOTE_STRUCTURE.map((part) => (
+          <div className="lg:col-span-7 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
+            <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
+              9-Section Professional Calculation Note Structure
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {CALCULATION_NOTE_STRUCTURE.map((sec) => (
                 <div
-                  key={part.sectionNumber}
-                  className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-3 text-xs space-y-1"
+                  key={sec.key}
+                  className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-3.5 space-y-1 text-xs"
                 >
-                  <div className="font-bold text-slate-900 dark:text-white">
-                    {part.sectionNumber}. {part.title}
+                  <div className="font-mono font-bold text-emerald-600 dark:text-emerald-400">
+                    Section {sec.sectionNumber}: {sec.title}
                   </div>
-                  <div className="text-slate-600 dark:text-slate-300">
-                    {part.requirement}
-                  </div>
+                  <p className="text-slate-600 dark:text-slate-300 leading-relaxed">
+                    {sec.requirement}
+                  </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SUBTAB 4: INTERACTIVE EUROCODE WORKBENCH, ADAPTIVE PLANNER & LOCAL RAG */}
+      {activeSubtab === 'workbench' && (
+        <div className="space-y-6">
+          {/* 1. Multi-step Eurocode Design Scenarios */}
+          <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase text-blue-600 dark:text-sky-400">
+                  Multi-Step Eurocode Design Verification (Non-Unique Valid Sections)
+                </span>
+                <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">
+                  {activeScenario.title}
+                </h2>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {EUROCODE_DESIGN_SCENARIOS.map((sc) => (
+                  <button
+                    key={sc.id}
+                    type="button"
+                    onClick={() => handleScenarioSwitch(sc.id)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-semibold border cursor-pointer ${
+                      selectedScenarioId === sc.id
+                        ? 'bg-blue-600 text-white border-blue-600'
+                        : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+                    }`}
+                  >
+                    {sc.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+              {activeScenario.brief}
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              <div>
+                <label className="block text-[11px] font-mono uppercase text-slate-500 mb-1">
+                  1. ULS Load w_Ed (kN/m)
+                </label>
+                <input
+                  type="text"
+                  value={wEdInput}
+                  onChange={(e) => setWEdInput(e.target.value)}
+                  className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-3 py-2 font-mono text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-mono uppercase text-slate-500 mb-1">
+                  2. ULS Moment M_Ed (kN·m)
+                </label>
+                <input
+                  type="text"
+                  value={mEdInput}
+                  onChange={(e) => setMEdInput(e.target.value)}
+                  className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-3 py-2 font-mono text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-mono uppercase text-slate-500 mb-1">
+                  3. ULS Shear V_Ed (kN)
+                </label>
+                <input
+                  type="text"
+                  value={vEdInput}
+                  onChange={(e) => setVEdInput(e.target.value)}
+                  className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-3 py-2 font-mono text-sm"
+                />
+              </div>
+              <div>
+                <label className="block text-[11px] font-mono uppercase text-slate-500 mb-1">
+                  4. Select Candidate UKB Section
+                </label>
+                <select
+                  value={selectedSection}
+                  onChange={(e) => setSelectedSection(e.target.value)}
+                  className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-3 py-2 font-mono text-xs"
+                >
+                  {activeScenario.candidateSections.map((s) => (
+                    <option key={s.designation} value={s.designation}>
+                      {s.designation} (W_pl={s.WplYCm3} cm³, I_y={s.IyCm4} cm⁴)
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div className="flex justify-end">
+              <button
+                type="button"
+                onClick={handleVerifyScenario}
+                className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold cursor-pointer"
+              >
+                Verify Eurocode Design Steps
+              </button>
+            </div>
+
+            {scenarioResult && (
+              <div className="rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/70 p-4 space-y-2 text-xs">
+                <div className="font-bold text-sm flex items-center gap-2">
+                  {scenarioResult.passedAllSteps ? (
+                    <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                  ) : (
+                    <AlertTriangle className="w-4 h-4 text-amber-500" />
+                  )}
+                  <span>{scenarioResult.overallFeedback}</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                  {scenarioResult.stepResults.map((st) => (
+                    <div
+                      key={st.stepId}
+                      className="rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2.5"
+                    >
+                      <div className="font-semibold flex justify-between">
+                        <span>{st.label}</span>
+                        <span
+                          className={
+                            st.passed ? 'text-emerald-500' : 'text-rose-500'
+                          }
+                        >
+                          {st.passed ? 'PASS' : 'FAIL'}
+                        </span>
+                      </div>
+                      <p className="text-slate-500 mt-1">{st.feedback}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 2. Adaptive Study Planner & Spaced Review */}
+          <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-3">
+            <div className="flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase text-emerald-600 dark:text-emerald-400">
+                  Adaptive Pace &amp; Spaced Retention Queue
+                </span>
+                <h3 className="font-display text-base font-bold">
+                  Recommended Next Topic: Module{' '}
+                  {adaptivePlan.nextRecommendedTopic.moduleNumber} (
+                  {adaptivePlan.nextRecommendedTopic.title})
+                </h3>
+                <p className="text-xs text-slate-500">
+                  {adaptivePlan.nextRecommendedTopic.rationale} • Pace Mode:{' '}
+                  {adaptivePlan.learnerPaceMode}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() =>
+                  onSelectModule(
+                    adaptivePlan.nextRecommendedTopic.moduleNumber,
+                    adaptivePlan.nextRecommendedTopic.topicId
+                  )
+                }
+                className="px-3.5 py-2 rounded-xl bg-blue-600 text-white text-xs font-semibold inline-flex items-center gap-1.5 cursor-pointer"
+              >
+                <span>Open Recommended Topic</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+
+          {/* 3. Offline Citation-Grounded RAG Reference Library */}
+          <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <span className="text-xs font-mono font-bold uppercase text-purple-600 dark:text-purple-400">
+                  Offline Citation-Grounded Reference Library (RAG)
+                </span>
+                <h3 className="font-display text-base font-bold">
+                  Search Across All 20 Syllabus Modules &amp; Personal Excerpts
+                </h3>
+              </div>
+              <BookOpen className="w-5 h-5 text-purple-500" />
+            </div>
+
+            <div className="relative">
+              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-2.5" />
+              <input
+                type="text"
+                value={ragQuery}
+                onChange={(e) => setRagQuery(e.target.value)}
+                placeholder="Search local engineering index (e.g. 'padstone bearing', 'Euler buckling')"
+                className="w-full rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 pl-10 pr-4 py-2 text-xs sm:text-sm"
+              />
+            </div>
+
+            <div className="rounded-xl bg-blue-50/70 dark:bg-slate-950 border border-blue-200 dark:border-slate-800 p-4 text-xs space-y-1.5">
+              <div className="font-mono font-bold text-blue-700 dark:text-sky-400">
+                Grounded Synthesis ({ragResult.citations.length} matched chunks):
+              </div>
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                {ragResult.synthesisedAnswer}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-2 border-t border-slate-200 dark:border-slate-800">
+              <input
+                type="text"
+                value={newDocTitle}
+                onChange={(e) => setNewDocTitle(e.target.value)}
+                placeholder="Note title (e.g. EC3 LTB Summary)"
+                className="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-3 py-1.5 text-xs"
+              />
+              <input
+                type="text"
+                value={newDocCitation}
+                onChange={(e) => setNewDocCitation(e.target.value)}
+                placeholder="Source / Clause (e.g. BS EN 1993-1-1 Cl. 6.3.2)"
+                className="rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-3 py-1.5 text-xs"
+              />
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={newDocText}
+                  onChange={(e) => setNewDocText(e.target.value)}
+                  placeholder="Paste excerpt text..."
+                  className="flex-1 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 px-3 py-1.5 text-xs"
+                />
+                <button
+                  type="button"
+                  onClick={handleAddUserReferenceDoc}
+                  className="px-3 py-1.5 rounded-lg bg-purple-600 text-white text-xs font-semibold shrink-0 cursor-pointer"
+                >
+                  Add Note
+                </button>
+              </div>
             </div>
           </div>
         </div>

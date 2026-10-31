@@ -1,37 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import {
-  CheckCircle2,
-  XCircle,
-  AlertTriangle,
   ArrowLeft,
-  RotateCcw,
   Award,
-  ShieldAlert,
   BookOpen,
-  Info,
-  CheckSquare,
+  CheckCircle2,
+  Lightbulb,
+  RotateCcw,
+  ShieldAlert,
+  Sparkles,
+  XCircle,
 } from 'lucide-react';
-import {
+import type {
   AssessmentQuestion,
   AssessmentSubmissionResult,
   NormalizedSyllabusModule,
+  ReviewStatus,
   SyllabusTopic,
 } from '../types/syllabus';
 import {
   evaluateAssessmentSubmission,
   formatAssessmentPercentage,
+  shuffleMcqOptionsWithSeed,
 } from '../utils/assessmentEngine';
+import { generateParametricQuestionVariants } from '../utils/questionGenerators';
 
-interface AssessmentViewProps {
+export interface AssessmentViewProps {
   module: NormalizedSyllabusModule;
-  topic?: SyllabusTopic; // undefined when taking the End-of-Module assessment
+  topic?: SyllabusTopic;
   questions: AssessmentQuestion[];
   previousBestScorePercent: number | null;
   previousPassed: boolean;
   previousAttemptsCount: number;
+  questionReviewOverrides?: Record<string, ReviewStatus>;
   onCompleteAttempt: (result: AssessmentSubmissionResult) => void;
   onBackToModule: () => void;
 }
+
+const COMPATIBLE_UNITS_MAP: Record<string, string[]> = {
+  kN: ['kN', 'N', 'MN'],
+  N: ['N', 'kN', 'MN'],
+  'kN·m': ['kN·m', 'kNm', 'N·mm', 'N·m'],
+  kNm: ['kNm', 'kN·m', 'N·mm', 'N·m'],
+  'N/mm²': ['N/mm²', 'MPa', 'GPa', 'kPa'],
+  MPa: ['MPa', 'N/mm²', 'GPa', 'kPa'],
+  kPa: ['kPa', 'MPa', 'N/mm²', 'kN/m²'],
+  'kN/m²': ['kN/m²', 'kPa', 'MPa'],
+  'kN/m': ['kN/m', 'N/mm', 'N/m'],
+  mm: ['mm', 'm', 'cm'],
+  m: ['m', 'mm', 'cm'],
+  'mm²': ['mm²', 'cm²', 'm²'],
+  'cm³': ['cm³', 'mm³', '10³ mm³'],
+  'cm⁴': ['cm⁴', '10⁶ mm⁴', 'mm⁴'],
+};
 
 export const AssessmentView: React.FC<AssessmentViewProps> = ({
   module,
@@ -40,142 +60,198 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
   previousBestScorePercent,
   previousPassed,
   previousAttemptsCount,
+  questionReviewOverrides = {},
   onCompleteAttempt,
   onBackToModule,
 }) => {
-  const [answers, setAnswers] = useState<Record<string, string | number>>({});
+  const [attemptSeed, setAttemptSeed] = useState<string>(
+    () => `seed-${module.moduleNumber}-${topic?.id ?? 'exam'}-${Date.now()}`
+  );
+  const [includeParametricVariants, setIncludeParametricVariants] =
+    useState<boolean>(false);
+  const [userAnswers, setUserAnswers] = useState<Record<string, string | number>>(
+    {}
+  );
+  const [selectedUnits, setSelectedUnits] = useState<Record<string, string>>({});
+  const [revealedHints, setRevealedHints] = useState<Record<string, number>>({});
   const [submissionResult, setSubmissionResult] =
     useState<AssessmentSubmissionResult | null>(null);
-  const [showUnansweredConfirm, setShowUnansweredConfirm] = useState(false);
 
-  const isTopicAssessment = Boolean(topic);
-  const assessmentId = topic ? `TOPIC-${topic.id}` : `MODULE-${module.id}`;
-  const assessmentTitle = topic
+  const activeQuestions = useMemo(() => {
+    if (!includeParametricVariants) return questions;
+    const numericSeed =
+      attemptSeed.split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0) || 42;
+    const extra = generateParametricQuestionVariants(
+      module.moduleNumber,
+      numericSeed,
+      2
+    );
+    return [...questions, ...extra];
+  }, [questions, includeParametricVariants, module.moduleNumber, attemptSeed]);
+
+  // Precompute deterministic shuffled options per MCQ for the current attemptSeed (N1)
+  const shuffledMcqMap = useMemo(() => {
+    const map: Record<
+      string,
+      ReturnType<typeof shuffleMcqOptionsWithSeed>
+    > = {};
+    for (const q of activeQuestions) {
+      if (q.type === 'mcq') {
+        map[q.id] = shuffleMcqOptionsWithSeed(q, attemptSeed);
+      }
+    }
+    return map;
+  }, [activeQuestions, attemptSeed]);
+
+  const assessmentId = topic
+    ? `TOPIC-${topic.id}`
+    : `MODULE-${module.id}`;
+
+  const title = topic
     ? `Topic ${topic.code} Assessment: ${topic.title}`
-    : `Module ${module.moduleNumber} End-of-Module Assessment: ${module.title}`;
+    : `Module ${module.moduleNumber} End-of-Module Exam: ${module.shortTitle}`;
 
-  const answeredCount = questions.filter((q) => {
-    const val = answers[q.id];
-    if (val === undefined || val === null) return false;
-    if (typeof val === 'string') return val.trim().length > 0;
-    return true;
-  }).length;
+  const subtitle = topic
+    ? `${module.title} • ${activeQuestions.length} Questions • 90% Pass Standard`
+    : `Comprehensive 20-Question Syllabus Gate Assessment • 90% Pass Standard (18/20 Required)`;
 
-  const minRequiredCorrect = Math.ceil(questions.length * 0.9);
+  const answeredCount = activeQuestions.filter(
+    (q) =>
+      userAnswers[q.id] !== undefined &&
+      String(userAnswers[q.id]).trim() !== ''
+  ).length;
 
-  const handleAnswerChange = (questionId: string, value: string | number) => {
+  const handleSelectAnswer = (questionId: string, value: string | number) => {
     if (submissionResult) return;
-    setAnswers((prev) => ({
+    setUserAnswers((prev) => ({
       ...prev,
       [questionId]: value,
     }));
-    setShowUnansweredConfirm(false);
   };
 
-  const executeSubmit = () => {
-    const result = evaluateAssessmentSubmission(
+  const handleSubmitAssessment = (e?: React.FormEvent) => {
+    if (e) e.preventDefault();
+    const evaluated = evaluateAssessmentSubmission(
       assessmentId,
-      questions,
-      answers
+      activeQuestions,
+      userAnswers,
+      {
+        attemptSeed,
+        selectedUnits,
+        answerUsesShuffledIndex: true,
+      }
     );
-    setSubmissionResult(result);
-    setShowUnansweredConfirm(false);
-    onCompleteAttempt(result);
+    setSubmissionResult(evaluated);
+    onCompleteAttempt(evaluated);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const handleTrySubmit = () => {
-    if (answeredCount < questions.length && !showUnansweredConfirm) {
-      setShowUnansweredConfirm(true);
-      return;
-    }
-    executeSubmit();
-  };
-
-  const handleRetake = () => {
-    setAnswers({});
+  const handleRetakeNewAttempt = () => {
+    setAttemptSeed(
+      `seed-${module.moduleNumber}-${topic?.id ?? 'exam'}-${Date.now()}-${Math.random()
+        .toString(36)
+        .slice(2, 6)}`
+    );
+    setUserAnswers({});
+    setSelectedUnits({});
+    setRevealedHints({});
     setSubmissionResult(null);
-    setShowUnansweredConfirm(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Keyboard shortcut: Ctrl+Enter to submit when not yet submitted (A11)
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter' && !submissionResult) {
+        e.preventDefault();
+        handleSubmitAssessment();
+      }
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  });
 
   return (
-    <div className="max-w-[920px] mx-auto space-y-6">
+    <div
+      className="max-w-[1000px] mx-auto space-y-6"
+      data-testid="assessment-view"
+    >
       {/* Top Assessment Header Card */}
       <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <button
             type="button"
             onClick={onBackToModule}
-            className="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-white bg-slate-100 dark:bg-slate-800 hover:bg-slate-200/80 dark:hover:bg-slate-700 px-3.5 py-2 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
+            data-testid="assessment-back-btn"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-3.5 h-3.5" />
             <span>Back to Module {module.moduleNumber}</span>
           </button>
 
           <div className="flex flex-wrap items-center gap-2">
-            <span className="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-sky-500/30">
-              {isTopicAssessment
-                ? 'End-of-Topic Assessment'
-                : 'End-of-Module Assessment'}
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-wider px-2.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-500/30">
-              Pass Mark: 90% ({minRequiredCorrect}/{questions.length} Correct)
-            </span>
-            {previousAttemptsCount > 0 && (
-              <span
-                className={`text-xs font-semibold px-2.5 py-1 rounded-lg border ${
-                  previousPassed
-                    ? 'bg-emerald-50 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-500/30'
-                    : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
-                }`}
-              >
-                Previous Best:{' '}
-                {previousBestScorePercent !== null
-                  ? `${previousBestScorePercent.toFixed(1)}%`
-                  : '0%'}{' '}
-                ({previousAttemptsCount}{' '}
-                {previousAttemptsCount === 1 ? 'attempt' : 'attempts'})
+            <button
+              type="button"
+              onClick={() => {
+                setIncludeParametricVariants((prev) => !prev);
+                setSubmissionResult(null);
+              }}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold border transition-colors cursor-pointer ${
+                includeParametricVariants
+                  ? 'bg-teal-50 dark:bg-teal-950/50 text-teal-800 dark:text-teal-300 border-teal-300 dark:border-teal-500/40'
+                  : 'bg-slate-50 dark:bg-slate-800/70 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700'
+              }`}
+            >
+              <Sparkles className="w-3.5 h-3.5 text-teal-500" />
+              <span>
+                {includeParametricVariants
+                  ? 'Parametric Generator Active (+2 Qs)'
+                  : '+ Add Parametric Practice Variants'}
               </span>
-            )}
+            </button>
+
+            <span className="text-xs font-mono font-bold px-3 py-1.5 rounded-xl bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-sky-500/30">
+              Pass Gate: 90% ({Math.ceil(activeQuestions.length * 0.9)}/
+              {activeQuestions.length} Correct)
+            </span>
           </div>
         </div>
 
-        <div>
-          <p className="text-xs font-mono uppercase tracking-wider text-blue-600 dark:text-sky-400 font-semibold">
-            Module {module.moduleNumber} ({module.id}){' '}
-            {topic
-              ? `• Topic ${topic.code}`
-              : '• Full Module Gate Verification'}
-          </p>
-          <h1 className="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mt-1">
-            {assessmentTitle}
-          </h1>
-          <p className="text-sm text-slate-600 dark:text-slate-300 mt-2 leading-relaxed">
-            Answer all {questions.length} engineering questions below. Numeric
-            questions are graded deterministically within their stated
-            engineering tolerance in the required unit. A score of at least{' '}
-            <strong className="text-slate-900 dark:text-white">
-              90% ({minRequiredCorrect} out of {questions.length})
-            </strong>{' '}
-            is required to pass.
-          </p>
-        </div>
+        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pt-1">
+          <div className="space-y-1">
+            <h1 className="font-display text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">
+              {title}
+            </h1>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+              {subtitle}
+            </p>
+          </div>
 
-        <div className="bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-xl p-4 flex items-start gap-3">
-          <BookOpen className="w-4 h-4 text-blue-600 dark:text-sky-400 shrink-0 mt-0.5" />
-          <div className="text-xs text-slate-600 dark:text-slate-300 space-y-1">
-            <p>
-              <strong className="text-slate-900 dark:text-white">
-                Syllabus Learning Gate:
-              </strong>{' '}
-              {module.learningGate}
-            </p>
-            <p className="text-slate-500 dark:text-slate-400">
-              Apply the Five Study Rules: explain physically, sketch the load
-              path and deformed shape, calculate in consistent SI units, check
-              against equilibrium bounds, and state assumptions.
-            </p>
+          <div className="flex items-center gap-3 shrink-0">
+            <div className="rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-3.5 py-2 text-xs">
+              <div className="text-[10px] font-mono uppercase text-slate-500 dark:text-slate-400">
+                Previous Best ({previousAttemptsCount} attempts)
+              </div>
+              <div className="font-mono font-bold text-sm text-slate-900 dark:text-white">
+                {previousBestScorePercent !== null
+                  ? `${previousBestScorePercent.toFixed(0)}%`
+                  : '0%'}{' '}
+                {previousPassed && (
+                  <span className="text-emerald-600 dark:text-emerald-400">
+                    ✓ PASSED
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="rounded-xl bg-blue-50/80 dark:bg-slate-950 border border-blue-200 dark:border-slate-800 px-3.5 py-2 text-xs">
+              <div className="text-[10px] font-mono uppercase text-blue-600 dark:text-sky-400">
+                Answered
+              </div>
+              <div className="font-mono font-bold text-sm text-slate-900 dark:text-white">
+                {answeredCount} / {activeQuestions.length}
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -184,352 +260,341 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
       {submissionResult && (
         <div
           data-testid="assessment-result-banner"
-          className={`rounded-2xl border p-6 shadow-xs space-y-4 ${
+          className={`rounded-2xl border p-6 shadow-sm ${
             submissionResult.passed
-              ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-500/40 text-slate-900 dark:text-slate-100'
-              : 'bg-rose-50/90 dark:bg-rose-950/40 border-rose-300 dark:border-rose-500/40 text-slate-900 dark:text-slate-100'
+              ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-500/40 text-emerald-950 dark:text-emerald-100'
+              : 'bg-rose-50/90 dark:bg-rose-950/40 border-rose-300 dark:border-rose-500/40 text-rose-950 dark:text-rose-100'
           }`}
         >
-          <div className="flex flex-wrap items-start justify-between gap-4">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div className="flex items-start gap-3.5">
-              {submissionResult.passed ? (
-                <Award className="w-8 h-8 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-              ) : (
-                <ShieldAlert className="w-8 h-8 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
-              )}
-              <div>
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <span
-                    data-testid="assessment-pass-status"
-                    className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg ${
-                      submissionResult.passed
-                        ? 'bg-emerald-600 text-white'
-                        : 'bg-rose-600 text-white'
-                    }`}
-                  >
-                    {submissionResult.passed
-                      ? 'PASSED (≥90%)'
-                      : 'NOT PASSED (<90%)'}
-                  </span>
-                  <span
-                    data-testid="assessment-score-display"
-                    className="text-lg font-bold font-mono text-slate-900 dark:text-white"
-                  >
-                    Score: {submissionResult.correctCount} /{' '}
-                    {submissionResult.totalQuestions} (
-                    {submissionResult.displayPercentage})
-                  </span>
-                </div>
-                <p className="text-sm text-slate-700 dark:text-slate-200 mt-2">
+              <div
+                className={`p-3 rounded-xl text-white shrink-0 ${
+                  submissionResult.passed ? 'bg-emerald-600' : 'bg-rose-600'
+                }`}
+              >
+                <Award className="w-6 h-6" />
+              </div>
+              <div className="space-y-1">
+                <div className="text-xs font-mono font-bold uppercase tracking-wider">
                   {submissionResult.passed
-                    ? `Congratulations! You achieved ${submissionResult.displayPercentage}, meeting the 90% mastery threshold (${minRequiredCorrect}/${submissionResult.totalQuestions} required). Review the full worked explanations below.`
-                    : `You scored ${submissionResult.displayPercentage} (${submissionResult.correctCount}/${submissionResult.totalQuestions}). A minimum of 90% (${minRequiredCorrect}/${submissionResult.totalQuestions} correct) is required to pass this assessment. Study the worked explanations below and retake when ready.`}
+                    ? 'ASSESSMENT PASSED (≥ 90% THRESHOLD MET)'
+                    : 'NOT YET PASSED (90% REQUIRED TO PASS GATE)'}
+                </div>
+                <h2 className="font-display text-2xl font-bold">
+                  Score:{' '}
+                  {formatAssessmentPercentage(
+                    submissionResult.correctCount,
+                    submissionResult.totalQuestions
+                  )}{' '}
+                  ({submissionResult.correctCount} /{' '}
+                  {submissionResult.totalQuestions} Correct)
+                </h2>
+                <p className="text-xs sm:text-sm opacity-90">
+                  {submissionResult.passed
+                    ? 'This syllabus gate has been recorded as Passed in your local course profile.'
+                    : 'Review the detailed first-principles explanations and unit diagnostics below, then click Retake Assessment for a freshly shuffled attempt.'}
                 </p>
               </div>
             </div>
 
-            <div className="flex items-center gap-2.5">
+            <div className="flex flex-wrap items-center gap-2.5 shrink-0">
               <button
                 type="button"
-                onClick={handleRetake}
-                data-testid="retake-assessment-btn"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-600 transition-colors cursor-pointer shadow-2xs"
+                onClick={handleRetakeNewAttempt}
+                data-testid="assessment-retake-btn"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold bg-white dark:bg-slate-900 text-slate-900 dark:text-white border border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 cursor-pointer"
               >
-                <RotateCcw className="w-3.5 h-3.5" />
-                <span>Retake Assessment</span>
+                <RotateCcw className="w-4 h-4" />
+                <span>Retake Assessment (Reshuffle Options)</span>
               </button>
               <button
                 type="button"
                 onClick={onBackToModule}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors cursor-pointer shadow-2xs"
+                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white cursor-pointer"
               >
-                <span>Return to Module {module.moduleNumber}</span>
+                <span>Return to Learning Map</span>
               </button>
             </div>
-          </div>
-        </div>
-      )}
-
-      {/* Progress Sticky Bar while answering */}
-      {!submissionResult && (
-        <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-xs flex flex-wrap items-center justify-between gap-4 sticky top-3 z-20">
-          <div className="flex items-center gap-3">
-            <CheckSquare className="w-4 h-4 text-blue-600 dark:text-sky-400" />
-            <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
-              Answered:{' '}
-              <strong className="font-mono text-slate-900 dark:text-white">
-                {answeredCount} / {questions.length}
-              </strong>{' '}
-              questions
-            </span>
-            <div className="w-28 sm:w-40 h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-              <div
-                className="h-full bg-blue-600 dark:bg-sky-500 transition-all duration-200"
-                style={{
-                  width: `${
-                    questions.length > 0
-                      ? (answeredCount / questions.length) * 100
-                      : 0
-                  }%`,
-                }}
-              />
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2.5">
-            <button
-              type="button"
-              onClick={handleTrySubmit}
-              data-testid="submit-assessment-top-btn"
-              className="px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors cursor-pointer shadow-xs"
-            >
-              Submit Assessment ({answeredCount}/{questions.length})
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* Unanswered Warning Confirmation */}
-      {showUnansweredConfirm && !submissionResult && (
-        <div className="bg-amber-50 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-500/40 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <AlertTriangle className="w-5 h-5 text-amber-600 dark:text-amber-400 shrink-0" />
-            <p className="text-xs sm:text-sm text-amber-900 dark:text-amber-200">
-              You have answered{' '}
-              <strong>
-                {answeredCount} of {questions.length}
-              </strong>{' '}
-              questions. Unanswered questions will be marked incorrect. Submit
-              anyway?
-            </p>
-          </div>
-          <div className="flex items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setShowUnansweredConfirm(false)}
-              className="px-3 py-1.5 rounded-lg text-xs font-medium bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 cursor-pointer"
-            >
-              Continue Answering
-            </button>
-            <button
-              type="button"
-              onClick={executeSubmit}
-              data-testid="confirm-submit-unanswered-btn"
-              className="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-amber-600 hover:bg-amber-500 text-white cursor-pointer"
-            >
-              Confirm Submit
-            </button>
           </div>
         </div>
       )}
 
       {/* Questions List */}
-      <div className="space-y-4">
-        {questions.map((q, idx) => {
-          const itemResult = submissionResult?.itemResults.find(
-            (r) => r.questionId === q.id
-          );
-          const currentAnswer = answers[q.id];
+      <form onSubmit={handleSubmitAssessment} className="space-y-5">
+        {activeQuestions.map((q, qIdx) => {
+          const outcome = submissionResult?.questionOutcomes[q.id];
+          const shuffled = q.type === 'mcq' ? shuffledMcqMap[q.id] : undefined;
+          const displayOptions = shuffled?.options ?? q.options ?? [];
+          const effectiveReviewStatus: ReviewStatus =
+            questionReviewOverrides[q.id] ?? q.reviewStatus;
+          const hintCount = revealedHints[q.id] ?? 0;
+          const compatibleUnits =
+            q.unit && COMPATIBLE_UNITS_MAP[q.unit]
+              ? COMPATIBLE_UNITS_MAP[q.unit]
+              : q.unit
+              ? [q.unit]
+              : [];
+          const currentUnit = selectedUnits[q.id] ?? q.unit ?? '';
 
           return (
             <div
               key={q.id}
-              data-testid={`assessment-question-card-${idx + 1}`}
-              className={`bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border rounded-2xl p-5 sm:p-6 shadow-xs space-y-4 transition-colors ${
-                itemResult
-                  ? itemResult.isCorrect
-                    ? 'border-emerald-300 dark:border-emerald-500/40'
-                    : 'border-rose-300 dark:border-rose-500/40'
-                  : 'border-slate-200 dark:border-slate-800'
-              }`}
+              data-testid={`assessment-question-card-${q.id}`}
+              className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4"
             >
-              {/* Question Top Metadata */}
-              <div className="flex flex-wrap items-center justify-between gap-2">
+              {/* Question Header */}
+              <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200 dark:border-slate-800">
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
-                    Question {idx + 1} of {questions.length}
+                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+                    Q{qIdx + 1} of {activeQuestions.length}
                   </span>
-                  <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-50 dark:bg-slate-800/70 text-slate-600 dark:text-slate-400 border border-slate-200/80 dark:border-slate-700/60">
-                    {q.questionType.toUpperCase()}
+                  <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300">
+                    {q.type === 'numeric'
+                      ? 'Numeric Hand Calculation'
+                      : 'Conceptual & Analytical MCQ'}
                   </span>
-                  {q.type === 'numeric' && (q.unit || q.requiredUnit) && (
-                    <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/10 text-blue-700 dark:text-sky-300 border border-blue-200 dark:border-sky-500/20">
-                      Required Unit: {q.unit ?? q.requiredUnit}
-                    </span>
-                  )}
-                  <span className="text-xs px-2.5 py-1 rounded-lg bg-amber-50 dark:bg-amber-500/10 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-amber-500/20">
-                    {q.reviewStatus}
+                  {/* Honest Verification Badge (N5) */}
+                  <span
+                    title={q.reviewNotice}
+                    className={`text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-lg border ${
+                      effectiveReviewStatus === 'Verified'
+                        ? 'bg-emerald-50 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-500/30'
+                        : 'bg-amber-50 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-500/30'
+                    }`}
+                  >
+                    {effectiveReviewStatus === 'Verified'
+                      ? 'Solver Verified'
+                      : effectiveReviewStatus}
                   </span>
                 </div>
+                <span className="text-xs font-mono text-slate-400">
+                  ID: {q.id}
+                </span>
+              </div>
 
-                {itemResult && (
-                  <div className="flex items-center gap-1.5">
-                    {itemResult.isCorrect ? (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-200 dark:border-emerald-500/30">
-                        <CheckCircle2 className="w-4 h-4" />
-                        Correct
-                      </span>
-                    ) : (
-                      <span className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-700 dark:text-rose-400 bg-rose-50 dark:bg-rose-500/10 px-2.5 py-1 rounded-lg border border-rose-200 dark:border-rose-500/30">
-                        <XCircle className="w-4 h-4" />
-                        Incorrect
-                      </span>
-                    )}
-                  </div>
+              {/* Objective & Citation */}
+              <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400">
+                <div className="flex items-center gap-1.5">
+                  <BookOpen className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400 shrink-0" />
+                  <span>
+                    <strong>Objective:</strong> {q.learningObjective}
+                  </span>
+                </div>
+                {q.citation && (
+                  <span className="font-mono text-[11px]">
+                    Ref: {typeof q.citation === 'string' ? q.citation : q.citation.clauseOrSection}
+                  </span>
                 )}
               </div>
 
-              {/* Question Prompt */}
-              <p className="text-sm sm:text-base text-slate-900 dark:text-slate-100 leading-relaxed font-medium">
+              {/* Prompt */}
+              <p className="text-sm sm:text-base font-medium text-slate-900 dark:text-slate-100 leading-relaxed">
                 {q.prompt}
               </p>
 
-              {/* Input Control: Numeric vs MCQ */}
-              {q.type === 'numeric' ? (
-                <div className="pt-1">
-                  <label className="block text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1.5">
-                    Numerical Answer{' '}
-                    {q.unit || q.requiredUnit
-                      ? `(in ${q.unit ?? q.requiredUnit})`
-                      : ''}
-                    :
-                  </label>
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <input
-                      type="text"
-                      inputMode="decimal"
-                      disabled={Boolean(submissionResult)}
-                      value={
-                        currentAnswer !== undefined ? String(currentAnswer) : ''
-                      }
-                      onChange={(e) => handleAnswerChange(q.id, e.target.value)}
-                      placeholder={`Enter value${
-                        q.unit || q.requiredUnit
-                          ? ` in ${q.unit ?? q.requiredUnit}`
-                          : ''
-                      }`}
-                      data-testid={`numeric-input-${idx + 1}`}
-                      className="w-full sm:w-64 bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 focus:border-blue-600 dark:focus:border-sky-500 focus:outline-none rounded-xl px-3.5 py-2.5 text-sm font-mono text-slate-900 dark:text-white disabled:opacity-60"
-                    />
-                    {(q.unit || q.requiredUnit) && (
-                      <span className="text-xs font-mono font-semibold px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700">
-                        {q.unit ?? q.requiredUnit}
-                      </span>
-                    )}
+              {/* Assumptions & Limitations */}
+              {q.assumptions && q.assumptions.length > 0 && (
+                <div className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-3 text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2">
+                  <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-slate-800 dark:text-slate-200">
+                      Assumptions &amp; Idealisation:{' '}
+                    </strong>
+                    {Array.isArray(q.assumptions)
+                      ? q.assumptions.join('; ')
+                      : q.assumptions}
                   </div>
+                </div>
+              )}
+
+              {/* Progressive Hints (N6) */}
+              {q.hints && q.hints.length > 0 && !submissionResult && (
+                <div className="space-y-2">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      setRevealedHints((prev) => ({
+                        ...prev,
+                        [q.id]: Math.min(q.hints.length, (prev[q.id] ?? 0) + 1),
+                      }))
+                    }
+                    disabled={hintCount >= q.hints.length}
+                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold bg-amber-50 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-slate-700 hover:bg-amber-100 disabled:opacity-50 cursor-pointer"
+                  >
+                    <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+                    <span>
+                      {hintCount === 0
+                        ? `Show Hint (1/${q.hints.length})`
+                        : hintCount < q.hints.length
+                        ? `Show Next Hint (${hintCount + 1}/${q.hints.length})`
+                        : `All Hints Shown (${q.hints.length}/${q.hints.length})`}
+                    </span>
+                  </button>
+                  {hintCount > 0 && (
+                    <div className="rounded-xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 p-3 space-y-1 text-xs text-amber-900 dark:text-amber-200">
+                      {q.hints.slice(0, hintCount).map((h, i) => (
+                        <div key={i}>
+                          <strong>Hint {i + 1}:</strong> {h}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* Answer Input Area */}
+              {q.type === 'numeric' ? (
+                <div className="flex flex-wrap items-center gap-3 pt-1">
+                  <label
+                    htmlFor={`input-${q.id}`}
+                    className="text-xs font-semibold text-slate-700 dark:text-slate-300"
+                  >
+                    Numerical Value:
+                  </label>
+                  <input
+                    id={`input-${q.id}`}
+                    type="text"
+                    inputMode="decimal"
+                    disabled={Boolean(submissionResult)}
+                    value={userAnswers[q.id] ?? ''}
+                    onChange={(e) => handleSelectAnswer(q.id, e.target.value)}
+                    placeholder={`Enter value in ${currentUnit || 'SI units'}`}
+                    data-testid={`assessment-input-${q.id}`}
+                    className="w-48 px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 font-mono text-sm text-slate-900 dark:text-white focus:border-blue-600 focus:outline-none"
+                  />
+                  {compatibleUnits.length > 1 ? (
+                    <select
+                      aria-label={`Select unit for ${q.id}`}
+                      disabled={Boolean(submissionResult)}
+                      value={currentUnit}
+                      onChange={(e) =>
+                        setSelectedUnits((prev) => ({
+                          ...prev,
+                          [q.id]: e.target.value,
+                        }))
+                      }
+                      className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 font-mono text-xs font-semibold text-slate-900 dark:text-white"
+                    >
+                      {compatibleUnits.map((u) => (
+                        <option key={u} value={u}>
+                          {u}
+                        </option>
+                      ))}
+                    </select>
+                  ) : (
+                    q.unit && (
+                      <span className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+                        {q.unit}
+                      </span>
+                    )
+                  )}
                 </div>
               ) : (
                 <div className="space-y-2 pt-1">
-                  {(q.options ?? []).map((opt, optIdx) => {
-                    const isSelected = Number(currentAnswer) === optIdx;
-                    const isCorrectOption =
-                      submissionResult && q.correctOptionIndex === optIdx;
-                    const isWrongSelected =
-                      submissionResult && isSelected && !isCorrectOption;
+                  {displayOptions.map((optText, optIdx) => {
+                    const isSelected = Number(userAnswers[q.id]) === optIdx;
+                    const isCorrectOpt =
+                      submissionResult &&
+                      shuffled &&
+                      optIdx === shuffled.correctOptionIndex;
+
+                    let optionStyle =
+                      'bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/70';
+                    if (submissionResult) {
+                      if (isCorrectOpt) {
+                        optionStyle =
+                          'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 dark:border-emerald-500/50 text-emerald-950 dark:text-emerald-100 font-semibold';
+                      } else if (isSelected && !isCorrectOpt) {
+                        optionStyle =
+                          'bg-rose-50 dark:bg-rose-950/40 border-rose-400 dark:border-rose-500/50 text-rose-950 dark:text-rose-100';
+                      }
+                    } else if (isSelected) {
+                      optionStyle =
+                        'bg-blue-50 dark:bg-sky-500/20 border-blue-500 dark:border-sky-400 text-blue-950 dark:text-white font-semibold';
+                    }
 
                     return (
-                      <button
+                      <label
                         key={optIdx}
-                        type="button"
-                        disabled={Boolean(submissionResult)}
-                        onClick={() => handleAnswerChange(q.id, optIdx)}
-                        data-testid={`mcq-option-${idx + 1}-${optIdx}`}
-                        className={`w-full text-left p-3.5 rounded-xl border text-xs sm:text-sm transition-colors flex items-start gap-3 cursor-pointer disabled:cursor-default ${
-                          isCorrectOption
-                            ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-400 dark:border-emerald-500/60 text-emerald-950 dark:text-emerald-100 font-medium'
-                            : isWrongSelected
-                            ? 'bg-rose-50 dark:bg-rose-950/50 border-rose-400 dark:border-rose-500/60 text-rose-950 dark:text-rose-100'
-                            : isSelected
-                            ? 'bg-blue-50 dark:bg-sky-500/15 border-blue-500 dark:border-sky-500 text-blue-950 dark:text-white font-medium'
-                            : 'bg-slate-50/70 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/70'
-                        }`}
+                        data-testid={`assessment-mcq-option-${q.id}-${optIdx}`}
+                        className={`flex items-start gap-3 p-3.5 rounded-xl border text-xs sm:text-sm transition-colors cursor-pointer ${optionStyle}`}
                       >
-                        <span
-                          className={`w-6 h-6 rounded-full text-xs font-mono font-bold flex items-center justify-center shrink-0 mt-0.5 border ${
-                            isCorrectOption
-                              ? 'bg-emerald-600 text-white border-emerald-500'
-                              : isWrongSelected
-                              ? 'bg-rose-600 text-white border-rose-500'
-                              : isSelected
-                              ? 'bg-blue-600 text-white border-blue-500'
-                              : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-300 dark:border-slate-700'
-                          }`}
-                        >
-                          {String.fromCharCode(65 + optIdx)}
+                        <input
+                          type="radio"
+                          name={`mcq-${q.id}`}
+                          disabled={Boolean(submissionResult)}
+                          checked={isSelected}
+                          onChange={() => handleSelectAnswer(q.id, optIdx)}
+                          className="mt-1 accent-blue-600"
+                        />
+                        <span className="leading-relaxed">
+                          <strong className="font-mono mr-1.5">
+                            {String.fromCharCode(65 + optIdx)}.
+                          </strong>
+                          {optText}
                         </span>
-                        <span className="leading-relaxed">{opt}</span>
-                      </button>
+                      </label>
                     );
                   })}
                 </div>
               )}
 
-              {/* Post-Submission Detailed Engineering Explanation */}
-              {itemResult && (
-                <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2 text-xs sm:text-sm">
-                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono">
-                    <span className="text-slate-500 dark:text-slate-400">
-                      Your Answer:{' '}
-                      <strong
-                        className={
-                          itemResult.isCorrect
-                            ? 'text-emerald-700 dark:text-emerald-300'
-                            : 'text-rose-700 dark:text-rose-300'
-                        }
-                      >
-                        {itemResult.submittedValue}
-                      </strong>
-                    </span>
-                    <span className="text-slate-500 dark:text-slate-400">
-                      Expected Answer:{' '}
-                      <strong className="text-emerald-700 dark:text-emerald-300">
-                        {itemResult.expectedDisplay}
-                      </strong>
+              {/* Graded Explanation & Diagnostic Box */}
+              {submissionResult && outcome && (
+                <div
+                  className={`rounded-xl border p-4 text-xs sm:text-sm space-y-2 ${
+                    outcome.isCorrect
+                      ? 'bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800/60 text-emerald-950 dark:text-emerald-100'
+                      : 'bg-rose-50/80 dark:bg-rose-950/30 border-rose-200 dark:border-rose-800/60 text-rose-950 dark:text-rose-100'
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-2 font-bold">
+                    <span className="inline-flex items-center gap-1.5">
+                      {outcome.isCorrect ? (
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                      ) : (
+                        <XCircle className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+                      )}
+                      <span>
+                        {outcome.isCorrect
+                          ? 'Correct'
+                          : `Incorrect - Expected: ${outcome.expectedDisplay}`}
+                      </span>
                     </span>
                   </div>
-
-                  <div className="bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-slate-800 rounded-xl p-3.5 space-y-1.5">
-                    <div className="flex items-center gap-1.5 text-xs font-semibold text-blue-700 dark:text-sky-300">
-                      <Info className="w-3.5 h-3.5" />
-                      <span>Worked Explanation &amp; Engineering Principle</span>
-                    </div>
-                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
-                      {itemResult.explanation}
+                  {outcome.unitDiagnostic && (
+                    <p className="font-mono text-xs text-amber-800 dark:text-amber-300">
+                      Unit Diagnostic: {outcome.unitDiagnostic}
                     </p>
-                    {q.reviewNotice && (
-                      <p className="text-xs text-amber-800 dark:text-amber-300/90 pt-1">
-                        <strong>Source &amp; Verification Note:</strong>{' '}
-                        {q.reviewNotice}
-                      </p>
-                    )}
-                  </div>
+                  )}
+                  <p className="leading-relaxed text-slate-700 dark:text-slate-200">
+                    <strong>Worked Explanation:</strong> {outcome.explanation}
+                  </p>
                 </div>
               )}
             </div>
           );
         })}
-      </div>
 
-      {/* Bottom Submit Action */}
-      {!submissionResult && (
-        <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs flex flex-wrap items-center justify-between gap-4">
-          <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-            Ready to grade your assessment? You need{' '}
-            <strong className="text-slate-900 dark:text-white">
-              {minRequiredCorrect} out of {questions.length} (90%)
-            </strong>{' '}
-            correct to pass.
+        {/* Submit Footer */}
+        {!submissionResult && (
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4">
+            <div className="text-xs text-slate-600 dark:text-slate-300">
+              Answered <strong>{answeredCount}</strong> of{' '}
+              <strong>{activeQuestions.length}</strong> questions • Pass
+              Threshold: <strong>90%</strong>
+            </div>
+            <button
+              type="submit"
+              data-testid="assessment-submit-btn"
+              className="px-6 py-3 rounded-xl text-xs sm:text-sm font-bold bg-blue-600 hover:bg-blue-500 text-white shadow-sm transition-colors cursor-pointer"
+            >
+              Submit Assessment &amp; Grade Against 90% Standard
+            </button>
           </div>
-          <button
-            type="button"
-            onClick={handleTrySubmit}
-            data-testid="submit-assessment-bottom-btn"
-            className="px-6 py-3 rounded-xl text-sm font-semibold bg-blue-600 hover:bg-blue-500 text-white transition-colors cursor-pointer shadow-xs"
-          >
-            Submit Assessment for Grading
-          </button>
-        </div>
-      )}
+        )}
+      </form>
     </div>
   );
 };

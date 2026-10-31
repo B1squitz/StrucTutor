@@ -23,9 +23,24 @@ function singleFileHtmlPlugin(): Plugin {
         const cssFiles = assetFiles.filter((f) => f.endsWith('.css'));
         const jsFiles = assetFiles.filter((f) => f.endsWith('.js'));
 
-        const inlineCss = cssFiles
+        let inlineCss = cssFiles
           .map((f) => fs.readFileSync(path.join(assetsDir, f), 'utf-8'))
           .join('\n');
+
+        const fontsDir = path.join(distDir, 'fonts');
+        if (fs.existsSync(fontsDir)) {
+          inlineCss = inlineCss.replace(/url\((?:['"]?)\/fonts\/([^)'"]+)(?:['"]?)\)/g, (match, fileName) => {
+            const fontFile = path.join(fontsDir, fileName);
+            if (fs.existsSync(fontFile)) {
+              const b64 = fs.readFileSync(fontFile).toString('base64');
+              return `url("data:font/woff2;base64,${b64}")`;
+            }
+            return match;
+          });
+          fs.rmSync(fontsDir, {recursive: true, force: true});
+        }
+
+        const assetsInDist = path.join(distDir, 'assets');
         const inlineJs = jsFiles
           .map((f) => fs.readFileSync(path.join(assetsDir, f), 'utf-8'))
           .join('\n')
@@ -44,26 +59,44 @@ function singleFileHtmlPlugin(): Plugin {
           );
         }
 
-        fs.rmSync(assetsDir, {recursive: true, force: true});
+        fs.rmSync(assetsInDist, {recursive: true, force: true});
+      }
+
+      const extraPublicAssets = path.join(distDir, 'assets');
+      if (fs.existsSync(extraPublicAssets)) {
+        fs.rmSync(extraPublicAssets, {recursive: true, force: true});
       }
 
       const outPath = path.join(distDir, 'StructTutor.html');
       fs.writeFileSync(outPath, html, 'utf-8');
-      fs.rmSync(indexHtmlPath, {force: true});
+      fs.writeFileSync(indexHtmlPath, html, 'utf-8');
     },
   };
 }
 
 export default defineConfig(() => {
+  const pkgPath = path.resolve(import.meta.dirname, 'package.json');
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf-8')) as { version?: string };
+  const buildDate = new Date().toISOString().slice(0, 10);
+  const isWebSplit = process.env.BUILD_WEB_SPLIT === 'true';
+
   return {
-    plugins: [react(), tailwindcss(), singleFileHtmlPlugin()],
+    plugins: [
+      react(),
+      tailwindcss(),
+      ...(isWebSplit ? [] : [singleFileHtmlPlugin()]),
+    ],
+    define: {
+      __APP_VERSION__: JSON.stringify(pkg.version ?? '0.2.0'),
+      __APP_BUILD_DATE__: JSON.stringify(buildDate),
+    },
     resolve: {
       alias: {
         '@': path.resolve(import.meta.dirname, '.'),
       },
     },
     build: {
-      chunkSizeWarningLimit: 800,
+      chunkSizeWarningLimit: isWebSplit ? 1000 : 3500,
     },
     server: {
       hmr: process.env.DISABLE_HMR !== 'true',

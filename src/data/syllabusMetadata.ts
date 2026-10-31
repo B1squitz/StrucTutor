@@ -7,12 +7,13 @@ import {
 
 export const SYLLABUS_TITLE = 'Comprehensive Structural Engineering Rebuild Syllabus';
 export const SYLLABUS_DATE_DISPLAY = '27 July 2026';
+export const SYLLABUS_REVISION_ID = '2026-10-30-v0.2.0';
 
 export const SYLLABUS_PURPOSE_SUMMARY =
   'For a UK temporary works engineer rebuilding permanent-works fundamentals, Eurocode fluency, and long-term capability for tightly scoped structural work. This is a multi-year syllabus designed to give a complete map, a realistic sequence, and clear proof of understanding at each stage.';
 
 export const PROFESSIONAL_SAFEGUARD_NOTICE =
-  'Educational learning programme and assessment tool only — not construction-ready design advice. All initial assessment questions are learning material that may require technical review. Always consult current controlled standards, UK National Annexes, verified project information, and independent checking before any engineering use.';
+  'Educational learning programme and assessment tool only: not construction-ready design advice. All initial assessment questions are learning material that may require technical review. Always consult current controlled standards, UK National Annexes, verified project information, and independent checking before any engineering use.';
 
 export const FIVE_STUDY_RULES: StudyRuleItem[] = [
   {

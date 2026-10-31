@@ -35,7 +35,27 @@ import {
   resetCourseProgressState,
   buildSyllabusCoverageMap,
   PROGRESS_STORAGE_KEY,
+  shuffleMcqOptionsWithSeed,
+  migrateCourseProgressState,
+  saveTutorSessionToProgress,
+  exportCourseProgressJson,
+  importCourseProgressJson,
+  computeAdaptiveStudyPlan,
 } from './assessmentEngine';
+import {
+  solveDeterminateBeam,
+  solveWorkedExampleGolden,
+  WORKED_EXAMPLE_GOLDEN_IDS,
+  simpsonIntegrate,
+  formatEngineeringNumber,
+} from './beamEngine';
+import { validateAllModulesSchema } from './schemaValidator';
+import {
+  generateParametricQuestionVariants,
+  EUROCODE_DESIGN_SCENARIOS,
+  evaluateEurocodeDesignScenario,
+} from './questionGenerators';
+import { queryGroundedReferenceLibrary } from './localRagEngine';
 
 test('convertEngineeringUnit handles stress, moment, line load, and section modulus accurately', () => {
   assert.equal(convertEngineeringUnit(18, 'kN·m', 'N·mm'), 18_000_000);
@@ -113,7 +133,6 @@ test('Verification 1: Modules 0 to 19 appear once and in exact order, preserving
     assert.equal(getModuleByNumber(i)?.id, expectedId);
     assert.equal(getModuleById(expectedId)?.moduleNumber, i);
   }
-  // Explicitly verify 0 is preserved and not treated as falsy
   const mod0 = getModuleByNumber(0);
   assert.ok(mod0, 'Module 0 must be returned by getModuleByNumber(0)');
   assert.equal(mod0.moduleNumber, 0);
@@ -177,8 +196,8 @@ test('Verification 4: Every question across all 20 modules grades its own correc
 
     for (const q of allModuleQuestions) {
       assert.ok(q.prompt.length > 10, `${q.id} prompt too short`);
-      assert.ok(q.assumptions.length > 3, `${q.id} assumptions missing`);
-      assert.ok(q.explanation.length > 10, `${q.id} explanation too short`);
+      assert.ok(q.assumptions.length >= 1, `${q.id} assumptions missing`);
+      assert.ok(q.explanation.length >= 100, `${q.id} explanation too short`);
       assert.ok(q.reviewNotice.length > 5, `${q.id} reviewNotice missing`);
 
       const correctRes = gradeAssessmentQuestion(q, q.correctAnswer);
@@ -213,29 +232,24 @@ test('Verification 4: Every question across all 20 modules grades its own correc
 });
 
 test('Verification 5: Assessments enforce exact 90% pass mark including boundary cases and never round <90% up to 90%', () => {
-  // 20-question module assessment boundaries
   assert.equal(isNinetyPercentPass(20, 20), true);
   assert.equal(isNinetyPercentPass(19, 20), true);
-  assert.equal(isNinetyPercentPass(18, 20), true); // 18/20 = exactly 90.0% -> PASS
-  assert.equal(isNinetyPercentPass(17, 20), false); // 17/20 = 85.0% -> FAIL
+  assert.equal(isNinetyPercentPass(18, 20), true);
+  assert.equal(isNinetyPercentPass(17, 20), false);
 
-  // 5-question topic assessment boundaries
-  assert.equal(isNinetyPercentPass(5, 5), true); // 5/5 = 100% -> PASS
-  assert.equal(isNinetyPercentPass(4, 5), false); // 4/5 = 80% -> FAIL
+  assert.equal(isNinetyPercentPass(5, 5), true);
+  assert.equal(isNinetyPercentPass(4, 5), false);
 
-  // Boundary case where raw percentage is 89.47% or 89.95%: must FAIL and never display "90.0%"
-  assert.equal(isNinetyPercentPass(17, 19), false); // 89.4736% -> FAIL
+  assert.equal(isNinetyPercentPass(17, 19), false);
   assert.equal(formatAssessmentPercentage(17, 19), '89.4%');
-  assert.equal(isNinetyPercentPass(899, 1000), false); // 89.9% -> FAIL
+  assert.equal(isNinetyPercentPass(899, 1000), false);
   assert.equal(formatAssessmentPercentage(899, 1000), '89.9%');
   assert.equal(formatAssessmentPercentage(18, 20), '90.0%');
 
-  // Test evaluateAssessmentSubmission on Module 0's 20-question assessment
   const mod0 = getModuleByNumber(0)!;
   const qs = mod0.moduleAssessment;
   assert.equal(qs.length, 20);
 
-  // Build 18/20 correct answers -> PASS
   const answers18: Record<string, string | number> = {};
   qs.forEach((q, idx) => {
     answers18[q.id] = idx < 18 ? q.correctAnswer : -999999;
@@ -245,7 +259,6 @@ test('Verification 5: Assessments enforce exact 90% pass mark including boundary
   assert.equal(sub18.passed, true);
   assert.equal(sub18.scorePercent, 90);
 
-  // Build 17/20 correct answers -> FAIL
   const answers17: Record<string, string | number> = {};
   qs.forEach((q, idx) => {
     answers17[q.id] = idx < 17 ? q.correctAnswer : -999999;
@@ -260,7 +273,6 @@ test('Verification 6, 7, 8, 9: Fresh user starts at 0%, failed exam stays 0%, pa
   let state = createInitialCourseProgressState(ALL_SYLLABUS_MODULES);
   let summary = computeCourseProgressSummary(state, ALL_SYLLABUS_MODULES);
 
-  // Fresh start = 0%
   assert.equal(summary.overallProgressPercent, 0);
   assert.equal(summary.completedModulesCount, 0);
   assert.equal(summary.totalModulesCount, 20);
@@ -268,7 +280,6 @@ test('Verification 6, 7, 8, 9: Fresh user starts at 0%, failed exam stays 0%, pa
   assert.equal(summary.totalAttemptsCount, 0);
   assert.equal(state.attemptHistory.length, 0);
 
-  // Failed Module 0 exam (17/20 = 85%) -> does NOT complete module
   state = recordAssessmentAttempt(state, {
     assessmentId: 'MODULE-MOD-00',
     assessmentType: 'module',
@@ -288,7 +299,6 @@ test('Verification 6, 7, 8, 9: Fresh user starts at 0%, failed exam stays 0%, pa
   assert.equal(state.modules['MOD-00'].passed, false);
   assert.equal(state.modules['MOD-00'].bestScorePercent, 85);
 
-  // Passing Module 0 exam (18/20 = 90%) -> completes Module 0, overall progress = 1/20 = 5%
   state = recordAssessmentAttempt(state, {
     assessmentId: 'MODULE-MOD-00',
     assessmentType: 'module',
@@ -306,7 +316,6 @@ test('Verification 6, 7, 8, 9: Fresh user starts at 0%, failed exam stays 0%, pa
   assert.equal(summary.overallProgressPercent, 5);
   assert.equal(state.modules['MOD-00'].passed, true);
 
-  // Retaking Module 0 exam and passing again (20/20 = 100%) -> does NOT double count (stays 1/20 = 5%)
   state = recordAssessmentAttempt(state, {
     assessmentId: 'MODULE-MOD-00',
     assessmentType: 'module',
@@ -341,14 +350,12 @@ test('Verification 10: Genuine progress survives reload via versioned storage wi
     },
   };
 
-  // Fresh load ignores legacy keys and starts at 0%
   const loadedFresh = loadCourseProgressState(ALL_SYLLABUS_MODULES, mockStorage);
   assert.equal(
     computeCourseProgressSummary(loadedFresh, ALL_SYLLABUS_MODULES).overallProgressPercent,
     0
   );
 
-  // Record a pass on Module 3 and save
   const afterPass = recordAssessmentAttempt(loadedFresh, {
     assessmentId: 'MODULE-MOD-03',
     assessmentType: 'module',
@@ -364,14 +371,12 @@ test('Verification 10: Genuine progress survives reload via versioned storage wi
   saveCourseProgressState(afterPass, mockStorage);
   assert.ok(store[PROGRESS_STORAGE_KEY]);
 
-  // Reload and verify genuine progress survived
   const reloaded = loadCourseProgressState(ALL_SYLLABUS_MODULES, mockStorage);
   const reloadedSummary = computeCourseProgressSummary(reloaded, ALL_SYLLABUS_MODULES);
   assert.equal(reloadedSummary.completedModulesCount, 1);
   assert.equal(reloadedSummary.overallProgressPercent, 5);
   assert.equal(reloaded.modules['MOD-03'].passed, true);
 
-  // Reset progress and verify unrelated_app_key is untouched
   const afterReset = resetCourseProgressState(ALL_SYLLABUS_MODULES, mockStorage);
   assert.equal(
     computeCourseProgressSummary(afterReset, ALL_SYLLABUS_MODULES).overallProgressPercent,
@@ -396,4 +401,235 @@ test('Verification 11: Coverage map, Five Study Rules, 9-Part Calculation Note, 
   assert.equal(CALCULATION_NOTE_STRUCTURE.length, 9);
   assert.equal(INTEGRATED_PROJECT_MILESTONES.length, 6);
   assert.equal(COURSE_DEVELOPMENT_REQUIREMENTS.length, 5);
+});
+
+test('Verification 12 (N1): MCQ Fairness Gate - deterministic option shuffling and longest-is-correct ratio <= 35% across all 320 MCQs', () => {
+  const allMcqs = ALL_SYLLABUS_MODULES.flatMap((m) => [
+    ...m.topics.flatMap((t) => t.assessmentQuestions),
+    ...m.moduleAssessment,
+  ]).filter((q) => q.type === 'mcq');
+
+  assert.equal(allMcqs.length, 320);
+
+  let longestIsCorrectCount = 0;
+  const storedIndexCounts = [0, 0, 0, 0];
+
+  for (const mcq of allMcqs) {
+    const opts = mcq.options!;
+    const cIdx = mcq.correctOptionIndex ?? 0;
+    storedIndexCounts[cIdx] = (storedIndexCounts[cIdx] ?? 0) + 1;
+
+    const cLen = opts[cIdx].length;
+    const maxDistractorLen = Math.max(
+      ...opts.filter((_, i) => i !== cIdx).map((o) => o.length)
+    );
+    if (cLen > maxDistractorLen) {
+      longestIsCorrectCount += 1;
+    }
+
+    // Verify deterministic runtime shuffling per seed
+    const s1 = shuffleMcqOptionsWithSeed(mcq, 'attempt-alpha');
+    const s2 = shuffleMcqOptionsWithSeed(mcq, 'attempt-alpha');
+    assert.deepEqual(s1.options, s2.options);
+    assert.equal(s1.options[s1.correctOptionIndex], opts[cIdx]);
+
+    // Verify grading using shuffled index
+    const gradedRight = gradeAssessmentQuestion(mcq, s1.correctOptionIndex, {
+      attemptSeed: 'attempt-alpha',
+      answerUsesShuffledIndex: true,
+    });
+    assert.equal(gradedRight.isCorrect, true);
+  }
+
+  const longestRatio = longestIsCorrectCount / allMcqs.length;
+  assert.ok(
+    longestRatio <= 0.35,
+    `MCQ longest-is-correct ratio is ${(longestRatio * 100).toFixed(1)}%, must be <= 35%`
+  );
+  // Ensure stored correctOptionIndex is distributed across all 4 indices
+  for (let i = 0; i < 4; i++) {
+    assert.ok(storedIndexCounts[i] >= 50, `Expected >= 50 MCQs at index ${i}, got ${storedIndexCounts[i]}`);
+  }
+});
+
+test('Verification 13 (N4): Unit-aware assessment grader converts compatible SI units and diagnoses 10^3 / 10^6 scaling slips', () => {
+  const mod1 = getModuleByNumber(1)!;
+  const numQ = [
+    ...mod1.topics.flatMap((t) => t.assessmentQuestions),
+    ...mod1.moduleAssessment,
+  ].find((q) => q.type === 'numeric' && q.unit === 'kN')!;
+  assert.ok(numQ);
+
+  // Convert from N to kN automatically via selectedUnit or inline unit string
+  const inNewtons = numQ.correctAnswer * 1000;
+  const resSelectedUnit = gradeAssessmentQuestion(numQ, String(inNewtons), {
+    selectedUnit: 'N',
+  });
+  assert.equal(resSelectedUnit.isCorrect, true);
+
+  const resInlineUnit = gradeAssessmentQuestion(numQ, `${inNewtons} N`);
+  assert.equal(resInlineUnit.isCorrect, true);
+
+  // Trigger 10^3 scaling diagnostic when wrong magnitude is submitted in canonical unit
+  const resSlip = gradeAssessmentQuestion(numQ, String(inNewtons), {
+    selectedUnit: 'kN',
+  });
+  assert.equal(resSlip.isCorrect, false);
+  assert.ok(resSlip.unitDiagnostic?.includes('Power-of-ten'));
+});
+
+test('Verification 14 (N5, N8, B6, C5): 1D Beam Engine, Simpson 1/3 integration, and 17/17 Python golden parity checks pass', () => {
+  // 6m simply supported beam with 4 kN/m UDL
+  const beam = solveDeterminateBeam({
+    spanM: 6,
+    supportType: 'simply_supported',
+    udls: [{ wKnPerM: 4, xStartM: 0, xEndM: 6 }],
+    pointLoads: [],
+  });
+  assert.ok(Math.abs(beam.raKn - 12.0) < 1e-6);
+  assert.ok(Math.abs(beam.rbKn - 12.0) < 1e-6);
+  assert.ok(Math.abs(beam.mMaxSaggingKnm - 18.0) < 1e-3);
+
+  // Simpson's 1/3 integration of parabolic BMD M(x) = 12x - 2x^2 over [0, 6] => 72.0 kN·m²
+  const area = simpsonIntegrate((x) => 12 * x - 2 * x * x, 0, 6, 60);
+  assert.ok(Math.abs(area - 72.0) < 1e-6);
+
+  // Verify all 17 worked examples against Python mechanics_solvers.py golden benchmarks
+  assert.equal(WORKED_EXAMPLE_GOLDEN_IDS.length, 17);
+  for (const id of WORKED_EXAMPLE_GOLDEN_IDS) {
+    const res = solveWorkedExampleGolden(id);
+    assert.equal(res.exampleId, id);
+    assert.equal(res.independentCheckPassed, true);
+    assert.ok(Object.keys(res.results).length >= 1);
+  }
+
+  // Verify honest reviewStatus distribution (N5): solver-verified vs Draft
+  const allQs = ALL_SYLLABUS_MODULES.flatMap((m) => [
+    ...m.topics.flatMap((t) => t.assessmentQuestions),
+    ...m.moduleAssessment,
+  ]);
+  const verifiedCount = allQs.filter((q) => q.reviewStatus === 'Verified').length;
+  const draftCount = allQs.filter((q) => q.reviewStatus === 'Draft').length;
+  assert.ok(verifiedCount >= 90, `Expected >= 90 solver-verified questions, got ${verifiedCount}`);
+  assert.ok(draftCount >= 500, `Expected unverified questions to default to Draft, got ${draftCount}`);
+});
+
+test('Verification 15 (N7, B1, C8): Non-destructive storage migration across revision IDs, Tutor persistence, and JSON backup round-trip', () => {
+  // Simulate a saved progress state from an older syllabusRevisionId
+  const legacySaved = {
+    version: 1,
+    syllabusRevisionId: 'OLD-REVISION-2026-07',
+    modules: {
+      'MOD-00': {
+        moduleId: 'MOD-00',
+        moduleNumber: 0,
+        attemptsCount: 2,
+        bestScorePercent: 95,
+        lastScorePercent: 95,
+        passed: true,
+        lastAttemptIso: '2026-10-01T12:00:00.000Z',
+      },
+    },
+    topics: {
+      'M0-T1': {
+        topicId: 'M0-T1',
+        moduleId: 'MOD-00',
+        moduleNumber: 0,
+        attemptsCount: 1,
+        bestScorePercent: 100,
+        lastScorePercent: 100,
+        passed: true,
+        lastAttemptIso: '2026-10-01T11:30:00.000Z',
+      },
+    },
+    attemptHistory: [
+      {
+        attemptId: 'ATT-LEGACY-1',
+        assessmentId: 'MODULE-MOD-00',
+        assessmentType: 'module',
+        moduleId: 'MOD-00',
+        moduleNumber: 0,
+        title: 'Module 0 Exam',
+        scorePercent: 95,
+        correctCount: 19,
+        totalQuestions: 20,
+        passed: true,
+        timestampIso: '2026-10-01T12:00:00.000Z',
+      },
+    ],
+  };
+
+  // Migrate onto current modules and verify progress was NOT wiped (N7)
+  const migrated = migrateCourseProgressState(legacySaved, ALL_SYLLABUS_MODULES);
+  assert.equal(migrated.modules['MOD-00'].passed, true);
+  assert.equal(migrated.modules['MOD-00'].bestScorePercent, 95);
+  assert.equal(migrated.topics['MOD00-T1'].passed, true);
+  assert.equal(migrated.attemptHistory.length, 1);
+
+  // Persist Stepped Tutor state (B1) and test JSON Export/Import round-trip (C8)
+  const withTutor = saveTutorSessionToProgress(migrated, {
+    currentStep: '2b',
+    stepStatuses: { learn: 'mastered', '1a': 'mastered', '1b': 'mastered', '2a': 'assisted', '2b': 'active' },
+    remedialInjected: true,
+    milestoneBars: [],
+    creditedQuestions: { '1a': true, '1b': true },
+    lastUpdatedIso: '2026-10-30T12:00:00.000Z',
+  });
+
+  const exportedJson = exportCourseProgressJson(withTutor);
+  const imported = importCourseProgressJson(exportedJson, ALL_SYLLABUS_MODULES);
+  assert.equal(imported.ok, true);
+  if (imported.ok) {
+    assert.equal(imported.state.modules['MOD-00'].passed, true);
+    assert.equal(imported.state.tutorPractice?.currentStep, '2b');
+    assert.equal(imported.state.tutorPractice?.remedialInjected, true);
+  }
+});
+
+test('Verification 16 (N10, N12, B3, B9, A8): Schema validation across all 710 questions, zero imperial units, zero cross-question prompts, zero em dashes', () => {
+  const report = validateAllModulesSchema(ALL_SYLLABUS_MODULES);
+  assert.equal(report.totalModules, 20);
+  assert.equal(report.totalQuestions, 710);
+  assert.equal(
+    report.errors.length,
+    0,
+    `Schema validation errors found: ${report.errors.slice(0, 5).join('; ')}`
+  );
+  assert.equal(formatEngineeringNumber(666666.6667, 3), '6.67 × 10⁵');
+});
+
+test('Verification 17 (Section 5): Parametric question generators, Eurocode design scenarios, adaptive study planner, and local RAG engine', () => {
+  // 1. Parametric generators
+  const variants = generateParametricQuestionVariants(1, 12345, 3);
+  assert.equal(variants.length, 3);
+  for (const v of variants) {
+    const res = gradeAssessmentQuestion(v, v.correctAnswer);
+    assert.equal(res.isCorrect, true);
+  }
+
+  // 2. Multi-step Eurocode scenarios with non-unique valid UKB sections
+  const sc = EUROCODE_DESIGN_SCENARIOS[0];
+  const validSections = sc.candidateSections.filter((s) => {
+    const evalRes = evaluateEurocodeDesignScenario(sc, {
+      wEdKnM: sc.expectedGoverningValues.wEdKnM,
+      MEdKnM: sc.expectedGoverningValues.MEdKnM,
+      VEdKn: sc.expectedGoverningValues.VEdKn,
+      selectedDesignation: s.designation,
+    });
+    return evalRes.passedAllSteps;
+  });
+  assert.ok(
+    validSections.length >= 2,
+    'Eurocode design scenario must accept multiple valid UKB sections'
+  );
+
+  // 3. Adaptive study planner
+  const initialState = createInitialCourseProgressState(ALL_SYLLABUS_MODULES);
+  const plan = computeAdaptiveStudyPlan(initialState, ALL_SYLLABUS_MODULES);
+  assert.ok(plan.nextRecommendedTopic.title.length > 5);
+
+  // 4. Local citation-grounded RAG library
+  const rag = queryGroundedReferenceLibrary('lateral torsional buckling restraint', []);
+  assert.ok(rag.citations.length >= 1);
+  assert.ok(rag.synthesisedAnswer.length > 30);
 });

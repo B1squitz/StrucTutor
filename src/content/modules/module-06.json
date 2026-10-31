@@ -1,0 +1,980 @@
+{
+  "moduleNumber": 6,
+  "code": "MOD-06",
+  "title": "Module 6: Failure modes, buckling, restraint and stability",
+  "shortTitle": "Failure modes, buckling, restraint and stability",
+  "suggestedDuration": "10–12 weeks",
+  "yearPathway": "Year 1",
+  "year1Months": "Months 7–8",
+  "whyItMatters": "Most real structural collapses, especially during construction and temporary works stages, are stability or buckling failures (Euler column buckling, LTB, missing bracing, overturning) rather than simple material overstress.",
+  "introduction": "Contrasts material-related failure modes (yielding, rupture, crushing, shear, bearing, fatigue, brittle fracture) against stability-related failure modes (local buckling, flexural/torsional buckling, Lateral Torsional Buckling, global sway, overturning, sliding). Covers Euler critical load P_cr = π²EI/L_cr², effective lengths, compression-flange restraint against LTB, building stability systems, and why intermediate construction stages are often more vulnerable than the completed structure.",
+  "objectives": [
+    "Distinguish material strength failures from geometric stability/buckling failures across beams, columns, frames, connections, walls, and foundations.",
+    "Calculate Euler buckling loads and explain how end restraints and intermediate bracing change effective length L_cr and critical load P_cr (Example 6.1).",
+    "Explain the physical mechanism of Lateral Torsional Buckling (LTB) and what constitutes effective compression-flange or torsional restraint (Example 6.2).",
+    "Trace lateral stability systems (braced frames, moment frames, shear walls, diaphragms) and identify construction-stage stability risks (Examples 6.3 and 6.4)."
+  ],
+  "learningGate": "List credible failure modes for a beam, column, frame, connection, wall, and foundation.,Distinguish strength failure from stability failure clearly.,Explain Lateral Torsional Buckling (LTB) in your own words without relying on code jargon.,Identify effective length and restraint assumptions and what makes them valid in reality.,Identify a complete lateral load path from wind/notional load to the foundations.",
+  "prerequisiteModuleNumbers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "topics": [
+    {
+      "id": "MOD06-T1",
+      "moduleNumber": 6,
+      "code": "6.1",
+      "title": "Material Failure vs Stability Failure & Euler Column Buckling (Example 6.1)",
+      "summary": "Contrasts material failures (yielding, crushing, rupture, shear, bearing) with stability failures, derives/applies Euler critical load P_cr = π²EI/L_cr² (Example 6.1), and explains effective length L_cr, slenderness λ = L_cr/i, and why increasing area A alone may not efficiently solve a buckling problem.",
+      "subtopics": [
+        "Material failure modes: yielding, tensile rupture, compression crushing, shear, bearing, fatigue, brittle fracture",
+        "Stability failure modes: local plate buckling, flexural column buckling, torsional/flexural-torsional buckling",
+        "Euler critical buckling load: P_cr = π² E I / L_cr² (governed by minor-axis I_min unless restrained)",
+        "Effective length factors (L_cr / L): pinned-pinned (1.0), fixed-fixed non-sway (0.5), fixed-pinned (0.7), fixed-free cantilever column (2.0)",
+        "Syllabus Example 6.1: comparing pinned-pinned vs fixed-fixed columns of equal section and length",
+        "Imperfection sensitivity and why real columns buckle below the ideal Euler curve"
+      ],
+      "learningObjectives": [
+        "Compare Euler buckling loads for different end restraints (Example 6.1) and identify which axis governs.",
+        "Explain why increasing second moment of area I (or reducing L_cr) is far more efficient than adding solid area A for slender struts."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD06-T1-Q1",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T1",
+          "learningObjective": "Compare Euler buckling load of fixed-fixed vs pinned-pinned column (Example 6.1)",
+          "type": "numeric",
+          "prompt": "Compare two ideal elastic columns of identical cross-section (flexural rigidity EI) and physical length L. Column 1 is pinned at both ends (effective length L_cr = 1.0 L) and Column 2 is fully fixed against rotation and sway at both ends (theoretical L_cr = 0.5 L). What is the ratio of their Euler critical buckling loads (P_cr,fixed / P_cr,pinned)?",
+          "assumptions": "Note: in practical steel design (EN 1993-1-1 / BS 5975), a conservative effective length factor of 0.7L is often used instead of the theoretical 0.5L because real connections are never infinitely rigid.",
+          "unit": "ratio",
+          "correctAnswer": 4,
+          "tolerance": 0.06,
+          "explanation": "Since P_cr = π²EI / L_cr², halving the effective length from 1.0 L to 0.5 L multiplies P_cr by 1 / (0.5)² = 4.0. Step-by-step verification for \"Compare Euler buckling load of fixed-fixed vs pinned-pinned column (Example 6.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Compare Euler buckling load of fixed-fixed vs pinned-pinned column (Example 6.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Since P_cr = π²EI / L_cr², halving the effective length from 1.0 L to 0.5 L multiplies P_cr by 1 / (0.5)² = ?. Express your final numeric answer in ratio."
+          ],
+          "caseFamilyId": "MOD06-T1-CF",
+          "solverVerificationId": "SOLVER-MOD06-T1-Q1",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD06-T1-Q2",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T1",
+          "learningObjective": "Calculate Euler critical load P_cr of a pinned-pinned strut",
+          "type": "numeric",
+          "prompt": "A 3,000 mm long pin-ended steel strut has E = 210,000 N/mm² and minor-axis second moment of area I_z = 4.5 × 10⁶ mm⁴ (with major-axis I_y = 18.0 × 10⁶ mm⁴ and no intermediate restraints). Calculate its Euler critical buckling load P_cr = π² E I_min / L_cr² in kN (to 1 decimal place).",
+          "assumptions": "Always use the minimum I_z (or largest slenderness L_cr / i) when effective lengths about both axes are equal.",
+          "unit": "kN",
+          "correctAnswer": 1036.3,
+          "tolerance": 15.5,
+          "explanation": "An unrestrained pin-ended strut buckles about its weakest axis (I_z = 4.5 × 10⁶ mm⁴). P_cr = (π² × 210,000 × 4.5 × 10⁶) / 3,000² = (9.8696 × 9.45 × 10¹¹) / (9.0 × 10⁶) = 1,036,308 N ≈ 1,036.3 kN.",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate Euler critical load P_cr of a pinned-pinned strut\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: An unrestrained pin-ended strut buckles about its weakest axis (I_z = 4.5 × 10⁶ mm⁴). Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD06-T1-CF",
+          "solverVerificationId": "SOLVER-MOD06-T1-Q2",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD06-T1-Q3",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T1",
+          "learningObjective": "Calculate Euler buckling load of a freestanding flagpole/cantilever column",
+          "type": "numeric",
+          "prompt": "A 3,000 mm long steel strut (E = 210,000 N/mm², governing minor-axis I_z = 4.5 × 10⁶ mm⁴, giving P_cr = 1,036.3 kN when pin-ended with L_cr = L) is instead fixed at its base and completely free to translate and rotate at its top (cantilever column with L_cr = 2.0 L = 6,000 mm). Calculate its Euler critical buckling load P_cr in kN (to 1 decimal place).",
+          "assumptions": "Shows why unbraced freestanding cantilever columns have 4 times lower elastic buckling capacity than braced pin-ended columns.",
+          "unit": "kN",
+          "correctAnswer": 259.1,
+          "tolerance": 3.89,
+          "explanation": "Doubling L_cr from 1.0 L to 2.0 L divides P_cr by 2² = 4: 1,036.3 / 4 = 259.08 kN ≈ 259.1 kN. Step-by-step verification for \"Calculate Euler buckling load of a freestanding flagpole/cantilever column\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 259.1 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate Euler buckling load of a freestanding flagpole/cantilever column\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Doubling L_cr from 1.0 L to 2.0 L divides P_cr by 2² = 4: 1,036.3 / 4 = 259.08 kN ≈ 259.1 kN. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD06-T1-CF",
+          "solverVerificationId": "SOLVER-MOD06-T1-Q3",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD06-T1-Q4",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T1",
+          "learningObjective": "Explain why increasing area A alone may not efficiently solve a buckling problem",
+          "type": "mcq",
+          "prompt": "A slender solid circular steel rod is failing by elastic Euler buckling under axial compression. Why is switching to a hollow circular tube of larger outer diameter (with an equal cross-sectional area A) much more effective at increasing buckling resistance than using a slightly thicker solid bar?",
+          "assumptions": "Explicit syllabus Learn point under Buckling fundamentals.",
+          "options": [
+            "Because hollow tubes have a higher Young’s modulus E than solid rods, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Because elastic buckling is governed by second moment of area I (and radius of gyration i = √(I/A)), not area A alone; moving the steel outward into a hollow tube dramatically increases I and i without adding weight",
+            "Because Euler’s formula P_cr = π²EI/L_cr² does not depend on I",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "In Euler buckling, yield strength fy does not appear and area A only helps to the extent that it increases I = A·i². Spreading material away from the centroid maximises i.",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why increasing area A alone may not efficiently solve a buckling problem\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD06-T1-Q5",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T1",
+          "learningObjective": "Explain why real columns fail below the ideal Euler buckling load",
+          "type": "mcq",
+          "prompt": "Why does a real structural steel column of intermediate slenderness buckle at an axial load significantly lower than both the squash load (A·f_y) and the theoretical Euler load (π²EI/L_cr²)?",
+          "assumptions": "Imperfection sensitivity in column buckling.",
+          "options": [
+            "Because gravity acts horizontally on intermediate columns, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "Because real columns contain initial geometric out-of-straightness (bow imperfections), residual stresses locked in from hot-rolling/welding, and minor load eccentricities that induce bending and early yielding on the concave side before P_cr is reached",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Initial bow e₀ creates a second-order bending moment P·(e₀ + δ) that causes the concave compression flange to yield and lose tangent stiffness E_t before reaching the elastic bifurcation load P_cr.",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why real columns fail below the ideal Euler buckling load\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD06-T2",
+      "moduleNumber": 6,
+      "code": "6.2",
+      "title": "Lateral Torsional Buckling (LTB) & Effective Restraint (Example 6.2)",
+      "summary": "Covers the physical mechanism of Lateral Torsional Buckling (compression flange buckling sideways accompanied by twisting of the cross-section), effective restraint points, torsional restraint at supports, and destabilising top-flange loads (Example 6.2).",
+      "subtopics": [
+        "Physical mechanism of LTB: the compression flange behaves like a strut, buckles laterally between restraints, and twists the beam cross-section",
+        "Syllabus Example 6.2: sketching tension flange, compression flange, lateral displacement, twisting, and restraint points",
+        "What constitutes true lateral restraint: must restrain the COMPRESSION flange (or prevent twist) back to a braced node",
+        "Why bottom-flange restraint alone does not prevent top-flange LTB in a sagging beam (unless combined with stiff web/torsional restraint)",
+        "Destabilising loads applied to the top compression flange without lateral restraint"
+      ],
+      "learningObjectives": [
+        "Explain LTB in plain physical terms and identify which flange requires restraint in sagging vs hogging regions (Example 6.2).",
+        "Recognise when a floor/purlin detail does or does not provide effective LTB restraint."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD06-T2-Q1",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T2",
+          "learningObjective": "Explain Lateral Torsional Buckling (LTB) physically (Example 6.2 & Module 6 Gate)",
+          "type": "mcq",
+          "prompt": "When a long, deep steel I-beam is bent about its strong (major) axis under downward gravity load without intermediate lateral bracing, what happens physically during Lateral Torsional Buckling (LTB)?",
+          "assumptions": "Core Module 6 Gate requirement and Example 6.2.",
+          "options": [
+            "The bottom tension flange buckles sideways while the top flange stretches, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The beam shears cleanly in half vertically at the support without any sideways movement",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "The top flange is in axial compression and behaves like a slender column; it buckles sideways (laterally) about its weak minor axis while the tension bottom flange stays straighter, forcing the whole cross-section to twist torsionally and lose bending capacity before reaching full yield"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "LTB is a coupled lateral-buckling and twisting instability of a beam bent about its major axis when its compression flange is not adequately restrained laterally.",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain Lateral Torsional Buckling (LTB) physically (Example 6.2 & Module 6 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD06-T2-Q2",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T2",
+          "learningObjective": "Identify what is required for a restraint to effectively prevent LTB",
+          "type": "mcq",
+          "prompt": "A simply supported steel beam is in sagging bending under gravity load. An engineer claims the beam is \"fully laterally restrained\" because timber joists rest loose on top of the top flange with no fixings and no bracing bay at the ends of the building. Why is this assumption unsafe?",
+          "assumptions": "Directly links Module 6 LTB to Module 8 and Module 17 detailing.",
+          "options": [
+            "Effective LTB restraint requires both positive connection to the compression flange (or torsional restraint) AND a stiff lateral load path (diaphragm or plan bracing) that transfers the restraint force (e.g. 2.5% of flange force) back to a braced line; unfixed loose members can simply slide or move sideways with the buckling flange",
+            "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geometric imperfections, or local buckling slenderness reductions at the critical section when evaluated under unfactored.",
+            "Sagging beams only require restraint to the bottom tension flange",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differential support settlement under sustained gravity loading"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "A restraint is only as good as its connection to the compression flange and the stiffness of the bracing system it ties back to. Engineering synthesis for \"Identify what is required for a restraint to effectively prevent LTB\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what is required for a restraint to effectively prevent LTB\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD06-T2-Q3",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T2",
+          "learningObjective": "Identify which flange is the compression flange in a cantilever or hogging region",
+          "type": "mcq",
+          "prompt": "In a cantilever steel beam under downward gravity load (or over the internal support of a continuous beam), which flange is in compression and therefore vulnerable to Lateral Torsional Buckling?",
+          "assumptions": "High-value practical steelwork insight.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "The bottom flange (so a roof deck fixed only to the top tension flange does NOT automatically restrain the bottom compression flange against LTB unless torsional fly-bracing is provided)",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "In hogging (-M), the bottom flange is in compression and the top flange is in tension. Assuming top-flange roof decking restrains the bottom flange in a hogging portal haunch or cantilever without fly-stays is a classic design error!",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify which flange is the compression flange in a cantilever or hogging region\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD06-T2-Q4",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T2",
+          "learningObjective": "Understand destabilising load-height effect on an unrestrained top flange",
+          "type": "mcq",
+          "prompt": "Why is a downward gravity point load applied to the top flange of a laterally unrestrained steel I-beam (destabilising load application) more severe for Lateral Torsional Buckling than an identical gravity load suspended from the bottom tension flange?",
+          "assumptions": "Crucial concept in temporary works runway beams and unrestrained lintels.",
+          "options": [
+            "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+            "Because loads on the top flange double the vertical support reactions",
+            "When the beam begins to twist during LTB, a vertical load sitting on the top flange moves sideways outside the shear centre and creates an additional twisting torque that amplifies the rotation (destabilising load), whereas a load hanging from the bottom flange pulls it back toward vertical",
+            "Because bottom-flange loads eliminate vertical shear force"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Top-flange loading above the shear centre creates a destabilising overturning torque P·(y_top · θ) as the section twists by angle θ. Engineering synthesis for \"Understand destabilising load-height effect on an unrestrained top flange\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand destabilising load-height effect on an unrestrained top flange\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD06-T2-Q5",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T2",
+          "learningObjective": "Determine unrestrained buckling length L_LT between positive lateral restraints",
+          "type": "numeric",
+          "prompt": "A 9.0 m simply supported steel beam is in sagging bending and has incoming secondary beams positively bolted to its top compression flange (and tied into a braced floor diaphragm) at the one-third points (x = 3.0 m and x = 6.0 m) as well as torsional/lateral restraints at both end supports (x = 0 and x = 9.0 m). What is the unrestrained segment length L_LT between lateral restraints?",
+          "assumptions": "Reducing L_LT from 9.0 m to 3.0 m dramatically increases the LTB resistance of the beam.",
+          "unit": "m",
+          "correctAnswer": 3,
+          "tolerance": 0.045,
+          "explanation": "The intermediate restraints divide the 9.0 m span into three equal laterally restrained sub-spans of 9.0 / 3 = 3.0 m. Step-by-step verification for \"Determine unrestrained buckling length L_LT between positive lateral restraints\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3 m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Determine unrestrained buckling length L_LT between positive lateral restraints\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: The intermediate restraints divide the 9.0 m span into three equal laterally restrained sub-spans of 9.0 / 3 = ?. Express your final numeric answer in m."
+          ],
+          "caseFamilyId": "MOD06-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD06-T3",
+      "moduleNumber": 6,
+      "code": "6.3",
+      "title": "Building Stability, Frame Bracing & Construction-Stage Vulnerability (Examples 6.3 & 6.4)",
+      "summary": "Covers how single- and multi-storey buildings resist lateral wind and notional loads (braced frames, moment frames, shear walls, floor/roof diaphragms, ties) and why intermediate construction or alteration stages frequently lack permanent restraints (Examples 6.3 and 6.4).",
+      "subtopics": [
+        "Syllabus Example 6.3: single-storey frame under horizontal load with (1) no bracing, (2) diagonal bracing, (3) rigid moment frame",
+        "Building lateral load paths: cladding -> floor/roof diaphragm (or plan bracing) -> vertical braced bays / shear walls / cores -> foundations",
+        "Overturning and sliding global stability of walls, frames, and foundations",
+        "Syllabus Example 6.4: temporary vs permanent stability (bare steel frame before floor slab diaphragm; fresh masonry wall before roof restraint; wet concrete on deck before curing; precast units before permanent structural topping/ties)"
+      ],
+      "learningObjectives": [
+        "Explain how diagonal bracing vs moment frames resist horizontal sway (Example 6.3).",
+        "Identify temporary construction stages where permanent restraints do not yet exist (Example 6.4)."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD06-T3-Q1",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T3",
+          "learningObjective": "Compare sway resistance in unbraced, diagonally braced, and moment frames (Example 6.3)",
+          "type": "mcq",
+          "prompt": "A horizontal wind load H acts at roof eaves level on three single-storey frames with pinned column bases: Frame 1 has pinned beam-to-column joints and no bracing; Frame 2 has pinned joints with a diagonal tension brace; Frame 3 has rigid moment-resisting beam-to-column joints. How does each frame resist lateral sway?",
+          "assumptions": "Directly answers Syllabus Example 6.3.",
+          "options": [
+            "All three frames resist H purely by axial compression in the beam, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "Frame 1 is the stiffest because it has no diagonal brace",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "Frame 1 collapses sideways as a four-hinge sway mechanism; Frame 2 resists H efficiently via axial tension in the diagonal brace and axial forces in the columns/rafter (truss action); Frame 3 resists H by developing bending moments and shear in the columns and beam via the rigid knee joints"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Braced frames resist sway by axial triangulation (stiff and efficient), while moment frames resist sway by flexural bending of columns and beams (requiring stiff moment connections and deeper columns/beams).",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Compare sway resistance in unbraced, diagonally braced, and moment frames (Example 6.3)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD06-T3-Q2",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T3",
+          "learningObjective": "Identify temporary vs permanent stability risk during construction (Example 6.4)",
+          "type": "mcq",
+          "prompt": "A steel composite floor beam is designed for the permanent working condition assuming its top compression flange is continuously laterally restrained by the hardened concrete floor slab. At what stage of the building lifecycle is this steel beam at highest risk of Lateral Torsional Buckling?",
+          "assumptions": "Directly addresses Syllabus Example 6.4 and Comment [UI1].",
+          "options": [
+            "During construction when heavy bundles of decking/rebar or wet concrete are placed on the bare steel beam before the concrete has cured (unless the metal decking or temporary plan bracing positively restrains the flange during the pour)",
+            "Ten years after the concrete slab has hardened and bonded to the shear studs, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area wi.",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the.",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differentia."
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Wet concrete has zero shear stiffness to act as a diaphragm; during the pour it is a heavy gravity load (plus construction live load) acting on the steel beam before composite or slab diaphragm action exists!",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify temporary vs permanent stability risk during construction (Example 6.4)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD06-T3-Q3",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T3",
+          "learningObjective": "Identify temporary stability risk of precast concrete elements (Example 6.4 & Comment [UI1])",
+          "type": "mcq",
+          "prompt": "Precast concrete hollowcore floor planks or precast columns/walls are erected onto bearings before structural screed, grouted joints, and perimeter tie bars are cast and cured. What governs stability in this temporary state?",
+          "assumptions": "Addresses Syllabus Example 6.4 and Syllabus Comment [UI1] (precast).",
+          "options": [
+            "Precast elements automatically develop full monolithic diaphragm action the instant they touch the crane hook, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Individual precast elements rely on friction/nominal bearings and temporary raking props or erection ties; without temporary bracing and sequenced grouting, horizontal wind, crane bump, or eccentric construction loads can cause overturning, bearing loss, or progressive collapse",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "In the permanent state, grouted shear keys and perimeter ties create a monolithic floor diaphragm and tied wall system; in the temporary erection state, elements are discrete blocks requiring explicit temporary stability measures.",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify temporary stability risk of precast concrete elements (Example 6.4 & Comment [UI1])\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD06-T3-Q4",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T3",
+          "learningObjective": "Calculate tension in a diagonal brace of a single-storey braced bay",
+          "type": "numeric",
+          "prompt": "A single-storey braced bay of width B = 4.0 m and height H = 3.0 m (diagonal length D = 5.0 m) resists a horizontal wind load of F_w = 24 kN at eaves level via a single tension diagonal running from the bottom-left pin to the top-right eaves node. Calculate the axial tension force T in the diagonal brace in kN.",
+          "assumptions": "The vertical component T × sin(θ) = 30 × (3/5) = 18 kN induces uplift at the windward column base and compression in the leeward column.",
+          "unit": "kN",
+          "correctAnswer": 30,
+          "tolerance": 0.45,
+          "explanation": "Horizontal equilibrium at the top node: T × cos(θ) = F_w, where cos(θ) = B / D = 4.0 / 5.0 = 0.80. Thus T = 24 / 0.80 = 30.0 kN. Step-by-step verification for \"Calculate tension in a diagonal brace of a single-storey braced bay\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate tension in a diagonal brace of a single-storey braced bay\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Horizontal equilibrium at the top node: T × cos(θ) = F_w, where cos(θ) = B / D = 4.0 / 5.0 = ?. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD06-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD06-T3-Q5",
+          "moduleNumber": 6,
+          "topicId": "MOD06-T3",
+          "learningObjective": "Trace the role of a floor or roof diaphragm in building stability",
+          "type": "mcq",
+          "prompt": "In a multi-storey building where vertical cross-bracing is provided in only two perimeter bays, how do horizontal wind loads acting on the intermediate unbraced frames reach the vertical braced bays?",
+          "assumptions": "Module 6 Gate: identify a complete lateral load path.",
+          "options": [
+            "The intermediate columns bend about their minor axis to carry 100% of the wind to the ground",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "The floor and roof slabs (or horizontal plan bracing) act as stiff horizontal deep beams (diaphragms) in their own plane, collecting horizontal loads from every frame line and transferring them horizontally to the vertical braced bays or shear cores",
+            "Gravity loads cancel out the horizontal wind loads on intermediate frames"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "A complete 3D lateral stability system requires BOTH vertical bracing/cores AND horizontal roof/floor diaphragms (or plan bracing) to tie every frame line into the vertical cores.",
+          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Trace the role of a floor or roof diaphragm in building stability\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD06-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "EX-6.1",
+      "title": "Euler column comparison",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-6.2",
+      "title": "LTB sketch",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-6.3",
+      "title": "Frame stability",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-6.4",
+      "title": "Temporary versus permanent stability",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "Hibbeler Mechanics of Materials: columns/buckling.",
+    "Jeff Hanson: column buckling.",
+    "SteelConstruction.info: LTB, bracing, steel stability.",
+    "IStructE/SCI temporary stability material where available."
+  ],
+  "standardsNotice": "Euler buckling P_cr = π²EI/L_cr² is the theoretical elastic upper bound. Real steel/timber/concrete column and LTB checks must use the imperfection reduction factors (χ, χ_LT) in EN 1993-1-1 / EN 1995-1-1 / BS 5975.",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD06-E01",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Calculate Euler critical load ratio when effective length is halved (Example 6.1)",
+      "type": "numeric",
+      "prompt": "If adding an intermediate lateral brace at mid-height of a pin-ended column reduces its minor-axis effective length from L_cr = 4.0 m to L_cr = 2.0 m, by what factor does its theoretical minor-axis Euler critical load P_cr = π²EI_z/L_cr² increase?",
+      "assumptions": "Halving effective length quadruples elastic Euler buckling load.",
+      "unit": "factor",
+      "correctAnswer": 4,
+      "tolerance": 0.06,
+      "explanation": "(4.0 / 2.0)² = 2² = 4.0. Step-by-step verification for \"Calculate Euler critical load ratio when effective length is halved (Example 6.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4 factor, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate Euler critical load ratio when effective length is halved (Example 6.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: (4.0 / 2.0)² = 2² = ?. Express your final numeric answer in factor."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E02",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Calculate slenderness ratio λ = L_cr / i of a column",
+      "type": "numeric",
+      "prompt": "A pin-ended steel column has an effective buckling length L_cr = 3,600 mm and a minor-axis radius of gyration i_z = 45 mm. Calculate its geometric slenderness ratio λ = L_cr / i_z (dimensionless).",
+      "assumptions": "Dimensionless slenderness ratio.",
+      "unit": "ratio",
+      "correctAnswer": 80,
+      "tolerance": 1.2,
+      "explanation": "λ = 3,600 mm / 45 mm = 80. Step-by-step verification for \"Calculate slenderness ratio λ = L_cr / i of a column\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 80 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate slenderness ratio λ = L_cr / i of a column\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: λ = 3,600 mm / 45 mm = ?. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "solverVerificationId": "SOLVER-MOD06-E02",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD06-E03",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Calculate Euler buckling stress σ_cr = π²E / λ²",
+      "type": "numeric",
+      "prompt": "A pin-ended steel column has a non-dimensional geometric slenderness ratio λ = L_cr / i = 100 and a Young’s modulus E = 210,000 N/mm². Calculate the theoretical elastic Euler critical buckling stress σ_cr = π² E / λ² in N/mm² (to 1 decimal place).",
+      "assumptions": "Notice that at λ = 100, even a perfect elastic column buckles at 207.3 N/mm², well below the 355 N/mm² yield strength of S355 steel!",
+      "unit": "N/mm²",
+      "correctAnswer": 207.3,
+      "tolerance": 3.11,
+      "explanation": "σ_cr = (π² × 210,000) / 100² = 2,072,616 / 10,000 = 207.26 N/mm² ≈ 207.3 N/mm². Step-by-step verification for \"Calculate Euler buckling stress σ_cr = π²E / λ²\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 207.3 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate Euler buckling stress σ_cr = π²E / λ²\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: σ_cr = (π² × 210,000) / 100² = 2,072,616 / 10,000 = 207.26 N/mm² ≈ 207.3 N/mm². Express your final numeric answer in N/mm²."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "solverVerificationId": "SOLVER-MOD06-E03",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD06-E04",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Identify governing axis when major and minor axes have different effective lengths",
+      "type": "numeric",
+      "prompt": "A steel H-column of height 6.0 m has major-axis radius of gyration i_y = 90 mm (unbraced over the full 6,000 mm height, so L_cr,y = 6,000 mm) and minor-axis radius of gyration i_z = 50 mm (braced at mid-height so L_cr,z = 3,000 mm). Calculate the larger (governing) slenderness ratio max(L_cr,y/i_y, L_cr,z/i_z) to 1 decimal place.",
+      "assumptions": "Always check BOTH axes when intermediate restraints differ between y-y and z-z.",
+      "unit": "ratio",
+      "correctAnswer": 66.7,
+      "tolerance": 1,
+      "explanation": "λ_y = 6,000 / 90 = 66.67. λ_z = 3,000 / 50 = 60.0. Because the minor axis is braced at mid-height, the major axis actually has the higher slenderness (66.7 > 60.0) and governs!",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Identify governing axis when major and minor axes have different effective lengths\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: λ_y = 6,000 / 90 = ?. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E05",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Calculate squash load N_pl = A·f_y vs buckling awareness",
+      "type": "numeric",
+      "prompt": "A short stocky S275 steel stub column (f_y = 275 N/mm²) has cross-sectional area A = 4,000 mm². Calculate its theoretical full plastic squash load A·f_y in kN.",
+      "assumptions": "Only very stocky columns (low slenderness λ) can reach their full squash load without buckling reduction.",
+      "unit": "kN",
+      "correctAnswer": 1100,
+      "tolerance": 16.5,
+      "explanation": "N_pl = 4,000 mm² × 275 N/mm² = 1,100,000 N = 1,100 kN. Step-by-step verification for \"Calculate squash load N_pl = A·f_y vs buckling awareness\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1100 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate squash load N_pl = A·f_y vs buckling awareness\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: N_pl = 4,000 mm² × 275 N/mm² = 1,100,000 N = 1,100 kN. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E06",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T3",
+      "learningObjective": "Calculate column uplift reaction in a tall narrow braced bay under wind",
+      "type": "numeric",
+      "prompt": "A vertical braced bay of width B = 3.0 m and height H = 9.0 m is subjected to a horizontal wind force of H_w = 40 kN at the top (9.0 m level). Taking moments about the leeward column base, calculate the upward tension (uplift) force induced at the windward column base due to wind alone (in kN).",
+      "assumptions": "Holding-down bolts and foundation dead weight at the windward column base must be checked for net uplift!",
+      "unit": "kN",
+      "correctAnswer": 120,
+      "tolerance": 1.8,
+      "explanation": "Overturning moment about leeward base = 40 kN × 9.0 m = 360 kN·m. Resisted by vertical couple at column spacing B = 3.0 m: Uplift = 360 kN·m / 3.0 m = 120 kN.",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate column uplift reaction in a tall narrow braced bay under wind\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Overturning moment about leeward base = 40 kN × 9.0 m = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD06-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E07",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T3",
+      "learningObjective": "Calculate sliding factor of safety of a gravity retaining block",
+      "type": "numeric",
+      "prompt": "A concrete kentledge block of weight W = 80 kN rests on a horizontal surface with a friction coefficient μ = 0.45 and resists a horizontal lateral load of H = 20 kN. Calculate the ratio of frictional sliding resistance (μ·W) to the applied horizontal load H.",
+      "assumptions": "Sliding is one of the fundamental global stability failure modes.",
+      "unit": "ratio",
+      "correctAnswer": 1.8,
+      "tolerance": 0.027,
+      "explanation": "Sliding resistance F_f = μ × W = 0.45 × 80 = 36 kN. Ratio = 36 kN / 20 kN = 1.80. Step-by-step verification for \"Calculate sliding factor of safety of a gravity retaining block\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.8 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate sliding factor of safety of a gravity retaining block\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Sliding resistance F_f = μ × W = 0.45 × 80 = ?. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD06-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E08",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T2",
+      "learningObjective": "Estimate lateral restraint force using a 2.5% flange force rule of thumb",
+      "type": "numeric",
+      "prompt": "A laterally restrained steel beam develops a maximum compressive force of N_c = 600 kN in its top compression flange at ULS. If the lateral restraint system is checked for a nominal restraint force equal to 2.5% of the compression flange force, what horizontal force (in kN) must the restraint system resist?",
+      "assumptions": "Illustrates that lateral restraints carry real horizontal forces and cannot be flimsy or unanchored.",
+      "unit": "kN",
+      "correctAnswer": 15,
+      "tolerance": 0.225,
+      "explanation": "2.5% of 600 kN = 0.025 × 600 = 15.0 kN. Step-by-step verification for \"Estimate lateral restraint force using a 2.5% flange force rule of thumb\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 15 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Estimate lateral restraint force using a 2.5% flange force rule of thumb\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: 2.5% of 600 kN = 0.025 × 600 = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD06-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E09",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Distinguish local plate buckling from global member flexural buckling",
+      "type": "mcq",
+      "prompt": "What is the physical difference between local buckling and global flexural buckling in a thin-walled steel I-column?",
+      "assumptions": "Crucial distinction in Module 6 and Module 8.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "Local buckling is prevented by reducing the column length while keeping the flange paper-thin",
+        "In local buckling, individual thin plate elements (an outstand flange tip or slender web) ripple/wave locally over a short wavelength without the overall column axis deflecting sideways, whereas in global flexural buckling the entire column cross-section bows sideways over its length L_cr"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Local buckling depends on plate width-to-thickness ratio (b/t or c/t, covered by Section Classification Class 1–4), whereas global buckling depends on member length-to-radius-of-gyration ratio (L_cr / i).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish local plate buckling from global member flexural buckling\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E10",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Identify credible failure modes for a bolted connection",
+      "type": "mcq",
+      "prompt": "When a steel tension tie is connected to a gusset plate by bolts, which of the following is a credible set of connection failure modes that must be checked?",
+      "assumptions": "Module 6 Gate requirement.",
+      "options": [
+        "Bolt shear rupture, bearing crushing/tear-out of the plate wall at the bolt holes, net-section tensile rupture of the tie across the holes, and block tearing around the bolt group",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial materi.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shea.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Module 6 Gate requires listing credible failure modes for beams, columns, frames, connections, walls, and foundations. Engineering synthesis for \"Identify credible failure modes for a bolted connection\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify credible failure modes for a bolted connection\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E11",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Identify credible failure modes for a masonry wall",
+      "type": "mcq",
+      "prompt": "Which combination of failure modes is credible for a slender unreinforced masonry wall supporting vertical and wind loads?",
+      "assumptions": "Module 6 Gate + Example 6.4.",
+      "options": [
+        "Ductile plastic hinge formation with 20% tensile elongation, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Compressive crushing under concentrated bearing loads, out-of-plane flexural cracking/buckling due to slenderness or missing lateral floor/roof restraint, overturning under wind, and shear cracking along mortar joints",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Slender masonry walls are particularly vulnerable to out-of-plane stability loss if horizontal ties at floor/roof levels are missing or corroded.",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify credible failure modes for a masonry wall\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E12",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T2",
+      "learningObjective": "Evaluate whether torsional restraint at beam supports is required (Example 6.2)",
+      "type": "mcq",
+      "prompt": "Standard LTB resistance checks assume that at both end supports of a beam, the cross-section is prevented from twisting about its longitudinal axis (torsional restraint). What happens if a deep steel beam simply sits on top of a narrow elastomeric pad with no web cleats, no stiffeners, and nothing holding the top flange sideways at the supports?",
+      "assumptions": "Syllabus Example 6.2 key detail.",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "The beam can roll/tip sideways at its supports at a fraction of its normal LTB capacity because the fundamental boundary condition (preventing twist and lateral movement of the compression flange at supports) is missing",
+        "The elastomeric pad converts the beam into a fixed-ended portal frame"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Without torsional restraint at the supports, the effective LTB length increases dramatically or the beam simply rolls over on its bearings during erection.",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Evaluate whether torsional restraint at beam supports is required (Example 6.2)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E13",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T3",
+      "learningObjective": "Understand why \"bracing every column to its neighbour\" without a braced bay is a mechanism",
+      "type": "mcq",
+      "prompt": "An engineer ties five steel columns in a row together at eaves level with horizontal tie struts, but forgets to put diagonal cross-bracing (or a moment frame/core) in any bay of the row. Does tying the columns to each other make the row stable against longitudinal sway?",
+      "assumptions": "Classic structural stability trap.",
+      "options": [
+        "Yes; horizontal ties alone create a triangulated truss without any diagonals",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "No; tying five unstable pendulums together simply causes all five columns to sway and collapse together in unison unless the horizontal ties are anchored back to a triangulated braced bay or shear core"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Restraint ties only work if they terminate at a stiff braced node (a triangulated braced bay, shear wall, or rigid frame). Otherwise the whole row sways collectively.",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why \"bracing every column to its neighbour\" without a braced bay is a mechanism\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E14",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T3",
+      "learningObjective": "Identify construction-stage vulnerability of freestanding masonry walls (Example 6.4)",
+      "type": "mcq",
+      "prompt": "In the completed building, an external masonry cavity wall spans vertically 2.7 m between the ground floor and the first-floor timber joists (restrained at top and bottom). During construction, before the first-floor joists are installed and tied in, the freshly laid 2.7 m wall is hit by a strong wind gust. Why is it far more vulnerable during construction?",
+      "assumptions": "Syllabus Example 6.4 application.",
+      "options": [
+        "Because without the top horizontal restraint from the first-floor diaphragm, the wall acts as a freestanding vertical cantilever (doubling its effective height/slenderness and quadrupling its bending moment under wind) while its fresh mortar has not yet gained full bond strength",
+        "Because wind loads are ignored in permanent works design, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-or.",
+        "Because first-floor joists reduce the thickness of the bricks",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differential support settlement under sustained gravity loading"
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "A wall propped at top and bottom has M_max = wH²/8, whereas an unrestrained freestanding wall of height H is a cantilever with M_max = wH²/2 (4 times the bending moment!) and L_cr = 2H.",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify construction-stage vulnerability of freestanding masonry walls (Example 6.4)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E15",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Understand web bearing and web buckling at concentrated loads",
+      "type": "mcq",
+      "prompt": "When a heavy secondary beam or hydraulic jack sits directly on the flange of a steel I-beam without web stiffeners, what local failure modes can occur in the thin vertical web directly beneath the concentrated load?",
+      "assumptions": "Connects Module 6 failure modes to Module 8/9 web stiffener awareness.",
+      "options": [
+        "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Local web crushing/bearing at the root fillet and vertical compression buckling (crippling) of the slender web acting as a vertical strut",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Concentrated patch loads must transfer through the flange into the thin web; if the web is too thin, it crushes locally at the fillet or buckles out-of-plane like a vertical plate strut, requiring load-bearing web stiffeners.",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand web bearing and web buckling at concentrated loads\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E16",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Calculate effective length of a fixed-pinned column",
+      "type": "numeric",
+      "prompt": "A 4,000 mm long column is rigidly fixed against rotation and translation at its base and pinned (held in position but free to rotate) at its top. Using the standard theoretical effective length factor k = 0.70, calculate its effective buckling length L_cr in mm.",
+      "assumptions": "Standard fixed-pinned non-sway effective length factor.",
+      "unit": "mm",
+      "correctAnswer": 2800,
+      "tolerance": 42,
+      "explanation": "L_cr = 0.70 × 4,000 mm = 2,800 mm. Step-by-step verification for \"Calculate effective length of a fixed-pinned column\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2800 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate effective length of a fixed-pinned column\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: L_cr = 0.70 × 4,000 mm = 2,800 mm. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "solverVerificationId": "SOLVER-MOD06-E16",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD06-E17",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Calculate critical buckling load change when column length is tripled",
+      "type": "numeric",
+      "prompt": "A modular temporary works tubular prop is extended from an effective buckling length of 2.0 m to 6.0 m (3 times longer) while keeping the exact same tubular cross-section (EI). By what factor is its theoretical elastic Euler buckling capacity P_cr reduced?",
+      "assumptions": "Explains why tall temporary works props require intermediate lacing and bracing in both orthogonal planes.",
+      "unit": "factor",
+      "correctAnswer": 9,
+      "tolerance": 0.135,
+      "explanation": "Since P_cr ∝ 1 / L_cr², tripling L_cr reduces P_cr by a factor of 3² = 9.0. Step-by-step verification for \"Calculate critical buckling load change when column length is tripled\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 9 factor, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate critical buckling load change when column length is tripled\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Since P_cr ∝ 1 / L_cr², tripling L_cr reduces P_cr by a factor of 3² = ?. Express your final numeric answer in factor."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "solverVerificationId": "SOLVER-MOD06-E17",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD06-E18",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T3",
+      "learningObjective": "Explain why falsework towers require plan bracing and diagonal lacing in TWO orthogonal directions",
+      "type": "mcq",
+      "prompt": "A temporary works engineer designs a row of heavily loaded falsework props laced together with diagonal bracing in the North–South plane, but omits bracing in the East–West plane. What will happen under vertical concrete load?",
+      "assumptions": "Essential 3D stability principle.",
+      "options": [
+        "Bracing in one plane automatically restrains buckling in the perpendicular plane, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "The props will buckle effortlessly out-of-plane in the unbraced East–West direction at their full unbraced height",
+        "Nothing; compression struts only buckle in one direction"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "A 3D column or prop will always seek the path of least resistance (largest L_cr / i); bracing in one plane leaves the perpendicular plane completely unrestrained unless braced in both x and y planes.",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why falsework towers require plan bracing and diagonal lacing in TWO orthogonal directions\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E19",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T1",
+      "learningObjective": "Recognise brittle fracture risk in thick welded steelwork at low temperature",
+      "type": "mcq",
+      "prompt": "Why do steelwork standards specify minimum Charpy V-notch impact toughness (sub-grade JR, J0, J2, K2) for thick welded steel sections exposed to low winter service or erection temperatures?",
+      "assumptions": "Connects material selection to fracture prevention.",
+      "options": [
+        "Because cold temperatures reduce Young’s modulus E to zero, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "Because brittle fracture only happens at temperatures above 500°C",
+        "Because low temperatures, thick plates (triaxial stress state), weld defects/notches, and dynamic loading reduce steel fracture toughness and can trigger sudden brittle cleavage fracture at stresses below yield"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Module 6 Learn item: brittle fracture awareness. Engineering synthesis for \"Recognise brittle fracture risk in thick welded steelwork at low temperature\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise brittle fracture risk in thick welded steelwork at low temperature\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD06-E20",
+      "moduleNumber": 6,
+      "topicId": "MOD06-T2",
+      "learningObjective": "Verify whether bottom-flange shelf angles restrain top-flange LTB",
+      "type": "mcq",
+      "prompt": "Precast concrete floor units sit on shelf angles welded near the BOTTOM tension flange of a simply supported steel spine beam, with a 40 mm gap left ungrouted between the ends of the precast units and the TOP compression flange of the steel beam. Is the top compression flange laterally restrained before grouting?",
+      "assumptions": "Real-world UK steel/precast design scenario.",
+      "options": [
+        "No; the load and contact are at the bottom tension flange while the top compression flange is free to displace laterally into the ungrouted gap, so the beam must be checked as unrestrained (LTB) for the construction stage",
+        "Yes; supporting units on the bottom tension flange always locks the top flange against lateral buckling",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag.",
+        "No, because the bottom flange is in compression at midspan"
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Classic precast shelf-angle beam check (Syllabus Comment [UI1] & Module 6 LTB): until structural grout fills the gap and ties the top flange into a diaphragm, the top compression flange is unrestrained.",
+      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify whether bottom-flange shelf angles restrain top-flange LTB\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD06-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}

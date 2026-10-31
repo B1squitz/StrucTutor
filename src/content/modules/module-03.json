@@ -1,0 +1,950 @@
+{
+  "moduleNumber": 3,
+  "code": "MOD-03",
+  "title": "Module 3: Stress, strain, stiffness and material behaviour",
+  "shortTitle": "Stress, strain, stiffness and material behaviour",
+  "suggestedDuration": "6–8 weeks",
+  "yearPathway": "Year 1",
+  "year1Months": "Months 5–6",
+  "whyItMatters": "Internal forces must be normalised by cross-sectional geometry into stresses and strains so we can compare them against material properties (E, G, fy) and understand how steel, concrete, timber, and masonry behave and fail.",
+  "introduction": "Introduces axial normal stress (σ = F/A), normal strain (ε = ΔL/L), stress–strain curves (elastic range, yield plateau, strain hardening, ultimate strength, fracture), axial deformation (ΔL = PL/AE), Young’s modulus E, shear modulus G, Poisson’s ratio ν, and comparative material behaviour across structural steel, reinforced concrete, timber, and masonry.",
+  "objectives": [
+    "Calculate axial normal stress, normal strain, and elastic extension (Examples 3.1 and 3.2).",
+    "Distinguish material stiffness (E, G) from material strength (fy, fu) and ductility from brittleness.",
+    "Explain why concrete needs tensile reinforcement, why steel can buckle before crushing, and why timber depends on grain direction and moisture."
+  ],
+  "learningGate": "Calculate stress, strain, and extension accurately in consistent metric units.,Distinguish strength from stiffness clearly.,Explain the physical meaning of Young’s modulus E and shear modulus G.,Explain yielding versus brittle fracture.,Explain why a steel member’s material strength does not guarantee its compression stability.",
+  "prerequisiteModuleNumbers": [
+    0,
+    1,
+    2
+  ],
+  "topics": [
+    {
+      "id": "MOD03-T1",
+      "moduleNumber": 3,
+      "code": "3.1",
+      "title": "Normal Stress, Axial Strain & Stress-Strain Curves",
+      "summary": "Covers normal stress σ = F/A, axial strain ε = ΔL/L, Hooke’s law σ = Eε, and key features of ductile vs brittle stress–strain curves (elastic limit, yield, plastic plateau, ultimate strength, fracture).",
+      "subtopics": [
+        "Normal stress σ = F / A (N/mm² = MPa) and uniform stress assumption away from load concentrations",
+        "Normal strain ε = ΔL / L (dimensionless or microstrain)",
+        "Stress–strain curve of structural carbon steel: linear elastic region, yield strength fy, plastic plateau, strain hardening, ultimate strength fu, necking and fracture",
+        "Yielding (ductile warning with large deformation) versus brittle fracture (sudden cleavage with minimal deformation)"
+      ],
+      "learningObjectives": [
+        "Calculate normal stress and strain for axial ties and struts (Syllabus Example 3.1).",
+        "Interpret stress–strain curves and explain why ductility is vital for structural safety."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD03-T1-Q1",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T1",
+          "learningObjective": "Calculate normal stress in a steel tie (Example 3.1)",
+          "type": "numeric",
+          "prompt": "A structural steel tie bar of length L = 3,000 mm and cross-sectional area A = 1,000 mm² carries an axial tension force of F = 100 kN. Calculate the normal tensile stress σ in N/mm².",
+          "assumptions": "Assumes concentric axial load and uniform stress over the cross-section.",
+          "unit": "N/mm²",
+          "correctAnswer": 100,
+          "tolerance": 1.5,
+          "explanation": "F = 100 kN = 100,000 N. σ = F / A = 100,000 N / 1,000 mm² = 100 N/mm² (100 MPa). Step-by-step verification for \"Calculate normal stress in a steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 100 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate normal stress in a steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: F = 100 kN = 100,000 N. Express your final numeric answer in N/mm²."
+          ],
+          "caseFamilyId": "MOD03-T1-CF",
+          "solverVerificationId": "SOLVER-MOD03-T1-Q1",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD03-T1-Q2",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T1",
+          "learningObjective": "Calculate axial strain in a steel tie (Example 3.1)",
+          "type": "numeric",
+          "prompt": "A structural steel tie bar experiences a normal tensile stress of σ = 100 N/mm² and has a Young’s modulus of E = 200,000 N/mm². Calculate the axial strain ε × 1,000 (in mm/m).",
+          "assumptions": "1 mm/m = 10⁻³ strain.",
+          "unit": "mm/m",
+          "correctAnswer": 0.5,
+          "tolerance": 0.0075,
+          "explanation": "ε = σ / E = 100 / 200,000 = 0.0005 (dimensionless) = 0.5 × 10⁻³ = 0.5 mm/m. Step-by-step verification for \"Calculate axial strain in a steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.5 mm/m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate axial strain in a steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: ε = σ / E = 100 / 200,000 = 0.0005 (dimensionless) = 0.5 × 10⁻³ = ?. Express your final numeric answer in mm/m."
+          ],
+          "caseFamilyId": "MOD03-T1-CF",
+          "solverVerificationId": "SOLVER-MOD03-T1-Q2",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD03-T1-Q3",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T1",
+          "learningObjective": "Calculate axial extension of a steel tie (Example 3.1)",
+          "type": "numeric",
+          "prompt": "A 3,000 mm long structural steel tie bar (cross-sectional area A = 1,000 mm², Young’s modulus E = 200,000 N/mm²) carries an axial tension force of F = 100 kN. Calculate the elastic extension ΔL in mm.",
+          "assumptions": "Valid because σ = 100 N/mm² is well below the yield strength of structural steel.",
+          "unit": "mm",
+          "correctAnswer": 1.5,
+          "tolerance": 0.0225,
+          "explanation": "ΔL = PL / (AE) = (100,000 N × 3,000 mm) / (1,000 mm² × 200,000 N/mm²) = 300,000,000 / 200,000,000 = 1.5 mm. Step-by-step verification for \"Calculate axial extension of a steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate axial extension of a steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: ΔL = PL / (AE) = (100,000 N × 3,000 mm) / (1,000 mm² × 200,000 N/mm²) = 300,000,000 / 200,000,000 = ?. Express your final numeric answer in mm."
+          ],
+          "caseFamilyId": "MOD03-T1-CF",
+          "solverVerificationId": "SOLVER-MOD03-T1-Q3",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD03-T1-Q4",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T1",
+          "learningObjective": "Distinguish yielding from fracture",
+          "type": "mcq",
+          "prompt": "What is the fundamental physical difference between yielding and fracture in a structural material?",
+          "assumptions": "Core Module 3 Gate requirement.",
+          "options": [
+            "Yielding only happens in brittle materials like glass and cast iron, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "Yielding means the member returns to its original length upon unloading",
+            "Yielding is the onset of permanent plastic deformation at constant or near-constant stress without the material separating, whereas fracture is the physical separation/rupture of the material into pieces",
+            "Fracture always occurs at a stress lower than the proportional limit"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Ductile yielding allows stress redistribution and gives visible deformation warning before collapse, whereas brittle fracture is sudden and catastrophic.",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish yielding from fracture\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD03-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD03-T1-Q5",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T1",
+          "learningObjective": "Understand elastic vs plastic unloading behaviour",
+          "type": "mcq",
+          "prompt": "If a mild steel bar is loaded beyond its yield strength fy into its plastic plateau and then the load is completely removed, what happens to its length?",
+          "assumptions": "Fundamental elastoplastic mechanics.",
+          "options": [
+            "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "It continues to stretch further after the load is removed",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "It unloads parallel to the initial elastic slope E, recovering the elastic strain component but retaining a permanent plastic extension (permanent set)"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Elastic strain (σ/E) is recovered upon unloading, while plastic slip of crystal planes remains as permanent set. Engineering synthesis for \"Understand elastic vs plastic unloading behaviour\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand elastic vs plastic unloading behaviour\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD03-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD03-T2",
+      "moduleNumber": 3,
+      "code": "3.2",
+      "title": "Stiffness, Young’s Modulus E, Shear Modulus G & Poisson’s Ratio",
+      "summary": "Covers axial deformation ΔL = PL/AE, comparing steel vs aluminium extensions (Example 3.2), shear stress and shear modulus G = τ/γ, Poisson’s ratio ν, and the isotropic relationship E = 2G(1 + ν).",
+      "subtopics": [
+        "Axial deformation formula ΔL = PL / (AE) and axial stiffness AE / L",
+        "Syllabus Example 3.2: comparing steel (E ≈ 210 GPa) vs aluminium (E ≈ 70 GPa) bars of identical geometry and load",
+        "Shear stress τ and engineering shear strain γ: Hooke’s law in shear τ = Gγ",
+        "Poisson’s ratio ν = -ε_lateral / ε_axial",
+        "Isotropic elastic relationship: E = 2G(1 + ν)"
+      ],
+      "learningObjectives": [
+        "Compare axial deformations of different materials (Example 3.2) and explain E vs G.",
+        "Apply the isotropic relationship E = 2G(1 + ν) accurately."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD03-T2-Q1",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T2",
+          "learningObjective": "Compare extensions of steel and aluminium bars (Example 3.2)",
+          "type": "numeric",
+          "prompt": "Two prismatic tie bars have identical cross-sectional area, length, and applied axial tension force. One is structural steel (E_steel = 210 GPa) and the other is aluminium alloy (E_alu = 70 GPa). If the steel bar extends elastically by 1.2 mm, by how many mm does the aluminium bar extend (assuming both remain linear-elastic)?",
+          "assumptions": "Notice that both bars carry the exact same stress σ = P/A, yet the aluminium bar has 3 times the strain and extension.",
+          "unit": "mm",
+          "correctAnswer": 3.6,
+          "tolerance": 0.054,
+          "explanation": "Since ΔL = PL/(AE) is inversely proportional to E, and E_steel / E_alu = 210 / 70 = 3.0, the aluminium bar extends 3 times as much: 3 × 1.2 mm = 3.6 mm.",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Compare extensions of steel and aluminium bars (Example 3.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Since ΔL = PL/(AE) is inversely proportional to E, and E_steel / E_alu = 210 / 70 = 3.0, the aluminium bar extends 3 times as much: 3 × 1.2 mm = 3.6 mm.. Express your final numeric answer in mm."
+          ],
+          "caseFamilyId": "MOD03-T2-CF",
+          "solverVerificationId": "SOLVER-MOD03-T2-Q1",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD03-T2-Q2",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T2",
+          "learningObjective": "Calculate shear modulus G from E and Poisson’s ratio ν",
+          "type": "numeric",
+          "prompt": "An isotropic structural steel has Young’s modulus E = 210,000 N/mm² and Poisson’s ratio ν = 0.30. Using E = 2G(1 + ν), calculate the shear modulus G in N/mm² (to the nearest 100 N/mm²).",
+          "assumptions": "Only valid for isotropic materials (not valid for timber, which is orthotropic).",
+          "unit": "N/mm²",
+          "correctAnswer": 80800,
+          "tolerance": 1210,
+          "explanation": "G = E / [2(1 + ν)] = 210,000 / (2 × 1.30) = 210,000 / 2.60 = 80,769 N/mm² ≈ 80,800 N/mm² (EN 1993-1-1 rounds this to 81,000 N/mm²). Step-by-step verification for \"Calculate shear modulus G from E and Poisson’s ratio ν\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 80800 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate shear modulus G from E and Poisson’s ratio ν\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: G = E / [2(1 + ν)] = 210,000 / (2 × 1.30) = 210,000 / 2.60 = 80,769 N/mm² ≈ 80,800 N/mm² (EN 1993-1-1 rounds this to 81,000 N/mm²). Express your final numeric answer in N/mm²."
+          ],
+          "caseFamilyId": "MOD03-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD03-T2-Q3",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T2",
+          "learningObjective": "Explain physical meaning of E and G (Module 3 Gate)",
+          "type": "mcq",
+          "prompt": "What do Young’s modulus E and shear modulus G physically measure?",
+          "assumptions": "Module 3 Gate requirement.",
+          "options": [
+            "E measures material stiffness under direct normal stress (resistance to axial stretching/shortening), while G measures material stiffness under shear stress (resistance to angular distortion/sliding of planes)",
+            "E measures ultimate tensile strength and G measures gravitational acceleration",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, an.",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep d."
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "E = σ/ε relates normal stress to axial strain, whereas G = τ/γ relates shear stress to angular shear strain. Engineering synthesis for \"Explain physical meaning of E and G (Module 3 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain physical meaning of E and G (Module 3 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD03-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD03-T2-Q4",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T2",
+          "learningObjective": "Calculate lateral contraction using Poisson’s ratio",
+          "type": "numeric",
+          "prompt": "A steel plate of width b = 200 mm is subjected to an axial tensile strain of ε_axial = +0.0010 (1,000 microstrain) along its length. If Poisson’s ratio is ν = 0.30 and the plate is unrestrained laterally, by how many mm does its 200 mm width contract?",
+          "assumptions": "Axial tension causes lateral contraction; axial compression causes lateral expansion.",
+          "unit": "mm",
+          "correctAnswer": 0.06,
+          "tolerance": 0.0009,
+          "explanation": "ε_lat = −ν × ε_axial = −0.30 × 0.0010 = −0.0003. Width change Δb = 200 mm × 0.0003 = 0.06 mm contraction. Step-by-step verification for \"Calculate lateral contraction using Poisson’s ratio\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.06 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate lateral contraction using Poisson’s ratio\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: ε_lat = −ν × ε_axial = −0.30 × 0.0010 = −0.0003. Express your final numeric answer in mm."
+          ],
+          "caseFamilyId": "MOD03-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD03-T2-Q5",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T2",
+          "learningObjective": "Understand effect of steel grade on Young’s modulus E",
+          "type": "mcq",
+          "prompt": "An engineer changes a steel tie from grade S275 to high-strength grade S460 without changing the cross-sectional area A or length L. How does this change the elastic extension ΔL under a working service load P?",
+          "assumptions": "Crucial concept across Modules 3, 4, and 5.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "It does not change the elastic extension at all, because all structural carbon steel grades have essentially the same Young’s modulus E (≈ 210,000 N/mm²)",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Higher steel grade increases yield strength fy (allowing higher load before yielding), but Young’s modulus E is an atomic-bond stiffness property that remains ~210 GPa across S235, S275, S355, and S460.",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand effect of steel grade on Young’s modulus E\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD03-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD03-T3",
+      "moduleNumber": 3,
+      "code": "3.3",
+      "title": "Structural Materials: Steel, Concrete, Timber & Masonry Behaviour",
+      "summary": "Compares mechanical behaviour across the four primary structural materials (Syllabus Example 3.3): why concrete excels in compression but cracks in tension, why steel can buckle in compression, why timber is anisotropic and moisture-sensitive, and intro awareness of creep, shrinkage, and fatigue.",
+      "subtopics": [
+        "Structural steel: isotropic, high E, high equal tensile/compressive yield strength, ductile, slender sections prone to buckling",
+        "Reinforced concrete: strong in compression, weak/brittle in tension (~10% of compressive strength), requires steel reinforcement; creep and drying shrinkage",
+        "Timber: anisotropic/orthotropic cellular structure (strong parallel to grain, weak perpendicular to grain), moisture and load-duration sensitive",
+        "Masonry: composite of units and mortar; compression-dominated with very low tensile strength",
+        "Introductory awareness of creep (long-term deformation under sustained stress), shrinkage, and fatigue (cyclic stress cracking)"
+      ],
+      "learningObjectives": [
+        "Answer all four questions in Syllabus Example 3.3 clearly and accurately.",
+        "Explain why a steel member’s material strength does not guarantee its stability in compression."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD03-T3-Q1",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T3",
+          "learningObjective": "Explain why reinforced concrete needs steel reinforcement (Example 3.3)",
+          "type": "mcq",
+          "prompt": "Why is plain unreinforced concrete unsuitable for beams and suspended slabs without steel reinforcement?",
+          "assumptions": "Syllabus Example 3.3 core principle.",
+          "options": [
+            "Concrete has zero compressive strength and relies on steel for all compression, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "Steel reinforcement increases the Young’s modulus of concrete by a factor of 100 before cracking",
+            "Concrete has high compressive strength but very low, unreliable, and brittle tensile strength (roughly one-tenth of its compressive strength), so steel bars are required to carry tensile forces after the concrete cracks",
+            "Concrete only works in tension and crushes immediately under small compression"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "In reinforced concrete, compression is resisted primarily by the concrete and tension is carried by the bonded steel reinforcement. Engineering synthesis for \"Explain why reinforced concrete needs steel reinforcement (Example 3.3)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why reinforced concrete needs steel reinforcement (Example 3.3)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD03-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD03-T3-Q2",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T3",
+          "learningObjective": "Explain why a steel member’s strength does not guarantee its stability (Module 3 Gate)",
+          "type": "mcq",
+          "prompt": "Structural steel has equally high yield strength in compression and tension. Why does a steel column or compression flange often fail at an average compressive stress far below its material yield strength f_y?",
+          "assumptions": "Direct Module 3 Gate and Example 3.3 question.",
+          "options": [
+            "Because steel has a lower Young’s modulus in compression than in tension, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "Because steel’s high strength allows members to be rolled into thin, slender walls and profiles, which bow sideways or twist out of plane by elastic/inelastic buckling before material crushing/yielding is reached"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Buckling is a geometric stability failure governed by stiffness (EI) and slenderness (L_cr / i), not purely by material yield strength f_y. Engineering synthesis for \"Explain why a steel member’s strength does not guarantee its stability (Module 3 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why a steel member’s strength does not guarantee its stability (Module 3 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD03-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD03-T3-Q3",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T3",
+          "learningObjective": "Explain why timber properties vary with grain direction and moisture (Example 3.3)",
+          "type": "mcq",
+          "prompt": "Why do the strength and stiffness of structural timber depend strongly on the angle of load relative to the grain and on the moisture content?",
+          "assumptions": "Syllabus Example 3.3 and foundation for Module 10 (EC5).",
+          "options": [
+            "Timber is an anisotropic natural material made of tubular cellulose fibres aligned along the trunk (strong parallel to grain, easily crushed or split perpendicular to grain), and water absorbed in the cell walls plasticises and weakens the fibres",
+            "Timber is a homogeneous isotropic crystal whose density doubles when dry, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounti.",
+            "Timber is stronger perpendicular to the grain than parallel to the grain",
+            "Moisture only affects the colour of timber and never alters its stiffness or creep"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Loading timber parallel to the longitudinal wood fibres engages strong axial tracheid/fibre walls, whereas loading perpendicular to the grain crushes hollow cell tubes sideways.",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why timber properties vary with grain direction and moisture (Example 3.3)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD03-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD03-T3-Q4",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T3",
+          "learningObjective": "Distinguish creep from shrinkage in concrete and timber",
+          "type": "mcq",
+          "prompt": "What is the difference between creep and drying shrinkage in structural concrete?",
+          "assumptions": "Introductory awareness required in Module 3.",
+          "options": [
+            "Creep occurs instantaneously on loading, whereas shrinkage only occurs in steel",
+            "Creep is the gradual increase in strain over time under a sustained mechanical stress, whereas drying shrinkage is the volume reduction caused by moisture loss that occurs even at zero applied load",
+            "Creep requires cyclic fatigue loading, whereas shrinkage requires freezing temperatures",
+            "Creep and shrinkage are two names for elastic Hookean strain"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Both are time-dependent deformations, but creep is stress-driven (increasing long-term beam deflection under permanent load) while shrinkage is moisture/hydration-driven (causing restraint cracking).",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish creep from shrinkage in concrete and timber\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD03-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD03-T3-Q5",
+          "moduleNumber": 3,
+          "topicId": "MOD03-T3",
+          "learningObjective": "Identify why unreinforced masonry is compression-dominated",
+          "type": "mcq",
+          "prompt": "Why are traditional unreinforced masonry walls and arches proportioned to carry loads primarily in compression and avoid net tension?",
+          "assumptions": "Foundation for Module 11.",
+          "options": [
+            "Because clay bricks have higher tensile strength than structural steel, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "Because the mortar bed joints and brick-to-mortar bond have very low and variable tensile strength, so net tensile stresses cause cracking or joint opening",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Masonry acts as a compression-dominated assemblage; tensile flexural capacity across bed joints is very small and cannot be relied upon for primary tension.",
+          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why unreinforced masonry is compression-dominated\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD03-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "EX-3.1",
+      "title": "Steel tie",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-3.2",
+      "title": "Steel versus aluminium stiffness",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-3.3",
+      "title": "Material comparison note",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "Hibbeler Mechanics of Materials: axial loading and stress/strain.",
+    "Jeff Hanson: Mechanics of Materials.",
+    "Concrete Centre introductory RC resources.",
+    "Wood Campus introductory timber material resources."
+  ],
+  "standardsNotice": "First-principles materials module. Representative moduli (e.g. E = 200,000 or 210,000 N/mm²) are used as stated in each problem; real design must use values from EN 1992, EN 1993, EN 1995, and EN 1996.",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD03-E01",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T1",
+      "learningObjective": "Calculate normal stress in steel tie (Example 3.1)",
+      "type": "numeric",
+      "prompt": "A steel tie of area A = 1,000 mm² and length L = 3,000 mm carries a tension force of 100 kN. What is the normal stress σ in N/mm²?",
+      "assumptions": "Uniform axial tension.",
+      "unit": "N/mm²",
+      "correctAnswer": 100,
+      "tolerance": 1.5,
+      "explanation": "σ = 100,000 N / 1,000 mm² = 100 N/mm². Step-by-step verification for \"Calculate normal stress in steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 100 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate normal stress in steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: σ = 100,000 N / 1,000 mm² = ?. Express your final numeric answer in N/mm²."
+      ],
+      "caseFamilyId": "MOD03-T1-CF",
+      "solverVerificationId": "SOLVER-MOD03-E01",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD03-E02",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T1",
+      "learningObjective": "Calculate elastic extension in steel tie (Example 3.1)",
+      "type": "numeric",
+      "prompt": "A structural steel tie bar of length L = 3,000 mm, cross-sectional area A = 1,000 mm², and Young’s modulus E = 200,000 N/mm² carries an axial tension force of F = 100 kN. Calculate its elastic extension ΔL in mm.",
+      "assumptions": "Hooke’s law applies in the linear elastic range.",
+      "unit": "mm",
+      "correctAnswer": 1.5,
+      "tolerance": 0.0225,
+      "explanation": "ΔL = PL / (AE) = (100,000 × 3,000) / (1,000 × 200,000) = 1.5 mm. Step-by-step verification for \"Calculate elastic extension in steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate elastic extension in steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: ΔL = PL / (AE) = (100,000 × 3,000) / (1,000 × 200,000) = ?. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD03-T1-CF",
+      "solverVerificationId": "SOLVER-MOD03-E02",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD03-E03",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T1",
+      "learningObjective": "Calculate axial compressive stress in a short concrete column",
+      "type": "numeric",
+      "prompt": "A short plain concrete pier of cross-sectional dimensions 300 mm × 400 mm carries a concentric axial compression load of 1,440 kN. Calculate the uniform compressive stress in N/mm².",
+      "assumptions": "Assumes concentric load and short column (no buckling).",
+      "unit": "N/mm²",
+      "correctAnswer": 12,
+      "tolerance": 0.18,
+      "explanation": "Area A = 300 × 400 = 120,000 mm². Stress σ = 1,440,000 N / 120,000 mm² = 12.0 N/mm². Step-by-step verification for \"Calculate axial compressive stress in a short concrete column\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 12 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate axial compressive stress in a short concrete column\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Area A = 300 × 400 = 120,000 mm². Express your final numeric answer in N/mm²."
+      ],
+      "caseFamilyId": "MOD03-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E04",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T2",
+      "learningObjective": "Calculate required cross-sectional area to limit axial extension",
+      "type": "numeric",
+      "prompt": "A 4,200 mm long steel hanger rod (E = 210,000 N/mm²) supports a service tension load of 150 kN. If the elastic extension ΔL must not exceed 2.0 mm, what minimum cross-sectional area A (in mm²) is required?",
+      "assumptions": "Check stress: σ = 150,000 / 1,500 = 100 N/mm² (stiffness governs here rather than yield strength).",
+      "unit": "mm²",
+      "correctAnswer": 1500,
+      "tolerance": 22.5,
+      "explanation": "Rearranging ΔL = PL / (AE) gives A = PL / (E × ΔL) = (150,000 × 4,200) / (210,000 × 2.0) = 630,000,000 / 420,000 = 1,500 mm². Step-by-step verification for \"Calculate required cross-sectional area to limit axial extension\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1500 mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate required cross-sectional area to limit axial extension\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Rearranging ΔL = PL / (AE) gives A = PL / (E × ΔL) = (150,000 × 4,200) / (210,000 × 2.0) = 630,000,000 / 420,000 = 1,500 mm². Express your final numeric answer in mm²."
+      ],
+      "caseFamilyId": "MOD03-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E05",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T2",
+      "learningObjective": "Compare extensions of steel and aluminium bars (Example 3.2)",
+      "type": "numeric",
+      "prompt": "A steel tie (E = 210 GPa) and an aluminium tie (E = 70 GPa) have identical length, area, and axial load. What is the ratio of the aluminium extension to the steel extension (ΔL_alu / ΔL_steel)?",
+      "assumptions": "Both remain within their linear elastic limits.",
+      "unit": "ratio",
+      "correctAnswer": 3,
+      "tolerance": 0.045,
+      "explanation": "ΔL_alu / ΔL_steel = E_steel / E_alu = 210 / 70 = 3.0. Step-by-step verification for \"Compare extensions of steel and aluminium bars (Example 3.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Compare extensions of steel and aluminium bars (Example 3.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: ΔL_alu / ΔL_steel = E_steel / E_alu = 210 / 70 = ?. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD03-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E06",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T2",
+      "learningObjective": "Calculate average shear stress in a single-shear bolt",
+      "type": "numeric",
+      "prompt": "A steel fin-plate connection transfers a vertical shear load of 90 kN through 3 identical bolts in single shear. If each bolt has a shear plane cross-sectional area of 245 mm², calculate the average shear stress τ in each bolt in N/mm².",
+      "assumptions": "Assumes equal load sharing between the three bolts.",
+      "unit": "N/mm²",
+      "correctAnswer": 122.45,
+      "tolerance": 1.84,
+      "explanation": "Total shear area = 3 × 245 = 735 mm². Average shear stress τ = 90,000 N / 735 mm² = 122.449 N/mm² ≈ 122.45 N/mm². Step-by-step verification for \"Calculate average shear stress in a single-shear bolt\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 122.45 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate average shear stress in a single-shear bolt\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Total shear area = 3 × 245 = ?. Express your final numeric answer in N/mm²."
+      ],
+      "caseFamilyId": "MOD03-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E07",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T2",
+      "learningObjective": "Calculate average shear stress in a double-shear clevis pin",
+      "type": "numeric",
+      "prompt": "A lifting shackle pin of diameter 20 mm (cross-sectional area A = 314.16 mm²) carries a sling force of 125.66 kN in DOUBLE shear (two shear planes). Calculate the average shear stress τ on the pin in N/mm².",
+      "assumptions": "Double shear halves the average shear stress compared to single shear.",
+      "unit": "N/mm²",
+      "correctAnswer": 200,
+      "tolerance": 3,
+      "explanation": "In double shear, two cross-sections resist the force: Total shear area = 2 × 314.16 = 628.32 mm². τ = 125,660 N / 628.32 mm² = 200.0 N/mm². Step-by-step verification for \"Calculate average shear stress in a double-shear clevis pin\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 200 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate average shear stress in a double-shear clevis pin\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: In double shear, two cross-sections resist the force: Total shear area = 2 × 314.16 = ?. Express your final numeric answer in N/mm²."
+      ],
+      "caseFamilyId": "MOD03-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E08",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T2",
+      "learningObjective": "Calculate shear strain from shear stress and shear modulus G",
+      "type": "numeric",
+      "prompt": "An elastomeric bridge bearing pad of shear modulus G = 1.0 N/mm² is subjected to a horizontal shear stress of τ = 0.25 N/mm². What is the engineering shear strain γ (in radians)?",
+      "assumptions": "If the rubber layer thickness is 40 mm, horizontal deflection is γ × t = 0.25 × 40 = 10 mm.",
+      "unit": "rad",
+      "correctAnswer": 0.25,
+      "tolerance": 0.00375,
+      "explanation": "γ = τ / G = 0.25 / 1.0 = 0.25 rad. Step-by-step verification for \"Calculate shear strain from shear stress and shear modulus G\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.25 rad, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate shear strain from shear stress and shear modulus G\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: γ = τ / G = 0.25 / 1.0 = ?. Express your final numeric answer in rad."
+      ],
+      "caseFamilyId": "MOD03-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E09",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T2",
+      "learningObjective": "Calculate Young’s modulus E from G and Poisson’s ratio ν",
+      "type": "numeric",
+      "prompt": "An isotropic material has a shear modulus G = 80 GPa and Poisson’s ratio ν = 0.25. Using E = 2G(1 + ν), calculate its Young’s modulus E in GPa.",
+      "assumptions": "Isotropic elasticity identity.",
+      "unit": "GPa",
+      "correctAnswer": 200,
+      "tolerance": 3,
+      "explanation": "E = 2 × 80 × (1 + 0.25) = 160 × 1.25 = 200 GPa. Step-by-step verification for \"Calculate Young’s modulus E from G and Poisson’s ratio ν\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 200 GPa, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate Young’s modulus E from G and Poisson’s ratio ν\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: E = 2 × 80 × (1 + 0.25) = 160 × 1.25 = ?. Express your final numeric answer in GPa."
+      ],
+      "caseFamilyId": "MOD03-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E10",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T1",
+      "learningObjective": "Calculate axial shortening of a tubular temporary works prop",
+      "type": "numeric",
+      "prompt": "A 3.5 m long steel tubular prop of cross-sectional area A = 1,400 mm² and E = 210,000 N/mm² carries an axial service compression load of 84 kN. Calculate its elastic axial shortening ΔL in mm.",
+      "assumptions": "Elastic axial shortening before any second-order bowing.",
+      "unit": "mm",
+      "correctAnswer": 1,
+      "tolerance": 0.015,
+      "explanation": "ΔL = PL / (AE) = (84,000 × 3,500) / (1,400 × 210,000) = 294,000,000 / 294,000,000 = 1.0 mm. Step-by-step verification for \"Calculate axial shortening of a tubular temporary works prop\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate axial shortening of a tubular temporary works prop\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: ΔL = PL / (AE) = (84,000 × 3,500) / (1,400 × 210,000) = 294,000,000 / 294,000,000 = ?. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD03-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E11",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T1",
+      "learningObjective": "Distinguish stress vs internal force",
+      "type": "mcq",
+      "prompt": "Two steel ties carry the exact same axial tension force of 150 kN. Tie A has area 1,000 mm² and Tie B has area 2,000 mm². Which statement is true?",
+      "assumptions": "Why it matters: material yielding depends on stress σ, not total force F alone.",
+      "options": [
+        "Tie B experiences twice the normal stress because it has twice the area, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "Both ties experience the same normal stress because the applied force is equal",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Both ties carry the same internal force (150 kN), but Tie A experiences twice the normal stress (150 N/mm² vs 75 N/mm²) and twice the axial strain of Tie B"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Internal force F is the total resultant (kN), whereas stress σ = F/A is force intensity per unit area (N/mm²). Engineering synthesis for \"Distinguish stress vs internal force\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish stress vs internal force\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD03-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E12",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T1",
+      "learningObjective": "Identify why ductile failure modes are preferred in structural design",
+      "type": "mcq",
+      "prompt": "Why do structural design codes strongly prefer ductile failure modes (such as steel yielding in tension or under-reinforced concrete beam flexure) over brittle failure modes (such as weld fracture, bolt shear rupture, or over-reinforced concrete crushing)?",
+      "assumptions": "Fundamental structural safety philosophy.",
+      "options": [
+        "Ductile members undergo large visible deformations before collapse (giving warning to occupants) and can redistribute internal forces to adjacent members in indeterminate structures",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material.",
+        "Brittle failures always give several days of large deflection warning",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection fl."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Plastic plateau capacity provides energy absorption, warning, and plastic redistribution. Engineering synthesis for \"Identify why ductile failure modes are preferred in structural design\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why ductile failure modes are preferred in structural design\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD03-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E13",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T3",
+      "learningObjective": "Explain why timber bearing perpendicular to the grain has much lower capacity than parallel to the grain",
+      "type": "mcq",
+      "prompt": "When a timber floor joist sits on a wall plate or masonry hanger, why is the compressive bearing strength of the timber at the support much lower than its compressive strength along the length of the joist?",
+      "assumptions": "Bridges Module 3 material behaviour to Module 10 (EC5).",
+      "options": [
+        "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "At the support, the reaction acts perpendicular to the timber grain, crushing the hollow wood cell tubes sideways like drinking straws rather than loading them end-on",
+        "Because timber has zero Young’s modulus parallel to the grain",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Compressive strength perpendicular to grain (f_c,90,k) is typically an order of magnitude lower than parallel to grain (f_c,0,k). Engineering synthesis for \"Explain why timber bearing perpendicular to the grain has much lower capacity than parallel to the grain\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why timber bearing perpendicular to the grain has much lower capacity than parallel to the grain\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD03-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E14",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T3",
+      "learningObjective": "Understand the effect of sustained long-term loading (creep) on concrete deflection",
+      "type": "mcq",
+      "prompt": "When a reinforced concrete beam supports a permanent dead load over several years, how does concrete creep affect the beam?",
+      "assumptions": "Links Module 3 material awareness to Module 5 (SLS) and Module 14 (EC2).",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "Creep doubles the ultimate tensile strength of the steel reinforcement",
+        "Compressive strains in the concrete increase gradually over time under constant sustained stress, reducing the effective elastic modulus E_c,eff and increasing long-term deflection to 2–3 times the initial instantaneous deflection",
+        "Creep only lasts for the first 10 seconds after striking propping"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Concrete creep increases curvature and long-term SLS deflection under quasi-permanent actions. Engineering synthesis for \"Understand the effect of sustained long-term loading (creep) on concrete deflection\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the effect of sustained long-term loading (creep) on concrete deflection\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD03-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E15",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T3",
+      "learningObjective": "Identify fatigue risk in temporary and permanent structures",
+      "type": "mcq",
+      "prompt": "In which of the following structural applications is material fatigue (crack initiation and propagation under repeated stress cycles) most likely to be a governing design check?",
+      "assumptions": "Module 3 fatigue introductory awareness.",
+      "options": [
+        "A domestic timber loft joist carrying static water tank storage, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "A concrete pad foundation under a single-storey brick garage",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "A welded crane gantry girder, bridge deck, or tower crane tie/mast connection subjected to hundreds of thousands of fluctuating load cycles well below the static yield strength"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Fatigue fractures occur at stress concentrations (such as weld toes) under repeated cyclic stress ranges Δσ even when peak stress is below static yield.",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify fatigue risk in temporary and permanent structures\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD03-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E16",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T1",
+      "learningObjective": "Understand Saint-Venant’s principle near concentrated loads and holes",
+      "type": "mcq",
+      "prompt": "The formula σ = F / A assumes stress is uniformly distributed across the cross-section. Where on a steel tie bar does this uniform stress assumption break down?",
+      "assumptions": "Important assumption/limitation of σ = F/A.",
+      "options": [
+        "Locally around bolt holes, notches, and right at the point where concentrated connection forces enter the member (where local stress concentrations occur)",
+        "At mid-length of a long uniform prismatic bar far from the connections, assuming that by applying the unfactored characteristic Serviceability.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint comp.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, the."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Geometric discontinuities and point-load introductions cause local stress peaks; by Saint-Venant’s principle, stresses smooth out to F/A at a distance of roughly one member width away.",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand Saint-Venant’s principle near concentrated loads and holes\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD03-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E17",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T1",
+      "learningObjective": "Calculate net section stress at a bolt hole in a tension flat bar",
+      "type": "numeric",
+      "prompt": "A steel flat tie bar of gross width 100 mm and thickness 10 mm has a single 22 mm diameter bolt hole drilled through its centreline. Under an axial tension load of 156 kN, calculate the average tensile stress on the net cross-section at the hole in N/mm².",
+      "assumptions": "Gross stress away from the hole is 156,000 / 1,000 = 156 N/mm², so the net section at the hole experiences higher average stress.",
+      "unit": "N/mm²",
+      "correctAnswer": 200,
+      "tolerance": 3,
+      "explanation": "Net width = 100 − 22 = 78 mm. Net area A_net = 78 mm × 10 mm = 780 mm². Net stress σ_net = 156,000 N / 780 mm² = 200 N/mm². Step-by-step verification for \"Calculate net section stress at a bolt hole in a tension flat bar\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 200 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate net section stress at a bolt hole in a tension flat bar\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Net width = 100 − 22 = ?. Express your final numeric answer in N/mm²."
+      ],
+      "caseFamilyId": "MOD03-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E18",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T2",
+      "learningObjective": "Calculate total extension of a two-segment stepped tie bar",
+      "type": "numeric",
+      "prompt": "A vertical hanger consists of an upper steel rod (length 2,000 mm, area 1,000 mm²) connected in series to a lower steel rod (length 2,000 mm, area 500 mm²). Both have E = 200,000 N/mm². Under a tension load of 50 kN applied at the bottom, what is the total elastic extension of the 4,000 mm assembly in mm?",
+      "assumptions": "Members in series carry the same axial force P (ignoring self-weight) and their extensions add.",
+      "unit": "mm",
+      "correctAnswer": 1.5,
+      "tolerance": 0.0225,
+      "explanation": "ΔL_total = ΔL_1 + ΔL_2 = (50,000 × 2,000)/(1,000 × 200,000) + (50,000 × 2,000)/(500 × 200,000) = 0.5 mm + 1.0 mm = 1.5 mm. Step-by-step verification for \"Calculate total extension of a two-segment stepped tie bar\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate total extension of a two-segment stepped tie bar\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: ΔL_total = ΔL_1 + ΔL_2 = (50,000 × 2,000)/(1,000 × 200,000) + (50,000 × 2,000)/(500 × 200,000) = 0.5 mm + 1.0 mm = ?. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD03-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E19",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T3",
+      "learningObjective": "Explain why brittle materials are dangerous in tension or impact",
+      "type": "mcq",
+      "prompt": "Why are unreinforced brittle materials (such as cast iron, glass, or unreinforced concrete/stone) never used as primary tension hangers without a backup load path?",
+      "assumptions": "Fracture mechanics intuition.",
+      "options": [
+        "Because brittle materials have a Young’s modulus of zero, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Because a tiny surface flaw or notch creates a local stress concentration that cannot be relieved by local plastic yielding, triggering sudden unstable crack propagation across the entire section",
+        "Because brittle materials stretch by 50% before breaking",
+        "Because tension forces cannot exist in vertical hangers"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Without local plastic yielding at a crack tip, stress concentration drives rapid cleavage fracture. Engineering synthesis for \"Explain why brittle materials are dangerous in tension or impact\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why brittle materials are dangerous in tension or impact\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD03-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD03-E20",
+      "moduleNumber": 3,
+      "topicId": "MOD03-T3",
+      "learningObjective": "Connect material properties to the five syllabus study rules",
+      "type": "mcq",
+      "prompt": "When stating the assumptions and limitations of the axial extension calculation ΔL = PL / (AE), which set of conditions must hold for the formula to be valid?",
+      "assumptions": "Syllabus Study Rule 5.",
+      "options": [
+        "The member must be beyond its yield point and bent into a curve, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "The load P must be applied perpendicular to the member axis",
+        "The member is prismatic (constant A), homogeneous, linearly elastic (stress remains below proportional/yield limit), loaded concentrically through the centroidal axis, and free from buckling",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Every hand formula rests on physical idealisations; stating them explicitly is Study Rule 5 of the syllabus. Engineering synthesis for \"Connect material properties to the five syllabus study rules\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
+      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Connect material properties to the five syllabus study rules\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD03-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}

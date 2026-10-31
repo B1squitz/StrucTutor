@@ -1,0 +1,957 @@
+{
+  "moduleNumber": 19,
+  "code": "MOD-19",
+  "title": "Professional Practice, Checking and Business Readiness",
+  "shortTitle": "Professional Practice & Checking",
+  "suggestedDuration": "2 to 4 weeks",
+  "yearPathway": "Year 1 & Year 2 Continuous",
+  "year1Months": "Year 2 Advanced Programme",
+  "whyItMatters": "Technical calculations are only safe when embedded in rigorous professional practice: clear scope boundaries, independent checking that catches load-path and drawing mismatches, proactive risk elimination, and knowing your competence limits.",
+  "introduction": "Scope definition, exclusions, pre-design information, design responsibility, checking categories (Cat 0/1/2/3 principles) [UI1], independent calculation and drawing checking, CDM design risk management, document control, and competence boundaries.",
+  "objectives": [
+    "Define clear engineering scopes of service, exclusions, required pre-design information, and design assumptions.",
+    "Explain design checking levels (Category 0, 1, 2, and 3 principles, noting scheme-specific definitions such as BS 5975 vs DMRB CS 450) [UI1] and perform an independent Category 2 check.",
+    "Apply design risk management (eliminate, reduce, inform) and maintain strict document revision control.",
+    "Recognise professional competence boundaries and escalate specialist geotechnical, dynamic, fire, or complex temporary works problems."
+  ],
+  "learningGate": "Perform an independent check on one of your own earlier designs after a break and document any errors or unclear assumptions found.",
+  "prerequisiteModuleNumbers": [
+    18
+  ],
+  "topics": [
+    {
+      "id": "MOD19-T1",
+      "moduleNumber": 19,
+      "code": "19.1",
+      "title": "Scope Definition, Exclusions, Required Pre-Design Information, Assumptions & Constraints",
+      "summary": "Writing unambiguous scopes of service, explicit exclusions, pre-design information checklists, and documenting design assumptions and client constraints.",
+      "subtopics": [
+        "Defining deliverables, design stages, and interfaces (e.g. connection design, temporary works, below-ground drainage, party wall awards)",
+        "Listing required Pre-Design Information (topographical survey, GI report, measured survey, utilities search)",
+        "Recording assumptions clearly on the front sheet of calculations and in the general notes of drawings"
+      ],
+      "learningObjectives": [
+        "Defining deliverables, design stages, and interfaces (e.g. connection design, temporary works, below-ground drainage, party wall awards)",
+        "Listing required Pre-Design Information (topographical survey, GI report, measured survey, utilities search)",
+        "Recording assumptions clearly on the front sheet of calculations and in the general notes of drawings"
+      ],
+      "futureExpansion": "Future expansion slot for ACE / IStructE appointment scope schedules and Building Safety Act Golden Thread documentation.",
+      "questions": [
+        {
+          "id": "MOD19-T1-Q1",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T1",
+          "learningObjective": "Verify calculation package completeness across the 9 mandatory syllabus sections.",
+          "type": "numeric",
+          "prompt": "According to the course syllabus (\"How every calculation note must be written\"), how many mandatory structural sections must every professional calculation note contain (from 1. Title & Scope through to 9. Conclusion & Utilisation)?",
+          "assumptions": "Count the 9 mandatory sections specified in the syllabus.",
+          "unit": "sections",
+          "correctAnswer": 9,
+          "tolerance": 0,
+          "explanation": "Every calculation note in the syllabus has 9 mandatory sections: (1) Title/Scope, (2) Design Basis/Standards, (3) Geometry/Materials, (4) Actions/Combinations, (5) Load Path/Static Scheme, (6) Step-by-Step Calculations, (7) Independent Sanity Check, (8) Assumptions/Limitations, and (9) Conclusion & Utilisation.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Verify calculation package completeness across the 9 mandatory syllabus sections.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Every calculation note in the syllabus has 9 mandatory sections: (1) Title/Scope, (2) Design Basis/Standards, (3) Geometry/Materials, (4) Actions/Combinations, (5) Load Path/Static Scheme, (6) Step-by-Step Calculations, (7) Independent Sanity Check, (8) Assumptions/Limitations, and (9) Conclusion & Utilisation.. Express your final numeric answer in sections."
+          ],
+          "caseFamilyId": "MOD19-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T1-Q2",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T1",
+          "learningObjective": "Check maximum acceptable utilisation ratio for a compliant design conclusion.",
+          "type": "numeric",
+          "prompt": "In Section 9 (Conclusion) of a structural calculation note, what is the maximum allowable design utilisation ratio (Demand / Capacity) for an ultimate or serviceability limit state check to pass without documented concession?",
+          "assumptions": "Demand must not exceed Capacity (1.00).",
+          "unit": "ratio",
+          "correctAnswer": 1,
+          "tolerance": 0.01,
+          "explanation": "A compliant design check requires Demand / Capacity <= 1.00 (100% utilisation). Step-by-step verification for \"Check maximum acceptable utilisation ratio for a compliant design conclusion.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 ratio, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Check maximum acceptable utilisation ratio for a compliant design conclusion.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: A compliant design check requires Demand / Capacity <= 1.00 (100% utilisation). Express your final numeric answer in ratio."
+          ],
+          "caseFamilyId": "MOD19-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T1-Q3",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T1",
+          "learningObjective": "Explain why explicit exclusions and interface boundaries must be stated in an engineering scope.",
+          "type": "mcq",
+          "prompt": "Why must a structural engineer’s fee proposal and scope document explicitly state interfaces and exclusions (such as specialist steel connection design, temporary works design, geotechnical site investigation, or party wall surveyor duties)?",
+          "assumptions": "Consider how dangerous \"scope gaps\" occur on construction projects.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Because unstated interfaces create dangerous scope gaps where the client or contractor assumes the permanent-works engineer has checked something (like temporary propping or ground gas) that has not actually been designed",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Many construction failures and disputes happen in the gap between disciplines (e.g. between permanent and temporary works, or structure and geotechnics). Clear interface schedules ensure every item has an assigned owner.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why explicit exclusions and interface boundaries must be stated in an engineering scope.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T1-Q4",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T1",
+          "learningObjective": "Identify essential Pre-Design Information required before finalising foundation design.",
+          "type": "mcq",
+          "prompt": "Which piece of Pre-Design Information is essential before issuing final \"For Construction\" foundation drawings for a new multi-storey building?",
+          "assumptions": "Consider ground uncertainty and underground hazards.",
+          "options": [
+            "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "A site-specific Ground Investigation (GI) report, topographical survey, and buried utilities/obstructions search",
+            "A verbal assurance from a neighbour that the ground is \"probably fine\""
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Finalising foundation construction drawings without site-specific ground investigation and utility searches exposes the project to bearing failure, settlement, or striking live utilities.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify essential Pre-Design Information required before finalising foundation design.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T1-Q5",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T1",
+          "learningObjective": "Explain how provisional assumptions must be tracked on drawings.",
+          "type": "mcq",
+          "prompt": "If a preliminary GA drawing must be issued for costing before a beam bearing is opened up on site, how should the unverified bearing assumption be presented on the drawing?",
+          "assumptions": "Consider visual clarity and prevention of premature construction.",
+          "options": [
+            "Hidden in 4-point font on page 84 of the calculation appendix while the drawing is stamped \"FOR CONSTRUCTION\", assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "Clouded and clearly labelled \"PRELIMINARY / FOR COSTING ONLY, NOT FOR CONSTRUCTION: Subject to intrusive opening-up at Grid B2 (Hold Point)\", and tracked on the Assumptions & Risk Register"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Assumptions that require site verification must be visibly flagged on the drawing itself and prevented from being built unverified via status stamps and Hold Points.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain how provisional assumptions must be tracked on drawings.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD19-T2",
+      "moduleNumber": 19,
+      "code": "19.2",
+      "title": "Design Responsibility, Checking Levels (Cat 0/1/2/3 Principles), Checking & Risk Management",
+      "summary": "Design checking levels (Cat 0, 1, 2, 3 principles across BS 5975 and DMRB CS 450 without guessing ambiguous project definitions) [UI1], independent calculation vs drawing checking, and CDM design risk elimination.",
+      "subtopics": [
+        "Checking categories [UI1]: distinguishing self/peer check (Cat 0/1), independent check within same/different team using Design Brief + Drawings (Cat 2), and fully independent external organization check (Cat 3)",
+        "Why a true Category 2 check derives independent loads and calculations from the brief and drawings BEFORE inspecting the original designer’s calculation numbers",
+        "Design Risk Management (Eliminate -> Reduce -> Inform) for buildability, maintenance, and demolition"
+      ],
+      "learningObjectives": [
+        "Checking categories [UI1]: distinguishing self/peer check (Cat 0/1), independent check within same/different team using Design Brief + Drawings (Cat 2), and fully independent external organization check (Cat 3)",
+        "Why a true Category 2 check derives independent loads and calculations from the brief and drawings BEFORE inspecting the original designer’s calculation numbers",
+        "Design Risk Management (Eliminate -> Reduce -> Inform) for buildability, maintenance, and demolition"
+      ],
+      "futureExpansion": "Future expansion slot for BS 5975 Table 1 Temporary Works Checking Categories vs DMRB CS 450 Highway Structures Checking Categories.",
+      "questions": [
+        {
+          "id": "MOD19-T2-Q1",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T2",
+          "learningObjective": "Spot a load-takedown error during an independent Category 2 check.",
+          "type": "numeric",
+          "prompt": "During an independent check of a 2-storey commercial building, the original designer’s calculation takes a roof beam span as L = 6.0 m and applies a factored ULS line load w_Ed = 25 kN/m, calculating a midspan moment M_Ed = 112.5 kNm and reaction R_Ed = 75 kN. However, when you measure the General Arrangement drawing, the actual column grid span is L = 7.2 m! Calculate the true ULS midspan moment M_Ed = w_Ed * L^2 / 8 that the 7.2 m beam must resist.",
+          "assumptions": "Use M_Ed = 25 * 7.2^2 / 8.",
+          "unit": "kNm",
+          "correctAnswer": 162,
+          "tolerance": 0.5,
+          "explanation": "M_Ed = 25 * 51.84 / 8 = 162.0 kNm (the original calculation underestimated the bending moment by 44% because the designer used an outdated 6.0 m span instead of the 7.2 m span on the drawing!).",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Spot a load-takedown error during an independent Category 2 check.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M_Ed = 25 * 51.84 / 8 = 162.0 kNm (the original calculation underestimated the bending moment by 44% because the designer used an outdated 6.0 m span instead of the 7.2 m span on the drawing!).. Express your final numeric answer in kNm."
+          ],
+          "caseFamilyId": "MOD19-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T2-Q2",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T2",
+          "learningObjective": "Spot a tributary width factor-of-two error during an independent check.",
+          "type": "numeric",
+          "prompt": "An internal floor beam is spaced at 4.0 m centres from the beams on either side, and spans L = 8.0 m. Under a factored floor pressure q_Ed = 10 kPa, the original designer mistakenly used a tributary width of 2.0 m (half-bay only!) instead of the full 4.0 m tributary width. Calculate the true factored ULS total load W_true (in kN) on the internal beam.",
+          "assumptions": "Use W_true = q_Ed * 4.0 m * 8.0 m.",
+          "unit": "kN",
+          "correctAnswer": 320,
+          "tolerance": 1,
+          "explanation": "True tributary width for an internal beam is 2.0 + 2.0 = 4.0 m. True line load = 10 * 4.0 = 40 kN/m. True total load W_true = 40 * 8.0 = 320.0 kN (twice the designer’s 160 kN!).",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Spot a tributary width factor-of-two error during an independent check.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: True tributary width for an internal beam is 2.0 + 2.0 = ?. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD19-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T2-Q3",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T2",
+          "learningObjective": "Explain the fundamental principle of a Category 2 design check ([UI1]).",
+          "type": "mcq",
+          "prompt": "While exact category definitions depend on the governing standard or client procedure (e.g. BS 5975 for temporary works vs DMRB CS 450 for highway structures, which must always be confirmed in the project brief), what is the defining engineering principle of a Category 2 independent check?",
+          "assumptions": "Compare proof-reading arithmetic vs independent analytical verification from the brief and drawings.",
+          "options": [
+            "The checker assesses the design independently, working from the design brief, ground data, and drawings using independent calculations/methods rather than merely proof-reading or ticking the original designer’s arithmetic, and is independent of the original design preparation",
+            "The original designer runs a spell-checker on their own Word document",
+            "The checker only checks that page numbers are in order without doing any structural calculations",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differential support settlement under sustained gravity loading"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Merely following the original designer’s lines of arithmetic (\"tick-and-bash\") leads to confirmation bias and misses omitted failure modes or drawing mismatches. A Category 2 check verifies the structure independently from the brief and drawings (and the project’s specific governing standard must always be confirmed).",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain the fundamental principle of a Category 2 design check ([UI1]).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T2-Q4",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T2",
+          "learningObjective": "Explain why checking the drawings is at least as important as checking the calculations.",
+          "type": "mcq",
+          "prompt": "During a design check, why must the checker spend as much effort auditing the structural drawings and schedules as checking the calculation equations?",
+          "assumptions": "Consider what gets built on site.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Because a mathematically flawless calculation is useless if the wrong beam size, missing bracing, wrong concrete cover, or unbuildable connection is shown on the drawings issued to site",
+            "Because site operatives build directly from differential equations",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Transcription errors between calculations and drawings (or calculation assumptions not reflected on drawings) are among the most common sources of structural defects.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why checking the drawings is at least as important as checking the calculations.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T2-Q5",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T2",
+          "learningObjective": "Apply the hierarchy of Design Risk Management (Eliminate -> Reduce -> Inform).",
+          "type": "mcq",
+          "prompt": "Under UK design risk management principles (CDM), what is the correct order of priority when a structural designer identifies a significant construction or maintenance hazard (such as working at height over water or cutting chases into dust-producing concrete)?",
+          "assumptions": "Recall Eliminate -> Reduce -> Inform.",
+          "options": [
+            "Put a generic 50-page photocopied list of everyday site hazards at the back of the calculation file and change nothing in the design, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "Assume all construction safety is 100% the contractor’s problem",
+            "First seek to ELIMINATE the hazard by design (if reasonably practicable); second REDUCE the remaining risk by design detailing; third INFORM the contractor/end-user of significant unusual residual risks on the drawings and risk register",
+            "Only consider risks after the building has been occupied for 10 years"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Designers must first try to eliminate hazards at source (e.g. prefabrication at ground level, cast-in sockets instead of overhead drilling), then reduce risk, and clearly communicate significant residual site-specific risks on the drawings.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Apply the hierarchy of Design Risk Management (Eliminate -> Reduce -> Inform).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD19-T3",
+      "moduleNumber": 19,
+      "code": "19.3",
+      "title": "Document Control, CPD, Competence Boundaries, Communication & Escalation",
+      "summary": "Revision control (P01, C01), managing late changes across linked calculations and drawings, professional competence boundaries, and escalating beyond one’s experience.",
+      "subtopics": [
+        "Document control: status codes (Preliminary vs For Construction), revision clouds, and updating calculations when drawings change",
+        "Competence boundaries: knowing what you know, knowing what you do not know, and escalating specialist problems",
+        "Clear technical communication with clients, architects, contractors, and checking engineers"
+      ],
+      "learningObjectives": [
+        "Document control: status codes (Preliminary vs For Construction), revision clouds, and updating calculations when drawings change",
+        "Competence boundaries: knowing what you know, knowing what you do not know, and escalating specialist problems",
+        "Clear technical communication with clients, architects, contractors, and checking engineers"
+      ],
+      "futureExpansion": "Future expansion slot for ISO 19650 document status codes and IStructE Code of Conduct ethics case studies.",
+      "questions": [
+        {
+          "id": "MOD19-T3-Q1",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T3",
+          "learningObjective": "Trace the cascade impact of a late architectural load change across linked calculations.",
+          "type": "numeric",
+          "prompt": "Late in design, a client changes a first-floor office room (previously q_k = 2.5 kPa) into a dense mobile-racking archive store (q_k = 7.5 kPa) over a tributary area of 30 m^2. Using gamma_Q = 1.50, calculate the additional ULS vertical load delta_F_Ed (in kN) that must be re-checked in the floor slab, supporting beams, columns, AND foundations.",
+          "assumptions": "Use delta_F_Ed = 1.50 * (7.5 - 2.5) * 30.",
+          "unit": "kN",
+          "correctAnswer": 225,
+          "tolerance": 1,
+          "explanation": "Increase in characteristic imposed load = 7.5 - 2.5 = 5.0 kPa. Over 30 m^2 with gamma_Q = 1.50, delta_F_Ed = 1.50 * 5.0 * 30 = 225.0 kN (a change at floor level cascades all the way down the load path to the foundations!).",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Trace the cascade impact of a late architectural load change across linked calculations.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Increase in characteristic imposed load = 7.5 - 2.5 = ?. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD19-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T3-Q2",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T3",
+          "learningObjective": "Identify mandatory document control practice when revising an issued \"For Construction\" drawing.",
+          "type": "mcq",
+          "prompt": "After Drawing S-101 Rev C01 (\"For Construction\") has been issued to site, a steel beam on Grid 4 is upsized from 406x178x54 UB to 457x191x67 UB. How must this change be issued?",
+          "assumptions": "Consider site traceability and prevention of building from superseded drawings.",
+          "options": [
+            "Secretly overwrite the PDF file with the same revision number C01 and hope nobody already ordered the steel, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "Change the calculation only and leave the old beam size on the drawing",
+            "Increment the revision code (e.g. to Rev C02), cloud the changed beam on the drawing, record the specific change and date in the revision table, update the linked calculation and connection schedule, and formally issue the new revision to the project team"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Never reissue a modified document under the same revision code; revision clouds, incremented revision numbers, and transmittal records prevent contractors fabricating from superseded information.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify mandatory document control practice when revising an issued \"For Construction\" drawing.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T3-Q3",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T3",
+          "learningObjective": "Define professional engineering competence boundaries.",
+          "type": "mcq",
+          "prompt": "A sole practitioner or junior engineer experienced in low-rise domestic steel, timber, and masonry is asked to design a 14-metre-deep contiguous piled basement excavation next to a live railway tunnel or a post-tensioned bridge deck. What is the professionally and ethically required response?",
+          "assumptions": "Apply the IStructE / Engineering Council Code of Conduct on competence.",
+          "options": [
+            "Recognise that the work falls outside their current area of competence, decline to undertake it unsupervised, and escalate/refer the work to a suitably qualified specialist engineer or peer reviewer",
+            "Download a free trial of finite element software and issue construction drawings without specialist experience, assuming that by applying the unfactored characteristic Serviceability Limi.",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load intro.",
+            "Accept the commission and mark every drawing \"Contractor to verify stability\""
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Working strictly within your verified competence, and escalating geotechnical, dynamic, prestressed, complex temporary works, or high-risk structures to specialists, is a core ethical duty.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Define professional engineering competence boundaries.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T3-Q4",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T3",
+          "learningObjective": "Apply the Five Study & Engineering Rules across the whole course.",
+          "type": "mcq",
+          "prompt": "What are the five core engineering study and practice rules established at the very beginning of this syllabus and applied across Modules 0 to 19?",
+          "assumptions": "Recall the Five Study Rules from page 1 of the syllabus.",
+          "options": [
+            "(1) Memorise clause numbers; (2) Skip sketches; (3) Trust software blindly; (4) Hide assumptions; (5) Round all scores up",
+            "(1) Explain the concept in plain English; (2) Sketch the structural system, loads, supports, and deflected shape; (3) Calculate a real example with full units; (4) Check the answer against a reliable source or hand bound; and (5) State the assumptions and limitations",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Explain, Sketch, Calculate with units, Check against a reliable source/bound, and State assumptions and limitations. Engineering synthesis for \"Apply the Five Study & Engineering Rules across the whole course.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Apply the Five Study & Engineering Rules across the whole course.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD19-T3-Q5",
+          "moduleNumber": 19,
+          "topicId": "MOD19-T3",
+          "learningObjective": "Pass the Module 19 Learning Gate: Self-checking after a break and independent review.",
+          "type": "mcq",
+          "prompt": "Why does the Module 19 Learning Gate require you to put your own design aside for a break and then perform a fresh check starting from the drawing and design brief?",
+          "assumptions": "Consider cognitive fresh eyes vs familiarity blindness.",
+          "options": [
+            "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "Stepping away and re-checking from the drawing back to the calculation breaks confirmation bias and exposes silent assumptions, transcription errors, and missing load paths that you overlooked while writing the calculation",
+            "Because independent review is never required in engineering"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Checking from the drawing back to an independent hand calculation after a break catches the errors that familiarity hides. Engineering synthesis for \"Pass the Module 19 Learning Gate: Self-checking after a break and independent review.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 19 Learning Gate: Self-checking after a break and independent review.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD19-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "EX-19.1",
+      "title": "Skill 19.1: Independent Category 2 Check & Scope/Risk Register Package ([UI1])",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "Civil Engineering Syllabus (Modules 0 to 19)"
+  ],
+  "standardsNotice": "Verify all clauses, partial factors, and National Annex parameters against controlled reference standards before engineering application.",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD19-E01",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Perform an independent load takedown check on a roof trimmer beam.",
+      "type": "numeric",
+      "prompt": "A checker reviews Drawing S-201 showing a 6.0 m span roof trimmer beam supporting a point load at midspan from a secondary beam of span 5.0 m (which carries 12 kN/m total factored load, so reaction on the trimmer is 12 * 5.0 / 2 = 30 kN). Ignoring trimmer self-weight, calculate the midspan bending moment M = P * L / 4 on the 6.0 m trimmer beam.",
+      "assumptions": "Use M = 30 * 6.0 / 4.",
+      "unit": "kNm",
+      "correctAnswer": 45,
+      "tolerance": 0.5,
+      "explanation": "Reaction transferred at midspan P = 30.0 kN. Trimmer midspan moment M = 30.0 * 6.0 / 4 = 45.0 kNm. Step-by-step verification for \"Perform an independent load takedown check on a roof trimmer beam.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 45 kNm, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Perform an independent load takedown check on a roof trimmer beam.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Reaction transferred at midspan P = ?. Express your final numeric answer in kNm."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E02",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Catch a unit conversion error during a calculation check.",
+      "type": "numeric",
+      "prompt": "An engineer calculates a beam’s required second moment of area as I_req = 42.5 x 10^6 mm^4. In the steel section table, I_yy is listed in cm^4. Since 1 cm^4 = 10^4 mm^4, what is the correct value of I_req expressed in cm^4?",
+      "assumptions": "Divide 42.5 x 10^6 by 10^4.",
+      "unit": "cm^4",
+      "correctAnswer": 4250,
+      "tolerance": 5,
+      "explanation": "42.5 x 10^6 mm^4 / 10^4 = 4250 cm^4 (a classic checking error is misreading 10^3 instead of 10^4 when converting mm^4 to cm^4!). Step-by-step verification for \"Catch a unit conversion error during a calculation check.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4250 cm^4, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Catch a unit conversion error during a calculation check.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: 42.5 x 10^6 mm^4 / 10^4 = 4250 cm^4 (a classic checking error is misreading 10^3 instead of 10^4 when converting mm^4 to cm^4!). Express your final numeric answer in cm^4."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E03",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Check utilisation ratio from independent demand and capacity.",
+      "type": "numeric",
+      "prompt": "An independent check finds a column’s design axial load is N_Ed = 1140 kN and its buckling resistance is N_b,Rd = 1200 kN. Calculate the utilisation ratio N_Ed / N_b,Rd.",
+      "assumptions": "Divide 1140 by 1200.",
+      "unit": "ratio",
+      "correctAnswer": 0.95,
+      "tolerance": 0.005,
+      "explanation": "Utilisation = 1140 / 1200 = 0.950 (95% <= 1.00, Pass). Step-by-step verification for \"Check utilisation ratio from independent demand and capacity.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.95 ratio, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Check utilisation ratio from independent demand and capacity.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Utilisation = 1140 / 1200 = 0.950 (95% <= 1.00, Pass). Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "solverVerificationId": "SOLVER-MOD19-E03",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD19-E04",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Detect an overloaded member where utilisation exceeds 1.00.",
+      "type": "numeric",
+      "prompt": "During an independent Category 2 design check of a steel column, the checker finds an axial compression utilisation ratio of N_Ed / N_b,Rd = 0.95 and also discovers an omitted eccentric roof beam connection that induces a major-axis bending moment M_y,Ed = 36 kN·m (where the column’s LTB moment resistance is M_b,Rd = 180 kN·m). Using the simplified linear interaction expression (N_Ed / N_b,Rd) + (M_y,Ed / M_b,Rd), calculate the combined utilisation ratio.",
+      "assumptions": "Calculate 0.95 + 0.20.",
+      "unit": "ratio",
+      "correctAnswer": 1.15,
+      "tolerance": 0.01,
+      "explanation": "0.95 + (36 / 180) = 0.95 + 0.20 = 1.15 (> 1.00, FAIL, the independent check caught an omitted eccentric moment that pushed the column over capacity!).",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Detect an overloaded member where utilisation exceeds 1.00.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: 0.95 + (36 / 180) = 0.95 + 0.20 = 1.15 (> 1.00, FAIL, the independent check caught an omitted eccentric moment that pushed the column over capacity!).. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "solverVerificationId": "SOLVER-MOD19-E04",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD19-E05",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T1",
+      "learningObjective": "Verify reaction equilibrium in Section 7 (Independent Sanity Check) of a calculation note.",
+      "type": "numeric",
+      "prompt": "A 10 m beam carries a full-span UDL of 18 kN/m plus a point load of 50 kN at 3 m from the left support. In the Independent Sanity Check section of the calculation note, what must the sum of the two vertical support reactions (R_A + R_B) equal?",
+      "assumptions": "Use R_A + R_B = (18 * 10) + 50.",
+      "unit": "kN",
+      "correctAnswer": 230,
+      "tolerance": 0.5,
+      "explanation": "Total applied vertical load = (18 * 10) + 50 = 180 + 50 = 230.0 kN. Step-by-step verification for \"Verify reaction equilibrium in Section 7 (Independent Sanity Check) of a calculation note.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 230 kN, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Verify reaction equilibrium in Section 7 (Independent Sanity Check) of a calculation note.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Total applied vertical load = (18 * 10) + 50 = 180 + 50 = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD19-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E06",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T3",
+      "learningObjective": "Quantify foundation pad area increase required after a late design change.",
+      "type": "numeric",
+      "prompt": "A pad foundation was originally sized for a service column load of 450 kN on soil with allowable bearing pressure 150 kPa (requiring A = 3.0 m^2). A late plant-room change increases the service column load to 600 kN. Calculate the new minimum required pad plan area A_new.",
+      "assumptions": "Use A_new = 600 / 150.",
+      "unit": "m^2",
+      "correctAnswer": 4,
+      "tolerance": 0.05,
+      "explanation": "A_new = 600 / 150 = 4.00 m^2 (e.g. increasing from 1.75 m square to 2.00 m square). Step-by-step verification for \"Quantify foundation pad area increase required after a late design change.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4 m^2, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Quantify foundation pad area increase required after a late design change.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: A_new = 600 / 150 = 4.00 m^2 (e.g. Express your final numeric answer in m^2."
+      ],
+      "caseFamilyId": "MOD19-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E07",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T1",
+      "learningObjective": "Identify why every calculation note must state its Design Basis, Codes, and National Annexes.",
+      "type": "mcq",
+      "prompt": "Why is Section 2 (Design Basis, Standards & Partial Factors) mandatory at the start of every structural calculation note?",
+      "assumptions": "Consider code compatibility and partial factor differences.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+        "Because all codes in the world use identical partial factors",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Because partial factors, material strengths, and buckling/shear equations depend on the coherent standard suite and UK National Annex used; mixing clauses from incompatible codes (e.g. permissible stress BS 449/BS 5268 with limit-state Eurocodes) is invalid and dangerous"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Stating the governing code suite and UK National Annex parameters upfront ensures consistent partial factors and prevents dangerous mixing of permissible-stress and ultimate-limit-state rules.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why every calculation note must state its Design Basis, Codes, and National Annexes.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E08",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Clarify the syllabus requirement on Category 2 checking ([UI1]).",
+      "type": "mcq",
+      "prompt": "The syllabus includes a margin comment asking for Category 2 checking to be covered through straightforward examples. Why must an engineer always confirm which specific checking standard or procedure is referenced on a given project rather than assuming a single universal definition of \"Category 2\"?",
+      "assumptions": "Compare BS 5975 (Temporary Works), DMRB CS 450 (Highways), and project-specific QA schemes.",
+      "options": [
+        "Because different UK industry standards define checking categories differently (for example, in BS 5975 Category 2 is an independent check where the checker may belong to the same organisation if not involved in the original design, whereas in DMRB CS 450 Category 2 is an independent team within the same organisation with NO access to the designer’s calculations); you must never guess an ambiguous checking level without checking the contract/standard",
+        "Because Category 2 means zero checking in all standards, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geometric imperfections, or local buckling slenderness reductions at the critical section when evaluated under unfactored serviceability actions across the gross cross-sect.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the support boundaries",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differential support settlement under sustained gravity loading"
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Checking categories (Cat 0, 1, 2, 3) have precise legal/procedural meanings that vary slightly between BS 5975, DMRB CS 450, Network Rail, and Building Control procedures; always verify the governing scheme and provide an independent check from brief and drawings.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Clarify the syllabus requirement on Category 2 checking ([UI1]).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E09",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Perform a drawing-to-calculation check: identify a critical transcription error.",
+      "type": "mcq",
+      "prompt": "A calculation package designs a heavily loaded lintel as a 203x203x60 UC (S355), achieving a utilisation of 0.92. On the General Arrangement drawing, the draughtsperson accidentally labels the member \"203x203x46 UC\". Which checking workflow catches this error reliably?",
+      "assumptions": "Compare checking only the calculation PDF vs cross-checking the drawing against the calculation.",
+      "options": [
+        "Only re-checking the arithmetic inside the calculation PDF, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Highlighting/marking off every member size, grade, reaction, and note on the GA drawing directly against the calculation conclusions (or checking from the drawing first)",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "A line-by-line yellow/green highlighter mark-up of the issue drawings against the calculation summary catches transcription mismatches before steel is ordered.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Perform a drawing-to-calculation check: identify a critical transcription error.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E10",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Identify what information should be withheld initially in a strict independent design check.",
+      "type": "mcq",
+      "prompt": "In a strict independent design check (such as DMRB CS 450 Category 2/3 or best-practice blind checking), why is the checker given the Design Brief, GI report, and Drawings, but NOT the original designer’s calculation file?",
+      "assumptions": "Consider how seeing someone else’s calculation biases the checker.",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "Because the original designer never writes calculations",
+        "To force the checker to idealise the structure, trace the load paths, and calculate member demands independently, avoiding \"anchoring\" or copying a flawed modelling assumption from the original calculation",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Blind independent checking from the brief and drawings ensures that two independent engineering minds derive the load paths and capacities separately.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what information should be withheld initially in a strict independent design check.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E11",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Apply CDM design risk reduction to deep foundation construction.",
+      "type": "mcq",
+      "prompt": "On a congested urban site with contaminated groundwater and adjacent shallow foundations, which foundation design decision best demonstrates \"Eliminating or Reducing Risk by Design\"?",
+      "assumptions": "Compare open hand-dug deep caissons vs auger-bored/CFA piles with cropped heads above water.",
+      "options": [
+        "Requiring operatives to hand-dig 8 m deep unshored shafts without ventilation, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "Writing \"Wear a hard hat\" on the drawing and changing nothing",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Selecting remote machine-installed piles (e.g. CFA) with mechanical pile cropping above groundwater level instead of requiring operatives to enter deep hand-dug excavations or trim piles inside flooded trenches"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Eliminating the need for workers to enter deep excavations or use hand-held breakers in confined spaces addresses the hazard at the design stage.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Apply CDM design risk reduction to deep foundation construction.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E12",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Identify what belongs on a Drawing \"Design Risk / Residual Hazard Note\".",
+      "type": "mcq",
+      "prompt": "Which of the following is a useful, actionable residual design risk note to place prominently on a structural refurbishment drawing?",
+      "assumptions": "Compare specific hidden structural instability warnings vs generic site trivia.",
+      "options": [
+        "\"WARNING, STABILITY CRITICAL: Existing steel truss on Grid B relies on the first-floor timber diaphragm for lateral restraint. Do NOT strip more than 2 bays of floorboards simultaneously without installing temporary plan bracing per Sequence Drawing S-005.\"",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geometric imperfections, or local buckling sle.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the support boundaries",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differential support settlement."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Residual risk notes on drawings should highlight non-obvious, project-specific structural hazards (temporary instability, prestressed tendons, fragile elements, sequence constraints) rather than generic boilerplate.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what belongs on a Drawing \"Design Risk / Residual Hazard Note\".\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E13",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T1",
+      "learningObjective": "Distinguish between a Temporary Works Designer (TWD) and a Temporary Works Coordinator (TWC) under BS 5975.",
+      "type": "mcq",
+      "prompt": "In UK construction practice to BS 5975, how does the role of the Temporary Works Coordinator (TWC) relate to the Temporary Works Designer (TWD)?",
+      "assumptions": "Recall BS 5975 procedural roles.",
+      "options": [
+        "The TWC personally welds all falsework props on site with no drawings, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "The TWC manages the site temporary works procedure (maintaining the register, ensuring a design brief is issued, verifying the appropriate design check is completed, and issuing Permits to Load/Strike), while the TWD carries out the technical engineering design of the temporary works",
+        "The TWD is only allowed to look at permanent works after demolition",
+        "BS 5975 abolishes all design checks for temporary works"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "BS 5975 separates procedural coordination/control on site (TWC) from technical engineering design (TWD) and independent design checking (TW Checker).",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish between a Temporary Works Designer (TWD) and a Temporary Works Coordinator (TWC) under BS 5975.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E14",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T3",
+      "learningObjective": "Manage a situation where a contractor builds something on site before the design check is completed.",
+      "type": "mcq",
+      "prompt": "A site contractor phones to say they want to pour concrete into a heavily reinforced transfer beam in 30 minutes, before the required independent Category 2 check and pre-pour rebar inspection Hold Point have been completed. What is the correct professional response?",
+      "assumptions": "Prioritise structural safety and Hold Point governance over programme pressure.",
+      "options": [
+        "Tell them to pour the concrete now and check the calculation next month, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "Sign the inspection sheet from the office without looking at the rebar",
+        "Refuse to waive the Hold Point or sign off the pour until the design check is closed out and the reinforcement as-fixed on site has been inspected against the checked drawing",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Once concrete is poured, misplaced or unverified reinforcement is buried permanently; safety-critical Hold Points must never be waived under time pressure.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Manage a situation where a contractor builds something on site before the design check is completed.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E15",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T3",
+      "learningObjective": "Communicate technical findings clearly to a non-engineer client.",
+      "type": "mcq",
+      "prompt": "When writing a structural appraisal report for a homeowner or commercial client who is not an engineer, how should the findings and recommendations be structured?",
+      "assumptions": "Consider executive clarity plus technical rigour.",
+      "options": [
+        "Send 40 pages of raw finite element stiffness matrices with no explanation or conclusion",
+        "Use ambiguous phrases so the client cannot tell whether the wall is safe or dangerous",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Start with a clear, plain-English Executive Summary stating what was inspected, whether the structure is safe, what actions/investigations are required, and key constraints, supported by clear photographs, sketches, and technical appendices"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Clients need clear, unambiguous plain-English conclusions first, backed up by rigorous technical evidence and clearly stated limitations. Engineering synthesis for \"Communicate technical findings clearly to a non-engineer client.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Communicate technical findings clearly to a non-engineer client.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E16",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T1",
+      "learningObjective": "Explain why \"Engineering Judgement\" is not a synonym for \"Guessing\".",
+      "type": "mcq",
+      "prompt": "Throughout this 20-module syllabus, engineering judgement is emphasised alongside calculation. What is the true distinction between sound Engineering Judgement and mere guessing?",
+      "assumptions": "Synthesise physical principles, bounding calculations, and conservative risk management.",
+      "options": [
+        "Engineering judgement is grounded in physical mechanics, load-path equilibrium, simplified hand bounds, material behaviour, and explicit conservative bounds where data is uncertain, whereas guessing ignores equilibrium and conceals uncertainty",
+        "Engineering judgement means picking beam sizes by intuition without ever calculating loads or reactions, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cro.",
+        "Engineering judgement means ignoring Eurocodes whenever a member fails",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differential suppo."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Sound engineering judgement uses mechanics, upper/lower bounds, and physical insight to frame problems, validate calculations, and manage uncertainty safely.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why \"Engineering Judgement\" is not a synonym for \"Guessing\".\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E17",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T3",
+      "learningObjective": "Identify how the Integrated Project Milestones (A to F) complement the module assessments.",
+      "type": "mcq",
+      "prompt": "In the syllabus structure, how do the six Integrated Project Milestones (Milestones A to F, from the single-bay warehouse to the full calculation & drawing portfolio) relate to the module assessments?",
+      "assumptions": "Review the syllabus Integrated Project Milestones section.",
+      "options": [
+        "They replace the need to learn basic statics or soil mechanics, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "They serve as cumulative, real-world engineering design projects where you apply multiple modules together (load paths, stability, materials, geotechnics, detailing, and independent checking) to build a checked calculation and drawing portfolio",
+        "They are automatically completed without doing any work",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Milestones A to F integrate the individual syllabus modules into realistic end-to-end engineering design and checking projects. Engineering synthesis for \"Identify how the Integrated Project Milestones (A to F) complement the module assessments.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify how the Integrated Project Milestones (A to F) complement the module assessments.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E18",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Check unit consistency as the first step of any calculation audit.",
+      "type": "mcq",
+      "prompt": "When auditing a colleague’s hand or spreadsheet calculation, why is checking dimensional and unit consistency (e.g. N vs kN, mm vs m, MPa vs kPa) one of the highest-value checks you can perform?",
+      "assumptions": "Consider order-of-magnitude errors ($10^3$, $10^6$).",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "Because unit conversion mistakes typically introduce errors of 10^3 or 10^6 (1,000% to 100,000,000%), which dwarf minor 5% refinement differences in code clauses",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "A 10^3 unit error is catastrophic; tracking units explicitly at every line of a calculation prevents order-of-magnitude blunders. Engineering synthesis for \"Check unit consistency as the first step of any calculation audit.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Check unit consistency as the first step of any calculation audit.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E19",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T3",
+      "learningObjective": "Maintain Continuing Professional Development (CPD) and technical currency.",
+      "type": "mcq",
+      "prompt": "Why must a practising structural engineer maintain ongoing CPD and verify current revisions of standards, National Annexes, and industry safety alerts (such as SCOSS/CROSS reports)?",
+      "assumptions": "Consider evolving failure lessons and regulatory updates.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "CPD is only for engineers with less than 1 month of experience",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Because structural failure reports (CROSS), material alerts, and standard revisions continually capture critical lessons from real-world near-misses and collapses"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Learning from Confidential Reporting on Structural Safety (CROSS) alerts and updated guidance prevents repeating industry mistakes. Engineering synthesis for \"Maintain Continuing Professional Development (CPD) and technical currency.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Maintain Continuing Professional Development (CPD) and technical currency.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD19-E20",
+      "moduleNumber": 19,
+      "topicId": "MOD19-T2",
+      "learningObjective": "Pass the Module 19 Learning Gate: Complete the 20-module foundation with independent verification discipline.",
+      "type": "mcq",
+      "prompt": "Which statement encapsulates the professional mindset required to graduate from Module 19 of StrucTutor?",
+      "assumptions": "Synthesise the entire syllabus from Module 0 to Module 19.",
+      "options": [
+        "I can trace every vertical, lateral, and torsional load path from point of application into the ground; justify my analysis with hand bounds; detail buildable connections and reinforcement on clear drawings; verify my work through independent checking; and state my assumptions, limitations, and competence boundaries honestly",
+        "I can pass 4-question quizzes by memorising answers without units",
+        "I rely 100% on finite element software colours without drawing free-body diagrams",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differential support settlement under sustained gravity loading"
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Well-rounded structural engineering competence combines load-path clarity, first-principles hand calculation, material & geotechnical understanding, buildable detailing, and rigorous independent checking.",
+      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 19 Learning Gate: Complete the 20-module foundation with independent verification discipline.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD19-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}

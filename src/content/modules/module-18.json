@@ -1,0 +1,950 @@
+{
+  "moduleNumber": 18,
+  "code": "MOD-18",
+  "title": "Existing Structures, Surveys and Uncertainty",
+  "shortTitle": "Existing Structures & Surveys",
+  "suggestedDuration": "2 to 4 weeks",
+  "yearPathway": "Year 1 & Year 2 Continuous",
+  "year1Months": "Year 2 Advanced Programme",
+  "whyItMatters": "Existing buildings frequently differ from historic drawings, have hidden alterations, and use older materials (wrought iron, cast iron, mild steel, unreinforced masonry). Safe refurbishment and temporary works design depend on systematic investigation and conservative engineering judgement.",
+  "introduction": "Record drawings vs site reality, visual and intrusive structural appraisals, material identification and deterioration, crack diagnosis, temporary stability during alterations, and refusing to guess when opening-up is required.",
+  "objectives": [
+    "Plan and interpret visual structural surveys and targeted intrusive opening-up investigations.",
+    "Identify historic materials (cast iron vs wrought iron vs steel, historic timber, lime vs cement mortar) and diagnose deterioration mechanisms.",
+    "Distinguish structural movement cracks (foundation subsidence, lintel failure, lateral wall bulge, corrosion jacking) from minor thermal/shrinkage crazing.",
+    "Design safe temporary support sequences for knock-throughs and alterations, and know when to refuse to guess and specify opening-up or specialist investigation."
+  ],
+  "learningGate": "Produce a structural appraisal checklist and state what you would refuse to assume without opening up.",
+  "prerequisiteModuleNumbers": [
+    17
+  ],
+  "topics": [
+    {
+      "id": "MOD18-T1",
+      "moduleNumber": 18,
+      "code": "18.1",
+      "title": "Record Drawings vs Reality, Visual Surveys & Intrusive Investigation",
+      "summary": "Why record drawings are hypotheses until verified on site, visual survey methodology, plumblines and level surveys, and specifying targeted opening-up.",
+      "subtopics": [
+        "Treating record drawings as a starting hypothesis rather than guaranteed as-built fact",
+        "Visual inspection: load paths, floor joist span direction (floorboard orientation, ceiling cracks), wall plumb, and historic alterations",
+        "Targeted intrusive opening-up: trial pits at foundations, local plaster removal at bearings, and ferroscan/break-out of rebar"
+      ],
+      "learningObjectives": [
+        "Treating record drawings as a starting hypothesis rather than guaranteed as-built fact",
+        "Visual inspection: load paths, floor joist span direction (floorboard orientation, ceiling cracks), wall plumb, and historic alterations",
+        "Targeted intrusive opening-up: trial pits at foundations, local plaster removal at bearings, and ferroscan/break-out of rebar"
+      ],
+      "futureExpansion": "Future expansion slot for IStructE \"Appraisal of Existing Structures\" methodology and non-destructive testing (NDT) limits.",
+      "questions": [
+        {
+          "id": "MOD18-T1-Q1",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T1",
+          "learningObjective": "Evaluate out-of-plumb masonry wall eccentricity from a verticality survey.",
+          "type": "numeric",
+          "prompt": "A visual and plumb-line survey of an existing 215 mm thick solid brick wall of height h = 3.2 m measures an outward lean (out-of-plumb displacement) of delta = 32 mm at first-floor level relative to the base. Express this lean as a fraction of the wall thickness (delta / t).",
+          "assumptions": "Calculate 32 / 215.",
+          "unit": "ratio",
+          "correctAnswer": 0.149,
+          "tolerance": 0.005,
+          "explanation": "delta / t = 32 / 215 = 0.149 (nearly t/6, where the line of vertical thrust approaches the middle-third boundary of the wall thickness!). Step-by-step verification for \"Evaluate out-of-plumb masonry wall eccentricity from a verticality survey.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.149 ratio, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Evaluate out-of-plumb masonry wall eccentricity from a verticality survey.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: delta / t = 32 / 215 = 0.149 (nearly t/6, where the line of vertical thrust approaches the middle-third boundary of the wall thickness!). Express your final numeric answer in ratio."
+          ],
+          "caseFamilyId": "MOD18-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T1-Q2",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T1",
+          "learningObjective": "Calculate actual bearing stress under a new steel beam on an existing brick pier verified by opening up.",
+          "type": "numeric",
+          "prompt": "Opening up reveals an existing solid brick pier is 330 mm wide, and a new steel beam will bear over a net length of 150 mm using a concrete padstone of plan area 330 mm x 200 mm (A_pad = 66,000 mm^2). Under a factored ULS beam reaction R_Ed = 79.2 kN (79,200 N), calculate the average bearing stress sigma_b beneath the padstone.",
+          "assumptions": "Use sigma_b = 79,200 / 66,000.",
+          "unit": "MPa",
+          "correctAnswer": 1.2,
+          "tolerance": 0.02,
+          "explanation": "sigma_b = 79,200 N / 66,000 mm^2 = 1.20 MPa. Step-by-step verification for \"Calculate actual bearing stress under a new steel beam on an existing brick pier verified by opening up.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.2 MPa, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate actual bearing stress under a new steel beam on an existing brick pier verified by opening up.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: sigma_b = 79,200 N / 66,000 mm^2 = ?. Express your final numeric answer in MPa."
+          ],
+          "caseFamilyId": "MOD18-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T1-Q3",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T1",
+          "learningObjective": "State the engineering status of historic \"Record\" or \"For Construction\" drawings of an existing building.",
+          "type": "mcq",
+          "prompt": "When an engineer is handed a set of 1970s \"For Construction\" drawings for a building undergoing major structural alterations, how must those drawings be treated?",
+          "assumptions": "Consider unrecorded site changes and subsequent tenant alterations.",
+          "options": [
+            "As 100% guaranteed legal proof of what is hidden inside the walls without ever visiting site, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "As completely useless paper that should be burned unread",
+            "As a helpful starting hypothesis that MUST be verified on site by dimensional checks and targeted intrusive opening-up before relying on them for safety-critical design",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Historic drawings frequently omit site substitutions, builder shortcuts, or later structural knock-throughs; critical loadbearing assumptions must be verified on site.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"State the engineering status of historic \"Record\" or \"For Construction\" drawings of an existing building.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD18-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T1-Q4",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T1",
+          "learningObjective": "Identify non-invasive visual clues to floor joist span direction before lifting floorboards.",
+          "type": "mcq",
+          "prompt": "During an initial walkover survey of a domestic timber floor where carpets cannot yet be lifted, what visual clue strongly indicates the span direction of the timber joists?",
+          "assumptions": "Consider traditional tongue-and-groove floorboard laying practice.",
+          "options": [
+            "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "Joists always span North-South regardless of room shape",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "Traditional timber floorboards are laid perpendicular to the supporting floor joists (so nail lines run along the joists), and joists typically span the shorter room dimension onto loadbearing walls"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Floorboards span across joists; however, because double-boarding or modern sheet subfloors can exist, intrusive lifting of a board is still required to confirm joist size, spacing, and bearing.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify non-invasive visual clues to floor joist span direction before lifting floorboards.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD18-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T1-Q5",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T1",
+          "learningObjective": "Explain why trial pits alongside existing foundations must be small and backfilled promptly.",
+          "type": "mcq",
+          "prompt": "When excavating a hand-dug trial pit alongside an existing shallow strip foundation to measure its depth, projection, and bearing stratum, what precaution is essential?",
+          "assumptions": "Consider undermining or removing lateral support from an existing loaded footing.",
+          "options": [
+            "Keep the trial pit narrow, never undercut beneath the underside of the existing footing, avoid placing pits at heavily loaded narrow piers without assessment, and backfill/compact promptly",
+            "From the Tresca maximum shear stress yield criterion combined with an empirical shear-lag reduction factor across the rolled web root fillets, assuming that by applying the unfa.",
+            "Use a 20-tonne excavator to pull the corner of the foundation out",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibili."
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Undercutting or excavating long trenches below the base level of an existing shallow foundation removes its bearing wedge and triggers immediate settlement or collapse.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why trial pits alongside existing foundations must be small and backfilled promptly.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD18-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD18-T2",
+      "moduleNumber": 18,
+      "code": "18.2",
+      "title": "Material Identification, Deterioration, Corrosion, Timber Rot & Masonry Cracking",
+      "summary": "Cast iron vs wrought iron vs modern steel, concrete carbonation/chloride corrosion spalling, wet/dry rot in timber ends, and diagnosing masonry crack patterns.",
+      "subtopics": [
+        "Historic metals: brittle cast iron (weak in tension, thick tension flange) vs fibrous wrought iron vs steel",
+        "Concrete deterioration: carbonation, chloride ingress, expansive rust jacking, and reinforcement section loss",
+        "Timber decay at damp built-in masonry pockets and masonry crack width/taper diagnosis"
+      ],
+      "learningObjectives": [
+        "Historic metals: brittle cast iron (weak in tension, thick tension flange) vs fibrous wrought iron vs steel",
+        "Concrete deterioration: carbonation, chloride ingress, expansive rust jacking, and reinforcement section loss",
+        "Timber decay at damp built-in masonry pockets and masonry crack width/taper diagnosis"
+      ],
+      "futureExpansion": "Future expansion slot for BRE Digest 251 crack width damage categories (0 to 5) and historic structural material testing.",
+      "questions": [
+        {
+          "id": "MOD18-T2-Q1",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T2",
+          "learningObjective": "Calculate percentage loss of tensile area due to reinforcement corrosion.",
+          "type": "numeric",
+          "prompt": "A corroded H20 reinforcing bar (original nominal diameter 20.0 mm, original area 314.2 mm^2) is cleaned of rust during an intrusive survey and found to have a remaining minimum effective diameter of 17.0 mm (remaining area = pi * 17^2 / 4 = 227.0 mm^2). Calculate the percentage loss of cross-sectional steel area.",
+          "assumptions": "Use ((314.2 - 227.0) / 314.2) * 100%.",
+          "unit": "%",
+          "correctAnswer": 27.8,
+          "tolerance": 0.3,
+          "explanation": "Loss = (314.2 - 227.0) / 314.2 = 87.2 / 314.2 = 27.75% (note how a seemingly modest 1.5 mm radius loss removes nearly 28% of the bar’s strength!).",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate percentage loss of tensile area due to reinforcement corrosion.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Loss = (314.2 - 227.0) / 314.2 = 87.2 / 314.2 = 27.75% (note how a seemingly modest 1.5 mm radius loss removes nearly 28% of the bar’s strength!).. Express your final numeric answer in %."
+          ],
+          "caseFamilyId": "MOD18-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T2-Q2",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T2",
+          "learningObjective": "Calculate reduced section modulus of a timber joist after damp rot is cut back.",
+          "type": "numeric",
+          "prompt": "A 50 mm x 200 mm timber joist (original Wy = 333.3 x 10^3 mm^3) has suffered surface wet rot along its bottom edge near a damp wall, reducing its sound depth to h_eff = 170 mm. Calculate the remaining elastic section modulus Wy,eff = b * h_eff^2 / 6 (in 10^3 mm^3).",
+          "assumptions": "Use 50 * 170^2 / 6 / 1000.",
+          "unit": "10^3 mm^3",
+          "correctAnswer": 240.8,
+          "tolerance": 1,
+          "explanation": "Wy,eff = 50 * 28,900 / 6 = 240,833 mm^3 = 240.8 x 10^3 mm^3 (a 15% depth loss causes a 27.7% loss of bending capacity and a 38.6% loss of stiffness I!).",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate reduced section modulus of a timber joist after damp rot is cut back.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Wy,eff = 50 * 28,900 / 6 = 240,833 mm^3 = 240.8 x 10^3 mm^3 (a 15% depth loss causes a 27.7% loss of bending capacity and a 38.6% loss of stiffness I!).. Express your final numeric answer in 10^3 mm^3."
+          ],
+          "caseFamilyId": "MOD18-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T2-Q3",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T2",
+          "learningObjective": "Distinguish a 19th-century brittle cast-iron beam from a rolled steel I-beam on site.",
+          "type": "mcq",
+          "prompt": "During a survey of an 1870s mill building, how can you visually identify that a floor beam is likely brittle Cast Iron rather than modern rolled steel, and why does it matter?",
+          "assumptions": "Compare tension vs compression strength of cast iron and how Victorian founders shaped the flanges.",
+          "options": [
+            "Cast iron has identical top and bottom flanges with modern UKB mill markings, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Cast-iron beams typically have a much larger, wider bottom tension flange than the top compression flange, variable web depth, cast-in stiffener ribs, and blowholes/mould seams; cast iron is brittle and very weak in tension and must NEVER be site-welded or overloaded dynamically",
+            "Cast iron is more ductile than S355 steel and can be site-welded easily",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Cast iron has tensile strength only ~20%–25% of its compressive strength, so Victorian beams were cast with large bottom tension flanges and small top compression flanges.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish a 19th-century brittle cast-iron beam from a rolled steel I-beam on site.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD18-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T2-Q4",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T2",
+          "learningObjective": "Diagnose a stepped diagonal crack in an external brick wall that is wider at the top than at the bottom.",
+          "type": "mcq",
+          "prompt": "An external masonry gable wall exhibits a stepped diagonal crack following the mortar joints near the corner of the building. A crack-width gauge shows the crack is 8 mm wide near eaves level and tapers down to 1 mm near ground level. What movement mechanism does this taper indicate?",
+          "assumptions": "Draw the rigid-body rotation of the end corner dropping and tilting outward.",
+          "options": [
+            "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "Subsidence or downward/outward rotation of the corner foundation relative to the rest of the wall, causing the corner panel to tilt outward and open widest at the top",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "When the end of a wall subsides downward and rotates outward, the crack acts like a hinge near the base and opens widest at the top. Engineering synthesis for \"Diagnose a stepped diagonal crack in an external brick wall that is wider at the top than at the bottom.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Diagnose a stepped diagonal crack in an external brick wall that is wider at the top than at the bottom.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD18-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T2-Q5",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T2",
+          "learningObjective": "Explain why corroding steel embedded in masonry or concrete causes \"rust jacking\" and spalling.",
+          "type": "mcq",
+          "prompt": "Why does corroding reinforcement in concrete or a rusting wrought-iron cramp/beam end built into brickwork crack and heave the surrounding masonry or spall the concrete cover?",
+          "assumptions": "Compare the volume of iron oxides (rust) to the volume of the original steel.",
+          "options": [
+            "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "Hydrated iron oxides (rust) occupy 4 to 7 times the volume of the original steel consumed, generating immense internal bursting pressure that splits concrete cover and jacks masonry courses apart"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Expansive corrosion products exert high radial/vertical jacking pressures, producing horizontal bed-joint cracking in masonry and delamination spalling in RC.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why corroding steel embedded in masonry or concrete causes \"rust jacking\" and spalling.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD18-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD18-T3",
+      "moduleNumber": 18,
+      "code": "18.3",
+      "title": "Temporary Stability During Alterations, Refusing to Guess & Specialist Escalation",
+      "summary": "Needling and propping sequences for loadbearing wall knock-throughs, backpropping existing timber/RC floors, refusing to make unsafe unverified assumptions, and escalating specialist hazards.",
+      "subtopics": [
+        "Temporary needling and propping sequence: load path down to competent ground or backpropped floors BEFORE demolition",
+        "Refusing to guess: documenting mandatory Hold Points when concealed bearings, prestressing tendons, or foundations are unverified",
+        "Escalation triggers: post-tensioned slabs, RAAC, deleterious concrete (HAC, ASR), and complex party-wall excavations"
+      ],
+      "learningObjectives": [
+        "Temporary needling and propping sequence: load path down to competent ground or backpropped floors BEFORE demolition",
+        "Refusing to guess: documenting mandatory Hold Points when concealed bearings, prestressing tendons, or foundations are unverified",
+        "Escalation triggers: post-tensioned slabs, RAAC, deleterious concrete (HAC, ASR), and complex party-wall excavations"
+      ],
+      "futureExpansion": "Future expansion slot for BS 5975 temporary works procedures, TWC/TWS roles, and RAAC/HAC identification.",
+      "questions": [
+        {
+          "id": "MOD18-T3-Q1",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T3",
+          "learningObjective": "Calculate axial load in temporary Acrow props supporting a needle beam during a wall knock-through.",
+          "type": "numeric",
+          "prompt": "To form a new opening in a loadbearing wall, temporary needle beams are inserted at 1.0 m centres. Each needle beam supports an unfactored wall + floor line load of 42 kN/m (so 42 kN per needle). If each symmetrical needle beam is supported on two vertical props (one inside the room, one outside), calculate the working axial load in each prop.",
+          "assumptions": "Divide the 42 kN needle load equally between its two supporting props.",
+          "unit": "kN",
+          "correctAnswer": 21,
+          "tolerance": 0.2,
+          "explanation": "Load per prop = 42.0 / 2 = 21.0 kN (which must then be checked against the prop capacity at the actual extended height and eccentricity, AND the bearing capacity of the floor/ground beneath the sole plate!).",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate axial load in temporary Acrow props supporting a needle beam during a wall knock-through.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Load per prop = 42.0 / 2 = 21.0 kN (which must then be checked against the prop capacity at the actual extended height and eccentricity, AND the bearing capacity of the floor/ground beneath the sole plate!).. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD18-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T3-Q2",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T3",
+          "learningObjective": "Check bearing pressure beneath a timber sole plate supporting temporary props.",
+          "type": "numeric",
+          "prompt": "Two temporary props each carrying 21 kN sit on a 1.5 m long by 0.225 m wide timber sole plate (plan area A = 0.3375 m^2) resting on a ground-bearing slab. Calculate the average vertical bearing pressure beneath the sole plate.",
+          "assumptions": "Use q = (2 * 21) / 0.3375.",
+          "unit": "kPa",
+          "correctAnswer": 124.4,
+          "tolerance": 0.5,
+          "explanation": "Total load on sole plate = 42 kN. Bearing pressure q = 42 / 0.3375 = 124.4 kPa. Step-by-step verification for \"Check bearing pressure beneath a timber sole plate supporting temporary props.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 124.4 kPa, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Check bearing pressure beneath a timber sole plate supporting temporary props.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Total load on sole plate = ?. Express your final numeric answer in kPa."
+          ],
+          "caseFamilyId": "MOD18-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T3-Q3",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T3",
+          "learningObjective": "State the mandatory sequence for removing a loadbearing wall and installing a new steel beam.",
+          "type": "mcq",
+          "prompt": "Which sequence is mandatory when demolishing a ground-floor loadbearing brick wall to install a new steel lintel beam under an occupied first floor?",
+          "assumptions": "Trace the load path at every minute of the operation.",
+          "options": [
+            "(1) Verify foundations/backpropping below; (2) Core small holes and insert needle beams above the proposed beam level; (3) Erect and snug-tighten props on sole plates with head/base restraints; (4) Demolish wall below needles and cast padstones; (5) Install new steel beam and pack tight with dry-pack mortar; (6) Only remove needles/props after padstones and dry-pack have cured",
+            "(1) Knock the entire brick wall down with sledgehammers; (2) Put up one prop if the ceiling starts falling; (3) Push the beam in next week",
+            "Prop the ceiling off a floating chipboard floor without checking what is underneath",
+            "Remove the needles before the dry-pack mortar is placed"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "The overhead load path must be supported continuously before demolition, and transferred fully via cured padstones and dry-pack mortar before temporary needles are struck.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"State the mandatory sequence for removing a loadbearing wall and installing a new steel beam.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD18-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T3-Q4",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T3",
+          "learningObjective": "Identify what an engineer must refuse to assume without opening up or specialist verification.",
+          "type": "mcq",
+          "prompt": "A client asks you to sign off cutting a 2.5 m x 2.5 m stair opening through a 1970s concrete floor slab tomorrow morning with no record drawings and no intrusive survey. Why must you refuse to issue a construction drawing until the slab is investigated?",
+          "assumptions": "Consider post-tensioned tendons, two-way/flat-slab action, and hidden ribs.",
+          "options": [
+            "Because concrete from the 1970s cannot be cut with a diamond saw, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Without opening up/ferroscanning or record drawings, the slab could be post-tensioned (where cutting live tendons causes explosive release and collapse), a waffle/ribbed slab, or a flat slab where the opening severs primary support strips",
+            "Because stair openings never affect slab bending moments",
+            "You should just guess 200 mm slab with H12 @ 200 and mark the drawing \"Contractor to check\""
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Never guess hidden structural systems or delegate structural engineering design responsibility via vague \"Contractor to verify\" notes on uninvestigated critical elements.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what an engineer must refuse to assume without opening up or specialist verification.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD18-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD18-T3-Q5",
+          "moduleNumber": 18,
+          "topicId": "MOD18-T3",
+          "learningObjective": "Recognise specialist escalation triggers in existing buildings (RAAC, HAC, Post-Tensioned Concrete).",
+          "type": "mcq",
+          "prompt": "During an inspection of a 1960s roof, you observe lightweight bubbly grey precast planks with wide chamfers, no coarse aggregate, and shear cracks near a 45 mm end bearing. What material hazard should you suspect and escalate immediately?",
+          "assumptions": "Recall the UK structural safety alerts on Reinforced Autoclaved Aerated Concrete (RAAC).",
+          "options": [
+            "Ultra-High-Performance Fibre-Reinforced Concrete (UHPFRC), assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "Reinforced Autoclaved Aerated Concrete (RAAC), which has low shear/bond strength, high creep deflection, and is prone to sudden brittle failure at short end bearings",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "RAAC panels (common in 1950s–1980s roofs) lack coarse aggregate, rely on transverse welded anchorage bars near the ends, and require specialist appraisal and often immediate propping.",
+          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise specialist escalation triggers in existing buildings (RAAC, HAC, Post-Tensioned Concrete).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD18-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "EX-18.1",
+      "title": "Exercise 18.1: Structural Appraisal, Opening-Up Scope & Loadbearing Wall Knock-Through Sequence",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "Civil Engineering Syllabus (Modules 0 to 19)"
+  ],
+  "standardsNotice": "Verify all clauses, partial factors, and National Annex parameters against controlled reference standards before engineering application.",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD18-E01",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T1",
+      "learningObjective": "Calculate masonry pier compressive stress before and after forming an adjacent doorway.",
+      "type": "numeric",
+      "prompt": "An existing 215 mm thick solid brick wall of length 3.0 m carries a uniform service load of 90 kN/m (total load 270 kN). If a 2.0 m wide opening is cut so that half the opening load plus the remaining 1.0 m wall load (total 180 kN) is channelled into a 1.0 m long pier (plan area 1000 mm x 215 mm = 215,000 mm^2), calculate the new service compressive stress in the pier.",
+      "assumptions": "Use sigma = 180,000 N / 215,000 mm^2.",
+      "unit": "MPa",
+      "correctAnswer": 0.837,
+      "tolerance": 0.02,
+      "explanation": "sigma = 180,000 / 215,000 = 0.837 MPa (nearly double the original 0.419 MPa stress). Step-by-step verification for \"Calculate masonry pier compressive stress before and after forming an adjacent doorway.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.837 MPa, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate masonry pier compressive stress before and after forming an adjacent doorway.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: sigma = 180,000 / 215,000 = 0.837 MPa (nearly double the original 0.419 MPa stress). Express your final numeric answer in MPa."
+      ],
+      "caseFamilyId": "MOD18-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E02",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T1",
+      "learningObjective": "Calculate needle beam bending moment during temporary propping.",
+      "type": "numeric",
+      "prompt": "A temporary steel needle beam spans L = 1.6 m between two vertical props placed on either side of a demolished wall. The needle carries a central point load P = 48 kN from the wall above. Calculate the unfactored midspan bending moment M = P * L / 4 in the needle beam.",
+      "assumptions": "Use M = 48 * 1.6 / 4.",
+      "unit": "kNm",
+      "correctAnswer": 19.2,
+      "tolerance": 0.2,
+      "explanation": "M = 48 * 1.6 / 4 = 19.2 kNm. Step-by-step verification for \"Calculate needle beam bending moment during temporary propping.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 19.2 kNm, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate needle beam bending moment during temporary propping.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M = 48 * 1.6 / 4 = ?. Express your final numeric answer in kNm."
+      ],
+      "caseFamilyId": "MOD18-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E03",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T1",
+      "learningObjective": "Verify existing strip footing bearing pressure under increased column/pier load.",
+      "type": "numeric",
+      "prompt": "A trial pit confirms an existing brick wall sits on a 650 mm wide concrete strip footing (area 0.65 m^2 per metre run). After alterations, the characteristic vertical load on this strip is 117 kN/m. Calculate the resulting ground bearing pressure.",
+      "assumptions": "Use q = 117 / 0.65.",
+      "unit": "kPa",
+      "correctAnswer": 180,
+      "tolerance": 1,
+      "explanation": "q = 117 / 0.65 = 180.0 kPa. Step-by-step verification for \"Verify existing strip footing bearing pressure under increased column/pier load.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 180 kPa, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Verify existing strip footing bearing pressure under increased column/pier load.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: q = 117 / 0.65 = ?. Express your final numeric answer in kPa."
+      ],
+      "caseFamilyId": "MOD18-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E04",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T2",
+      "learningObjective": "Calculate remaining web thickness after double-sided atmospheric corrosion of an existing steel beam.",
+      "type": "numeric",
+      "prompt": "An ultrasonic/micrometer survey of a corroded steel beam in a damp basement shows the original 10.2 mm web has lost 1.6 mm of steel thickness on EACH face. Calculate the remaining sound web thickness t_w,rem.",
+      "assumptions": "Use t_w,rem = 10.2 - (2 * 1.6).",
+      "unit": "mm",
+      "correctAnswer": 7,
+      "tolerance": 0.1,
+      "explanation": "t_w,rem = 10.2 - 3.2 = 7.0 mm (a 31.4% reduction in web shear and bearing area). Step-by-step verification for \"Calculate remaining web thickness after double-sided atmospheric corrosion of an existing steel beam.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 7 mm, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate remaining web thickness after double-sided atmospheric corrosion of an existing steel beam.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: t_w,rem = 10.2 - 3.2 = 7.0 mm (a 31.4% reduction in web shear and bearing area). Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD18-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E05",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T2",
+      "learningObjective": "Calculate reduced second moment of area of a notched existing timber joist.",
+      "type": "numeric",
+      "prompt": "A plumber notches 50 mm out of the top of an existing 50 mm x 200 mm timber joist at midspan, leaving an effective depth h_eff = 150 mm. Calculate the ratio of remaining second moment of area to original second moment of area: (150 / 200)^3.",
+      "assumptions": "Calculate 0.75^3.",
+      "unit": "ratio",
+      "correctAnswer": 0.422,
+      "tolerance": 0.005,
+      "explanation": "(150 / 200)^3 = 0.75^3 = 0.4219 (a 25% notch at midspan destroys nearly 58% of the joist’s bending stiffness and 44% of its bending strength!). Step-by-step verification for \"Calculate reduced second moment of area of a notched existing timber joist.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.422 ratio, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate reduced second moment of area of a notched existing timber joist.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: (150 / 200)^3 = 0.75^3 = 0.4219 (a 25% notch at midspan destroys nearly 58% of the joist’s bending stiffness and 44% of its bending strength!). Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD18-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E06",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T3",
+      "learningObjective": "Calculate required number of temporary props for a given needle line load.",
+      "type": "numeric",
+      "prompt": "A 4.0 m long wall opening carries a total vertical load (including 1.5 dynamic/construction safety allowance) of 168 kN. If each pair of temporary props (supporting one needle) has a safe working capacity of 42 kN per pair (21 kN per prop), calculate the minimum number of needle-and-prop pairs required.",
+      "assumptions": "Divide 168 by 42.",
+      "unit": "pairs",
+      "correctAnswer": 4,
+      "tolerance": 0.1,
+      "explanation": "168 / 42 = 4.0 needle pairs (8 props in total). Step-by-step verification for \"Calculate required number of temporary props for a given needle line load.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4 pairs, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate required number of temporary props for a given needle line load.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: 168 / 42 = 4.0 needle pairs (8 props in total). Express your final numeric answer in pairs."
+      ],
+      "caseFamilyId": "MOD18-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E07",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T1",
+      "learningObjective": "Explain why existing suspended timber ground floors fail when temporary props are placed directly on them.",
+      "type": "mcq",
+      "prompt": "During a ground-floor wall knock-through in a Victorian terrace, why is it dangerous to stand temporary Acrow props directly on the ground-floor floorboards without lifting a board to inspect below?",
+      "assumptions": "Consider typical Victorian ground-floor construction.",
+      "options": [
+        "Victorian floorboards are 500 mm thick reinforced concrete, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Victorian ground floors are typically suspended 100 mm x 50 mm timber joists spanning onto tiny sleeper walls over a sub-floor void, which will snap under concentrated prop loads unless propped directly down to solid oversite concrete/ground through the floor void"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Never assume a ground floor is a solid concrete slab; lifting a floorboard frequently reveals a suspended timber floor over a void that must be bypassed onto solid ground.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why existing suspended timber ground floors fail when temporary props are placed directly on them.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E08",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T1",
+      "learningObjective": "Identify the structural role of historic timber \"bonding timbers\" or built-in lintels hidden behind plaster.",
+      "type": "mcq",
+      "prompt": "When surveying an early 19th-century Georgian or Victorian brick building, what hidden hazard is frequently discovered on the inner face of solid brick walls above openings or along floor levels?",
+      "assumptions": "Consider timber embedded inside damp historic brickwork.",
+      "options": [
+        "Unseasoned or decayed timber lintels and horizontal \"bonding timbers\" built into the inner leaf of the brickwork, which may have rotted away from dampness, leaving the outer brick arch/wall eccentrically loaded",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep de."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Historic masonry buildings often used timber inner lintels behind decorative outer brick arches; when the timber rots, the inner wall loses support.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the structural role of historic timber \"bonding timbers\" or built-in lintels hidden behind plaster.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E09",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T2",
+      "learningObjective": "Distinguish active progressive foundation movement from historic dormant settlement.",
+      "type": "mcq",
+      "prompt": "During a structural appraisal of a cracked masonry wall, what observation helps distinguish an old, dormant historic crack from active, ongoing movement?",
+      "assumptions": "Examine the crack edges, mortar repointing, and monitoring.",
+      "options": [
+        "All cracks wider than 0.5 mm mean the building will collapse in 10 minutes",
+        "Clean, sharp, unweathered fracture edges, freshly cracked brittle plaster/decorations or cracked recent cement repointing (verified over time by tell-tale or precise level monitoring) indicate recent/active movement, whereas rounded, dust-filled, painted-over edges that remain stable over seasonal monitoring suggest historic movement",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Inspecting edge freshness, previous repair history, and seasonal tell-tale/level monitoring differentiates active subsidence/heave from historic initial settlement.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish active progressive foundation movement from historic dormant settlement.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E10",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T2",
+      "learningObjective": "Explain why repointing soft historic lime-mortar brickwork with hard modern dense cement mortar causes damage.",
+      "type": "mcq",
+      "prompt": "Why is it bad practice to repoint or render soft historic solid brickwork (originally laid in breathable, flexible lime mortar) using a strong, dense 1:3 Portland cement mortar?",
+      "assumptions": "Compare vapour permeability and stiffness of hard cement vs soft brick.",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "Hard, impermeable cement mortar traps moisture inside the bricks and is stiffer than the brick itself, causing frost spalling of the brick faces and cracking through the bricks rather than harmlessly along the mortar joints",
+        "Historic bricks require high water pressure inside them"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "In traditional lime masonry, mortar is softer and more permeable than the brick, acting as a sacrificial cushion and evaporation path. Engineering synthesis for \"Explain why repointing soft historic lime-mortar brickwork with hard modern dense cement mortar causes damage.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why repointing soft historic lime-mortar brickwork with hard modern dense cement mortar causes damage.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E11",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T2",
+      "learningObjective": "Diagnose horizontal cracking every 450 mm along the bed joints of a 1970s cavity wall.",
+      "type": "mcq",
+      "prompt": "An exposed 1970s brick cavity wall displays regular horizontal cracks along the mortar bed joints every 450 mm up the height of the wall, accompanied by outward bowing and vertical rising of the outer leaf. What is the classic cause?",
+      "assumptions": "Consider spacing of traditional strip cavity wall ties (450 mm vertically).",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Cavity wall tie corrosion: galvanized mild-steel strip ties corrode and expand (\"rust jacking\") in every 6th course bed joint, while simultaneously losing tensile capacity to tie the outer leaf against wind suction"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Pre-1981 galvanized steel fishtail/strip wall ties had thin zinc coatings; when they rust, expansive oxide bursts the bed joints every 450 mm and leaves the outer leaf unrestrained.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Diagnose horizontal cracking every 450 mm along the bed joints of a 1970s cavity wall.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E12",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T2",
+      "learningObjective": "Identify the structural hazard of removing a ground-floor chimney breast while leaving the upper stack corbelled.",
+      "type": "mcq",
+      "prompt": "Why do many UK Local Authority Building Control departments prohibit or tightly restrict supporting an upper-floor masonry chimney breast on thin steel gallows brackets fixed into an old party wall?",
+      "assumptions": "Consider eccentricity, questionable Victorian mortar/flue voids, and neighbour demolition.",
+      "options": [
+        "Gallows brackets apply heavy eccentric tension and shear into aged, often weak lime-mortar brickwork honeycombed with soot-lined flue voids, and rely on the neighbour’s chimney breast remaining in place for counterbalance",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geometric.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Old chimney breasts contain hollow flues and weak mortar; gallows brackets induce pull-out tension and overturning unless a full-span steel beam bears onto verified piers/walls.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the structural hazard of removing a ground-floor chimney breast while leaving the upper stack corbelled.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E13",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T3",
+      "learningObjective": "Explain why lateral stability of the whole building must be checked before removing an internal cross-wall.",
+      "type": "mcq",
+      "prompt": "A homeowner wants to remove an internal masonry wall perpendicular to the front and rear facades to create an open-plan ground floor. Even after you design a steel beam to carry the vertical load from above, what global structural function of that wall must be checked?",
+      "assumptions": "Consider buttressing of external walls and horizontal wind racking resistance.",
+      "options": [
+        "Internal walls never carry horizontal wind or buttressing forces, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "The removed cross-wall may be acting as a vital lateral return buttress for the front/rear facade piers and as a primary racking shear wall for overall building stability",
+        "A horizontal steel beam at ceiling level automatically resists horizontal wind sway without columns or moment frames",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Removing internal return walls can leave external walls unbuttressed (exceeding slenderness limits) or remove the building’s lateral racking stability; a sway portal frame or retained piers may be required.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why lateral stability of the whole building must be checked before removing an internal cross-wall.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E14",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T3",
+      "learningObjective": "Explain the purpose of \"dry-pack\" non-shrink mortar above a newly installed steel beam in an existing wall.",
+      "type": "mcq",
+      "prompt": "When a new steel beam is inserted beneath existing brickwork on needles, why is a 25 mm to 50 mm gap above the top flange tightly rammed with stiff semi-dry non-shrink cementitious mortar (\"dry-pack\") or steel slate wedges before striking the needles?",
+      "assumptions": "Consider what happens if a 20 mm gap is left above the beam when the needles are removed.",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "To establish continuous, pre-wedged vertical contact between the new steel beam and the underside of the existing brickwork so the wall does not drop and crack when the temporary needles are removed",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Without tight dry-packing/wedging and curing before needle removal, the overhead masonry drops onto the beam to take up slack, cracking the superstructure.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain the purpose of \"dry-pack\" non-shrink mortar above a newly installed steel beam in an existing wall.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E15",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T3",
+      "learningObjective": "Check temporary prop slenderness, verticality, and lacing in high-bay knock-throughs.",
+      "type": "mcq",
+      "prompt": "When temporary adjustable steel props (Acrow props) are extended to 3.8 m height to support heavy needle beams, what critical temporary works details are required?",
+      "assumptions": "Consider buckling, eccentric pin loading, and accidental impact.",
+      "options": [
+        "Stack two Acrow props end-to-end on a pile of loose bricks with no bracing, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "Use a bent reinforcing bar instead of the manufacturer’s high-tensile prop pin",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Use manufacturer load-vs-height derating charts (which drop sharply with extension and plumb eccentricity), ensure concentric bearing via forkheads/beams, provide horizontal/diagonal tube-and-fitting lacing in both directions, and protect against site impact"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Adjustable steel props are slender compression struts whose capacity drops rapidly with height and eccentricity (~1.5 deg out-of-plumb or eccentric loading); lacing and proper pins/sole plates are vital.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Check temporary prop slenderness, verticality, and lacing in high-bay knock-throughs.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E16",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T1",
+      "learningObjective": "Distinguish wrought iron from modern mild steel in an existing structure.",
+      "type": "mcq",
+      "prompt": "How does 19th-century Wrought Iron differ from modern structural steel when assessing an existing riveted girder?",
+      "assumptions": "Consider slag inclusions, laminar structure, and weldability.",
+      "options": [
+        "Wrought iron has a fibrous, wood-like grain containing elongated slag inclusions (making it weak in through-thickness tension and generally unsuitable for conventional structural welding), with lower yield strength than modern steel",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geometric imperfectio.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differe."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Wrought iron is ductile along the direction of rolling but contains laminar slag stringers that delaminate under welding thermal stresses or through-thickness pull.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish wrought iron from modern mild steel in an existing structure.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E17",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T2",
+      "learningObjective": "Identify High Alumina Cement (HAC) concrete hazard awareness.",
+      "type": "mcq",
+      "prompt": "Why are pre-1975 prestressed concrete beams made with High Alumina Cement (HAC) flagged as a high-risk deleterious material in structural appraisals?",
+      "assumptions": "Recall the mineralogical \"conversion\" of HAC.",
+      "options": [
+        "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "HAC undergoes a time-, temperature-, and moisture-dependent crystalline \"conversion\" that increases porosity, reduces compressive and shear strength significantly, and leaves tendons vulnerable to chemical attack",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "HAC conversion (especially in warm/humid environments like roofs, kitchens, and pools) causes severe loss of concrete compressive/shear strength.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify High Alumina Cement (HAC) concrete hazard awareness.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E18",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T2",
+      "learningObjective": "Diagnose arch-shaped stepped cracking above a ground-floor window opening.",
+      "type": "mcq",
+      "prompt": "A ground-floor window opening in a brick wall displays stepped diagonal cracks rising from both top corners of the window frame toward a peak above mid-span, accompanied by sagging of the window head. What is the local failure mechanism?",
+      "assumptions": "Look at the masonry triangle above the lintel.",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "Failure, rot, or excessive deflection of the window lintel (or replacement of a structural window frame with an unreinforced uPVC frame without adding a lintel), causing the triangle of brickwork inside the natural masonry arch to drop",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "When a lintel sags or is missing above a replacement window, the triangular wedge of masonry below the natural corbelled arch detaches and drops.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Diagnose arch-shaped stepped cracking above a ground-floor window opening.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E19",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T3",
+      "learningObjective": "Manage uncertainty when foundation depth cannot be verified before tender.",
+      "type": "mcq",
+      "prompt": "If an existing building’s foundation dimensions cannot be exposed until the contractor takes possession of the site, how should the engineer issue the tender drawings safely?",
+      "assumptions": "Apply transparent engineering risk management.",
+      "options": [
+        "Pretend the foundations were inspected and show no notes",
+        "Tell the contractor to design the whole building themselves",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "State explicit, conservative provisional assumptions on the drawings, highlight them as a mandatory pre-construction Hold Point (\"Trial pit verification required prior to steel fabrication / demolition\"), and define the trigger criteria for design review"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Clearly separating verified facts from provisional assumptions with a mandatory Hold Point protects safety, cost transparency, and buildability. Engineering synthesis for \"Manage uncertainty when foundation depth cannot be verified before tender.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Manage uncertainty when foundation depth cannot be verified before tender.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD18-E20",
+      "moduleNumber": 18,
+      "topicId": "MOD18-T3",
+      "learningObjective": "Pass the Module 18 Learning Gate: Produce a structural appraisal checklist and state what you would refuse to assume without opening up.",
+      "type": "mcq",
+      "prompt": "Which summary best meets the Module 18 Learning Gate for appraising and altering an existing structure?",
+      "assumptions": "Synthesise inspection, load-path tracing, temporary stability, and refusal to guess.",
+      "options": [
+        "Trace vertical and lateral load paths from roof to ground, diagnose existing defects, design the temporary works propping sequence alongside the permanent works, and explicitly refuse to guess hidden joist directions, bearing lengths, foundation capacities, or post-tensioning without intrusive verification",
+        "Assume every wall is non-loadbearing unless it is 500 mm thick, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geometric imperfec.",
+        "Copy the estate agent’s floor plan into FE software and issue for construction",
+        "Assume temporary propping is never the permanent engineer’s concern"
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Permanent and temporary works in refurbishment are inseparable; safe engineering requires verifying what is actually there before cutting into the load path.",
+      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 18 Learning Gate: Produce a structural appraisal checklist and state what you would refuse to assume without opening up.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD18-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}

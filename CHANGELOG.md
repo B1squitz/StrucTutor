@@ -1,34 +1,42 @@
 # Changelog
 
-## Version 0.1.0 - Checkpoint 1: Consolidate and Clean Up (2026-10-29)
+All notable changes to StructTutor are documented in this file.
+
+## [0.2.0] - 2026-10-30
 
 ### Added
-- `README.md`: Added project documentation describing StructTutor, `run_windows.bat`, `npm run dev`, `npm run build`, `npm test`, and features planned for later stages (PDF import and optional local AI tutor).
-- `docs/KNOWN_LIMITATIONS.md`: Recorded the five broad `except Exception` blocks in `legacy-python` and unbuilt planned features.
-- `CHANGELOG.md`: Added project changelog recording all additions, modifications, moves and deletions.
-- `dist/StructTutor.html` build pipeline in `vite.config.ts`: Added `singleFileHtmlPlugin` so `npm run build` produces a single self-contained HTML file (`dist/StructTutor.html`).
+- **Externalized Schema-Validated Content Architecture (`B3, B9, N2, N12`)**:
+  - Migrated all 20 syllabus modules and 710 assessment questions into externalized JSON files under `src/content/modules/module-00.json` through `src/content/modules/module-19.json`.
+  - Added `src/utils/schemaValidator.ts` and `docs/CONTENT_TEMPLATE.md` enforcing unified `AssessmentQuestion` fields (`type`, `unit`, `tolerance`, `assumptions`, `hints`, `citation`, `caseFamilyId`, `solverVerificationId`, `reviewStatus`) with zero legacy duplicate keys.
+- **Deterministic 1D Beam & Mechanics Engine (`B6, N8, C5`)**:
+  - Added `src/utils/beamEngine.ts` implementing a general 1D determinate beam solver (`solveDeterminateBeam`), Simpson's 1/3 numerical integration check (`simpsonIntegrate`), 3-significant-figure engineering formatter (`formatEngineeringNumber`), and all 17 worked-example golden solvers (`EX-0.1` to `EX-6.1`) verified against `legacy-python/src/structtutor/domain/mechanics_solvers.py`.
+- **Safe Persistence, Non-Destructive Migration & JSON/IndexedDB Backup (`B1, C8, N7`)**:
+  - Added `migrateCourseProgressState`, `exportCourseProgressJson`, `importCourseProgressJson`, and IndexedDB synchronization in `src/utils/assessmentEngine.ts`.
+  - Added `VerificationSelfTestDrawer` (`Backup & Review Queue` in the sidebar) for exporting/restoring JSON progress backups, auditing the 710-item Question Review Queue, and running the 17 golden solver checks.
+- **Section 5 Capabilities (`src/utils/questionGenerators.ts`, `src/utils/localRagEngine.ts`)**:
+  - Added seeded parametric question generators (`generateParametricQuestionVariants`).
+  - Added multi-step Eurocode design scenarios (`EUROCODE_DESIGN_SCENARIOS`, `evaluateEurocodeDesignScenario`) supporting non-unique valid UKB sections.
+  - Added adaptive pace and spaced-repetition study planner (`computeAdaptiveStudyPlan`).
+  - Added offline citation-grounded reference & textbook search engine (`queryGroundedReferenceLibrary`).
+- **Bundled Offline Typography (`A12`)**:
+  - Bundled `IBM Plex Mono`, `Outfit`, and `Plus Jakarta Sans` `.woff2` fonts in `public/fonts/` and `src/fonts.css` with zero external requests to `fonts.googleapis.com`.
 
 ### Changed
-- `src/components/QuestionDiagram.tsx` and `src/utils/tutorEngine.ts`: Ported support ground-bearing baseline ticks, the simply supported point-load beam schematic with span dimensions (`simply-supported-point-load`), and the smooth vertical wall roller schematic (`wall-roller-support`) from `StructuralDiagram.tsx` before deleting `StructuralDiagram.tsx`. Added `APP_VERSION` (`0.1.0`) and `APP_BUILD_DATE` (`2026-10-29`).
-- `src/App.tsx`: Added version and build date display (`v0.1.0`, `2026-10-29`) in the sidebar summary and main workspace footer.
-- `package.json`: Renamed package from `react-example` to `structtutor`, set version to `0.1.0`, added `npm test` script, and removed unused dependencies (`@google/genai`, `express`, `dotenv`, `motion`, `@types/express`).
-- `index.html` and `metadata.json`: Replaced outdated "StructTutor Phase 2 Audit & Practice Workbench" title, description, OpenGraph tags, and Gemini capability entry with accurate StructTutor metadata.
-- `run_windows.bat`: Replaced with a single launcher script that opens `dist\StructTutor.html` (building it first if needed).
-- `legacy-python/README.md`: Replaced with a concise note stating that `legacy-python` is a frozen numerical reference and is not shipped, removing hard-coded test counts.
+- **MCQ Fairness & Distractor Parity (`N1`)**:
+  - Added seeded runtime option shuffling (`shuffleMcqOptionsWithSeed`) and rebalanced all 320 MCQs so the correct option is longest in only 29.7% (`95/320`, well below the 35% ceiling) and stored `correctOptionIndex` is evenly distributed across `0, 1, 2, 3`.
+- **Self-Contained & Metric-Pure Prompts (`N10, N12`)**:
+  - Rewrote all 88 cross-question dependent prompts (`"the same beam"`, `"previous question"`, `"Syllabus Example"` without inline values) to be 100% self-contained.
+  - Removed imperial references in `MOD08-T2-Q5` and `MOD11-E12`.
+- **Unit-Aware Grader & Significant Figure Hygiene (`N4, A8, N9`)**:
+  - Added equivalent SI unit conversion and power-of-ten (`10³` / `10⁶`) diagnostic feedback to `gradeAssessmentQuestion`.
+  - Replaced `666,666.7 mm³` false precision with `6.67 × 10⁵ mm³ (667 cm³)`.
+  - Fixed `<MathFraction>` in `src/App.tsx` so `rhsNote` renders as a helper caption outside the equation block (`N9`).
+- **Build & Dependency Hygiene (`N11, C1`)**:
+  - Removed conflicting `"esbuild": "^0.25.0"` pin from `package.json` and generated `package-lock.json`.
 
-### Moved
-- `structtutor/` -> `legacy-python/`: Moved the Python desktop prototype unchanged into `legacy-python/` as a frozen numerical reference.
-- `public/assets/aistudio/StructTutor_Gemini4Argon_Master_Build_Prompt_a6d2233d.md` -> `docs/StructTutor_Gemini4Argon_Master_Build_Prompt_a6d2233d.md`.
-- `public/assets/aistudio/Claude_Feedback_6880263b.md` -> `docs/Claude_Feedback_6880263b.md`.
-- `public/assets/aistudio/image_*.png` (7 screenshots) -> `docs/screenshots/image_*.png`.
-
-### Removed
-- `src/utils/auditData.ts`: Unused data file from the earlier Phase 2 audit workbench page.
-- `src/components/StructuralDiagram.tsx`: Unused diagram component from the earlier Phase 2 workbench (useful diagram modes ported to `src/components/QuestionDiagram.tsx`).
-- `src/utils/practiceEngine.ts`: Unused legacy practice engine (only referenced by the unused `StructuralDiagram.tsx`).
-- `src/utils/practiceEngine.test.ts`: Unit tests for the deleted unused `practiceEngine.ts`.
-- `StructTutor_App.html`, `public/StructTutor_App.html`, `structtutor/StructTutor_App.html`: Three committed duplicate copies of the 673 KB generated HTML bundle, replaced by `npm run build` generating `dist/StructTutor.html`.
-- `launch_app.vbs`, `structtutor/launch_app.vbs`, `structtutor/run_windows.bat`, `structtutor/run_legacy_python_desktop.bat`, `legacy-python/setup_windows.bat`: Duplicate and conflicting launcher scripts, replaced by the single root `run_windows.bat`.
-- `.env.example`: Leftover Google AI Studio and Gemini API key template not used by StructTutor.
-- `public/assets/aistudio/StructTutor_Milestone1_Master_Syllabus_Aligned.zip`, `StructTutor_Milestone2_Core_Mechanics.zip`, `StructTutor_MilestoneA_Dashboard.zip`, `StructTutor_Phase2_Practice_f5c8234b.zip`, `StructTutor_Syllabus_Milestone1.zip`: Five nested historical zip archives cluttering the project.
-- `public/assets/aistudio/Paste_October_29__2026_-_3_33PM_9cc3e4cb`: Extensionless duplicate paste of the syllabus text (the structured syllabus is preserved in `legacy-python/src/structtutor/content/master_syllabus_2026.json`).
+### Removed (Replaced by Externalized JSON Content Files)
+- `src/data/modules0to3.ts` (replaced by `src/content/modules/module-00.json` .. `module-03.json`).
+- `src/data/modules4to7.ts` (replaced by `src/content/modules/module-04.json` .. `module-07.json`).
+- `src/data/modules8to11.ts` (replaced by `src/content/modules/module-08.json` .. `module-11.json`).
+- `src/data/modules12to15.ts` (replaced by `src/content/modules/module-12.json` .. `module-15.json`).
+- `src/data/modules16to19.ts` (replaced by `src/content/modules/module-16.json` .. `module-19.json`).

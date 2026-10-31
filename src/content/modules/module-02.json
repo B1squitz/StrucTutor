@@ -1,0 +1,939 @@
+{
+  "moduleNumber": 2,
+  "code": "MOD-02",
+  "title": "Module 2: Internal actions, shear force and bending moment",
+  "shortTitle": "Internal actions, shear force and bending moment",
+  "suggestedDuration": "8–10 weeks",
+  "yearPathway": "Year 1",
+  "year1Months": "Months 3–4",
+  "whyItMatters": "External loads and support reactions only tell half the story; designing a member requires cutting it open conceptually to find internal axial force N, shear force V, and bending moment M along its entire length.",
+  "introduction": "Covers the method of sections to expose internal axial force, shear force, and bending moment, standard UK structural engineering sign conventions (sagging positive, BMD plotted on the tension face), load–shear–moment differential relationships, deflected shapes, and locating tension and compression faces.",
+  "objectives": [
+    "Cut a structural member at any section x and determine internal N(x), V(x), and M(x) by equilibrium.",
+    "Construct accurate Shear Force Diagrams (SFDs) and Bending Moment Diagrams (BMDs) for simply supported, cantilever, and overhanging beams.",
+    "Sketch deflected shapes, points of contraflexure, and tension/compression zones before calculating."
+  ],
+  "learningGate": "Draw SFD and BMD diagrams without copying from a formula sheet.,Calculate maximum bending moment and maximum shear force accurately.,Predict the shape of the diagram and deflected curve before calculating it.,Identify tension and compression zones for sagging, hogging, and cantilever beams.,Explain why a beam may need shear checks close to supports even where bending moment is low.",
+  "prerequisiteModuleNumbers": [
+    0,
+    1
+  ],
+  "topics": [
+    {
+      "id": "MOD02-T1",
+      "moduleNumber": 2,
+      "code": "2.1",
+      "title": "Internal Actions, Section Cuts & Sign Conventions",
+      "summary": "Covers cutting a member to reveal internal axial force N, shear force V, and bending moment M, positive sagging vs negative hogging conventions, and checking equilibrium of left and right free-body segments.",
+      "subtopics": [
+        "Method of sections: cutting a member to expose internal N, V, and M",
+        "Physical meaning of axial tension (+N), axial compression (-N), shear V, and bending moment M",
+        "Sagging (+M, bottom face in tension) vs hogging (-M, top face in tension)",
+        "UK structural convention: plotting the BMD on the tension face of the member",
+        "Consistency check: evaluating internal M(x) from the left segment vs the right segment"
+      ],
+      "learningObjectives": [
+        "Use an imaginary section cut to compute N, V, and M at any position along a beam.",
+        "Identify which extreme fibre is in tension under sagging and hogging moments."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD02-T1-Q1",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T1",
+          "learningObjective": "Identify tension and compression faces in sagging vs hogging",
+          "type": "mcq",
+          "prompt": "When a horizontal beam undergoes positive (sagging) bending, which extreme fibres are in tension and which are in compression?",
+          "assumptions": "Under hogging (over an internal support or in a gravity-loaded cantilever), the top fibres are in tension and the bottom fibres are in compression.",
+          "options": [
+            "Bottom fibres are in tension and top fibres are in compression",
+            "Top fibres are in tension and bottom fibres are in.",
+            "By assuming a uniform linear-elastic stress dist.",
+            "Stresses are uniform compression across the entire depth"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Sagging curves the beam concave upwards (like a smile), stretching the bottom fibres in tension and shortening the top fibres in compression. Engineering synthesis for \"Identify tension and compression faces in sagging vs hogging\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify tension and compression faces in sagging vs hogging\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD02-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD02-T1-Q2",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T1",
+          "learningObjective": "Calculate internal shear force at a section cut (Example 2.1)",
+          "type": "numeric",
+          "prompt": "A 6.0 m simply supported beam carries a UDL of w = 10 kN/m (left reaction R_A = 30 kN). Cut the beam at x = 1.5 m from the left support A. What is the internal shear force V at x = 1.5 m?",
+          "assumptions": "Clockwise positive shear convention.",
+          "unit": "kN",
+          "correctAnswer": 15,
+          "tolerance": 0.225,
+          "explanation": "From the left free body of length 1.5 m: V(1.5) = R_A − w × x = 30 − (10 × 1.5) = 15 kN. Step-by-step verification for \"Calculate internal shear force at a section cut (Example 2.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 15 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate internal shear force at a section cut (Example 2.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: From the left free body of length 1.5 m: V(1.5) = R_A − w × x = 30 − (10 × 1.5) = ?. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD02-T1-CF",
+          "solverVerificationId": "SOLVER-MOD02-T1-Q2",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD02-T1-Q3",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T1",
+          "learningObjective": "Calculate internal bending moment at a section cut (Example 2.1)",
+          "type": "numeric",
+          "prompt": "A 6.0 m simply supported beam carries a uniform distributed load of w = 10 kN/m over its full span (so the left support reaction is R_A = 30 kN). Calculate the internal sagging bending moment M at a section x = 1.5 m from the left support.",
+          "assumptions": "Remember the UDL over the 1.5 m segment (15 kN) acts at its centroid 0.75 m from the cut.",
+          "unit": "kN·m",
+          "correctAnswer": 33.75,
+          "tolerance": 0.506,
+          "explanation": "From the left free body: M(1.5) = R_A × 1.5 − (10 × 1.5) × (1.5 / 2) = 45.0 − 11.25 = 33.75 kN·m. Step-by-step verification for \"Calculate internal bending moment at a section cut (Example 2.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 33.75 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate internal bending moment at a section cut (Example 2.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: From the left free body: M(1.5) = R_A × 1.5 − (10 × 1.5) × (1.5 / 2) = 45.0 − 11.25 = ?. Express your final numeric answer in kN·m."
+          ],
+          "caseFamilyId": "MOD02-T1-CF",
+          "solverVerificationId": "SOLVER-MOD02-T1-Q3",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD02-T1-Q4",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T1",
+          "learningObjective": "Understand UK convention for plotting Bending Moment Diagrams",
+          "type": "mcq",
+          "prompt": "In UK structural engineering practice (Eurocode / IStructE convention), on which side of the member axis is the Bending Moment Diagram plotted, and why?",
+          "assumptions": "Always state your sign/plotting convention on calculation sheets.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "On the tension face (bottom for sagging, top for hogging), so it immediately shows where tensile reinforcement in concrete or lateral restraint of the opposite compression flange in steel is needed",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Plotting the BMD on the tension side directly visualises where main tension reinforcement is required in RC beams and reminds steel designers which flange is the opposite compression flange.",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand UK convention for plotting Bending Moment Diagrams\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD02-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD02-T1-Q5",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T1",
+          "learningObjective": "Verify equilibrium consistency between left-hand and right-hand free bodies",
+          "type": "mcq",
+          "prompt": "If you cut a beam in equilibrium at section x and calculate internal bending moment M(x) using the left-hand free body, and then recalculate M(x) independently using the right-hand free body, how must the two results compare?",
+          "assumptions": "Evaluating M(x) from the shorter side of the cut is a fast hand-calculation check.",
+          "options": [
+            "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "They must have the exact same magnitude and the same sagging/hogging sense (equal and opposite internal action-reaction pair at the cut)",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "By Newton’s third law and static equilibrium, the internal moment exposed on the left face of the cut and the right face of the cut must match identically.",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify equilibrium consistency between left-hand and right-hand free bodies\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD02-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD02-T2",
+      "moduleNumber": 2,
+      "code": "2.2",
+      "title": "Shear Force & Bending Moment Diagrams (SFDs & BMDs)",
+      "summary": "Covers constructing SFDs and BMDs for simply supported UDLs (Example 2.1), cantilevers under UDL (Example 2.2), eccentric point loads (Example 2.3), and finding peak moments where shear passes through zero.",
+      "subtopics": [
+        "Syllabus Example 2.1: 6 m simply supported beam with 10 kN/m (V_max = wL/2 = 30 kN, M_max = wL²/8 = 45 kN·m)",
+        "Syllabus Example 2.2: 2 m cantilever with 5 kN/m (V_fixed = wL = 10 kN, M_fixed = wL²/2 = 10 kN·m hogging)",
+        "Syllabus Example 2.3: 5 m beam with 20 kN point load at 2 m (M_max = 24 kN·m at the point load)",
+        "Load–shear–moment differential relationships: dV/dx = -w and dM/dx = V",
+        "Locating maximum bending moment where shear force V(x) passes through zero"
+      ],
+      "learningObjectives": [
+        "Solve Syllabus Examples 2.1, 2.2, and 2.3 and sketch their SFDs and BMDs.",
+        "Locate the point of zero shear to find maximum bending moment under general loading."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD02-T2-Q1",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T2",
+          "learningObjective": "Calculate maximum bending moment for simply supported UDL (Example 2.1)",
+          "type": "numeric",
+          "prompt": "A 6.0 m simply supported beam carries a uniform distributed load of w = 10 kN/m over its full span. Calculate the maximum sagging bending moment M_max = wL²/8 at midspan.",
+          "assumptions": "Also equal to the triangular area under the SFD from x = 0 to x = 3 m: 0.5 × 30 kN × 3.0 m = 45 kN·m.",
+          "unit": "kN·m",
+          "correctAnswer": 45,
+          "tolerance": 0.675,
+          "explanation": "M_max = (10 × 6.0²) / 8 = 360 / 8 = 45.0 kN·m at midspan (x = 3.0 m, where V passes through zero). Step-by-step verification for \"Calculate maximum bending moment for simply supported UDL (Example 2.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 45 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate maximum bending moment for simply supported UDL (Example 2.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M_max = (10 × 6.0²) / 8 = 360 / 8 = 45.0 kN·m at midspan (x = 3.0 m, where V passes through zero). Express your final numeric answer in kN·m."
+          ],
+          "caseFamilyId": "MOD02-T2-CF",
+          "solverVerificationId": "SOLVER-MOD02-T2-Q1",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD02-T2-Q2",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T2",
+          "learningObjective": "Calculate fixed-end shear on cantilever under UDL (Example 2.2)",
+          "type": "numeric",
+          "prompt": "A 2.0 m cantilever beam carries a uniform downward load of w = 5.0 kN/m over its full length. Calculate the magnitude of the shear force at the fixed support.",
+          "assumptions": "Shear varies linearly from 0 at the free tip to 10 kN at the fixed root.",
+          "unit": "kN",
+          "correctAnswer": 10,
+          "tolerance": 0.15,
+          "explanation": "V_fixed = w × L = 5.0 kN/m × 2.0 m = 10.0 kN. Step-by-step verification for \"Calculate fixed-end shear on cantilever under UDL (Example 2.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate fixed-end shear on cantilever under UDL (Example 2.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: V_fixed = w × L = 5.0 kN/m × 2.0 m = ?. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD02-T2-CF",
+          "solverVerificationId": "SOLVER-MOD02-T2-Q2",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD02-T2-Q3",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T2",
+          "learningObjective": "Calculate fixed-end hogging moment on cantilever under UDL (Example 2.2)",
+          "type": "numeric",
+          "prompt": "A 2.0 m cantilever beam carries a uniform downward load of w = 5.0 kN/m over its full length. Calculate the magnitude of the fixed-end hogging bending moment M_fixed = wL²/2.",
+          "assumptions": "At the fixed root of a gravity cantilever, the top flange/fibres are in tension.",
+          "unit": "kN·m",
+          "correctAnswer": 10,
+          "tolerance": 0.15,
+          "explanation": "M_fixed = (5.0 × 2.0²) / 2 = 10.0 kN·m (hogging: top face in tension, parabolic BMD). Step-by-step verification for \"Calculate fixed-end hogging moment on cantilever under UDL (Example 2.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate fixed-end hogging moment on cantilever under UDL (Example 2.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M_fixed = (5.0 × 2.0²) / 2 = 10.0 kN·m (hogging: top face in tension, parabolic BMD). Express your final numeric answer in kN·m."
+          ],
+          "caseFamilyId": "MOD02-T2-CF",
+          "solverVerificationId": "SOLVER-MOD02-T2-Q3",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD02-T2-Q4",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T2",
+          "learningObjective": "Calculate maximum bending moment under eccentric point load (Example 2.3)",
+          "type": "numeric",
+          "prompt": "A 5.0 m simply supported beam carries a single 20 kN point load at x = 2.0 m from the left support (giving support reactions R_A = 12 kN and R_B = 8 kN). Calculate the maximum bending moment M_max under the point load.",
+          "assumptions": "Formula P·a·b / L = (20 × 2 × 3) / 5 = 24 kN·m.",
+          "unit": "kN·m",
+          "correctAnswer": 24,
+          "tolerance": 0.36,
+          "explanation": "Shear steps from +12 kN to -8 kN at x = 2.0 m. Thus M_max occurs at x = 2.0 m and equals R_A × 2.0 m = 12 kN × 2.0 m = 24.0 kN·m (checked from right: 8 kN × 3.0 m = 24.0 kN·m).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate maximum bending moment under eccentric point load (Example 2.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Shear steps from +12 kN to -8 kN at x = ?. Express your final numeric answer in kN·m."
+          ],
+          "caseFamilyId": "MOD02-T2-CF",
+          "solverVerificationId": "SOLVER-MOD02-T2-Q4",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD02-T2-Q5",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T2",
+          "learningObjective": "Relate load type to SFD and BMD curve degree",
+          "type": "mcq",
+          "prompt": "Over a beam span loaded by a constant downward UDL (w = constant), what are the mathematical shapes of the Shear Force Diagram (SFD) and Bending Moment Diagram (BMD)?",
+          "assumptions": "Under point loads only (w = 0 between loads), the SFD is piecewise constant (rectangular steps) and the BMD is piecewise linear (triangular).",
+          "options": [
+            "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "The SFD is a sloping straight line (linear) and the BMD is a curve of second degree (parabola)"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Integrating a constant w once gives a linear shear function V(x) = V₀ − wx; integrating a second time gives a quadratic (parabolic) moment function M(x).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Relate load type to SFD and BMD curve degree\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD02-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD02-T3",
+      "moduleNumber": 2,
+      "code": "2.3",
+      "title": "Deflected Shapes, Sagging/Hogging & Support Shear Checks",
+      "summary": "Connects the BMD to physical curvature, deflected shapes, points of contraflexure (M = 0), and explains why high shear near supports can govern short heavily-loaded beams even where bending moment is small.",
+      "subtopics": [
+        "Curvature κ = M / EI: sagging curves concave up, hogging curves concave down",
+        "Boundary conditions on deflected shapes: zero deflection at pins/rollers, zero deflection AND zero slope at fixed supports",
+        "Points of contraflexure (inflection points where M = 0 and curvature reverses sign)",
+        "Why beams need shear checks close to supports even where M approaches zero"
+      ],
+      "learningObjectives": [
+        "Sketch consistent deflected shapes matching support restraints and BMD signs.",
+        "Calculate the location of a point of contraflexure in an overhanging beam."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD02-T3-Q1",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T3",
+          "learningObjective": "Enforce boundary conditions on a cantilever deflected shape",
+          "type": "mcq",
+          "prompt": "When sketching the deflected shape of a horizontal cantilever fixed into a rigid wall at the left end A and loaded downward at the right tip B, what must be true of the curve at A?",
+          "assumptions": "Violating zero slope at a fixed support is one of the most common sketching mistakes.",
+          "options": [
+            "Both the vertical displacement and the slope (rotation tangent) must be zero at the fixed wall A, curving smoothly downward to the right (hogging)",
+            "The beam starts at A with an immediate downward kink (non-zero slope) like a pin support, assuming that by applying the unfactored char.",
+            "The vertical displacement is maximum at A and zero at B",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both e."
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "A fixed support prevents both translation (y(0) = 0) and rotation (dy/dx(0) = 0), so the deflected curve must emerge horizontally from the wall before curving downward.",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Enforce boundary conditions on a cantilever deflected shape\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD02-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD02-T3-Q2",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T3",
+          "learningObjective": "Define a point of contraflexure on a beam",
+          "type": "mcq",
+          "prompt": "What occurs physically and mathematically at a point of contraflexure along a beam?",
+          "assumptions": "Notice that deflection is generally NOT zero at a point of contraflexure.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "The bending moment M(x) passes through zero and changes sign (from sagging to hogging or vice versa), so the curvature of the deflected shape reverses",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Since curvature κ = M/(EI), where M = 0 the curvature is zero and transitions between concave-up (sagging) and concave-down (hogging). Engineering synthesis for \"Define a point of contraflexure on a beam\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Define a point of contraflexure on a beam\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD02-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD02-T3-Q3",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T3",
+          "learningObjective": "Explain why shear checks are required near supports where moment is low (Module 2 Gate)",
+          "type": "mcq",
+          "prompt": "At the pin or roller end support of a simply supported beam, the bending moment M is zero. Why must the engineer still check the beam closely at and near the support?",
+          "assumptions": "Direct Module 2 Gate question.",
+          "options": [
+            "Because bending stress σ = M/Z becomes infinite when M = 0",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "Because the shear force V is typically at its maximum at the supports, and heavy point loads located close to a support produce very large shear forces while generating only a small bending moment",
+            "Because lateral torsional buckling only occurs where M = 0"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Shear force V and web bearing are greatest at the supports. In short-span transfer beams or where a column/needle lands close to a support, shear failure of the web or bearing failure governs well before midspan bending.",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why shear checks are required near supports where moment is low (Module 2 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD02-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD02-T3-Q4",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T3",
+          "learningObjective": "Locate where shear passes through zero under asymmetric loading",
+          "type": "numeric",
+          "prompt": "A 6.0 m simply supported beam carries a full-span UDL of w = 10 kN/m plus a downward point load outside the span on a right-hand overhang such that the left support reaction at A is R_A = 22 kN. At what distance x from the left support A does the shear force V(x) pass through zero (where peak sagging moment occurs)?",
+          "assumptions": "Peak sagging moment in the span occurs at x = 2.2 m, not at midspan (3.0 m).",
+          "unit": "m",
+          "correctAnswer": 2.2,
+          "tolerance": 0.033,
+          "explanation": "In span AB: V(x) = R_A − w·x = 22 − 10x. Setting V(x) = 0 gives x = 22 / 10 = 2.2 m. Step-by-step verification for \"Locate where shear passes through zero under asymmetric loading\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.2 m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Locate where shear passes through zero under asymmetric loading\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: In span AB: V(x) = R_A − w·x = 22 − 10x. Express your final numeric answer in m."
+          ],
+          "caseFamilyId": "MOD02-T3-CF",
+          "solverVerificationId": "SOLVER-MOD02-T3-Q4",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD02-T3-Q5",
+          "moduleNumber": 2,
+          "topicId": "MOD02-T3",
+          "learningObjective": "Calculate peak sagging moment at point of zero shear",
+          "type": "numeric",
+          "prompt": "A 6.0 m beam with a right-hand overhang carries a full-span UDL of w = 10 kN/m and an overhang tip load such that the left support reaction at A is R_A = 22 kN and internal shear passes through zero at x = 2.2 m from A. Calculate the maximum sagging bending moment M_max at x = 2.2 m.",
+          "assumptions": "Demonstrates integrating the SFD triangle to find M_max.",
+          "unit": "kN·m",
+          "correctAnswer": 24.2,
+          "tolerance": 0.363,
+          "explanation": "M(2.2) = R_A × 2.2 − 0.5 × w × 2.2² = (22 × 2.2) − (5 × 4.84) = 48.4 − 24.2 = 24.2 kN·m (also equal to area of shear triangle: 0.5 × 22 kN × 2.2 m = 24.2 kN·m).",
+          "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate peak sagging moment at point of zero shear\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M(2.2) = R_A × 2.2 − 0.5 × w × 2.2² = (22 × 2.2) − (5 × 4.84) = 48.4 − 24.2 = 24.2 kN·m (also equal to area of shear triangle: 0.5 × 22 kN × 2.2 m = 24.2 kN·m).. Express your final numeric answer in kN·m."
+          ],
+          "caseFamilyId": "MOD02-T3-CF",
+          "solverVerificationId": "SOLVER-MOD02-T3-Q5",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "EX-2.1",
+      "title": "Simply supported UDL",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-2.2",
+      "title": "Cantilever under UDL",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-2.3",
+      "title": "Point load beam",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "Hibbeler Structural Analysis: shear and bending moment chapters.",
+    "Jeff Hanson: shear-force and bending-moment videos.",
+    "EngineeringStatics.org."
+  ],
+  "standardsNotice": "First-principles internal mechanics module. Sign conventions follow UK practice (sagging positive, BMD plotted on tension face).",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD02-E01",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Calculate maximum shear on 6 m simply supported UDL beam (Example 2.1)",
+      "type": "numeric",
+      "prompt": "A 6.0 m simply supported beam carries w = 10 kN/m over its full length. Calculate the maximum shear force V_max.",
+      "assumptions": "Simply supported symmetric beam.",
+      "unit": "kN",
+      "correctAnswer": 30,
+      "tolerance": 0.45,
+      "explanation": "V_max = wL / 2 = (10 × 6.0) / 2 = 30 kN at the supports. Step-by-step verification for \"Calculate maximum shear on 6 m simply supported UDL beam (Example 2.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum shear on 6 m simply supported UDL beam (Example 2.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: V_max = wL / 2 = (10 × 6.0) / 2 = 30 kN at the supports. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "solverVerificationId": "SOLVER-MOD02-E01",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD02-E02",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Calculate maximum sagging moment on 6 m UDL beam (Example 2.1)",
+      "type": "numeric",
+      "prompt": "A 6.0 m simply supported beam carries a uniform distributed load of w = 10 kN/m over its full span. Calculate the maximum sagging bending moment M_max = wL²/8.",
+      "assumptions": "Occurs at x = 3.0 m where V = 0.",
+      "unit": "kN·m",
+      "correctAnswer": 45,
+      "tolerance": 0.675,
+      "explanation": "M_max = 10 × 36 / 8 = 45 kN·m at midspan. Step-by-step verification for \"Calculate maximum sagging moment on 6 m UDL beam (Example 2.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 45 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum sagging moment on 6 m UDL beam (Example 2.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_max = 10 × 36 / 8 = 45 kN·m at midspan. Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "solverVerificationId": "SOLVER-MOD02-E02",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD02-E03",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Calculate fixed-end moment on 2 m cantilever under UDL (Example 2.2)",
+      "type": "numeric",
+      "prompt": "A 2.0 m cantilever carries a UDL of 5.0 kN/m. Calculate the magnitude of the fixed-end bending moment.",
+      "assumptions": "Top fibres are in tension at the fixed end.",
+      "unit": "kN·m",
+      "correctAnswer": 10,
+      "tolerance": 0.15,
+      "explanation": "M = wL² / 2 = 5.0 × 4.0 / 2 = 10.0 kN·m hogging. Step-by-step verification for \"Calculate fixed-end moment on 2 m cantilever under UDL (Example 2.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate fixed-end moment on 2 m cantilever under UDL (Example 2.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M = wL² / 2 = 5.0 × 4.0 / 2 = 10.0 kN·m hogging. Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E04",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Calculate maximum moment on 5 m beam with eccentric point load (Example 2.3)",
+      "type": "numeric",
+      "prompt": "A 5.0 m simply supported beam carries a 20 kN point load at 2.0 m from the left support. Calculate the maximum bending moment.",
+      "assumptions": "Triangular BMD peaking at x = 2.0 m.",
+      "unit": "kN·m",
+      "correctAnswer": 24,
+      "tolerance": 0.36,
+      "explanation": "M_max = P·a·b / L = (20 × 2.0 × 3.0) / 5.0 = 24.0 kN·m under the point load. Step-by-step verification for \"Calculate maximum moment on 5 m beam with eccentric point load (Example 2.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 24 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum moment on 5 m beam with eccentric point load (Example 2.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_max = P·a·b / L = (20 × 2.0 × 3.0) / 5.0 = 24.0 kN·m under the point load. Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E05",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T1",
+      "learningObjective": "Calculate bending moment at quarter-span of a UDL beam",
+      "type": "numeric",
+      "prompt": "An 8.0 m simply supported beam carries a UDL of w = 12 kN/m (R_A = R_B = 48 kN). Calculate the bending moment at x = 2.0 m (quarter-span).",
+      "assumptions": "At quarter-span of a simply supported UDL beam, M is always 3/4 of M_max because the parabola is fuller than a triangle.",
+      "unit": "kN·m",
+      "correctAnswer": 72,
+      "tolerance": 1.08,
+      "explanation": "M(2.0) = R_A × 2.0 − (12 × 2.0) × 1.0 = 96 − 24 = 72 kN·m (which is 75% of the midspan moment wL²/8 = 96 kN·m). Step-by-step verification for \"Calculate bending moment at quarter-span of a UDL beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 72 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate bending moment at quarter-span of a UDL beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M(2.0) = R_A × 2.0 − (12 × 2.0) × 1.0 = 96 − 24 = 72 kN·m (which is 75% of the midspan moment wL²/8 = 96 kN·m). Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD02-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E06",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Calculate midspan moment under combined UDL and central point load",
+      "type": "numeric",
+      "prompt": "A 4.0 m simply supported beam carries a full-span UDL of w = 6.0 kN/m and a central point load P = 16 kN at midspan (x = 2.0 m). Calculate the total maximum bending moment at midspan.",
+      "assumptions": "Both peak moments occur at x = 2.0 m so they add directly.",
+      "unit": "kN·m",
+      "correctAnswer": 28,
+      "tolerance": 0.42,
+      "explanation": "By superposition at midspan: M_max = (wL² / 8) + (PL / 4) = (6.0 × 16 / 8) + (16 × 4.0 / 4) = 12 + 16 = 28 kN·m. Step-by-step verification for \"Calculate midspan moment under combined UDL and central point load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 28 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate midspan moment under combined UDL and central point load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: By superposition at midspan: M_max = (wL² / 8) + (PL / 4) = (6.0 × 16 / 8) + (16 × 4.0 / 4) = 12 + 16 = ?. Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E07",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Calculate constant bending moment in a symmetric four-point bending beam",
+      "type": "numeric",
+      "prompt": "A 6.0 m simply supported beam carries two equal downward point loads of 15 kN each, located at x = 2.0 m and x = 4.0 m from the left support (ignoring self-weight). What is the constant bending moment throughout the central third (from x = 2.0 m to x = 4.0 m)?",
+      "assumptions": "Pure bending region with zero shear.",
+      "unit": "kN·m",
+      "correctAnswer": 30,
+      "tolerance": 0.45,
+      "explanation": "By symmetry R_A = R_B = 15 kN. Between x = 2.0 m and 4.0 m, shear V = 15 − 15 = 0, and M = 15 kN × 2.0 m = 30 kN·m constant. Step-by-step verification for \"Calculate constant bending moment in a symmetric four-point bending beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate constant bending moment in a symmetric four-point bending beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: By symmetry R_A = R_B = ?. Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E08",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Calculate hogging moment over the support of a beam with an overhang",
+      "type": "numeric",
+      "prompt": "A beam is simply supported at A (x = 0 m) and B (x = 6.0 m) and overhangs by 2.0 m to a free tip C (x = 8.0 m). The overhang BC carries a UDL of 10 kN/m and a tip point load of 15 kN at C. Calculate the magnitude of the hogging bending moment directly over support B.",
+      "assumptions": "Evaluating M_B from the overhang free body does not even require solving for R_A and R_B first!",
+      "unit": "kN·m",
+      "correctAnswer": 50,
+      "tolerance": 0.75,
+      "explanation": "Cutting just to the right of support B and using the right-hand overhang free body (length 2.0 m): M_B = (10 kN/m × 2.0 m × 1.0 m) + (15 kN × 2.0 m) = 20 + 30 = 50 kN·m hogging.",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate hogging moment over the support of a beam with an overhang\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Cutting just to the right of support B and using the right-hand overhang free body (length 2.0 m): M_B = (10 kN/m × 2.0 m × 1.0 m) + (15 kN × 2.0 m) = 20 + 30 = 50 kN·m hogging.. Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E09",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T3",
+      "learningObjective": "Locate point of contraflexure in a beam with an overhanging tip load",
+      "type": "numeric",
+      "prompt": "A beam is supported at A (x = 0 m) and B (x = 4.0 m) with an overhang to C (x = 6.0 m). Span AB carries a UDL of w = 10 kN/m (so R_A = 15 kN upward), and the overhang carries a tip load such that M(x) in span AB is M(x) = 15x − 5x². At what non-zero position x in span AB is the point of contraflexure (M = 0)?",
+      "assumptions": "At x = 3.0 m the bending moment crosses zero.",
+      "unit": "m",
+      "correctAnswer": 3,
+      "tolerance": 0.045,
+      "explanation": "Setting M(x) = 15x − 5x² = 0 gives 5x(3 − x) = 0 => x = 3.0 m. For 0 < x < 3.0 m the beam is in sagging; for 3.0 m < x ≤ 6.0 m the beam is in hogging.",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Locate point of contraflexure in a beam with an overhanging tip load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Setting M(x) = 15x − 5x² = 0 gives 5x(3 − x) = 0 => x = ?. Express your final numeric answer in m."
+      ],
+      "caseFamilyId": "MOD02-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E10",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T1",
+      "learningObjective": "Calculate internal axial force in a horizontal beam with an inclined load",
+      "type": "numeric",
+      "prompt": "A simply supported beam has a pin at the left end A and a horizontal roller at the right end B (span 4.0 m). A load Applied at midspan C (x = 2.0 m) has a downward vertical component of 20 kN and a rightward horizontal component of 14 kN. What is the internal axial tension force N in segment AC (between the pin A and midspan C)?",
+      "assumptions": "Highlights why axial force changes at the point of application of a horizontal load.",
+      "unit": "kN",
+      "correctAnswer": 14,
+      "tolerance": 0.21,
+      "explanation": "Pin A resists 14 kN horizontally to the left. Cutting anywhere between A and C gives N = +14 kN (axial tension), while segment CB has N = 0 because the roller at B offers no horizontal restraint.",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate internal axial force in a horizontal beam with an inclined load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Pin A resists 14 kN horizontally to the left. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD02-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E11",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T1",
+      "learningObjective": "Identify which face is in tension at the root of a cantilever (Example 2.2)",
+      "type": "mcq",
+      "prompt": "A balcony cantilever beam projects from a building core and supports downward gravity loading. Which face of the cantilever experiences tension?",
+      "assumptions": "In reinforced concrete cantilevers, placing the main bars in the bottom instead of the top is a classic catastrophic detailing error.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The top face at the free tip and the bottom face at the fixed support",
+        "Neither face; a cantilever carries load purely by axial compression",
+        "The top face throughout the cantilever length"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Downward gravity loads on a cantilever produce hogging bending throughout its length, curving the beam concave downwards and stretching the top fibres in tension.",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify which face is in tension at the root of a cantilever (Example 2.2)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD02-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E12",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Understand the effect of a concentrated downward point load on the SFD and BMD",
+      "type": "mcq",
+      "prompt": "At the exact x-location where a downward concentrated point load P acts on a beam (with no support at that point), how do the SFD and BMD behave?",
+      "assumptions": "A vertical jump in the BMD only occurs where an external concentrated moment (couple) is applied.",
+      "options": [
+        "The SFD has a sudden vertical downward step of magnitude P, and the BMD has a sharp corner (change of slope) of Δ(dM/dx) = −P",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cros.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglect.",
+        "Both the SFD and BMD remain smooth with continuous slope"
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Because dM/dx = V, a step discontinuity of −P in the shear force V produces a sudden change in slope (kink/cusp) in the bending moment diagram. Engineering synthesis for \"Understand the effect of a concentrated downward point load on the SFD and BMD\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the effect of a concentrated downward point load on the SFD and BMD\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E13",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Understand the effect of an applied concentrated couple on the SFD and BMD",
+      "type": "mcq",
+      "prompt": "A horizontal beam has a bracket welded at midspan that applies a pure concentrated clockwise moment M₀ (with zero vertical force). How does this affect the SFD and BMD at midspan?",
+      "assumptions": "Useful when analysing column brackets or eccentric connections.",
+      "options": [
+        "The SFD experiences a vertical step jump of M₀ at midspan, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "The BMD experiences an abrupt vertical step jump of magnitude M₀ at midspan, while the SFD has no step at midspan",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "An applied concentrated couple enters moment equilibrium directly at the section cut, causing a vertical discontinuity of M₀ in the BMD without changing the shear force V.",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the effect of an applied concentrated couple on the SFD and BMD\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E14",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T3",
+      "learningObjective": "Predict when a heavy point load near a support governs in shear rather than bending",
+      "type": "mcq",
+      "prompt": "A transfer beam of span L = 6.0 m carries a heavy column point load P = 600 kN located only a = 0.4 m away from the left support A. Which statement accurately describes the internal actions?",
+      "assumptions": "Directly tests the final item of the Module 2 Learning Gate.",
+      "options": [
+        "The shear force in the left segment is near zero while bending moment is at its maximum possible value, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "The left segment experiences a massive shear force V = 560 kN (93% of P), whereas the bending moment is relatively modest (M = 224 kN·m compared to 900 kN·m if P were at midspan), so web shear and support bearing are highly likely to govern",
+        "Shear checks are unnecessary because the load is close to the support"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "R_A = P(L−a)/L = 600 × 5.6 / 6.0 = 560 kN, and M = 560 × 0.4 = 224 kN·m. Moving a heavy load close to a support reduces M but drives V toward P. Engineering synthesis for \"Predict when a heavy point load near a support governs in shear rather than bending\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Predict when a heavy point load near a support governs in shear rather than bending\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD02-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E15",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T3",
+      "learningObjective": "Identify tension face in an upward-loaded foundation ground beam",
+      "type": "mcq",
+      "prompt": "A reinforced concrete ground beam spans between two pile caps and resists an upward net soil bearing pressure from below. In the midspan region between the piles, which face of the ground beam is in tension?",
+      "assumptions": "Never memorise \"bottom = tension at midspan\" without checking the direction of the applied load and deflected shape!",
+      "options": [
+        "The bottom face (because midspan is always in bottom tension regardless of load direction)",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "The top face (because upward distributed pressure between end supports bends the beam upward into hogging)"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Upward pressure between end supports pushes the midspan upward (concave down = hogging), putting the top face in tension at midspan. Engineering synthesis for \"Identify tension face in an upward-loaded foundation ground beam\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify tension face in an upward-loaded foundation ground beam\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD02-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E16",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Compare maximum moment of a UDL vs an equal total point load at midspan",
+      "type": "numeric",
+      "prompt": "A beam of span L carries a total load W = 40 kN over span L = 4.0 m. Calculate the ratio of the maximum bending moment if W is applied as a single central point load (WL/4) divided by the maximum bending moment if W is spread as a uniform UDL (WL/8).",
+      "assumptions": "Concentrating the same total load at midspan doubles the peak bending moment.",
+      "unit": "ratio",
+      "correctAnswer": 2,
+      "tolerance": 0.03,
+      "explanation": "Central point load M_max = WL/4 = 40 × 4 / 4 = 40 kN·m. Uniform UDL M_max = wL²/8 = WL/8 = 40 × 4 / 8 = 20 kN·m. Ratio = 40 / 20 = 2.0. Step-by-step verification for \"Compare maximum moment of a UDL vs an equal total point load at midspan\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Compare maximum moment of a UDL vs an equal total point load at midspan\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Central point load M_max = WL/4 = 40 × 4 / 4 = ?. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E17",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Calculate shear force at midspan of an asymmetrically loaded beam",
+      "type": "numeric",
+      "prompt": "A 4.0 m simply supported beam carries a single point load of 20 kN at x = 1.0 m from the left support A (so R_A = 15 kN and R_B = 5 kN). What is the internal shear force V at midspan (x = 2.0 m)?",
+      "assumptions": "Notice V is non-zero at midspan because the loading is not symmetric.",
+      "unit": "kN",
+      "correctAnswer": -5,
+      "tolerance": 0.075,
+      "explanation": "For any section x > 1.0 m, V(x) = R_A − 20 = 15 − 20 = −5 kN. Step-by-step verification for \"Calculate shear force at midspan of an asymmetrically loaded beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain -5 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 2 (Internal Actions: Axial, Shear & Bending Diagrams).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate shear force at midspan of an asymmetrically loaded beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: For any section x > 1.0 m, V(x) = R_A − 20 = 15 − 20 = −5 kN. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "solverVerificationId": "SOLVER-MOD02-E17",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD02-E18",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T2",
+      "learningObjective": "Calculate bending moment at midspan of an asymmetrically loaded beam",
+      "type": "numeric",
+      "prompt": "A 4.0 m simply supported beam carries a single downward point load of 20 kN at x = 1.0 m from the left support A (giving support reactions R_A = 15 kN and R_B = 5 kN). Calculate the internal bending moment at midspan (x = 2.0 m) in kN·m.",
+      "assumptions": "Maximum moment occurs where shear changes sign (x = 1.0 m), not necessarily at midspan.",
+      "unit": "kN·m",
+      "correctAnswer": 10,
+      "tolerance": 0.15,
+      "explanation": "From the right free body of length 2.0 m: M(2.0) = R_B × 2.0 = 5 × 2.0 = 10 kN·m. Note that the maximum moment is actually at x = 1.0 m (M_max = 15 × 1.0 = 15 kN·m), NOT at midspan!",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate bending moment at midspan of an asymmetrically loaded beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: From the right free body of length 2.0 m: M(2.0) = R_B × 2.0 = 5 × 2.0 = ?. Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD02-T2-CF",
+      "solverVerificationId": "SOLVER-MOD02-E18",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD02-E19",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T3",
+      "learningObjective": "Identify correct BMD and deflected shape for a propped cantilever",
+      "type": "mcq",
+      "prompt": "A propped cantilever is fixed at the left end A, supported on a vertical roller at the right end B, and carries a downward UDL over its span. Which description matches its BMD and deflected shape?",
+      "assumptions": "Classic bridge to indeterminate behaviour.",
+      "options": [
+        "Hogging moment (top tension) and zero slope at the fixed end A, a point of contraflexure (M = 0) within the span, sagging moment (bottom tension) in the right portion, and zero moment at roller B",
+        "Sagging moment throughout the entire span with zero moment at both A and B, assuming that by applying the unfactored characteristic Serviceability Limit State action combination direct.",
+        "Hogging moment throughout the entire span with maximum moment at roller B",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, lon."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "The fixed support A clamps rotation (hogging moment at A), while the simple roller at B has M_B = 0, so the moment transitions from hogging near A through a point of contraflexure to sagging in the span.",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify correct BMD and deflected shape for a propped cantilever\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD02-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD02-E20",
+      "moduleNumber": 2,
+      "topicId": "MOD02-T1",
+      "learningObjective": "Identify physical action of shear in a beam",
+      "type": "mcq",
+      "prompt": "How does internal shear force V act physically on an element of a beam, and what accompanies vertical shear on a tiny square element to maintain rotational equilibrium?",
+      "assumptions": "Fundamental physical understanding of shear.",
+      "options": [
+        "Shear pulls the entire cross-section uniformly apart along its longitudinal axis, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Shear tries to slide adjacent cross-sections past one another vertically, and must be accompanied by equal complementary horizontal (longitudinal) shear stresses along horizontal planes",
+        "Shear acts only at the extreme top and bottom fibres and is zero at the neutral axis",
+        "Shear causes pure curvature without any sliding tendency"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "By complementary shear (τ_xy = τ_yx), vertical shear across a cross-section is always accompanied by horizontal longitudinal shear (which is why horizontally stacked unglued timber planks slip relative to each other under bending).",
+      "citation": "Euler-Bernoulli Beam Theory & UK Sagging/Hogging Sign Convention",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify physical action of shear in a beam\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD02-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}

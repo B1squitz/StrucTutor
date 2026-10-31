@@ -1,138 +1,105 @@
 export type QuestionType = 'numeric' | 'mcq' | 'scenario';
 
-export type QuestionReviewStatus =
-  | 'Self-Checked Calculation'
-  | 'Foundation Assessment (Requires Technical Review)'
-  | 'Awaiting Controlled Standard Verification';
+export type ReviewStatus = 'Verified' | 'Draft' | 'Pending Review' | 'Corrected' | 'Reviewed' | 'Flagged';
+export type QuestionReviewStatus = ReviewStatus;
+
+export interface QuestionCitation {
+  moduleId: string;
+  topicId: string;
+  clauseOrSection: string;
+  sourceTitle: string;
+}
 
 export interface AssessmentQuestion {
   id: string;
-  moduleNumber: number; // 0 to 19 inclusive
+  moduleNumber: number;
   topicId: string;
   learningObjective: string;
-  questionType: QuestionType;
   type: QuestionType;
   prompt: string;
-  assumptionsAndLimitations: string;
-  assumptions: string;
-  explanation: string;
-  reviewStatus: QuestionReviewStatus;
-  reviewNotice: string;
-  // Numeric fields + unified answer field
-  correctAnswer: number;
-  requiredUnit?: string;
+  assumptions: string[] | string;
   unit?: string;
+  correctAnswer: number;
   tolerance?: number;
-  toleranceAbs?: number;
-  // MCQ / Scenario fields
   options?: string[];
   correctOptionIndex?: number;
+  explanation: string;
+  citation?: QuestionCitation | string;
+  hints: string[];
+  caseFamilyId?: string;
+  solverVerificationId?: string;
+  reviewStatus: ReviewStatus;
+  reviewNotice: string;
 }
 
-export interface FutureExpansionSpace {
-  lessonsPlanned: string;
-  workedExamplesPlanned: string;
-  calculationsPlanned: string;
-  sourceReferencesNeeded: string;
-}
-
-/**
- * Raw topic shape used in module data files (supports both Modules 0-11 and 12-19).
- */
-export interface SyllabusTopicInput {
+export interface WorkedExampleItem {
   id: string;
-  moduleNumber?: number;
+  title: string;
+  scenario: string;
+  brief: string;
+  keySteps: string[];
+  checklist: string[];
+  learningPurpose: string;
+  checkMethod: string;
+  status: string;
+  reviewStatus?: ReviewStatus;
+}
+
+export interface SyllabusTopic {
+  id: string;
   code: string;
   title: string;
   summary: string;
   subtopics: string[];
-  learningObjectives?: string[];
-  futureExpansion?: FutureExpansionSpace;
-  futureContentNote?: string;
-  questions?: AssessmentQuestion[];
-  assessmentQuestions?: AssessmentQuestion[];
-}
-
-/**
- * Normalized topic shape guaranteed by fullSyllabus.ts.
- */
-export interface NormalizedSyllabusTopic extends SyllabusTopicInput {
+  futureExpansion: string[];
   futureContentNote: string;
   questions: AssessmentQuestion[];
   assessmentQuestions: AssessmentQuestion[];
 }
 
-export interface WorkedExampleItemInput {
-  id: string;
-  code?: string;
-  title: string;
-  kind?: 'worked_example' | 'worked_project' | 'capstone_project' | 'practical_exercise';
-  description?: string;
-  brief?: string;
-  requiresCalcNote?: boolean;
-  statusLabel?: string;
-  selfReviewChecklist?: string[];
-  checklist?: string[];
-  requiresSelfReview?: boolean;
-}
-
-export interface NormalizedWorkedExampleItem extends WorkedExampleItemInput {
-  brief: string;
-  checklist: string[];
-  requiresSelfReview: boolean;
-}
-
-/**
- * Raw module shape used in module data files (modules0to3.ts .. modules16to19.ts).
- */
 export interface SyllabusModule {
-  id?: string;
-  code?: string;
-  moduleNumber: number; // 0 to 19 inclusive
+  id: string;
+  moduleNumber: number;
+  code: string;
   title: string;
   shortTitle: string;
-  suggestedDuration?: string;
-  yearPathway?: 'Year 1' | 'Years 2–3' | 'Years 3–4+';
-  year1Months?: string;
-  whyItMatters: string;
-  introduction?: string;
-  summary?: string;
-  objectives: string[];
-  learningGate: string | string[];
-  learningGateItems?: string[];
-  prerequisiteModuleNumbers?: number[];
-  topics: SyllabusTopicInput[];
-  workedExamples?: WorkedExampleItemInput[];
-  WorkedExamples?: WorkedExampleItemInput[];
-  resources?: string[];
-  standardsNotice?: string;
-  moduleAssessmentQuestions?: AssessmentQuestion[];
-  moduleAssessment?: AssessmentQuestion[];
-}
-
-/**
- * Normalized module shape guaranteed by ALL_SYLLABUS_MODULES in fullSyllabus.ts.
- */
-export interface NormalizedSyllabusModule extends SyllabusModule {
-  id: string;
-  code: string;
+  subtitle: string;
   summary: string;
   introduction: string;
+  whyItMatters: string;
+  suggestedDuration?: string;
+  yearPathway?: string;
+  standardsNotice?: string;
   learningGate: string;
-  learningGateItems: string[];
-  topics: NormalizedSyllabusTopic[];
-  workedExamples: NormalizedWorkedExampleItem[];
-  WorkedExamples: NormalizedWorkedExampleItem[];
-  moduleAssessmentQuestions: AssessmentQuestion[];
+  learningGates: string[];
+  objectives: string[];
+  learningObjectives: string[];
+  topics: SyllabusTopic[];
+  workedExamples: WorkedExampleItem[];
+  WorkedExamples: WorkedExampleItem[];
+  studyRuleApplication: {
+    explain: string;
+    sketch: string;
+    calculate: string;
+    check: string;
+    assumptions: string;
+  };
+  futureExpansion: {
+    plannedTextbooks: string[];
+    plannedStandards: string[];
+    plannedWorkedExamples: string[];
+    plannedDrawingTasks: string[];
+  };
   moduleAssessment: AssessmentQuestion[];
+  moduleAssessmentQuestions: AssessmentQuestion[];
 }
 
-export type SyllabusTopic = NormalizedSyllabusTopic;
+export type NormalizedSyllabusModule = SyllabusModule;
 
 export interface StudyRuleItem {
+  id: string;
   stepNumber: number;
   number: number;
-  id: string;
   title: string;
   instruction: string;
   description: string;
@@ -144,24 +111,6 @@ export interface CalcNoteSectionItem {
   title: string;
   prompt: string;
   requirement: string;
-}
-
-export interface IntegratedMilestoneItem {
-  id: string;
-  code: string;
-  title: string;
-  Timing: string;
-  afterModule: number;
-  description: string;
-  brief: string;
-  deliverables: string[];
-  requiredItems: {
-    category: string;
-    label: string;
-    requiredCount: number;
-  }[];
-  passCondition: string;
-  prerequisiteModuleNumbers: number[];
 }
 
 export interface CourseDevelopmentRequirement {
@@ -177,15 +126,98 @@ export interface CourseDevelopmentRequirement {
   status: string;
 }
 
-export interface QuestionSubmissionResult {
-  questionId: string;
+export interface IntegratedMilestoneItem {
+  id: string;
+  code: string;
+  title: string;
+  Timing: string;
+  afterModule: number;
+  description: string;
+  brief: string;
+  deliverables: string[];
+  requiredItems: Array<{
+    category: string;
+    label: string;
+    requiredCount: number;
+  }>;
+  passCondition: string;
+  prerequisiteModuleNumbers: number[];
+}
+
+export interface TopicProgressRecord {
   topicId: string;
-  submittedValue: string;
+  moduleId: string;
+  moduleNumber: number;
+  attemptsCount: number;
+  bestScorePercent: number;
+  lastScorePercent: number | null;
+  passed: boolean;
+  lastAttemptIso: string | null;
+}
+
+export interface ModuleProgressRecord {
+  moduleId: string;
+  moduleNumber: number;
+  attemptsCount: number;
+  bestScorePercent: number;
+  lastScorePercent: number | null;
+  passed: boolean;
+  lastAttemptIso: string | null;
+}
+
+export interface AssessmentAttemptLogItem {
+  attemptId: string;
+  assessmentId: string;
+  assessmentType: 'topic' | 'module';
+  moduleId: string;
+  moduleNumber: number;
+  topicId?: string;
+  title: string;
+  scorePercent: number;
+  correctCount: number;
+  totalQuestions: number;
+  passed: boolean;
+  timestampIso: string;
+}
+
+export interface TutorPracticePersistedState {
+  currentStep: string;
+  stepStatuses: Record<string, string>;
+  remedialInjected: boolean;
+  milestoneBars: Array<{
+    id: string;
+    label: string;
+    completed: number;
+    target: number;
+    unitDescription: string;
+  }>;
+  creditedQuestions: Record<string, boolean>;
+  lastUpdatedIso: string;
+}
+
+export interface CourseProgressState {
+  version: number;
+  syllabusRevisionId: string;
+  initializedAtIso: string;
+  lastUpdatedAtIso: string;
+  modules: Record<string, ModuleProgressRecord>;
+  topics: Record<string, TopicProgressRecord>;
+  attemptHistory: AssessmentAttemptLogItem[];
+  tutorPractice?: TutorPracticePersistedState;
+  completedDesignScenarios: string[];
+  questionReviewOverrides: Record<string, ReviewStatus>;
+}
+
+export interface QuestionGradeOutcome {
+  questionId: string;
   isCorrect: boolean;
-  correctAnswerDisplay: string;
+  userAnswer: string | number;
   expectedDisplay: string;
   explanation: string;
-  assumptionsAndLimitations: string;
+  unitRequired?: string;
+  unitDiagnostic?: string;
+  shuffledOptions?: string[];
+  shuffledCorrectIndex?: number;
 }
 
 export interface AssessmentSubmissionResult {
@@ -193,60 +225,8 @@ export interface AssessmentSubmissionResult {
   totalQuestions: number;
   correctCount: number;
   scorePercent: number;
-  displayPercentage: string;
   passed: boolean;
+  passMarkPercent: number;
+  questionOutcomes: Record<string, QuestionGradeOutcome>;
   submittedAtIso: string;
-  itemResults: QuestionSubmissionResult[];
-}
-
-export interface AssessmentAttemptRecord {
-  attemptId: string;
-  assessmentId: string;
-  assessmentType: 'topic' | 'module';
-  assessmentKind: 'topic' | 'module';
-  moduleId: string;
-  moduleNumber: number;
-  topicId?: string;
-  title: string;
-  timestampIso: string;
-  correctCount: number;
-  totalQuestions: number;
-  scorePercent: number;
-  exactPercentage: number;
-  displayPercentage: string;
-  passed: boolean;
-}
-
-export interface TopicOrModuleProgressEntry {
-  attemptsCount: number;
-  bestScorePercent: number;
-  passed: boolean;
-  lastAttemptIso: string | null;
-}
-
-export interface CourseProgressState {
-  schemaVersion: 2;
-  courseRevisionId: string;
-  createdAtIso: string;
-  updatedAtIso: string;
-  modules: Record<string, TopicOrModuleProgressEntry>;
-  topics: Record<string, TopicOrModuleProgressEntry>;
-  attemptHistory: AssessmentAttemptRecord[];
-}
-
-export interface ModuleCoverageReport {
-  moduleId: string;
-  moduleNumber: number;
-  title: string;
-  topicCount: number;
-  totalTopicQuestions: number;
-  moduleAssessmentQuestions: number;
-  topics: {
-    topicId: string;
-    code: string;
-    title: string;
-    topicQuestionCount: number;
-    moduleQuestionCount: number;
-    questionIds: string[];
-  }[];
 }

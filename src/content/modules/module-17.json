@@ -1,0 +1,925 @@
+{
+  "moduleNumber": 17,
+  "code": "MOD-17",
+  "title": "Design Detailing, Drawings and Construction Interface",
+  "shortTitle": "Detailing, Drawings & Interface",
+  "suggestedDuration": "2 to 4 weeks",
+  "yearPathway": "Year 1 & Year 2 Continuous",
+  "year1Months": "Year 2 Advanced Programme",
+  "whyItMatters": "Contractors do not build your calculations; they build your drawings and schedules. If a critical assumption in your calculation (such as a bracing bay, bearing length, or restraint) is missing from the drawings, it will not exist on site.",
+  "introduction": "General arrangement (GA) drawings, member schedules, connection and reinforcement detailing, tolerances, movement joints, erection sequence, temporary stability, RFIs, and making calculation assumptions come true on drawings.",
+  "objectives": [
+    "Read and produce clear General Arrangement (GA) drawings, steel/timber schedules, and RC bar bending/reinforcement details.",
+    "Detail realistic construction tolerances, minimum bearing lengths, movement joints, and safe erection sequences.",
+    "Manage architecture and MEP coordination interfaces (service penetrations, slab drops, facade brackets, RFIs, and hold points).",
+    "Audit drawings against calculations so that every assumed restraint, release, grade, and camber is explicitly communicated."
+  ],
+  "learningGate": "Audit a calculation against its drawing and confirm that every assumption in the calculation is made true by the drawing.",
+  "prerequisiteModuleNumbers": [
+    16
+  ],
+  "topics": [
+    {
+      "id": "MOD17-T1",
+      "moduleNumber": 17,
+      "code": "17.1",
+      "title": "GA Drawings, Member Schedules, Connection, Reinforcement & Timber Details",
+      "summary": "General Arrangement plans/sections/elevations, gridlines, levels (SSL vs FFL), steel connection coding, RC curtailment/lap detailing, and timber bearing/fastener notes.",
+      "subtopics": [
+        "GA clarity: Structural Slab Level (SSL) vs Finished Floor Level (FFL), grid dimensions, and stability bracing bays",
+        "Communicating connection forces (shear, axial tie force, moment) clearly to the steelwork fabricator",
+        "Reinforcement congestion prevention at beam-column junctions and cranked laps"
+      ],
+      "learningObjectives": [
+        "GA clarity: Structural Slab Level (SSL) vs Finished Floor Level (FFL), grid dimensions, and stability bracing bays",
+        "Communicating connection forces (shear, axial tie force, moment) clearly to the steelwork fabricator",
+        "Reinforcement congestion prevention at beam-column junctions and cranked laps"
+      ],
+      "futureExpansion": "Future expansion slot for BS 8666 reinforcement shape codes and SCI green-book connection force schedules.",
+      "questions": [
+        {
+          "id": "MOD17-T1-Q1",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T1",
+          "learningObjective": "Calculate Structural Slab Level (SSL) from Finished Floor Level (FFL) and screed/finish build-up.",
+          "type": "numeric",
+          "prompt": "An architectural drawing specifies First Floor Finished Floor Level (FFL) as +14.250 m AOD. If the floor finish and insulation/screed zone is 115 mm (0.115 m) thick above the structural concrete slab, calculate the top-of-concrete Structural Slab Level (SSL).",
+          "assumptions": "Use SSL = FFL - 0.115.",
+          "unit": "m AOD",
+          "correctAnswer": 14.135,
+          "tolerance": 0.002,
+          "explanation": "SSL = 14.250 - 0.115 = +14.135 m AOD. Step-by-step verification for \"Calculate Structural Slab Level (SSL) from Finished Floor Level (FFL) and screed/finish build-up.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 14.135 m AOD, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate Structural Slab Level (SSL) from Finished Floor Level (FFL) and screed/finish build-up.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: SSL = 14.250 - 0.115 = +14.135 m AOD. Express your final numeric answer in m AOD."
+          ],
+          "caseFamilyId": "MOD17-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T1-Q2",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T1",
+          "learningObjective": "Calculate Top of Steelwork (TOS) level beneath a composite deck.",
+          "type": "numeric",
+          "prompt": "The finished concrete top of a 130 mm deep composite metal deck slab is at +18.500 m AOD. If the steel beam top flange sits directly beneath the 130 mm slab (with zero haunch), calculate the Top of Steel (TOS) level.",
+          "assumptions": "Use TOS = 18.500 - 0.130.",
+          "unit": "m AOD",
+          "correctAnswer": 18.37,
+          "tolerance": 0.002,
+          "explanation": "TOS = 18.500 - 0.130 = +18.370 m AOD. Step-by-step verification for \"Calculate Top of Steelwork (TOS) level beneath a composite deck.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 18.37 m AOD, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate Top of Steelwork (TOS) level beneath a composite deck.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: TOS = 18.500 - 0.130 = +18.370 m AOD. Express your final numeric answer in m AOD."
+          ],
+          "caseFamilyId": "MOD17-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T1-Q3",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T1",
+          "learningObjective": "Check minimum structural robustness tie force communicated on a steel GA.",
+          "type": "numeric",
+          "prompt": "Under UK Building Regulations / Eurocode robustness rules, an internal floor beam must be tied for a minimum horizontal robustness tie force of 75 kN (or 0.5 * W_f if greater). If the beam’s factored ULS vertical end shear reaction is 180 kN and the tie requirement is 0.5 * 180 kN, calculate the axial tie force N_tie that must be stated on the connection schedule.",
+          "assumptions": "Use N_tie = 0.5 * 180 (since 90 kN > 75 kN).",
+          "unit": "kN",
+          "correctAnswer": 90,
+          "tolerance": 0.5,
+          "explanation": "N_tie = 0.5 * 180 = 90.0 kN (exceeding the 75 kN minimum). Step-by-step verification for \"Check minimum structural robustness tie force communicated on a steel GA.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 90 kN, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Check minimum structural robustness tie force communicated on a steel GA.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: N_tie = 0.5 * 180 = 90.0 kN (exceeding the 75 kN minimum). Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD17-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T1-Q4",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T1",
+          "learningObjective": "Identify why beam-column RC junctions fail buildability on site when top bars are in the same plane.",
+          "type": "mcq",
+          "prompt": "An orthogonal RC perimeter spandrel beam and an internal RC primary floor beam, both 500 mm deep with 30 mm nominal top cover, frame into a corner/edge column at 90° to one another. If both beams are detailed on the bar bending schedule with their top main bars at the identical vertical elevation (h - 35 mm), what happens on site during steel fixing?",
+          "assumptions": "Visualise two perpendicular layers of H25 bars trying to occupy the same space inside the column head.",
+          "options": [
+            "The two orthogonal layers of top bars clash physically inside the column cage; the steel fixer is forced to push one layer down (reducing effective depth d) or bend bars out of position",
+            "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material saf.",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-cent.",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexib."
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Orthogonal intersecting beams must be detailed with layered effective depths (e.g. d_1 and d_2 differed by one bar diameter) so bars pass cleanly over/under each other.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why beam-column RC junctions fail buildability on site when top bars are in the same plane.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD17-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T1-Q5",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T1",
+          "learningObjective": "Explain what happens if a calculation assumes a rigid moment connection, but the GA drawing shows no moment symbol or connection forces.",
+          "type": "mcq",
+          "prompt": "In the UK, steelwork fabricators typically design connections from the engineer’s GA drawings. What happens if your frame analysis relies on a rigid portal joint at Grid B3, but your GA drawing does not show a moment-connection symbol or state the design moment M_Ed?",
+          "assumptions": "Consider standard fabricator practice for unlabelled beam-to-column joints.",
+          "options": [
+            "The fabricator will automatically read the engineer’s mind and provide a full-strength haunched moment weld, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "The fabricator will detail a standard nominal simple shear connection (e.g. a fin plate or flexible end plate) that cannot resist the moment, invalidating the frame stability and deflection design",
+            "Simple fin plates can carry 500 kNm of moment without rotation",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Unless moment connections and their explicit M, V, N forces (or required rotational stiffness) are scheduled on the GA, the fabricator will provide a pinned simple connection.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain what happens if a calculation assumes a rigid moment connection, but the GA drawing shows no moment symbol or connection forces.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD17-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD17-T2",
+      "moduleNumber": 17,
+      "code": "17.2",
+      "title": "Tolerances, Bearings, Movement Joints, Erection Sequence & Temporary Stability",
+      "summary": "Precast and masonry bearing lengths after tolerances [UI1], lifting sling angle amplification [UI1], thermal/shrinkage movement joints, and temporary erection bracing.",
+      "subtopics": [
+        "Effective bearing length: deducting spalling distance and setting-out/manufacturing tolerances from nominal bearing",
+        "Lifting and handling checks [UI1]: sling angle factor 1/cos(theta), dynamic amplification factor, and early-age strength",
+        "Erection sequence: why an unbraced steel or precast frame is unstable until the stability core/bracing bay is erected first"
+      ],
+      "learningObjectives": [
+        "Effective bearing length: deducting spalling distance and setting-out/manufacturing tolerances from nominal bearing",
+        "Lifting and handling checks [UI1]: sling angle factor 1/cos(theta), dynamic amplification factor, and early-age strength",
+        "Erection sequence: why an unbraced steel or precast frame is unstable until the stability core/bracing bay is erected first"
+      ],
+      "futureExpansion": "Future expansion slot for BS 5606 / National Structural Steelwork Specification (NSSS) tolerance tables and EC2 Clause 10.9.5.2 precast bearing design.",
+      "questions": [
+        {
+          "id": "MOD17-T2-Q1",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T2",
+          "learningObjective": "Calculate net effective bearing length of a precast concrete floor plank after tolerances ([UI1]).",
+          "type": "numeric",
+          "prompt": "A precast hollowcore floor plank is detailed with a nominal bearing length a_nom = 100 mm on a supporting steel shelf angle. After deducting 15 mm for edge spalling/chamfer at the support and 20 mm for combined construction setting-out and plank length tolerances, calculate the net effective bearing length a_eff remaining to carry the bearing stress.",
+          "assumptions": "Use a_eff = 100 - 15 - 20.",
+          "unit": "mm",
+          "correctAnswer": 65,
+          "tolerance": 0.5,
+          "explanation": "a_eff = 100 - 15 - 20 = 65.0 mm (highlighting why tiny 50 mm nominal bearings on site can leave almost zero effective bearing after realistic tolerances!).",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate net effective bearing length of a precast concrete floor plank after tolerances ([UI1]).\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: a_eff = 100 - 15 - 20 = 65.0 mm (highlighting why tiny 50 mm nominal bearings on site can leave almost zero effective bearing after realistic tolerances!).. Express your final numeric answer in mm."
+          ],
+          "caseFamilyId": "MOD17-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T2-Q2",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T2",
+          "learningObjective": "Calculate lifting sling tension amplification due to sling angle ([UI1]).",
+          "type": "numeric",
+          "prompt": "A precast concrete beam of mass 6.0 tonnes (static weight W = 60 kN) is lifted by a two-leg crane chain sling with a dynamic lifting amplification factor psi_dyn = 1.30 (total factored vertical lift load = 78 kN). Each of the two sling legs is inclined at 60 degrees to the vertical (so cos 60 deg = 0.50). Calculate the axial tension force T in EACH sling leg.",
+          "assumptions": "Vertical share per leg = 78 / 2 = 39 kN; divide by cos(60 deg) = 0.50.",
+          "unit": "kN",
+          "correctAnswer": 78,
+          "tolerance": 0.5,
+          "explanation": "Factored vertical load per leg = (60 * 1.30) / 2 = 39.0 kN. Sling tension T = 39.0 / cos(60 deg) = 39.0 / 0.50 = 78.0 kN (at 60 deg from vertical, each sling leg carries the ENTIRE factored weight of the unit, and induces a horizontal compression force of 39*tan(60)=67.5 kN into the beam!).",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate lifting sling tension amplification due to sling angle ([UI1]).\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Factored vertical load per leg = (60 * 1.30) / 2 = ?. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD17-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T2-Q3",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T2",
+          "learningObjective": "Calculate unrestrained thermal expansion over a long steel roof run.",
+          "type": "numeric",
+          "prompt": "A 60 m long steel roof structure experiences a seasonal temperature range delta_T = 40 degC. Taking the coefficient of linear thermal expansion of steel as alpha = 12 x 10^-6 /degC, calculate the free horizontal thermal movement delta_L (in mm).",
+          "assumptions": "Use delta_L = alpha * L * delta_T.",
+          "unit": "mm",
+          "correctAnswer": 28.8,
+          "tolerance": 0.2,
+          "explanation": "delta_L = 12e-6 * 60,000 mm * 40 = 28.8 mm. Step-by-step verification for \"Calculate unrestrained thermal expansion over a long steel roof run.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 28.8 mm, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate unrestrained thermal expansion over a long steel roof run.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: delta_L = 12e-6 * 60,000 mm * 40 = ?. Express your final numeric answer in mm."
+          ],
+          "caseFamilyId": "MOD17-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T2-Q4",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T2",
+          "learningObjective": "Explain why the permanent stability system is often not active during erection.",
+          "type": "mcq",
+          "prompt": "A 4-storey steel frame relies on a composite concrete floor diaphragm to transfer wind loads horizontally to an RC lift core at one end of the building. Why is the bare steelwork frame at risk of collapse during erection before the concrete floor slabs are poured?",
+          "assumptions": "Trace the horizontal wind load path when only bare steel beams and ungrouted metal decking exist.",
+          "options": [
+            "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+            "A single holding-down bolt per column makes a 4-storey frame fully fixed",
+            "Before the concrete is poured and cured (or before decking is fully shear-stud welded/fixed as a diaphragm), there is no rigid floor diaphragm to connect the remote steel bays to the core; temporary plan bracing and erection guys/braced bays are required",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Every stage of erection must have a complete, self-stable 3D load path. Erection should start from a braced stability bay, with temporary plan/vertical bracing until permanent diaphragms are active.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why the permanent stability system is often not active during erection.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD17-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T2-Q5",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T2",
+          "learningObjective": "Identify the cantilever overhang hazard when lifting a precast beam inward from its ends ([UI1]).",
+          "type": "mcq",
+          "prompt": "A precast beam designed only as a simply supported sagging member (with heavy bottom steel and minimal nominal top steel) is lifted on site using two crane lifting points located 2.0 m inboard from each end. What structural hazard must be checked?",
+          "assumptions": "Draw the bending moment diagram during lifting.",
+          "options": [
+            "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "The 2.0 m overhanging ends act as cantilevers under self-weight (and dynamic jerk), inducing top-face hogging tension when the precast concrete is still at early age"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Lifting points inboard from the ends change the static scheme from a single span to a double-cantilevered beam, putting the top face into hogging tension at early concrete age.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the cantilever overhang hazard when lifting a precast beam inward from its ends ([UI1]).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD17-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD17-T3",
+      "moduleNumber": 17,
+      "code": "17.3",
+      "title": "Architecture/MEP Interfaces, RFIs, Design Changes, Hold Points & Drawing Audit",
+      "summary": "Service penetrations through beams and slabs, facade bracket eccentricities, RFI handling, temporary works Hold Points (Permit to Load / Strike), and calculation-to-drawing audits.",
+      "subtopics": [
+        "MEP penetrations: why web holes near supports (high shear) are far more critical than small holes at midspan (low shear, near neutral axis)",
+        "Technical RFIs and Site Non-Conformances (NCRs): re-checking load path impact before approving site variations",
+        "Construction Hold Points: reinforcement inspection before pour, cube strength before striking, and temporary works sign-off"
+      ],
+      "learningObjectives": [
+        "MEP penetrations: why web holes near supports (high shear) are far more critical than small holes at midspan (low shear, near neutral axis)",
+        "Technical RFIs and Site Non-Conformances (NCRs): re-checking load path impact before approving site variations",
+        "Construction Hold Points: reinforcement inspection before pour, cube strength before striking, and temporary works sign-off"
+      ],
+      "futureExpansion": "Future expansion slot for SCI P355 web openings in composite beams and trimmers around slab risers.",
+      "questions": [
+        {
+          "id": "MOD17-T3-Q1",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T3",
+          "learningObjective": "Evaluate remaining shear area of a steel beam web pierced by an unreinforced circular MEP duct hole.",
+          "type": "numeric",
+          "prompt": "A UB section has web thickness t_w = 10.0 mm and overall depth between fillets d_w = 450 mm (gross web shear area = 4500 mm^2). If an MEP contractor proposes cutting a 200 mm diameter circular duct opening through the web, calculate the net vertical web shear area A_v,net remaining at the centreline of the hole.",
+          "assumptions": "Use A_v,net = (d_w - D_hole) * t_w.",
+          "unit": "mm^2",
+          "correctAnswer": 2500,
+          "tolerance": 10,
+          "explanation": "A_v,net = (450 - 200) * 10.0 = 2500 mm^2 (a 44.4% loss of shear area, plus secondary Vierendeel bending across the top and bottom tees of the opening!).",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Evaluate remaining shear area of a steel beam web pierced by an unreinforced circular MEP duct hole.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: A_v,net = (450 - 200) * 10.0 = 2500 mm^2 (a 44.4% loss of shear area, plus secondary Vierendeel bending across the top and bottom tees of the opening!).. Express your final numeric answer in mm^2."
+          ],
+          "caseFamilyId": "MOD17-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T3-Q2",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T3",
+          "learningObjective": "Calculate torsional moment induced on a perimeter spandrel beam by an eccentric facade brick-support bracket.",
+          "type": "numeric",
+          "prompt": "Heavy masonry cladding weighing w_facade = 14 kN/m is supported on an outrigged bracket at a horizontal eccentricity e = 250 mm (0.25 m) from the shear centre of a perimeter steel edge beam. Calculate the uniform torque t_Ed (in kNm/m) applied along the perimeter beam.",
+          "assumptions": "Use t_Ed = w_facade * e.",
+          "unit": "kNm/m",
+          "correctAnswer": 3.5,
+          "tolerance": 0.05,
+          "explanation": "t_Ed = 14 kN/m * 0.25 m = 3.50 kNm/m (open I-sections are weak in torsion and will twist severely unless restrained by the floor slab or detailed with a closed RHS/kick-brace back to the soffit!).",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate torsional moment induced on a perimeter spandrel beam by an eccentric facade brick-support bracket.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: t_Ed = 14 kN/m * 0.25 m = 3.50 kNm/m (open I-sections are weak in torsion and will twist severely unless restrained by the floor slab or detailed with a closed RHS/kick-brace back to the soffit!).. Express your final numeric answer in kNm/m."
+          ],
+          "caseFamilyId": "MOD17-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T3-Q3",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T3",
+          "learningObjective": "Determine the safest location for a small unreinforced service hole in a simply supported beam web.",
+          "type": "mcq",
+          "prompt": "If an MEP pipe must pass through the web of a simply supported uniformly loaded beam, where along the span and depth is the least damaging location?",
+          "assumptions": "Consider where shear force V(x) is lowest and where bending normal stress sigma(y) is near zero.",
+          "options": [
+            "Near midspan (where vertical shear force V is near zero) and on the mid-depth neutral axis (where longitudinal bending stress is near zero)",
+            "Right next to the support bearing (maximum shear) and cut through the bottom tension flange (maximum tension)",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational.",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at."
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "At midspan of a UDL-loaded beam, shear V is minimal (limiting Vierendeel bending across the opening), and at mid-depth along the neutral axis, bending strains are minimal.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Determine the safest location for a small unreinforced service hole in a simply supported beam web.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD17-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T3-Q4",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T3",
+          "learningObjective": "Evaluate a site RFI requesting a late slab opening right next to a flat-slab column.",
+          "type": "mcq",
+          "prompt": "During site construction, the M&E contractor submits an RFI asking to form a 400 mm x 400 mm vertical drainage riser opening immediately against the face of an internal RC flat-slab column. Why must the structural engineer refuse or redesign this location?",
+          "assumptions": "Consider the basic punching shear perimeter u_0 and u_1 around a flat-slab column.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "An opening directly against the column face cuts away a large sector of the critical punching shear perimeter, drastically reducing punching shear capacity and risking sudden brittle slab collapse",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Openings within 6d of a flat-slab column project radially to reduce the effective control perimeter u_1 and amplify unbalanced moment transfer. Engineering synthesis for \"Evaluate a site RFI requesting a late slab opening right next to a flat-slab column.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Evaluate a site RFI requesting a late slab opening right next to a flat-slab column.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD17-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD17-T3-Q5",
+          "moduleNumber": 17,
+          "topicId": "MOD17-T3",
+          "learningObjective": "Define the purpose of a formal Construction Hold Point on a structural drawing.",
+          "type": "mcq",
+          "prompt": "What is a \"Hold Point\" on a structural or temporary works drawing (for example: \"HOLD POINT: Do not tension anchors / strike falsework until concrete cube strength >= 25 MPa is verified by the TWC\")?",
+          "assumptions": "Consider quality assurance and safety-critical sequencing.",
+          "options": [
+            "A suggestion that the contractor can ignore if behind programme, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "A mandatory stage in construction beyond which work must not proceed without documented inspection, test verification, or written sign-off by the designated competent person",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Hold points prevent safety-critical irreversible actions (pouring concrete over uninspected rebar, striking props on green concrete, cutting a loadbearing wall before needles are jacked) until verified.",
+          "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Define the purpose of a formal Construction Hold Point on a structural drawing.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD17-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "EX-17.1",
+      "title": "Exercise 17.1: Calculation-to-Drawing Audit & Precast/Lifting Interface Check ([UI1])",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "Civil Engineering Syllabus (Modules 0 to 19)"
+  ],
+  "standardsNotice": "Verify all clauses, partial factors, and National Annex parameters against controlled reference standards before engineering application.",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD17-E01",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T1",
+      "learningObjective": "Calculate underside of steel baseplate (grout pocket top) level from column schedule.",
+      "type": "numeric",
+      "prompt": "Top of foundation concrete pad is at +9.450 m AOD. If a 50 mm nominal non-shrink grout bed is specified beneath the column baseplate, what is the Underside of Baseplate (USB) level?",
+      "assumptions": "Use USB = 9.450 + 0.050.",
+      "unit": "m AOD",
+      "correctAnswer": 9.5,
+      "tolerance": 0.002,
+      "explanation": "USB = 9.450 + 0.050 = +9.500 m AOD. Step-by-step verification for \"Calculate underside of steel baseplate (grout pocket top) level from column schedule.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 9.5 m AOD, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate underside of steel baseplate (grout pocket top) level from column schedule.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: USB = 9.450 + 0.050 = +9.500 m AOD. Express your final numeric answer in m AOD."
+      ],
+      "caseFamilyId": "MOD17-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E02",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T1",
+      "learningObjective": "Calculate total length of an L-bar (Shape Code 11) reinforcement bar approximation.",
+      "type": "numeric",
+      "prompt": "A simplified preliminary bar estimate adds legs A = 600 mm and B = 2400 mm (ignoring bend deduction). Calculate the approximate cut length A + B.",
+      "assumptions": "Sum 600 + 2400.",
+      "unit": "mm",
+      "correctAnswer": 3000,
+      "tolerance": 5,
+      "explanation": "Approximate length = 600 + 2400 = 3000 mm. Step-by-step verification for \"Calculate total length of an L-bar (Shape Code 11) reinforcement bar approximation.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3000 mm, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate total length of an L-bar (Shape Code 11) reinforcement bar approximation.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Approximate length = 600 + 2400 = ?. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD17-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E03",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T1",
+      "learningObjective": "Check clear spacing between parallel reinforcing bars in a beam.",
+      "type": "numeric",
+      "prompt": "A 300 mm wide RC beam has 35 mm nominal cover to 10 mm links on both sides, and contains 4 main H25 bars in a single horizontal layer. Calculate the clear horizontal gap s_clear between adjacent H25 bars.",
+      "assumptions": "Internal width inside links = 300 - 2*(35 + 10) = 210 mm; subtract 4*25 = 100 mm; divide by 3 gaps.",
+      "unit": "mm",
+      "correctAnswer": 36.7,
+      "tolerance": 0.5,
+      "explanation": "Width inside links = 300 - 90 = 210 mm. Remaining space after 4*25 mm bars = 210 - 100 = 110 mm. Across 3 gaps, s_clear = 110 / 3 = 36.7 mm (which exceeds max(d_bar=25, d_g+5=25, 20 mm), so concrete can be compacted cleanly!).",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Check clear spacing between parallel reinforcing bars in a beam.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Width inside links = 300 - 90 = ?. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD17-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E04",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T2",
+      "learningObjective": "Calculate net effective bearing length of a steel beam on a masonry padstone.",
+      "type": "numeric",
+      "prompt": "A steel beam has a nominal seating length of 150 mm on a concrete padstone. After deducting a 20 mm front edge chamfer/spalling allowance and a 15 mm erection tolerance, calculate the net effective bearing length.",
+      "assumptions": "Use a_eff = 150 - 20 - 15.",
+      "unit": "mm",
+      "correctAnswer": 115,
+      "tolerance": 0.5,
+      "explanation": "a_eff = 150 - 20 - 15 = 115.0 mm. Step-by-step verification for \"Calculate net effective bearing length of a steel beam on a masonry padstone.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 115 mm, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate net effective bearing length of a steel beam on a masonry padstone.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: a_eff = 150 - 20 - 15 = ?. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD17-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E05",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T2",
+      "learningObjective": "Calculate horizontal compression induced in a lifted precast unit by inclined slings ([UI1]).",
+      "type": "numeric",
+      "prompt": "A precast lintel is lifted by a two-leg sling where each leg carries a vertical load component V_leg = 25 kN at an angle of 45 degrees to the vertical (tan 45 deg = 1.0). Calculate the horizontal compression force H_comp = V_leg * tan(45 deg) induced into the precast unit between the lifting hooks.",
+      "assumptions": "Use H_comp = 25 * 1.0.",
+      "unit": "kN",
+      "correctAnswer": 25,
+      "tolerance": 0.2,
+      "explanation": "H_comp = 25 * tan(45 deg) = 25.0 kN (which is why spreader beams are used when slender units cannot resist sling-induced compression!). Step-by-step verification for \"Calculate horizontal compression induced in a lifted precast unit by inclined slings ([UI1]).\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 25 kN, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate horizontal compression induced in a lifted precast unit by inclined slings ([UI1]).\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: H_comp = 25 * tan(45 deg) = 25.0 kN (which is why spreader beams are used when slender units cannot resist sling-induced compression!). Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD17-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E06",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T2",
+      "learningObjective": "Calculate crane radius overturning moment check awareness ([UI1]).",
+      "type": "numeric",
+      "prompt": "A mobile crane lifts a total hook load (precast unit + rigging + hook block) of W = 80 kN at a horizontal operating radius R = 18.0 m from the crane slewing centre. Calculate the gross load moment M_load = W * R.",
+      "assumptions": "Use M_load = 80 * 18.0.",
+      "unit": "kNm",
+      "correctAnswer": 1440,
+      "tolerance": 5,
+      "explanation": "M_load = 80 kN * 18.0 m = 1440.0 kNm. Step-by-step verification for \"Calculate crane radius overturning moment check awareness ([UI1]).\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1440 kNm, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate crane radius overturning moment check awareness ([UI1]).\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_load = 80 kN * 18.0 m = ?. Express your final numeric answer in kNm."
+      ],
+      "caseFamilyId": "MOD17-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E07",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T2",
+      "learningObjective": "Calculate maximum outrigger mat ground bearing pressure under a crane outrigger ([UI1]).",
+      "type": "numeric",
+      "prompt": "During a heavy lift, the maximum vertical reaction on a single crane outrigger jack is P_jack = 360 kN. If the outrigger sits on a stiff timber/steel spreader mat of plan dimensions 1.5 m x 1.5 m (area A = 2.25 m^2) distributing load uniformly, calculate the ground bearing pressure q_mat.",
+      "assumptions": "Use q_mat = 360 / 2.25.",
+      "unit": "kPa",
+      "correctAnswer": 160,
+      "tolerance": 1,
+      "explanation": "q_mat = 360 kN / 2.25 m^2 = 160.0 kPa. Step-by-step verification for \"Calculate maximum outrigger mat ground bearing pressure under a crane outrigger ([UI1]).\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 160 kPa, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum outrigger mat ground bearing pressure under a crane outrigger ([UI1]).\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: q_mat = 360 kN / 2.25 m^2 = ?. Express your final numeric answer in kPa."
+      ],
+      "caseFamilyId": "MOD17-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E08",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T3",
+      "learningObjective": "Calculate secondary Vierendeel shear moment across a rectangular web opening.",
+      "type": "numeric",
+      "prompt": "A rectangular service opening of length L_o = 400 mm (0.40 m) is cut at the mid-depth of a steel beam web where the global vertical shear force is V_Ed = 90 kN. Assuming the top and bottom tees share the shear equally and points of contraflexure occur at mid-length of the opening, calculate the total secondary Vierendeel moment M_vier = V_Ed * (L_o / 2) developed across the opening ends.",
+      "assumptions": "Use M_vier = 90 * 0.20.",
+      "unit": "kNm",
+      "correctAnswer": 18,
+      "tolerance": 0.2,
+      "explanation": "Each tee carries V_Ed / 2 = 45 kN over lever arm L_o / 2 = 0.20 m (giving 9.0 kNm per tee, or 18.0 kNm total Vierendeel moment across the opening ends).",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate secondary Vierendeel shear moment across a rectangular web opening.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Each tee carries V_Ed / 2 = 45 kN over lever arm L_o / 2 = 0.20 m (giving 9.0 kNm per tee, or 18.0 kNm total Vierendeel moment across the opening ends).. Express your final numeric answer in kNm."
+      ],
+      "caseFamilyId": "MOD17-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E09",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T3",
+      "learningObjective": "Calculate reduction in punching shear perimeter due to a service opening near a column.",
+      "type": "numeric",
+      "prompt": "An internal column has a basic control perimeter u_1 = 4200 mm. A service opening near the column subtends a radial projection width of 550 mm across the control perimeter. Calculate the reduced effective control perimeter u_1,red.",
+      "assumptions": "Use u_1,red = 4200 - 550.",
+      "unit": "mm",
+      "correctAnswer": 3650,
+      "tolerance": 5,
+      "explanation": "u_1,red = 4200 - 550 = 3650 mm. Step-by-step verification for \"Calculate reduction in punching shear perimeter due to a service opening near a column.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3650 mm, and cross-check the magnitude and sign against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate reduction in punching shear perimeter due to a service opening near a column.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: u_1,red = 4200 - 550 = ?. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD17-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E10",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T1",
+      "learningObjective": "Explain why pre-cambering must be clearly specified with direction and stage on steel drawings.",
+      "type": "mcq",
+      "prompt": "A long-span composite steel floor beam is designed with a 35 mm upward workshop pre-camber to offset wet-concrete dead-load deflection. What happens if the drawing fails to state that the 35 mm is an UPWARD fabrication camber prior to pouring concrete?",
+      "assumptions": "Consider misinterpretation in the workshop or on site.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "The beam could be omitted from cambering (leaving a 35 mm ponding dip in the floor), installed upside-down, or concreted to a constant thickness vs constant level without coordination"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Pre-camber notes must explicitly state upward camber magnitude at midspan, datum condition (unloaded in shop), and whether concrete is poured to constant slab thickness or laser-levelled datum.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why pre-cambering must be clearly specified with direction and stage on steel drawings.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E11",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T1",
+      "learningObjective": "Identify why slotted holes in bracing or movement connections need explicit bolt-tightening notes.",
+      "type": "mcq",
+      "prompt": "An expansion joint on a drawing shows \"M20 bolts in 22 x 40 mm long slotted holes to allow thermal movement\". What critical installation note must accompany this detail?",
+      "assumptions": "Consider what happens if a site erector torques a high-strength bolt fully tight across a movement slot.",
+      "options": [
+        "A note specifying shoulder bolts / locknuts or \"tighten to snug and back off half a turn / threads burred\" with low-friction washers so the joint can actually slide instead of being clamped solid",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factor.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load in.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, lon."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "If a sliding movement joint is fully torqued or painted/welded shut on site, thermal movement is locked up and induces large unintended horizontal forces.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why slotted holes in bracing or movement connections need explicit bolt-tightening notes.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E12",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T2",
+      "learningObjective": "Explain why precast concrete stairs and hollowcore units often require temporary propping or sequence notes.",
+      "type": "mcq",
+      "prompt": "A precast concrete stair flight or landing is detailed to bear onto an in-situ concrete edge strip or grouted dowel joint. Why must the drawing identify temporary propping requirements until the grout/in-situ stitch reaches specified strength?",
+      "assumptions": "Compare dry erection state vs composite permanent state.",
+      "options": [
+        "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "During initial crane placement, dry ungrouted bearings or wet stitch joints have zero tensile/rotational capacity and reduced bearing area until the structural grout/concrete cures",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Temporary works propping must support precast elements whose permanent load path relies on wet in-situ stitches or cured structural mortar beds. Engineering synthesis for \"Explain why precast concrete stairs and hollowcore units often require temporary propping or sequence notes.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why precast concrete stairs and hollowcore units often require temporary propping or sequence notes.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E13",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T2",
+      "learningObjective": "Identify the hazard of placing crane outriggers directly above buried drainage or basement vaults ([UI1]).",
+      "type": "mcq",
+      "prompt": "Before approving a mobile crane lifting plan on a congested urban site, why must the engineer check for buried cellars, brick arches, manholes, and shallow utility trenches beneath the proposed outrigger positions?",
+      "assumptions": "Consider concentrated outrigger load vs shallow underground voids.",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "A single crane outrigger can apply 200 to 800+ kN; punching through an unrecorded cellar vault or collapsing a shallow trench causes immediate crane overturning",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Outrigger punching into buried voids/services is one of the primary causes of catastrophic mobile crane overturning. Engineering synthesis for \"Identify the hazard of placing crane outriggers directly above buried drainage or basement vaults ([UI1]).\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the hazard of placing crane outriggers directly above buried drainage or basement vaults ([UI1]).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E14",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T2",
+      "learningObjective": "Explain why erection of a braced steel building must begin at a braced bay.",
+      "type": "mcq",
+      "prompt": "Why do the National Structural Steelwork Specification and safe erection method statements require steel erection to start by assembling and plumbing a fully braced box bay first?",
+      "assumptions": "Consider 3D stability of columns on two/four holding-down bolts.",
+      "options": [
+        "Because cranes can only lift diagonal members on Monday, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Individual columns on nominal holding-down bolts have minimal overturning resistance; assembling a complete braced box bay creates a stable 3D nucleus from which subsequent bays can be tied and stabilised progressively"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "A completed braced box bay provides an immediately stable 3D reference structure to restrain progressive erection. Engineering synthesis for \"Explain why erection of a braced steel building must begin at a braced bay.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why erection of a braced steel building must begin at a braced bay.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E15",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T3",
+      "learningObjective": "Explain how an unscheduled full-height brick infill wall can alter the behaviour of a concrete or steel frame.",
+      "type": "mcq",
+      "prompt": "The structural engineer designs a moment-resisting frame assuming lightweight flexible partitions. On site, the contractor builds stiff full-height solid masonry blockwork walls tight up to the column faces, leaving only a 600 mm high strip window at the top of one column. What structural hazard does this create?",
+      "assumptions": "Consider the \"captive short column\" effect.",
+      "options": [
+        "The stiff masonry wall restrains the lower part of the column, turning the top 600 mm window zone into a very stiff \"short column\" that attracts huge lateral shear forces and can fail in brittle shear",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, se.",
+        "The masonry wall removes all gravity load from the foundation",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-ter."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Tight masonry infills alter frame stiffness distribution; partial-height infills create captive short columns with high shear demand unless isolated by movement gaps and flexible head restraints.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain how an unscheduled full-height brick infill wall can alter the behaviour of a concrete or steel frame.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E16",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T3",
+      "learningObjective": "Identify the correct engineering response when a site contractor reports that holding-down bolts are cast 45 mm out of position.",
+      "type": "mcq",
+      "prompt": "On site, the concrete subcontractor casts a group of four M24 holding-down bolts 45 mm eccentric to the column gridline. The steel erector asks permission to flame-cut a 60 mm oversized slot in the baseplate on site with no washer plate. What should the engineer do?",
+      "assumptions": "Follow formal NCR/RFI engineering review principles.",
+      "options": [
+        "Verbally approve burning away half the baseplate over the phone without calculations, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Stop the unapproved flame-cutting, request an accurate as-built survey of all bolts, and check the eccentric bending/bearing on the baseplate and foundation before issuing a designed remedial detail (e.g. welded structural plate washer, enlarged baseplate, or tested post-installed anchors)",
+        "Tell the erector to bend the M24 bolts by 45 mm with a sledgehammer",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Site non-conformances require an accurate survey, a structural check of the eccentric load path, and a formally detailed remedial solution. Engineering synthesis for \"Identify the correct engineering response when a site contractor reports that holding-down bolts are cast 45 mm out of position.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the correct engineering response when a site contractor reports that holding-down bolts are cast 45 mm out of position.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E17",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T1",
+      "learningObjective": "Verify timber truss and joist hanger nail population notes on drawings.",
+      "type": "mcq",
+      "prompt": "Why must a timber engineering drawing explicitly state \"Fill ALL round holes in joist hangers with specified 30 x 3.75 mm square-twist sherardised connector nails\" rather than just saying \"Fix with joist hanger\"?",
+      "assumptions": "Consider how proprietary hanger capacity is tested and rated.",
+      "options": [
+        "Four plasterboard screws are stronger than 24 connector nails",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "Proprietary joist hangers only achieve their published characteristic capacity when every designated nail hole is filled with the exact nail diameter, length, and corrosion coating tested by the manufacturer",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Using drywall screws or filling only half the holes in a timber hanger invalidates its tested shear capacity. Engineering synthesis for \"Verify timber truss and joist hanger nail population notes on drawings.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify timber truss and joist hanger nail population notes on drawings.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E18",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T2",
+      "learningObjective": "Explain why long masonry walls require vertical movement joints.",
+      "type": "mcq",
+      "prompt": "Why are vertical movement joints (with debonded shear ties across the joint) detailed at regular intervals (e.g. every 6 m to 12 m depending on clay vs calcium silicate/concrete blockwork) in long masonry walls?",
+      "assumptions": "Consider irreversible moisture expansion of clay brick vs drying shrinkage of concrete blockwork.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "To accommodate thermal and moisture expansion/shrinkage without inducing tensile or compressive restraint stresses that crack the wall, while debonded ties maintain out-of-plane lateral continuity"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Movement joints relieve in-plane restraint strains while sleeved/debonded flat ties preserve out-of-plane wind stability across the joint. Engineering synthesis for \"Explain why long masonry walls require vertical movement joints.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-8:2005 (Steel Joints), BS EN 1992-1-1 Cl. 9 (RC Detailing) & UK Building Regs Part A.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why long masonry walls require vertical movement joints.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E19",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T3",
+      "learningObjective": "Verify restraint assumptions for compression flanges in roof purlin details.",
+      "type": "mcq",
+      "prompt": "A portal frame rafter calculation assumes the bottom flange (which is in compression under wind uplift or near the eaves haunch) is laterally restrained at 1.8 m centres. What must be shown on the structural drawings to make this calculation assumption true?",
+      "assumptions": "Look at the physical connection between top-flange purlins and the bottom flange of a deep rafter.",
+      "options": [
+        "Diagonal knee braces (stays) bolted from the purlins down to the bottom flange of the rafter at the exact braced locations assumed in the calculation",
+        "Nothing; top-flange purlins automatically restrain a bottom flange 600 mm below them without stays, assuming that by applying the unfactor.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Purlins sit on the top flange; to restrain the bottom compression flange against lateral-torsional buckling, diagonal knee stays from the purlins to the bottom flange must be explicitly detailed on the drawings.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify restraint assumptions for compression flanges in roof purlin details.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD17-E20",
+      "moduleNumber": 17,
+      "topicId": "MOD17-T3",
+      "learningObjective": "Pass the Module 17 Learning Gate: Audit a calculation against its drawing.",
+      "type": "mcq",
+      "prompt": "What is the golden rule of the Module 17 Learning Gate when auditing a calculation package against the issue drawings?",
+      "assumptions": "Synthesise calculation-to-drawing fidelity.",
+      "options": [
+        "Calculations and drawings are produced by different people and never need to match, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Every engineering assumption made in the calculation (material grades, section sizes, restraint spacings, connection fixity/releases, bearing lengths, sequence hold points, and foundation strata) must be explicitly made true by the drawings and specifications",
+        "If a restraint is assumed in the software, the contractor will guess where it goes",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "A calculation is only valid for the structure shown on the drawings. Auditing ensures complete alignment between analytical assumptions and built reality.",
+      "citation": "IStructE Standard Method of Detailing Structural Concrete & CDM 2015",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 17 Learning Gate: Audit a calculation against its drawing.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD17-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}

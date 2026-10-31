@@ -1,0 +1,925 @@
+{
+  "moduleNumber": 15,
+  "code": "MOD-15",
+  "title": "Structural Analysis Beyond Simple Beams",
+  "shortTitle": "Advanced Structural Analysis",
+  "suggestedDuration": "2 to 4 weeks",
+  "yearPathway": "Year 2",
+  "year1Months": "Year 2 Advanced Programme",
+  "whyItMatters": "Real buildings involve frames, trusses, continuous members, and moving loads. Even when software is used, an engineer must understand how stiffness attracts load and how to bound any indeterminate structure using pinned vs fixed hand models.",
+  "introduction": "Determinate trusses, plane frames, three-pinned arches, indeterminate continuous beams, relative stiffness distribution, moment redistribution, influence lines, and hand bounds for software validation.",
+  "objectives": [
+    "Solve axial forces in determinate trusses (method of joints and method of sections) and bending in plane frames and three-pinned arches.",
+    "Explain static indeterminacy, compatibility of deformations, and how relative flexural stiffness (EI/L) governs moment distribution.",
+    "Apply moment redistribution concepts and qualitative influence lines to find worst-case pattern loading.",
+    "Bound indeterminate member forces between simply supported (wL^2/8) and fully fixed-end (wL^2/12 hogging, wL^2/24 sagging) hand limits."
+  ],
+  "learningGate": "Predict qualitative deflected shapes and moment diagrams before running software.",
+  "prerequisiteModuleNumbers": [
+    14
+  ],
+  "topics": [
+    {
+      "id": "MOD15-T1",
+      "moduleNumber": 15,
+      "code": "15.1",
+      "title": "Determinate Trusses, Plane Frames, Portal Frames & Arches",
+      "summary": "Method of joints, method of sections, zero-force members, plane frame moment diagrams, and three-pinned arches/portals (H = wL^2 / 8f).",
+      "subtopics": [
+        "Truss analysis: method of joints (2 equations per pin) and method of sections (3 equations per cut)",
+        "Zero-force member rules at two-member and three-member unloaded joints",
+        "Three-pinned arch/portal horizontal thrust H using M_crown = 0"
+      ],
+      "learningObjectives": [
+        "Truss analysis: method of joints (2 equations per pin) and method of sections (3 equations per cut)",
+        "Zero-force member rules at two-member and three-member unloaded joints",
+        "Three-pinned arch/portal horizontal thrust H using M_crown = 0"
+      ],
+      "futureExpansion": "Future expansion slot for Space trusses and virtual work truss deflection calculation (sum(N * n * L / EA)).",
+      "questions": [
+        {
+          "id": "MOD15-T1-Q1",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T1",
+          "learningObjective": "Calculate top chord force in a parallel-chord truss using the Method of Sections.",
+          "type": "numeric",
+          "prompt": "A simply supported parallel-chord truss of span L = 12 m and truss depth h = 2.0 m carries a uniform equivalent load such that the global bending moment at midspan is M_mid = 180 kNm. Using a vertical section cut at midspan, calculate the magnitude of the axial compression force in the top chord.",
+          "assumptions": "Use F_chord = M_mid / h.",
+          "unit": "kN",
+          "correctAnswer": 90,
+          "tolerance": 0.5,
+          "explanation": "Taking moments about the bottom chord node at midspan: F_top * h = M_mid => F_top = 180 / 2.0 = 90.0 kN (compression). Step-by-step verification for \"Calculate top chord force in a parallel-chord truss using the Method of Sections.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 90 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate top chord force in a parallel-chord truss using the Method of Sections.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Taking moments about the bottom chord node at midspan: F_top * h = M_mid => F_top = 180 / 2.0 = 90.0 kN (compression). Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD15-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T1-Q2",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T1",
+          "learningObjective": "Calculate web diagonal force from panel vertical shear in a parallel-chord truss.",
+          "type": "numeric",
+          "prompt": "In a parallel-chord truss of depth h = 2.0 m and panel length p = 2.0 m (so diagonals are at 45 deg, sin 45 deg = 0.7071), the vertical shear force in the panel is V = 50 kN. Calculate the axial force magnitude in the 45-degree web diagonal.",
+          "assumptions": "Use F_diag = V / sin(45 deg).",
+          "unit": "kN",
+          "correctAnswer": 70.7,
+          "tolerance": 0.5,
+          "explanation": "Vertical equilibrium across the cut: F_diag * sin(45 deg) = V => F_diag = 50 / 0.7071 = 70.71 kN. Step-by-step verification for \"Calculate web diagonal force from panel vertical shear in a parallel-chord truss.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 70.7 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate web diagonal force from panel vertical shear in a parallel-chord truss.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Vertical equilibrium across the cut: F_diag * sin(45 deg) = V => F_diag = 50 / 0.7071 = ?. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD15-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T1-Q3",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T1",
+          "learningObjective": "Calculate horizontal support thrust in a symmetrical three-pinned arch.",
+          "type": "numeric",
+          "prompt": "A symmetrical three-pinned arch of span L = 16 m and crown rise f = 4.0 m carries a uniform horizontal projection load w = 15 kN/m across the full span. Using the crown hinge condition (M_crown = 0), calculate the horizontal thrust H at each pinned support.",
+          "assumptions": "Use H = w * L^2 / (8 * f).",
+          "unit": "kN",
+          "correctAnswer": 120,
+          "tolerance": 0.5,
+          "explanation": "Free-body moment at crown = w*L^2/8 - H*f = 0 => H = (15 * 16^2) / (8 * 4.0) = 3840 / 32 = 120.0 kN. Step-by-step verification for \"Calculate horizontal support thrust in a symmetrical three-pinned arch.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 120 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate horizontal support thrust in a symmetrical three-pinned arch.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Free-body moment at crown = w*L^2/8 - H*f = 0 => H = (15 * 16^2) / (8 * 4.0) = 3840 / 32 = ?. Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD15-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T1-Q4",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T1",
+          "learningObjective": "Calculate eaves corner bending moment in a pinned-base portal frame under horizontal load.",
+          "type": "numeric",
+          "prompt": "A symmetrical pinned-base portal frame of height h = 4.0 m and span L = 10.0 m carries a horizontal point load H = 30 kN at eaves level. If the horizontal base reactions share the load equally (H_A = H_B = 15 kN), calculate the magnitude of the bending moment at each eaves corner.",
+          "assumptions": "Use M_eaves = H_base * h.",
+          "unit": "kNm",
+          "correctAnswer": 60,
+          "tolerance": 0.5,
+          "explanation": "Looking at one column of height h = 4.0 m pinned at the base with horizontal base shear 15 kN: M_eaves = 15 kN * 4.0 m = 60.0 kNm. Step-by-step verification for \"Calculate eaves corner bending moment in a pinned-base portal frame under horizontal load.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 60 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate eaves corner bending moment in a pinned-base portal frame under horizontal load.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Looking at one column of height h = 4.0 m pinned at the base with horizontal base shear 15 kN: M_eaves = 15 kN * 4.0 m = ?. Express your final numeric answer in kNm."
+          ],
+          "caseFamilyId": "MOD15-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T1-Q5",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T1",
+          "learningObjective": "Identify zero-force members at an unloaded truss joint.",
+          "type": "mcq",
+          "prompt": "At an unloaded pin joint in a planar truss where two collinear chord members meet a single inclined web member at 60 degrees, what is the axial force in the inclined web member?",
+          "assumptions": "Apply equilibrium perpendicular to the two collinear chord members.",
+          "options": [
+            "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "Zero, because there is no external load or other member with a force component perpendicular to the two collinear chord members"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Summing forces perpendicular to the collinear line of the two chord members gives F_web * sin(60 deg) = 0, so F_web = 0. Engineering synthesis for \"Identify zero-force members at an unloaded truss joint.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify zero-force members at an unloaded truss joint.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD15-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD15-T2",
+      "moduleNumber": 15,
+      "code": "15.2",
+      "title": "Indeterminate Continuous Beams, Compatibility, Relative Stiffness & Redistribution",
+      "summary": "Fixed-end moments (wL^2/12), two-span continuous beams (M_hog = wL^2/8), relative flexural stiffness (k = EI/L), and ductile moment redistribution.",
+      "subtopics": [
+        "Fixed-end beam bounds: M_hog = wL^2/12 at supports and M_sag = wL^2/24 at midspan",
+        "Two-span symmetrical continuous beam under UDL: M_B = wL^2/8 hogging over central support",
+        "Stiffness distribution at a joint: moments distribute in proportion to rotational stiffness k_i = alpha * E_i * I_i / L_i"
+      ],
+      "learningObjectives": [
+        "Fixed-end beam bounds: M_hog = wL^2/12 at supports and M_sag = wL^2/24 at midspan",
+        "Two-span symmetrical continuous beam under UDL: M_B = wL^2/8 hogging over central support",
+        "Stiffness distribution at a joint: moments distribute in proportion to rotational stiffness k_i = alpha * E_i * I_i / L_i"
+      ],
+      "futureExpansion": "Future expansion slot for Hardy Cross moment distribution tables and slope-deflection equations.",
+      "questions": [
+        {
+          "id": "MOD15-T2-Q1",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T2",
+          "learningObjective": "Calculate fixed-end hogging moment of a fully fixed beam under UDL.",
+          "type": "numeric",
+          "prompt": "A single-span beam of length L = 6.0 m is fully fixed against rotation at both ends and carries a uniform load w = 20 kN/m. Calculate the magnitude of the fixed-end hogging moment at each support.",
+          "assumptions": "Use M_FEM = w * L^2 / 12.",
+          "unit": "kNm",
+          "correctAnswer": 60,
+          "tolerance": 0.5,
+          "explanation": "M_FEM = 20 * 6.0^2 / 12 = 720 / 12 = 60.0 kNm. Step-by-step verification for \"Calculate fixed-end hogging moment of a fully fixed beam under UDL.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 60 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate fixed-end hogging moment of a fully fixed beam under UDL.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M_FEM = 20 * 6.0^2 / 12 = 720 / 12 = ?. Express your final numeric answer in kNm."
+          ],
+          "caseFamilyId": "MOD15-T2-CF",
+          "solverVerificationId": "SOLVER-MOD15-T2-Q1",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD15-T2-Q2",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T2",
+          "learningObjective": "Calculate midspan sagging moment of a fully fixed beam under UDL.",
+          "type": "numeric",
+          "prompt": "A single-span beam of length L = 6.0 m is fully fixed against rotation at both ends and carries a uniform distributed load w = 20 kN/m over its full span (where the free simply supported parabola height is wL²/8 = 90 kN·m and the fixed-end hogging moments are wL²/12 = 60 kN·m). Calculate the midspan sagging bending moment.",
+          "assumptions": "Use M_sag = (w * L^2 / 8) - (w * L^2 / 12) = w * L^2 / 24.",
+          "unit": "kNm",
+          "correctAnswer": 30,
+          "tolerance": 0.5,
+          "explanation": "M_sag = 90.0 - 60.0 = 30.0 kNm (or 20 * 36 / 24 = 30.0 kNm). Step-by-step verification for \"Calculate midspan sagging moment of a fully fixed beam under UDL.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate midspan sagging moment of a fully fixed beam under UDL.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M_sag = 90.0 - 60.0 = 30.0 kNm (or 20 * 36 / 24 = 30.0 kNm). Express your final numeric answer in kNm."
+          ],
+          "caseFamilyId": "MOD15-T2-CF",
+          "solverVerificationId": "SOLVER-MOD15-T2-Q2",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD15-T2-Q3",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T2",
+          "learningObjective": "Calculate central support hogging moment of a two-span continuous beam under UDL.",
+          "type": "numeric",
+          "prompt": "A symmetrical two-span continuous beam has two equal spans of L = 8.0 m and carries a uniform load w = 15 kN/m across both spans. Calculate the magnitude of the elastic hogging moment over the central internal support.",
+          "assumptions": "By symmetry, the central support does not rotate, acting like a fixed end: M_B = w * L^2 / 8.",
+          "unit": "kNm",
+          "correctAnswer": 120,
+          "tolerance": 0.5,
+          "explanation": "M_B = 15 * 8.0^2 / 8 = 120.0 kNm. Step-by-step verification for \"Calculate central support hogging moment of a two-span continuous beam under UDL.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 120 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate central support hogging moment of a two-span continuous beam under UDL.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M_B = 15 * 8.0^2 / 8 = ?. Express your final numeric answer in kNm."
+          ],
+          "caseFamilyId": "MOD15-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T2-Q4",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T2",
+          "learningObjective": "Calculate support hogging moment after 15% downward moment redistribution.",
+          "type": "numeric",
+          "prompt": "In a continuous RC beam, the elastic hogging moment over an internal support is M_elastic = 200 kNm. If the designer applies a 15% downward moment redistribution (and increases the adjacent span sagging moments to maintain static equilibrium), calculate the redistributed support hogging moment M_redist.",
+          "assumptions": "Use M_redist = 0.85 * M_elastic.",
+          "unit": "kNm",
+          "correctAnswer": 170,
+          "tolerance": 0.5,
+          "explanation": "M_redist = (1 - 0.15) * 200 = 170.0 kNm. Step-by-step verification for \"Calculate support hogging moment after 15% downward moment redistribution.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 170 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate support hogging moment after 15% downward moment redistribution.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M_redist = (1 - 0.15) * 200 = ?. Express your final numeric answer in kNm."
+          ],
+          "caseFamilyId": "MOD15-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T2-Q5",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T2",
+          "learningObjective": "Explain how relative stiffness affects load attraction in indeterminate structures.",
+          "type": "mcq",
+          "prompt": "In a statically indeterminate structure where two parallel load paths or framing members share a common deformation, which member attracts the larger share of the internal force or bending moment?",
+          "assumptions": "Consider compatibility of displacement and F = k * delta.",
+          "options": [
+            "The stiffer member attracts the larger share of the load, in proportion to its relative stiffness",
+            "The more flexible member always carries 100% of the load, assuming that by applying th.",
+            "Load distribution in indeterminate structures is completely independent of EI or EA",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fu."
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "In indeterminate systems, compatibility forces connected members to deform together; therefore internal forces distribute in proportion to stiffness (\"stiffness attracts load\").",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain how relative stiffness affects load attraction in indeterminate structures.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD15-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD15-T3",
+      "moduleNumber": 15,
+      "code": "15.3",
+      "title": "Influence Lines, Second-Order Effects, Dynamic Awareness & Hand vs Software Bounds",
+      "summary": "Influence lines for moving loads, pattern loading on continuous beams, P-Delta / P-delta second-order effects, human-induced floor vibration awareness, and hand bounds.",
+      "subtopics": [
+        "Influence lines vs bending moment diagrams and Muller-Breslau qualitative sketching",
+        "Pattern loading: alternating variable loads for maximum span sagging vs adjacent loaded spans for support hogging",
+        "Global P-Delta and member P-delta second-order amplification and natural frequency f_n awareness"
+      ],
+      "learningObjectives": [
+        "Influence lines vs bending moment diagrams and Muller-Breslau qualitative sketching",
+        "Pattern loading: alternating variable loads for maximum span sagging vs adjacent loaded spans for support hogging",
+        "Global P-Delta and member P-delta second-order amplification and natural frequency f_n awareness"
+      ],
+      "futureExpansion": "Future expansion slot for crane gantry girder moving wheel train envelopes and footbridge resonance.",
+      "questions": [
+        {
+          "id": "MOD15-T3-Q1",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T3",
+          "learningObjective": "Use an influence line ordinate to calculate midspan bending moment under a moving point load.",
+          "type": "numeric",
+          "prompt": "For a simply supported beam of span L = 10 m, the influence line ordinate for bending moment at midspan (x = 5 m) is L / 4 = 2.5 mNm/N when the unit load is at midspan, and 1.5 mNm/N when the load is at x = 3 m. If a two-axle vehicle with axle loads of 80 kN (placed at midspan) and 40 kN (placed at x = 3 m) crosses the beam, calculate the resulting midspan bending moment.",
+          "assumptions": "Use M_mid = sum(P_i * eta_i).",
+          "unit": "kNm",
+          "correctAnswer": 260,
+          "tolerance": 1,
+          "explanation": "M_mid = (80 kN * 2.5 m) + (40 kN * 1.5 m) = 200 + 60 = 260.0 kNm. Step-by-step verification for \"Use an influence line ordinate to calculate midspan bending moment under a moving point load.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 260 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Use an influence line ordinate to calculate midspan bending moment under a moving point load.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M_mid = (80 kN * 2.5 m) + (40 kN * 1.5 m) = 200 + 60 = ?. Express your final numeric answer in kNm."
+          ],
+          "caseFamilyId": "MOD15-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T3-Q2",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T3",
+          "learningObjective": "Verify static equilibrium height (M_free = wL^2/8) in a continuous span.",
+          "type": "numeric",
+          "prompt": "An internal span of length L = 8.0 m carries a UDL w = 24 kN/m (so the free simply supported parabolic height is wL^2/8 = 192 kNm). If the left and right support hogging moments are both 110 kNm, calculate the midspan sagging moment required by static equilibrium.",
+          "assumptions": "Use M_sag = (w * L^2 / 8) - M_hog_avg.",
+          "unit": "kNm",
+          "correctAnswer": 82,
+          "tolerance": 0.5,
+          "explanation": "Free height = 24 * 64 / 8 = 192.0 kNm. Subtracting average support hogging (110.0 kNm) gives M_sag = 192.0 - 110.0 = 82.0 kNm. Step-by-step verification for \"Verify static equilibrium height (M_free = wL^2/8) in a continuous span.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 82 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Verify static equilibrium height (M_free = wL^2/8) in a continuous span.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Free height = 24 * 64 / 8 = ?. Express your final numeric answer in kNm."
+          ],
+          "caseFamilyId": "MOD15-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T3-Q3",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T3",
+          "learningObjective": "Estimate fundamental natural frequency of a floor beam from static midspan deflection.",
+          "type": "numeric",
+          "prompt": "Using the standard engineering approximation f_n ≈ 18 / sqrt(delta_mm) Hz (where delta_mm is the instantaneous static midspan deflection in mm under self-weight and permanent mass), calculate the natural frequency f_n of a floor beam with delta_mm = 9.0 mm.",
+          "assumptions": "Use f_n = 18 / sqrt(9.0).",
+          "unit": "Hz",
+          "correctAnswer": 6,
+          "tolerance": 0.1,
+          "explanation": "f_n = 18 / 3.0 = 6.0 Hz. Step-by-step verification for \"Estimate fundamental natural frequency of a floor beam from static midspan deflection.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 6 Hz, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Estimate fundamental natural frequency of a floor beam from static midspan deflection.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: f_n = 18 / 3.0 = ?. Express your final numeric answer in Hz."
+          ],
+          "caseFamilyId": "MOD15-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T3-Q4",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T3",
+          "learningObjective": "Identify the variable load pattern that maximises hogging moment over an internal support.",
+          "type": "mcq",
+          "prompt": "In a multi-span continuous beam, which arrangement of variable live load Q produces the maximum hogging bending moment over a specific internal support B?",
+          "assumptions": "Apply the Muller-Breslau qualitative influence line for support moment.",
+          "options": [
+            "Variable load placed only on spans three bays away while the two spans touching support B are unloaded, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Full factored permanent + variable load on the two spans immediately adjacent to support B, with alternating spans beyond unloaded of variable action",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Pushing down on both spans immediately left and right of support B tries to rotate both beam ends downward into the support, maximising the hogging moment over B.",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the variable load pattern that maximises hogging moment over an internal support.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD15-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD15-T3-Q5",
+          "moduleNumber": 15,
+          "topicId": "MOD15-T3",
+          "learningObjective": "Identify the variable load pattern that maximises midspan sagging moment in an internal span.",
+          "type": "mcq",
+          "prompt": "In a multi-span continuous beam, which arrangement of variable live load Q produces the maximum sagging bending moment at the middle of Span 2?",
+          "assumptions": "Consider how unloading adjacent spans reduces hogging restraint at the ends of Span 2.",
+          "options": [
+            "Variable load on Spans 1 and 3 only, with zero variable load on Span 2",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "Factored permanent + variable load on Span 2 (and alternate spans 4, etc.), with only permanent load on the adjacent Spans 1 and 3 (\"checkerboard / alternate span\" loading)",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Loading Span 2 while leaving adjacent Spans 1 and 3 without variable load allows the supports of Span 2 to rotate more freely, reducing support hogging and maximising Span 2 midspan sagging.",
+          "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the variable load pattern that maximises midspan sagging moment in an internal span.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD15-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "EX-15.1",
+      "title": "Example 15.1: Pratt & Warren Truss Analysis by Joints and Sections",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-15.2",
+      "title": "Example 15.2: Portal Frame & Three-Pinned Arch Equilibrium",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-15.3",
+      "title": "Example 15.3: Continuous Beam Stiffness Distribution & Pattern Loading",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-15.4",
+      "title": "Example 15.4: Hand Bounding of a Frame Model Before Software Analysis",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "Civil Engineering Syllabus (Modules 0 to 19)"
+  ],
+  "standardsNotice": "Verify all clauses, partial factors, and National Annex parameters against controlled reference standards before engineering application.",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD15-E01",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T1",
+      "learningObjective": "Calculate support reaction of a symmetrical truss.",
+      "type": "numeric",
+      "prompt": "A 16 m span roof truss has 8 panels of 2.0 m and carries a vertical point load of 12 kN at each of the 7 internal top-chord panel nodes. Calculate each vertical support reaction.",
+      "assumptions": "Total load = 7 * 12 kN; divide by 2 for symmetry.",
+      "unit": "kN",
+      "correctAnswer": 42,
+      "tolerance": 0.2,
+      "explanation": "Total vertical load = 7 * 12 = 84 kN. Each support reaction R = 84 / 2 = 42.0 kN. Step-by-step verification for \"Calculate support reaction of a symmetrical truss.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 42 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate support reaction of a symmetrical truss.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Total vertical load = 7 * 12 = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD15-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E02",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T1",
+      "learningObjective": "Calculate bottom chord tension force by Method of Sections.",
+      "type": "numeric",
+      "prompt": "At a vertical section through a parallel-chord Warren truss of depth h = 2.5 m, the bending moment at the top-chord node is M = 350 kNm. Calculate the axial tension force in the bottom chord.",
+      "assumptions": "Use F_bot = M / h.",
+      "unit": "kN",
+      "correctAnswer": 140,
+      "tolerance": 0.5,
+      "explanation": "F_bot = 350 / 2.5 = 140.0 kN (tension). Step-by-step verification for \"Calculate bottom chord tension force by Method of Sections.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 140 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate bottom chord tension force by Method of Sections.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: F_bot = 350 / 2.5 = 140.0 kN (tension). Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD15-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E03",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T1",
+      "learningObjective": "Calculate diagonal force at a support joint by Method of Joints.",
+      "type": "numeric",
+      "prompt": "At a pinned truss support with upward vertical reaction R_A = 45 kN and no external load directly on the support pin, the end diagonal rises at 36.87 deg to the horizontal (sin 36.87 deg = 0.60, cos 36.87 deg = 0.80). Calculate the magnitude of the compression force in the end diagonal.",
+      "assumptions": "Vertical equilibrium at pin A: F_diag * sin(theta) = R_A.",
+      "unit": "kN",
+      "correctAnswer": 75,
+      "tolerance": 0.5,
+      "explanation": "F_diag = 45 / 0.60 = 75.0 kN (compression). Step-by-step verification for \"Calculate diagonal force at a support joint by Method of Joints.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 75 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate diagonal force at a support joint by Method of Joints.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: F_diag = 45 / 0.60 = 75.0 kN (compression). Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD15-T1-CF",
+      "solverVerificationId": "SOLVER-MOD15-E03",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD15-E04",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T1",
+      "learningObjective": "Calculate horizontal chord force at the same truss support pin.",
+      "type": "numeric",
+      "prompt": "At a pinned truss support, the inclined end diagonal member enters the joint at angle θ = 36.87° (cos θ = 0.80, sin θ = 0.60) carrying an axial compression force of 75 kN. Using horizontal joint equilibrium ΣF_x = 0, calculate the axial tension force in the horizontal bottom chord meeting the support pin.",
+      "assumptions": "Horizontal equilibrium at pin A: F_bot = F_diag * cos(theta).",
+      "unit": "kN",
+      "correctAnswer": 60,
+      "tolerance": 0.5,
+      "explanation": "F_bot = 75 * 0.80 = 60.0 kN (tension). Step-by-step verification for \"Calculate horizontal chord force at the same truss support pin.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 60 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate horizontal chord force at the same truss support pin.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: F_bot = 75 * 0.80 = 60.0 kN (tension). Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD15-T1-CF",
+      "solverVerificationId": "SOLVER-MOD15-E04",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD15-E05",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T1",
+      "learningObjective": "Calculate horizontal thrust in a three-pinned portal frame under vertical roof UDL.",
+      "type": "numeric",
+      "prompt": "A symmetrical three-pinned portal frame has span L = 20 m, ridge crown hinge height f = 5.0 m above the base pins, and carries a vertical roof UDL w = 12 kN/m across the 20 m span. Calculate the horizontal base thrust H.",
+      "assumptions": "Use M_crown = 0 => H = w * L^2 / (8 * f).",
+      "unit": "kN",
+      "correctAnswer": 120,
+      "tolerance": 0.5,
+      "explanation": "H = (12 * 20^2) / (8 * 5.0) = 4800 / 40 = 120.0 kN. Step-by-step verification for \"Calculate horizontal thrust in a three-pinned portal frame under vertical roof UDL.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 120 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate horizontal thrust in a three-pinned portal frame under vertical roof UDL.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: H = (12 * 20^2) / (8 * 5.0) = 4800 / 40 = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD15-T1-CF",
+      "solverVerificationId": "SOLVER-MOD15-E05",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD15-E06",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T1",
+      "learningObjective": "Calculate eaves bending moment in the three-pinned portal frame.",
+      "type": "numeric",
+      "prompt": "A symmetrical three-pinned portal frame has vertical columns of height h_col = 4.0 m pinned at their bases. Under vertical roof loading, the inward horizontal base pin thrust is H = 120 kN (with zero horizontal wind load acting on the column height). Calculate the magnitude of the bending moment at the eaves corner (M_eaves = H × h_col).",
+      "assumptions": "Use M_eaves = H * h_col.",
+      "unit": "kNm",
+      "correctAnswer": 480,
+      "tolerance": 1,
+      "explanation": "M_eaves = 120 kN * 4.0 m = 480.0 kNm. Step-by-step verification for \"Calculate eaves bending moment in the three-pinned portal frame.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 480 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate eaves bending moment in the three-pinned portal frame.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_eaves = 120 kN * 4.0 m = ?. Express your final numeric answer in kNm."
+      ],
+      "caseFamilyId": "MOD15-T1-CF",
+      "solverVerificationId": "SOLVER-MOD15-E06",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD15-E07",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T2",
+      "learningObjective": "Calculate fixed-end moment of a fixed-fixed beam under a central point load.",
+      "type": "numeric",
+      "prompt": "A beam of span L = 8.0 m is fully fixed at both ends and carries a central point load P = 96 kN. Calculate the magnitude of the fixed-end hogging moment at each support (M_FEM = P * L / 8).",
+      "assumptions": "Use M_FEM = P * L / 8.",
+      "unit": "kNm",
+      "correctAnswer": 96,
+      "tolerance": 0.5,
+      "explanation": "M_FEM = 96 * 8.0 / 8 = 96.0 kNm (and midspan sagging is also P*L/8 = 96.0 kNm). Step-by-step verification for \"Calculate fixed-end moment of a fixed-fixed beam under a central point load.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 96 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate fixed-end moment of a fixed-fixed beam under a central point load.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_FEM = 96 * 8.0 / 8 = 96.0 kNm (and midspan sagging is also P*L/8 = 96.0 kNm). Express your final numeric answer in kNm."
+      ],
+      "caseFamilyId": "MOD15-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E08",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T2",
+      "learningObjective": "Calculate prop reaction in a propped cantilever under UDL.",
+      "type": "numeric",
+      "prompt": "A propped cantilever of span L = 6.0 m (fixed at A, roller prop at B) carries a uniform load w = 16 kN/m (total load 96 kN). Using standard elastic compatibility (R_B = 3 * w * L / 8), calculate the vertical reaction at the roller prop B.",
+      "assumptions": "Use R_B = 3 * w * L / 8.",
+      "unit": "kN",
+      "correctAnswer": 36,
+      "tolerance": 0.5,
+      "explanation": "R_B = 3 * 16 * 6.0 / 8 = 288 / 8 = 36.0 kN (and fixed support A carries 5/8 of the load = 60.0 kN). Step-by-step verification for \"Calculate prop reaction in a propped cantilever under UDL.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 36 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate prop reaction in a propped cantilever under UDL.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: R_B = 3 * 16 * 6.0 / 8 = 288 / 8 = 36.0 kN (and fixed support A carries 5/8 of the load = 60.0 kN). Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD15-T2-CF",
+      "solverVerificationId": "SOLVER-MOD15-E08",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD15-E09",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T2",
+      "learningObjective": "Calculate fixed-end hogging moment in the propped cantilever.",
+      "type": "numeric",
+      "prompt": "A propped cantilever beam of span L = 6.0 m (fully fixed at support A, simple roller prop at support B) carries a uniform distributed load w = 16 kN/m over its full length (total vertical load 96 kN). Elastic compatibility gives an upward roller reaction at B of R_B = 3wL/8 = 36 kN. Taking moments about the fixed support A, calculate the magnitude of the hogging moment M_A at support A.",
+      "assumptions": "Use M_A = (w * L^2 / 2) - (R_B * L), which equals w * L^2 / 8.",
+      "unit": "kNm",
+      "correctAnswer": 72,
+      "tolerance": 0.5,
+      "explanation": "M_A = (16 * 36 / 2) - (36 * 6.0) = 288 - 216 = 72.0 kNm (which equals wL^2/8). Step-by-step verification for \"Calculate fixed-end hogging moment in the propped cantilever.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 72 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate fixed-end hogging moment in the propped cantilever.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_A = (16 * 36 / 2) - (36 * 6.0) = 288 - 216 = 72.0 kNm (which equals wL^2/8). Express your final numeric answer in kNm."
+      ],
+      "caseFamilyId": "MOD15-T2-CF",
+      "solverVerificationId": "SOLVER-MOD15-E09",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD15-E10",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T2",
+      "learningObjective": "Calculate distribution factor at a two-member rigid joint.",
+      "type": "numeric",
+      "prompt": "Two beams of identical E and I meet at an internal roller support, with far ends fixed. Span AB has length L_1 = 4.0 m and Span BC has length L_2 = 6.0 m. Since rotational stiffness is proportional to I / L, calculate the moment distribution factor DF_BA = (1/L_1) / (1/L_1 + 1/L_2) for Span AB.",
+      "assumptions": "Use DF_BA = L_2 / (L_1 + L_2).",
+      "unit": "ratio",
+      "correctAnswer": 0.6,
+      "tolerance": 0.01,
+      "explanation": "1/L_1 = 0.25; 1/L_2 = 0.1667; sum = 0.4167. DF_BA = 0.25 / 0.4167 = 6.0 / (4.0 + 6.0) = 0.600. Step-by-step verification for \"Calculate distribution factor at a two-member rigid joint.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.6 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate distribution factor at a two-member rigid joint.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: 1/L_1 = 0.25; 1/L_2 = 0.1667; sum = ?. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD15-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E11",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T3",
+      "learningObjective": "Calculate maximum support reaction using a reaction influence line.",
+      "type": "numeric",
+      "prompt": "For a simply supported beam of span L = 12 m, the influence line for vertical reaction R_A has ordinate 1.0 at A (x = 0) and decreases linearly to 0.0 at B (x = 12 m). If two point loads of 100 kN (at x = 0 m) and 60 kN (at x = 3 m, where ordinate is 9/12 = 0.75) act on the beam, calculate R_A.",
+      "assumptions": "Use R_A = 100 * 1.0 + 60 * 0.75.",
+      "unit": "kN",
+      "correctAnswer": 145,
+      "tolerance": 0.5,
+      "explanation": "R_A = 100 + 45 = 145.0 kN. Step-by-step verification for \"Calculate maximum support reaction using a reaction influence line.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 145 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum support reaction using a reaction influence line.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: R_A = 100 + 45 = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD15-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E12",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T3",
+      "learningObjective": "Verify hand bounds for midspan sagging moment in an indeterminate span.",
+      "type": "numeric",
+      "prompt": "A beam of span L = 10 m carries a factored UDL w = 24 kN/m. Calculate the upper-bound simply supported midspan moment M_free = w * L^2 / 8 (which bounds the maximum possible sagging moment if rotational restraint at the supports is zero).",
+      "assumptions": "Use M_free = 24 * 10^2 / 8.",
+      "unit": "kNm",
+      "correctAnswer": 300,
+      "tolerance": 1,
+      "explanation": "M_free = 2400 / 8 = 300.0 kNm (whereas full fixity at both ends would give a lower bound of wL^2/24 = 100.0 kNm at midspan). Step-by-step verification for \"Verify hand bounds for midspan sagging moment in an indeterminate span.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 300 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Verify hand bounds for midspan sagging moment in an indeterminate span.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_free = 2400 / 8 = 300.0 kNm (whereas full fixity at both ends would give a lower bound of wL^2/24 = 100.0 kNm at midspan). Express your final numeric answer in kNm."
+      ],
+      "caseFamilyId": "MOD15-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E13",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T3",
+      "learningObjective": "Calculate second-order P-Delta overturning moment from storey drift.",
+      "type": "numeric",
+      "prompt": "A building storey carries a total factored vertical gravity load P_tot = 6000 kN. Under lateral wind load, the storey drifts horizontally by delta_h = 15 mm (0.015 m). Calculate the additional second-order P-Delta overturning moment M_2 = P_tot * delta_h.",
+      "assumptions": "Use M_2 = 6000 * 0.015.",
+      "unit": "kNm",
+      "correctAnswer": 90,
+      "tolerance": 0.5,
+      "explanation": "M_2 = 6000 kN * 0.015 m = 90.0 kNm. Step-by-step verification for \"Calculate second-order P-Delta overturning moment from storey drift.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 90 kNm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate second-order P-Delta overturning moment from storey drift.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_2 = 6000 kN * 0.015 m = ?. Express your final numeric answer in kNm."
+      ],
+      "caseFamilyId": "MOD15-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E14",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T1",
+      "learningObjective": "Distinguish between an arch and a flat beam of the same span.",
+      "type": "mcq",
+      "prompt": "Why can a funicular parabolic arch carry a uniform vertical distributed load across a long span with drastically smaller internal bending moments than a straight horizontal beam of identical span?",
+      "assumptions": "Consider the line of thrust H * y(x) vs w*x*(L-x)/2.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "Arches do not require horizontal restraint at their supports",
+        "The curved geometry and horizontal abutment thrust H create an internal compression arch action whose vertical offset H*y(x) counteracts the free bending moment wL^2/8, carrying load primarily in axial compression"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "In an arch, the horizontal support thrust H multiplied by the arch rise y(x) opposes the gravity bending moment M_0(x), converting bending into axial compression.",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish between an arch and a flat beam of the same span.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD15-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E15",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T1",
+      "learningObjective": "Identify the structural consequence if an arch abutment spreads horizontally.",
+      "type": "mcq",
+      "prompt": "What happens if the foundations or tie-rod of a tied/abutted arch yield and move outward horizontally under the arch thrust H?",
+      "assumptions": "Consider loss of horizontal thrust H andcrown drop.",
+      "options": [
+        "The horizontal thrust H drops, causing the crown to sag downward and inducing large positive bending moments throughout the arch rib",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-secti.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rot.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condi."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Arch action relies critically on stiff horizontal support (abutments or a tension tie); outward spread releases H and turns the arch back into a curved beam in heavy bending.",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the structural consequence if an arch abutment spreads horizontally.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD15-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E16",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T2",
+      "learningObjective": "Explain why differential support settlement induces bending moments in indeterminate continuous beams.",
+      "type": "mcq",
+      "prompt": "Why does a 20 mm vertical settlement of one support induce zero bending moment in a statically determinate simply supported beam, but induces large parasitic bending moments in a stiff continuous beam?",
+      "assumptions": "Compare rigid-body rotation vs forced curvature.",
+      "options": [
+        "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "A determinate beam rotates freely on its pins as a rigid body without bending, whereas a continuous beam must bend over the remaining supports to maintain geometric compatibility with the settled support",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "In a continuous beam, support settlement forces curvature (proportional to EI / L^2), generating significant hogging and sagging moments. Engineering synthesis for \"Explain why differential support settlement induces bending moments in indeterminate continuous beams.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 15 (Trusses, Portal Frames, Indeterminate Beams & P-Delta Effects).",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why differential support settlement induces bending moments in indeterminate continuous beams.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD15-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E17",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T2",
+      "learningObjective": "State the prerequisite for applying plastic or inelastic moment redistribution.",
+      "type": "mcq",
+      "prompt": "What physical property must a structural section possess at the peak-moment location (such as an internal support) to safely allow moment redistribution to adjacent zones?",
+      "assumptions": "Consider rotation capacity without brittle fracture or local buckling.",
+      "options": [
+        "A brittle over-reinforced concrete section or slender Class 4 steel web, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "Sufficient rotational ductility (e.g. Class 1 plastic steel section or under-reinforced RC section with low x/d) so it can rotate at near-constant moment while load redistributes",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Moment redistribution requires the peak-moment region to yield and rotate ductilely without losing strength while stiffer elastic regions pick up the additional moment.",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"State the prerequisite for applying plastic or inelastic moment redistribution.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD15-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E18",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T3",
+      "learningObjective": "Distinguish an influence line from a bending moment diagram.",
+      "type": "mcq",
+      "prompt": "What is the fundamental difference between an influence line for bending moment at Point C and a standard bending moment diagram (BMD)?",
+      "assumptions": "Compare what varies along the horizontal x-axis.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "A BMD shows the bending moment at all points x along the beam for a fixed load position, whereas an influence line shows the bending moment at one fixed point C as a unit load moves across x"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "In an influence line for response R_C, the abscissa x is the position of the moving unit load, and the ordinate is the value of R_C caused by the unit load at x.",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish an influence line from a bending moment diagram.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD15-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E19",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T3",
+      "learningObjective": "Explain why long-span lightweight floors are checked for human-induced vibration.",
+      "type": "mcq",
+      "prompt": "Why can a modern long-span composite steel or timber floor satisfy both ULS strength and static L/360 deflection limits, yet still feel unacceptably lively or bouncy under human footfall?",
+      "assumptions": "Consider low mass, low damping, and natural frequency approaching walking harmonics (1.6 to 2.2 Hz and their multiples).",
+      "options": [
+        "If the floor’s fundamental natural frequency is low (e.g. below 3 to 4 Hz) or its modal mass and damping are low, harmonics of human walking pace excite resonant dynamic accelerations",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material s.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-ce.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flex."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Human walking generates periodic force harmonics (~2 Hz, 4 Hz, 6 Hz, 8 Hz); floors with low natural frequency and low modal mass require dynamic acceleration/response factor checks.",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why long-span lightweight floors are checked for human-induced vibration.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD15-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD15-E20",
+      "moduleNumber": 15,
+      "topicId": "MOD15-T3",
+      "learningObjective": "Pass the Module 15 Learning Gate: Predict qualitative deflected shapes and moment diagrams before running software.",
+      "type": "mcq",
+      "prompt": "Why must a structural engineer sketch the expected deflected shape, points of contraflexure, and tension faces of a frame before trusting finite element software output?",
+      "assumptions": "Consider how deflected curvature maps directly to bending moment sign.",
+      "options": [
+        "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Because curvature and bending moment are directly linked (M = EI * kappa); if the software’s deflected shape or moment sign contradicts the physical boundary conditions and hand bounds (wL^2/12 to wL^2/8), a modelling release or restraint error is immediately exposed",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because deflected shapes are unrelated to bending moments"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "The concave/convex side of the deflected shape immediately identifies the compression/tension faces, points of zero moment (inflection points), and whether joints are acting as pinned or fixed.",
+      "citation": "Classical Indeterminate Structural Analysis & Virtual Work / Flexibility Method",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 15 Learning Gate: Predict qualitative deflected shapes and moment diagrams before running software.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD15-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}

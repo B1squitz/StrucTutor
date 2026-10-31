@@ -1,0 +1,955 @@
+{
+  "moduleNumber": 9,
+  "code": "MOD-09",
+  "title": "Module 9: Deeper steel design: columns, LTB, connections and frames",
+  "shortTitle": "Deeper steel design: columns, LTB, connections and frames",
+  "suggestedDuration": "16–20 weeks",
+  "yearPathway": "Years 2–3",
+  "year1Months": "Years 2–3",
+  "whyItMatters": "Real steel structures are 3D assemblages of unrestrained beams, columns under combined axial and eccentric moments, bolted/welded connections, and braced or portal frames where stability and connection stiffness govern the whole model.",
+  "introduction": "Extends EC3 steel design to unrestrained beams (Lateral Torsional Buckling M_b,Rd = χ_LT·W_pl·f_y/γ_M1, non-dimensional slenderness λ_LT, restraint spacing, load-height effects, web stiffeners), compression members (flexural buckling N_b,Rd = χ·A·f_y/γ_M1, buckling curves a0 to d, beam-column interaction), bolted and welded connections (shear, bearing, tension, block tearing, simple vs moment connections, base plates), and braced vs portal frame stability (second-order P-Δ awareness).",
+  "objectives": [
+    "Follow the EC3 LTB calculation workflow for unrestrained beams and evaluate design alternatives to improve LTB capacity (Project 9.1).",
+    "Carry out EC3 column buckling checks using non-dimensional slenderness λ_bar and reduction factor χ, and understand beam-column interaction (Project 9.2).",
+    "Understand bolted and welded connection load paths, simple vs moment connection stiffness assumptions, base plates, and braced/portal frame stability (Project 9.3)."
+  ],
+  "learningGate": "Distinguish a cross-section beam strength problem from a Lateral Torsional Buckling (LTB) problem.,Distinguish material crushing/yielding (squash load) from column flexural/torsional buckling.,Identify whether the global lateral stability system of a steel frame is credible.,Explain why connection rotational stiffness assumptions affect the internal force distribution of the whole structural model.",
+  "prerequisiteModuleNumbers": [
+    6,
+    8
+  ],
+  "topics": [
+    {
+      "id": "MOD09-T1",
+      "moduleNumber": 9,
+      "code": "9.1",
+      "title": "Unrestrained Steel Beams, LTB Workflow & Web Stiffeners (Project 9.1)",
+      "summary": "Covers the EC3 LTB workflow (M_cr -> λ_LT = √(W_y·f_y/M_cr) -> χ_LT -> M_b,Rd), moment gradient factor C_1, destabilising top-flange loads, restraint spacing, and web bearing/buckling stiffeners.",
+      "subtopics": [
+        "Elastic critical moment M_cr and non-dimensional LTB slenderness λ_bar,LT = √(W_y · f_y / M_cr)",
+        "LTB reduction factor χ_LT (0 < χ_LT ≤ 1.0) and buckling resistance M_b,Rd = χ_LT · W_y · f_y / γ_M1",
+        "Effect of bending moment diagram shape (uniform moment C_1 = 1.0 is most severe; linear/steep moment gradient increases M_cr)",
+        "Destabilising loads on unrestrained top flanges and how adding intermediate restraints or using a UKC/SHS improves capacity (Project 9.1)",
+        "Web bearing, web buckling, and transverse stiffeners at heavy concentrated loads or supports"
+      ],
+      "learningObjectives": [
+        "Calculate M_b,Rd and λ_bar,LT from supplied parameters and explain Project 9.1.",
+        "Explain why uniform bending moment over an unrestrained span is more severe for LTB than a steep moment gradient."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD09-T1-Q1",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T1",
+          "learningObjective": "Calculate non-dimensional LTB slenderness λ_bar,LT",
+          "type": "numeric",
+          "prompt": "An unrestrained Class 1 S355 steel beam (f_y = 355 N/mm²) has plastic section modulus W_pl,y = 600 cm³ (600,000 mm³, so M_pl = W_pl,y · f_y = 213.0 kN·m) and an elastic critical LTB moment of M_cr = 148.0 kN·m. Calculate its non-dimensional LTB slenderness λ_bar,LT = √(W_pl,y · f_y / M_cr) (to 2 decimal places).",
+          "assumptions": "When λ_bar,LT > 1.0, the elastic critical buckling moment M_cr is smaller than the full plastic moment M_pl, so LTB heavily governs!",
+          "unit": "ratio",
+          "correctAnswer": 1.2,
+          "tolerance": 0.018,
+          "explanation": "λ_bar,LT = √(213.0 / 148.0) = √1.4392 = 1.1997 ≈ 1.20. Step-by-step verification for \"Calculate non-dimensional LTB slenderness λ_bar,LT\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.2 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate non-dimensional LTB slenderness λ_bar,LT\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: λ_bar,LT = √(213.0 / 148.0) = √1.4392 = 1.1997 ≈ 1.20. Express your final numeric answer in ratio."
+          ],
+          "caseFamilyId": "MOD09-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD09-T1-Q2",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T1",
+          "learningObjective": "Calculate LTB design buckling resistance M_b,Rd",
+          "type": "numeric",
+          "prompt": "A laterally unrestrained Class 1 steel beam has a cross-sectional plastic moment capacity of W_pl,y · f_y = 213.0 kN·m. If the Eurocode 3 Lateral Torsional Buckling curve gives a reduction factor χ_LT = 0.52 and partial factor γ_M1 = 1.00, calculate the LTB design buckling moment resistance M_b,Rd = χ_LT · W_pl,y · f_y / γ_M1 in kN·m (to 1 decimal place).",
+          "assumptions": "Directly illustrates Project 9.1: removing continuous lateral restraint slashes the safe bending capacity.",
+          "unit": "kN·m",
+          "correctAnswer": 110.8,
+          "tolerance": 1.66,
+          "explanation": "M_b,Rd = 0.52 × 213.0 / 1.00 = 110.76 kN·m ≈ 110.8 kN·m (nearly half of its laterally restrained capacity of 213.0 kN·m!). Step-by-step verification for \"Calculate LTB design buckling resistance M_b,Rd\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 110.8 kN·m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate LTB design buckling resistance M_b,Rd\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: M_b,Rd = 0.52 × 213.0 / 1.00 = 110.76 kN·m ≈ 110.8 kN·m (nearly half of its laterally restrained capacity of 213.0 kN·m!). Express your final numeric answer in kN·m."
+          ],
+          "caseFamilyId": "MOD09-T1-CF",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver.",
+          "solverVerificationId": "SOLVER-MOD09-T1-Q2"
+        },
+        {
+          "id": "MOD09-T1-Q3",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T1",
+          "learningObjective": "Explain why moment gradient affects LTB resistance (C_1 factor)",
+          "type": "mcq",
+          "prompt": "Two identical unrestrained beams of length L have the exact same peak bending moment M_max. Beam A has a constant uniform bending moment M_max along its entire length, while Beam B has a moment that varies linearly from +M_max at one end to 0 at the other. Why does Beam B have a significantly higher elastic critical moment M_cr against LTB?",
+          "assumptions": "Physical explanation of moment gradient factor C_1.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "In Beam A, the entire length of the compression flange is stressed at the peak compressive force simultaneously, whereas in Beam B only one end experiences peak compression while the less-stressed portion of the flange helps restrain lateral buckling",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Uniform compression over the entire unrestrained length (C_1 = 1.0) is the worst case for LTB; a moment gradient leaves most of the flange at lower compression.",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why moment gradient affects LTB resistance (C_1 factor)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD09-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD09-T1-Q4",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T1",
+          "learningObjective": "Identify effective design alternatives when an unrestrained beam fails LTB (Project 9.1)",
+          "type": "mcq",
+          "prompt": "In Syllabus Project 9.1, removing the continuous floor restraint causes your trial Universal Beam to fail in Lateral Torsional Buckling. Which set of design or detailing alternatives would genuinely improve its LTB resistance?",
+          "assumptions": "Project 9.1 core engineering judgement.",
+          "options": [
+            "Keep the exact same UB and remove the torsional restraints at the end supports, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "Apply the load to the top flange via a tall unstiffened packing block",
+            "Provide intermediate lateral restraints tied to a braced bay (reducing unrestrained length L_LT), or switch to a section with much higher minor-axis stiffness I_z and torsional stiffness J (such as a wider Universal Column UKC section or a closed Rectangular Hollow Section RHS)",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "UKC sections have wide flanges (large I_z) and RHS box sections have huge torsional constant J (so RHS beams are virtually immune to LTB at normal spans).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify effective design alternatives when an unrestrained beam fails LTB (Project 9.1)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD09-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD09-T1-Q5",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T1",
+          "learningObjective": "Identify the purpose of transverse web stiffeners at supports and heavy point loads",
+          "type": "mcq",
+          "prompt": "Why are full-depth transverse steel plates (web stiffeners) welded between the top and bottom flanges on both sides of an I-beam web at heavy column transfer points or unrestrained beam ends?",
+          "assumptions": "Module 9 web bearing/buckling and stiffeners.",
+          "options": [
+            "They increase the major-axis second moment of area I_y at midspan by 300%, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "They prevent local web crushing and vertical web buckling under concentrated forces, and at beam supports they prevent the top flange from twisting relative to the bottom flange (providing torsional support restraint)"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Load-bearing and torsional stiffeners reinforce the thin web against local out-of-plane buckling and cross-sectional distortion. Engineering synthesis for \"Identify the purpose of transverse web stiffeners at supports and heavy point loads\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the purpose of transverse web stiffeners at supports and heavy point loads\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD09-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD09-T2",
+      "moduleNumber": 9,
+      "code": "9.2",
+      "title": "Steel Columns, Buckling Curves & Beam-Column Interaction (Project 9.2)",
+      "summary": "Covers EC3 axial compression buckling resistance N_b,Rd = χ·A·f_y/γ_M1, non-dimensional slenderness λ_bar = √(A·f_y/N_cr), why imperfection curves (a0, a, b, c, d) differ by axis and fabrication, effective lengths in braced vs unbraced frames, and combined axial compression plus biaxial bending (beam-columns).",
+      "subtopics": [
+        "Squash load N_pl,Rd = A·f_y/γ_M0 vs flexural buckling resistance N_b,Rd = χ·A·f_y/γ_M1",
+        "Non-dimensional slenderness λ_bar = √(A·f_y / N_cr) = (L_cr / i) / (π √(E / f_y))",
+        "Why EC3 has multiple buckling curves (a0, a, b, c, d): residual stresses and geometric imperfections",
+        "Why Universal Column (UKC) sections have much higher minor-axis radius of gyration i_z than narrow UB sections",
+        "Nominal eccentricity moments at simple connections (e.g. 100 mm from column face) and beam-column interaction (N_Ed/N_b,Rd + k_y M_y,Ed/M_b,Rd + k_z M_z,Ed/M_z,Rd ≤ 1.0)"
+      ],
+      "learningObjectives": [
+        "Calculate λ_bar and N_b,Rd for a steel column (Project 9.2) and explain why N_b,Rd < N_pl,Rd.",
+        "Explain why simple beam connections still induce nominal eccentric moments in columns."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD09-T2-Q1",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T2",
+          "learningObjective": "Calculate non-dimensional column slenderness λ_bar (Project 9.2)",
+          "type": "numeric",
+          "prompt": "A structural steel column has cross-sectional area A = 5,800 mm², yield strength f_y = 355 N/mm² (squash load A·f_y = 2,059 kN), and elastic critical Euler buckling load N_cr = 1,430 kN about its governing minor axis. Calculate its non-dimensional slenderness λ_bar = √(A·f_y / N_cr) (to 2 decimal places).",
+          "assumptions": "When λ_bar ≤ 0.2, buckling effects may be ignored (χ = 1.0); at λ_bar = 1.20, buckling strongly reduces capacity.",
+          "unit": "ratio",
+          "correctAnswer": 1.2,
+          "tolerance": 0.018,
+          "explanation": "λ_bar = √(2,059 / 1,430) = √1.4399 = 1.20. Step-by-step verification for \"Calculate non-dimensional column slenderness λ_bar (Project 9.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.2 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate non-dimensional column slenderness λ_bar (Project 9.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: λ_bar = √(2,059 / 1,430) = √1.4399 = ?. Express your final numeric answer in ratio."
+          ],
+          "caseFamilyId": "MOD09-T2-CF",
+          "solverVerificationId": "SOLVER-MOD09-T2-Q1",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD09-T2-Q2",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T2",
+          "learningObjective": "Calculate EC3 design buckling resistance N_b,Rd (Project 9.2)",
+          "type": "numeric",
+          "prompt": "A steel column has a cross-sectional squash capacity A·f_y = 2,059 kN. If Eurocode 3 buckling curve \"c\" gives a flexural buckling reduction factor χ = 0.434 and partial factor γ_M1 = 1.00, calculate the design buckling resistance N_b,Rd = χ · A · f_y / γ_M1 in kN (to 1 decimal place).",
+          "assumptions": "Directly answers Project 9.2 (\"explain why the result is lower than squash-load capacity\").",
+          "unit": "kN",
+          "correctAnswer": 893.6,
+          "tolerance": 13.4,
+          "explanation": "N_b,Rd = 0.434 × 2,059 / 1.00 = 893.6 kN (only 43.4% of the 2,059 kN squash load!). Step-by-step verification for \"Calculate EC3 design buckling resistance N_b,Rd (Project 9.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 893.6 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate EC3 design buckling resistance N_b,Rd (Project 9.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: N_b,Rd = 0.434 × 2,059 / 1.00 = 893.6 kN (only 43.4% of the 2,059 kN squash load!). Express your final numeric answer in kN."
+          ],
+          "caseFamilyId": "MOD09-T2-CF",
+          "solverVerificationId": "SOLVER-MOD09-T2-Q2",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+        },
+        {
+          "id": "MOD09-T2-Q3",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T2",
+          "learningObjective": "Explain why EC3 assigns different buckling curves (a0, a, b, c, d) to different sections and axes",
+          "type": "mcq",
+          "prompt": "Why does a hot-rolled H-section (UKC) use a more favourable buckling curve (curve \"b\") for buckling about its major axis y-y than for buckling about its minor axis z-z (curve \"c\")?",
+          "assumptions": "Physical reason behind the multiple Perry-Robertson curves in EC3.",
+          "options": [
+            "During cooling after hot rolling, the tips of the flanges cool faster than the web-flange junction, locking in compressive residual stresses at the flange tips; these flange tips lie furthest from the minor axis z-z, causing earlier yielding and greater stiffness loss when buckling about the minor axis",
+            "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geometric imperfections, or local buckling slenderness reductions at the critical section",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the support boundaries",
+            "Because Young’s modulus E is smaller in the flanges than in the web"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Compressive residual stresses at the flange tips reduce the effective minor-axis flexural stiffness I_z much more rapidly than major-axis I_y once compression increases.",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why EC3 assigns different buckling curves (a0, a, b, c, d) to different sections and axes\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD09-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD09-T2-Q4",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T2",
+          "learningObjective": "Calculate nominal eccentricity bending moment on a column in simple construction",
+          "type": "numeric",
+          "prompt": "In UK \"simple construction\" design, a floor beam delivers a ULS vertical reaction of R_Ed = 180 kN to the flange face of a 203×203 UKC column (depth h = 203.2 mm, so distance from column centroid to flange face is h/2 ≈ 101.6 mm). Assuming the reaction acts at a nominal eccentricity of 100 mm beyond the column flange face, what total eccentricity lever arm e (in mm) from the column centreline is used, and what moment M_y,Ed (in kN·m) is induced? Enter M_y,Ed in kN·m (to 1 decimal place).",
+          "assumptions": "Even in \"pinned\" simple construction, unbalanced floor beams on one side of a column induce eccentric moments that must be checked in combined axial + bending!",
+          "unit": "kN·m",
+          "correctAnswer": 36.3,
+          "tolerance": 0.544,
+          "explanation": "Total lever arm from column centreline e = (203.2 / 2) + 100 = 101.6 + 100 = 201.6 mm = 0.2016 m. Nominal moment M_y,Ed = 180 kN × 0.2016 m = 36.29 kN·m ≈ 36.3 kN·m.",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate nominal eccentricity bending moment on a column in simple construction\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Total lever arm from column centreline e = (203.2 / 2) + 100 = 101.6 + 100 = 201.6 mm = ?. Express your final numeric answer in kN·m."
+          ],
+          "caseFamilyId": "MOD09-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD09-T2-Q5",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T2",
+          "learningObjective": "Compare effective lengths in braced (non-sway) vs unbraced (sway) frames",
+          "type": "mcq",
+          "prompt": "How does the effective buckling length L_cr of a column of storey height L in an unbraced sway frame compare to that of an identical column of storey height L in a braced non-sway frame?",
+          "assumptions": "Connects column design to global frame stability.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+            "In a braced frame, horizontal translation of the storey tops is prevented so L_cr ≤ 1.0 L (typically 0.7 L to 1.0 L); in an unbraced sway frame, the top of the column translates sideways during buckling so L_cr > 1.0 L (often 1.5 L to 2.0 L or more), drastically reducing buckling resistance",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Preventing sway via diagonal bracing or shear cores keeps column effective lengths ≤ storey height L. Engineering synthesis for \"Compare effective lengths in braced (non-sway) vs unbraced (sway) frames\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Compare effective lengths in braced (non-sway) vs unbraced (sway) frames\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD09-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD09-T3",
+      "moduleNumber": 9,
+      "code": "9.3",
+      "title": "Bolted & Welded Connections, Base Plates & Frame Behaviour (Project 9.3)",
+      "summary": "Covers bolted connection behaviour (shear, bearing, tension, prying, block tearing), fillet and butt weld basics, simple vs moment-resisting connection stiffness, column base plates, braced frame analysis (Project 9.3), portal frame basics, and second-order (P-Δ) awareness.",
+      "subtopics": [
+        "Bolted connections: bolt shear, plate bearing, tension & prying action, block tearing around bolt groups",
+        "Welded connections: full-penetration butt welds vs fillet welds (throat thickness a ≤ 0.7 × leg length s)",
+        "Connection classification by stiffness and strength: nominally pinned, semi-rigid/partial-strength, rigid/full-strength",
+        "Column base plates: spreading axial load N_Ed over concrete foundation bedding grout, and holding-down bolts for uplift/temporary erection stability",
+        "Braced frames (Project 9.3), portal frames (haunches and eaves/apex moments), and second-order P-Δ sway amplification awareness"
+      ],
+      "learningObjectives": [
+        "Calculate fillet weld throat thickness, bolt group forces, and column baseplate pressures.",
+        "Explain why connection stiffness assumptions affect the entire structural analysis model (Module 9 Gate)."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD09-T3-Q1",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T3",
+          "learningObjective": "Calculate effective throat thickness a of a symmetric 45° fillet weld",
+          "type": "numeric",
+          "prompt": "A standard mitre (flat-faced 45°) fillet weld has equal leg lengths of s = 8.0 mm. Calculate its theoretical effective throat thickness a = s / √2 (≈ 0.707 s) in mm (to 2 decimal places).",
+          "assumptions": "Fillet weld capacity per mm length is governed by throat thickness a, not leg length s.",
+          "unit": "mm",
+          "correctAnswer": 5.66,
+          "tolerance": 0.0849,
+          "explanation": "a = 8.0 × cos(45°) = 8.0 × 0.7071 = 5.657 mm ≈ 5.66 mm (often taken conservatively as 0.7 × 8.0 = 5.6 mm). Step-by-step verification for \"Calculate effective throat thickness a of a symmetric 45° fillet weld\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 5.66 mm, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate effective throat thickness a of a symmetric 45° fillet weld\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: a = 8.0 × cos(45°) = 8.0 × 0.7071 = 5.657 mm ≈ 5.66 mm (often taken conservatively as 0.7 × 8.0 = 5.6 mm). Express your final numeric answer in mm."
+          ],
+          "caseFamilyId": "MOD09-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD09-T3-Q2",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T3",
+          "learningObjective": "Understand block tearing failure in a bolted beam-end or gusset connection",
+          "type": "mcq",
+          "prompt": "What is \"block tearing\" at a bolted connection (such as a notched beam web or tension gusset plate)?",
+          "assumptions": "Module 9 Learn item: block tearing awareness.",
+          "options": [
+            "A failure where the concrete foundation cracks 10 m away, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "A combined shear-and-tension tear-out failure where a block of plate material rips out along the perimeter of the bolt group, failing simultaneously by shear along the longitudinal bolt row(s) and tension across the transverse end bolt line",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Block tearing is particularly critical when a beam top flange is notched (coped) at a connection, leaving a free top edge above the bolt group. Engineering synthesis for \"Understand block tearing failure in a bolted beam-end or gusset connection\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand block tearing failure in a bolted beam-end or gusset connection\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD09-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD09-T3-Q3",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T3",
+          "learningObjective": "Understand why connection assumptions affect the whole structural model (Module 9 Gate)",
+          "type": "mcq",
+          "prompt": "Suppose an engineer analyses a steel frame assuming beam-to-column joints are frictionless pins (so columns receive zero end moment from the beams), but on the drawings specifies deep, heavily stiffened extended end-plate moment connections welded/bolted to the column flanges. What is the danger of this mismatch?",
+          "assumptions": "Direct Module 9 Gate requirement.",
+          "options": [
+            "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "The stiff connections restrain beam end rotation and attract large hogging bending moments into both the connection bolts/welds and the supporting columns, moments that the columns and foundations were never designed to resist"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "In structural mechanics, force follows stiffness! If a connection is detailed stiffly, it will attract moment whether the analysis model assumed a pin or not.",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why connection assumptions affect the whole structural model (Module 9 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD09-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD09-T3-Q4",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T3",
+          "learningObjective": "Understand why pitched-roof steel portal frames have haunches at the eaves",
+          "type": "mcq",
+          "prompt": "In a single-storey pitched-roof steel portal frame, why is the rafter typically deepened with a fabricated haunch at the eaves (beam-to-column knee) connection?",
+          "assumptions": "Portal frame basics awareness.",
+          "options": [
+            "Because the largest bending moment in a portal frame occurs at the eaves knee (hogging under gravity load), and deepening the lever arm at the eaves increases bending resistance, increases frame flexural stiffness, and provides room for a multi-row bolted moment end-plate connection",
+            "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geometric imperfections, or local buckling slenderness reductions at the.",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the support boundaries",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differential support settlement under sustained gravity loading"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Note also that under hogging at the eaves haunch, the BOTTOM flange of the haunch is in compression and requires torsional fly-bracing from the purlins/side rails!",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why pitched-roof steel portal frames have haunches at the eaves\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD09-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD09-T3-Q5",
+          "moduleNumber": 9,
+          "topicId": "MOD09-T3",
+          "learningObjective": "Understand second-order (P-Δ) sway effects in frames",
+          "type": "mcq",
+          "prompt": "What are \"second-order (P-Δ) effects\" in a multi-storey or portal steel frame subjected to combined vertical gravity loads P and horizontal wind sway Δ?",
+          "assumptions": "Module 9 second-order effects introductory awareness.",
+          "options": [
+            "The effect of painting the steel with a second coat of paint",
+            "When the frame sways horizontally by Δ under lateral load, the heavy vertical gravity loads P acting on the displaced nodes create additional overturning moments (P × Δ) that cause further sway and amplify the internal moments and forces beyond first-order elastic analysis",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "A reduction in bending moment when axial compression is high"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "When a frame is flexible in sway (e.g. α_cr = F_cr / F_Ed < 10 in EC3), second-order P-Δ amplification must be accounted for in the analysis. Engineering synthesis for \"Understand second-order (P-Δ) sway effects in frames\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand second-order (P-Δ) sway effects in frames\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD09-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "PROJ-9.1",
+      "title": "Unrestrained beam",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "PROJ-9.2",
+      "title": "Compression member",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "PROJ-9.3",
+      "title": "Braced steel frame",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "SCI Steelwork Design Guide to EC3 & SCI P363.",
+    "SteelConstruction.info (LTB, columns, connections, bracing).",
+    "Current EN 1993-1-1 and EN 1993-1-8 + UK National Annexes."
+  ],
+  "standardsNotice": "Years 2–3 steel design module. All buckling reduction factors (χ, χ_LT) and section parameters in assessment questions are explicitly supplied; real design requires controlled copies of BS EN 1993-1-1, BS EN 1993-1-8, UK National Annexes, and SCI guides.",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD09-E01",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T1",
+      "learningObjective": "Calculate non-dimensional LTB slenderness λ_bar,LT",
+      "type": "numeric",
+      "prompt": "A Class 1 steel beam has plastic moment capacity M_pl,y = W_pl,y · f_y = 300 kN·m and an elastic critical LTB moment M_cr = 192 kN·m. Calculate its non-dimensional LTB slenderness λ_bar,LT = √(M_pl,y / M_cr) (to 2 decimal places).",
+      "assumptions": "Non-dimensional LTB slenderness.",
+      "unit": "ratio",
+      "correctAnswer": 1.25,
+      "tolerance": 0.0187,
+      "explanation": "λ_bar,LT = √(300 / 192) = √1.5625 = 1.25. Step-by-step verification for \"Calculate non-dimensional LTB slenderness λ_bar,LT\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.25 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate non-dimensional LTB slenderness λ_bar,LT\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: λ_bar,LT = √(300 / 192) = √1.5625 = ?. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD09-T1-CF",
+      "solverVerificationId": "SOLVER-MOD09-E01",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD09-E02",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T1",
+      "learningObjective": "Calculate LTB design resistance M_b,Rd",
+      "type": "numeric",
+      "prompt": "A laterally unrestrained Class 1 steel beam has a major-axis plastic moment capacity M_pl,y = 300 kN·m. If its Lateral Torsional Buckling reduction factor is χ_LT = 0.48 and partial factor γ_M1 = 1.00, calculate its design LTB buckling moment resistance M_b,Rd = χ_LT · M_pl,y / γ_M1 in kN·m.",
+      "assumptions": "Compare against M_Ed to verify unrestrained bending safety.",
+      "unit": "kN·m",
+      "correctAnswer": 144,
+      "tolerance": 2.16,
+      "explanation": "M_b,Rd = 0.48 × 300 / 1.00 = 144.0 kN·m. Step-by-step verification for \"Calculate LTB design resistance M_b,Rd\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 144 kN·m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate LTB design resistance M_b,Rd\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_b,Rd = 0.48 × 300 / 1.00 = ?. Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD09-T1-CF",
+      "solverVerificationId": "SOLVER-MOD09-E02",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD09-E03",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T2",
+      "learningObjective": "Calculate column non-dimensional slenderness λ_bar",
+      "type": "numeric",
+      "prompt": "A steel column has squash capacity A·f_y = 1,800 kN and governing minor-axis Euler critical load N_cr,z = 2,000 kN. Calculate its non-dimensional slenderness λ_bar = √(A·f_y / N_cr,z) (to 2 decimal places).",
+      "assumptions": "At λ_bar = 0.95 (near λ_bar = 1.0), interaction between yielding, residual stresses, and elastic buckling is greatest.",
+      "unit": "ratio",
+      "correctAnswer": 0.95,
+      "tolerance": 0.0142,
+      "explanation": "λ_bar = √(1,800 / 2,000) = √0.90 = 0.9487 ≈ 0.95. Step-by-step verification for \"Calculate column non-dimensional slenderness λ_bar\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.95 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate column non-dimensional slenderness λ_bar\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: λ_bar = √(1,800 / 2,000) = √0.90 = 0.9487 ≈ 0.95. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD09-T2-CF",
+      "solverVerificationId": "SOLVER-MOD09-E03",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD09-E04",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T2",
+      "learningObjective": "Calculate column design buckling resistance N_b,Rd",
+      "type": "numeric",
+      "prompt": "A steel column has a cross-sectional squash capacity A·f_y = 1,800 kN. If the applicable Eurocode 3 buckling curve gives a reduction factor χ = 0.58 and γ_M1 = 1.00, calculate the design compression buckling resistance N_b,Rd in kN.",
+      "assumptions": "EC3 Clause 6.3.1 compression check.",
+      "unit": "kN",
+      "correctAnswer": 1044,
+      "tolerance": 15.7,
+      "explanation": "N_b,Rd = 0.58 × 1,800 / 1.00 = 1,044 kN. Step-by-step verification for \"Calculate column design buckling resistance N_b,Rd\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1044 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate column design buckling resistance N_b,Rd\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: N_b,Rd = 0.58 × 1,800 / 1.00 = 1,044 kN. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD09-T2-CF",
+      "solverVerificationId": "SOLVER-MOD09-E04",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD09-E05",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T2",
+      "learningObjective": "Evaluate simplified combined axial compression and biaxial bending utilisation",
+      "type": "numeric",
+      "prompt": "A column in simple construction is subjected to ULS axial force N_Ed = 500 kN (with N_b,z,Rd = 1,000 kN), major-axis nominal moment M_y,Ed = 30 kN·m (with M_b,Rd = 150 kN·m), and minor-axis nominal moment M_z,Ed = 10 kN·m (with M_c,z,Rd = 50 kN·m). Using the simplified interaction expression (N_Ed / N_b,z,Rd) + (M_y,Ed / M_b,Rd) + 1.5·(M_z,Ed / M_c,z,Rd), calculate the combined interaction value.",
+      "assumptions": "Notice that even though axial utilisation alone is only 50%, adding the biaxial nominal moments brings the total interaction to 100%!",
+      "unit": "ratio",
+      "correctAnswer": 1,
+      "tolerance": 0.015,
+      "explanation": "(500 / 1,000) + (30 / 150) + 1.5 × (10 / 50) = 0.50 + 0.20 + 0.30 = 1.00 (just at the limit of 1.00). Step-by-step verification for \"Evaluate simplified combined axial compression and biaxial bending utilisation\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Evaluate simplified combined axial compression and biaxial bending utilisation\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: (500 / 1,000) + (30 / 150) + 1.5 × (10 / 50) = 0.50 + 0.20 + 0.30 = 1.00 (just at the limit of 1.00). Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD09-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E06",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Calculate design shear force per bolt in a concentric bolt group",
+      "type": "numeric",
+      "prompt": "A double-angle cleat connection uses 6 identical M20 bolts to transfer a concentric vertical shear reaction of V_Ed = 270 kN. Assuming equal shear distribution among the bolts, what is the shear force F_v,Ed per bolt in kN?",
+      "assumptions": "Valid when the line of action passes through the centroid of the bolt group; eccentric bolt groups also experience torsional shear forces!",
+      "unit": "kN",
+      "correctAnswer": 45,
+      "tolerance": 0.675,
+      "explanation": "F_v,Ed = 270 kN / 6 = 45.0 kN per bolt. Step-by-step verification for \"Calculate design shear force per bolt in a concentric bolt group\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 45 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate design shear force per bolt in a concentric bolt group\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: F_v,Ed = 270 kN / 6 = 45.0 kN per bolt. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E07",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Calculate required length of fillet weld to resist an axial tie force",
+      "type": "numeric",
+      "prompt": "A flat steel tie bar carrying a ULS tension force of N_Ed = 180 kN is welded to a gusset plate by longitudinal fillet welds that have a design resistance of f_vw,d × a = 1.25 kN per mm of weld length. Neglecting end returns, what total effective length of fillet weld L_w,req (in mm) is required?",
+      "assumptions": "Weld capacity is proportional to throat thickness a × effective weld length L_w.",
+      "unit": "mm",
+      "correctAnswer": 144,
+      "tolerance": 2.16,
+      "explanation": "L_w,req = 180 kN / (1.25 kN/mm) = 144 mm (e.g. 72 mm effective length along each of the two edges of the flat bar). Step-by-step verification for \"Calculate required length of fillet weld to resist an axial tie force\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 144 mm, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate required length of fillet weld to resist an axial tie force\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: L_w,req = 180 kN / (1.25 kN/mm) = 144 mm (e.g. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E08",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Calculate average bearing pressure under a square column baseplate",
+      "type": "numeric",
+      "prompt": "A steel column transfers a concentric ULS axial compression force of N_Ed = 1,225 kN through a 350 mm × 350 mm square steel baseplate onto concrete bedding grout. Assuming uniform bearing over the full baseplate area in a preliminary sizing check, what is the average compressive stress (in N/mm²) on the bedding?",
+      "assumptions": "Note: in detailed EC3 baseplate design (effective area method), bearing is concentrated over an effective T-shaped strip around the column profile.",
+      "unit": "N/mm²",
+      "correctAnswer": 10,
+      "tolerance": 0.15,
+      "explanation": "Area = 350 × 350 = 122,500 mm². Stress = 1,225,000 N / 122,500 mm² = 10.0 N/mm². Step-by-step verification for \"Calculate average bearing pressure under a square column baseplate\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10 N/mm², and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate average bearing pressure under a square column baseplate\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Area = 350 × 350 = 122,500 mm². Express your final numeric answer in N/mm²."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E09",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Calculate horizontal wind shear per braced bay in a symmetric building (Project 9.3)",
+      "type": "numeric",
+      "prompt": "A rectangular industrial building experiences a total ULS horizontal wind load of 160 kN perpendicular to its long elevation. The roof plan bracing acts as a rigid diaphragm transferring this load equally to 2 identical vertical cross-braced bays (one in each gable end wall). What horizontal wind shear force (in kN) must each gable braced bay resist?",
+      "assumptions": "Project 9.3 lateral load path.",
+      "unit": "kN",
+      "correctAnswer": 80,
+      "tolerance": 1.2,
+      "explanation": "160 kN / 2 = 80.0 kN per braced gable wall. Step-by-step verification for \"Calculate horizontal wind shear per braced bay in a symmetric building (Project 9.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 80 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate horizontal wind shear per braced bay in a symmetric building (Project 9.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: 160 kN / 2 = 80.0 kN per braced gable wall. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E10",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Calculate axial compression in the leeward column of a braced bay (Project 9.3)",
+      "type": "numeric",
+      "prompt": "One vertical braced bay of width B = 5.0 m and height H = 4.0 m carries a horizontal lateral load of H_Ed = 80 kN at roof level (and a tension-only diagonal brace running from bottom-left to top-right). In addition to its vertical roof gravity reaction of G_Ed = 90 kN, how much extra axial compression ΔN_wind (in kN) does the horizontal load induce in the leeward (right-hand) column? Enter the total leeward column compression (G_Ed + ΔN_wind) in kN.",
+      "assumptions": "Remember: horizontal wind on a braced bay increases compression in the leeward column and reduces compression (or causes uplift) in the windward column!",
+      "unit": "kN",
+      "correctAnswer": 154,
+      "tolerance": 2.31,
+      "explanation": "Overturning moment about windward base = 80 kN × 4.0 m = 320 kN·m. Extra compression in leeward column ΔN_wind = 320 / 5.0 = 64 kN (also equal to vertical component of diagonal tension). Total leeward column compression = 90 + 64 = 154 kN.",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate axial compression in the leeward column of a braced bay (Project 9.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Overturning moment about windward base = 80 kN × 4.0 m = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E11",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T2",
+      "learningObjective": "Explain why Universal Column (UKC) sections are preferred over Universal Beam (UB) sections for columns",
+      "type": "mcq",
+      "prompt": "Compare a 254×254×73 UKC and a 457×152×74 UB, which have almost identical cross-sectional area and weight per metre. Why is the 254×254 UKC far superior as an unbraced compression column?",
+      "assumptions": "Core section-selection judgement.",
+      "options": [
+        "The UKC is made of a steel with twice the Young’s modulus E, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "The wide-flange square-ish profile of the UKC gives it a minor-axis second moment of area I_z and radius of gyration i_z roughly double to triple that of the narrow-flanged UB, dramatically reducing minor-axis slenderness λ_z and increasing buckling resistance N_b,z,Rd",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "For unbraced columns, minor-axis buckling almost always governs; UKC sections have b ≈ h to maximise minor-axis radius of gyration i_z. Engineering synthesis for \"Explain why Universal Column (UKC) sections are preferred over Universal Beam (UB) sections for columns\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why Universal Column (UKC) sections are preferred over Universal Beam (UB) sections for columns\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD09-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E12",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Understand prying action in bolted T-stub / end-plate tension connections",
+      "type": "mcq",
+      "prompt": "When a flexible bolted end plate is pulled in tension (for example at the tension flange of a moment connection), what is \"prying action\"?",
+      "assumptions": "Module 9 connection behaviour.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Bending deformation of the flexible end plate causes its outer edges to bear hard against the supporting column flange, acting like a crowbar lever that increases the tension force in the bolts beyond the externally applied tension"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Prying forces must either be accounted for in bolt tension capacity (EC3 T-stub model) or minimised by using a sufficiently thick end plate and placing bolts close to the tension flange/web.",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand prying action in bolted T-stub / end-plate tension connections\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E13",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Explain why every steel column needs at least 4 holding-down bolts for erection safety",
+      "type": "mcq",
+      "prompt": "Even if a permanent-works analysis models a steel column base as a pure pin with compressive downward reaction only, why is a 4-bolt holding-down arrangement strongly preferred over a 2-bolt arrangement on site?",
+      "assumptions": "Practical site safety.",
+      "options": [
+        "During construction erection, before beams and bracing are connected, the freestanding column must stand safely as a vertical cantilever under wind and crane release; 4 bolts in a square pattern provide two-way overturning stability during erection",
+        "Because 2 bolts cannot resist vertical compression in grout, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the support boundaries",
+        "Because holding-down bolts increase the height of the roof"
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Construction-stage stability of freestanding columns is a classic temporary/permanent works interface (Project 9.3). Engineering synthesis for \"Explain why every steel column needs at least 4 holding-down bolts for erection safety\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why every steel column needs at least 4 holding-down bolts for erection safety\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E14",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Understand how tension-only cross-bracing (X-bracing) works under reversible wind",
+      "type": "mcq",
+      "prompt": "Many braced steel frames use slender flat-bar or rod X-bracing (two opposing diagonals in a single braced bay) designed as a \"tension-only\" system. How does an X-braced bay resist horizontal wind load blowing from the left versus wind blowing from the right?",
+      "assumptions": "Project 9.3 bracing force concept.",
+      "options": [
+        "Both slender diagonals carry equal compression without buckling, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Because slender rods/flats buckle harmlessly at negligible compressive load, whichever diagonal is put into tension carries 100% of the horizontal shear for that wind direction, while the compressed diagonal is ignored in the analysis",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "The diagonals resist wind by bending about their minor axis"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "In a tension-only braced bay, only the active tension diagonal is included in the stiffness/equilibrium model for a given load direction. Engineering synthesis for \"Understand how tension-only cross-bracing (X-bracing) works under reversible wind\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand how tension-only cross-bracing (X-bracing) works under reversible wind\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E15",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T1",
+      "learningObjective": "Recognise torsional and LTB hazard at cantilevered beam overhangs",
+      "type": "mcq",
+      "prompt": "A steel roof beam is supported on two columns and cantilevers 2.5 m past the outer column to support a canopy. What is the most common restraint mistake made when checking the 2.5 m cantilever overhang for LTB?",
+      "assumptions": "Module 9 unrestrained beam judgement.",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "Assuming the roof purlins on the top tension flange restrain the bottom compression flange, or assuming an effective length factor of 1.0 L instead of accounting for the unrestrained free tip and warping/twist conditions of a cantilever",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "In a gravity cantilever, the bottom flange is in compression and the free tip can twist and translate laterally unless specifically braced at the tip and bottom flange.",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise torsional and LTB hazard at cantilevered beam overhangs\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD09-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E16",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Understand bolt bearing vs bolt shear in thin-plate connections",
+      "type": "mcq",
+      "prompt": "An M20 class 8.8 bolt connects two thin 5 mm S275 steel straps in single shear. Which failure mode is much more likely to govern the connection capacity: shear fracture of the 20 mm high-strength bolt shaft, or bearing crushing/tear-out of the 5 mm mild steel strap against the bolt?",
+      "assumptions": "EC3 bolted connection fundamentals.",
+      "options": [
+        "Shear fracture of the 20 mm diameter high-strength bolt, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "Both always have identical capacity regardless of plate thickness",
+        "Bearing crushing/tear-out of the thin 5 mm S275 plate against the bolt (which depends on plate thickness t, bolt diameter d, and edge/pitch distances e_1, p_1)"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "A bolted joint is a chain of links: connection resistance is the minimum of bolt shear resistance F_v,Rd and plate bearing resistance F_b,Rd. Engineering synthesis for \"Understand bolt bearing vs bolt shear in thin-plate connections\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand bolt bearing vs bolt shear in thin-plate connections\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E17",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Calculate maximum bolt force in an eccentrically loaded shear bolt group",
+      "type": "numeric",
+      "prompt": "Two bolts are arranged vertically at a pitch spacing of p = 200 mm (so each bolt is r = 100 mm from the group centroid). The connection resists a vertical shear force V = 40 kN and an in-plane torsion moment T = 6.0 kN·m (= 6,000 kN·mm). The vertical shear per bolt is F_y = 40 / 2 = 20 kN, and the horizontal force per bolt from the moment couple is F_x = T / p = 6,000 / 200 = 30 kN. Calculate the resultant shear force √(F_x² + F_y²) on each bolt in kN (to 1 decimal place).",
+      "assumptions": "Vector combination of direct vertical shear and torsional moment shear in an eccentric bolt group.",
+      "unit": "kN",
+      "correctAnswer": 36.1,
+      "tolerance": 0.541,
+      "explanation": "Resultant bolt shear F_res = √(30² + 20²) = √(900 + 400) = √1,300 = 36.056 kN ≈ 36.1 kN. Step-by-step verification for \"Calculate maximum bolt force in an eccentrically loaded shear bolt group\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 36.1 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum bolt force in an eccentrically loaded shear bolt group\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Resultant bolt shear F_res = √(30² + 20²) = √(900 + 400) = √1,300 = 36.056 kN ≈ 36.1 kN. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E18",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T2",
+      "learningObjective": "Understand why column splices in multi-storey buildings are placed above floor level",
+      "type": "mcq",
+      "prompt": "In multi-storey steel frames, why are column splices typically located 500 mm to 1,000 mm above the floor beam level rather than right at the beam-to-column floor junction?",
+      "assumptions": "Practical steelwork detailing and construction interface.",
+      "options": [
+        "To keep the splice clear of the congested beam-to-column connection zone, locate it away from maximum frame moments, and provide a convenient waist-height working position for steel erectors standing on the floor deck",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geomet.",
+        "Because steel columns cannot be cut in lengths over 1.0 m",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformati."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Note: even when ends are machined for direct bearing in compression, EC3 requires column splices to be designed for nominal continuity bending and tying tension.",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why column splices in multi-storey buildings are placed above floor level\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD09-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E19",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Identify how horizontal forces at the base of a portal frame or braced bay are resisted",
+      "type": "mcq",
+      "prompt": "A portal frame column base or a vertical braced bay base exerts a substantial horizontal shear force H_Ed onto its pad foundation. How can this horizontal base reaction be safely resisted in the permanent structure?",
+      "assumptions": "Connects Module 9 frames to Module 13 foundations.",
+      "options": [
+        "By assuming horizontal forces disappear once they reach the baseplate, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "By a horizontal steel/concrete tie beam cast into the floor slab connecting opposing column bases (especially in portal frames to resist outward eaves spread thrust), passive earth pressure on the side of the foundation/shear key, and/or base friction under minimum vertical load",
+        "By using frictionless PTFE sliding bearings at both bases",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Pitched-roof portal frames push outwards at the bases under gravity load; tying the bases together across the floor slab is standard UK practice to avoid large horizontal foundation thrusts.",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify how horizontal forces at the base of a portal frame or braced bay are resisted\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD09-E20",
+      "moduleNumber": 9,
+      "topicId": "MOD09-T3",
+      "learningObjective": "Synthesise the Module 9 Learning Gate on global stability and connection assumptions",
+      "type": "mcq",
+      "prompt": "When reviewing a 3D steel frame design, which four questions form the Module 9 Learning Gate check?",
+      "assumptions": "Module 9 Gate synthesis.",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "(1) Are unrestrained beams checked for LTB rather than just cross-section strength? (2) Are columns checked for flexural/torsional buckling and eccentric moments rather than just squash load? (3) Is there a complete, credible 3D lateral stability system (diaphragms + vertical bracing/moment frames) in both permanent and erection stages? (4) Do the physical connection details match the pinned or rigid stiffness assumptions of the analysis model?",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Summarises all four pillars of the Module 9 Learning Gate. Engineering synthesis for \"Synthesise the Module 9 Learning Gate on global stability and connection assumptions\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
+      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Synthesise the Module 9 Learning Gate on global stability and connection assumptions\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD09-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}

@@ -75,7 +75,9 @@ import {
   CalculatorPopover,
   SyllabusInspectorDrawer,
   UnitsReferenceDrawer,
+  VerificationSelfTestDrawer,
 } from './components/UtilityModals';
+import { ShieldCheck } from 'lucide-react';
 
 type MainView = 'dashboard' | 'tutor' | 'map' | 'coverage' | 'assessment';
 
@@ -161,7 +163,18 @@ export default function App() {
   );
 
   // 2. Shell Layout & Hybrid Light-Card Polish State (defaults to true for the signature white-card / dark-shell look)
-  const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState<boolean>(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setSidebarCollapsed(true);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const [hybridLightCards, setHybridLightCards] = useState<boolean>(true);
   const [activeView, setActiveView] = useState<MainView>('dashboard');
   const [confirmResetOpen, setConfirmResetOpen] = useState<boolean>(false);
@@ -188,41 +201,48 @@ export default function App() {
 
   // 4. Interactive Unit & Bending Stress Sandbox State (Card 2 on [📖 Learn])
   const [sandboxMomentKnm, setSandboxMomentKnm] = useState<string>('18');
-  const [sandboxWelMm3, setSandboxWelMm3] = useState<string>('666666.7');
+  const [sandboxWelMm3, setSandboxWelMm3] = useState<string>('667000');
 
   const sandboxComputed = useMemo(() => {
     const mVal = Number(sandboxMomentKnm);
     const wVal = Number(sandboxWelMm3);
     if (!Number.isFinite(mVal) || !Number.isFinite(wVal) || wVal <= 0) {
-      return { momentNmm: '—', stressMpa: '—', stressGpa: '—' };
+      return { momentNmm: '-', stressMpa: '-', stressGpa: '-' };
     }
     const nmm = convertEngineeringUnit(mVal, 'kN·m', 'N·mm');
     const sigma = nmm / wVal;
     return {
       momentNmm: nmm.toLocaleString('en-GB', { maximumFractionDigits: 0 }),
-      stressMpa: Number(sigma.toPrecision(4)).toString(),
-      stressGpa: Number((sigma / 1000).toPrecision(4)).toString(),
+      stressMpa: Number(sigma.toPrecision(3)).toString(),
+      stressGpa: Number((sigma / 1000).toPrecision(3)).toString(),
     };
   }, [sandboxMomentKnm, sandboxWelMm3]);
 
-  // 5. Stepped Tutor State ([📖 Learn], [1a]..[5a], [🏁 Summary])
-  const [currentStep, setCurrentStep] = useState<StepId>('learn');
-  const [remedialInjected, setRemedialInjected] = useState<boolean>(false);
-  const [stepStatuses, setStepStatuses] = useState<Record<StepId, StepStatus>>({
-    learn: 'active',
-    '1a': 'unseen',
-    '1b': 'unseen',
-    '2a': 'unseen',
-    '2a-R': 'unseen',
-    '2b': 'unseen',
-    '2c': 'unseen',
-    '3': 'unseen',
-    '4': 'unseen',
-    '5a': 'unseen',
-    summary: 'unseen',
-  });
+  // 5. Stepped Tutor State ([📖 Learn], [1a]..[5a], [🏁 Summary]) persisted via progressState.tutorPractice (B1)
+  const [currentStep, setCurrentStep] = useState<StepId>(
+    () => (progressState.tutorPractice?.currentStep as StepId) || 'learn'
+  );
+  const [remedialInjected, setRemedialInjected] = useState<boolean>(
+    () => Boolean(progressState.tutorPractice?.remedialInjected)
+  );
+  const [stepStatuses, setStepStatuses] = useState<Record<StepId, StepStatus>>(
+    () =>
+      (progressState.tutorPractice?.stepStatuses as Record<StepId, StepStatus>) ?? {
+        learn: 'active',
+        '1a': 'unseen',
+        '1b': 'unseen',
+        '2a': 'unseen',
+        '2a-R': 'unseen',
+        '2b': 'unseen',
+        '2c': 'unseen',
+        '3': 'unseen',
+        '4': 'unseen',
+        '5a': 'unseen',
+        summary: 'unseen',
+      }
+  );
   const [answerInput, setAnswerInput] = useState<string>('');
-  const [selectedUnit, setSelectedUnit] = useState<string>('N·mm');
+  const [selectedUnit, setSelectedUnit] = useState<string>('kN');
   const [hintsRevealed, setHintsRevealed] = useState<number>(0);
   const [fullSolutionUnlockedByStep, setFullSolutionUnlockedByStep] = useState<
     Record<string, boolean>
@@ -236,14 +256,44 @@ export default function App() {
     useState<boolean>(false);
   const [unitsDrawerOpen, setUnitsDrawerOpen] = useState<boolean>(false);
   const [calculatorOpen, setCalculatorOpen] = useState<boolean>(false);
+  const [verificationDrawerOpen, setVerificationDrawerOpen] =
+    useState<boolean>(false);
 
   // 6. Milestone A Skill Bars (all start at 0, increment on genuine practice/assessments)
   const [milestoneBars, setMilestoneBars] = useState<MilestoneSkillBar[]>(
-    INITIAL_MILESTONE_A_BARS
+    () =>
+      progressState.tutorPractice?.milestoneBars
+        ? progressState.tutorPractice.milestoneBars.map((b) => ({
+            ...b,
+            score: b.completed,
+          }))
+        : INITIAL_MILESTONE_A_BARS
   );
   const [creditedQuestions, setCreditedQuestions] = useState<
     Record<string, boolean>
-  >({});
+  >(() => progressState.tutorPractice?.creditedQuestions ?? {});
+
+  // Persist Stepped Tutor session state into CourseProgressState (B1)
+  useEffect(() => {
+    setProgressState((prev) => ({
+      ...prev,
+      lastUpdatedAtIso: new Date().toISOString(),
+      tutorPractice: {
+        currentStep,
+        stepStatuses,
+        remedialInjected,
+        milestoneBars: milestoneBars.map((b) => ({
+          id: b.id,
+          label: b.label,
+          completed: b.completed,
+          target: b.target,
+          unitDescription: b.unitDescription,
+        })),
+        creditedQuestions,
+        lastUpdatedIso: new Date().toISOString(),
+      },
+    }));
+  }, [currentStep, stepStatuses, remedialInjected, milestoneBars, creditedQuestions]);
 
   // 7. Unified Visual Learning Map State
   const [mapStageFilter, setMapStageFilter] = useState<'all' | 1 | 2 | 3>(
@@ -571,7 +621,13 @@ export default function App() {
 
   return (
     <div className={hybridLightCards ? '' : 'dark'}>
-      <div className="min-h-screen bg-[#0B1120] text-slate-100 flex font-sans">
+      <div
+        className={`min-h-screen flex font-sans transition-colors duration-200 ${
+          hybridLightCards
+            ? 'bg-slate-100 text-slate-900'
+            : 'bg-[#0B1120] text-slate-100'
+        }`}
+      >
         {/* ================================================================= */}
         {/* LEFT COLLAPSIBLE SIDEBAR (Original Polished Navigation Rail)      */}
         {/* ================================================================= */}
@@ -583,7 +639,13 @@ export default function App() {
           {/* Top Brand + Primary Nav */}
           <div className="p-3 space-y-6">
             {/* Brand Header */}
-            <div className="flex items-center justify-between gap-2 px-1 pt-1">
+            <div
+              className={
+                sidebarCollapsed
+                  ? 'flex flex-col items-center gap-2 pt-1'
+                  : 'flex items-center justify-between gap-2 px-1 pt-1'
+              }
+            >
               <button
                 type="button"
                 onClick={() => setActiveView('dashboard')}
@@ -715,7 +777,17 @@ export default function App() {
                 </button>
                 <button
                   type="button"
+                  onClick={() => setVerificationDrawerOpen(true)}
+                  data-testid="open-backup-diagnostics-btn"
+                  className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors cursor-pointer"
+                >
+                  <ShieldCheck className="w-4 h-4 text-teal-400 shrink-0" />
+                  <span>Backup &amp; Review Queue</span>
+                </button>
+                <button
+                  type="button"
                   onClick={() => setHybridLightCards((prev) => !prev)}
+                  data-testid="theme-toggle-btn"
                   className="w-full flex items-center justify-between gap-2 px-3 py-2 rounded-xl text-xs font-medium text-slate-300 hover:text-white hover:bg-slate-800/80 transition-colors cursor-pointer"
                 >
                   <span className="flex items-center gap-2.5">
@@ -725,7 +797,7 @@ export default function App() {
                       <Moon className="w-4 h-4 text-sky-400 shrink-0" />
                     )}
                     <span>
-                      {hybridLightCards ? 'Hybrid Light Cards' : 'Dark Cards'}
+                      {hybridLightCards ? 'Light Mode Shell' : 'Dark Mode Shell'}
                     </span>
                   </span>
                   <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">
@@ -929,7 +1001,7 @@ export default function App() {
 
                   <div className="space-y-1.5 text-xs">
                     <div className="font-semibold text-white">
-                      Course Gate Progress
+                      Overall Course Progress
                     </div>
                     <div className="font-mono text-sky-200">
                       <span data-testid="completed-modules-count">
@@ -997,7 +1069,7 @@ export default function App() {
                           Core Mechanics &amp; Portfolio Verification
                         </span>
                         <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white mt-0.5">
-                          Year 1 Mastery &amp; Milestone A–F Portfolio Tracker
+                          Core Skills &amp; Project Milestones (A–F)
                         </h2>
                       </div>
                       <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
@@ -1073,7 +1145,7 @@ export default function App() {
                     <div className="flex items-center justify-between">
                       <div>
                         <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-sky-400">
-                          Verified Activity Log
+                          Recent Study &amp; Exam Activity
                         </span>
                         <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white mt-0.5">
                           Recent Learning &amp; Assessment Sessions
@@ -1320,11 +1392,11 @@ export default function App() {
           {/* =============================================================== */}
           {activeView === 'tutor' && (
             <div
-              className="max-w-[920px] mx-auto space-y-5"
+              className="max-w-[920px] mx-auto space-y-3.5"
               data-testid="tutor-view"
             >
               {/* 1. COMPACT TOP SESSION HEADER WITH TOPIC SWITCHER POPOVER */}
-              <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-4 shadow-xs flex flex-wrap items-center justify-between gap-3 relative">
+              <div className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-3 shadow-xs flex flex-wrap items-center justify-between gap-2.5 relative">
                 <div className="flex flex-wrap items-center gap-2.5">
                   <button
                     type="button"
@@ -1891,15 +1963,21 @@ export default function App() {
                     </p>
                   </div>
 
-                  {/* Formatted Engineering Math Fraction & Given Parameters */}
+                  {/* Formatted Engineering Math Fraction & Given Parameters (N9 Fixed) */}
                   <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
                     {activeQuestion.promptFormula && (
-                      <MathFraction
-                        lhs={activeQuestion.promptFormula.lhs}
-                        num={activeQuestion.promptFormula.num}
-                        den={activeQuestion.promptFormula.den}
-                        rhs={activeQuestion.promptFormula.rhsNote}
-                      />
+                      <div className="flex flex-wrap items-center gap-3">
+                        <MathFraction
+                          lhs={activeQuestion.promptFormula.lhs}
+                          num={activeQuestion.promptFormula.num}
+                          den={activeQuestion.promptFormula.den}
+                        />
+                        {activeQuestion.promptFormula.rhsNote && (
+                          <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+                            ({activeQuestion.promptFormula.rhsNote})
+                          </span>
+                        )}
+                      </div>
                     )}
 
                     <div className="flex flex-wrap items-center gap-2">
@@ -2466,9 +2544,21 @@ export default function App() {
                                         <span className="text-xs font-mono font-bold px-2 py-0.5 rounded bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300">
                                           Topic {topic.code}
                                         </span>
-                                        <h3 className="font-display text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                                        <button
+                                          type="button"
+                                          onClick={() =>
+                                            setInspectorDrawerTarget({
+                                              moduleItem: legacyMod,
+                                              objectiveItem: legacyObj,
+                                              moduleNumber: mod.moduleNumber,
+                                              topicId: topic.id,
+                                            })
+                                          }
+                                          className="font-display text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-sky-400 text-left cursor-pointer"
+                                          title="Click to inspect topic subtopics & syllabus notes"
+                                        >
                                           {topic.title}
-                                        </h3>
+                                        </button>
                                         <span
                                           className={`text-[11px] font-mono font-semibold px-2 py-0.5 rounded ${
                                             tPassed
@@ -2496,21 +2586,6 @@ export default function App() {
                                     </div>
 
                                     <div className="flex flex-wrap items-center gap-2 shrink-0">
-                                      <button
-                                        type="button"
-                                        onClick={() =>
-                                          setInspectorDrawerTarget({
-                                            moduleItem: legacyMod,
-                                            objectiveItem: legacyObj,
-                                            moduleNumber: mod.moduleNumber,
-                                            topicId: topic.id,
-                                          })
-                                        }
-                                        className="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 cursor-pointer"
-                                      >
-                                        Details
-                                      </button>
-
                                       <button
                                         type="button"
                                         onClick={() =>
@@ -2610,6 +2685,7 @@ export default function App() {
                   : progressState.modules[resolvedAssessment.module.id]
                       ?.attemptsCount ?? 0
               }
+              questionReviewOverrides={progressState.questionReviewOverrides}
               onCompleteAttempt={(res) =>
                 handleCompleteAssessmentAttempt(
                   resolvedAssessment.module,
@@ -2630,9 +2706,10 @@ export default function App() {
             <CoverageAndMilestonesView
               modules={ALL_SYLLABUS_MODULES}
               progressState={progressState}
-              onSelectModule={(modNum) =>
-                handleSelectModuleAndTopic(modNum, undefined, 'tutor')
+              onSelectModule={(modNum, topId) =>
+                handleSelectModuleAndTopic(modNum, topId, 'tutor')
               }
+              onUpdateProgressState={(next) => setProgressState(next)}
             />
           )}
         </main>
@@ -2684,6 +2761,23 @@ export default function App() {
               'tutor'
             );
           }}
+        />
+
+        <VerificationSelfTestDrawer
+          isOpen={verificationDrawerOpen}
+          onClose={() => setVerificationDrawerOpen(false)}
+          progressState={progressState}
+          modules={ALL_SYLLABUS_MODULES}
+          onImportProgressState={(newState) => setProgressState(newState)}
+          onUpdateQuestionReviewStatus={(questionId, status) =>
+            setProgressState((prev) => ({
+              ...prev,
+              questionReviewOverrides: {
+                ...(prev.questionReviewOverrides ?? {}),
+                [questionId]: status,
+              },
+            }))
+          }
         />
       </div>
     </div>

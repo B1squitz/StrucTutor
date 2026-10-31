@@ -1,0 +1,1040 @@
+{
+  "moduleNumber": 12,
+  "code": "MOD-12",
+  "title": "Soil Mechanics and Geotechnical Fundamentals",
+  "shortTitle": "Soil Mechanics & Geotechnics",
+  "suggestedDuration": "2 to 4 weeks",
+  "yearPathway": "Year 2",
+  "year1Months": "Year 2 Advanced Programme",
+  "whyItMatters": "Every structure ultimately transfers its load into the ground. Understanding Terzaghi’s effective stress principle, water table sensitivity, and the difference between short-term undrained clay behaviour and long-term drained behaviour is essential for both permanent foundations and temporary works.",
+  "introduction": "Phase relationships, total vs pore-water vs effective stress, drained vs undrained shear strength, settlement mechanisms, and critical reading of Ground Investigation (GI) reports.",
+  "objectives": [
+    "Differentiate soil classifications, grading, plasticity index, and phase relationships (void ratio, moisture content, bulk and submerged unit weights).",
+    "Calculate total vertical stress (sigma), pore-water pressure (u), and effective vertical stress (sigma' = sigma - u) for layered ground profiles.",
+    "Distinguish drained (c', phi') and undrained (cu) shear strength and calculate Mohr-Coulomb shear capacity.",
+    "Critically read a geotechnical report to identify water strike uncertainty, made ground variability, and settlement risks."
+  ],
+  "learningGate": "Explain why water level changes can govern stability and bearing.",
+  "prerequisiteModuleNumbers": [
+    11
+  ],
+  "topics": [
+    {
+      "id": "MOD12-T1",
+      "moduleNumber": 12,
+      "code": "12.1",
+      "title": "Soil Types, Grading, Plasticity & Phase Relationships",
+      "summary": "Coarse vs fine soils, Atterberg limits (Liquid Limit, Plastic Limit, Plasticity Index), void ratio, saturation, and dry/bulk/saturated unit weights.",
+      "subtopics": [
+        "Gravel and sand (coarse, cohesionless) vs silt and clay (fine, cohesive)",
+        "Liquid Limit (LL), Plastic Limit (PL), and Plasticity Index (PI = LL - PL)",
+        "Moisture content w, void ratio e, and bulk/dry unit weight relationships"
+      ],
+      "learningObjectives": [
+        "Gravel and sand (coarse, cohesionless) vs silt and clay (fine, cohesive)",
+        "Liquid Limit (LL), Plastic Limit (PL), and Plasticity Index (PI = LL - PL)",
+        "Moisture content w, void ratio e, and bulk/dry unit weight relationships"
+      ],
+      "futureExpansion": "Future expansion slot for particle size distribution (PSD) curves, A-line plasticity chart, and shrink-swell volume change guidance near trees.",
+      "questions": [
+        {
+          "id": "MOD12-T1-Q1",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T1",
+          "learningObjective": "Calculate Plasticity Index (PI) from Liquid Limit and Plastic Limit.",
+          "type": "numeric",
+          "prompt": "A clay sample has a Liquid Limit LL = 58% and a Plastic Limit PL = 22%. Calculate the Plasticity Index PI (in %).",
+          "assumptions": "Assume standard Atterberg limit test results to BS 1377.",
+          "unit": "%",
+          "correctAnswer": 36,
+          "tolerance": 0.1,
+          "explanation": "PI = LL - PL = 58 - 22 = 36%. Step-by-step verification for \"Calculate Plasticity Index (PI) from Liquid Limit and Plastic Limit.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 36 %, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate Plasticity Index (PI) from Liquid Limit and Plastic Limit.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: PI = LL - PL = 58 - 22 = 36%. Express your final numeric answer in %."
+          ],
+          "caseFamilyId": "MOD12-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T1-Q2",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T1",
+          "learningObjective": "Calculate dry unit weight from bulk unit weight and moisture content.",
+          "type": "numeric",
+          "prompt": "A soil has a bulk unit weight gamma_b = 19.8 kN/m^3 and a moisture content w = 10% (0.10). Calculate its dry unit weight gamma_d.",
+          "assumptions": "Use gamma_d = gamma_b / (1 + w).",
+          "unit": "kN/m^3",
+          "correctAnswer": 18,
+          "tolerance": 0.05,
+          "explanation": "gamma_d = 19.8 / (1 + 0.10) = 19.8 / 1.10 = 18.0 kN/m^3. Step-by-step verification for \"Calculate dry unit weight from bulk unit weight and moisture content.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 18 kN/m^3, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate dry unit weight from bulk unit weight and moisture content.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: gamma_d = 19.8 / (1 + 0.10) = 19.8 / 1.10 = 18.0 kN/m^3. Express your final numeric answer in kN/m^3."
+          ],
+          "caseFamilyId": "MOD12-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T1-Q3",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T1",
+          "learningObjective": "Calculate buoyant (submerged) unit weight of soil below the water table.",
+          "type": "numeric",
+          "prompt": "A saturated sand has a saturated bulk unit weight gamma_sat = 20.31 kN/m^3. Taking the unit weight of water gamma_w = 9.81 kN/m^3, calculate the submerged (buoyant) unit weight gamma'.",
+          "assumptions": "Use gamma' = gamma_sat - gamma_w.",
+          "unit": "kN/m^3",
+          "correctAnswer": 10.5,
+          "tolerance": 0.05,
+          "explanation": "gamma' = 20.31 - 9.81 = 10.50 kN/m^3. Step-by-step verification for \"Calculate buoyant (submerged) unit weight of soil below the water table.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10.5 kN/m^3, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate buoyant (submerged) unit weight of soil below the water table.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: gamma' = 20.31 - 9.81 = 10.50 kN/m^3. Express your final numeric answer in kN/m^3."
+          ],
+          "caseFamilyId": "MOD12-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T1-Q4",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T1",
+          "learningObjective": "Calculate moisture content from wet and dry specimen masses.",
+          "type": "numeric",
+          "prompt": "A moist soil sample has a total mass of 240 g. After oven drying to constant mass, its dry mass is 200 g. Calculate the moisture content w (in %).",
+          "assumptions": "Use w = ((m_wet - m_dry) / m_dry) * 100%.",
+          "unit": "%",
+          "correctAnswer": 20,
+          "tolerance": 0.1,
+          "explanation": "Mass of water = 240 - 200 = 40 g. Moisture content w = (40 / 200) * 100 = 20%. Step-by-step verification for \"Calculate moisture content from wet and dry specimen masses.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 20 %, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate moisture content from wet and dry specimen masses.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Mass of water = 240 - 200 = ?. Express your final numeric answer in %."
+          ],
+          "caseFamilyId": "MOD12-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T1-Q5",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T1",
+          "learningObjective": "Distinguish the engineering behaviour of coarse vs fine soils.",
+          "type": "mcq",
+          "prompt": "Why do clean sands and gravels generally respond in a drained manner under normal construction loading rates, whereas intact clays respond in an undrained manner?",
+          "assumptions": "Compare hydraulic conductivity (permeability) relative to rate of loading.",
+          "options": [
+            "Sands and gravels contain no pore water below the water table, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Clean sands and gravels have high permeability so excess pore water drains rapidly during loading, whereas clays have very low permeability so pore water cannot escape immediately",
+            "Clays have infinite shear strength immediately after loading",
+            "Sands and gravels are compressible purely by long-term primary consolidation"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "High permeability in coarse soils allows excess pore pressures to dissipate almost immediately during static construction loading, whereas low permeability in clays traps pore water in the short term.",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish the engineering behaviour of coarse vs fine soils.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD12-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD12-T2",
+      "moduleNumber": 12,
+      "code": "12.2",
+      "title": "Total Stress, Pore-Water Pressure & Effective Stress",
+      "summary": "Terzaghi’s effective stress equation sigma' = sigma - u, layered soil profiles, groundwater level changes, and upward seepage/liquefaction awareness.",
+      "subtopics": [
+        "Total vertical overburden stress sigma_v = sum(gamma_i * z_i)",
+        "Hydrostatic pore-water pressure u = gamma_w * z_w",
+        "Effective vertical stress sigma'_v = sigma_v - u and why soil skeleton stiffness and friction depend on sigma'"
+      ],
+      "learningObjectives": [
+        "Total vertical overburden stress sigma_v = sum(gamma_i * z_i)",
+        "Hydrostatic pore-water pressure u = gamma_w * z_w",
+        "Effective vertical stress sigma'_v = sigma_v - u and why soil skeleton stiffness and friction depend on sigma'"
+      ],
+      "futureExpansion": "Future expansion slot for artesian pore pressures, excavation base heave checks, and upward hydraulic gradient piping.",
+      "questions": [
+        {
+          "id": "MOD12-T2-Q1",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T2",
+          "learningObjective": "Calculate total vertical stress in a dry single-layer soil profile.",
+          "type": "numeric",
+          "prompt": "A soil layer has a bulk unit weight gamma = 18.5 kN/m^3. Calculate the total vertical stress sigma_v at a depth z = 4.0 m below ground level (no surface surcharge).",
+          "assumptions": "Assume uniform bulk unit weight with depth.",
+          "unit": "kPa",
+          "correctAnswer": 74,
+          "tolerance": 0.2,
+          "explanation": "sigma_v = gamma * z = 18.5 * 4.0 = 74.0 kPa. Step-by-step verification for \"Calculate total vertical stress in a dry single-layer soil profile.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 74 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate total vertical stress in a dry single-layer soil profile.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: sigma_v = gamma * z = 18.5 * 4.0 = ?. Express your final numeric answer in kPa."
+          ],
+          "caseFamilyId": "MOD12-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T2-Q2",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T2",
+          "learningObjective": "Calculate hydrostatic pore-water pressure below the groundwater table.",
+          "type": "numeric",
+          "prompt": "The groundwater table is at 1.5 m depth below ground level. Calculate the hydrostatic pore-water pressure u at a depth of 5.5 m below ground level (take gamma_w = 10.0 kN/m^3).",
+          "assumptions": "Depth below water table z_w = 5.5 - 1.5 m.",
+          "unit": "kPa",
+          "correctAnswer": 40,
+          "tolerance": 0.2,
+          "explanation": "Depth below water table z_w = 5.5 - 1.5 = 4.0 m. Pore-water pressure u = 10.0 * 4.0 = 40.0 kPa. Step-by-step verification for \"Calculate hydrostatic pore-water pressure below the groundwater table.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 40 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate hydrostatic pore-water pressure below the groundwater table.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Depth below water table z_w = 5.5 - 1.5 = ?. Express your final numeric answer in kPa."
+          ],
+          "caseFamilyId": "MOD12-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T2-Q3",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T2",
+          "learningObjective": "Calculate effective vertical stress using Terzaghi’s principle.",
+          "type": "numeric",
+          "prompt": "At 5.5 m depth, the total vertical stress is sigma_v = 107 kPa and the pore-water pressure is u = 40 kPa. Calculate the vertical effective stress sigma'_v.",
+          "assumptions": "Use Terzaghi’s principle: sigma'_v = sigma_v - u.",
+          "unit": "kPa",
+          "correctAnswer": 67,
+          "tolerance": 0.2,
+          "explanation": "sigma'_v = sigma_v - u = 107 - 40 = 67.0 kPa. Step-by-step verification for \"Calculate effective vertical stress using Terzaghi’s principle.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 67 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate effective vertical stress using Terzaghi’s principle.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: sigma'_v = sigma_v - u = 107 - 40 = ?. Express your final numeric answer in kPa."
+          ],
+          "caseFamilyId": "MOD12-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T2-Q4",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T2",
+          "learningObjective": "Evaluate reduction in effective stress when the water table rises to the surface.",
+          "type": "numeric",
+          "prompt": "A sand deposit (gamma_dry = 18 kN/m^3, gamma_sat = 20 kN/m^3) is 4.0 m deep. Taking gamma_w = 10 kN/m^3, calculate the vertical effective stress sigma'_v at 4.0 m depth when the water table rises all the way to ground level (0.0 m depth).",
+          "assumptions": "sigma_v = 20 * 4.0 kPa and u = 10 * 4.0 kPa.",
+          "unit": "kPa",
+          "correctAnswer": 40,
+          "tolerance": 0.2,
+          "explanation": "Total stress sigma_v = 20 * 4.0 = 80 kPa. Pore pressure u = 10 * 4.0 = 40 kPa. Effective stress sigma'_v = 80 - 40 = 40.0 kPa (down from 72 kPa when dry).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Evaluate reduction in effective stress when the water table rises to the surface.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Total stress sigma_v = 20 * 4.0 = ?. Express your final numeric answer in kPa."
+          ],
+          "caseFamilyId": "MOD12-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T2-Q5",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T2",
+          "learningObjective": "Explain why effective stress governs soil shear strength and volume change.",
+          "type": "mcq",
+          "prompt": "Why does Terzaghi’s effective stress (sigma' = sigma - u) govern the frictional shear strength and compression of a soil skeleton?",
+          "assumptions": "Consider what pore water can and cannot resist.",
+          "options": [
+            "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "Water cannot sustain static shear stress; intergranular friction and skeletal compression depend on the normal forces transmitted directly between solid soil particles",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Static pore water carries isotropic pressure with zero shear stiffness. Only the solid mineral skeleton (governed by interparticle effective stress sigma') provides frictional resistance and skeletal stiffness.",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why effective stress governs soil shear strength and volume change.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD12-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD12-T3",
+      "moduleNumber": 12,
+      "code": "12.3",
+      "title": "Permeability, Seepage, Drained vs Undrained Behaviour & Shear Strength",
+      "summary": "Mohr-Coulomb drained strength tau = c' + sigma'*tan(phi'), undrained shear strength tau = cu, Darcy’s law seepage, and short-term vs long-term critical states.",
+      "subtopics": [
+        "Drained Mohr-Coulomb shear strength: tau_f = c' + sigma' * tan(phi')",
+        "Undrained clay shear strength: tau_f = cu (total stress analysis for short-term loading)",
+        "Darcy’s law q = k * i * A and upward seepage critical hydraulic gradient"
+      ],
+      "learningObjectives": [
+        "Drained Mohr-Coulomb shear strength: tau_f = c' + sigma' * tan(phi')",
+        "Undrained clay shear strength: tau_f = cu (total stress analysis for short-term loading)",
+        "Darcy’s law q = k * i * A and upward seepage critical hydraulic gradient"
+      ],
+      "futureExpansion": "Future expansion slot for triaxial testing (UU, CU, CD), shear box interpretation, and critical state soil mechanics.",
+      "questions": [
+        {
+          "id": "MOD12-T3-Q1",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T3",
+          "learningObjective": "Calculate drained shear strength of a cohesionless sand.",
+          "type": "numeric",
+          "prompt": "At a potential slip plane in dense sand (c' = 0 kPa, phi' = 35 deg), the effective normal stress is sigma'_n = 100 kPa. Taking tan(35 deg) = 0.700, calculate the drained shear strength tau_f.",
+          "assumptions": "Use tau_f = c' + sigma'_n * tan(phi').",
+          "unit": "kPa",
+          "correctAnswer": 70,
+          "tolerance": 0.5,
+          "explanation": "tau_f = 0 + 100 * 0.700 = 70.0 kPa. Step-by-step verification for \"Calculate drained shear strength of a cohesionless sand.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 70 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate drained shear strength of a cohesionless sand.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: tau_f = 0 + 100 * 0.700 = ?. Express your final numeric answer in kPa."
+          ],
+          "caseFamilyId": "MOD12-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T3-Q2",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T3",
+          "learningObjective": "Calculate drained shear strength when effective cohesion is present.",
+          "type": "numeric",
+          "prompt": "An overconsolidated clay in the long-term drained condition has c' = 8 kPa and phi' = 26.57 deg (so tan(phi') = 0.500). If the effective normal stress on a plane is sigma'_n = 80 kPa, calculate the drained shear strength tau_f.",
+          "assumptions": "Use tau_f = c' + sigma'_n * tan(phi').",
+          "unit": "kPa",
+          "correctAnswer": 48,
+          "tolerance": 0.5,
+          "explanation": "tau_f = 8 + 80 * 0.500 = 8 + 40 = 48.0 kPa. Step-by-step verification for \"Calculate drained shear strength when effective cohesion is present.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 48 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate drained shear strength when effective cohesion is present.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: tau_f = 8 + 80 * 0.500 = 8 + 40 = ?. Express your final numeric answer in kPa."
+          ],
+          "caseFamilyId": "MOD12-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T3-Q3",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T3",
+          "learningObjective": "Calculate seepage flow rate using Darcy’s Law.",
+          "type": "numeric",
+          "prompt": "Water flows through a sand layer of cross-sectional area A = 12 m^2 under a hydraulic gradient i = 0.25. If the coefficient of permeability is k = 0.002 m/s, calculate the steady seepage flow rate Q (in L/s, noting 1 m^3/s = 1000 L/s).",
+          "assumptions": "Use Q = k * i * A in m^3/s, then multiply by 1000 for L/s.",
+          "unit": "L/s",
+          "correctAnswer": 6,
+          "tolerance": 0.1,
+          "explanation": "Q = 0.002 * 0.25 * 12 = 0.006 m^3/s = 6.0 L/s. Step-by-step verification for \"Calculate seepage flow rate using Darcy’s Law.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 6 L/s, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate seepage flow rate using Darcy’s Law.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Q = 0.002 * 0.25 * 12 = 0.006 m^3/s = ?. Express your final numeric answer in L/s."
+          ],
+          "caseFamilyId": "MOD12-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T3-Q4",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T3",
+          "learningObjective": "Identify why temporary excavations in clay can fail after standing open for weeks.",
+          "type": "mcq",
+          "prompt": "A steep temporary trench or cutting is excavated in stiff clay. It stands safely on day 1, but collapses three weeks later after heavy rain. What is the primary geotechnical mechanism?",
+          "assumptions": "Compare unloading pore pressure response in clay from short term to long term.",
+          "options": [
+            "The clay grains dissolve chemically in nitrogen from the air",
+            "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "Excavation unloading initially creates negative pore-water pressure (suction) that temporarily holds the clay together; over time water inflows, suction dissipates, effective stress drops, and the clay softens toward its lower drained strength"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Unloading a low-permeability clay induces negative excess pore pressures (suction) which temporarily maintain high effective stress. As water seeps in and suction dissipates, effective stress falls and the slope can fail.",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why temporary excavations in clay can fail after standing open for weeks.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD12-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T3-Q5",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T3",
+          "learningObjective": "Select the governing condition for a new pad foundation on saturated soft clay.",
+          "type": "mcq",
+          "prompt": "When a new pad foundation applies vertical compression load rapidly onto a saturated low-permeability soft clay, which bearing stability condition is normally most critical?",
+          "assumptions": "Consider positive excess pore water pressure generation under compression.",
+          "options": [
+            "Short-term undrained bearing capacity (using cu), because positive excess pore pressures have not yet dissipated to increase effective stress",
+            "Long-term condition 50 years later after full consolidation has strengthened the clay, assuming that by applying the unfactored ch.",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational r.",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at b."
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Under rapid compressive loading of normal/lightly overconsolidated clay, positive excess pore pressures develop; as the clay consolidates over time, water drains out, void ratio decreases, and effective stress/strength increases. Hence short-term undrained bearing is normally critical.",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Select the governing condition for a new pad foundation on saturated soft clay.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD12-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD12-T4",
+      "moduleNumber": 12,
+      "code": "12.4",
+      "title": "Immediate, Consolidation & Differential Settlement & Reading GI Reports",
+      "summary": "Immediate elastic settlement vs long-term primary consolidation, angular distortion limits, differential settlement damage, and critical review of borehole logs and GI reports.",
+      "subtopics": [
+        "Immediate (undrained/elastic) vs consolidation (time-dependent volume change) settlement",
+        "Total settlement vs differential settlement and angular distortion beta = delta_s / L",
+        "Critical reading of GI reports: Made Ground, water strikes, SPT N-values, and shrinkable clay hazards"
+      ],
+      "learningObjectives": [
+        "Immediate (undrained/elastic) vs consolidation (time-dependent volume change) settlement",
+        "Total settlement vs differential settlement and angular distortion beta = delta_s / L",
+        "Critical reading of GI reports: Made Ground, water strikes, SPT N-values, and shrinkable clay hazards"
+      ],
+      "futureExpansion": "Future expansion slot for 1D oedometer mv and Cc calculations and Terzaghi time factor Tv consolidation rate.",
+      "questions": [
+        {
+          "id": "MOD12-T4-Q1",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T4",
+          "learningObjective": "Calculate 1D consolidation settlement using coefficient of volume compressibility mv.",
+          "type": "numeric",
+          "prompt": "A 3.0 m thick clay layer experiences an average vertical effective stress increase delta_sigma' = 60 kPa due to a new foundation. If the coefficient of volume compressibility is mv = 0.25 m^2/MN (i.e. 0.00025 m^2/kN), calculate the primary consolidation settlement s_c (in mm).",
+          "assumptions": "Use s_c = mv * delta_sigma' * H.",
+          "unit": "mm",
+          "correctAnswer": 45,
+          "tolerance": 0.5,
+          "explanation": "s_c = 0.00025 m^2/kN * 60 kN/m^2 * 3.0 m = 0.045 m = 45.0 mm. Step-by-step verification for \"Calculate 1D consolidation settlement using coefficient of volume compressibility mv.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 45 mm, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate 1D consolidation settlement using coefficient of volume compressibility mv.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: s_c = 0.00025 m^2/kN * 60 kN/m^2 * 3.0 m = 0.045 m = ?. Express your final numeric answer in mm."
+          ],
+          "caseFamilyId": "MOD12-T4-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T4-Q2",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T4",
+          "learningObjective": "Calculate differential settlement between two adjacent column footings.",
+          "type": "numeric",
+          "prompt": "Column A settles by 28 mm and adjacent Column B (spaced 6.0 m away) settles by 10 mm. Calculate the differential settlement delta_s between the two columns.",
+          "assumptions": "Use delta_s = |s_A - s_B|.",
+          "unit": "mm",
+          "correctAnswer": 18,
+          "tolerance": 0.2,
+          "explanation": "delta_s = 28 - 10 = 18.0 mm. Step-by-step verification for \"Calculate differential settlement between two adjacent column footings.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 18 mm, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate differential settlement between two adjacent column footings.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: delta_s = 28 - 10 = ?. Express your final numeric answer in mm."
+          ],
+          "caseFamilyId": "MOD12-T4-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T4-Q3",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T4",
+          "learningObjective": "Calculate the span-to-differential-settlement ratio (L / delta_s) for serviceability checking.",
+          "type": "numeric",
+          "prompt": "Two columns are spaced at L = 6.0 m (6000 mm) and experience a differential settlement delta_s = 12 mm. Express the angular distortion as the denominator N in the ratio 1 / N (where N = L / delta_s).",
+          "assumptions": "Calculate N = 6000 / 12.",
+          "unit": "ratio",
+          "correctAnswer": 500,
+          "tolerance": 2,
+          "explanation": "N = 6000 mm / 12 mm = 500 (an angular distortion of 1/500, which is a common threshold for limiting cracking in framed buildings). Step-by-step verification for \"Calculate the span-to-differential-settlement ratio (L / delta_s) for serviceability checking.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 500 ratio, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate the span-to-differential-settlement ratio (L / delta_s) for serviceability checking.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: N = 6000 mm / 12 mm = 500 (an angular distortion of 1/500, which is a common threshold for limiting cracking in framed buildings). Express your final numeric answer in ratio."
+          ],
+          "caseFamilyId": "MOD12-T4-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T4-Q4",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T4",
+          "learningObjective": "Explain why differential settlement is usually more damaging to structures than uniform settlement.",
+          "type": "mcq",
+          "prompt": "Why is differential settlement between adjacent foundations typically far more critical for structural distress and cracking than a uniform settlement of the entire building?",
+          "assumptions": "Consider induced bending moments, shears, and racking strains in the superstructure.",
+          "options": [
+            "Uniform settlement always causes immediate roof collapse, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Differential settlement distorts the structural frame and masonry panels, inducing secondary bending moments, shear forces, and diagonal cracking, whereas modest uniform settlement moves the structure as a rigid body",
+            "Differential settlement never affects brittle finishes or services",
+            "Services entering the building are completely unaffected by 500 mm of movement"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Relative vertical movement between supports (angular distortion) racks infill panels and induces parasitic moments and shears in continuous frames.",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why differential settlement is usually more damaging to structures than uniform settlement.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD12-T4-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD12-T4-Q5",
+          "moduleNumber": 12,
+          "topicId": "MOD12-T4",
+          "learningObjective": "Critically interpret Made Ground and single water-strike records in a GI report.",
+          "type": "mcq",
+          "prompt": "A site investigation report shows 1.6 m of variable Made Ground (brick rubble, ash, and soft clay pockets) and records \"no water encountered during 2-hour cable percussion boring in October\". Which engineering conclusion is valid?",
+          "assumptions": "Apply conservative geotechnical judgement.",
+          "options": [
+            "Made Ground has guaranteed uniform bearing capacity of 300 kPa, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "A dry borehole during drilling guarantees the site will never have groundwater up to ground level in winter",
+            "Variable Made Ground should not be relied upon for unimproved shallow pad foundations, and absence of a water strike during a short drilling window does not prove groundwater will remain absent seasonally",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Uncontrolled Made Ground is highly heterogeneous and prone to collapse compression or differential settlement, and short-term drilling observations in low-permeability soils can miss seasonal or perched water tables.",
+          "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Critically interpret Made Ground and single water-strike records in a GI report.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD12-T4-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "EX-12.1",
+      "title": "Example 12.1: Effective Stress Profile with Rising Water Table",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-12.2",
+      "title": "Example 12.2: Drained vs Undrained Excavation & Bearing Assessment",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    },
+    {
+      "id": "EX-12.3",
+      "title": "Example 12.3: Ground Investigation Report Critical Review",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "Civil Engineering Syllabus (Modules 0 to 19)"
+  ],
+  "standardsNotice": "Verify all clauses, partial factors, and National Annex parameters against controlled reference standards before engineering application.",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD12-E01",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T1",
+      "learningObjective": "Calculate Plasticity Index.",
+      "type": "numeric",
+      "prompt": "A high-plasticity clay has LL = 68% and PL = 25%. Calculate the Plasticity Index PI.",
+      "assumptions": "PI = LL - PL.",
+      "unit": "%",
+      "correctAnswer": 43,
+      "tolerance": 0.1,
+      "explanation": "PI = 68 - 25 = 43%. Step-by-step verification for \"Calculate Plasticity Index.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 43 %, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate Plasticity Index.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: PI = 68 - 25 = 43%. Express your final numeric answer in %."
+      ],
+      "caseFamilyId": "MOD12-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E02",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T1",
+      "learningObjective": "Calculate dry unit weight from bulk unit weight and moisture content.",
+      "type": "numeric",
+      "prompt": "A soil sample has bulk unit weight gamma_b = 20.7 kN/m^3 and moisture content w = 15% (0.15). Calculate the dry unit weight gamma_d.",
+      "assumptions": "gamma_d = gamma_b / (1 + w).",
+      "unit": "kN/m^3",
+      "correctAnswer": 18,
+      "tolerance": 0.05,
+      "explanation": "gamma_d = 20.7 / 1.15 = 18.0 kN/m^3. Step-by-step verification for \"Calculate dry unit weight from bulk unit weight and moisture content.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 18 kN/m^3, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate dry unit weight from bulk unit weight and moisture content.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: gamma_d = 20.7 / 1.15 = 18.0 kN/m^3. Express your final numeric answer in kN/m^3."
+      ],
+      "caseFamilyId": "MOD12-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E03",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T1",
+      "learningObjective": "Calculate submerged unit weight.",
+      "type": "numeric",
+      "prompt": "A saturated gravel has gamma_sat = 21.31 kN/m^3. Taking gamma_w = 9.81 kN/m^3, calculate the submerged unit weight gamma'.",
+      "assumptions": "gamma' = gamma_sat - gamma_w.",
+      "unit": "kN/m^3",
+      "correctAnswer": 11.5,
+      "tolerance": 0.05,
+      "explanation": "gamma' = 21.31 - 9.81 = 11.50 kN/m^3. Step-by-step verification for \"Calculate submerged unit weight.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 11.5 kN/m^3, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate submerged unit weight.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: gamma' = 21.31 - 9.81 = 11.50 kN/m^3. Express your final numeric answer in kN/m^3."
+      ],
+      "caseFamilyId": "MOD12-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E04",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T1",
+      "learningObjective": "Calculate porosity n from void ratio e.",
+      "type": "numeric",
+      "prompt": "A sand deposit has a void ratio e = 0.60. Calculate its porosity n = e / (1 + e).",
+      "assumptions": "Use n = e / (1 + e).",
+      "unit": "ratio",
+      "correctAnswer": 0.375,
+      "tolerance": 0.005,
+      "explanation": "n = 0.60 / (1 + 0.60) = 0.60 / 1.60 = 0.375. Step-by-step verification for \"Calculate porosity n from void ratio e.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.375 ratio, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate porosity n from void ratio e.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: n = 0.60 / (1 + 0.60) = 0.60 / 1.60 = ?. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD12-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E05",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T2",
+      "learningObjective": "Calculate total vertical stress in a two-layer ground profile.",
+      "type": "numeric",
+      "prompt": "Ground profile: 0 to 2.0 m dry sand (gamma = 17.5 kN/m^3); 2.0 m to 5.0 m saturated clay (gamma_sat = 19.5 kN/m^3). Calculate total vertical stress sigma_v at 5.0 m depth.",
+      "assumptions": "Sum gamma * thickness for each layer.",
+      "unit": "kPa",
+      "correctAnswer": 93.5,
+      "tolerance": 0.2,
+      "explanation": "sigma_v = (17.5 * 2.0) + (19.5 * 3.0) = 35.0 + 58.5 = 93.5 kPa. Step-by-step verification for \"Calculate total vertical stress in a two-layer ground profile.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 93.5 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate total vertical stress in a two-layer ground profile.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: sigma_v = (17.5 * 2.0) + (19.5 * 3.0) = 35.0 + 58.5 = ?. Express your final numeric answer in kPa."
+      ],
+      "caseFamilyId": "MOD12-T2-CF",
+      "solverVerificationId": "SOLVER-MOD12-E05",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD12-E06",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T2",
+      "learningObjective": "Calculate pore-water pressure at depth in the two-layer profile.",
+      "type": "numeric",
+      "prompt": "In a layered ground profile where the groundwater table stands at 2.0 m depth below ground level, take the unit weight of water as γ_w = 10.0 kN/m³ and calculate the hydrostatic pore-water pressure u at a depth of 5.0 m below ground level.",
+      "assumptions": "u = gamma_w * (5.0 - 2.0).",
+      "unit": "kPa",
+      "correctAnswer": 30,
+      "tolerance": 0.2,
+      "explanation": "u = 10.0 * 3.0 = 30.0 kPa. Step-by-step verification for \"Calculate pore-water pressure at depth in the two-layer profile.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate pore-water pressure at depth in the two-layer profile.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: u = 10.0 * 3.0 = ?. Express your final numeric answer in kPa."
+      ],
+      "caseFamilyId": "MOD12-T2-CF",
+      "solverVerificationId": "SOLVER-MOD12-E06",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD12-E07",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T2",
+      "learningObjective": "Calculate vertical effective stress in the two-layer profile.",
+      "type": "numeric",
+      "prompt": "With total vertical stress sigma_v = 93.5 kPa and pore-water pressure u = 30.0 kPa at 5.0 m depth, calculate the vertical effective stress sigma'_v.",
+      "assumptions": "sigma'_v = sigma_v - u.",
+      "unit": "kPa",
+      "correctAnswer": 63.5,
+      "tolerance": 0.2,
+      "explanation": "sigma'_v = 93.5 - 30.0 = 63.5 kPa. Step-by-step verification for \"Calculate vertical effective stress in the two-layer profile.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 63.5 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate vertical effective stress in the two-layer profile.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: sigma'_v = 93.5 - 30.0 = ?. Express your final numeric answer in kPa."
+      ],
+      "caseFamilyId": "MOD12-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E08",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T2",
+      "learningObjective": "Calculate effective stress when a surface surcharge is applied.",
+      "type": "numeric",
+      "prompt": "If an extensive surface fill surcharge q = 20 kPa is placed over the site and pore-water pressures have fully returned to hydrostatic (u = 30.0 kPa), what is the new vertical effective stress sigma'_v at 5.0 m depth (previously 63.5 kPa)?",
+      "assumptions": "Add the drained surcharge delta_sigma' = q.",
+      "unit": "kPa",
+      "correctAnswer": 83.5,
+      "tolerance": 0.2,
+      "explanation": "sigma'_v = 63.5 + 20.0 = 83.5 kPa. Step-by-step verification for \"Calculate effective stress when a surface surcharge is applied.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 83.5 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate effective stress when a surface surcharge is applied.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: sigma'_v = 63.5 + 20.0 = ?. Express your final numeric answer in kPa."
+      ],
+      "caseFamilyId": "MOD12-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E09",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T3",
+      "learningObjective": "Calculate drained Mohr-Coulomb shear strength of sand.",
+      "type": "numeric",
+      "prompt": "At 4 m depth in sand (c' = 0, phi' = 32 deg, tan(32 deg) = 0.625), the vertical effective stress is sigma'_v = 64 kPa. Calculate the drained horizontal shear strength tau_f.",
+      "assumptions": "tau_f = sigma'_v * tan(phi').",
+      "unit": "kPa",
+      "correctAnswer": 40,
+      "tolerance": 0.5,
+      "explanation": "tau_f = 64 * 0.625 = 40.0 kPa. Step-by-step verification for \"Calculate drained Mohr-Coulomb shear strength of sand.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 40 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate drained Mohr-Coulomb shear strength of sand.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: tau_f = 64 * 0.625 = ?. Express your final numeric answer in kPa."
+      ],
+      "caseFamilyId": "MOD12-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E10",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T3",
+      "learningObjective": "Calculate reduced drained shear strength when groundwater rises.",
+      "type": "numeric",
+      "prompt": "If groundwater rises so that vertical effective stress at 4 m depth drops from 64 kPa to 36 kPa (with c' = 0, tan(phi') = 0.625), calculate the new drained shear strength tau_f.",
+      "assumptions": "tau_f = 36 * 0.625.",
+      "unit": "kPa",
+      "correctAnswer": 22.5,
+      "tolerance": 0.3,
+      "explanation": "tau_f = 36 * 0.625 = 22.5 kPa (a 43.8% loss of frictional strength due to rising groundwater). Step-by-step verification for \"Calculate reduced drained shear strength when groundwater rises.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 22.5 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate reduced drained shear strength when groundwater rises.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: tau_f = 36 * 0.625 = 22.5 kPa (a 43.8% loss of frictional strength due to rising groundwater). Express your final numeric answer in kPa."
+      ],
+      "caseFamilyId": "MOD12-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E11",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T3",
+      "learningObjective": "Calculate undrained shear force capacity across a clay shear plane.",
+      "type": "numeric",
+      "prompt": "A firm clay has undrained shear strength cu = 55 kPa. Calculate the ultimate undrained horizontal shear resistance across a pad base of plan area A = 4.0 m^2.",
+      "assumptions": "Use V_u = cu * A.",
+      "unit": "kN",
+      "correctAnswer": 220,
+      "tolerance": 0.5,
+      "explanation": "V_u = 55 kPa * 4.0 m^2 = 220.0 kN. Step-by-step verification for \"Calculate undrained shear force capacity across a clay shear plane.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 220 kN, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate undrained shear force capacity across a clay shear plane.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: V_u = 55 kPa * 4.0 m^2 = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD12-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E12",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T3",
+      "learningObjective": "Calculate critical upward hydraulic gradient for boiling/heave in sand.",
+      "type": "numeric",
+      "prompt": "A sand has saturated unit weight gamma_sat = 19.62 kN/m^3 and water has gamma_w = 9.81 kN/m^3. Calculate the critical upward hydraulic gradient i_c = gamma' / gamma_w at which vertical effective stress becomes zero.",
+      "assumptions": "Use i_c = (gamma_sat - gamma_w) / gamma_w.",
+      "unit": "ratio",
+      "correctAnswer": 1,
+      "tolerance": 0.02,
+      "explanation": "gamma' = 19.62 - 9.81 = 9.81 kN/m^3. Therefore i_c = 9.81 / 9.81 = 1.00. Step-by-step verification for \"Calculate critical upward hydraulic gradient for boiling/heave in sand.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 ratio, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate critical upward hydraulic gradient for boiling/heave in sand.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: gamma' = 19.62 - 9.81 = 9.81 kN/m^3. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD12-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E13",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T4",
+      "learningObjective": "Calculate primary consolidation settlement of a clay stratum.",
+      "type": "numeric",
+      "prompt": "A 4.0 m thick compressible clay layer (mv = 0.20 m^2/MN = 0.00020 m^2/kN) experiences an average effective stress increase of 75 kPa. Calculate the primary consolidation settlement (in mm).",
+      "assumptions": "s_c = mv * delta_sigma' * H.",
+      "unit": "mm",
+      "correctAnswer": 60,
+      "tolerance": 0.5,
+      "explanation": "s_c = 0.00020 * 75 * 4.0 = 0.060 m = 60.0 mm. Step-by-step verification for \"Calculate primary consolidation settlement of a clay stratum.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 60 mm, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate primary consolidation settlement of a clay stratum.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: s_c = 0.00020 * 75 * 4.0 = 0.060 m = ?. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD12-T4-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E14",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T4",
+      "learningObjective": "Calculate angular distortion between two pad foundations.",
+      "type": "numeric",
+      "prompt": "Two pad foundations spaced at L = 7.5 m (7500 mm) settle by 25 mm and 10 mm respectively. Calculate the angular distortion beta = delta_s / L.",
+      "assumptions": "beta = (25 - 10) / 7500.",
+      "unit": "rad",
+      "correctAnswer": 0.002,
+      "tolerance": 0.0001,
+      "explanation": "delta_s = 15 mm. beta = 15 / 7500 = 0.0020 rad (or 1/500). Step-by-step verification for \"Calculate angular distortion between two pad foundations.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.002 rad, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate angular distortion between two pad foundations.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: delta_s = ?. Express your final numeric answer in rad."
+      ],
+      "caseFamilyId": "MOD12-T4-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E15",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T1",
+      "learningObjective": "Identify soil susceptibility to seasonal shrink-swell movement near trees.",
+      "type": "mcq",
+      "prompt": "Which soil property extracted from a Ground Investigation report is the primary indicator of volume change potential (shrinkage and heave) near trees and hedgerows?",
+      "assumptions": "Recall NHBC / BRE Digest 240 classification principles.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Plasticity Index (PI = LL - PL, adjusted for percentage passing the 425 micron sieve)"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "High Plasticity Index clays undergo significant seasonal moisture volume changes and tree-root desiccation shrinkage or post-felling heave. Engineering synthesis for \"Identify soil susceptibility to seasonal shrink-swell movement near trees.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify soil susceptibility to seasonal shrink-swell movement near trees.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD12-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E16",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T2",
+      "learningObjective": "Explain why pumping from an unlined excavation in sand can trigger base instability.",
+      "type": "mcq",
+      "prompt": "If water is pumped directly from the sump of a sheet-piled excavation in fine sand with a high external water table, what hazard can occur at the excavation base?",
+      "assumptions": "Consider upward seepage and pore pressure gradient.",
+      "options": [
+        "Upward seepage into the excavation reduces vertical effective stress at the base; if the upward hydraulic gradient approaches i_c, piping or boiling (liquefaction of the base) occurs",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-c.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection fle."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Upward seepage exerts an upward drag on the soil grains, reducing sigma'_v and risking base boiling/heave. Engineering synthesis for \"Explain why pumping from an unlined excavation in sand can trigger base instability.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why pumping from an unlined excavation in sand can trigger base instability.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD12-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E17",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T3",
+      "learningObjective": "Select parameters for long-term stability of a permanent cut slope in overconsolidated clay.",
+      "type": "mcq",
+      "prompt": "Which shear strength parameters must be used to verify the long-term (50-year) stability of a permanent cutting in stiff overconsolidated clay?",
+      "assumptions": "Consider dissipation of excavation-induced negative pore pressures.",
+      "options": [
+        "Initial short-term undrained shear strength cu measured before excavation, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "Effective stress parameters (c' and phi') with realistic long-term equilibrium pore-water pressures",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Long-term slope stability in clay is governed by drained effective stress parameters (c', phi') and worst-case credible pore-water pressures. Engineering synthesis for \"Select parameters for long-term stability of a permanent cut slope in overconsolidated clay.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1997-1:2004+A1 (Eurocode 7: Geotechnical Design, Ground Investigation & Effective Stress).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Select parameters for long-term stability of a permanent cut slope in overconsolidated clay.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD12-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E18",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T4",
+      "learningObjective": "Identify the time-dependency difference between sand and clay settlement.",
+      "type": "mcq",
+      "prompt": "How does the timing of foundation settlement on clean sand compare with that on a thick saturated clay layer?",
+      "assumptions": "Compare permeability and drainage path timescales.",
+      "options": [
+        "Clean sand takes 50 years to start settling whereas clay finishes in 2 seconds, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "Settlement on clean sand occurs almost immediately as construction load is applied, whereas primary consolidation settlement in thick low-permeability clay takes months or years as pore water slowly drains",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "High permeability in sand allows immediate drainage and grain rearrangement during construction, while low permeability in clay delays consolidation settlement.",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the time-dependency difference between sand and clay settlement.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD12-T4-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E19",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T4",
+      "learningObjective": "Evaluate foundation strategy when a structure straddles two different ground conditions.",
+      "type": "mcq",
+      "prompt": "A proposed building footprint sits half on shallow bedrock and half on 4 m of compressible clay. Why is placing simple shallow strip footings across both halves without mitigation bad engineering practice?",
+      "assumptions": "Consider differential settlement at the transition.",
+      "options": [
+        "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "From the Tresca maximum shear stress yield criterion combined with an empirical shear-lag reduction factor across the rolled web root fillets",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "The half on compressible clay will settle significantly more than the half on rock, causing severe differential settlement and structural cracking at the transition"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "Mixed foundations or abrupt changes in bearing stratum stiffness cause severe differential settlement unless mitigated by piling, ground improvement, movement joints, or stiffened raft/transfer design.",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Evaluate foundation strategy when a structure straddles two different ground conditions.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD12-T4-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD12-E20",
+      "moduleNumber": 12,
+      "topicId": "MOD12-T2",
+      "learningObjective": "Pass the Module 12 Learning Gate: Explain why water level changes can govern stability and bearing.",
+      "type": "mcq",
+      "prompt": "Which statement best summarises why groundwater level changes can govern foundation bearing capacity, slope stability, and retaining wall design?",
+      "assumptions": "Synthesise Terzaghi’s effective stress principle and hydrostatic loading.",
+      "options": [
+        "Rising groundwater simultaneously increases pore-water pressure u (reducing effective stress sigma' = sigma - u and frictional shear strength in the soil skeleton) and adds direct hydrostatic water thrusts onto retaining structures and slabs",
+        "Groundwater changes only affect paint colours above roof level, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting fo.",
+        "Rising groundwater increases effective stress and makes slopes steeper",
+        "Water pressure is resisted by soil friction with zero effect on total thrust"
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Groundwater rises both penalise resistance (by reducing effective stress and soil shear strength) and increase actions (hydrostatic uplift and lateral water pressure).",
+      "citation": "BS EN 1997-1:2004+A1 (Eurocode 7) Geotechnical Design & Terzaghi Effective Stress",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 12 Learning Gate: Explain why water level changes can govern stability and bearing.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD12-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}

@@ -1,0 +1,942 @@
+{
+  "moduleNumber": 11,
+  "code": "MOD-11",
+  "title": "Module 11: Masonry, lintels and existing building alterations",
+  "shortTitle": "Masonry, lintels and existing building alterations",
+  "suggestedDuration": "10–14 weeks",
+  "yearPathway": "Years 2–3",
+  "year1Months": "Years 2–3",
+  "whyItMatters": "Forming a new opening in an existing load-bearing masonry wall is one of the most common UK engineering tasks, and where temporary works (needling, propping, sequencing) and permanent works (beam, bearings, padstones, piers, foundations, lateral restraint) are inseparable.",
+  "introduction": "Covers masonry units (clay bricks, concrete blocks, stone), mortar designations, solid vs cavity wall behaviour, compression-dominated resistance and low tensile strength, concentrated bearing loads and padstone design, wall slenderness and lateral floor/roof restraint, lintels and arching action, movement joints and cracking diagnosis, existing building survey uncertainty, temporary needling/propping sequences, and why \"sizing the steel beam\" alone is never a complete alteration design (Project 11.1).",
+  "objectives": [
+    "Understand how unit strength, mortar strength, slenderness, and eccentricity govern masonry compressive resistance.",
+    "Check concentrated bearing stresses beneath lintels/beams and design padstones to spread loads safely into masonry piers.",
+    "Execute the 10-element whole-system assessment for forming a new opening in an existing load-bearing wall, including temporary propping and construction sequencing (Project 11.1)."
+  ],
+  "learningGate": "Explain clearly why \"sizing the steel beam\" alone is NOT a complete alteration design.,Account systematically for all 10 system elements: (1) beam, (2) bearings, (3) wall/pier capacity, (4) padstone, (5) support below, (6) foundations, (7) lateral restraint, (8) temporary works, (9) survey uncertainty, and (10) construction sequence.",
+  "prerequisiteModuleNumbers": [
+    1,
+    6,
+    8
+  ],
+  "topics": [
+    {
+      "id": "MOD11-T1",
+      "moduleNumber": 11,
+      "code": "11.1",
+      "title": "Masonry Behaviour, Units, Mortar, Slenderness & Lateral Restraint",
+      "summary": "Covers how masonry units and mortar work together, why mortar is softer than the brick, characteristic compressive strength f_k, wall types (solid bonded vs cavity walls with wall ties), slenderness ratio h_ef/t_ef, load eccentricity, and horizontal lateral restraint from floors and roofs.",
+      "subtopics": [
+        "Masonry units (bricks, blocks) and mortar: why mortar provides uniform bedding and why over-strong mortar causes bricks to crack rather than joints",
+        "Characteristic compressive strength f_k (function of unit strength f_b and mortar strength f_m) and high partial factor γ_M (varying by execution control)",
+        "Cavity walls: inner load-bearing leaf, outer cladding leaf, and stainless steel wall ties sharing lateral wind load",
+        "Slenderness ratio (h_ef / t_ef) and eccentricity reduction factor Φ at top/bottom and mid-height of a wall",
+        "Lateral restraint details: joist hangers, tension straps at ≤ 2 m centres tying walls to floor/roof diaphragms"
+      ],
+      "learningObjectives": [
+        "Explain how unit strength, mortar, slenderness, eccentricity, and wall ties govern masonry wall behaviour.",
+        "Explain what happens to a cavity wall or slender wall if wall ties corrode or floor restraint straps are omitted."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD11-T1-Q1",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T1",
+          "learningObjective": "Understand the physical role of mortar in load-bearing masonry",
+          "type": "mcq",
+          "prompt": "Why should structural mortar generally be slightly weaker and more deformable than the masonry units (bricks or blocks) it beds together?",
+          "assumptions": "Fundamental masonry materials understanding.",
+          "options": [
+            "Because bricks have zero compressive strength and mortar carries 100% of the vertical load, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface",
+            "Because mortar acts as high-strength tensile glue stronger than steel",
+            "Mortar beds out surface irregularities between units to distribute compressive stress evenly, and allows slight thermal/moisture movement to be accommodated by micro-cracking in the sacrificial joints rather than fracturing the bricks themselves",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Using overly dense, rigid cement mortar on soft historic bricks traps moisture and forces thermal/settlement cracks right through the bricks. Engineering synthesis for \"Understand the physical role of mortar in load-bearing masonry\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the physical role of mortar in load-bearing masonry\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T1-Q2",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T1",
+          "learningObjective": "Calculate design compressive resistance per metre run of a masonry wall",
+          "type": "numeric",
+          "prompt": "A 100 mm thick load-bearing masonry inner leaf has characteristic compressive strength f_k = 4.5 N/mm², partial material factor γ_M = 3.0 (so design strength f_d = f_k / γ_M = 1.50 N/mm²), and a capacity reduction factor for slenderness and eccentricity of Φ = 0.70. Calculate the vertical design resistance N_Rd = Φ · t · f_d per metre run of wall (b = 1,000 mm) in kN/m.",
+          "assumptions": "Shows how γ_M (often 2.3 to 3.0 in masonry depending on manufacturing/execution category) and Φ govern wall resistance.",
+          "unit": "kN/m",
+          "correctAnswer": 105,
+          "tolerance": 1.57,
+          "explanation": "N_Rd = 0.70 × 100 mm × 1,000 mm/m × 1.50 N/mm² = 105,000 N/m = 105.0 kN/m. Step-by-step verification for \"Calculate design compressive resistance per metre run of a masonry wall\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 105 kN/m, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate design compressive resistance per metre run of a masonry wall\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: N_Rd = 0.70 × 100 mm × 1,000 mm/m × 1.50 N/mm² = 105,000 N/m = ?. Express your final numeric answer in kN/m."
+          ],
+          "caseFamilyId": "MOD11-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T1-Q3",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T1",
+          "learningObjective": "Understand the role of cavity wall ties and the hazard of wall-tie corrosion",
+          "type": "mcq",
+          "prompt": "In a traditional two-leaf masonry cavity wall where the floors and roof sit only on the 100 mm inner leaf, what is the structural purpose of the metal cavity wall ties connecting the inner and outer leaves?",
+          "assumptions": "Connects cavity wall mechanics to defect recognition.",
+          "options": [
+            "They transfer 100% of the roof gravity dead load into the foundation soil directly",
+            "They prevent water from touching the outer face of the building",
+            "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+            "They tie the unrestrained outer leaf to the laterally restrained inner leaf so both leaves share horizontal wind loads and increase the effective thickness (and reduce the slenderness) of the wall against buckling"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "When older mild-steel wall ties corrode, the outer leaf loses its lateral tie to the inner leaf (becoming dangerously slender under wind suction) and expansive rust causes regular horizontal bed-joint cracking every ~450 mm!",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the role of cavity wall ties and the hazard of wall-tie corrosion\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T1-Q4",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T1",
+          "learningObjective": "Understand why floor joists running parallel to a masonry wall require restraint straps",
+          "type": "mcq",
+          "prompt": "When timber floor joists span ONTO a masonry wall, the joist bearings help restrain the wall horizontally. What happens along the perpendicular flank walls where the floor joists run PARALLEL to the wall without touching it?",
+          "assumptions": "Crucial lateral restraint concept.",
+          "options": [
+            "Unless metal tension restraint straps (with solid timber nogging/blocking between the first 3 joists) are installed at regular intervals, the flank wall receives zero lateral restraint at floor level and spans vertically across two full storeys (doubling its slenderness and buckling risk)",
+            "Parallel joists restrain the wall by magnetic attraction across the air gap, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors.",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the support boundaries",
+            "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation, and differential support settlement under sustained gravity loading"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Missing lateral restraint straps on flank walls parallel to joists is one of the most frequent structural defects found in domestic surveys. Engineering synthesis for \"Understand why floor joists running parallel to a masonry wall require restraint straps\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why floor joists running parallel to a masonry wall require restraint straps\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T1-Q5",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T1",
+          "learningObjective": "Calculate wall slenderness ratio h_ef / t_ef",
+          "type": "numeric",
+          "prompt": "A single-leaf solid brick wall of thickness t = 215 mm has a clear storey height of h = 3,200 mm and is laterally restrained at top and bottom by concrete floors (giving an effective height factor of 0.75, so h_ef = 0.75 × 3,200 = 2,400 mm). Calculate the wall slenderness ratio h_ef / t (to 2 decimal places).",
+          "assumptions": "If the top floor restraint were removed during alterations, h_ef would jump to 2 × 3,200 = 6,400 mm, giving h_ef / t = 29.8 > 27 (unsafe!).",
+          "unit": "ratio",
+          "correctAnswer": 11.16,
+          "tolerance": 0.167,
+          "explanation": "h_ef / t = 2,400 / 215 = 11.163 ≈ 11.16 (well within the EC6 maximum slenderness limit of 27). Step-by-step verification for \"Calculate wall slenderness ratio h_ef / t_ef\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 11.16 ratio, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate wall slenderness ratio h_ef / t_ef\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: h_ef / t = 2,400 / 215 = 11.163 ≈ 11.16 (well within the EC6 maximum slenderness limit of 27). Express your final numeric answer in ratio."
+          ],
+          "caseFamilyId": "MOD11-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD11-T2",
+      "moduleNumber": 11,
+      "code": "11.2",
+      "title": "Concentrated Loads, Bearings, Padstones, Lintels & Movement Joints",
+      "summary": "Covers how concentrated beam reactions bear on masonry, why padstones are needed, load dispersion at 45°/60° through padstones and walls, lintel load triangles (arching action vs floor loads), and movement joints/cracking diagnosis.",
+      "subtopics": [
+        "Concentrated bearing stress beneath a steel beam flange vs spread bearing beneath a stiff padstone",
+        "Why a padstone must be stiff enough in bending and shear not to snap when spreading a point load",
+        "Load dispersion downward through masonry (typically 45° or 60° from horizontal) to lower storeys and foundations",
+        "Lintels over openings: when a 45°/60° masonry triangle applies vs when full floor/roof loads above must be taken",
+        "Movement joints and cracking: clay brick irreversible moisture expansion vs calcium silicate/concrete block drying shrinkage"
+      ],
+      "learningObjectives": [
+        "Size a concrete or stone padstone for a steel beam end reaction and check local bearing stress.",
+        "Determine when a lintel can rely on masonry arching vs when it must carry full floor and wall loads."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD11-T2-Q1",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T2",
+          "learningObjective": "Calculate bearing stress beneath a padstone and check against masonry design strength",
+          "type": "numeric",
+          "prompt": "A new steel lintel beam transfers a ULS end reaction of R_Ed = 54 kN onto a precast concrete padstone measuring 100 mm wide (wall leaf thickness) × 300 mm long × 215 mm deep. Calculate the average compressive stress beneath the padstone in N/mm².",
+          "assumptions": "If the existing masonry has design bearing resistance 1.80 N/mm² or greater, the 300 mm padstone suffices; if not, a longer padstone or spreader beam is required.",
+          "unit": "N/mm²",
+          "correctAnswer": 1.8,
+          "tolerance": 0.027,
+          "explanation": "Padstone plan area = 100 mm × 300 mm = 30,000 mm². Bearing stress = 54,000 N / 30,000 mm² = 1.80 N/mm². Step-by-step verification for \"Calculate bearing stress beneath a padstone and check against masonry design strength\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.8 N/mm², and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate bearing stress beneath a padstone and check against masonry design strength\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Padstone plan area = 100 mm × 300 mm = 30,000 mm². Express your final numeric answer in N/mm²."
+          ],
+          "caseFamilyId": "MOD11-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T2-Q2",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T2",
+          "learningObjective": "Calculate dispersed width of a concentrated load at foundation level",
+          "type": "numeric",
+          "prompt": "A padstone of length 300 mm sits at a height of 2.4 m above the top of a strip foundation in a continuous solid wall (with no openings below the padstone). Assuming the concentrated reaction disperses downwards through the brickwork at an angle of 30° to the vertical (i.e. 60° to the horizontal, so horizontal spread on each side is 2,400 × tan 30° = 1,386 mm) when not cut off by a wall end, what would be the total dispersed length (in m, to 2 decimal places) if the padstone sits right at the end corner of the wall (so it can only disperse to ONE side)?",
+          "assumptions": "Crucial geometry check: a bearing near the end of a wall or next to a doorway cannot disperse past the free vertical edge!",
+          "unit": "m",
+          "correctAnswer": 1.69,
+          "tolerance": 0.0253,
+          "explanation": "Because the padstone is at the end of the wall, dispersion can only occur in one direction along the wall: L_disp = 0.30 m + (2.4 m × tan 30°) = 0.30 + 1.3856 = 1.6856 m ≈ 1.69 m.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate dispersed width of a concentrated load at foundation level\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Because the padstone is at the end of the wall, dispersion can only occur in one direction along the wall: L_disp = 0.30 m + (2.4 m × tan 30°) = 0.30 + 1.3856 = 1.6856 m ≈ 1.69 m.. Express your final numeric answer in m."
+          ],
+          "caseFamilyId": "MOD11-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T2-Q3",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T2",
+          "learningObjective": "Identify when the \"45°/60° arching triangle\" assumption over a lintel is INVALID",
+          "type": "mcq",
+          "prompt": "For small window lintels in a tall uninterrupted masonry wall, engineers sometimes take only a triangle of brickwork above the opening on the assumption that the wall above arches around the triangle. When is this arching-triangle assumption completely INVALID and unsafe?",
+          "assumptions": "Prevents gross under-estimation of alteration beam loads.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+            "When there is insufficient uninterrupted masonry height above the lintel to form an arch, when there are window/door openings in the wall above, when floor or roof joists bear within or just above the zone, or when the piers at the ends of the opening are too narrow to resist the horizontal arch thrust",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Arching always reduces all floor and roof loads to zero"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "In domestic alterations (such as knocking out a ground-floor wall under first-floor joists and upper windows), arching cannot be relied upon and the full tributary height of walls, floors, and roof must be taken!",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify when the \"45°/60° arching triangle\" assumption over a lintel is INVALID\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T2-Q4",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T2",
+          "learningObjective": "Understand why a very long thin padstone can crack in bending/shear",
+          "type": "mcq",
+          "prompt": "An engineer needs a 600 mm long bearing on weak masonry for a 100 mm wide steel beam sitting at the centre of the bearing, and specifies a 600 mm long × 65 mm high unreinforced concrete brick as a \"padstone\". Why will this fail to distribute the load over the 600 mm length?",
+          "assumptions": "Practical padstone proportioning rule.",
+          "options": [
+            "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "The 250 mm unreinforced projections either side of the 100 mm steel flange act as shallow cantilevers under upward masonry pressure and will snap in flexural tension/shear unless the padstone is deep enough (e.g. ≥ 215–300 mm so dispersion stays within a ~45° strut angle) or reinforced as a steel/RC spreader beam",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "A padstone works by steep compression strut dispersion (~45°); if the projection beyond the steel flange exceeds the padstone depth, tensile bending stress develops in the padstone.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why a very long thin padstone can crack in bending/shear\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T2-Q5",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T2",
+          "learningObjective": "Distinguish clay brickwork vs concrete blockwork moisture movement",
+          "type": "mcq",
+          "prompt": "How does the long-term moisture movement of fired clay brickwork differ from that of concrete blockwork (or calcium silicate bricks), and why are vertical movement joints needed?",
+          "assumptions": "Module 11 movement joints and cracking awareness.",
+          "options": [
+            "Clay bricks shrink by 5% and concrete blocks expand by 5%, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+            "Neither material changes length with moisture or temperature",
+            "Movement joints are used to transfer bending moments across walls",
+            "Fired clay bricks undergo long-term irreversible moisture EXPANSION after leaving the kiln, whereas concrete blockwork undergoes drying SHRINKAGE; without movement joints at appropriate intervals, restrained expansion causes buckling/cracking and restrained shrinkage causes vertical tensile cracks"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Note also that wherever a vertical movement joint cuts a wall, it interrupts horizontal diaphragm continuity, so lateral restraint on both sides of the joint must be checked!",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish clay brickwork vs concrete blockwork moisture movement\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T2-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    },
+    {
+      "id": "MOD11-T3",
+      "moduleNumber": 11,
+      "code": "11.3",
+      "title": "Existing Building Alterations, Temporary Propping & Whole-System Design (Project 11.1)",
+      "summary": "Covers the complete 10-element system assessment for forming a new opening in an existing load-bearing wall (Project 11.1): survey uncertainty, temporary propping/needling concept, construction sequence, lateral buttressing loss, pier/wall capacity, padstones, support below, and foundation implications.",
+      "subtopics": [
+        "Why \"sizing the steel beam\" is only 10% of an alteration design (Module 11 Gate)",
+        "The 10 system elements: beam, bearings, wall/pier capacity, padstone, support below, foundations, lateral restraint, temporary works, survey uncertainty, construction sequence",
+        "Loss of lateral buttressing when a cross-wall (return wall) is removed to create an open-plan room",
+        "Concentrating uniform wall loads into two heavy point loads on existing shallow strip foundations",
+        "Temporary works propping and needling sequence: propping floors and needling upper walls onto sound bearing before demolition"
+      ],
+      "learningObjectives": [
+        "Explain why removing an internal return wall can destabilise the external wall it previously buttressed.",
+        "Plan a safe step-by-step temporary propping and installation sequence for Project 11.1."
+      ],
+      "futureExpansion": "[object Object]",
+      "questions": [
+        {
+          "id": "MOD11-T3-Q1",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T3",
+          "learningObjective": "Explain why \"sizing the steel beam\" alone is NOT a complete alteration design (Module 11 Gate)",
+          "type": "mcq",
+          "prompt": "A homeowner asks you to \"just give me the steel beam size\" to knock down a 4.0 m internal load-bearing wall in a two-storey terraced house. Why is sizing the steel beam alone an incomplete and potentially dangerous piece of engineering?",
+          "assumptions": "Module 11 Gate & Milestone D.",
+          "options": [
+            "Because removing the wall converts a gentle uniform line load into two concentrated point reactions at the ends of the beam and removes lateral buttressing from the external wall; you must verify the whole 10-part system: beam, end bearings, padstones, remaining masonry piers, structure below (e.g. cellar/suspended timber floor), existing shallow foundations, lateral sway stability, survey uncertainties, temporary propping/needling, and construction sequence",
+            "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors, second-order geometric imperfections, or local buckling slenderness reductions at the critical section",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the support boundaries",
+            "Because only the paint specification matters in alterations"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Exact statement of the Module 11 Learning Gate. Engineering synthesis for \"Explain why \"sizing the steel beam\" alone is NOT a complete alteration design (Module 11 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why \"sizing the steel beam\" alone is NOT a complete alteration design (Module 11 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T3-Q2",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T3",
+          "learningObjective": "Identify lateral stability loss when removing a buttressing return wall",
+          "type": "mcq",
+          "prompt": "In a traditional masonry house, an internal cross-wall bonded perpendicular to the front/rear external walls is removed completely to create an open-plan ground floor, leaving only a 150 mm nib at the external wall. Apart from supporting the vertical load above, what critical stability function did that cross-wall perform?",
+          "assumptions": "Links Module 6 stability to Module 11 alterations.",
+          "options": [
+            "It kept the roof tiles from sliding down the roof pitch, assuming that because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "It acted as a vertical buttress (shear wall / return flange) restraining the external walls against horizontal wind loads and out-of-plane buckling; removing it can leave the external wall unbuttressed over a long length unless a wind-post, box/goalpost portal frame, or deeper bonded pier is provided",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Internal cross-walls have zero effect on lateral stability"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Loss of lateral buttressing is one of the most frequently overlooked hazards in domestic open-plan alterations. Engineering synthesis for \"Identify lateral stability loss when removing a buttressing return wall\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify lateral stability loss when removing a buttressing return wall\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T3-Q3",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T3",
+          "learningObjective": "Calculate increased line load on a remaining masonry pier after forming an opening (Project 11.1)",
+          "type": "numeric",
+          "prompt": "Before alteration, a solid masonry wall carried a uniform ULS vertical line load of w = 30 kN/m along its entire length (so a 0.6 m wide section carried 30 × 0.6 = 18 kN). A 3.4 m wide opening is now cut beside a 0.6 m remaining masonry pier, so the new lintel transfers half of the 3.4 m opening load (1.7 m × 30 kN/m = 51 kN) onto that 0.6 m pier in addition to the pier’s own direct load (18 kN). What is the new average ULS vertical force per metre run (in kN/m) at the base of the 0.6 m pier?",
+          "assumptions": "Shows vividly why both the remaining masonry pier AND the existing strip foundation beneath that pier must be checked!",
+          "unit": "kN/m",
+          "correctAnswer": 115,
+          "tolerance": 1.72,
+          "explanation": "Total vertical force on the 0.6 m pier = 18 kN (direct) + 51 kN (from beam reaction) = 69 kN. Average force per metre run of the 0.6 m pier = 69 kN / 0.6 m = 115 kN/m (nearly 4 times the original 30 kN/m!).",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Identify the governing equilibrium or mechanics equation for \"Calculate increased line load on a remaining masonry pier after forming an opening (Project 11.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+            "Calculation setup: Total vertical force on the 0.6 m pier = 18 kN (direct) + 51 kN (from beam reaction) = ?. Express your final numeric answer in kN/m."
+          ],
+          "caseFamilyId": "MOD11-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T3-Q4",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T3",
+          "learningObjective": "Specify a safe temporary propping and construction sequence for a masonry opening (Project 11.1)",
+          "type": "mcq",
+          "prompt": "Which construction sequence is required when forming a new opening in a load-bearing wall supporting first-floor joists and an upper-storey brick wall?",
+          "assumptions": "Core temporary works & alteration sequencing engineering.",
+          "options": [
+            "Demolish the entire wall first, wait three days, and then prop the sagging ceiling, assuming that it redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+            "Stand Acrow props directly on middle-span floorboards with no soleboards and no backpropping to the ground",
+            "(1) Expose and verify existing bearings/foundations; (2) install temporary props on soleboards to support first-floor joists (and backprop suspended timber floors to firm ground) AND core needle beams with strongboys/props at close centres to support the upper brickwork; (3) pre-wedge/tighten temporary supports; (4) carefully demolish masonry below needles and cast/cure padstones; (5) install new steel beam and pack tightly with dry-pack mortar/steel shims between beam top flange and upper brickwork; (6) only remove needles/props after dry-pack and padstones have cured",
+            "Cut out both end piers at the same time before installing the beam"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Dry-packing the gap between the top of the new steel beam and the underside of the existing brickwork before striking the needles is essential to prevent the wall above dropping onto the beam!",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Specify a safe temporary propping and construction sequence for a masonry opening (Project 11.1)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD11-T3-Q5",
+          "moduleNumber": 11,
+          "topicId": "MOD11-T3",
+          "learningObjective": "Recognise hidden-condition risks in existing masonry buildings",
+          "type": "mcq",
+          "prompt": "When surveying an existing plastered brick wall prior to designing a new opening, which hidden conditions commonly invalidate desktop assumptions if not checked by trial holes/opening-up?",
+          "assumptions": "Bridges Module 11 to Module 18.",
+          "options": [
+            "The member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+            "Existing buildings always match architectural sales brochures 100%",
+            "Brickwork strength increases to 500 N/mm² behind plaster",
+            "Any of the following: floor joists spanning the opposite way to assumed, concealed chimney flues or voids inside piers, soft lime/rubble core infill inside thick walls, timber bonding timbers that have rotted, shallow/corbelled brick footings with no concrete strip foundation, or piers resting on suspended timber beams over a basement"
+          ],
+          "correctOptionIndex": 3,
+          "correctAnswer": 3,
+          "explanation": "Never finalise an alteration design on unverified guesses when simple opening-up (lifting a floorboard, exposing a pier/footing trial pit) can establish the real load path.",
+          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "hints": [
+            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise hidden-condition risks in existing masonry buildings\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+          ],
+          "caseFamilyId": "MOD11-T3-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        }
+      ]
+    }
+  ],
+  "workedExamples": [
+    {
+      "id": "PROJ-11.1",
+      "title": "New opening in load-bearing masonry",
+      "scenario": "",
+      "learningPurpose": "Demonstrate explicit engineering calculation steps, load path verification, and equilibrium checks.",
+      "keySteps": [],
+      "checkMethod": "Independent equilibrium, dimensional consistency, and order-of-magnitude check.",
+      "status": "Calculation Skeleton Ready"
+    }
+  ],
+  "resources": [
+    "IStructE guidance on structural alterations and masonry, where available.",
+    "Masonry industry technical guidance (BDA / Concrete Block Association).",
+    "Current EC6 (BS EN 1996-1-1) and UK National Annex through work/library."
+  ],
+  "standardsNotice": "Years 2–3 masonry and alterations module. Characteristic and design masonry strengths in assessment problems are explicitly stated; real design must consult BS EN 1996-1-1, the UK National Annex, PD 6697, and BS 5975.",
+  "moduleAssessmentQuestions": [
+    {
+      "id": "MOD11-E01",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T2",
+      "learningObjective": "Calculate total ULS load and end reactions on a new masonry opening lintel (Project 11.1)",
+      "type": "numeric",
+      "prompt": "A new steel beam of clear span 3.6 m (effective span between bearing centres L_eff = 3.8 m) is installed to form an opening in a load-bearing wall. The beam carries a total ULS line load (upper wall + first floor + roof + self-weight) of w_Ed = 32.0 kN/m. Calculate the ULS vertical reaction R_Ed at each end bearing in kN.",
+      "assumptions": "Note the use of effective span (clear span + one bearing length = 3.6 + 0.2 = 3.8 m).",
+      "unit": "kN",
+      "correctAnswer": 60.8,
+      "tolerance": 0.912,
+      "explanation": "R_Ed = (w_Ed × L_eff) / 2 = (32.0 × 3.8) / 2 = 60.8 kN. Step-by-step verification for \"Calculate total ULS load and end reactions on a new masonry opening lintel (Project 11.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 60.8 kN, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate total ULS load and end reactions on a new masonry opening lintel (Project 11.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: R_Ed = (w_Ed × L_eff) / 2 = (32.0 × 3.8) / 2 = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD11-T2-CF",
+      "solverVerificationId": "SOLVER-MOD11-E01",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD11-E02",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T2",
+      "learningObjective": "Calculate required padstone length on existing brickwork (Project 11.1)",
+      "type": "numeric",
+      "prompt": "A steel lintel beam delivers a factored ULS end support reaction of R_Ed = 60.8 kN (60,800 N) onto a concrete padstone bedded on a 102.5 mm thick brick wall leaf. If the design local bearing resistance of the brickwork beneath the padstone is f_b,Rd = 1.60 N/mm², calculate the minimum required padstone length L_pad along the wall (in mm, to the nearest mm).",
+      "assumptions": "Project 11.1 padstone sizing.",
+      "unit": "mm",
+      "correctAnswer": 371,
+      "tolerance": 5.56,
+      "explanation": "Required bearing area A_req = 60,800 N / 1.60 N/mm² = 38,000 mm². Required length L_pad = 38,000 / 102.5 = 370.7 mm ≈ 371 mm (so a standard 400 mm or 440 mm long padstone would be specified).",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate required padstone length on existing brickwork (Project 11.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Required bearing area A_req = 60,800 N / 1.60 N/mm² = 38,000 mm². Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD11-T2-CF",
+      "solverVerificationId": "SOLVER-MOD11-E02",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD11-E03",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T2",
+      "learningObjective": "Check tight L/500 serviceability deflection limit for a beam supporting brittle masonry",
+      "type": "numeric",
+      "prompt": "A steel lintel beam of effective span L_eff = 3,800 mm is installed to support existing brittle brickwork above a new ground-floor opening. To prevent cracking of the supported masonry, the engineer limits the total unfactored SLS deflection to Span / 500. What is the maximum allowable SLS deflection in mm?",
+      "assumptions": "Tight deflection limits (L/500) prevent cracking of the stiff brittle masonry wall above.",
+      "unit": "mm",
+      "correctAnswer": 7.6,
+      "tolerance": 0.114,
+      "explanation": "δ_lim = 3,800 mm / 500 = 7.60 mm. Step-by-step verification for \"Check tight L/500 serviceability deflection limit for a beam supporting brittle masonry\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 7.6 mm, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Check tight L/500 serviceability deflection limit for a beam supporting brittle masonry\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: δ_lim = 3,800 mm / 500 = ?. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD11-T2-CF",
+      "solverVerificationId": "SOLVER-MOD11-E03",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD11-E04",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T2",
+      "learningObjective": "Calculate required I to satisfy L/500 under unfactored SLS load",
+      "type": "numeric",
+      "prompt": "A steel lintel beam of effective span L_eff = 3,800 mm carries an unfactored total SLS line load of w_SLS = 22.0 kN/m (22.0 N/mm) and has Young’s modulus E = 210,000 N/mm². Calculate the minimum second moment of area I_req (in cm⁴, to the nearest 10 cm⁴) required so that midspan deflection δ = 5 w_SLS L⁴ / (384 E I) does not exceed 7.60 mm.",
+      "assumptions": "Often SLS deflection (L/500) rather than ULS bending strength governs steel beams supporting masonry walls!",
+      "unit": "cm⁴",
+      "correctAnswer": 3740,
+      "tolerance": 56.1,
+      "explanation": "I_req = (5 × 22.0 × 3,800⁴) / (384 × 210,000 × 7.60) = (2.2936 × 10¹⁶) / (6.12864 × 10⁸) = 37,424,000 mm⁴ = 3,742 cm⁴ ≈ 3,740 cm⁴. Step-by-step verification for \"Calculate required I to satisfy L/500 under unfactored SLS load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3740 cm⁴, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate required I to satisfy L/500 under unfactored SLS load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: I_req = (5 × 22.0 × 3,800⁴) / (384 × 210,000 × 7.60) = (2.2936 × 10¹⁶) / (6.12864 × 10⁸) = 37,424,000 mm⁴ = 3,742 cm⁴ ≈ 3,740 cm⁴. Express your final numeric answer in cm⁴."
+      ],
+      "caseFamilyId": "MOD11-T2-CF",
+      "solverVerificationId": "SOLVER-MOD11-E04",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD11-E05",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T3",
+      "learningObjective": "Calculate temporary needle beam spacing and load per needle (Project 11.1)",
+      "type": "numeric",
+      "prompt": "Before demolishing the 3.6 m wall opening, temporary needle beams with props are installed at 0.90 m horizontal centres along the wall. If the unfactored characteristic weight of the upper wall and propped floors during the alteration stage is w_temp = 16.0 kN/m, what vertical wall load (in kN) is carried by each temporary needle assembly?",
+      "assumptions": "If the needle is supported by one prop on the inside and one prop on the outside (equally spaced from the wall), each prop carries 14.4 / 2 = 7.2 kN.",
+      "unit": "kN",
+      "correctAnswer": 14.4,
+      "tolerance": 0.216,
+      "explanation": "Load per needle = w_temp × spacing = 16.0 kN/m × 0.90 m = 14.4 kN. Step-by-step verification for \"Calculate temporary needle beam spacing and load per needle (Project 11.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 14.4 kN, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate temporary needle beam spacing and load per needle (Project 11.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Load per needle = w_temp × spacing = 16.0 kN/m × 0.90 m = ?. Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD11-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E06",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T3",
+      "learningObjective": "Calculate asymmetric prop leg reactions on an offset temporary needle beam",
+      "type": "numeric",
+      "prompt": "In a boundary wall alteration, the inner prop A can be placed 0.50 m from the wall centreline, while the outer prop B must be placed 1.00 m from the wall centreline to clear an exterior drain (total needle span between props = 1.50 m). If the wall applies a vertical load of P = 15.0 kN onto the needle at the wall centreline, calculate the vertical reaction carried by the closer inner prop A in kN.",
+      "assumptions": "Notice that the prop closer to the wall carries two-thirds of the needle load!",
+      "unit": "kN",
+      "correctAnswer": 10,
+      "tolerance": 0.15,
+      "explanation": "Taking moments about outer prop B: R_A × 1.50 m = 15.0 kN × 1.00 m => R_A = 10.0 kN (and R_B = 5.0 kN). Step-by-step verification for \"Calculate asymmetric prop leg reactions on an offset temporary needle beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10 kN, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate asymmetric prop leg reactions on an offset temporary needle beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Taking moments about outer prop B: R_A × 1.50 m = 15.0 kN × 1.00 m => R_A = 10.0 kN (and R_B = 5.0 kN). Express your final numeric answer in kN."
+      ],
+      "caseFamilyId": "MOD11-T3-CF",
+      "solverVerificationId": "SOLVER-MOD11-E06",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD11-E07",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T3",
+      "learningObjective": "Calculate maximum bending moment in the temporary needle beam",
+      "type": "numeric",
+      "prompt": "A temporary works needle beam spans 1.50 m between an inner prop A (placed 0.50 m from a masonry wall centreline) and an outer prop B (placed 1.00 m from the wall centreline). The wall applies a downward vertical point load P = 15.0 kN onto the needle at the wall centreline (giving prop reactions R_A = 10.0 kN and R_B = 5.0 kN). Calculate the peak bending moment in the needle beam directly beneath the wall centreline in kN·m.",
+      "assumptions": "Both the needle beam in bending and the props/soleboards in compression/bearing must be checked.",
+      "unit": "kN·m",
+      "correctAnswer": 5,
+      "tolerance": 0.075,
+      "explanation": "M_needle = R_A × 0.50 m = 10.0 kN × 0.50 m = 5.0 kN·m (checked from right: 5.0 kN × 1.00 m = 5.0 kN·m). Step-by-step verification for \"Calculate maximum bending moment in the temporary needle beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 5 kN·m, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum bending moment in the temporary needle beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: M_needle = R_A × 0.50 m = 10.0 kN × 0.50 m = 5.0 kN·m (checked from right: 5.0 kN × 1.00 m = 5.0 kN·m). Express your final numeric answer in kN·m."
+      ],
+      "caseFamilyId": "MOD11-T3-CF",
+      "solverVerificationId": "SOLVER-MOD11-E07",
+      "reviewStatus": "Verified",
+      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+    },
+    {
+      "id": "MOD11-E08",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T3",
+      "learningObjective": "Calculate new soil bearing pressure under an existing strip foundation after forming an opening",
+      "type": "numeric",
+      "prompt": "An existing 450 mm (0.45 m) wide concrete strip foundation originally carried a uniform characteristic load of 27 kN/m (giving a soil pressure of 27 / 0.45 = 60 kN/m²). After forming a large opening, the remaining pier transfers a concentrated characteristic load that averages 63 kN/m over the effective dispersed foundation length. What is the new characteristic bearing pressure on the soil beneath the 0.45 m wide strip foundation in kN/m²?",
+      "assumptions": "If the existing soil allowable bearing pressure is e.g. 100 kN/m², the existing strip foundation is now overloaded and requires a new pad foundation or ground-beam spreader!",
+      "unit": "kN/m²",
+      "correctAnswer": 140,
+      "tolerance": 2.1,
+      "explanation": "q_soil = 63 kN/m / 0.45 m = 140 kN/m² (more than double the original 60 kN/m²!). Step-by-step verification for \"Calculate new soil bearing pressure under an existing strip foundation after forming an opening\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 140 kN/m², and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate new soil bearing pressure under an existing strip foundation after forming an opening\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: q_soil = 63 kN/m / 0.45 m = 140 kN/m² (more than double the original 60 kN/m²!). Express your final numeric answer in kN/m²."
+      ],
+      "caseFamilyId": "MOD11-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E09",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T1",
+      "learningObjective": "Calculate design compressive strength f_d of masonry from f_k and γ_M",
+      "type": "numeric",
+      "prompt": "A concrete blockwork wall is built with units and mortar giving a characteristic compressive strength f_k = 3.5 N/mm². If the applicable UK National Annex partial material factor for the execution class is γ_M = 2.50, calculate the design compressive strength f_d = f_k / γ_M in N/mm².",
+      "assumptions": "Masonry partial factors γ_M are significantly higher than steel (1.0) or concrete (1.5) due to site workmanship variability.",
+      "unit": "N/mm²",
+      "correctAnswer": 1.4,
+      "tolerance": 0.021,
+      "explanation": "f_d = 3.5 / 2.50 = 1.40 N/mm². Step-by-step verification for \"Calculate design compressive strength f_d of masonry from f_k and γ_M\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.4 N/mm², and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate design compressive strength f_d of masonry from f_k and γ_M\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: f_d = 3.5 / 2.50 = ?. Express your final numeric answer in N/mm²."
+      ],
+      "caseFamilyId": "MOD11-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E10",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T1",
+      "learningObjective": "Calculate eccentricity e of a floor joist bearing on the inner edge of a wall",
+      "type": "numeric",
+      "prompt": "A floor slab or joist hanger applies its vertical reaction near the inner face of a 102.5 mm thick masonry leaf, taken at a distance of t/6 from the inner face (i.e. at distance t/2 − t/6 = t/3 from the wall centreline). For t = 102.5 mm, calculate this load eccentricity e = t / 3 from the wall centreline in mm (to 1 decimal place).",
+      "assumptions": "Eccentric loading at the top of a wall reduces the capacity reduction factor Φ = 1 − 2(e/t).",
+      "unit": "mm",
+      "correctAnswer": 34.2,
+      "tolerance": 0.513,
+      "explanation": "e = 102.5 / 3 = 34.17 mm ≈ 34.2 mm. Step-by-step verification for \"Calculate eccentricity e of a floor joist bearing on the inner edge of a wall\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 34.2 mm, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate eccentricity e of a floor joist bearing on the inner edge of a wall\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: e = 102.5 / 3 = 34.17 mm ≈ 34.2 mm. Express your final numeric answer in mm."
+      ],
+      "caseFamilyId": "MOD11-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E11",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T3",
+      "learningObjective": "Identify the danger of propping onto a suspended timber ground floor without backpropping",
+      "type": "mcq",
+      "prompt": "In many older UK houses, the ground floor is a suspended timber floor (100 mm joists spanning onto low sleeper walls over a sub-floor void) rather than a ground-bearing concrete slab. What happens if temporary Acrow props supporting the upper floor and brickwork are stood on a soleboard on the ground-floor floorboards without lifting a board to prop directly down to the oversite/foundations?",
+      "assumptions": "Vital UK domestic temporary works rule.",
+      "options": [
+        "The heavy prop loads can overload and shear/snap the small ground-floor timber joists or crush the fragile honeycombed sleeper walls below, causing sudden collapse of both the ground floor and the propped upper structure",
+        "Suspended timber ground floors have infinite load capacity, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area with.",
+        "Acrow props do not transmit vertical force to their base",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long-term creep deformation."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Always verify whether the ground floor is ground-bearing concrete or suspended timber/basement before landing temporary props! Engineering synthesis for \"Identify the danger of propping onto a suspended timber ground floor without backpropping\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the danger of propping onto a suspended timber ground floor without backpropping\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD11-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E12",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T3",
+      "learningObjective": "Understand why twin steel beams bolted together with tubular spacers are used under 215 mm solid walls",
+      "type": "mcq",
+      "prompt": "When forming a structural opening in a 215 mm solid brick wall (or a 300 mm two-leaf cavity wall), why do engineers routinely specify two parallel steel beams bolted together with tubular steel spacers/diaphragms rather than a single narrow 102 mm wide Universal Beam?",
+      "assumptions": "Practical UK alteration detailing.",
+      "options": [
+        "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "A single narrow 102 mm beam leaves over half the 215 mm wall width overhanging unsupported (or requires a heavy wide plate subject to torsion), whereas twin parallel beams directly support both halves/leaves of the masonry wall across its full thickness and double the torsional/lateral stability during installation",
+        "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Note: when twin beams are bolted together with spacers at regular centres so they deflect together, ensure the bolts/spacers are detailed to share any asymmetric leaf loads.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why twin steel beams bolted together with tubular spacers are used under 215 mm solid walls\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD11-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E13",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T1",
+      "learningObjective": "Distinguish stepped diagonal cracking vs uniform vertical cracking in masonry walls",
+      "type": "mcq",
+      "prompt": "During a visual appraisal of a masonry wall, what causes a crack that steps diagonally along mortar bed and perpend joints (wider at the top and tapering towards the bottom near a building corner) compared to a vertical crack of uniform width down a long concrete block wall?",
+      "assumptions": "Connects Module 11 cracking to Module 12/18.",
+      "options": [
+        "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+        "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+        "A diagonal stepped crack widening towards the top at a corner typically indicates downward differential foundation settlement/subsidence of the corner, whereas a uniform-width vertical crack in a long block wall typically indicates horizontal tensile drying shrinkage or thermal contraction restraint",
+        "Foundation subsidence only causes horizontal bed-joint expansion"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "Understanding the tension stress trajectory that opened the crack tells you the direction of relative movement. Engineering synthesis for \"Distinguish stepped diagonal cracking vs uniform vertical cracking in masonry walls\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish stepped diagonal cracking vs uniform vertical cracking in masonry walls\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD11-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E14",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T3",
+      "learningObjective": "Understand the purpose of a steel \"box frame\" or \"goalpost frame\" in alterations",
+      "type": "mcq",
+      "prompt": "When a client wants to remove almost the entire rear ground-floor wall of a house (leaving no masonry piers wide enough to act as shear walls or carry vertical loads), why does the engineer design a steel \"goalpost\" (moment portal frame) or \"box frame\" (beams + columns + bottom ground beam)?",
+      "assumptions": "Connects Module 6/9 frames to Module 11 alterations.",
+      "options": [
+        "Because goalpost frames do not require bolts or foundations, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Because without masonry piers, the steel frame itself must provide both the vertical support columns AND the in-plane lateral sway resistance (via moment-resisting bolted knee joints), while a bottom steel ground beam spreads the column reactions along the existing foundation and resists the portal base moments"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "When masonry piers are removed, both the vertical load path and the lateral stability system must be replaced by the new steelwork. Engineering synthesis for \"Understand the purpose of a steel \"box frame\" or \"goalpost frame\" in alterations\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the purpose of a steel \"box frame\" or \"goalpost frame\" in alterations\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD11-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E15",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T2",
+      "learningObjective": "Understand why dry-pack mortar is packed between the top of a new beam and existing masonry before removing needles",
+      "type": "mcq",
+      "prompt": "After lifting a new steel lintel beam onto its padstones beneath an existing brick wall (which is held up by temporary needles), why is a stiff semi-dry non-shrink mortar (\"dry-pack\") rammed tightly into the 20–30 mm gap above the top flange and allowed to cure BEFORE the temporary needles are removed?",
+      "assumptions": "Critical construction sequence step.",
+      "options": [
+        "To ensure continuous, immediate load transfer from the underside of the existing brickwork onto the new steel beam along its full length; if the needles were removed with an unfilled gap or only loose point wedges, the brickwork would drop, crack, and lose its mortar bond",
+        "To glue the beam up to the bricks so padstones can be removed, assuming that by applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factor.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the support boundaries",
+        "Because dry-pack mortar has a Young’s modulus higher than diamond"
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Pre-loading or tight dry-packing before de-propping is essential to transfer load without settlement. Engineering synthesis for \"Understand why dry-pack mortar is packed between the top of a new beam and existing masonry before removing needles\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why dry-pack mortar is packed between the top of a new beam and existing masonry before removing needles\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD11-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E16",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T1",
+      "learningObjective": "Identify why chasing deep horizontal slots into a thin load-bearing masonry wall is dangerous",
+      "type": "mcq",
+      "prompt": "An electrician or plumber chases a 45 mm deep horizontal groove all the way across a 100 mm thick load-bearing blockwork inner leaf to bury a waste pipe. Why is this severely detrimental to the wall?",
+      "assumptions": "Practical site inspection awareness.",
+      "options": [
+        "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+        "It removes nearly half the effective thickness of the wall along a continuous horizontal hinge line, drastically increasing local eccentricity and reducing both the vertical compressive resistance and out-of-plane flexural/buckling capacity of the wall",
+        "Plastic pipes carry the full weight of the house in compression",
+        "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+      ],
+      "correctOptionIndex": 1,
+      "correctAnswer": 1,
+      "explanation": "Building Regulations Approved Document A and EC6 strictly limit vertical and especially horizontal chase depths in load-bearing walls. Engineering synthesis for \"Identify why chasing deep horizontal slots into a thin load-bearing masonry wall is dangerous\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why chasing deep horizontal slots into a thin load-bearing masonry wall is dangerous\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD11-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E17",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T2",
+      "learningObjective": "Understand lateral restraint of a steel beam supporting a masonry wall",
+      "type": "mcq",
+      "prompt": "When a new steel beam is installed inside an opening to support a solid brick wall above (with no concrete floor slab cast onto the top flange), can you automatically assume the brick wall sitting on the top flange provides full continuous lateral restraint against LTB?",
+      "assumptions": "Crucial link between Module 8/9 LTB and Module 11.",
+      "options": [
+        "Yes; loose bricks on a top flange always provide infinite lateral restraint",
+        "Yes; a damp-proof course (DPC) membrane is a high-friction structural weld",
+        "No; unbonded masonry sitting on top of a steel flange (especially during installation or if only resting on a damp-proof course/dry-pack) offers limited lateral shear restraint and is actually a destabilising top-flange gravity load unless positive restraint (such as incoming floor joists strapped/blocked to the beam or torsional end restraints with conservative L_LT) is verified",
+        "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+      ],
+      "correctOptionIndex": 2,
+      "correctAnswer": 2,
+      "explanation": "In UK practice (SCI / IStructE guidance), beams supporting masonry walls without tied floor diaphragms are checked conservatively as unrestrained (often with destabilising load factor) between effective lateral restraints.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand lateral restraint of a steel beam supporting a masonry wall\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD11-T2-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E18",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T1",
+      "learningObjective": "Calculate capacity reduction factor Φ at the top of a wall for a given eccentricity",
+      "type": "numeric",
+      "prompt": "In BS EN 1996-1-1, the capacity reduction factor at the top or bottom of a wall due to load eccentricity e_i is given by Φ_i = 1 − 2 × (e_i / t). If a 100 mm thick wall has a resultant load eccentricity at its top of e_i = 15 mm, calculate Φ_i.",
+      "assumptions": "Notice that if e_i reaches t/2 = 50 mm, Φ_i drops to zero because a zero-tension material cannot resist a load outside its cross-section!",
+      "unit": "ratio",
+      "correctAnswer": 0.7,
+      "tolerance": 0.0105,
+      "explanation": "Φ_i = 1 − 2 × (15 / 100) = 1 − 0.30 = 0.70. Step-by-step verification for \"Calculate capacity reduction factor Φ at the top of a wall for a given eccentricity\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.7 ratio, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Identify the governing equilibrium or mechanics equation for \"Calculate capacity reduction factor Φ at the top of a wall for a given eccentricity\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
+        "Calculation setup: Φ_i = 1 − 2 × (15 / 100) = 1 − 0.30 = ?. Express your final numeric answer in ratio."
+      ],
+      "caseFamilyId": "MOD11-T1-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E19",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T3",
+      "learningObjective": "Identify party wall and adjacent structure considerations in domestic alterations",
+      "type": "mcq",
+      "prompt": "When designing a steel beam pocketed into a shared masonry party wall between two terraced or semi-detached houses, what practical and structural issues must be considered at the party wall bearing?",
+      "assumptions": "Real-world UK domestic alteration constraint.",
+      "options": [
+        "You can demolish the neighbour’s side of the party wall without checking, assuming that the member is verified solely for Ultimate Limit State cross-sectional yield resistance at midspan while relying on friction alone at the bearings to resist horizontal thermal expansion, wind drag, and notional lateral equivalent forces",
+        "The structural analysis models the joint as a frictionless pin for vertical gravity load takedown but simultaneously assumes full rotational fixity when evaluating lateral storey drift and global second-order sway stability",
+        "The design substitutes the characteristic 95th-percentile material strength in place of the 5th-percentile characteristic strength and omits the combination factor ψ_0 when superimpose-combining independent variable wind and imposed floor actions",
+        "Party wall thickness (often only 215 mm solid brick shared by both houses), avoiding cutting through more than half the wall thickness, checking what loads from the neighbour’s floors/chimneys already bear on that pier, fire/acoustic separation, temporary propping access, and statutory Party Wall Act notice requirements"
+      ],
+      "correctOptionIndex": 3,
+      "correctAnswer": 3,
+      "explanation": "A 215 mm party wall normally allows only a ~100 mm deep pocket on your side; if a longer bearing or wider spread is needed, an eccentric spreader padstone or column against the wall face is often used.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify party wall and adjacent structure considerations in domestic alterations\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD11-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    },
+    {
+      "id": "MOD11-E20",
+      "moduleNumber": 11,
+      "topicId": "MOD11-T3",
+      "learningObjective": "Verify all 10 elements of the Module 11 Learning Gate",
+      "type": "mcq",
+      "prompt": "Which checklist contains all 10 system elements required by the Module 11 Learning Gate to prove that an existing-building masonry alteration has been properly engineered?",
+      "assumptions": "Module 11 Gate.",
+      "options": [
+        "(1) Beam, (2) Bearings, (3) Wall/pier capacity, (4) Padstone, (5) Support below, (6) Foundations, (7) Lateral restraint, (8) Temporary works, (9) Survey uncertainty, and (10) Construction sequence",
+        "By applying the unfactored characteristic Serviceability Limit State action combination directly to the gross cross-sectional area without accounting for partial material safety factors.",
+        "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load int.",
+        "By taking the mean 50th-percentile material stiffness modulus together with a fully fixed rotational boundary condition at both ends, thereby ignoring connection flexibility, long."
+      ],
+      "correctOptionIndex": 0,
+      "correctAnswer": 0,
+      "explanation": "Complete 10-element Module 11 Learning Gate. Engineering synthesis for \"Verify all 10 elements of the Module 11 Learning Gate\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
+      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "hints": [
+        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify all 10 elements of the Module 11 Learning Gate\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
+        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+      ],
+      "caseFamilyId": "MOD11-T3-CF",
+      "reviewStatus": "Draft",
+      "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+    }
+  ]
+}
