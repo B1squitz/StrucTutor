@@ -49,10 +49,18 @@
           "correctAnswer": 497.5,
           "tolerance": 0.5,
           "explanation": "d = 550 - 30 - 10 - (25 / 2) = 510 - 12.5 = 497.5 mm. Step-by-step verification for \"Calculate effective depth d of a reinforced concrete beam.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 497.5 mm, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T1",
+            "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+            "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+            "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+            "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+            "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate effective depth d of a reinforced concrete beam.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: d = 550 - 30 - 10 - (25 / 2) = 510 - 12.5 = ?. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate effective depth d of a reinforced concrete beam.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+            "Second Hint (Symbolic Formula & Unit Setup): d = 550 - 30 - 10 - (25 / 2) = 510 - 12.5 = ?. (express final result in mm)."
           ],
           "caseFamilyId": "MOD14-T1-CF",
           "reviewStatus": "Draft",
@@ -70,15 +78,22 @@
           "correctAnswer": 0.1,
           "tolerance": 0.002,
           "explanation": "b * d^2 * fck = 300 * 500^2 * 30 = 2.25 x 10^9 Nmm. Therefore K = (225 x 10^6) / (2.25 x 10^9) = 0.100 (which is <= K' = 0.168, so singly reinforced).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T1",
+            "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+            "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+            "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+            "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+            "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate the dimensionless flexural factor K = M_Ed / (b * d^2 * fck).\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: b * d^2 * fck = 300 * 500^2 * 30 = 2.25 x 10^9 Nmm. Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Calculate the dimensionless flexural factor K = M_Ed / (b * d^2 * fck).): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+            "Second Hint (Symbolic Formula & Unit Setup): Evaluate K = M_Ed / (b · d² · f_ck) in consistent (N, mm) units; verify K <= 0.167, determine lever arm z <= 0.95d, and calculate tension steel area A_s,req = M_Ed / (f_yd · z) where f_yd = f_yk / 1.15. Express your final calculated value in ratio."
           ],
           "caseFamilyId": "MOD14-T1-CF",
           "solverVerificationId": "SOLVER-MOD14-T1-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD14-T1-Q3",
@@ -92,15 +107,22 @@
           "correctAnswer": 1138,
           "tolerance": 5,
           "explanation": "As_req = (225 x 10^6 Nmm) / (435 N/mm^2 * 454.5 mm) = 225,000,000 / 197,707.5 = 1138.0 mm^2 (e.g. 3H25 provides 1473 mm^2). Step-by-step verification for \"Calculate required tension reinforcement area As_req.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1138 mm^2, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T1",
+            "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+            "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+            "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+            "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+            "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate required tension reinforcement area As_req.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: As_req = (225 x 10^6 Nmm) / (435 N/mm^2 * 454.5 mm) = 225,000,000 / 197,707.5 = 1138.0 mm^2 (e.g. Express your final numeric answer in mm^2."
+            "First Hint (Physical Principle & Idealisation: Calculate required tension reinforcement area As_req.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+            "Second Hint (Symbolic Formula & Unit Setup): As_req = (225 x 10^6 Nmm) / (435 N/mm^2 * 454.5 mm) = 225,000,000 / 197,707.5 = ?.0 mm^2 (e.g. (express final result in mm^2)."
           ],
           "caseFamilyId": "MOD14-T1-CF",
           "solverVerificationId": "SOLVER-MOD14-T1-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD14-T1-Q4",
@@ -119,10 +141,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Limiting x/d ensures that by the time the extreme concrete compression fibre reaches its ultimate crushing strain (0.0035), the tension steel has yielded well into its ductile plateau.",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T1",
+            "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+            "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+            "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+            "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+            "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why Eurocode 2 limits the neutral axis depth ratio x/d (e.g. x/d <= 0.45 in the UK NA).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why Eurocode 2 limits the neutral axis depth ratio x/d (e.g. x/d <= 0.45 in the UK NA).): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+            "Second Hint (Analytical Elimination Criterion): Evaluate K = M_Ed / (b · d² · f_ck) in consistent (N, mm) units; verify K <= 0.167, determine lever arm z <= 0.95d, and calculate tension steel area A_s,req = M_Ed / (f_yd · z) where f_yd = f_yk / 1.15. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1)."
           ],
           "caseFamilyId": "MOD14-T1-CF",
           "reviewStatus": "Draft",
@@ -145,10 +175,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "When K > K', the concrete compression block alone cannot balance the moment while keeping x/d <= 0.45; top compression steel (restrained against buckling by links) is required.",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T1",
+            "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+            "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+            "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+            "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+            "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what happens when K exceeds K' (0.168) in a rectangular beam.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify what happens when K exceeds K' (0.168) in a rectangular beam.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+            "Second Hint (Analytical Elimination Criterion): Evaluate K = M_Ed / (b · d² · f_ck) in consistent (N, mm) units; verify K <= 0.167, determine lever arm z <= 0.95d, and calculate tension steel area A_s,req = M_Ed / (f_yd · z) where f_yd = f_yk / 1.15. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1)."
           ],
           "caseFamilyId": "MOD14-T1-CF",
           "reviewStatus": "Draft",
@@ -186,10 +224,18 @@
           "correctAnswer": 384.1,
           "tolerance": 1.5,
           "explanation": "Asw / s = 157 / 200 = 0.785 mm^2/mm. V_Rd,s = 0.785 * 450 * 435 * 2.5 = 384,129 N = 384.1 kN. Step-by-step verification for \"Calculate shear resistance V_Rd,s of vertical links using the EC2 truss model.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 384.1 kN, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T2",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+            "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+            "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+            "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate shear resistance V_Rd,s of vertical links using the EC2 truss model.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Asw / s = 157 / 200 = 0.785 mm^2/mm. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate shear resistance V_Rd,s of vertical links using the EC2 truss model.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use V_Rd,s = (A_sw / s) · z · f_ywd · cot θ for vertical shear links, provide anchorage/lap lengths l_bd, and verify SLS span-to-effective-depth (L/d) and crack-width limits. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD14-T2-CF",
           "reviewStatus": "Draft",
@@ -207,10 +253,18 @@
           "correctAnswer": 0.6,
           "tolerance": 0.02,
           "explanation": "z * fywd * cot(theta) = 400 * 435 * 2.5 = 435,000 N/mm. Therefore Asw/s = 261,000 / 435,000 = 0.600 mm^2/mm. Step-by-step verification for \"Calculate required shear link ratio Asw/s for a given ULS shear force.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.6 mm^2/mm, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T2",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+            "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+            "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+            "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate required shear link ratio Asw/s for a given ULS shear force.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: z * fywd * cot(theta) = 400 * 435 * 2.5 = 435,000 N/mm. Express your final numeric answer in mm^2/mm."
+            "First Hint (Physical Principle & Idealisation: Calculate required shear link ratio Asw/s for a given ULS shear force.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use V_Rd,s = (A_sw / s) · z · f_ywd · cot θ for vertical shear links, provide anchorage/lap lengths l_bd, and verify SLS span-to-effective-depth (L/d) and crack-width limits. Express your final calculated value in mm^2/mm."
           ],
           "caseFamilyId": "MOD14-T2-CF",
           "reviewStatus": "Draft",
@@ -228,10 +282,18 @@
           "correctAnswer": 720,
           "tolerance": 2,
           "explanation": "l_bd = 36 * 20 = 720 mm. Step-by-step verification for \"Calculate required tension anchorage length in multiples of bar diameter.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 720 mm, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T2",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+            "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+            "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+            "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate required tension anchorage length in multiples of bar diameter.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: l_bd = 36 * 20 = ?. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate required tension anchorage length in multiples of bar diameter.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use V_Rd,s = (A_sw / s) · z · f_ywd · cot θ for vertical shear links, provide anchorage/lap lengths l_bd, and verify SLS span-to-effective-depth (L/d) and crack-width limits. Express your final calculated value in mm."
           ],
           "caseFamilyId": "MOD14-T2-CF",
           "reviewStatus": "Draft",
@@ -249,10 +311,18 @@
           "correctAnswer": 40,
           "tolerance": 0.5,
           "explanation": "c_nom = 30 + 10 = 40 mm. Step-by-step verification for \"Calculate nominal concrete cover c_nom from minimum cover and fixing tolerance.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 40 mm, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T2",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+            "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+            "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+            "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate nominal concrete cover c_nom from minimum cover and fixing tolerance.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: c_nom = 30 + 10 = ?. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate nominal concrete cover c_nom from minimum cover and fixing tolerance.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use V_Rd,s = (A_sw / s) · z · f_ywd · cot θ for vertical shear links, provide anchorage/lap lengths l_bd, and verify SLS span-to-effective-depth (L/d) and crack-width limits. Express your final calculated value in mm."
           ],
           "caseFamilyId": "MOD14-T2-CF",
           "reviewStatus": "Draft",
@@ -275,10 +345,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Lapping bars in regions of lower bending stress and staggering laps reduces local tensile bond splitting forces and concrete placement congestion.",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T2",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+            "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+            "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+            "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify best practice for locating reinforcement laps in RC beams and slabs.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify best practice for locating reinforcement laps in RC beams and slabs.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+            "Second Hint (Analytical Elimination Criterion): Use V_Rd,s = (A_sw / s) · z · f_ywd · cot θ for vertical shear links, provide anchorage/lap lengths l_bd, and verify SLS span-to-effective-depth (L/d) and crack-width limits. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6)."
           ],
           "caseFamilyId": "MOD14-T2-CF",
           "reviewStatus": "Draft",
@@ -316,10 +394,18 @@
           "correctAnswer": 256.4,
           "tolerance": 2,
           "explanation": "As,min = 0.26 * 0.0058 * 170,000 = 0.001508 * 170,000 = 256.4 mm^2/m. Step-by-step verification for \"Calculate minimum tension reinforcement area As,min per metre width of an RC slab.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 256.4 mm^2/m, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T3",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+            "authorOrBody": "BSI / Concrete Society & CIRIA",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+            "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+            "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate minimum tension reinforcement area As,min per metre width of an RC slab.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: As,min = 0.26 * 0.0058 * 170,000 = 0.001508 * 170,000 = 256.4 mm^2/m. Express your final numeric answer in mm^2/m."
+            "First Hint (Physical Principle & Idealisation: Calculate minimum tension reinforcement area As,min per metre width of an RC slab.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+            "Second Hint (Symbolic Formula & Unit Setup): As,min = 0.26 * 0.0058 * 170,000 = 0.001508 * 170,000 = ?. (express final result in mm^2/m)."
           ],
           "caseFamilyId": "MOD14-T3-CF",
           "reviewStatus": "Draft",
@@ -337,10 +423,18 @@
           "correctAnswer": 0.832,
           "tolerance": 0.01,
           "explanation": "v_Ed = (1.15 * 550,000 N) / (3800 mm * 200 mm) = 632,500 / 760,000 = 0.832 MPa. Step-by-step verification for \"Calculate punching shear stress v_Ed on the basic control perimeter u_1.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.832 MPa, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T3",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+            "authorOrBody": "BSI / Concrete Society & CIRIA",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+            "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+            "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate punching shear stress v_Ed on the basic control perimeter u_1.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: v_Ed = (1.15 * 550,000 N) / (3800 mm * 200 mm) = 632,500 / 760,000 = ?. Express your final numeric answer in MPa."
+            "First Hint (Physical Principle & Idealisation: Calculate punching shear stress v_Ed on the basic control perimeter u_1.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+            "Second Hint (Symbolic Formula & Unit Setup): v_Ed = (1.15 * 550,000 N) / (3800 mm * 200 mm) = 632,500 / 760,000 = ?. (express final result in MPa)."
           ],
           "caseFamilyId": "MOD14-T3-CF",
           "reviewStatus": "Draft",
@@ -358,10 +452,18 @@
           "correctAnswer": 8.25,
           "tolerance": 0.05,
           "explanation": "Wet concrete = 0.25 * 25 = 6.25 kPa. Total construction pressure q_con = 6.25 + 0.50 + 1.50 = 8.25 kPa. Step-by-step verification for \"Calculate total construction-stage wet concrete + construction live load on falsework props.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 8.25 kPa, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T3",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+            "authorOrBody": "BSI / Concrete Society & CIRIA",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+            "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+            "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate total construction-stage wet concrete + construction live load on falsework props.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Wet concrete = 0.25 * 25 = ?. Express your final numeric answer in kPa."
+            "First Hint (Physical Principle & Idealisation: Calculate total construction-stage wet concrete + construction live load on falsework props.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+            "Second Hint (Symbolic Formula & Unit Setup): Calculate nominal cover c_nom = c_min + Δc_dev, check punching shear perimeter u_1 = 2(c_1 + c_2) + 4πd, and assess construction-stage backprop loads against immature slab capacity. Express your final calculated value in kPa."
           ],
           "caseFamilyId": "MOD14-T3-CF",
           "reviewStatus": "Draft",
@@ -379,10 +481,18 @@
           "correctAnswer": 10,
           "tolerance": 0.1,
           "explanation": "Total load on Level 2 = 6.0 + (0.50 * 8.0) = 10.0 kPa (which must be checked against the early-age strength of the Level 2 slab!). Step-by-step verification for \"Evaluate load shared by each supporting floor during two-level equal-stiffness backpropping.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10 kPa, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T3",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+            "authorOrBody": "BSI / Concrete Society & CIRIA",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+            "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+            "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Evaluate load shared by each supporting floor during two-level equal-stiffness backpropping.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Total load on Level 2 = 6.0 + (0.50 * 8.0) = 10.0 kPa (which must be checked against the early-age strength of the Level 2 slab!). Express your final numeric answer in kPa."
+            "First Hint (Physical Principle & Idealisation: Evaluate load shared by each supporting floor during two-level equal-stiffness backpropping.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+            "Second Hint (Symbolic Formula & Unit Setup): Total load on Level 2 = 6.0 + (0.50 * 8.0) = ?.0 kPa (which must be checked against the early-age strength of the Level 2 slab!). (express final result in kPa)."
           ],
           "caseFamilyId": "MOD14-T3-CF",
           "reviewStatus": "Draft",
@@ -405,10 +515,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Wet concrete + falsework + construction live load transferred through props onto a young slab (e.g. 7–14 days old) can cause early-age cracking, excessive long-term creep deflection, or punching shear failure if not properly backpropped and checked.",
-          "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+          "citation": {
+            "moduleId": "MOD-14",
+            "topicId": "MOD14-T3",
+            "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+            "authorOrBody": "BSI / Concrete Society & CIRIA",
+            "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+            "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+            "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why construction-stage propping and backpropping frequently govern RC flat slab design.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify why construction-stage propping and backpropping frequently govern RC flat slab design.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+            "Second Hint (Analytical Elimination Criterion): Calculate nominal cover c_nom = c_min + Δc_dev, check punching shear perimeter u_1 = 2(c_1 + c_2) + 4πd, and assess construction-stage backprop loads against immature slab capacity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108)."
           ],
           "caseFamilyId": "MOD14-T3-CF",
           "reviewStatus": "Draft",
@@ -463,10 +581,18 @@
       "correctAnswer": 17,
       "tolerance": 0.1,
       "explanation": "fcd = 25.5 / 1.50 = 17.0 MPa. Step-by-step verification for \"Calculate design compressive strength fcd of C30/37 concrete to EC2 (UK NA).\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 17 MPa, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T1",
+        "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+        "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+        "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+        "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+        "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate design compressive strength fcd of C30/37 concrete to EC2 (UK NA).\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: fcd = 25.5 / 1.50 = ?. Express your final numeric answer in MPa."
+        "First Hint (Physical Principle & Idealisation: Calculate design compressive strength fcd of C30/37 concrete to EC2 (UK NA).): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+        "Second Hint (Symbolic Formula & Unit Setup): fcd = 25.5 / 1.50 = ?.0 MPa. (express final result in MPa)."
       ],
       "caseFamilyId": "MOD14-T1-CF",
       "reviewStatus": "Draft",
@@ -484,10 +610,18 @@
       "correctAnswer": 434.8,
       "tolerance": 0.5,
       "explanation": "fyd = 500 / 1.15 = 434.8 MPa (commonly written 0.87 * fyk = 435 MPa). Step-by-step verification for \"Calculate design yield strength fyd of B500B reinforcement.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 434.8 MPa, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T1",
+        "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+        "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+        "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+        "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+        "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate design yield strength fyd of B500B reinforcement.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: fyd = 500 / 1.15 = 434.8 MPa (commonly written 0.87 * fyk = 435 MPa). Express your final numeric answer in MPa."
+        "First Hint (Physical Principle & Idealisation: Calculate design yield strength fyd of B500B reinforcement.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+        "Second Hint (Symbolic Formula & Unit Setup): fyd = 500 / 1.15 = ?.87 * fyk = 435 MPa). (express final result in MPa)."
       ],
       "caseFamilyId": "MOD14-T1-CF",
       "reviewStatus": "Draft",
@@ -505,10 +639,18 @@
       "correctAnswer": 192,
       "tolerance": 0.5,
       "explanation": "d = 225 - 25 - 8 = 192.0 mm. Step-by-step verification for \"Calculate effective depth d of a slab.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 192 mm, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T1",
+        "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+        "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+        "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+        "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+        "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate effective depth d of a slab.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: d = 225 - 25 - 8 = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate effective depth d of a slab.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+        "Second Hint (Symbolic Formula & Unit Setup): d = 225 - 25 - 8 = ?.0 mm. (express final result in mm)."
       ],
       "caseFamilyId": "MOD14-T1-CF",
       "reviewStatus": "Draft",
@@ -526,10 +668,18 @@
       "correctAnswer": 306.2,
       "tolerance": 1,
       "explanation": "b * d^2 * fck = 300 * 450^2 * 30 = 1.8225 x 10^9 Nmm. M_Rd,max = 0.168 * 1.8225 x 10^9 = 306.18 x 10^6 Nmm = 306.2 kNm. Step-by-step verification for \"Calculate maximum singly reinforced moment capacity M_Rd,max at K' = 0.168.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 306.2 kNm, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T1",
+        "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+        "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+        "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+        "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+        "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum singly reinforced moment capacity M_Rd,max at K' = 0.168.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: b * d^2 * fck = 300 * 450^2 * 30 = 1.8225 x 10^9 Nmm. Express your final numeric answer in kNm."
+        "First Hint (Physical Principle & Idealisation: Calculate maximum singly reinforced moment capacity M_Rd,max at K' = 0.168.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+        "Second Hint (Symbolic Formula & Unit Setup): Evaluate K = M_Ed / (b · d² · f_ck) in consistent (N, mm) units; verify K <= 0.167, determine lever arm z <= 0.95d, and calculate tension steel area A_s,req = M_Ed / (f_yd · z) where f_yd = f_yk / 1.15. Express your final calculated value in kNm."
       ],
       "caseFamilyId": "MOD14-T1-CF",
       "reviewStatus": "Draft",
@@ -547,10 +697,18 @@
       "correctAnswer": 605,
       "tolerance": 3,
       "explanation": "As_req = (45 x 10^6 Nmm) / (435 * 171) = 45,000,000 / 74,385 = 605.0 mm^2/m (e.g. H12 @ 175 c/c = 646 mm^2/m). Step-by-step verification for \"Calculate required tension reinforcement area for a slab strip.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 605 mm^2/m, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T1",
+        "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+        "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+        "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+        "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+        "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required tension reinforcement area for a slab strip.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: As_req = (45 x 10^6 Nmm) / (435 * 171) = 45,000,000 / 74,385 = 605.0 mm^2/m (e.g. Express your final numeric answer in mm^2/m."
+        "First Hint (Physical Principle & Idealisation: Calculate required tension reinforcement area for a slab strip.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+        "Second Hint (Symbolic Formula & Unit Setup): As_req = (45 x 10^6 Nmm) / (435 * 171) = 45,000,000 / 74,385 = ?.0 mm^2/m (e.g. (express final result in mm^2/m)."
       ],
       "caseFamilyId": "MOD14-T1-CF",
       "reviewStatus": "Draft",
@@ -568,10 +726,18 @@
       "correctAnswer": 754,
       "tolerance": 2,
       "explanation": "As,prov = 113.1 * (1000 / 150) = 754.0 mm^2/m. Step-by-step verification for \"Calculate provided steel area per metre width for H12 bars at 150 mm centres.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 754 mm^2/m, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T1",
+        "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+        "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+        "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+        "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+        "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate provided steel area per metre width for H12 bars at 150 mm centres.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: As,prov = 113.1 * (1000 / 150) = 754.0 mm^2/m. Express your final numeric answer in mm^2/m."
+        "First Hint (Physical Principle & Idealisation: Calculate provided steel area per metre width for H12 bars at 150 mm centres.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+        "Second Hint (Symbolic Formula & Unit Setup): As,prov = 113.1 * (1000 / 150) = ?.0 mm^2/m. (express final result in mm^2/m)."
       ],
       "caseFamilyId": "MOD14-T1-CF",
       "reviewStatus": "Draft",
@@ -589,10 +755,18 @@
       "correctAnswer": 100.6,
       "tolerance": 0.5,
       "explanation": "Asw = 2 * 50.3 = 100.6 mm^2. Step-by-step verification for \"Calculate cross-sectional area of two legs of H8 shear links.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 100.6 mm^2, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T2",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+        "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+        "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+        "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate cross-sectional area of two legs of H8 shear links.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Asw = 2 * 50.3 = 100.6 mm^2. Express your final numeric answer in mm^2."
+        "First Hint (Physical Principle & Idealisation: Calculate cross-sectional area of two legs of H8 shear links.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use V_Rd,s = (A_sw / s) · z · f_ywd · cot θ for vertical shear links, provide anchorage/lap lengths l_bd, and verify SLS span-to-effective-depth (L/d) and crack-width limits. Express your final calculated value in mm^2."
       ],
       "caseFamilyId": "MOD14-T2-CF",
       "reviewStatus": "Draft",
@@ -610,10 +784,18 @@
       "correctAnswer": 360,
       "tolerance": 1,
       "explanation": "s_l,max = 0.75 * 480 = 360 mm (typically detailed at <= 300 mm in UK practice). Step-by-step verification for \"Calculate maximum longitudinal spacing s_l,max of shear links in an RC beam.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 360 mm, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T2",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+        "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+        "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+        "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum longitudinal spacing s_l,max of shear links in an RC beam.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: s_l,max = 0.75 * 480 = 360 mm (typically detailed at <= 300 mm in UK practice). Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate maximum longitudinal spacing s_l,max of shear links in an RC beam.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+        "Second Hint (Symbolic Formula & Unit Setup): s_l,max = 0.75 * 480 = ?. (express final result in mm)."
       ],
       "caseFamilyId": "MOD14-T2-CF",
       "reviewStatus": "Draft",
@@ -631,10 +813,18 @@
       "correctAnswer": 33.8,
       "tolerance": 0.2,
       "explanation": "Allowable L/d = 26 * 1.30 = 33.8. Step-by-step verification for \"Calculate modified allowable span-to-effective-depth ratio L/d when excess tension steel is provided.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 33.8 ratio, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T2",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+        "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+        "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+        "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate modified allowable span-to-effective-depth ratio L/d when excess tension steel is provided.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Allowable L/d = 26 * 1.30 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate modified allowable span-to-effective-depth ratio L/d when excess tension steel is provided.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+        "Second Hint (Symbolic Formula & Unit Setup): Allowable L/d = 26 * 1.30 = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD14-T2-CF",
       "reviewStatus": "Draft",
@@ -652,10 +842,18 @@
       "correctAnswer": 2.4,
       "tolerance": 0.02,
       "explanation": "Ly / Lx = 7.2 / 3.0 = 2.40 (since Ly / Lx > 2.0, the slab spans predominantly one-way across the short 3.0 m span). Step-by-step verification for \"Determine whether a rectangular slab panel acts one-way or two-way.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.4 ratio, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T3",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+        "authorOrBody": "BSI / Concrete Society & CIRIA",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+        "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+        "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Determine whether a rectangular slab panel acts one-way or two-way.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Ly / Lx = 7.2 / 3.0 = 2.40 (since Ly / Lx > 2.0, the slab spans predominantly one-way across the short 3.0 m span). Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Determine whether a rectangular slab panel acts one-way or two-way.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+        "Second Hint (Symbolic Formula & Unit Setup): Ly / Lx = 7.2 / 3.0 = ?.0, the slab spans predominantly one-way across the short 3.0 m span). (express final result in ratio)."
       ],
       "caseFamilyId": "MOD14-T3-CF",
       "reviewStatus": "Draft",
@@ -673,10 +871,18 @@
       "correctAnswer": 1.15,
       "tolerance": 0.01,
       "explanation": "For an internal column in a braced frame with regular bays, beta = 1.15. Step-by-step verification for \"Calculate punching shear load magnification factor beta for an internal column with unbalanced moment.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.15 ratio, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T3",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+        "authorOrBody": "BSI / Concrete Society & CIRIA",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+        "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+        "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate punching shear load magnification factor beta for an internal column with unbalanced moment.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: For an internal column in a braced frame with regular bays, beta = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate punching shear load magnification factor beta for an internal column with unbalanced moment.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+        "Second Hint (Symbolic Formula & Unit Setup): For an internal column in a braced frame with regular bays, beta = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD14-T3-CF",
       "reviewStatus": "Draft",
@@ -694,10 +900,18 @@
       "correctAnswer": 63,
       "tolerance": 0.5,
       "explanation": "M_Ed = 1800 kN * 0.035 m = 63.0 kNm. Step-by-step verification for \"Calculate nominal first-order moment on a short braced RC column.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 63 kNm, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T3",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+        "authorOrBody": "BSI / Concrete Society & CIRIA",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+        "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+        "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate nominal first-order moment on a short braced RC column.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_Ed = 1800 kN * 0.035 m = ?. Express your final numeric answer in kNm."
+        "First Hint (Physical Principle & Idealisation: Calculate nominal first-order moment on a short braced RC column.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_Ed = 1800 kN * 0.035 m = ?.0 kNm. (express final result in kNm)."
       ],
       "caseFamilyId": "MOD14-T3-CF",
       "reviewStatus": "Draft",
@@ -715,10 +929,18 @@
       "correctAnswer": 12.24,
       "tolerance": 0.1,
       "explanation": "P_prop = 8.5 kPa * 1.44 m^2 = 12.24 kN. Step-by-step verification for \"Calculate prop force in an individual falsework prop on a regular grid.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 12.24 kN, and cross-check the magnitude and sign against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T3",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+        "authorOrBody": "BSI / Concrete Society & CIRIA",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+        "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+        "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate prop force in an individual falsework prop on a regular grid.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: P_prop = 8.5 kPa * 1.44 m^2 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate prop force in an individual falsework prop on a regular grid.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+        "Second Hint (Symbolic Formula & Unit Setup): P_prop = 8.5 kPa * 1.44 m^2 = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD14-T3-CF",
       "reviewStatus": "Draft",
@@ -741,10 +963,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Hogging moments over internal supports induce tension in the top fibres of the beam. Engineering synthesis for \"Explain why top reinforcement is needed over internal supports of continuous RC beams.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1992-1-1:2004 (Eurocode 2: Design of Concrete Structures, Cl. 6.1, Cl. 6.2 & Cl. 8).",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T1",
+        "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+        "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+        "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+        "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+        "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why top reinforcement is needed over internal supports of continuous RC beams.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why top reinforcement is needed over internal supports of continuous RC beams.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+        "Second Hint (Analytical Elimination Criterion): Evaluate K = M_Ed / (b · d² · f_ck) in consistent (N, mm) units; verify K <= 0.167, determine lever arm z <= 0.95d, and calculate tension steel area A_s,req = M_Ed / (f_yd · z) where f_yd = f_yk / 1.15. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1)."
       ],
       "caseFamilyId": "MOD14-T1-CF",
       "reviewStatus": "Draft",
@@ -767,10 +997,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "The truss model relies on diagonal concrete compression struts balanced by vertical tension links; if V_Ed > V_Rd,max, the concrete web crushes in diagonal compression.",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T2",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+        "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+        "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+        "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why concrete compression strut capacity V_Rd,max must be checked even when shear links are provided.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why concrete compression strut capacity V_Rd,max must be checked even when shear links are provided.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+        "Second Hint (Analytical Elimination Criterion): Use V_Rd,s = (A_sw / s) · z · f_ywd · cot θ for vertical shear links, provide anchorage/lap lengths l_bd, and verify SLS span-to-effective-depth (L/d) and crack-width limits. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6)."
       ],
       "caseFamilyId": "MOD14-T2-CF",
       "reviewStatus": "Draft",
@@ -793,10 +1031,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "In the truss analogy, inclined compression struts meeting the support reaction require a horizontal tension tie force Delta_Ftd in the bottom bars anchored beyond the support edge.",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T2",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+        "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+        "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+        "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why bottom reinforcement must be anchored past the centreline of a simple support.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why bottom reinforcement must be anchored past the centreline of a simple support.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+        "Second Hint (Analytical Elimination Criterion): Use V_Rd,s = (A_sw / s) · z · f_ywd · cot θ for vertical shear links, provide anchorage/lap lengths l_bd, and verify SLS span-to-effective-depth (L/d) and crack-width limits. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6)."
       ],
       "caseFamilyId": "MOD14-T2-CF",
       "reviewStatus": "Draft",
@@ -819,10 +1065,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Straight bars cannot develop full tension anchorage perpendicular to a thin slab edge; closed U-bars anchor hogging/torsional forces and confine the edge zone.",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T3",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+        "authorOrBody": "BSI / Concrete Society & CIRIA",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+        "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+        "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why top U-bars or bent-down bars are detailed at the edges of flat slabs.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why top U-bars or bent-down bars are detailed at the edges of flat slabs.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+        "Second Hint (Analytical Elimination Criterion): Calculate nominal cover c_nom = c_min + Δc_dev, check punching shear perimeter u_1 = 2(c_1 + c_2) + 4πd, and assess construction-stage backprop loads against immature slab capacity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108)."
       ],
       "caseFamilyId": "MOD14-T3-CF",
       "reviewStatus": "Draft",
@@ -845,10 +1099,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Nominal cover combines durability requirements (exposure class XC/XD/XS) with larger construction tolerance delta_c,dev when casting against blinding or uneven ground.",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T2",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.)",
+        "authorOrBody": "BSI / B. Mosley, J. Bungey & R. Hulse",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6",
+        "pageReference": "pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)",
+        "formatted": "BSI / B. Mosley, J. Bungey & R. Hulse, BS EN 1992-1-1:2004+A1 (Eurocode 2) & Reinforced Concrete Design to EC2 (7th ed.), BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6, pp. 86–96, 121–133, 136–148 (EN 1992-1-1) / pp. 107–168 (Mosley)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what governs concrete cover in an underground RC retaining wall face cast directly against blinding vs earth.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify what governs concrete cover in an underground RC retaining wall face cast directly against blinding vs earth.): When ULS shear V_Ed exceeds unreinforced concrete shear capacity V_Rd,c, shear links act as tension ties in a variable-angle truss (1.0 <= cot θ <= 2.5) while concrete struts resist diagonal compression V_Rd,max.",
+        "Second Hint (Analytical Elimination Criterion): Use V_Rd,s = (A_sw / s) · z · f_ywd · cot θ for vertical shear links, provide anchorage/lap lengths l_bd, and verify SLS span-to-effective-depth (L/d) and crack-width limits. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1992-1-1 Cl. 6.2, Cl. 7.3–7.4, Cl. 8.4–8.7 & Mosley Ch. 5–6)."
       ],
       "caseFamilyId": "MOD14-T2-CF",
       "reviewStatus": "Draft",
@@ -871,10 +1133,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Young concrete has lower tensile strength (causing early cracking and loss of uncracked stiffness) and undergoes much higher creep strain under sustained load.",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T3",
+        "sourceTitle": "BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide",
+        "authorOrBody": "BSI / Concrete Society & CIRIA",
+        "clauseOrSection": "BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108",
+        "pageReference": "pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)",
+        "formatted": "BSI / Concrete Society & CIRIA, BS EN 1992-1-1:2004+A1 & Concrete Society TR74 / CIRIA 108 Backpropping Guide, BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108, pp. 47–55, 68–79, 99–111 (EN 1992-1-1) / pp. 12–44 (CIRIA 108)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the consequence of premature formwork striking without checking concrete maturity.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify the consequence of premature formwork striking without checking concrete maturity.): Two-way flat slabs concentrate shear around column heads (checked on the basic control perimeter u_1 at distance 2.0d from the column face) and require careful backpropping during multi-storey construction.",
+        "Second Hint (Analytical Elimination Criterion): Calculate nominal cover c_nom = c_min + Δc_dev, check punching shear perimeter u_1 = 2(c_1 + c_2) + 4πd, and assess construction-stage backprop loads against immature slab capacity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1992-1-1 Cl. 4.4.1, Cl. 5.8, Cl. 6.4 & CIRIA Report 108)."
       ],
       "caseFamilyId": "MOD14-T3-CF",
       "reviewStatus": "Draft",
@@ -897,10 +1167,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "A calculation is useless if the reinforcement cannot be fixed with required cover or if concrete cannot be compacted around congested beam-column nodes.",
-      "citation": "BS EN 1992-1-1:2004+A1 (Eurocode 2) Design of Concrete Structures Cl. 6.1–6.2",
+      "citation": {
+        "moduleId": "MOD-14",
+        "topicId": "MOD14-T1",
+        "sourceTitle": "Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1",
+        "authorOrBody": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI",
+        "clauseOrSection": "Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1",
+        "pageReference": "pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)",
+        "formatted": "B. Mosley, J. Bungey & R. Hulse (Palgrave) / BSI, Reinforced Concrete Design to Eurocode 2 (7th ed.) & BS EN 1992-1-1:2004+A1, Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1, pp. 66–94 (Mosley) / pp. 34–36, 83–86 (EN 1992-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 14 Learning Gate: Produce a buildable, code-compliant RC design.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Pass the Module 14 Learning Gate: Produce a buildable, code-compliant RC design.): Reinforced concrete flexure equates the internal concrete compression block C_c and tension bar force T_s across lever arm z, limiting neutral axis depth x/d <= 0.45 (K <= K′ = 0.167) to ensure ductile steel yielding.",
+        "Second Hint (Analytical Elimination Criterion): Evaluate K = M_Ed / (b · d² · f_ck) in consistent (N, mm) units; verify K <= 0.167, determine lever arm z <= 0.95d, and calculate tension steel area A_s,req = M_Ed / (f_yd · z) where f_yd = f_yk / 1.15. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Mosley Ch. 4, §4.1–4.6 & BS EN 1992-1-1 Cl. 3.1.7, Cl. 6.1)."
       ],
       "caseFamilyId": "MOD14-T1-CF",
       "reviewStatus": "Draft",

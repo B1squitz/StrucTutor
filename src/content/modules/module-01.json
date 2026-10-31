@@ -36,7 +36,11 @@
         "Identify the exact number and direction of reaction components for any idealised support.",
         "Explain the physical approximations behind pinned, roller, and fixed support idealisations."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD01-T1-Q1",
@@ -55,10 +59,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "A 2D fixed support prevents horizontal translation (Rx), vertical translation (Ry), and rotation in the plane (Mz). Engineering synthesis for \"Identify reaction components of a 2D fixed support\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "T.H.G. Megson (Butterworth-Heinemann)",
+            "clauseOrSection": "Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams)",
+            "pageReference": "pp. 23–36",
+            "formatted": "T.H.G. Megson (Butterworth-Heinemann), Structural and Stress Analysis (4th ed.), Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams), pp. 23–36"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify reaction components of a 2D fixed support\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify reaction components of a 2D fixed support): Isolate the structural member from its supports and replace each physical restraint with the exact force or moment reactions it can develop.",
+            "Second Hint (Analytical Elimination Criterion): Count restraint components: a roller develops 1 reaction normal to the rolling surface, a pin develops 2 orthogonal force reactions (R_x, R_y), and a fixed support develops 3 reactions (R_x, R_y, M_fixed). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams))."
           ],
           "caseFamilyId": "MOD01-T1-CF",
           "reviewStatus": "Draft",
@@ -81,10 +93,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "An ideal roller transmits force only perpendicular (normal) to the contact surface and offers zero resistance to movement parallel to the surface or rotation.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "T.H.G. Megson (Butterworth-Heinemann)",
+            "clauseOrSection": "Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams)",
+            "pageReference": "pp. 23–36",
+            "formatted": "T.H.G. Megson (Butterworth-Heinemann), Structural and Stress Analysis (4th ed.), Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams), pp. 23–36"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Determine direction of reaction for a roller on a vertical wall\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Determine direction of reaction for a roller on a vertical wall): Isolate the structural member from its supports and replace each physical restraint with the exact force or moment reactions it can develop.",
+            "Second Hint (Analytical Elimination Criterion): Count restraint components: a roller develops 1 reaction normal to the rolling surface, a pin develops 2 orthogonal force reactions (R_x, R_y), and a fixed support develops 3 reactions (R_x, R_y, M_fixed). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams))."
           ],
           "caseFamilyId": "MOD01-T1-CF",
           "reviewStatus": "Draft",
@@ -107,10 +127,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "An internal pin cannot transmit bending moment, so the sum of moments of all forces to either the left or right of the hinge C about C must equal zero (M_C = 0).",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "T.H.G. Megson (Butterworth-Heinemann)",
+            "clauseOrSection": "Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams)",
+            "pageReference": "pp. 23–36",
+            "formatted": "T.H.G. Megson (Butterworth-Heinemann), Structural and Stress Analysis (4th ed.), Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams), pp. 23–36"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the condition provided by an internal hinge\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand the condition provided by an internal hinge): Isolate the structural member from its supports and replace each physical restraint with the exact force or moment reactions it can develop.",
+            "Second Hint (Analytical Elimination Criterion): Count restraint components: a roller develops 1 reaction normal to the rolling surface, a pin develops 2 orthogonal force reactions (R_x, R_y), and a fixed support develops 3 reactions (R_x, R_y, M_fixed). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams))."
           ],
           "caseFamilyId": "MOD01-T1-CF",
           "reviewStatus": "Draft",
@@ -133,10 +161,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "A free-body diagram shows only actions crossing the chosen isolation boundary. Internal forces only appear when a section cut passes through those members.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "T.H.G. Megson (Butterworth-Heinemann)",
+            "clauseOrSection": "Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams)",
+            "pageReference": "pp. 23–36",
+            "formatted": "T.H.G. Megson (Butterworth-Heinemann), Structural and Stress Analysis (4th ed.), Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams), pp. 23–36"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what belongs on a free-body diagram\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify what belongs on a free-body diagram): Isolate the structural member from its supports and replace each physical restraint with the exact force or moment reactions it can develop.",
+            "Second Hint (Analytical Elimination Criterion): Count restraint components: a roller develops 1 reaction normal to the rolling surface, a pin develops 2 orthogonal force reactions (R_x, R_y), and a fixed support develops 3 reactions (R_x, R_y, M_fixed). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams))."
           ],
           "caseFamilyId": "MOD01-T1-CF",
           "reviewStatus": "Draft",
@@ -154,10 +190,18 @@
           "correctAnswer": 3,
           "tolerance": 0.045,
           "explanation": "The pin at A provides 2 unknowns (Ax, Ay) and the roller at B provides 1 unknown (By), giving 2 + 1 = 3 unknowns, matching the 3 equations of 2D plane equilibrium.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "T.H.G. Megson (Butterworth-Heinemann)",
+            "clauseOrSection": "Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams)",
+            "pageReference": "pp. 23–36",
+            "formatted": "T.H.G. Megson (Butterworth-Heinemann), Structural and Stress Analysis (4th ed.), Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams), pp. 23–36"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Count total unknown reactions for a simply supported beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: The pin at A provides 2 unknowns (Ax, Ay) and the roller at B provides 1 unknown (By), giving 2 + 1 = 3 unknowns, matching the 3 equations of 2D plane equilibrium.. Express your final numeric answer in reactions."
+            "First Hint (Physical Principle & Idealisation: Count total unknown reactions for a simply supported beam): Isolate the structural member from its supports and replace each physical restraint with the exact force or moment reactions it can develop.",
+            "Second Hint (Symbolic Formula & Unit Setup): The pin at A provides 2 unknowns (Ax, Ay) and the roller at B provides 1 unknown (By), giving 2 + 1 = ?. (express final result in reactions)."
           ],
           "caseFamilyId": "MOD01-T1-CF",
           "reviewStatus": "Draft",
@@ -182,7 +226,11 @@
         "Solve Syllabus Examples 1.1 and 1.2 and verify reactions with an independent moment check.",
         "Detect when an overhanging load causes uplift (negative reaction) at an interior or backspan support."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD01-T2-Q1",
@@ -196,15 +244,22 @@
           "correctAnswer": 30,
           "tolerance": 0.45,
           "explanation": "Total load W = 10 kN/m × 6 m = 60 kN. By symmetry of geometry, supports, and loading, R_A = R_B = 60 / 2 = 30 kN. Step-by-step verification for \"Calculate total load and reactions on symmetric UDL beam (Example 1.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T2",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+            "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate total load and reactions on symmetric UDL beam (Example 1.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Total load W = 10 kN/m × 6 m = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate total load and reactions on symmetric UDL beam (Example 1.1)): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+            "Second Hint (Symbolic Formula & Unit Setup): Take moments ΣM = 0 about one support pin to eliminate its unknown reaction and solve directly for the opposite reaction, then verify vertical equilibrium ΣF_y = 0. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD01-T2-CF",
           "solverVerificationId": "SOLVER-MOD01-T2-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD01-T2-Q2",
@@ -218,15 +273,22 @@
           "correctAnswer": 12,
           "tolerance": 0.18,
           "explanation": "ΣM_B = 0 => R_A × 5 m − 20 kN × (5 − 2) m = 0 => 5 R_A = 60 => R_A = 12 kN. Step-by-step verification for \"Calculate left reaction under eccentric point load (Example 1.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 12 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T2",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+            "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate left reaction under eccentric point load (Example 1.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: ΣM_B = 0 => R_A × 5 m − 20 kN × (5 − 2) m = 0 => 5 R_A = 60 => R_A = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate left reaction under eccentric point load (Example 1.2)): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+            "Second Hint (Symbolic Formula & Unit Setup): ΣM_B = 0 => R_A × 5 m − 20 kN × (5 − 2) m = 0 => 5 R_A = 60 => R_A = ?. (express final result in kN)."
           ],
           "caseFamilyId": "MOD01-T2-CF",
           "solverVerificationId": "SOLVER-MOD01-T2-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD01-T2-Q3",
@@ -240,15 +302,22 @@
           "correctAnswer": 8,
           "tolerance": 0.12,
           "explanation": "ΣM_A = 0 => R_B × 5 m − 20 kN × 2 m = 0 => 5 R_B = 40 => R_B = 8 kN. Independent check: R_A + R_B = 12 + 8 = 20 kN = applied load. Step-by-step verification for \"Calculate right reaction under eccentric point load (Example 1.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 8 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T2",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+            "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate right reaction under eccentric point load (Example 1.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: ΣM_A = 0 => R_B × 5 m − 20 kN × 2 m = 0 => 5 R_B = 40 => R_B = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate right reaction under eccentric point load (Example 1.2)): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+            "Second Hint (Symbolic Formula & Unit Setup): ΣM_A = 0 => R_B × 5 m − 20 kN × 2 m = 0 => 5 R_B = 40 => R_B = ?. (express final result in kN)."
           ],
           "caseFamilyId": "MOD01-T2-CF",
           "solverVerificationId": "SOLVER-MOD01-T2-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD01-T2-Q4",
@@ -262,15 +331,22 @@
           "correctAnswer": 22,
           "tolerance": 0.33,
           "explanation": "ΣM_A = 0 => R_B × 4.0 m − 16 kN × 5.5 m = 0 => 4.0 R_B = 88 => R_B = 22.0 kN upward. Step-by-step verification for \"Calculate reactions on a beam with a cantilever overhang\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 22 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T2",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+            "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate reactions on a beam with a cantilever overhang\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: ΣM_A = 0 => R_B × 4.0 m − 16 kN × 5.5 m = 0 => 4.0 R_B = 88 => R_B = 22.0 kN upward. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate reactions on a beam with a cantilever overhang): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+            "Second Hint (Symbolic Formula & Unit Setup): ΣM_A = 0 => R_B × 4.0 m − 16 kN × 5.5 m = 0 => 4.0 R_B = 88 => R_B = ?.0 kN upward. (express final result in kN)."
           ],
           "caseFamilyId": "MOD01-T2-CF",
           "solverVerificationId": "SOLVER-MOD01-T2-Q4",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD01-T2-Q5",
@@ -284,15 +360,22 @@
           "correctAnswer": -6,
           "tolerance": 0.09,
           "explanation": "ΣFy = 0 => R_A + 22.0 − 16.0 = 0 => R_A = −6.0 kN (downward hold-down required at A). Step-by-step verification for \"Calculate hold-down uplift reaction on an overhanging needle beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain -6 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T2",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+            "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate hold-down uplift reaction on an overhanging needle beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: ΣFy = 0 => R_A + 22.0 − 16.0 = 0 => R_A = −6.0 kN (downward hold-down required at A). Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate hold-down uplift reaction on an overhanging needle beam): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+            "Second Hint (Symbolic Formula & Unit Setup): Take moments ΣM = 0 about one support pin to eliminate its unknown reaction and solve directly for the opposite reaction, then verify vertical equilibrium ΣF_y = 0. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD01-T2-CF",
           "solverVerificationId": "SOLVER-MOD01-T2-Q5",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         }
       ]
     },
@@ -312,7 +395,11 @@
         "Calculate characteristic permanent and imposed line loads on beams from floor surface loads.",
         "Trace a complete vertical load path from slab to ground and identify governing support interfaces."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD01-T3-Q1",
@@ -326,15 +413,22 @@
           "correctAnswer": 2,
           "tolerance": 0.03,
           "explanation": "For a one-way spanning floor simply supported between two beams 4.0 m apart, each beam carries half the span: b_trib = 4.0 / 2 = 2.0 m. Step-by-step verification for \"Calculate tributary width for a one-way spanning floor (Example 1.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2 m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T3",
+            "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate tributary width for a one-way spanning floor (Example 1.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: For a one-way spanning floor simply supported between two beams 4.0 m apart, each beam carries half the span: b_trib = 4.0 / 2 = ?. Express your final numeric answer in m."
+            "First Hint (Physical Principle & Idealisation: Calculate tributary width for a one-way spanning floor (Example 1.3)): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+            "Second Hint (Symbolic Formula & Unit Setup): For a one-way spanning floor simply supported between two beams 4.0 m apart, each beam carries half the span: b_trib = 4.0 / ? = ?.0 m. (express final result in m)."
           ],
           "caseFamilyId": "MOD01-T3-CF",
           "solverVerificationId": "SOLVER-MOD01-T3-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD01-T3-Q2",
@@ -348,15 +442,22 @@
           "correctAnswer": 5,
           "tolerance": 0.075,
           "explanation": "Permanent line load = 1.0 kN/m² × 2.0 m = 2.0 kN/m. Imposed line load = 1.5 kN/m² × 2.0 m = 3.0 kN/m. Total unfactored characteristic line load = 2.0 + 3.0 = 5.0 kN/m.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T3",
+            "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate characteristic permanent line load on supporting beam (Example 1.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Permanent line load = 1.0 kN/m² × 2.0 m = ?. Express your final numeric answer in kN/m."
+            "First Hint (Physical Principle & Idealisation: Calculate characteristic permanent line load on supporting beam (Example 1.3)): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+            "Second Hint (Symbolic Formula & Unit Setup): Convert floor area loads (kN/m²) into beam line loads (kN/m) by multiplying by the tributary width b_trib, add member self-weight where specified, and transfer beam end reactions R = w·L/2 to supporting columns. Express your final calculated value in kN/m."
           ],
           "caseFamilyId": "MOD01-T3-CF",
           "solverVerificationId": "SOLVER-MOD01-T3-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD01-T3-Q3",
@@ -370,15 +471,22 @@
           "correctAnswer": 12.5,
           "tolerance": 0.188,
           "explanation": "Total load on beam = 5.0 kN/m × 5.0 m = 25.0 kN. Each end bearing receives 25.0 / 2 = 12.5 kN. Step-by-step verification for \"Calculate total reaction transferred to each beam end bearing (Example 1.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 12.5 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T3",
+            "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate total reaction transferred to each beam end bearing (Example 1.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Total load on beam = 5.0 kN/m × 5.0 m = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate total reaction transferred to each beam end bearing (Example 1.3)): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+            "Second Hint (Symbolic Formula & Unit Setup): Convert floor area loads (kN/m²) into beam line loads (kN/m) by multiplying by the tributary width b_trib, add member self-weight where specified, and transfer beam end reactions R = w·L/2 to supporting columns. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD01-T3-CF",
           "solverVerificationId": "SOLVER-MOD01-T3-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD01-T3-Q4",
@@ -392,10 +500,18 @@
           "correctAnswer": 21.6,
           "tolerance": 0.324,
           "explanation": "An internal beam receives half a bay from the left (1.8 m) plus half a bay from the right (1.8 m), giving tributary width = 3.6 m. Tributary area = 3.6 m × 6.0 m = 21.6 m².",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T3",
+            "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate tributary area of an internal floor beam in a regular grid\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: An internal beam receives half a bay from the left (1.8 m) plus half a bay from the right (1.8 m), giving tributary width = ?. Express your final numeric answer in m²."
+            "First Hint (Physical Principle & Idealisation: Calculate tributary area of an internal floor beam in a regular grid): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+            "Second Hint (Symbolic Formula & Unit Setup): Convert floor area loads (kN/m²) into beam line loads (kN/m) by multiplying by the tributary width b_trib, add member self-weight where specified, and transfer beam end reactions R = w·L/2 to supporting columns. Express your final calculated value in m²."
           ],
           "caseFamilyId": "MOD01-T3-CF",
           "reviewStatus": "Draft",
@@ -418,10 +534,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "A beam gathers load over several square metres of floor and concentrates half of that total force onto a small support area (e.g. 100 mm × 200 mm), where masonry crushing strength is roughly two orders of magnitude lower than steel yield strength.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T3",
+            "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why bearings or padstones often govern over the beam itself\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why bearings or padstones often govern over the beam itself): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+            "Second Hint (Analytical Elimination Criterion): Convert floor area loads (kN/m²) into beam line loads (kN/m) by multiplying by the tributary width b_trib, add member self-weight where specified, and transfer beam end reactions R = w·L/2 to supporting columns. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1)."
           ],
           "caseFamilyId": "MOD01-T3-CF",
           "reviewStatus": "Draft",
@@ -446,7 +570,11 @@
         "Trace the complete falsework load path in Example 1.4 and identify critical failure links.",
         "Distinguish determinate, indeterminate, and geometrically unstable support arrangements."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD01-T4-Q1",
@@ -465,10 +593,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Even though there are 3 reaction components, all three are vertical (parallel), so ΣFx = 0 cannot be satisfied under any horizontal load or construction out-of-plumb.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T4",
+            "sourceTitle": "Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4",
+            "pageReference": "pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)",
+            "formatted": "R.C. Hibbeler / BSI, Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works, Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4, pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify geometrically unstable support arrangements\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify geometrically unstable support arrangements): Check both static determinacy (number of unknown reactions vs independent equilibrium equations) and geometric stability (non-concurrent, non-parallel restraint lines of action).",
+            "Second Hint (Analytical Elimination Criterion): Evaluate r - 3n for plane structures (or m + r - 2j for pin-jointed trusses) and ensure temporary works falsework has positive lateral bracing and soleplate bearing down to competent ground. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4)."
           ],
           "caseFamilyId": "MOD01-T4-CF",
           "reviewStatus": "Draft",
@@ -491,10 +627,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Without a properly bedded soleboard, the concentrated prop load punches into soft ground or overstresses a hollowcore/thin slab, interrupting the load path at its base.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T4",
+            "sourceTitle": "Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4",
+            "pageReference": "pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)",
+            "formatted": "R.C. Hibbeler / BSI, Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works, Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4, pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Trace falsework vertical load path and identify interruptions (Example 1.4)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Trace falsework vertical load path and identify interruptions (Example 1.4)): Check both static determinacy (number of unknown reactions vs independent equilibrium equations) and geometric stability (non-concurrent, non-parallel restraint lines of action).",
+            "Second Hint (Analytical Elimination Criterion): Evaluate r - 3n for plane structures (or m + r - 2j for pin-jointed trusses) and ensure temporary works falsework has positive lateral bracing and soleplate bearing down to competent ground. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4)."
           ],
           "caseFamilyId": "MOD01-T4-CF",
           "reviewStatus": "Draft",
@@ -517,10 +661,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Every structure experiences horizontal actions (wind, notional horizontal forces from initial imperfections, concrete placement/equipment loads) and requires a continuous lateral load path to the foundations.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T4",
+            "sourceTitle": "Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4",
+            "pageReference": "pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)",
+            "formatted": "R.C. Hibbeler / BSI, Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works, Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4, pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why a vertical load path alone is insufficient without lateral stability\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why a vertical load path alone is insufficient without lateral stability): Check both static determinacy (number of unknown reactions vs independent equilibrium equations) and geometric stability (non-concurrent, non-parallel restraint lines of action).",
+            "Second Hint (Analytical Elimination Criterion): Evaluate r - 3n for plane structures (or m + r - 2j for pin-jointed trusses) and ensure temporary works falsework has positive lateral bracing and soleplate bearing down to competent ground. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4)."
           ],
           "caseFamilyId": "MOD01-T4-CF",
           "reviewStatus": "Draft",
@@ -538,10 +690,18 @@
           "correctAnswer": 1,
           "tolerance": 0.015,
           "explanation": "Total unknown reactions r = 3 + 1 = 4. Available planar equilibrium equations = 3. Degree of static indeterminacy = 4 − 3 = 1. Step-by-step verification for \"Calculate degree of static indeterminacy of a propped cantilever\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 degree, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T4",
+            "sourceTitle": "Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4",
+            "pageReference": "pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)",
+            "formatted": "R.C. Hibbeler / BSI, Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works, Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4, pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate degree of static indeterminacy of a propped cantilever\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Total unknown reactions r = 3 + 1 = ?. Express your final numeric answer in degree."
+            "First Hint (Physical Principle & Idealisation: Calculate degree of static indeterminacy of a propped cantilever): Check both static determinacy (number of unknown reactions vs independent equilibrium equations) and geometric stability (non-concurrent, non-parallel restraint lines of action).",
+            "Second Hint (Symbolic Formula & Unit Setup): Total unknown reactions r = 3 + ? = 4. (express final result in degree)."
           ],
           "caseFamilyId": "MOD01-T4-CF",
           "reviewStatus": "Draft",
@@ -559,10 +719,18 @@
           "correctAnswer": 150,
           "tolerance": 2.25,
           "explanation": "Area A = 0.4 m × 0.6 m = 0.24 m². Average pressure q = P / A = 36 kN / 0.24 m² = 150 kN/m². Step-by-step verification for \"Calculate ground bearing pressure beneath a temporary works soleboard\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 150 kN/m², and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-          "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+          "citation": {
+            "moduleId": "MOD-01",
+            "topicId": "MOD01-T4",
+            "sourceTitle": "Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4",
+            "pageReference": "pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)",
+            "formatted": "R.C. Hibbeler / BSI, Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works, Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4, pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate ground bearing pressure beneath a temporary works soleboard\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Area A = 0.4 m × 0.6 m = ?. Express your final numeric answer in kN/m²."
+            "First Hint (Physical Principle & Idealisation: Calculate ground bearing pressure beneath a temporary works soleboard): Check both static determinacy (number of unknown reactions vs independent equilibrium equations) and geometric stability (non-concurrent, non-parallel restraint lines of action).",
+            "Second Hint (Symbolic Formula & Unit Setup): Evaluate r - 3n for plane structures (or m + r - 2j for pin-jointed trusses) and ensure temporary works falsework has positive lateral bracing and soleplate bearing down to competent ground. Express your final calculated value in kN/m²."
           ],
           "caseFamilyId": "MOD01-T4-CF",
           "reviewStatus": "Draft",
@@ -628,15 +796,22 @@
       "correctAnswer": 30,
       "tolerance": 0.45,
       "explanation": "Total load W = 10 × 6 = 60 kN; by symmetry R_left = R_right = 30 kN. Step-by-step verification for \"Calculate left support reaction for symmetric UDL (Example 1.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T2",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+        "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate left support reaction for symmetric UDL (Example 1.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Total load W = 10 × 6 = 60 kN; by symmetry R_left = R_right = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate left support reaction for symmetric UDL (Example 1.1)): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+        "Second Hint (Symbolic Formula & Unit Setup): Total load W = 10 × 6 = 60 kN; by symmetry R_left = R_right = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD01-T2-CF",
       "solverVerificationId": "SOLVER-MOD01-E01",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD01-E02",
@@ -650,15 +825,22 @@
       "correctAnswer": 12,
       "tolerance": 0.18,
       "explanation": "ΣM_B = 0 => 5 R_A = 20 × 3 => R_A = 12 kN. Step-by-step verification for \"Calculate left reaction for eccentric point load (Example 1.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 12 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T2",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+        "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate left reaction for eccentric point load (Example 1.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: ΣM_B = 0 => 5 R_A = 20 × 3 => R_A = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate left reaction for eccentric point load (Example 1.2)): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+        "Second Hint (Symbolic Formula & Unit Setup): ΣM_B = 0 => 5 R_A = 20 × 3 => R_A = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD01-T2-CF",
       "solverVerificationId": "SOLVER-MOD01-E02",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD01-E03",
@@ -672,10 +854,18 @@
       "correctAnswer": 48,
       "tolerance": 0.72,
       "explanation": "ΣM_A = 0 => R_B × 8 = (6 × 8 × 4) + (32 × 6) = 192 + 192 = 384 kN·m => R_B = 384 / 8 = 48 kN. Step-by-step verification for \"Calculate right reaction under combined UDL and point load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 48 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T2",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+        "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate right reaction under combined UDL and point load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: ΣM_A = 0 => R_B × 8 = (6 × 8 × 4) + (32 × 6) = 192 + 192 = 384 kN·m => R_B = 384 / 8 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate right reaction under combined UDL and point load): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+        "Second Hint (Symbolic Formula & Unit Setup): ΣM_A = 0 => R_B × 8 = (6 × 8 × 4) + (32 × 6) = 192 + 192 = 384 kN·m => R_B = 384 / 8 = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD01-T2-CF",
       "reviewStatus": "Draft",
@@ -693,10 +883,18 @@
       "correctAnswer": 72,
       "tolerance": 1.08,
       "explanation": "M_A = (wL² / 2) + (P × L) = (8.0 × 3.0² / 2) + (12 × 3.0) = 36 + 36 = 72 kN·m. Step-by-step verification for \"Calculate fixed-end moment reaction on a cantilever with UDL and tip load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 72 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T2",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+        "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate fixed-end moment reaction on a cantilever with UDL and tip load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_A = (wL² / 2) + (P × L) = (8.0 × 3.0² / 2) + (12 × 3.0) = 36 + 36 = ?. Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate fixed-end moment reaction on a cantilever with UDL and tip load): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_A = (wL² / 2) + (P × L) = (8.0 × 3.0² / 2) + (12 × 3.0) = 36 + 36 = ?. (express final result in kN·m)."
       ],
       "caseFamilyId": "MOD01-T2-CF",
       "reviewStatus": "Draft",
@@ -714,10 +912,18 @@
       "correctAnswer": 25,
       "tolerance": 0.375,
       "explanation": "ΣFx = 0 => A_x = 50 × cos(60°) = 50 × 0.5 = 25 kN (acting to the left). The roller at B resists zero horizontal force. Step-by-step verification for \"Calculate horizontal reaction at a pin support under inclined load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 25 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T2",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+        "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate horizontal reaction at a pin support under inclined load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: ΣFx = 0 => A_x = 50 × cos(60°) = 50 × 0.5 = 25 kN (acting to the left). Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate horizontal reaction at a pin support under inclined load): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+        "Second Hint (Symbolic Formula & Unit Setup): ΣFx = 0 => A_x = 50 × cos(60°) = 50 × 0.5 = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD01-T2-CF",
       "reviewStatus": "Draft",
@@ -735,10 +941,18 @@
       "correctAnswer": 16,
       "tolerance": 0.24,
       "explanation": "An internal beam carries half the 5.0 m span from the left (2.5 m) plus half the 5.0 m span from the right (2.5 m) = 5.0 m tributary width. Line load = 3.2 kN/m² × 5.0 m = 16.0 kN/m.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T3",
+        "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate characteristic permanent line load on an internal floor beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: An internal beam carries half the 5.0 m span from the left (2.5 m) plus half the 5.0 m span from the right (2.5 m) = 5.0 m tributary width. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate characteristic permanent line load on an internal floor beam): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert floor area loads (kN/m²) into beam line loads (kN/m) by multiplying by the tributary width b_trib, add member self-weight where specified, and transfer beam end reactions R = w·L/2 to supporting columns. Express your final calculated value in kN/m."
       ],
       "caseFamilyId": "MOD01-T3-CF",
       "reviewStatus": "Draft",
@@ -756,15 +970,22 @@
       "correctAnswer": 3,
       "tolerance": 0.045,
       "explanation": "Tributary width for one edge beam = 4.0 / 2 = 2.0 m. Imposed line load = 1.5 kN/m² × 2.0 m = 3.0 kN/m. Step-by-step verification for \"Calculate characteristic imposed line load on an edge beam (Example 1.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3 kN/m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T3",
+        "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate characteristic imposed line load on an edge beam (Example 1.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Tributary width for one edge beam = 4.0 / 2 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate characteristic imposed line load on an edge beam (Example 1.3)): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert floor area loads (kN/m²) into beam line loads (kN/m) by multiplying by the tributary width b_trib, add member self-weight where specified, and transfer beam end reactions R = w·L/2 to supporting columns. Express your final calculated value in kN/m."
       ],
       "caseFamilyId": "MOD01-T3-CF",
       "solverVerificationId": "SOLVER-MOD01-E07",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD01-E08",
@@ -778,10 +999,18 @@
       "correctAnswer": 106,
       "tolerance": 1.59,
       "explanation": "Total axial load = 42 + 58 + 6 = 106 kN. Step-by-step verification for \"Calculate column load from intersecting primary and secondary beams\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 106 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T3",
+        "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate column load from intersecting primary and secondary beams\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Total axial load = 42 + 58 + 6 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate column load from intersecting primary and secondary beams): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+        "Second Hint (Symbolic Formula & Unit Setup): Total axial load = 42 + 58 + 6 = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD01-T3-CF",
       "reviewStatus": "Draft",
@@ -799,10 +1028,18 @@
       "correctAnswer": 3,
       "tolerance": 0.045,
       "explanation": "Contact area A = 150 mm × 200 mm = 30,000 mm². Contact stress = 90,000 N / 30,000 mm² = 3.0 N/mm². Step-by-step verification for \"Calculate masonry bearing stress beneath a beam end reaction\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T3",
+        "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate masonry bearing stress beneath a beam end reaction\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Contact area A = 150 mm × 200 mm = 30,000 mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate masonry bearing stress beneath a beam end reaction): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+        "Second Hint (Symbolic Formula & Unit Setup): Contact area A = 150 mm × 200 mm = ?. (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD01-T3-CF",
       "reviewStatus": "Draft",
@@ -820,10 +1057,18 @@
       "correctAnswer": 12,
       "tolerance": 0.18,
       "explanation": "Isolate sub-span BC and take moments about the internal hinge B (M_B = 0): R_C × (7.0 − 3.0) − 24 × (5.0 − 3.0) = 0 => 4 R_C = 48 => R_C = 12 kN.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T2",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+        "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate reaction on a compound beam with an internal hinge\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Isolate sub-span BC and take moments about the internal hinge B (M_B = 0): R_C × (7.0 − 3.0) − 24 × (5.0 − 3.0) = 0 => 4 R_C = 48 => R_C = 12 kN.. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate reaction on a compound beam with an internal hinge): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+        "Second Hint (Symbolic Formula & Unit Setup): Isolate sub-span BC and take moments about the internal hinge B (M_B = 0): R_C × (7.0 − 3.0) − 24 × (5.0 − 3.0) = 0 => 4 R_C = 48 => R_C = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD01-T2-CF",
       "reviewStatus": "Draft",
@@ -846,10 +1091,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "A pin-pin beam is externally indeterminate axially; restraining thermal expansion ΔL = αΔTL generates axial compression P = EAαΔT. Engineering synthesis for \"Explain why one support of a simply supported beam is idealised as a roller\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "T.H.G. Megson (Butterworth-Heinemann)",
+        "clauseOrSection": "Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams)",
+        "pageReference": "pp. 23–36",
+        "formatted": "T.H.G. Megson (Butterworth-Heinemann), Structural and Stress Analysis (4th ed.), Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams), pp. 23–36"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why one support of a simply supported beam is idealised as a roller\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why one support of a simply supported beam is idealised as a roller): Isolate the structural member from its supports and replace each physical restraint with the exact force or moment reactions it can develop.",
+        "Second Hint (Analytical Elimination Criterion): Count restraint components: a roller develops 1 reaction normal to the rolling surface, a pin develops 2 orthogonal force reactions (R_x, R_y), and a fixed support develops 3 reactions (R_x, R_y, M_fixed). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams))."
       ],
       "caseFamilyId": "MOD01-T1-CF",
       "reviewStatus": "Draft",
@@ -872,10 +1125,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "An FBD isolates the body and replaces every cut support or connected member with the internal/reaction forces acting across the boundary. Engineering synthesis for \"Identify correct free-body diagram isolation at a support\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "T.H.G. Megson (Butterworth-Heinemann)",
+        "clauseOrSection": "Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams)",
+        "pageReference": "pp. 23–36",
+        "formatted": "T.H.G. Megson (Butterworth-Heinemann), Structural and Stress Analysis (4th ed.), Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams), pp. 23–36"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify correct free-body diagram isolation at a support\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify correct free-body diagram isolation at a support): Isolate the structural member from its supports and replace each physical restraint with the exact force or moment reactions it can develop.",
+        "Second Hint (Analytical Elimination Criterion): Count restraint components: a roller develops 1 reaction normal to the rolling surface, a pin develops 2 orthogonal force reactions (R_x, R_y), and a fixed support develops 3 reactions (R_x, R_y, M_fixed). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams))."
       ],
       "caseFamilyId": "MOD01-T1-CF",
       "reviewStatus": "Draft",
@@ -898,10 +1159,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Computing R_A and R_B independently via two moment equations provides a genuine independent equilibrium check when verifying R_A + R_B = Total Vertical Load.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T2",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+        "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why taking moments about each support is superior to using ΣFy = 0 to find the second reaction\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why taking moments about each support is superior to using ΣFy = 0 to find the second reaction): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+        "Second Hint (Analytical Elimination Criterion): Take moments ΣM = 0 about one support pin to eliminate its unknown reaction and solve directly for the opposite reaction, then verify vertical equilibrium ΣF_y = 0. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3)."
       ],
       "caseFamilyId": "MOD01-T2-CF",
       "reviewStatus": "Draft",
@@ -924,10 +1193,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "When aspect ratio Ly/Lx > 2, flexural stiffness along the short span Lx (proportional to 1/L³) dominates, so the slab spans primarily one-way across the 3.0 m direction.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T3",
+        "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish one-way and two-way slab load paths\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish one-way and two-way slab load paths): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+        "Second Hint (Analytical Elimination Criterion): Convert floor area loads (kN/m²) into beam line loads (kN/m) by multiplying by the tributary width b_trib, add member self-weight where specified, and transfer beam end reactions R = w·L/2 to supporting columns. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD01-T3-CF",
       "reviewStatus": "Draft",
@@ -950,10 +1227,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Tubular props and falsework legs are sensitive to eccentric loading at forkheads and baseplates; eccentric load transfer can trigger premature buckling or head failure.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T4",
+        "sourceTitle": "Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4",
+        "pageReference": "pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)",
+        "formatted": "R.C. Hibbeler / BSI, Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works, Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4, pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what interrupts a falsework load path (Example 1.4)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify what interrupts a falsework load path (Example 1.4)): Check both static determinacy (number of unknown reactions vs independent equilibrium equations) and geometric stability (non-concurrent, non-parallel restraint lines of action).",
+        "Second Hint (Analytical Elimination Criterion): Evaluate r - 3n for plane structures (or m + r - 2j for pin-jointed trusses) and ensure temporary works falsework has positive lateral bracing and soleplate bearing down to competent ground. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4)."
       ],
       "caseFamilyId": "MOD01-T4-CF",
       "reviewStatus": "Draft",
@@ -976,10 +1261,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "A rectangular frame with 4 hinges in a single loop is a classic sway mechanism unless diagonal bracing, a shear wall/core, or moment-resisting joints are provided.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T4",
+        "sourceTitle": "Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4",
+        "pageReference": "pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)",
+        "formatted": "R.C. Hibbeler / BSI, Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works, Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4, pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify lateral stability mechanism in a single-storey frame\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify lateral stability mechanism in a single-storey frame): Check both static determinacy (number of unknown reactions vs independent equilibrium equations) and geometric stability (non-concurrent, non-parallel restraint lines of action).",
+        "Second Hint (Analytical Elimination Criterion): Evaluate r - 3n for plane structures (or m + r - 2j for pin-jointed trusses) and ensure temporary works falsework has positive lateral bracing and soleplate bearing down to competent ground. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4)."
       ],
       "caseFamilyId": "MOD01-T4-CF",
       "reviewStatus": "Draft",
@@ -997,10 +1290,18 @@
       "correctAnswer": 1.5,
       "tolerance": 0.0225,
       "explanation": "Restoring moment M_rest = 30 kN × 0.6 m = 18.0 kN·m. Overturning moment M_over = 5.0 kN × 2.4 m = 12.0 kN·m. Ratio = 18.0 / 12.0 = 1.50. Step-by-step verification for \"Calculate overturning stability factor of safety for a temporary freestanding block\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T2",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3",
+        "pageReference": "pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Structural Analysis (10th SI ed.), Megson Ch. 2, §2.4–2.5 & Hibbeler Ch. 2, §2.3, pp. 37–49 (Megson) / pp. 39–54 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate overturning stability factor of safety for a temporary freestanding block\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Restoring moment M_rest = 30 kN × 0.6 m = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate overturning stability factor of safety for a temporary freestanding block): Draw the complete free-body diagram showing all applied point loads, UDL resultants, and unknown support reactions before writing equilibrium equations.",
+        "Second Hint (Symbolic Formula & Unit Setup): Take moments ΣM = 0 about one support pin to eliminate its unknown reaction and solve directly for the opposite reaction, then verify vertical equilibrium ΣF_y = 0. Express your final calculated value in ratio."
       ],
       "caseFamilyId": "MOD01-T2-CF",
       "reviewStatus": "Draft",
@@ -1018,10 +1319,18 @@
       "correctAnswer": 12,
       "tolerance": 0.18,
       "explanation": "50% of 24 kN = 12 kN transferred down through the aligned backprop to the ground floor. Step-by-step verification for \"Calculate backpropping load share in a simplified two-level prop check\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 12 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 1 (Support Reactions, Determinacy & Load Paths) & BS EN 1991-1-1.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T3",
+        "sourceTitle": "Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Building Structures to Eurocode 1 & BS EN 1991-1-1:2002, IStructE Manual §2.3–2.5 & BS EN 1991-1-1 Cl. 6.3.1, pp. 18–29 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate backpropping load share in a simplified two-level prop check\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 50% of 24 kN = 12 kN transferred down through the aligned backprop to the ground floor. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate backpropping load share in a simplified two-level prop check): Trace the gravity load path from the one-way spanning floor slab to the supporting secondary and primary beams using tributary half-spans.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert floor area loads (kN/m²) into beam line loads (kN/m) by multiplying by the tributary width b_trib, add member self-weight where specified, and transfer beam end reactions R = w·L/2 to supporting columns. Express your final calculated value in kN."
       ],
       "caseFamilyId": "MOD01-T3-CF",
       "reviewStatus": "Draft",
@@ -1044,10 +1353,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "When props are stacked in line, axial force flows directly column-like from prop to prop through the slab thickness; offsetting interrupts the direct compression path and forces the slab to carry the point load in bending and punching shear.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T4",
+        "sourceTitle": "Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4",
+        "pageReference": "pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)",
+        "formatted": "R.C. Hibbeler / BSI, Structural Analysis (10th SI ed.) & BS 5975:2019 Temporary Works, Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4, pp. 55–64 (Hibbeler) / pp. 94–106 (BS 5975)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise punch-through risk of non-aligned temporary props\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Recognise punch-through risk of non-aligned temporary props): Check both static determinacy (number of unknown reactions vs independent equilibrium equations) and geometric stability (non-concurrent, non-parallel restraint lines of action).",
+        "Second Hint (Analytical Elimination Criterion): Evaluate r - 3n for plane structures (or m + r - 2j for pin-jointed trusses) and ensure temporary works falsework has positive lateral bracing and soleplate bearing down to competent ground. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 2, §2.4 & BS 5975:2019 Cl. 17.4)."
       ],
       "caseFamilyId": "MOD01-T4-CF",
       "reviewStatus": "Draft",
@@ -1070,10 +1387,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "A two-span continuous beam has 3 unknown vertical reactions and only 2 vertical/moment equilibrium equations (ΣFy = 0, ΣM = 0), so relative flexural stiffness EI and compatibility of slope over support B are required.",
-      "citation": "BS EN 1991-1-1:2002 Actions on Structures & Static Equilibrium Principles",
+      "citation": {
+        "moduleId": "MOD-01",
+        "topicId": "MOD01-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "T.H.G. Megson (Butterworth-Heinemann)",
+        "clauseOrSection": "Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams)",
+        "pageReference": "pp. 23–36",
+        "formatted": "T.H.G. Megson (Butterworth-Heinemann), Structural and Stress Analysis (4th ed.), Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams), pp. 23–36"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Evaluate determinacy of a two-span continuous beam\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Evaluate determinacy of a two-span continuous beam): Isolate the structural member from its supports and replace each physical restraint with the exact force or moment reactions it can develop.",
+        "Second Hint (Analytical Elimination Criterion): Count restraint components: a roller develops 1 reaction normal to the rolling surface, a pin develops 2 orthogonal force reactions (R_x, R_y), and a fixed support develops 3 reactions (R_x, R_y, M_fixed). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 2, §2.1–2.3 (Support Idealisation & Free-Body Diagrams))."
       ],
       "caseFamilyId": "MOD01-T1-CF",
       "reviewStatus": "Draft",

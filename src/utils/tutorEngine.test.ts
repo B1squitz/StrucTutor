@@ -633,3 +633,143 @@ test('Verification 17 (Section 5): Parametric question generators, Eurocode desi
   assert.ok(rag.citations.length >= 1);
   assert.ok(rag.synthesisedAnswer.length > 30);
 });
+
+test('Verification 18 (B4): App.tsx monolith decomposed below 350 lines with dedicated domain hook and view components', async () => {
+  const fs = await import('node:fs');
+  const path = await import('node:path');
+  const appLines = fs
+    .readFileSync(path.resolve(process.cwd(), 'src/App.tsx'), 'utf-8')
+    .split('\n').length;
+  assert.ok(
+    appLines <= 350,
+    `Expected src/App.tsx to be decomposed to <= 350 lines, got ${appLines}`
+  );
+  for (const relPath of [
+    'src/hooks/useStructTutorWorkspace.ts',
+    'src/components/SidebarNavigation.tsx',
+    'src/components/HomeDashboardView.tsx',
+    'src/components/TutorSessionView.tsx',
+    'src/components/LearningMapView.tsx',
+  ]) {
+    assert.equal(
+      fs.existsSync(path.resolve(process.cwd(), relPath)),
+      true,
+      `Expected extracted module ${relPath} to exist`
+    );
+  }
+});
+
+test('Verification 19 (N5): Real deterministic Solver Verification Registry dynamically computes and checks all Verified questions and keeps unverified items in Draft', async () => {
+  const {
+    SOLVER_VERIFICATION_REGISTRY,
+    executeSolverSpec,
+    verifyQuestionWithSolver,
+  } = await import('./verificationRegistry');
+
+  const registryIds = Object.keys(SOLVER_VERIFICATION_REGISTRY);
+  assert.equal(registryIds.length, 113);
+
+  for (const qId of registryIds) {
+    const spec = SOLVER_VERIFICATION_REGISTRY[qId];
+    const execRes = executeSolverSpec(spec);
+    assert.equal(
+      Number.isFinite(execRes.computedValue),
+      true,
+      `Solver spec for ${qId} did not return a finite computedValue`
+    );
+    assert.equal(
+      execRes.independentCheckPassed,
+      true,
+      `Independent check failed for solver spec ${qId}`
+    );
+  }
+
+  const allQs = ALL_SYLLABUS_MODULES.flatMap((m) => [
+    ...m.topics.flatMap((t) => t.assessmentQuestions),
+    ...m.moduleAssessment,
+  ]);
+  assert.equal(allQs.length, 710);
+
+  let verifiedCount = 0;
+  let draftCount = 0;
+
+  for (const q of allQs) {
+    const check = verifyQuestionWithSolver(q);
+    if (check.isVerified) {
+      verifiedCount++;
+      assert.equal(
+        q.reviewStatus,
+        'Verified',
+        `Solver-verified question ${q.id} should have reviewStatus === 'Verified'`
+      );
+      // Verify tampering with correctAnswer causes solver verification to fail
+      const tamperedCheck = verifyQuestionWithSolver({
+        ...q,
+        correctAnswer: q.correctAnswer + Math.max(100, (q.tolerance ?? 1) * 50),
+      });
+      assert.equal(
+        tamperedCheck.isVerified,
+        false,
+        `Tampered correctAnswer on ${q.id} must be rejected by verifyQuestionWithSolver`
+      );
+    } else {
+      draftCount++;
+      assert.equal(
+        q.reviewStatus,
+        'Draft',
+        `Unverified question ${q.id} must strictly remain in 'Draft' status`
+      );
+    }
+  }
+
+  assert.equal(verifiedCount, 113);
+  assert.equal(draftCount, 597);
+});
+
+test('Verification 20 (N2): Zero hints leak the final answer across all 710 questions, and every citation has book/standard, clause, and page numbers', async () => {
+  const { doesQuestionHintLeakAnswer } = await import(
+    '../data/citationAndHintCatalog'
+  );
+
+  const allQs = ALL_SYLLABUS_MODULES.flatMap((m) => [
+    ...m.topics.flatMap((t) => t.assessmentQuestions),
+    ...m.moduleAssessment,
+  ]);
+  assert.equal(allQs.length, 710);
+
+  for (const q of allQs) {
+    // 1. Hints must climb in steps and never leak the final answer
+    assert.ok(q.hints && q.hints.length >= 2, `${q.id} missing 2 hints`);
+    const leak = doesQuestionHintLeakAnswer(q);
+    assert.equal(
+      leak.leaked,
+      false,
+      `Question ${q.id} hint leaked answer: ${leak.reason}`
+    );
+
+    // 2. Citations must be structured with sourceTitle, authorOrBody, clauseOrSection, and pageReference
+    assert.equal(
+      typeof q.citation,
+      'object',
+      `${q.id} citation must be a structured QuestionCitation object`
+    );
+    if (typeof q.citation === 'object' && q.citation !== null) {
+      assert.ok(
+        q.citation.sourceTitle.length > 5,
+        `${q.id} missing citation.sourceTitle`
+      );
+      assert.ok(
+        q.citation.authorOrBody.length > 2,
+        `${q.id} missing citation.authorOrBody`
+      );
+      assert.ok(
+        q.citation.clauseOrSection.length > 3,
+        `${q.id} missing citation.clauseOrSection`
+      );
+      assert.ok(
+        q.citation.pageReference.includes('pp.'),
+        `${q.id} citation.pageReference must include page numbers (pp.), got "${q.citation.pageReference}"`
+      );
+    }
+  }
+});

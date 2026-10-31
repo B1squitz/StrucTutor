@@ -37,7 +37,11 @@
         "Explain how unit strength, mortar, slenderness, eccentricity, and wall ties govern masonry wall behaviour.",
         "Explain what happens to a cavity wall or slender wall if wall ties corrode or floor restraint straps are omitted."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD11-T1-Q1",
@@ -56,10 +60,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Using overly dense, rigid cement mortar on soft historic bricks traps moisture and forces thermal/settlement cracks right through the bricks. Engineering synthesis for \"Understand the physical role of mortar in load-bearing masonry\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T1",
+            "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+            "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+            "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+            "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+            "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the physical role of mortar in load-bearing masonry\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand the physical role of mortar in load-bearing masonry): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+            "Second Hint (Analytical Elimination Criterion): Determine characteristic compressive strength f_k = K · f_b^α · f_m^β, compute design strength f_d = f_k / γ_M, and apply capacity reduction factor Φ_i,m for slenderness h_ef / t_ef and eccentricity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2)."
           ],
           "caseFamilyId": "MOD11-T1-CF",
           "reviewStatus": "Draft",
@@ -77,10 +89,18 @@
           "correctAnswer": 105,
           "tolerance": 1.57,
           "explanation": "N_Rd = 0.70 × 100 mm × 1,000 mm/m × 1.50 N/mm² = 105,000 N/m = 105.0 kN/m. Step-by-step verification for \"Calculate design compressive resistance per metre run of a masonry wall\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 105 kN/m, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T1",
+            "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+            "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+            "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+            "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+            "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate design compressive resistance per metre run of a masonry wall\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: N_Rd = 0.70 × 100 mm × 1,000 mm/m × 1.50 N/mm² = 105,000 N/m = ?. Express your final numeric answer in kN/m."
+            "First Hint (Physical Principle & Idealisation: Calculate design compressive resistance per metre run of a masonry wall): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+            "Second Hint (Symbolic Formula & Unit Setup): N_Rd = 0.70 × 100 mm × 1,000 mm/m × 1.50 N/mm² = ?.0 kN/m. (express final result in kN/m)."
           ],
           "caseFamilyId": "MOD11-T1-CF",
           "reviewStatus": "Draft",
@@ -103,10 +123,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "When older mild-steel wall ties corrode, the outer leaf loses its lateral tie to the inner leaf (becoming dangerously slender under wind suction) and expansive rust causes regular horizontal bed-joint cracking every ~450 mm!",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T1",
+            "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+            "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+            "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+            "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+            "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the role of cavity wall ties and the hazard of wall-tie corrosion\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand the role of cavity wall ties and the hazard of wall-tie corrosion): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+            "Second Hint (Analytical Elimination Criterion): Determine characteristic compressive strength f_k = K · f_b^α · f_m^β, compute design strength f_d = f_k / γ_M, and apply capacity reduction factor Φ_i,m for slenderness h_ef / t_ef and eccentricity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2)."
           ],
           "caseFamilyId": "MOD11-T1-CF",
           "reviewStatus": "Draft",
@@ -129,10 +157,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Missing lateral restraint straps on flank walls parallel to joists is one of the most frequent structural defects found in domestic surveys. Engineering synthesis for \"Understand why floor joists running parallel to a masonry wall require restraint straps\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T1",
+            "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+            "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+            "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+            "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+            "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why floor joists running parallel to a masonry wall require restraint straps\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand why floor joists running parallel to a masonry wall require restraint straps): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+            "Second Hint (Analytical Elimination Criterion): Determine characteristic compressive strength f_k = K · f_b^α · f_m^β, compute design strength f_d = f_k / γ_M, and apply capacity reduction factor Φ_i,m for slenderness h_ef / t_ef and eccentricity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2)."
           ],
           "caseFamilyId": "MOD11-T1-CF",
           "reviewStatus": "Draft",
@@ -150,10 +186,18 @@
           "correctAnswer": 11.16,
           "tolerance": 0.167,
           "explanation": "h_ef / t = 2,400 / 215 = 11.163 ≈ 11.16 (well within the EC6 maximum slenderness limit of 27). Step-by-step verification for \"Calculate wall slenderness ratio h_ef / t_ef\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 11.16 ratio, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T1",
+            "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+            "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+            "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+            "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+            "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate wall slenderness ratio h_ef / t_ef\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: h_ef / t = 2,400 / 215 = 11.163 ≈ 11.16 (well within the EC6 maximum slenderness limit of 27). Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Calculate wall slenderness ratio h_ef / t_ef): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+            "Second Hint (Symbolic Formula & Unit Setup): h_ef / t = 2,400 / 215 = ?.16 (well within the EC6 maximum slenderness limit of 27). (express final result in ratio)."
           ],
           "caseFamilyId": "MOD11-T1-CF",
           "reviewStatus": "Draft",
@@ -178,7 +222,11 @@
         "Size a concrete or stone padstone for a steel beam end reaction and check local bearing stress.",
         "Determine when a lintel can rely on masonry arching vs when it must carry full floor and wall loads."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD11-T2-Q1",
@@ -192,10 +240,18 @@
           "correctAnswer": 1.8,
           "tolerance": 0.027,
           "explanation": "Padstone plan area = 100 mm × 300 mm = 30,000 mm². Bearing stress = 54,000 N / 30,000 mm² = 1.80 N/mm². Step-by-step verification for \"Calculate bearing stress beneath a padstone and check against masonry design strength\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.8 N/mm², and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T2",
+            "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+            "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate bearing stress beneath a padstone and check against masonry design strength\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Padstone plan area = 100 mm × 300 mm = 30,000 mm². Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Calculate bearing stress beneath a padstone and check against masonry design strength): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+            "Second Hint (Symbolic Formula & Unit Setup): Size padstone length using L_pad >= R_Ed / (t_wall · f_b,Rd) with R_Ed in N, t_wall in mm, and f_b,Rd = β · f_d in N/mm²; limit lintel SLS deflection to L/500 when supporting brittle existing masonry. Express your final calculated value in N/mm²."
           ],
           "caseFamilyId": "MOD11-T2-CF",
           "reviewStatus": "Draft",
@@ -213,10 +269,18 @@
           "correctAnswer": 1.69,
           "tolerance": 0.0253,
           "explanation": "Because the padstone is at the end of the wall, dispersion can only occur in one direction along the wall: L_disp = 0.30 m + (2.4 m × tan 30°) = 0.30 + 1.3856 = 1.6856 m ≈ 1.69 m.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T2",
+            "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+            "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate dispersed width of a concentrated load at foundation level\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Because the padstone is at the end of the wall, dispersion can only occur in one direction along the wall: L_disp = 0.30 m + (2.4 m × tan 30°) = 0.30 + 1.3856 = 1.6856 m ≈ 1.69 m.. Express your final numeric answer in m."
+            "First Hint (Physical Principle & Idealisation: Calculate dispersed width of a concentrated load at foundation level): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+            "Second Hint (Symbolic Formula & Unit Setup): Because the padstone is at the end of the wall, dispersion can only occur in one direction along the wall: L_disp = 0.30 m + (2.4 m × tan 30°) = 0.30 + 1.3856 = 1.6856 m = ?. (express final result in m)."
           ],
           "caseFamilyId": "MOD11-T2-CF",
           "reviewStatus": "Draft",
@@ -239,10 +303,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "In domestic alterations (such as knocking out a ground-floor wall under first-floor joists and upper windows), arching cannot be relied upon and the full tributary height of walls, floors, and roof must be taken!",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T2",
+            "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+            "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify when the \"45°/60° arching triangle\" assumption over a lintel is INVALID\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify when the \"45°/60° arching triangle\" assumption over a lintel is INVALID): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+            "Second Hint (Analytical Elimination Criterion): Size padstone length using L_pad >= R_Ed / (t_wall · f_b,Rd) with R_Ed in N, t_wall in mm, and f_b,Rd = β · f_d in N/mm²; limit lintel SLS deflection to L/500 when supporting brittle existing masonry. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7)."
           ],
           "caseFamilyId": "MOD11-T2-CF",
           "reviewStatus": "Draft",
@@ -265,10 +337,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "A padstone works by steep compression strut dispersion (~45°); if the projection beyond the steel flange exceeds the padstone depth, tensile bending stress develops in the padstone.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T2",
+            "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+            "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why a very long thin padstone can crack in bending/shear\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand why a very long thin padstone can crack in bending/shear): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+            "Second Hint (Analytical Elimination Criterion): Size padstone length using L_pad >= R_Ed / (t_wall · f_b,Rd) with R_Ed in N, t_wall in mm, and f_b,Rd = β · f_d in N/mm²; limit lintel SLS deflection to L/500 when supporting brittle existing masonry. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7)."
           ],
           "caseFamilyId": "MOD11-T2-CF",
           "reviewStatus": "Draft",
@@ -291,10 +371,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Note also that wherever a vertical movement joint cuts a wall, it interrupts horizontal diaphragm continuity, so lateral restraint on both sides of the joint must be checked!",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T2",
+            "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+            "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish clay brickwork vs concrete blockwork moisture movement\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish clay brickwork vs concrete blockwork moisture movement): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+            "Second Hint (Analytical Elimination Criterion): Size padstone length using L_pad >= R_Ed / (t_wall · f_b,Rd) with R_Ed in N, t_wall in mm, and f_b,Rd = β · f_d in N/mm²; limit lintel SLS deflection to L/500 when supporting brittle existing masonry. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7)."
           ],
           "caseFamilyId": "MOD11-T2-CF",
           "reviewStatus": "Draft",
@@ -319,7 +407,11 @@
         "Explain why removing an internal return wall can destabilise the external wall it previously buttressed.",
         "Plan a safe step-by-step temporary propping and installation sequence for Project 11.1."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD11-T3-Q1",
@@ -338,10 +430,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Exact statement of the Module 11 Learning Gate. Engineering synthesis for \"Explain why \"sizing the steel beam\" alone is NOT a complete alteration design (Module 11 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+            "authorOrBody": "BSI / CIRIA",
+            "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+            "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+            "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why \"sizing the steel beam\" alone is NOT a complete alteration design (Module 11 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why \"sizing the steel beam\" alone is NOT a complete alteration design (Module 11 Gate)): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+            "Second Hint (Analytical Elimination Criterion): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6)."
           ],
           "caseFamilyId": "MOD11-T3-CF",
           "reviewStatus": "Draft",
@@ -364,10 +464,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Loss of lateral buttressing is one of the most frequently overlooked hazards in domestic open-plan alterations. Engineering synthesis for \"Identify lateral stability loss when removing a buttressing return wall\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+            "authorOrBody": "BSI / CIRIA",
+            "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+            "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+            "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify lateral stability loss when removing a buttressing return wall\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify lateral stability loss when removing a buttressing return wall): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+            "Second Hint (Analytical Elimination Criterion): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6)."
           ],
           "caseFamilyId": "MOD11-T3-CF",
           "reviewStatus": "Draft",
@@ -385,10 +493,18 @@
           "correctAnswer": 115,
           "tolerance": 1.72,
           "explanation": "Total vertical force on the 0.6 m pier = 18 kN (direct) + 51 kN (from beam reaction) = 69 kN. Average force per metre run of the 0.6 m pier = 69 kN / 0.6 m = 115 kN/m (nearly 4 times the original 30 kN/m!).",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+            "authorOrBody": "BSI / CIRIA",
+            "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+            "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+            "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate increased line load on a remaining masonry pier after forming an opening (Project 11.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Total vertical force on the 0.6 m pier = 18 kN (direct) + 51 kN (from beam reaction) = ?. Express your final numeric answer in kN/m."
+            "First Hint (Physical Principle & Idealisation: Calculate increased line load on a remaining masonry pier after forming an opening (Project 11.1)): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+            "Second Hint (Symbolic Formula & Unit Setup): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Express your final calculated value in kN/m."
           ],
           "caseFamilyId": "MOD11-T3-CF",
           "reviewStatus": "Draft",
@@ -411,10 +527,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Dry-packing the gap between the top of the new steel beam and the underside of the existing brickwork before striking the needles is essential to prevent the wall above dropping onto the beam!",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+            "authorOrBody": "BSI / CIRIA",
+            "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+            "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+            "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Specify a safe temporary propping and construction sequence for a masonry opening (Project 11.1)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Specify a safe temporary propping and construction sequence for a masonry opening (Project 11.1)): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+            "Second Hint (Analytical Elimination Criterion): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6)."
           ],
           "caseFamilyId": "MOD11-T3-CF",
           "reviewStatus": "Draft",
@@ -437,10 +561,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Never finalise an alteration design on unverified guesses when simple opening-up (lifting a floorboard, exposing a pier/footing trial pit) can establish the real load path.",
-          "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+          "citation": {
+            "moduleId": "MOD-11",
+            "topicId": "MOD11-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+            "authorOrBody": "BSI / CIRIA",
+            "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+            "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+            "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise hidden-condition risks in existing masonry buildings\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Recognise hidden-condition risks in existing masonry buildings): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+            "Second Hint (Analytical Elimination Criterion): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6)."
           ],
           "caseFamilyId": "MOD11-T3-CF",
           "reviewStatus": "Draft",
@@ -479,15 +611,22 @@
       "correctAnswer": 60.8,
       "tolerance": 0.912,
       "explanation": "R_Ed = (w_Ed × L_eff) / 2 = (32.0 × 3.8) / 2 = 60.8 kN. Step-by-step verification for \"Calculate total ULS load and end reactions on a new masonry opening lintel (Project 11.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 60.8 kN, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T2",
+        "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+        "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate total ULS load and end reactions on a new masonry opening lintel (Project 11.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: R_Ed = (w_Ed × L_eff) / 2 = (32.0 × 3.8) / 2 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate total ULS load and end reactions on a new masonry opening lintel (Project 11.1)): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+        "Second Hint (Symbolic Formula & Unit Setup): R_Ed = (w_Ed × L_eff) / 2 = (32.0 × 3.8) / 2 = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD11-T2-CF",
       "solverVerificationId": "SOLVER-MOD11-E01",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD11-E02",
@@ -501,15 +640,22 @@
       "correctAnswer": 371,
       "tolerance": 5.56,
       "explanation": "Required bearing area A_req = 60,800 N / 1.60 N/mm² = 38,000 mm². Required length L_pad = 38,000 / 102.5 = 370.7 mm ≈ 371 mm (so a standard 400 mm or 440 mm long padstone would be specified).",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T2",
+        "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+        "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required padstone length on existing brickwork (Project 11.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Required bearing area A_req = 60,800 N / 1.60 N/mm² = 38,000 mm². Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate required padstone length on existing brickwork (Project 11.1)): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+        "Second Hint (Symbolic Formula & Unit Setup): Size padstone length using L_pad >= R_Ed / (t_wall · f_b,Rd) with R_Ed in N, t_wall in mm, and f_b,Rd = β · f_d in N/mm²; limit lintel SLS deflection to L/500 when supporting brittle existing masonry. Express your final calculated value in mm."
       ],
       "caseFamilyId": "MOD11-T2-CF",
       "solverVerificationId": "SOLVER-MOD11-E02",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD11-E03",
@@ -523,15 +669,22 @@
       "correctAnswer": 7.6,
       "tolerance": 0.114,
       "explanation": "δ_lim = 3,800 mm / 500 = 7.60 mm. Step-by-step verification for \"Check tight L/500 serviceability deflection limit for a beam supporting brittle masonry\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 7.6 mm, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T2",
+        "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+        "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Check tight L/500 serviceability deflection limit for a beam supporting brittle masonry\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: δ_lim = 3,800 mm / 500 = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Check tight L/500 serviceability deflection limit for a beam supporting brittle masonry): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+        "Second Hint (Symbolic Formula & Unit Setup): δ_lim = 3,800 mm / 500 = ?. (express final result in mm)."
       ],
       "caseFamilyId": "MOD11-T2-CF",
       "solverVerificationId": "SOLVER-MOD11-E03",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD11-E04",
@@ -545,15 +698,22 @@
       "correctAnswer": 3740,
       "tolerance": 56.1,
       "explanation": "I_req = (5 × 22.0 × 3,800⁴) / (384 × 210,000 × 7.60) = (2.2936 × 10¹⁶) / (6.12864 × 10⁸) = 37,424,000 mm⁴ = 3,742 cm⁴ ≈ 3,740 cm⁴. Step-by-step verification for \"Calculate required I to satisfy L/500 under unfactored SLS load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3740 cm⁴, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T2",
+        "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+        "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required I to satisfy L/500 under unfactored SLS load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: I_req = (5 × 22.0 × 3,800⁴) / (384 × 210,000 × 7.60) = (2.2936 × 10¹⁶) / (6.12864 × 10⁸) = 37,424,000 mm⁴ = 3,742 cm⁴ ≈ 3,740 cm⁴. Express your final numeric answer in cm⁴."
+        "First Hint (Physical Principle & Idealisation: Calculate required I to satisfy L/500 under unfactored SLS load): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+        "Second Hint (Symbolic Formula & Unit Setup): I_req = (5 × 22.0 × 3,800⁴) / (384 × 210,000 × 7.60) = (2.2936 × 10¹⁶) / (6.12864 × 10⁸) = 37,424,000 mm⁴ = 3,742 cm⁴ = ?. (express final result in cm⁴)."
       ],
       "caseFamilyId": "MOD11-T2-CF",
       "solverVerificationId": "SOLVER-MOD11-E04",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD11-E05",
@@ -567,10 +727,18 @@
       "correctAnswer": 14.4,
       "tolerance": 0.216,
       "explanation": "Load per needle = w_temp × spacing = 16.0 kN/m × 0.90 m = 14.4 kN. Step-by-step verification for \"Calculate temporary needle beam spacing and load per needle (Project 11.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 14.4 kN, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+        "authorOrBody": "BSI / CIRIA",
+        "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+        "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+        "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate temporary needle beam spacing and load per needle (Project 11.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Load per needle = w_temp × spacing = 16.0 kN/m × 0.90 m = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate temporary needle beam spacing and load per needle (Project 11.1)): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+        "Second Hint (Symbolic Formula & Unit Setup): Load per needle = w_temp × spacing = 16.0 kN/m × 0.90 m = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD11-T3-CF",
       "reviewStatus": "Draft",
@@ -588,15 +756,22 @@
       "correctAnswer": 10,
       "tolerance": 0.15,
       "explanation": "Taking moments about outer prop B: R_A × 1.50 m = 15.0 kN × 1.00 m => R_A = 10.0 kN (and R_B = 5.0 kN). Step-by-step verification for \"Calculate asymmetric prop leg reactions on an offset temporary needle beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10 kN, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+        "authorOrBody": "BSI / CIRIA",
+        "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+        "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+        "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate asymmetric prop leg reactions on an offset temporary needle beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Taking moments about outer prop B: R_A × 1.50 m = 15.0 kN × 1.00 m => R_A = 10.0 kN (and R_B = 5.0 kN). Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate asymmetric prop leg reactions on an offset temporary needle beam): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+        "Second Hint (Symbolic Formula & Unit Setup): Taking moments about outer prop B: R_A × 1.50 m = 15.0 kN × 1.00 m => R_A = ?.0 kN (and R_B = 5.0 kN). (express final result in kN)."
       ],
       "caseFamilyId": "MOD11-T3-CF",
       "solverVerificationId": "SOLVER-MOD11-E06",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD11-E07",
@@ -610,15 +785,22 @@
       "correctAnswer": 5,
       "tolerance": 0.075,
       "explanation": "M_needle = R_A × 0.50 m = 10.0 kN × 0.50 m = 5.0 kN·m (checked from right: 5.0 kN × 1.00 m = 5.0 kN·m). Step-by-step verification for \"Calculate maximum bending moment in the temporary needle beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 5 kN·m, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+        "authorOrBody": "BSI / CIRIA",
+        "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+        "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+        "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum bending moment in the temporary needle beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_needle = R_A × 0.50 m = 10.0 kN × 0.50 m = 5.0 kN·m (checked from right: 5.0 kN × 1.00 m = 5.0 kN·m). Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate maximum bending moment in the temporary needle beam): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_needle = R_A × 0.50 m = 10.0 kN × 0.50 m = ?.0 kN·m (checked from right: ? kN × 1.00 m = ?.0 kN·m). (express final result in kN·m)."
       ],
       "caseFamilyId": "MOD11-T3-CF",
       "solverVerificationId": "SOLVER-MOD11-E07",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD11-E08",
@@ -632,10 +814,18 @@
       "correctAnswer": 140,
       "tolerance": 2.1,
       "explanation": "q_soil = 63 kN/m / 0.45 m = 140 kN/m² (more than double the original 60 kN/m²!). Step-by-step verification for \"Calculate new soil bearing pressure under an existing strip foundation after forming an opening\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 140 kN/m², and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+        "authorOrBody": "BSI / CIRIA",
+        "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+        "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+        "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate new soil bearing pressure under an existing strip foundation after forming an opening\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: q_soil = 63 kN/m / 0.45 m = 140 kN/m² (more than double the original 60 kN/m²!). Express your final numeric answer in kN/m²."
+        "First Hint (Physical Principle & Idealisation: Calculate new soil bearing pressure under an existing strip foundation after forming an opening): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+        "Second Hint (Symbolic Formula & Unit Setup): q_soil = 63 kN/m / 0.45 m = ?. (express final result in kN/m²)."
       ],
       "caseFamilyId": "MOD11-T3-CF",
       "reviewStatus": "Draft",
@@ -653,10 +843,18 @@
       "correctAnswer": 1.4,
       "tolerance": 0.021,
       "explanation": "f_d = 3.5 / 2.50 = 1.40 N/mm². Step-by-step verification for \"Calculate design compressive strength f_d of masonry from f_k and γ_M\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.4 N/mm², and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T1",
+        "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+        "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+        "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+        "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+        "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate design compressive strength f_d of masonry from f_k and γ_M\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: f_d = 3.5 / 2.50 = ?. Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate design compressive strength f_d of masonry from f_k and γ_M): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+        "Second Hint (Symbolic Formula & Unit Setup): Determine characteristic compressive strength f_k = K · f_b^α · f_m^β, compute design strength f_d = f_k / γ_M, and apply capacity reduction factor Φ_i,m for slenderness h_ef / t_ef and eccentricity. Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD11-T1-CF",
       "reviewStatus": "Draft",
@@ -674,10 +872,18 @@
       "correctAnswer": 34.2,
       "tolerance": 0.513,
       "explanation": "e = 102.5 / 3 = 34.17 mm ≈ 34.2 mm. Step-by-step verification for \"Calculate eccentricity e of a floor joist bearing on the inner edge of a wall\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 34.2 mm, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T1",
+        "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+        "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+        "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+        "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+        "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate eccentricity e of a floor joist bearing on the inner edge of a wall\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: e = 102.5 / 3 = 34.17 mm ≈ 34.2 mm. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate eccentricity e of a floor joist bearing on the inner edge of a wall): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+        "Second Hint (Symbolic Formula & Unit Setup): e = 102.5 / 3 = 34.17 mm = ?. (express final result in mm)."
       ],
       "caseFamilyId": "MOD11-T1-CF",
       "reviewStatus": "Draft",
@@ -700,10 +906,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Always verify whether the ground floor is ground-bearing concrete or suspended timber/basement before landing temporary props! Engineering synthesis for \"Identify the danger of propping onto a suspended timber ground floor without backpropping\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+        "authorOrBody": "BSI / CIRIA",
+        "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+        "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+        "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the danger of propping onto a suspended timber ground floor without backpropping\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify the danger of propping onto a suspended timber ground floor without backpropping): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+        "Second Hint (Analytical Elimination Criterion): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6)."
       ],
       "caseFamilyId": "MOD11-T3-CF",
       "reviewStatus": "Draft",
@@ -726,10 +940,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Note: when twin beams are bolted together with spacers at regular centres so they deflect together, ensure the bolts/spacers are detailed to share any asymmetric leaf loads.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+        "authorOrBody": "BSI / CIRIA",
+        "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+        "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+        "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why twin steel beams bolted together with tubular spacers are used under 215 mm solid walls\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand why twin steel beams bolted together with tubular spacers are used under 215 mm solid walls): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+        "Second Hint (Analytical Elimination Criterion): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6)."
       ],
       "caseFamilyId": "MOD11-T3-CF",
       "reviewStatus": "Draft",
@@ -752,10 +974,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Understanding the tension stress trajectory that opened the crack tells you the direction of relative movement. Engineering synthesis for \"Distinguish stepped diagonal cracking vs uniform vertical cracking in masonry walls\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T1",
+        "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+        "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+        "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+        "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+        "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish stepped diagonal cracking vs uniform vertical cracking in masonry walls\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish stepped diagonal cracking vs uniform vertical cracking in masonry walls): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+        "Second Hint (Analytical Elimination Criterion): Determine characteristic compressive strength f_k = K · f_b^α · f_m^β, compute design strength f_d = f_k / γ_M, and apply capacity reduction factor Φ_i,m for slenderness h_ef / t_ef and eccentricity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2)."
       ],
       "caseFamilyId": "MOD11-T1-CF",
       "reviewStatus": "Draft",
@@ -778,10 +1008,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "When masonry piers are removed, both the vertical load path and the lateral stability system must be replaced by the new steelwork. Engineering synthesis for \"Understand the purpose of a steel \"box frame\" or \"goalpost frame\" in alterations\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+        "authorOrBody": "BSI / CIRIA",
+        "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+        "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+        "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the purpose of a steel \"box frame\" or \"goalpost frame\" in alterations\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand the purpose of a steel \"box frame\" or \"goalpost frame\" in alterations): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+        "Second Hint (Analytical Elimination Criterion): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6)."
       ],
       "caseFamilyId": "MOD11-T3-CF",
       "reviewStatus": "Draft",
@@ -804,10 +1042,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Pre-loading or tight dry-packing before de-propping is essential to transfer load without settlement. Engineering synthesis for \"Understand why dry-pack mortar is packed between the top of a new beam and existing masonry before removing needles\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T2",
+        "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+        "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why dry-pack mortar is packed between the top of a new beam and existing masonry before removing needles\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand why dry-pack mortar is packed between the top of a new beam and existing masonry before removing needles): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+        "Second Hint (Analytical Elimination Criterion): Size padstone length using L_pad >= R_Ed / (t_wall · f_b,Rd) with R_Ed in N, t_wall in mm, and f_b,Rd = β · f_d in N/mm²; limit lintel SLS deflection to L/500 when supporting brittle existing masonry. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7)."
       ],
       "caseFamilyId": "MOD11-T2-CF",
       "reviewStatus": "Draft",
@@ -830,10 +1076,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Building Regulations Approved Document A and EC6 strictly limit vertical and especially horizontal chase depths in load-bearing walls. Engineering synthesis for \"Identify why chasing deep horizontal slots into a thin load-bearing masonry wall is dangerous\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T1",
+        "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+        "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+        "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+        "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+        "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why chasing deep horizontal slots into a thin load-bearing masonry wall is dangerous\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify why chasing deep horizontal slots into a thin load-bearing masonry wall is dangerous): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+        "Second Hint (Analytical Elimination Criterion): Determine characteristic compressive strength f_k = K · f_b^α · f_m^β, compute design strength f_d = f_k / γ_M, and apply capacity reduction factor Φ_i,m for slenderness h_ef / t_ef and eccentricity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2)."
       ],
       "caseFamilyId": "MOD11-T1-CF",
       "reviewStatus": "Draft",
@@ -856,10 +1110,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "In UK practice (SCI / IStructE guidance), beams supporting masonry walls without tied floor diaphragms are checked conservatively as unrestrained (often with destabilising load factor) between effective lateral restraints.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T2",
+        "sourceTitle": "BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7",
+        "pageReference": "pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS EN 1996-1-1:2005+A1 & IStructE Manual for the Design of Plain Masonry to EC6 (2nd ed.), BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7, pp. 62–65 (EN 1996-1-1) / pp. 45–64 (IStructE)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand lateral restraint of a steel beam supporting a masonry wall\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand lateral restraint of a steel beam supporting a masonry wall): Concentrated beam reactions can crush masonry locally beneath the bearing unless spread through a stiff concrete or steel padstone.",
+        "Second Hint (Analytical Elimination Criterion): Size padstone length using L_pad >= R_Ed / (t_wall · f_b,Rd) with R_Ed in N, t_wall in mm, and f_b,Rd = β · f_d in N/mm²; limit lintel SLS deflection to L/500 when supporting brittle existing masonry. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1996-1-1 Cl. 6.1.3 & IStructE Masonry Manual §5.4–5.7)."
       ],
       "caseFamilyId": "MOD11-T2-CF",
       "reviewStatus": "Draft",
@@ -877,10 +1139,18 @@
       "correctAnswer": 0.7,
       "tolerance": 0.0105,
       "explanation": "Φ_i = 1 − 2 × (15 / 100) = 1 − 0.30 = 0.70. Step-by-step verification for \"Calculate capacity reduction factor Φ at the top of a wall for a given eccentricity\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.7 ratio, and cross-check the magnitude and sign against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T1",
+        "sourceTitle": "Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1",
+        "authorOrBody": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI",
+        "clauseOrSection": "Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2",
+        "pageReference": "pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)",
+        "formatted": "A.W. Hendry, B.P. Sinha & S.R. Davies (Spon Press) / BSI, Design of Masonry Structures (3rd ed.) & BS EN 1996-1-1:2005+A1, Hendry Ch. 2–5 & BS EN 1996-1-1 Cl. 3.6, Cl. 5.5.1, Cl. 6.1.2, pp. 18–112 (Hendry) / pp. 31–38, 52–61 (EN 1996-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate capacity reduction factor Φ at the top of a wall for a given eccentricity\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Φ_i = 1 − 2 × (15 / 100) = 1 − 0.30 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate capacity reduction factor Φ at the top of a wall for a given eccentricity): Unreinforced masonry has high compressive capacity but negligible reliable tensile strength, so stability relies on keeping the line of thrust within the wall thickness via lateral floor/roof restraints.",
+        "Second Hint (Symbolic Formula & Unit Setup): Φ_i = 1 − 2 × (15 / 100) = 1 − 0.30 = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD11-T1-CF",
       "reviewStatus": "Draft",
@@ -903,10 +1173,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "A 215 mm party wall normally allows only a ~100 mm deep pocket on your side; if a longer bearing or wider spread is needed, an eccentric spreader padstone or column against the wall face is often used.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+        "authorOrBody": "BSI / CIRIA",
+        "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+        "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+        "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify party wall and adjacent structure considerations in domestic alterations\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify party wall and adjacent structure considerations in domestic alterations): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+        "Second Hint (Analytical Elimination Criterion): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6)."
       ],
       "caseFamilyId": "MOD11-T3-CF",
       "reviewStatus": "Draft",
@@ -929,10 +1207,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Complete 10-element Module 11 Learning Gate. Engineering synthesis for \"Verify all 10 elements of the Module 11 Learning Gate\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1996-1-1:2005+A1 (Eurocode 6: Masonry Structures) & BS 5975 Temporary Needling.",
-      "citation": "BS EN 1996-1-1:2005+A1 (Eurocode 6) Masonry & BS 5975 Temporary Needling",
+      "citation": {
+        "moduleId": "MOD-11",
+        "topicId": "MOD11-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades",
+        "authorOrBody": "BSI / CIRIA",
+        "clauseOrSection": "BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6",
+        "pageReference": "pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)",
+        "formatted": "BSI / CIRIA, BS 5975:2019 Temporary Works & CIRIA Report C579 Retention of Masonry Facades, BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6, pp. 112–134 (BS 5975) / pp. 48–96 (CIRIA C579)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify all 10 elements of the Module 11 Learning Gate\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Verify all 10 elements of the Module 11 Learning Gate): Removing a load-bearing wall creates a temporary works load path where upper masonry, floors, and roof must be supported on needles, props, backprops, and soleplates before demolition begins.",
+        "Second Hint (Analytical Elimination Criterion): Solve the needle beam as a simply supported beam spanning between inner and outer props (taking moments about one prop to find the asymmetric prop reactions), and verify dry-pack mortar pre-loading. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19–20 & CIRIA C579 Ch. 4–6)."
       ],
       "caseFamilyId": "MOD11-T3-CF",
       "reviewStatus": "Draft",

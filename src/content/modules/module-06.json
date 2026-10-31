@@ -42,7 +42,11 @@
         "Compare Euler buckling loads for different end restraints (Example 6.1) and identify which axis governs.",
         "Explain why increasing second moment of area I (or reducing L_cr) is far more efficient than adding solid area A for slender struts."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD06-T1-Q1",
@@ -56,15 +60,22 @@
           "correctAnswer": 4,
           "tolerance": 0.06,
           "explanation": "Since P_cr = π²EI / L_cr², halving the effective length from 1.0 L to 0.5 L multiplies P_cr by 1 / (0.5)² = 4.0. Step-by-step verification for \"Compare Euler buckling load of fixed-fixed vs pinned-pinned column (Example 6.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Compare Euler buckling load of fixed-fixed vs pinned-pinned column (Example 6.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Since P_cr = π²EI / L_cr², halving the effective length from 1.0 L to 0.5 L multiplies P_cr by 1 / (0.5)² = ?. Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Compare Euler buckling load of fixed-fixed vs pinned-pinned column (Example 6.1)): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+            "Second Hint (Symbolic Formula & Unit Setup): Since P_cr = π²EI / L_cr², halving the effective length from 1.0 L to 0.5 L multiplies P_cr by 1 / (0.5)² = ?.0. (express final result in ratio)."
           ],
           "caseFamilyId": "MOD06-T1-CF",
           "solverVerificationId": "SOLVER-MOD06-T1-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD06-T1-Q2",
@@ -78,15 +89,22 @@
           "correctAnswer": 1036.3,
           "tolerance": 15.5,
           "explanation": "An unrestrained pin-ended strut buckles about its weakest axis (I_z = 4.5 × 10⁶ mm⁴). P_cr = (π² × 210,000 × 4.5 × 10⁶) / 3,000² = (9.8696 × 9.45 × 10¹¹) / (9.0 × 10⁶) = 1,036,308 N ≈ 1,036.3 kN.",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate Euler critical load P_cr of a pinned-pinned strut\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: An unrestrained pin-ended strut buckles about its weakest axis (I_z = 4.5 × 10⁶ mm⁴). Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate Euler critical load P_cr of a pinned-pinned strut): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+            "Second Hint (Symbolic Formula & Unit Setup): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD06-T1-CF",
           "solverVerificationId": "SOLVER-MOD06-T1-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD06-T1-Q3",
@@ -100,15 +118,22 @@
           "correctAnswer": 259.1,
           "tolerance": 3.89,
           "explanation": "Doubling L_cr from 1.0 L to 2.0 L divides P_cr by 2² = 4: 1,036.3 / 4 = 259.08 kN ≈ 259.1 kN. Step-by-step verification for \"Calculate Euler buckling load of a freestanding flagpole/cantilever column\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 259.1 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate Euler buckling load of a freestanding flagpole/cantilever column\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Doubling L_cr from 1.0 L to 2.0 L divides P_cr by 2² = 4: 1,036.3 / 4 = 259.08 kN ≈ 259.1 kN. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate Euler buckling load of a freestanding flagpole/cantilever column): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+            "Second Hint (Symbolic Formula & Unit Setup): Doubling L_cr from 1.0 L to 2.0 L divides P_cr by 2² = 4: 1,036.3 / 4 = 259.08 kN = ?. (express final result in kN)."
           ],
           "caseFamilyId": "MOD06-T1-CF",
           "solverVerificationId": "SOLVER-MOD06-T1-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD06-T1-Q4",
@@ -127,10 +152,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "In Euler buckling, yield strength fy does not appear and area A only helps to the extent that it increases I = A·i². Spreading material away from the centroid maximises i.",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why increasing area A alone may not efficiently solve a buckling problem\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why increasing area A alone may not efficiently solve a buckling problem): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+            "Second Hint (Analytical Elimination Criterion): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1)."
           ],
           "caseFamilyId": "MOD06-T1-CF",
           "reviewStatus": "Draft",
@@ -153,10 +186,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Initial bow e₀ creates a second-order bending moment P·(e₀ + δ) that causes the concave compression flange to yield and lose tangent stiffness E_t before reaching the elastic bifurcation load P_cr.",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why real columns fail below the ideal Euler buckling load\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why real columns fail below the ideal Euler buckling load): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+            "Second Hint (Analytical Elimination Criterion): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1)."
           ],
           "caseFamilyId": "MOD06-T1-CF",
           "reviewStatus": "Draft",
@@ -181,7 +222,11 @@
         "Explain LTB in plain physical terms and identify which flange requires restraint in sagging vs hogging regions (Example 6.2).",
         "Recognise when a floor/purlin detail does or does not provide effective LTB restraint."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD06-T2-Q1",
@@ -200,10 +245,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "LTB is a coupled lateral-buckling and twisting instability of a beam bent about its major axis when its compression flange is not adequately restrained laterally.",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T2",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "N.S. Trahair et al. / BSI",
+            "clauseOrSection": "Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2",
+            "pageReference": "pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)",
+            "formatted": "N.S. Trahair et al. / BSI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005, Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2, pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain Lateral Torsional Buckling (LTB) physically (Example 6.2 & Module 6 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain Lateral Torsional Buckling (LTB) physically (Example 6.2 & Module 6 Gate)): In an unrestrained open I-beam bent about its major axis, the compression flange behaves like a strut that wants to buckle laterally between points of effective lateral restraint, twisting the cross-section.",
+            "Second Hint (Analytical Elimination Criterion): Identify which flange is in compression (top flange in sagging, bottom flange at hogging cantilevers/haunches) and verify that lateral restraint is connected to a stiff bracing system or floor diaphragm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2)."
           ],
           "caseFamilyId": "MOD06-T2-CF",
           "reviewStatus": "Draft",
@@ -226,10 +279,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "A restraint is only as good as its connection to the compression flange and the stiffness of the bracing system it ties back to. Engineering synthesis for \"Identify what is required for a restraint to effectively prevent LTB\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T2",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "N.S. Trahair et al. / BSI",
+            "clauseOrSection": "Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2",
+            "pageReference": "pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)",
+            "formatted": "N.S. Trahair et al. / BSI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005, Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2, pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what is required for a restraint to effectively prevent LTB\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify what is required for a restraint to effectively prevent LTB): In an unrestrained open I-beam bent about its major axis, the compression flange behaves like a strut that wants to buckle laterally between points of effective lateral restraint, twisting the cross-section.",
+            "Second Hint (Analytical Elimination Criterion): Identify which flange is in compression (top flange in sagging, bottom flange at hogging cantilevers/haunches) and verify that lateral restraint is connected to a stiff bracing system or floor diaphragm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2)."
           ],
           "caseFamilyId": "MOD06-T2-CF",
           "reviewStatus": "Draft",
@@ -252,10 +313,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "In hogging (-M), the bottom flange is in compression and the top flange is in tension. Assuming top-flange roof decking restrains the bottom flange in a hogging portal haunch or cantilever without fly-stays is a classic design error!",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T2",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "N.S. Trahair et al. / BSI",
+            "clauseOrSection": "Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2",
+            "pageReference": "pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)",
+            "formatted": "N.S. Trahair et al. / BSI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005, Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2, pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify which flange is the compression flange in a cantilever or hogging region\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify which flange is the compression flange in a cantilever or hogging region): In an unrestrained open I-beam bent about its major axis, the compression flange behaves like a strut that wants to buckle laterally between points of effective lateral restraint, twisting the cross-section.",
+            "Second Hint (Analytical Elimination Criterion): Identify which flange is in compression (top flange in sagging, bottom flange at hogging cantilevers/haunches) and verify that lateral restraint is connected to a stiff bracing system or floor diaphragm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2)."
           ],
           "caseFamilyId": "MOD06-T2-CF",
           "reviewStatus": "Draft",
@@ -278,10 +347,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Top-flange loading above the shear centre creates a destabilising overturning torque P·(y_top · θ) as the section twists by angle θ. Engineering synthesis for \"Understand destabilising load-height effect on an unrestrained top flange\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T2",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "N.S. Trahair et al. / BSI",
+            "clauseOrSection": "Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2",
+            "pageReference": "pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)",
+            "formatted": "N.S. Trahair et al. / BSI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005, Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2, pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand destabilising load-height effect on an unrestrained top flange\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand destabilising load-height effect on an unrestrained top flange): In an unrestrained open I-beam bent about its major axis, the compression flange behaves like a strut that wants to buckle laterally between points of effective lateral restraint, twisting the cross-section.",
+            "Second Hint (Analytical Elimination Criterion): Identify which flange is in compression (top flange in sagging, bottom flange at hogging cantilevers/haunches) and verify that lateral restraint is connected to a stiff bracing system or floor diaphragm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2)."
           ],
           "caseFamilyId": "MOD06-T2-CF",
           "reviewStatus": "Draft",
@@ -299,10 +376,18 @@
           "correctAnswer": 3,
           "tolerance": 0.045,
           "explanation": "The intermediate restraints divide the 9.0 m span into three equal laterally restrained sub-spans of 9.0 / 3 = 3.0 m. Step-by-step verification for \"Determine unrestrained buckling length L_LT between positive lateral restraints\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3 m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T2",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "N.S. Trahair et al. / BSI",
+            "clauseOrSection": "Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2",
+            "pageReference": "pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)",
+            "formatted": "N.S. Trahair et al. / BSI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005, Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2, pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Determine unrestrained buckling length L_LT between positive lateral restraints\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: The intermediate restraints divide the 9.0 m span into three equal laterally restrained sub-spans of 9.0 / 3 = ?. Express your final numeric answer in m."
+            "First Hint (Physical Principle & Idealisation: Determine unrestrained buckling length L_LT between positive lateral restraints): In an unrestrained open I-beam bent about its major axis, the compression flange behaves like a strut that wants to buckle laterally between points of effective lateral restraint, twisting the cross-section.",
+            "Second Hint (Symbolic Formula & Unit Setup): The intermediate restraints divide the 9.0 m span into three equal laterally restrained sub-spans of 9.0 / ? = ?.0 m. (express final result in m)."
           ],
           "caseFamilyId": "MOD06-T2-CF",
           "reviewStatus": "Draft",
@@ -326,7 +411,11 @@
         "Explain how diagonal bracing vs moment frames resist horizontal sway (Example 6.3).",
         "Identify temporary construction stages where permanent restraints do not yet exist (Example 6.4)."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD06-T3-Q1",
@@ -345,10 +434,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Braced frames resist sway by axial triangulation (stiff and efficient), while moment frames resist sway by flexural bending of columns and beams (requiring stiff moment connections and deeper columns/beams).",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T3",
+            "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+            "authorOrBody": "IStructE (2014) / BSI",
+            "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+            "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+            "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Compare sway resistance in unbraced, diagonally braced, and moment frames (Example 6.3)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Compare sway resistance in unbraced, diagonally braced, and moment frames (Example 6.3)): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+            "Second Hint (Analytical Elimination Criterion): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3)."
           ],
           "caseFamilyId": "MOD06-T3-CF",
           "reviewStatus": "Draft",
@@ -371,10 +468,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Wet concrete has zero shear stiffness to act as a diaphragm; during the pour it is a heavy gravity load (plus construction live load) acting on the steel beam before composite or slab diaphragm action exists!",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T3",
+            "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+            "authorOrBody": "IStructE (2014) / BSI",
+            "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+            "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+            "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify temporary vs permanent stability risk during construction (Example 6.4)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify temporary vs permanent stability risk during construction (Example 6.4)): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+            "Second Hint (Analytical Elimination Criterion): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3)."
           ],
           "caseFamilyId": "MOD06-T3-CF",
           "reviewStatus": "Draft",
@@ -397,10 +502,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "In the permanent state, grouted shear keys and perimeter ties create a monolithic floor diaphragm and tied wall system; in the temporary erection state, elements are discrete blocks requiring explicit temporary stability measures.",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T3",
+            "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+            "authorOrBody": "IStructE (2014) / BSI",
+            "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+            "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+            "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify temporary stability risk of precast concrete elements (Example 6.4 & Comment [UI1])\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify temporary stability risk of precast concrete elements (Example 6.4 & Comment [UI1])): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+            "Second Hint (Analytical Elimination Criterion): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3)."
           ],
           "caseFamilyId": "MOD06-T3-CF",
           "reviewStatus": "Draft",
@@ -418,10 +531,18 @@
           "correctAnswer": 30,
           "tolerance": 0.45,
           "explanation": "Horizontal equilibrium at the top node: T × cos(θ) = F_w, where cos(θ) = B / D = 4.0 / 5.0 = 0.80. Thus T = 24 / 0.80 = 30.0 kN. Step-by-step verification for \"Calculate tension in a diagonal brace of a single-storey braced bay\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T3",
+            "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+            "authorOrBody": "IStructE (2014) / BSI",
+            "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+            "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+            "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate tension in a diagonal brace of a single-storey braced bay\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Horizontal equilibrium at the top node: T × cos(θ) = F_w, where cos(θ) = B / D = 4.0 / 5.0 = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate tension in a diagonal brace of a single-storey braced bay): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+            "Second Hint (Symbolic Formula & Unit Setup): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD06-T3-CF",
           "reviewStatus": "Draft",
@@ -444,10 +565,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "A complete 3D lateral stability system requires BOTH vertical bracing/cores AND horizontal roof/floor diaphragms (or plan bracing) to tie every frame line into the vertical cores.",
-          "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+          "citation": {
+            "moduleId": "MOD-06",
+            "topicId": "MOD06-T3",
+            "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+            "authorOrBody": "IStructE (2014) / BSI",
+            "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+            "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+            "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Trace the role of a floor or roof diaphragm in building stability\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Trace the role of a floor or roof diaphragm in building stability): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+            "Second Hint (Analytical Elimination Criterion): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3)."
           ],
           "caseFamilyId": "MOD06-T3-CF",
           "reviewStatus": "Draft",
@@ -514,10 +643,18 @@
       "correctAnswer": 4,
       "tolerance": 0.06,
       "explanation": "(4.0 / 2.0)² = 2² = 4.0. Step-by-step verification for \"Calculate Euler critical load ratio when effective length is halved (Example 6.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4 factor, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate Euler critical load ratio when effective length is halved (Example 6.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: (4.0 / 2.0)² = 2² = ?. Express your final numeric answer in factor."
+        "First Hint (Physical Principle & Idealisation: Calculate Euler critical load ratio when effective length is halved (Example 6.1)): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Express your final calculated value in factor."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "reviewStatus": "Draft",
@@ -535,15 +672,22 @@
       "correctAnswer": 80,
       "tolerance": 1.2,
       "explanation": "λ = 3,600 mm / 45 mm = 80. Step-by-step verification for \"Calculate slenderness ratio λ = L_cr / i of a column\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 80 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate slenderness ratio λ = L_cr / i of a column\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: λ = 3,600 mm / 45 mm = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate slenderness ratio λ = L_cr / i of a column): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): λ = 3,600 mm / 45 mm = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "solverVerificationId": "SOLVER-MOD06-E02",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD06-E03",
@@ -557,15 +701,22 @@
       "correctAnswer": 207.3,
       "tolerance": 3.11,
       "explanation": "σ_cr = (π² × 210,000) / 100² = 2,072,616 / 10,000 = 207.26 N/mm² ≈ 207.3 N/mm². Step-by-step verification for \"Calculate Euler buckling stress σ_cr = π²E / λ²\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 207.3 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate Euler buckling stress σ_cr = π²E / λ²\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: σ_cr = (π² × 210,000) / 100² = 2,072,616 / 10,000 = 207.26 N/mm² ≈ 207.3 N/mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate Euler buckling stress σ_cr = π²E / λ²): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): σ_cr = (π² × 210,000) / 100² = 2,072,616 / 10,000 = 207.26 N/mm² = ?. (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "solverVerificationId": "SOLVER-MOD06-E03",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD06-E04",
@@ -579,10 +730,18 @@
       "correctAnswer": 66.7,
       "tolerance": 1,
       "explanation": "λ_y = 6,000 / 90 = 66.67. λ_z = 3,000 / 50 = 60.0. Because the minor axis is braced at mid-height, the major axis actually has the higher slenderness (66.7 > 60.0) and governs!",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Identify governing axis when major and minor axes have different effective lengths\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: λ_y = 6,000 / 90 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Identify governing axis when major and minor axes have different effective lengths): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Express your final calculated value in ratio."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "reviewStatus": "Draft",
@@ -600,10 +759,18 @@
       "correctAnswer": 1100,
       "tolerance": 16.5,
       "explanation": "N_pl = 4,000 mm² × 275 N/mm² = 1,100,000 N = 1,100 kN. Step-by-step verification for \"Calculate squash load N_pl = A·f_y vs buckling awareness\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1100 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate squash load N_pl = A·f_y vs buckling awareness\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: N_pl = 4,000 mm² × 275 N/mm² = 1,100,000 N = 1,100 kN. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate squash load N_pl = A·f_y vs buckling awareness): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): N_pl = 4,000 mm² × 275 N/mm² = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "reviewStatus": "Draft",
@@ -621,10 +788,18 @@
       "correctAnswer": 120,
       "tolerance": 1.8,
       "explanation": "Overturning moment about leeward base = 40 kN × 9.0 m = 360 kN·m. Resisted by vertical couple at column spacing B = 3.0 m: Uplift = 360 kN·m / 3.0 m = 120 kN.",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T3",
+        "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+        "authorOrBody": "IStructE (2014) / BSI",
+        "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+        "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+        "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate column uplift reaction in a tall narrow braced bay under wind\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Overturning moment about leeward base = 40 kN × 9.0 m = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate column uplift reaction in a tall narrow braced bay under wind): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+        "Second Hint (Symbolic Formula & Unit Setup): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Express your final calculated value in kN."
       ],
       "caseFamilyId": "MOD06-T3-CF",
       "reviewStatus": "Draft",
@@ -642,10 +817,18 @@
       "correctAnswer": 1.8,
       "tolerance": 0.027,
       "explanation": "Sliding resistance F_f = μ × W = 0.45 × 80 = 36 kN. Ratio = 36 kN / 20 kN = 1.80. Step-by-step verification for \"Calculate sliding factor of safety of a gravity retaining block\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.8 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T3",
+        "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+        "authorOrBody": "IStructE (2014) / BSI",
+        "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+        "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+        "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate sliding factor of safety of a gravity retaining block\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Sliding resistance F_f = μ × W = 0.45 × 80 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate sliding factor of safety of a gravity retaining block): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+        "Second Hint (Symbolic Formula & Unit Setup): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Express your final calculated value in ratio."
       ],
       "caseFamilyId": "MOD06-T3-CF",
       "reviewStatus": "Draft",
@@ -663,10 +846,18 @@
       "correctAnswer": 15,
       "tolerance": 0.225,
       "explanation": "2.5% of 600 kN = 0.025 × 600 = 15.0 kN. Step-by-step verification for \"Estimate lateral restraint force using a 2.5% flange force rule of thumb\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 15 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T2",
+        "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "N.S. Trahair et al. / BSI",
+        "clauseOrSection": "Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2",
+        "pageReference": "pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)",
+        "formatted": "N.S. Trahair et al. / BSI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005, Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2, pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Estimate lateral restraint force using a 2.5% flange force rule of thumb\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 2.5% of 600 kN = 0.025 × 600 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Estimate lateral restraint force using a 2.5% flange force rule of thumb): In an unrestrained open I-beam bent about its major axis, the compression flange behaves like a strut that wants to buckle laterally between points of effective lateral restraint, twisting the cross-section.",
+        "Second Hint (Symbolic Formula & Unit Setup): 2.5% of 600 kN = 0.025 × 600 = ?.0 kN. (express final result in kN)."
       ],
       "caseFamilyId": "MOD06-T2-CF",
       "reviewStatus": "Draft",
@@ -689,10 +880,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Local buckling depends on plate width-to-thickness ratio (b/t or c/t, covered by Section Classification Class 1–4), whereas global buckling depends on member length-to-radius-of-gyration ratio (L_cr / i).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish local plate buckling from global member flexural buckling\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish local plate buckling from global member flexural buckling): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Analytical Elimination Criterion): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "reviewStatus": "Draft",
@@ -715,10 +914,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Module 6 Gate requires listing credible failure modes for beams, columns, frames, connections, walls, and foundations. Engineering synthesis for \"Identify credible failure modes for a bolted connection\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify credible failure modes for a bolted connection\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify credible failure modes for a bolted connection): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Analytical Elimination Criterion): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "reviewStatus": "Draft",
@@ -741,10 +948,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Slender masonry walls are particularly vulnerable to out-of-plane stability loss if horizontal ties at floor/roof levels are missing or corroded.",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify credible failure modes for a masonry wall\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify credible failure modes for a masonry wall): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Analytical Elimination Criterion): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "reviewStatus": "Draft",
@@ -767,10 +982,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Without torsional restraint at the supports, the effective LTB length increases dramatically or the beam simply rolls over on its bearings during erection.",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T2",
+        "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "N.S. Trahair et al. / BSI",
+        "clauseOrSection": "Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2",
+        "pageReference": "pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)",
+        "formatted": "N.S. Trahair et al. / BSI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005, Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2, pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Evaluate whether torsional restraint at beam supports is required (Example 6.2)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Evaluate whether torsional restraint at beam supports is required (Example 6.2)): In an unrestrained open I-beam bent about its major axis, the compression flange behaves like a strut that wants to buckle laterally between points of effective lateral restraint, twisting the cross-section.",
+        "Second Hint (Analytical Elimination Criterion): Identify which flange is in compression (top flange in sagging, bottom flange at hogging cantilevers/haunches) and verify that lateral restraint is connected to a stiff bracing system or floor diaphragm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2)."
       ],
       "caseFamilyId": "MOD06-T2-CF",
       "reviewStatus": "Draft",
@@ -793,10 +1016,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Restraint ties only work if they terminate at a stiff braced node (a triangulated braced bay, shear wall, or rigid frame). Otherwise the whole row sways collectively.",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T3",
+        "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+        "authorOrBody": "IStructE (2014) / BSI",
+        "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+        "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+        "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why \"bracing every column to its neighbour\" without a braced bay is a mechanism\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand why \"bracing every column to its neighbour\" without a braced bay is a mechanism): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+        "Second Hint (Analytical Elimination Criterion): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3)."
       ],
       "caseFamilyId": "MOD06-T3-CF",
       "reviewStatus": "Draft",
@@ -819,10 +1050,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "A wall propped at top and bottom has M_max = wH²/8, whereas an unrestrained freestanding wall of height H is a cantilever with M_max = wH²/2 (4 times the bending moment!) and L_cr = 2H.",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T3",
+        "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+        "authorOrBody": "IStructE (2014) / BSI",
+        "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+        "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+        "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify construction-stage vulnerability of freestanding masonry walls (Example 6.4)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify construction-stage vulnerability of freestanding masonry walls (Example 6.4)): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+        "Second Hint (Analytical Elimination Criterion): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3)."
       ],
       "caseFamilyId": "MOD06-T3-CF",
       "reviewStatus": "Draft",
@@ -845,10 +1084,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Concentrated patch loads must transfer through the flange into the thin web; if the web is too thin, it crushes locally at the fillet or buckles out-of-plane like a vertical plate strut, requiring load-bearing web stiffeners.",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand web bearing and web buckling at concentrated loads\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand web bearing and web buckling at concentrated loads): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Analytical Elimination Criterion): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "reviewStatus": "Draft",
@@ -866,15 +1113,22 @@
       "correctAnswer": 2800,
       "tolerance": 42,
       "explanation": "L_cr = 0.70 × 4,000 mm = 2,800 mm. Step-by-step verification for \"Calculate effective length of a fixed-pinned column\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2800 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate effective length of a fixed-pinned column\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: L_cr = 0.70 × 4,000 mm = 2,800 mm. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate effective length of a fixed-pinned column): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): L_cr = 0.70 × 4,000 mm = ?. (express final result in mm)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "solverVerificationId": "SOLVER-MOD06-E16",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD06-E17",
@@ -888,15 +1142,22 @@
       "correctAnswer": 9,
       "tolerance": 0.135,
       "explanation": "Since P_cr ∝ 1 / L_cr², tripling L_cr reduces P_cr by a factor of 3² = 9.0. Step-by-step verification for \"Calculate critical buckling load change when column length is tripled\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 9 factor, and cross-check the magnitude and sign against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate critical buckling load change when column length is tripled\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Since P_cr ∝ 1 / L_cr², tripling L_cr reduces P_cr by a factor of 3² = ?. Express your final numeric answer in factor."
+        "First Hint (Physical Principle & Idealisation: Calculate critical buckling load change when column length is tripled): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): Since P_cr ∝ 1 / L_cr², tripling L_cr reduces P_cr by a factor of 3² = ?.0. (express final result in factor)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "solverVerificationId": "SOLVER-MOD06-E17",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD06-E18",
@@ -915,10 +1176,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "A 3D column or prop will always seek the path of least resistance (largest L_cr / i); bracing in one plane leaves the perpendicular plane completely unrestrained unless braced in both x and y planes.",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T3",
+        "sourceTitle": "Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005",
+        "authorOrBody": "IStructE (2014) / BSI",
+        "clauseOrSection": "IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3",
+        "pageReference": "pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)",
+        "formatted": "IStructE (2014) / BSI, Stability of Buildings: Parts 1 & 2 & BS EN 1993-1-1:2005, IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3, pp. 11–58 (IStructE) / pp. 35–42 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why falsework towers require plan bracing and diagonal lacing in TWO orthogonal directions\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why falsework towers require plan bracing and diagonal lacing in TWO orthogonal directions): A 3D building frame requires a continuous horizontal floor/roof diaphragm and at least three non-parallel, non-concurrent vertical stability planes (braced bays or shear cores) to resist sway and torsion.",
+        "Second Hint (Analytical Elimination Criterion): Trace horizontal wind and equivalent notional imperfection forces (EHF) from façade cladding into roof/floor diaphragms, down vertical bracing/cores, and into the foundations, including during temporary erection. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Stability Guide §2–5 & BS EN 1993-1-1 Cl. 5.2–5.3)."
       ],
       "caseFamilyId": "MOD06-T3-CF",
       "reviewStatus": "Draft",
@@ -941,10 +1210,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Module 6 Learn item: brittle fracture awareness. Engineering synthesis for \"Recognise brittle fracture risk in thick welded steelwork at low temperature\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 6 (Compression Buckling, LTB & Overall Frame Stability).",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1, pp. 655–678 (Hibbeler) / pp. 56–60 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise brittle fracture risk in thick welded steelwork at low temperature\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Recognise brittle fracture risk in thick welded steelwork at low temperature): Slender compression struts fail by elastic flexural instability about the axis of highest slenderness λ = L_cr / i before reaching material yield strength f_y.",
+        "Second Hint (Analytical Elimination Criterion): Determine effective buckling length L_cr = k · L from end rotational/translational restraints, identify the governing minor-axis I_z (or i_z), and evaluate P_cr = π² · E · I_min / L_cr² (divide N by 10³ for kN). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 13, §13.1–13.3 & BS EN 1993-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD06-T1-CF",
       "reviewStatus": "Draft",
@@ -967,10 +1244,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Classic precast shelf-angle beam check (Syllabus Comment [UI1] & Module 6 LTB): until structural grout fills the gap and ties the top flange into a diaphragm, the top compression flange is unrestrained.",
-      "citation": "Euler Elastic Buckling Theory, Ayrton-Perry Formulation & BS EN 1993-1-1 Cl. 6.3",
+      "citation": {
+        "moduleId": "MOD-06",
+        "topicId": "MOD06-T2",
+        "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "N.S. Trahair et al. / BSI",
+        "clauseOrSection": "Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2",
+        "pageReference": "pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)",
+        "formatted": "N.S. Trahair et al. / BSI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & BS EN 1993-1-1:2005, Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2, pp. 183–218 (Trahair) / pp. 60–65 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify whether bottom-flange shelf angles restrain top-flange LTB\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Verify whether bottom-flange shelf angles restrain top-flange LTB): In an unrestrained open I-beam bent about its major axis, the compression flange behaves like a strut that wants to buckle laterally between points of effective lateral restraint, twisting the cross-section.",
+        "Second Hint (Analytical Elimination Criterion): Identify which flange is in compression (top flange in sagging, bottom flange at hogging cantilevers/haunches) and verify that lateral restraint is connected to a stiff bracing system or floor diaphragm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 6, §6.1–6.5 & BS EN 1993-1-1 Cl. 6.3.2)."
       ],
       "caseFamilyId": "MOD06-T2-CF",
       "reviewStatus": "Draft",

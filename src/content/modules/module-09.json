@@ -36,7 +36,11 @@
         "Calculate M_b,Rd and λ_bar,LT from supplied parameters and explain Project 9.1.",
         "Explain why uniform bending moment over an unrestrained span is more severe for LTB than a steep moment gradient."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD09-T1-Q1",
@@ -50,10 +54,18 @@
           "correctAnswer": 1.2,
           "tolerance": 0.018,
           "explanation": "λ_bar,LT = √(213.0 / 148.0) = √1.4392 = 1.1997 ≈ 1.20. Step-by-step verification for \"Calculate non-dimensional LTB slenderness λ_bar,LT\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.2 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4",
+            "pageReference": "pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360, BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4, pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate non-dimensional LTB slenderness λ_bar,LT\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: λ_bar,LT = √(213.0 / 148.0) = √1.4392 = 1.1997 ≈ 1.20. Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Calculate non-dimensional LTB slenderness λ_bar,LT): For laterally unrestrained beams, elastic critical moment M_cr governs non-dimensional LTB slenderness λ_bar,LT, which determines the buckling reduction factor χ_LT.",
+            "Second Hint (Symbolic Formula & Unit Setup): λ_bar,LT = √(213.0 / 148.0) = √1.4392 = 1.1997 = ?. (express final result in ratio)."
           ],
           "caseFamilyId": "MOD09-T1-CF",
           "reviewStatus": "Draft",
@@ -71,14 +83,21 @@
           "correctAnswer": 110.8,
           "tolerance": 1.66,
           "explanation": "M_b,Rd = 0.52 × 213.0 / 1.00 = 110.76 kN·m ≈ 110.8 kN·m (nearly half of its laterally restrained capacity of 213.0 kN·m!). Step-by-step verification for \"Calculate LTB design buckling resistance M_b,Rd\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 110.8 kN·m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4",
+            "pageReference": "pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360, BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4, pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate LTB design buckling resistance M_b,Rd\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: M_b,Rd = 0.52 × 213.0 / 1.00 = 110.76 kN·m ≈ 110.8 kN·m (nearly half of its laterally restrained capacity of 213.0 kN·m!). Express your final numeric answer in kN·m."
+            "First Hint (Physical Principle & Idealisation: Calculate LTB design buckling resistance M_b,Rd): For laterally unrestrained beams, elastic critical moment M_cr governs non-dimensional LTB slenderness λ_bar,LT, which determines the buckling reduction factor χ_LT.",
+            "Second Hint (Symbolic Formula & Unit Setup): M_b,Rd = 0.52 × 213.0 / 1.00 = 110.76 kN·m = ?.0 kN·m!). (express final result in kN·m)."
           ],
           "caseFamilyId": "MOD09-T1-CF",
           "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver.",
           "solverVerificationId": "SOLVER-MOD09-T1-Q2"
         },
         {
@@ -98,10 +117,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Uniform compression over the entire unrestrained length (C_1 = 1.0) is the worst case for LTB; a moment gradient leaves most of the flange at lower compression.",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4",
+            "pageReference": "pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360, BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4, pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why moment gradient affects LTB resistance (C_1 factor)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why moment gradient affects LTB resistance (C_1 factor)): For laterally unrestrained beams, elastic critical moment M_cr governs non-dimensional LTB slenderness λ_bar,LT, which determines the buckling reduction factor χ_LT.",
+            "Second Hint (Analytical Elimination Criterion): Compute λ_bar,LT = √(W_pl,y · f_y / M_cr) using consistent moment units, obtain χ_LT from the appropriate LTB buckling curve, and evaluate M_b,Rd = χ_LT · W_pl,y · f_y / γ_M1. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4)."
           ],
           "caseFamilyId": "MOD09-T1-CF",
           "reviewStatus": "Draft",
@@ -124,10 +151,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "UKC sections have wide flanges (large I_z) and RHS box sections have huge torsional constant J (so RHS beams are virtually immune to LTB at normal spans).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4",
+            "pageReference": "pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360, BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4, pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify effective design alternatives when an unrestrained beam fails LTB (Project 9.1)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify effective design alternatives when an unrestrained beam fails LTB (Project 9.1)): For laterally unrestrained beams, elastic critical moment M_cr governs non-dimensional LTB slenderness λ_bar,LT, which determines the buckling reduction factor χ_LT.",
+            "Second Hint (Analytical Elimination Criterion): Compute λ_bar,LT = √(W_pl,y · f_y / M_cr) using consistent moment units, obtain χ_LT from the appropriate LTB buckling curve, and evaluate M_b,Rd = χ_LT · W_pl,y · f_y / γ_M1. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4)."
           ],
           "caseFamilyId": "MOD09-T1-CF",
           "reviewStatus": "Draft",
@@ -150,10 +185,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Load-bearing and torsional stiffeners reinforce the thin web against local out-of-plane buckling and cross-sectional distortion. Engineering synthesis for \"Identify the purpose of transverse web stiffeners at supports and heavy point loads\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4",
+            "pageReference": "pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360, BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4, pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the purpose of transverse web stiffeners at supports and heavy point loads\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify the purpose of transverse web stiffeners at supports and heavy point loads): For laterally unrestrained beams, elastic critical moment M_cr governs non-dimensional LTB slenderness λ_bar,LT, which determines the buckling reduction factor χ_LT.",
+            "Second Hint (Analytical Elimination Criterion): Compute λ_bar,LT = √(W_pl,y · f_y / M_cr) using consistent moment units, obtain χ_LT from the appropriate LTB buckling curve, and evaluate M_b,Rd = χ_LT · W_pl,y · f_y / γ_M1. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4)."
           ],
           "caseFamilyId": "MOD09-T1-CF",
           "reviewStatus": "Draft",
@@ -178,7 +221,11 @@
         "Calculate λ_bar and N_b,Rd for a steel column (Project 9.2) and explain why N_b,Rd < N_pl,Rd.",
         "Explain why simple beam connections still induce nominal eccentric moments in columns."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD09-T2-Q1",
@@ -192,15 +239,22 @@
           "correctAnswer": 1.2,
           "tolerance": 0.018,
           "explanation": "λ_bar = √(2,059 / 1,430) = √1.4399 = 1.20. Step-by-step verification for \"Calculate non-dimensional column slenderness λ_bar (Project 9.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.2 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+            "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate non-dimensional column slenderness λ_bar (Project 9.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: λ_bar = √(2,059 / 1,430) = √1.4399 = ?. Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Calculate non-dimensional column slenderness λ_bar (Project 9.2)): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+            "Second Hint (Symbolic Formula & Unit Setup): λ_bar = √(2,059 / 1,430) = √1.4399 = ?. (express final result in ratio)."
           ],
           "caseFamilyId": "MOD09-T2-CF",
           "solverVerificationId": "SOLVER-MOD09-T2-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD09-T2-Q2",
@@ -214,15 +268,22 @@
           "correctAnswer": 893.6,
           "tolerance": 13.4,
           "explanation": "N_b,Rd = 0.434 × 2,059 / 1.00 = 893.6 kN (only 43.4% of the 2,059 kN squash load!). Step-by-step verification for \"Calculate EC3 design buckling resistance N_b,Rd (Project 9.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 893.6 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+            "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate EC3 design buckling resistance N_b,Rd (Project 9.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: N_b,Rd = 0.434 × 2,059 / 1.00 = 893.6 kN (only 43.4% of the 2,059 kN squash load!). Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate EC3 design buckling resistance N_b,Rd (Project 9.2)): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+            "Second Hint (Symbolic Formula & Unit Setup): N_b,Rd = 0.434 × 2,059 / 1.00 = ?.4% of the 2,059 kN squash load!). (express final result in kN)."
           ],
           "caseFamilyId": "MOD09-T2-CF",
           "solverVerificationId": "SOLVER-MOD09-T2-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD09-T2-Q3",
@@ -241,10 +302,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Compressive residual stresses at the flange tips reduce the effective minor-axis flexural stiffness I_z much more rapidly than major-axis I_y once compression increases.",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+            "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why EC3 assigns different buckling curves (a0, a, b, c, d) to different sections and axes\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why EC3 assigns different buckling curves (a0, a, b, c, d) to different sections and axes): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+            "Second Hint (Analytical Elimination Criterion): Calculate non-dimensional slenderness λ_bar = √(A · f_y / N_cr) about the governing axis (usually minor axis z-z), apply reduction factor χ to find N_b,Rd = χ · A · f_y / γ_M1, and check combined axial + bending interaction. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7)."
           ],
           "caseFamilyId": "MOD09-T2-CF",
           "reviewStatus": "Draft",
@@ -262,10 +331,18 @@
           "correctAnswer": 36.3,
           "tolerance": 0.544,
           "explanation": "Total lever arm from column centreline e = (203.2 / 2) + 100 = 101.6 + 100 = 201.6 mm = 0.2016 m. Nominal moment M_y,Ed = 180 kN × 0.2016 m = 36.29 kN·m ≈ 36.3 kN·m.",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+            "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate nominal eccentricity bending moment on a column in simple construction\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Total lever arm from column centreline e = (203.2 / 2) + 100 = 101.6 + 100 = 201.6 mm = ?. Express your final numeric answer in kN·m."
+            "First Hint (Physical Principle & Idealisation: Calculate nominal eccentricity bending moment on a column in simple construction): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+            "Second Hint (Symbolic Formula & Unit Setup): Calculate non-dimensional slenderness λ_bar = √(A · f_y / N_cr) about the governing axis (usually minor axis z-z), apply reduction factor χ to find N_b,Rd = χ · A · f_y / γ_M1, and check combined axial + bending interaction. Express your final calculated value in kN·m."
           ],
           "caseFamilyId": "MOD09-T2-CF",
           "reviewStatus": "Draft",
@@ -288,10 +365,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Preventing sway via diagonal bracing or shear cores keeps column effective lengths ≤ storey height L. Engineering synthesis for \"Compare effective lengths in braced (non-sway) vs unbraced (sway) frames\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+            "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Compare effective lengths in braced (non-sway) vs unbraced (sway) frames\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Compare effective lengths in braced (non-sway) vs unbraced (sway) frames): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+            "Second Hint (Analytical Elimination Criterion): Calculate non-dimensional slenderness λ_bar = √(A · f_y / N_cr) about the governing axis (usually minor axis z-z), apply reduction factor χ to find N_b,Rd = χ · A · f_y / γ_M1, and check combined axial + bending interaction. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7)."
           ],
           "caseFamilyId": "MOD09-T2-CF",
           "reviewStatus": "Draft",
@@ -316,7 +401,11 @@
         "Calculate fillet weld throat thickness, bolt group forces, and column baseplate pressures.",
         "Explain why connection stiffness assumptions affect the entire structural analysis model (Module 9 Gate)."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD09-T3-Q1",
@@ -330,10 +419,18 @@
           "correctAnswer": 5.66,
           "tolerance": 0.0849,
           "explanation": "a = 8.0 × cos(45°) = 8.0 × 0.7071 = 5.657 mm ≈ 5.66 mm (often taken conservatively as 0.7 × 8.0 = 5.6 mm). Step-by-step verification for \"Calculate effective throat thickness a of a symmetric 45° fillet weld\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 5.66 mm, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T3",
+            "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+            "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate effective throat thickness a of a symmetric 45° fillet weld\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: a = 8.0 × cos(45°) = 8.0 × 0.7071 = 5.657 mm ≈ 5.66 mm (often taken conservatively as 0.7 × 8.0 = 5.6 mm). Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate effective throat thickness a of a symmetric 45° fillet weld): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+            "Second Hint (Symbolic Formula & Unit Setup): a = 8.0 × cos(45°) = 8.0 × 0.7071 = 5.657 mm = ?.7 × 8.0 = 5.6 mm). (express final result in mm)."
           ],
           "caseFamilyId": "MOD09-T3-CF",
           "reviewStatus": "Draft",
@@ -356,10 +453,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Block tearing is particularly critical when a beam top flange is notched (coped) at a connection, leaving a free top edge above the bolt group. Engineering synthesis for \"Understand block tearing failure in a bolted beam-end or gusset connection\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T3",
+            "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+            "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand block tearing failure in a bolted beam-end or gusset connection\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand block tearing failure in a bolted beam-end or gusset connection): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+            "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
           ],
           "caseFamilyId": "MOD09-T3-CF",
           "reviewStatus": "Draft",
@@ -382,10 +487,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "In structural mechanics, force follows stiffness! If a connection is detailed stiffly, it will attract moment whether the analysis model assumed a pin or not.",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T3",
+            "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+            "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why connection assumptions affect the whole structural model (Module 9 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand why connection assumptions affect the whole structural model (Module 9 Gate)): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+            "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
           ],
           "caseFamilyId": "MOD09-T3-CF",
           "reviewStatus": "Draft",
@@ -408,10 +521,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Note also that under hogging at the eaves haunch, the BOTTOM flange of the haunch is in compression and requires torsional fly-bracing from the purlins/side rails!",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T3",
+            "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+            "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why pitched-roof steel portal frames have haunches at the eaves\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand why pitched-roof steel portal frames have haunches at the eaves): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+            "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
           ],
           "caseFamilyId": "MOD09-T3-CF",
           "reviewStatus": "Draft",
@@ -434,10 +555,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "When a frame is flexible in sway (e.g. α_cr = F_cr / F_Ed < 10 in EC3), second-order P-Δ amplification must be accounted for in the analysis. Engineering synthesis for \"Understand second-order (P-Δ) sway effects in frames\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-          "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+          "citation": {
+            "moduleId": "MOD-09",
+            "topicId": "MOD09-T3",
+            "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+            "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand second-order (P-Δ) sway effects in frames\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand second-order (P-Δ) sway effects in frames): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+            "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
           ],
           "caseFamilyId": "MOD09-T3-CF",
           "reviewStatus": "Draft",
@@ -494,15 +623,22 @@
       "correctAnswer": 1.25,
       "tolerance": 0.0187,
       "explanation": "λ_bar,LT = √(300 / 192) = √1.5625 = 1.25. Step-by-step verification for \"Calculate non-dimensional LTB slenderness λ_bar,LT\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.25 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T1",
+        "sourceTitle": "BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4",
+        "pageReference": "pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360, BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4, pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate non-dimensional LTB slenderness λ_bar,LT\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: λ_bar,LT = √(300 / 192) = √1.5625 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate non-dimensional LTB slenderness λ_bar,LT): For laterally unrestrained beams, elastic critical moment M_cr governs non-dimensional LTB slenderness λ_bar,LT, which determines the buckling reduction factor χ_LT.",
+        "Second Hint (Symbolic Formula & Unit Setup): λ_bar,LT = √(300 / 192) = √1.5625 = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD09-T1-CF",
       "solverVerificationId": "SOLVER-MOD09-E01",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD09-E02",
@@ -516,15 +652,22 @@
       "correctAnswer": 144,
       "tolerance": 2.16,
       "explanation": "M_b,Rd = 0.48 × 300 / 1.00 = 144.0 kN·m. Step-by-step verification for \"Calculate LTB design resistance M_b,Rd\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 144 kN·m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T1",
+        "sourceTitle": "BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4",
+        "pageReference": "pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360, BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4, pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate LTB design resistance M_b,Rd\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_b,Rd = 0.48 × 300 / 1.00 = ?. Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate LTB design resistance M_b,Rd): For laterally unrestrained beams, elastic critical moment M_cr governs non-dimensional LTB slenderness λ_bar,LT, which determines the buckling reduction factor χ_LT.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_b,Rd = 0.48 × 300 / 1.00 = ?.0 kN·m. (express final result in kN·m)."
       ],
       "caseFamilyId": "MOD09-T1-CF",
       "solverVerificationId": "SOLVER-MOD09-E02",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD09-E03",
@@ -538,15 +681,22 @@
       "correctAnswer": 0.95,
       "tolerance": 0.0142,
       "explanation": "λ_bar = √(1,800 / 2,000) = √0.90 = 0.9487 ≈ 0.95. Step-by-step verification for \"Calculate column non-dimensional slenderness λ_bar\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.95 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "BSI / N.S. Trahair et al.",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+        "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+        "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate column non-dimensional slenderness λ_bar\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: λ_bar = √(1,800 / 2,000) = √0.90 = 0.9487 ≈ 0.95. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate column non-dimensional slenderness λ_bar): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+        "Second Hint (Symbolic Formula & Unit Setup): λ_bar = √(1,800 / 2,000) = √0.90 = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD09-T2-CF",
       "solverVerificationId": "SOLVER-MOD09-E03",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD09-E04",
@@ -560,15 +710,22 @@
       "correctAnswer": 1044,
       "tolerance": 15.7,
       "explanation": "N_b,Rd = 0.58 × 1,800 / 1.00 = 1,044 kN. Step-by-step verification for \"Calculate column design buckling resistance N_b,Rd\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1044 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "BSI / N.S. Trahair et al.",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+        "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+        "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate column design buckling resistance N_b,Rd\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: N_b,Rd = 0.58 × 1,800 / 1.00 = 1,044 kN. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate column design buckling resistance N_b,Rd): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+        "Second Hint (Symbolic Formula & Unit Setup): N_b,Rd = 0.58 × 1,800 / 1.00 = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD09-T2-CF",
       "solverVerificationId": "SOLVER-MOD09-E04",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD09-E05",
@@ -582,10 +739,18 @@
       "correctAnswer": 1,
       "tolerance": 0.015,
       "explanation": "(500 / 1,000) + (30 / 150) + 1.5 × (10 / 50) = 0.50 + 0.20 + 0.30 = 1.00 (just at the limit of 1.00). Step-by-step verification for \"Evaluate simplified combined axial compression and biaxial bending utilisation\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "BSI / N.S. Trahair et al.",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+        "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+        "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Evaluate simplified combined axial compression and biaxial bending utilisation\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: (500 / 1,000) + (30 / 150) + 1.5 × (10 / 50) = 0.50 + 0.20 + 0.30 = 1.00 (just at the limit of 1.00). Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Evaluate simplified combined axial compression and biaxial bending utilisation): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+        "Second Hint (Symbolic Formula & Unit Setup): (500 / ?,000) + (30 / 150) + 1.5 × (10 / 50) = 0.50 + 0.20 + 0.30 = ?.00 (just at the limit of ?). (express final result in ratio)."
       ],
       "caseFamilyId": "MOD09-T2-CF",
       "reviewStatus": "Draft",
@@ -603,10 +768,18 @@
       "correctAnswer": 45,
       "tolerance": 0.675,
       "explanation": "F_v,Ed = 270 kN / 6 = 45.0 kN per bolt. Step-by-step verification for \"Calculate design shear force per bolt in a concentric bolt group\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 45 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate design shear force per bolt in a concentric bolt group\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: F_v,Ed = 270 kN / 6 = 45.0 kN per bolt. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate design shear force per bolt in a concentric bolt group): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Symbolic Formula & Unit Setup): F_v,Ed = 270 kN / 6 = ?.0 kN per bolt. (express final result in kN)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -624,10 +797,18 @@
       "correctAnswer": 144,
       "tolerance": 2.16,
       "explanation": "L_w,req = 180 kN / (1.25 kN/mm) = 144 mm (e.g. 72 mm effective length along each of the two edges of the flat bar). Step-by-step verification for \"Calculate required length of fillet weld to resist an axial tie force\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 144 mm, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required length of fillet weld to resist an axial tie force\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: L_w,req = 180 kN / (1.25 kN/mm) = 144 mm (e.g. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate required length of fillet weld to resist an axial tie force): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Symbolic Formula & Unit Setup): L_w,req = 180 kN / (1.25 kN/mm) = ?.g. (express final result in mm)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -645,10 +826,18 @@
       "correctAnswer": 10,
       "tolerance": 0.15,
       "explanation": "Area = 350 × 350 = 122,500 mm². Stress = 1,225,000 N / 122,500 mm² = 10.0 N/mm². Step-by-step verification for \"Calculate average bearing pressure under a square column baseplate\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10 N/mm², and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate average bearing pressure under a square column baseplate\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Area = 350 × 350 = 122,500 mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate average bearing pressure under a square column baseplate): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Symbolic Formula & Unit Setup): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -666,10 +855,18 @@
       "correctAnswer": 80,
       "tolerance": 1.2,
       "explanation": "160 kN / 2 = 80.0 kN per braced gable wall. Step-by-step verification for \"Calculate horizontal wind shear per braced bay in a symmetric building (Project 9.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 80 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate horizontal wind shear per braced bay in a symmetric building (Project 9.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 160 kN / 2 = 80.0 kN per braced gable wall. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate horizontal wind shear per braced bay in a symmetric building (Project 9.3)): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Symbolic Formula & Unit Setup): 160 kN / 2 = ?.0 kN per braced gable wall. (express final result in kN)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -687,10 +884,18 @@
       "correctAnswer": 154,
       "tolerance": 2.31,
       "explanation": "Overturning moment about windward base = 80 kN × 4.0 m = 320 kN·m. Extra compression in leeward column ΔN_wind = 320 / 5.0 = 64 kN (also equal to vertical component of diagonal tension). Total leeward column compression = 90 + 64 = 154 kN.",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate axial compression in the leeward column of a braced bay (Project 9.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Overturning moment about windward base = 80 kN × 4.0 m = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate axial compression in the leeward column of a braced bay (Project 9.3)): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Symbolic Formula & Unit Setup): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Express your final calculated value in kN."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -713,10 +918,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "For unbraced columns, minor-axis buckling almost always governs; UKC sections have b ≈ h to maximise minor-axis radius of gyration i_z. Engineering synthesis for \"Explain why Universal Column (UKC) sections are preferred over Universal Beam (UB) sections for columns\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "BSI / N.S. Trahair et al.",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+        "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+        "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why Universal Column (UKC) sections are preferred over Universal Beam (UB) sections for columns\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why Universal Column (UKC) sections are preferred over Universal Beam (UB) sections for columns): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+        "Second Hint (Analytical Elimination Criterion): Calculate non-dimensional slenderness λ_bar = √(A · f_y / N_cr) about the governing axis (usually minor axis z-z), apply reduction factor χ to find N_b,Rd = χ · A · f_y / γ_M1, and check combined axial + bending interaction. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7)."
       ],
       "caseFamilyId": "MOD09-T2-CF",
       "reviewStatus": "Draft",
@@ -739,10 +952,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Prying forces must either be accounted for in bolt tension capacity (EC3 T-stub model) or minimised by using a sufficiently thick end plate and placing bolts close to the tension flange/web.",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand prying action in bolted T-stub / end-plate tension connections\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand prying action in bolted T-stub / end-plate tension connections): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -765,10 +986,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Construction-stage stability of freestanding columns is a classic temporary/permanent works interface (Project 9.3). Engineering synthesis for \"Explain why every steel column needs at least 4 holding-down bolts for erection safety\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why every steel column needs at least 4 holding-down bolts for erection safety\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why every steel column needs at least 4 holding-down bolts for erection safety): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -791,10 +1020,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "In a tension-only braced bay, only the active tension diagonal is included in the stiffness/equilibrium model for a given load direction. Engineering synthesis for \"Understand how tension-only cross-bracing (X-bracing) works under reversible wind\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand how tension-only cross-bracing (X-bracing) works under reversible wind\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand how tension-only cross-bracing (X-bracing) works under reversible wind): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -817,10 +1054,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "In a gravity cantilever, the bottom flange is in compression and the free tip can twist and translate laterally unless specifically braced at the tip and bottom flange.",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T1",
+        "sourceTitle": "BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4",
+        "pageReference": "pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005, BS EN 1993-1-5:2006 & SCI Publication P360, BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4, pp. 60–64 (EN 1993-1-1) / pp. 19–48 (SCI P360)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise torsional and LTB hazard at cantilevered beam overhangs\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Recognise torsional and LTB hazard at cantilevered beam overhangs): For laterally unrestrained beams, elastic critical moment M_cr governs non-dimensional LTB slenderness λ_bar,LT, which determines the buckling reduction factor χ_LT.",
+        "Second Hint (Analytical Elimination Criterion): Compute λ_bar,LT = √(W_pl,y · f_y / M_cr) using consistent moment units, obtain χ_LT from the appropriate LTB buckling curve, and evaluate M_b,Rd = χ_LT · W_pl,y · f_y / γ_M1. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.3.2.1–6.3.2.3, EN 1993-1-5 Cl. 9 & SCI P360 §3–4)."
       ],
       "caseFamilyId": "MOD09-T1-CF",
       "reviewStatus": "Draft",
@@ -843,10 +1088,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "A bolted joint is a chain of links: connection resistance is the minimum of bolt shear resistance F_v,Rd and plate bearing resistance F_b,Rd. Engineering synthesis for \"Understand bolt bearing vs bolt shear in thin-plate connections\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand bolt bearing vs bolt shear in thin-plate connections\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand bolt bearing vs bolt shear in thin-plate connections): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -864,10 +1117,18 @@
       "correctAnswer": 36.1,
       "tolerance": 0.541,
       "explanation": "Resultant bolt shear F_res = √(30² + 20²) = √(900 + 400) = √1,300 = 36.056 kN ≈ 36.1 kN. Step-by-step verification for \"Calculate maximum bolt force in an eccentrically loaded shear bolt group\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 36.1 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum bolt force in an eccentrically loaded shear bolt group\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Resultant bolt shear F_res = √(30² + 20²) = √(900 + 400) = √1,300 = 36.056 kN ≈ 36.1 kN. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate maximum bolt force in an eccentrically loaded shear bolt group): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Symbolic Formula & Unit Setup): Resultant bolt shear F_res = √(30² + 20²) = √(900 + 400) = √1,300 = 36.056 kN = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -890,10 +1151,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Note: even when ends are machined for direct bearing in compression, EC3 requires column splices to be designed for nominal continuity bending and tying tension.",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "BSI / N.S. Trahair et al.",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7",
+        "pageReference": "pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)",
+        "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7, pp. 56–60, 64–67 (EN 1993-1-1) / pp. 59–88, 231–268 (Trahair)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why column splices in multi-storey buildings are placed above floor level\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand why column splices in multi-storey buildings are placed above floor level): Real steel columns contain residual stresses and initial bow imperfections (e_0 = L/1000), represented by the Ayrton-Perry buckling curves (a0, a, b, c, d) rather than the upper-bound Euler hyperbola.",
+        "Second Hint (Analytical Elimination Criterion): Calculate non-dimensional slenderness λ_bar = √(A · f_y / N_cr) about the governing axis (usually minor axis z-z), apply reduction factor χ to find N_b,Rd = χ · A · f_y / γ_M1, and check combined axial + bending interaction. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.3.1, Cl. 6.3.3 (Eq. 6.61–6.62) & Trahair Ch. 3, Ch. 7)."
       ],
       "caseFamilyId": "MOD09-T2-CF",
       "reviewStatus": "Draft",
@@ -916,10 +1185,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Pitched-roof portal frames push outwards at the bases under gravity load; tying the bases together across the floor slab is standard UK practice to avoid large horizontal foundation thrusts.",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify how horizontal forces at the base of a portal frame or braced bay are resisted\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify how horizontal forces at the base of a portal frame or braced bay are resisted): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",
@@ -942,10 +1219,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Summarises all four pillars of the Module 9 Learning Gate. Engineering synthesis for \"Synthesise the Module 9 Learning Gate on global stability and connection assumptions\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Member Buckling Resistance, Cl. 6.3.1 & Cl. 6.3.2).",
-      "citation": "BS EN 1993-1-1:2005 Cl. 6.3.1–6.3.3 & BS EN 1993-1-8 Connections",
+      "citation": {
+        "moduleId": "MOD-09",
+        "topicId": "MOD09-T3",
+        "sourceTitle": "BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7",
+        "pageReference": "pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-8:2005 (Eurocode 3: Design of Joints) & SCI Publication P358, BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7, pp. 27–35, 44–51, 92–101 (EN 1993-1-8) / pp. 15–120 (SCI P358)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Synthesise the Module 9 Learning Gate on global stability and connection assumptions\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Synthesise the Module 9 Learning Gate on global stability and connection assumptions): Every connection detail (fin plate, flexible end plate, haunched moment joint, or base plate) must match the rotational release or fixity assumed in the global frame analysis.",
+        "Second Hint (Analytical Elimination Criterion): Check bolt shear, plate bearing, block tearing, and fillet weld throat shear (throat thickness a = 0.7 · s for a 45° mitre fillet weld), and account for eccentric bolt-group shear + torsion. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-8 Cl. 3.6, Cl. 4.5, Cl. 6.2.8 & SCI P358 §2–7)."
       ],
       "caseFamilyId": "MOD09-T3-CF",
       "reviewStatus": "Draft",

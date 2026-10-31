@@ -39,7 +39,11 @@
         "Compute midspan and cantilever tip deflections in mm using consistent (mm, N) units.",
         "Combine UDL and point-load deflections using linear elastic superposition."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD05-T1-Q1",
@@ -53,15 +57,22 @@
           "correctAnswer": 1.19,
           "tolerance": 0.0178,
           "explanation": "Numerator = 5 × 6.0 × 4,000⁴ = 30 × 2.56 × 10¹⁴ = 7.68 × 10¹⁵ N·mm³. Denominator = 384 × 210,000 × 80 × 10⁶ = 6.4512 × 10¹⁵ N·mm². δ = 7.68 / 6.4512 = 1.190 mm.",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+            "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate midspan deflection of a simply supported beam under UDL (Example 5.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Numerator = 5 × 6.0 × 4,000⁴ = 30 × 2.56 × 10¹⁴ = 7.68 × 10¹⁵ N·mm³. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate midspan deflection of a simply supported beam under UDL (Example 5.1)): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+            "Second Hint (Symbolic Formula & Unit Setup): Convert all inputs into consistent (N, mm) units: w in N/mm (1 kN/m = 1 N/mm), P in N, L in mm, E in N/mm², and I in mm⁴ (1 cm⁴ = 10⁴ mm⁴); then evaluate δ = 5wL⁴/(384EI), δ = PL³/(48EI), or cantilever δ = wL⁴/(8EI) + PL³/(3EI). Express your final calculated value in mm."
           ],
           "caseFamilyId": "MOD05-T1-CF",
           "solverVerificationId": "SOLVER-MOD05-T1-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD05-T1-Q2",
@@ -75,15 +86,22 @@
           "correctAnswer": 2,
           "tolerance": 0.03,
           "explanation": "Numerator = 25,200 × 4,000³ = 1.6128 × 10¹⁵ N·mm³. Denominator = 48 × 210,000 × 80 × 10⁶ = 8.064 × 10¹⁴ N·mm². δ = 1.6128×10¹⁵ / 8.064×10¹⁴ = 2.00 mm.",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+            "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate midspan deflection under a central point load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Numerator = 25,200 × 4,000³ = 1.6128 × 10¹⁵ N·mm³. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate midspan deflection under a central point load): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+            "Second Hint (Symbolic Formula & Unit Setup): Numerator = ?.6128 × 10¹⁵ N·mm³. (express final result in mm)."
           ],
           "caseFamilyId": "MOD05-T1-CF",
           "solverVerificationId": "SOLVER-MOD05-T1-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD05-T1-Q3",
@@ -97,10 +115,18 @@
           "correctAnswer": 4,
           "tolerance": 0.06,
           "explanation": "δ = (12,000 × 2,000³) / (3 × 200,000 × 40 × 10⁶) = (9.6 × 10¹³) / (2.4 × 10¹³) = 4.0 mm. Step-by-step verification for \"Calculate tip deflection of a cantilever under a tip point load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+            "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate tip deflection of a cantilever under a tip point load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: δ = (12,000 × 2,000³) / (3 × 200,000 × 40 × 10⁶) = (9.6 × 10¹³) / (2.4 × 10¹³) = ?. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate tip deflection of a cantilever under a tip point load): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+            "Second Hint (Symbolic Formula & Unit Setup): δ = (12,000 × 2,000³) / (3 × 200,000 × 40 × 10⁶) = (9.6 × 10¹³) / (2.4 × 10¹³) = ?.0 mm. (express final result in mm)."
           ],
           "caseFamilyId": "MOD05-T1-CF",
           "reviewStatus": "Draft",
@@ -118,10 +144,18 @@
           "correctAnswer": 38.57,
           "tolerance": 0.579,
           "explanation": "I_req = 5 w L⁴ / (384 E δ_lim) = (5 × 8.0 × 6,000⁴) / (384 × 210,000 × 16.667) = (5.184 × 10¹⁶) / (1.344 × 10⁹) = 38.57 × 10⁶ mm⁴. Step-by-step verification for \"Calculate required second moment of area I to satisfy an L/360 deflection limit\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 38.57 10⁶ mm⁴, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+            "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate required second moment of area I to satisfy an L/360 deflection limit\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: I_req = 5 w L⁴ / (384 E δ_lim) = (5 × 8.0 × 6,000⁴) / (384 × 210,000 × 16.667) = (5.184 × 10¹⁶) / (1.344 × 10⁹) = 38.57 × 10⁶ mm⁴. Express your final numeric answer in 10⁶ mm⁴."
+            "First Hint (Physical Principle & Idealisation: Calculate required second moment of area I to satisfy an L/360 deflection limit): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+            "Second Hint (Symbolic Formula & Unit Setup): I_req = 5 w L⁴ / (384 E δ_lim) = (5 × 8.0 × 6,000⁴) / (384 × 210,000 × 16.667) = (5.184 × 10¹⁶) / (1.344 × 10⁹) = ?. (express final result in 10⁶ mm⁴)."
           ],
           "caseFamilyId": "MOD05-T1-CF",
           "reviewStatus": "Draft",
@@ -144,10 +178,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Superposition requires linearity of both the constitutive law (Hooke’s law) and kinematics (small displacements, no P-Δ second-order amplification).",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T1",
+            "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+            "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+            "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+            "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand conditions required for deflection superposition\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand conditions required for deflection superposition): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+            "Second Hint (Analytical Elimination Criterion): Convert all inputs into consistent (N, mm) units: w in N/mm (1 kN/m = 1 N/mm), P in N, L in mm, E in N/mm², and I in mm⁴ (1 cm⁴ = 10⁴ mm⁴); then evaluate δ = 5wL⁴/(384EI), δ = PL³/(48EI), or cantilever δ = wL⁴/(8EI) + PL³/(3EI). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2)."
           ],
           "caseFamilyId": "MOD05-T1-CF",
           "reviewStatus": "Draft",
@@ -172,7 +214,11 @@
         "Complete all three parametric comparisons in Syllabus Example 5.1 accurately.",
         "Explain why span L has a fourth-power effect under a UDL."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD05-T2-Q1",
@@ -186,15 +232,22 @@
           "correctAnswer": 2.44,
           "tolerance": 0.0366,
           "explanation": "Since δ = 5wL⁴/(384EI) with w, E, and I constant, δ_5m / δ_4m = (5.0 / 4.0)⁴ = 1.25⁴ = 2.4414 ≈ 2.44. Step-by-step verification for \"Calculate deflection multiplier when span increases from 4 m to 5 m under UDL (Example 5.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.44 factor, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / N.S. Trahair et al.",
+            "clauseOrSection": "Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7",
+            "pageReference": "pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)",
+            "formatted": "R.C. Hibbeler / N.S. Trahair et al., Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.), Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7, pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate deflection multiplier when span increases from 4 m to 5 m under UDL (Example 5.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Since δ = 5wL⁴/(384EI) with w, E, and I constant, δ_5m / δ_4m = (5.0 / 4.0)⁴ = 1.25⁴ = 2.4414 ≈ 2.44. Express your final numeric answer in factor."
+            "First Hint (Physical Principle & Idealisation: Calculate deflection multiplier when span increases from 4 m to 5 m under UDL (Example 5.1)): Examine the exponents in the elastic deflection formula: deflection scales with the fourth power of span (L⁴) under a UDL and inversely with second moment of area (I ∝ d³), but is independent of steel yield strength f_y.",
+            "Second Hint (Symbolic Formula & Unit Setup): Since δ = 5wL⁴/(384EI) with w, E, and I constant, δ_5m / δ_4m = (5.0 / 4.0)⁴ = 1.25⁴ = ?.44. (express final result in factor)."
           ],
           "caseFamilyId": "MOD05-T2-CF",
           "solverVerificationId": "SOLVER-MOD05-T2-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD05-T2-Q2",
@@ -208,15 +261,22 @@
           "correctAnswer": 0.512,
           "tolerance": 0.00768,
           "explanation": "Since I = bd³/12, I_new = 1.25³ I_old = 1.953125 I_old. Therefore δ_new / δ_old = 1 / 1.25³ = 0.8³ = 0.512 (nearly halving the deflection). Step-by-step verification for \"Calculate deflection reduction factor when rectangular depth increases by 25% (Example 5.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.512 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / N.S. Trahair et al.",
+            "clauseOrSection": "Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7",
+            "pageReference": "pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)",
+            "formatted": "R.C. Hibbeler / N.S. Trahair et al., Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.), Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7, pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate deflection reduction factor when rectangular depth increases by 25% (Example 5.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Since I = bd³/12, I_new = 1.25³ I_old = 1.953125 I_old. Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Calculate deflection reduction factor when rectangular depth increases by 25% (Example 5.1)): Examine the exponents in the elastic deflection formula: deflection scales with the fourth power of span (L⁴) under a UDL and inversely with second moment of area (I ∝ d³), but is independent of steel yield strength f_y.",
+            "Second Hint (Symbolic Formula & Unit Setup): For a span change at constant w and EI use δ_new / δ_old = (L_new / L_old)⁴; for a rectangular section depth change at constant b, L, and w use δ_new / δ_old = (d_old / d_new)³. Express your final calculated value in ratio."
           ],
           "caseFamilyId": "MOD05-T2-CF",
           "solverVerificationId": "SOLVER-MOD05-T2-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD05-T2-Q3",
@@ -235,10 +295,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "M_max ∝ wL² (or PL for point load), and double integration of curvature d²y/dx² = M/EI over [0, L] multiplies by L², giving wL⁴/(EI) for UDL and PL³/(EI) for point load.",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / N.S. Trahair et al.",
+            "clauseOrSection": "Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7",
+            "pageReference": "pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)",
+            "formatted": "R.C. Hibbeler / N.S. Trahair et al., Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.), Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7, pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why span L appears to the fourth power (L⁴) under a UDL\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why span L appears to the fourth power (L⁴) under a UDL): Examine the exponents in the elastic deflection formula: deflection scales with the fourth power of span (L⁴) under a UDL and inversely with second moment of area (I ∝ d³), but is independent of steel yield strength f_y.",
+            "Second Hint (Analytical Elimination Criterion): For a span change at constant w and EI use δ_new / δ_old = (L_new / L_old)⁴; for a rectangular section depth change at constant b, L, and w use δ_new / δ_old = (d_old / d_new)³. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7)."
           ],
           "caseFamilyId": "MOD05-T2-CF",
           "reviewStatus": "Draft",
@@ -261,10 +329,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Yield strength fy determines when elastic behaviour ends, not the slope E of the elastic line. Engineering synthesis for \"Explain why higher steel grade does not alter elastic deflection (Example 5.1)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / N.S. Trahair et al.",
+            "clauseOrSection": "Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7",
+            "pageReference": "pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)",
+            "formatted": "R.C. Hibbeler / N.S. Trahair et al., Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.), Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7, pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why higher steel grade does not alter elastic deflection (Example 5.1)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why higher steel grade does not alter elastic deflection (Example 5.1)): Examine the exponents in the elastic deflection formula: deflection scales with the fourth power of span (L⁴) under a UDL and inversely with second moment of area (I ∝ d³), but is independent of steel yield strength f_y.",
+            "Second Hint (Analytical Elimination Criterion): For a span change at constant w and EI use δ_new / δ_old = (L_new / L_old)⁴; for a rectangular section depth change at constant b, L, and w use δ_new / δ_old = (d_old / d_new)³. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7)."
           ],
           "caseFamilyId": "MOD05-T2-CF",
           "reviewStatus": "Draft",
@@ -282,10 +358,18 @@
           "correctAnswer": 16,
           "tolerance": 0.24,
           "explanation": "(2L / L)⁴ = 2⁴ = 16. Step-by-step verification for \"Compare deflection when span is doubled under a UDL\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 16 factor, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / N.S. Trahair et al.",
+            "clauseOrSection": "Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7",
+            "pageReference": "pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)",
+            "formatted": "R.C. Hibbeler / N.S. Trahair et al., Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.), Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7, pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Compare deflection when span is doubled under a UDL\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: (2L / L)⁴ = 2⁴ = ?. Express your final numeric answer in factor."
+            "First Hint (Physical Principle & Idealisation: Compare deflection when span is doubled under a UDL): Examine the exponents in the elastic deflection formula: deflection scales with the fourth power of span (L⁴) under a UDL and inversely with second moment of area (I ∝ d³), but is independent of steel yield strength f_y.",
+            "Second Hint (Symbolic Formula & Unit Setup): For a span change at constant w and EI use δ_new / δ_old = (L_new / L_old)⁴; for a rectangular section depth change at constant b, L, and w use δ_new / δ_old = (d_old / d_new)³. Express your final calculated value in factor."
           ],
           "caseFamilyId": "MOD05-T2-CF",
           "reviewStatus": "Draft",
@@ -310,7 +394,11 @@
         "Distinguish ULS and SLS checks and state the physical consequences each check prevents (Example 5.2).",
         "Explain flat-roof ponding instability and why post-construction deflection matters for brittle partitions."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD05-T3-Q1",
@@ -329,10 +417,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "A beam can easily pass ULS strength checks (especially in high-strength S355 steel) yet deflect enough under unfactored working loads to crack masonry and jam glazing.",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T3",
+            "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+            "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish ULS and SLS physical consequences (Example 5.2 & Module 5 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish ULS and SLS physical consequences (Example 5.2 & Module 5 Gate)): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+            "Second Hint (Analytical Elimination Criterion): Check variable-load deflection against L/360 (brittle plaster/partitions) or L/200, and relate fundamental natural frequency to static deflection via f_0 ≈ 18 / √δ_mm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4)."
           ],
           "caseFamilyId": "MOD05-T3-CF",
           "reviewStatus": "Draft",
@@ -355,10 +451,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Ponding is a classic interaction where insufficient flexural stiffness leads to progressive gravity load accumulation. Engineering synthesis for \"Explain rainwater ponding risk on flexible flat roofs\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T3",
+            "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+            "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain rainwater ponding risk on flexible flat roofs\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain rainwater ponding risk on flexible flat roofs): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+            "Second Hint (Analytical Elimination Criterion): Check variable-load deflection against L/360 (brittle plaster/partitions) or L/200, and relate fundamental natural frequency to static deflection via f_0 ≈ 18 / √δ_mm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4)."
           ],
           "caseFamilyId": "MOD05-T3-CF",
           "reviewStatus": "Draft",
@@ -381,10 +485,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Finishes installed after the dead load of the bare slab/beam has already taken place only experience the incremental deflection from subsequent finishes, partitions, creep, and variable imposed loads.",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T3",
+            "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+            "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why deflection occurring AFTER erection of brittle partitions is checked separately\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand why deflection occurring AFTER erection of brittle partitions is checked separately): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+            "Second Hint (Analytical Elimination Criterion): Check variable-load deflection against L/360 (brittle plaster/partitions) or L/200, and relate fundamental natural frequency to static deflection via f_0 ≈ 18 / √δ_mm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4)."
           ],
           "caseFamilyId": "MOD05-T3-CF",
           "reviewStatus": "Draft",
@@ -407,10 +519,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "For a single-degree-of-freedom oscillator, ω_n = √(k/m) = √(g / δ_static), so larger static deflection means lower natural frequency and greater susceptibility to footfall resonance.",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T3",
+            "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+            "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand floor vibration fundamentals\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand floor vibration fundamentals): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+            "Second Hint (Analytical Elimination Criterion): Check variable-load deflection against L/360 (brittle plaster/partitions) or L/200, and relate fundamental natural frequency to static deflection via f_0 ≈ 18 / √δ_mm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4)."
           ],
           "caseFamilyId": "MOD05-T3-CF",
           "reviewStatus": "Draft",
@@ -428,10 +548,18 @@
           "correctAnswer": 20,
           "tolerance": 0.3,
           "explanation": "δ_lim = 7,200 mm / 360 = 20.0 mm. Step-by-step verification for \"Calculate span/360 serviceability deflection limit\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 20 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-          "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+          "citation": {
+            "moduleId": "MOD-05",
+            "topicId": "MOD05-T3",
+            "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+            "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate span/360 serviceability deflection limit\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: δ_lim = 7,200 mm / 360 = ?. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate span/360 serviceability deflection limit): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+            "Second Hint (Symbolic Formula & Unit Setup): δ_lim = 7,200 mm / 360 = ?.0 mm. (express final result in mm)."
           ],
           "caseFamilyId": "MOD05-T3-CF",
           "reviewStatus": "Draft",
@@ -479,10 +607,18 @@
       "correctAnswer": 3.125,
       "tolerance": 0.0469,
       "explanation": "5 × 9.6 × 5,000⁴ = 48 × 6.25 × 10¹⁴ = 3.0 × 10¹⁶. 384 × 200,000 × 125 × 10⁶ = 9.6 × 10¹⁵. δ = 3.0×10¹⁶ / 9.6×10¹⁵ = 3.125 mm. Step-by-step verification for \"Calculate midspan deflection of simply supported beam under UDL\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3.125 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+        "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate midspan deflection of simply supported beam under UDL\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 5 × 9.6 × 5,000⁴ = 48 × 6.25 × 10¹⁴ = 3.0 × 10¹⁶. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate midspan deflection of simply supported beam under UDL): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert all inputs into consistent (N, mm) units: w in N/mm (1 kN/m = 1 N/mm), P in N, L in mm, E in N/mm², and I in mm⁴ (1 cm⁴ = 10⁴ mm⁴); then evaluate δ = 5wL⁴/(384EI), δ = PL³/(48EI), or cantilever δ = wL⁴/(8EI) + PL³/(3EI). Express your final calculated value in mm."
       ],
       "caseFamilyId": "MOD05-T1-CF",
       "reviewStatus": "Draft",
@@ -500,10 +636,18 @@
       "correctAnswer": 5,
       "tolerance": 0.075,
       "explanation": "Numerator = 42,000 × 6,000³ = 9.072 × 10¹⁵. Denominator = 48 × 210,000 × 180 × 10⁶ = 1.8144 × 10¹⁵. δ = 9.072 / 1.8144 = 5.0 mm. Step-by-step verification for \"Calculate midspan deflection under a central point load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 5 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+        "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate midspan deflection under a central point load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Numerator = 42,000 × 6,000³ = 9.072 × 10¹⁵. Express your final numeric answer in mm."
+        "First Hint (Governing Mechanics Principle): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+        "Second Hint (Symbolic Equation & SI Units): Write out the governing equilibrium and compatibility equation in symbolic form, convert all given parameters into consistent SI base units, and evaluate the final numerical quantity in mm."
       ],
       "caseFamilyId": "MOD05-T1-CF",
       "reviewStatus": "Draft",
@@ -521,15 +665,22 @@
       "correctAnswer": 2.88,
       "tolerance": 0.0432,
       "explanation": "Numerator = 5.0 × 2,400⁴ = 5.0 × 3.31776 × 10¹³ = 1.65888 × 10¹⁴. Denominator = 8 × 200,000 × 36 × 10⁶ = 5.76 × 10¹³. δ = 1.65888 / 5.76 = 2.88 mm.",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+        "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate cantilever tip deflection under UDL\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Numerator = 5.0 × 2,400⁴ = 5.0 × 3.31776 × 10¹³ = 1.65888 × 10¹⁴. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate cantilever tip deflection under UDL): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert all inputs into consistent (N, mm) units: w in N/mm (1 kN/m = 1 N/mm), P in N, L in mm, E in N/mm², and I in mm⁴ (1 cm⁴ = 10⁴ mm⁴); then evaluate δ = 5wL⁴/(384EI), δ = PL³/(48EI), or cantilever δ = wL⁴/(8EI) + PL³/(3EI). Express your final calculated value in mm."
       ],
       "caseFamilyId": "MOD05-T1-CF",
       "solverVerificationId": "SOLVER-MOD05-E03",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD05-E04",
@@ -543,15 +694,22 @@
       "correctAnswer": 5.76,
       "tolerance": 0.0864,
       "explanation": "δ_point = PL³ / (3EI) = (4,500 × 2,400³) / (3 × 200,000 × 36 × 10⁶) = (6.2208 × 10¹³) / (2.16 × 10¹³) = 2.88 mm. By superposition, δ_total = 2.88 + 2.88 = 5.76 mm.",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+        "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate combined deflection by superposition\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: δ_point = PL³ / (3EI) = (4,500 × 2,400³) / (3 × 200,000 × 36 × 10⁶) = (6.2208 × 10¹³) / (2.16 × 10¹³) = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate combined deflection by superposition): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert all inputs into consistent (N, mm) units: w in N/mm (1 kN/m = 1 N/mm), P in N, L in mm, E in N/mm², and I in mm⁴ (1 cm⁴ = 10⁴ mm⁴); then evaluate δ = 5wL⁴/(384EI), δ = PL³/(48EI), or cantilever δ = wL⁴/(8EI) + PL³/(3EI). Express your final calculated value in mm."
       ],
       "caseFamilyId": "MOD05-T1-CF",
       "solverVerificationId": "SOLVER-MOD05-E04",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD05-E05",
@@ -565,10 +723,18 @@
       "correctAnswer": 2.44,
       "tolerance": 0.0366,
       "explanation": "(5 / 4)⁴ = 625 / 256 = 2.4414 ≈ 2.44. Step-by-step verification for \"Calculate factor increase in UDL deflection when span increases from 4 m to 5 m (Example 5.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.44 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / N.S. Trahair et al.",
+        "clauseOrSection": "Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7",
+        "pageReference": "pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)",
+        "formatted": "R.C. Hibbeler / N.S. Trahair et al., Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.), Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7, pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate factor increase in UDL deflection when span increases from 4 m to 5 m (Example 5.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: (5 / 4)⁴ = 625 / 256 = 2.4414 ≈ 2.44. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate factor increase in UDL deflection when span increases from 4 m to 5 m (Example 5.1)): Examine the exponents in the elastic deflection formula: deflection scales with the fourth power of span (L⁴) under a UDL and inversely with second moment of area (I ∝ d³), but is independent of steel yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): (5 / 4)⁴ = 625 / 256 = ?.44. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD05-T2-CF",
       "reviewStatus": "Draft",
@@ -586,10 +752,18 @@
       "correctAnswer": 1.95,
       "tolerance": 0.0292,
       "explanation": "For a fixed point load P, δ = PL³/(48EI) ∝ L³, so (5 / 4)³ = 125 / 64 = 1.953 ≈ 1.95. Step-by-step verification for \"Calculate factor increase in point-load deflection when span increases from 4 m to 5 m\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.95 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / N.S. Trahair et al.",
+        "clauseOrSection": "Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7",
+        "pageReference": "pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)",
+        "formatted": "R.C. Hibbeler / N.S. Trahair et al., Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.), Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7, pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate factor increase in point-load deflection when span increases from 4 m to 5 m\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: For a fixed point load P, δ = PL³/(48EI) ∝ L³, so (5 / 4)³ = 125 / 64 = 1.953 ≈ 1.95. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate factor increase in point-load deflection when span increases from 4 m to 5 m): Examine the exponents in the elastic deflection formula: deflection scales with the fourth power of span (L⁴) under a UDL and inversely with second moment of area (I ∝ d³), but is independent of steel yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): For a fixed point load P, δ = PL³/(48EI) ∝ L³, so (5 / 4)³ = 125 / 64 = ?.95. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD05-T2-CF",
       "reviewStatus": "Draft",
@@ -607,10 +781,18 @@
       "correctAnswer": 2.5,
       "tolerance": 0.0375,
       "explanation": "EI = 200,000 × 50 × 10⁶ = 1.0 × 10¹³ N·mm². M = 25 × 10⁶ N·mm. κ = M / (EI) = 25×10⁶ / 10¹³ = 2.5 × 10⁻⁶ mm⁻¹ (radius of curvature R = 1/κ = 400,000 mm = 400 m).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+        "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate radius of curvature R and curvature κ of a bent beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: EI = 200,000 × 50 × 10⁶ = 1.0 × 10¹³ N·mm². Express your final numeric answer in 10⁻⁶ mm⁻¹."
+        "First Hint (Physical Principle & Idealisation: Calculate radius of curvature R and curvature κ of a bent beam): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert all inputs into consistent (N, mm) units: w in N/mm (1 kN/m = 1 N/mm), P in N, L in mm, E in N/mm², and I in mm⁴ (1 cm⁴ = 10⁴ mm⁴); then evaluate δ = 5wL⁴/(384EI), δ = PL³/(48EI), or cantilever δ = wL⁴/(8EI) + PL³/(3EI). Express your final calculated value in 10⁻⁶ mm⁻¹."
       ],
       "caseFamilyId": "MOD05-T1-CF",
       "reviewStatus": "Draft",
@@ -628,10 +810,18 @@
       "correctAnswer": 19,
       "tolerance": 0.285,
       "explanation": "δ_total,long-term = δ_inst,G × (1 + φ) + δ_inst,Q = (6.0 × 2.5) + 4.0 = 15.0 + 4.0 = 19.0 mm. Step-by-step verification for \"Calculate effective long-term deflection of timber/concrete using a creep factor\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 19 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T3",
+        "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+        "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate effective long-term deflection of timber/concrete using a creep factor\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: δ_total,long-term = δ_inst,G × (1 + φ) + δ_inst,Q = (6.0 × 2.5) + 4.0 = 15.0 + 4.0 = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate effective long-term deflection of timber/concrete using a creep factor): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+        "Second Hint (Symbolic Formula & Unit Setup): δ_total,long-term = δ_inst,G × (1 + φ) + δ_inst,Q = (6.0 × 2.5) + 4.0 = 15.0 + 4.0 = ?.0 mm. (express final result in mm)."
       ],
       "caseFamilyId": "MOD05-T3-CF",
       "reviewStatus": "Draft",
@@ -649,10 +839,18 @@
       "correctAnswer": 6,
       "tolerance": 0.09,
       "explanation": "f_n ≈ 18 / √9.0 = 18 / 3.0 = 6.0 Hz. Step-by-step verification for \"Estimate fundamental natural frequency of a floor beam from static deflection\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 6 Hz, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T3",
+        "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+        "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Estimate fundamental natural frequency of a floor beam from static deflection\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: f_n ≈ 18 / √9.0 = 18 / 3.0 = ?. Express your final numeric answer in Hz."
+        "First Hint (Physical Principle & Idealisation: Estimate fundamental natural frequency of a floor beam from static deflection): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+        "Second Hint (Symbolic Formula & Unit Setup): f_n ≈ 18 / √9.0 = 18 / 3.0 = ?.0 Hz. (express final result in Hz)."
       ],
       "caseFamilyId": "MOD05-T3-CF",
       "reviewStatus": "Draft",
@@ -670,10 +868,18 @@
       "correctAnswer": 18,
       "tolerance": 0.27,
       "explanation": "Net sag below datum = 22 mm (dead) + 18 mm (imposed) − 22 mm (upward precamber) = 18 mm. Step-by-step verification for \"Calculate required precamber to offset permanent dead-load sag\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 18 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T3",
+        "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+        "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required precamber to offset permanent dead-load sag\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Net sag below datum = 22 mm (dead) + 18 mm (imposed) − 22 mm (upward precamber) = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate required precamber to offset permanent dead-load sag): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+        "Second Hint (Symbolic Formula & Unit Setup): Net sag below datum = 22 mm (dead) + ? mm (imposed) − 22 mm (upward precamber) = ?. (express final result in mm)."
       ],
       "caseFamilyId": "MOD05-T3-CF",
       "reviewStatus": "Draft",
@@ -696,10 +902,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Brittle finishes built onto the beam after erection feel the subsequent movement Δδ, and vibration depends on dynamic stiffness EI, neither of which is improved by initial precamber.",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T3",
+        "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+        "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why precambering does NOT cure a bouncy floor or brittle partition cracking\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand why precambering does NOT cure a bouncy floor or brittle partition cracking): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+        "Second Hint (Analytical Elimination Criterion): Check variable-load deflection against L/360 (brittle plaster/partitions) or L/200, and relate fundamental natural frequency to static deflection via f_0 ≈ 18 / √δ_mm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4)."
       ],
       "caseFamilyId": "MOD05-T3-CF",
       "reviewStatus": "Draft",
@@ -722,10 +936,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "(1/8) / (5/384) = 384 / 40 = 9.6. Cantilevers are nearly an order of magnitude more flexible for a given length L. Engineering synthesis for \"Compare deflection of a cantilever vs a simply supported beam of equal length L\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / N.S. Trahair et al.",
+        "clauseOrSection": "Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7",
+        "pageReference": "pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)",
+        "formatted": "R.C. Hibbeler / N.S. Trahair et al., Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.), Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7, pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Compare deflection of a cantilever vs a simply supported beam of equal length L\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Compare deflection of a cantilever vs a simply supported beam of equal length L): Examine the exponents in the elastic deflection formula: deflection scales with the fourth power of span (L⁴) under a UDL and inversely with second moment of area (I ∝ d³), but is independent of steel yield strength f_y.",
+        "Second Hint (Analytical Elimination Criterion): For a span change at constant w and EI use δ_new / δ_old = (L_new / L_old)⁴; for a rectangular section depth change at constant b, L, and w use δ_new / δ_old = (d_old / d_new)³. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7)."
       ],
       "caseFamilyId": "MOD05-T2-CF",
       "reviewStatus": "Draft",
@@ -748,10 +970,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Rotational end fixity introduces hogging moments (-wL²/12) at the supports, reducing midspan sagging moment to +wL²/24 and slashing midspan deflection by a factor of 5.",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+        "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the effect of end rotational restraint on midspan deflection\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand the effect of end rotational restraint on midspan deflection): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+        "Second Hint (Analytical Elimination Criterion): Convert all inputs into consistent (N, mm) units: w in N/mm (1 kN/m = 1 N/mm), P in N, L in mm, E in N/mm², and I in mm⁴ (1 cm⁴ = 10⁴ mm⁴); then evaluate δ = 5wL⁴/(384EI), δ = PL³/(48EI), or cantilever δ = wL⁴/(8EI) + PL³/(3EI). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2)."
       ],
       "caseFamilyId": "MOD05-T1-CF",
       "reviewStatus": "Draft",
@@ -774,10 +1004,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Stiffness compatibility: a flexible beam underneath stiff brittle masonry cannot pick up the wall load without first allowing the wall above to settle and crack.",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T3",
+        "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+        "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why lintels supporting new openings in existing masonry walls need tight deflection control\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify why lintels supporting new openings in existing masonry walls need tight deflection control): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+        "Second Hint (Analytical Elimination Criterion): Check variable-load deflection against L/360 (brittle plaster/partitions) or L/200, and relate fundamental natural frequency to static deflection via f_0 ≈ 18 / √δ_mm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4)."
       ],
       "caseFamilyId": "MOD05-T3-CF",
       "reviewStatus": "Draft",
@@ -800,10 +1038,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "SLS checks realistic in-service behaviour; ULS checks low-probability collapse survival. Engineering synthesis for \"Explain why ULS and SLS use different load combinations\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T3",
+        "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+        "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why ULS and SLS use different load combinations\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why ULS and SLS use different load combinations): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+        "Second Hint (Analytical Elimination Criterion): Check variable-load deflection against L/360 (brittle plaster/partitions) or L/200, and relate fundamental natural frequency to static deflection via f_0 ≈ 18 / √δ_mm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4)."
       ],
       "caseFamilyId": "MOD05-T3-CF",
       "reviewStatus": "Draft",
@@ -826,10 +1072,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Moisture plasticises wood cell walls and accelerates long-term creep deformation under sustained stress. Engineering synthesis for \"Identify moisture effect on timber beam deflection\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T3",
+        "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+        "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify moisture effect on timber beam deflection\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify moisture effect on timber beam deflection): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+        "Second Hint (Analytical Elimination Criterion): Check variable-load deflection against L/360 (brittle plaster/partitions) or L/200, and relate fundamental natural frequency to static deflection via f_0 ≈ 18 / √δ_mm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4)."
       ],
       "caseFamilyId": "MOD05-T3-CF",
       "reviewStatus": "Draft",
@@ -847,10 +1101,18 @@
       "correctAnswer": 1,
       "tolerance": 0.015,
       "explanation": "θ = (6.0 × 4,000³) / (24 × 200,000 × 80 × 10⁶) = (3.84 × 10¹¹) / (3.84 × 10¹⁴) = 0.0010 rad = 1.0 mrad. Step-by-step verification for \"Calculate end rotation slope θ of a simply supported UDL beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 mrad, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+        "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate end rotation slope θ of a simply supported UDL beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: θ = (6.0 × 4,000³) / (24 × 200,000 × 80 × 10⁶) = (3.84 × 10¹¹) / (3.84 × 10¹⁴) = 0.0010 rad = ?. Express your final numeric answer in mrad."
+        "First Hint (Physical Principle & Idealisation: Calculate end rotation slope θ of a simply supported UDL beam): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+        "Second Hint (Symbolic Formula & Unit Setup): θ = (6.0 × 4,000³) / (24 × 200,000 × 80 × 10⁶) = (3.84 × 10¹¹) / (3.84 × 10¹⁴) = 0.0010 rad = ?.0 mrad. (express final result in mrad)."
       ],
       "caseFamilyId": "MOD05-T1-CF",
       "reviewStatus": "Draft",
@@ -868,10 +1130,18 @@
       "correctAnswer": 1.5,
       "tolerance": 0.0225,
       "explanation": "Since δ ∝ 1/I, I_new / I_old = δ_old / δ_lim = 24 / 16 = 1.50 (a 50% increase in I). Step-by-step verification for \"Calculate required percentage increase in I to reduce deflection from 24 mm to 16 mm\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 factor, and cross-check the magnitude and sign against StructTutor Syllabus Mod 5 (Beam Deflections, Stiffness & Serviceability Limit States).",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / N.S. Trahair et al.",
+        "clauseOrSection": "Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7",
+        "pageReference": "pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)",
+        "formatted": "R.C. Hibbeler / N.S. Trahair et al., Mechanics of Materials (10th SI ed.) & Behaviour and Design of Steel Structures to EC3 (4th ed.), Hibbeler Ch. 12, §12.5 & Trahair Ch. 5, §5.7, pp. 614–624 (Hibbeler) / pp. 168–174 (Trahair)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required percentage increase in I to reduce deflection from 24 mm to 16 mm\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Since δ ∝ 1/I, I_new / I_old = δ_old / δ_lim = 24 / 16 = 1.50 (a 50% increase in I). Express your final numeric answer in factor."
+        "First Hint (Physical Principle & Idealisation: Calculate required percentage increase in I to reduce deflection from 24 mm to 16 mm): Examine the exponents in the elastic deflection formula: deflection scales with the fourth power of span (L⁴) under a UDL and inversely with second moment of area (I ∝ d³), but is independent of steel yield strength f_y.",
+        "Second Hint (Symbolic Formula & Unit Setup): Since δ ∝ 1/I, I_new / I_old = δ_old / δ_lim = 24 / 16 = ?. (express final result in factor)."
       ],
       "caseFamilyId": "MOD05-T2-CF",
       "reviewStatus": "Draft",
@@ -894,10 +1164,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Bending deflection scales as L³ or L⁴ whereas shear deflection scales as L¹, so as L/d becomes very small (deep beams) or web shear stiffness GA_v is low, shear deformation is no longer negligible.",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T1",
+        "sourceTitle": "Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "T.H.G. Megson / R.C. Hibbeler",
+        "clauseOrSection": "Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2",
+        "pageReference": "pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)",
+        "formatted": "T.H.G. Megson / R.C. Hibbeler, Structural and Stress Analysis (4th ed.) & Mechanics of Materials (10th SI ed.), Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2, pp. 405–436 (Megson) / pp. 585–604 (Hibbeler)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify when shear deflection becomes non-negligible compared to bending deflection\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify when shear deflection becomes non-negligible compared to bending deflection): Elastic deflection is obtained by double integration of curvature κ = M(x) / (E·I) subject to support displacement and slope boundary conditions.",
+        "Second Hint (Analytical Elimination Criterion): Convert all inputs into consistent (N, mm) units: w in N/mm (1 kN/m = 1 N/mm), P in N, L in mm, E in N/mm², and I in mm⁴ (1 cm⁴ = 10⁴ mm⁴); then evaluate δ = 5wL⁴/(384EI), δ = PL³/(48EI), or cantilever δ = wL⁴/(8EI) + PL³/(3EI). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Megson Ch. 13, §13.1–13.5 & Hibbeler Ch. 12, §12.1–12.2)."
       ],
       "caseFamilyId": "MOD05-T1-CF",
       "reviewStatus": "Draft",
@@ -920,10 +1198,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Load transfer requires deformation compatibility; passive propping without pre-wedging/stiffness control allows settlement equal to the elastic shortening/deflection of the temporary support.",
-      "citation": "Euler-Bernoulli Moment-Curvature Integration & BS EN 1990 Serviceability Limits",
+      "citation": {
+        "moduleId": "MOD-05",
+        "topicId": "MOD05-T3",
+        "sourceTitle": "BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4",
+        "pageReference": "pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1990:2002+A1 & SCI Publication P354 Design of Floors for Vibration, BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4, pp. 33–34, 65–68 (EN 1990) / pp. 7–32 (SCI P354)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Connect stiffness vs strength to temporary works propping\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Connect stiffness vs strength to temporary works propping): Serviceability Limit State (SLS) checks use unfactored actions to prevent cracking of brittle finishes, drainage ponding, glazing distress, and perceptible floor vibration.",
+        "Second Hint (Analytical Elimination Criterion): Check variable-load deflection against L/360 (brittle plaster/partitions) or L/200, and relate fundamental natural frequency to static deflection via f_0 ≈ 18 / √δ_mm. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 3.4, Annex A1.4 & SCI P354 §2–4)."
       ],
       "caseFamilyId": "MOD05-T3-CF",
       "reviewStatus": "Draft",

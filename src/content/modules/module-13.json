@@ -49,10 +49,18 @@
           "correctAnswer": 1.9,
           "tolerance": 0.05,
           "explanation": "A_req = 540 / 150 = 3.60 m^2. Square width B = sqrt(3.60) = 1.897 m (approx 1.90 m). Step-by-step verification for \"Determine minimum square pad width for concentric serviceability bearing.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.9 m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T1",
+            "sourceTitle": "Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "M.J. Tomlinson & R. Boorman (Pearson) / BSI",
+            "clauseOrSection": "Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4",
+            "pageReference": "pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)",
+            "formatted": "M.J. Tomlinson & R. Boorman (Pearson) / BSI, Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1, Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4, pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Determine minimum square pad width for concentric serviceability bearing.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: A_req = 540 / 150 = 3.60 m^2. Express your final numeric answer in m."
+            "First Hint (Physical Principle & Idealisation: Determine minimum square pad width for concentric serviceability bearing.): Select foundation systems (strip, pad, raft, or piles with ground beams) to transfer building loads past compressible/shrinkable upper soils into a competent bearing stratum.",
+            "Second Hint (Symbolic Formula & Unit Setup): Match foundation depth and type to the Ground Investigation profile, groundwater regime, clay shrinkage/tree-heave zone, and allowable differential settlement. Express your final calculated value in m."
           ],
           "caseFamilyId": "MOD13-T1-CF",
           "reviewStatus": "Draft",
@@ -70,10 +78,18 @@
           "correctAnswer": 659.7,
           "tolerance": 2,
           "explanation": "Perimeter = 3.1416 * 0.60 = 1.885 m. Shaft area A_s = 1.885 * 10.0 = 18.85 m^2. R_su = 18.85 * 35 = 659.7 kN. Step-by-step verification for \"Calculate ultimate shaft friction capacity of a bored pile in clay.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 659.7 kN, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T1",
+            "sourceTitle": "Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "M.J. Tomlinson & R. Boorman (Pearson) / BSI",
+            "clauseOrSection": "Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4",
+            "pageReference": "pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)",
+            "formatted": "M.J. Tomlinson & R. Boorman (Pearson) / BSI, Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1, Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4, pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate ultimate shaft friction capacity of a bored pile in clay.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Perimeter = 3.1416 * 0.60 = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate ultimate shaft friction capacity of a bored pile in clay.): Select foundation systems (strip, pad, raft, or piles with ground beams) to transfer building loads past compressible/shrinkable upper soils into a competent bearing stratum.",
+            "Second Hint (Symbolic Formula & Unit Setup): Match foundation depth and type to the Ground Investigation profile, groundwater regime, clay shrinkage/tree-heave zone, and allowable differential settlement. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD13-T1-CF",
           "reviewStatus": "Draft",
@@ -96,10 +112,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Shallow pads in 6 m of soft peat/clay would fail in bearing or suffer excessive settlement; piles bypass the weak upper strata into the competent gravel.",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T1",
+            "sourceTitle": "Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "M.J. Tomlinson & R. Boorman (Pearson) / BSI",
+            "clauseOrSection": "Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4",
+            "pageReference": "pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)",
+            "formatted": "M.J. Tomlinson & R. Boorman (Pearson) / BSI, Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1, Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4, pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Select an appropriate foundation system for deep soft clay over dense gravel.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Select an appropriate foundation system for deep soft clay over dense gravel.): Select foundation systems (strip, pad, raft, or piles with ground beams) to transfer building loads past compressible/shrinkable upper soils into a competent bearing stratum.",
+            "Second Hint (Analytical Elimination Criterion): Match foundation depth and type to the Ground Investigation profile, groundwater regime, clay shrinkage/tree-heave zone, and allowable differential settlement. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4)."
           ],
           "caseFamilyId": "MOD13-T1-CF",
           "reviewStatus": "Draft",
@@ -122,10 +146,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "As desiccated clay rehydrates, it swells upward with high pressure; void formers compress at low stress to isolate the suspended structure from heave forces.",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T1",
+            "sourceTitle": "Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "M.J. Tomlinson & R. Boorman (Pearson) / BSI",
+            "clauseOrSection": "Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4",
+            "pageReference": "pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)",
+            "formatted": "M.J. Tomlinson & R. Boorman (Pearson) / BSI, Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1, Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4, pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain the purpose of compressible void formers beneath ground beams in high-plasticity clay.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain the purpose of compressible void formers beneath ground beams in high-plasticity clay.): Select foundation systems (strip, pad, raft, or piles with ground beams) to transfer building loads past compressible/shrinkable upper soils into a competent bearing stratum.",
+            "Second Hint (Analytical Elimination Criterion): Match foundation depth and type to the Ground Investigation profile, groundwater regime, clay shrinkage/tree-heave zone, and allowable differential settlement. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4)."
           ],
           "caseFamilyId": "MOD13-T1-CF",
           "reviewStatus": "Draft",
@@ -148,10 +180,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Continuous trenching under an existing foundation removes its vertical support and causes collapse; short sequenced pins preserve load-arching into adjacent supported lengths.",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T1",
+            "sourceTitle": "Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "M.J. Tomlinson & R. Boorman (Pearson) / BSI",
+            "clauseOrSection": "Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4",
+            "pageReference": "pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)",
+            "formatted": "M.J. Tomlinson & R. Boorman (Pearson) / BSI, Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1, Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4, pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why traditional mass concrete underpinning is executed in strict \"hit-and-miss\" bays.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify why traditional mass concrete underpinning is executed in strict \"hit-and-miss\" bays.): Select foundation systems (strip, pad, raft, or piles with ground beams) to transfer building loads past compressible/shrinkable upper soils into a competent bearing stratum.",
+            "Second Hint (Analytical Elimination Criterion): Match foundation depth and type to the Ground Investigation profile, groundwater regime, clay shrinkage/tree-heave zone, and allowable differential settlement. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4)."
           ],
           "caseFamilyId": "MOD13-T1-CF",
           "reviewStatus": "Draft",
@@ -189,15 +229,22 @@
           "correctAnswer": 0.3,
           "tolerance": 0.01,
           "explanation": "e = 180 / 600 = 0.30 m (which is <= B/6 = 2.4/6 = 0.40 m, so the full base remains in compression). Step-by-step verification for \"Check load eccentricity against the middle-third limit.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.3 m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T2",
+            "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+            "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+            "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+            "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+            "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Check load eccentricity against the middle-third limit.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: e = 180 / 600 = 0.30 m (which is <= B/6 = 2.4/6 = 0.40 m, so the full base remains in compression). Express your final numeric answer in m."
+            "First Hint (Physical Principle & Idealisation: Check load eccentricity against the middle-third limit.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+            "Second Hint (Symbolic Formula & Unit Setup): e = 180 / 600 = ?.4/6 = 0.40 m, so the full base remains in compression). (express final result in m)."
           ],
           "caseFamilyId": "MOD13-T2-CF",
           "solverVerificationId": "SOLVER-MOD13-T2-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD13-T2-Q2",
@@ -211,15 +258,22 @@
           "correctAnswer": 182.3,
           "tolerance": 0.5,
           "explanation": "Average pressure N / B^2 = 600 / 5.76 = 104.17 kPa. Multiplier (1 + 6*0.30 / 2.4) = 1 + 0.75 = 1.75. Therefore q_max = 104.17 * 1.75 = 182.3 kPa.",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T2",
+            "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+            "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+            "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+            "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+            "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate maximum edge bearing pressure under eccentric loading within the middle third.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Average pressure N / B^2 = 600 / 5.76 = ?. Express your final numeric answer in kPa."
+            "First Hint (Physical Principle & Idealisation: Calculate maximum edge bearing pressure under eccentric loading within the middle third.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+            "Second Hint (Symbolic Formula & Unit Setup): Compute eccentricity e = M / N (middle-third rule e <= B/6 keeps full base in compression with q_max = (N/B²)·(1 + 6e/B)); for structural RC design use cantilever projection c = (B - b_col)/2, M_Ed = q_Ed·B·c²/2, and V_Ed = q_Ed·B·(c - d). Express your final calculated value in kPa."
           ],
           "caseFamilyId": "MOD13-T2-CF",
           "solverVerificationId": "SOLVER-MOD13-T2-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD13-T2-Q3",
@@ -233,15 +287,22 @@
           "correctAnswer": 240,
           "tolerance": 1,
           "explanation": "Projection c = (2.4 - 0.40)/2 = 1.0 m. Upward load per metre of projection = q_Ed * B = 200 * 2.4 = 480 kN/m. Moment at column face M_Ed = 480 * 1.0^2 / 2 = 240.0 kNm.",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T2",
+            "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+            "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+            "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+            "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+            "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate ULS cantilever bending moment at the face of a column in a pad foundation.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Projection c = (2.4 - 0.40)/2 = ?. Express your final numeric answer in kNm."
+            "First Hint (Physical Principle & Idealisation: Calculate ULS cantilever bending moment at the face of a column in a pad foundation.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+            "Second Hint (Symbolic Formula & Unit Setup): Compute eccentricity e = M / N (middle-third rule e <= B/6 keeps full base in compression with q_max = (N/B²)·(1 + 6e/B)); for structural RC design use cantilever projection c = (B - b_col)/2, M_Ed = q_Ed·B·c²/2, and V_Ed = q_Ed·B·(c - d). Express your final calculated value in kNm."
           ],
           "caseFamilyId": "MOD13-T2-CF",
           "solverVerificationId": "SOLVER-MOD13-T2-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD13-T2-Q4",
@@ -255,15 +316,22 @@
           "correctAnswer": 264,
           "tolerance": 1,
           "explanation": "Remaining strip width = 1.0 - 0.45 = 0.55 m. Shear area = 2.4 m * 0.55 m = 1.32 m^2. V_Ed = 200 kPa * 1.32 m^2 = 264.0 kN. Step-by-step verification for \"Calculate ULS one-way wide-beam shear force at distance d from the column face.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 264 kN, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T2",
+            "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+            "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+            "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+            "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+            "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate ULS one-way wide-beam shear force at distance d from the column face.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Remaining strip width = 1.0 - 0.45 = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate ULS one-way wide-beam shear force at distance d from the column face.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+            "Second Hint (Symbolic Formula & Unit Setup): Compute eccentricity e = M / N (middle-third rule e <= B/6 keeps full base in compression with q_max = (N/B²)·(1 + 6e/B)); for structural RC design use cantilever projection c = (B - b_col)/2, M_Ed = q_Ed·B·c²/2, and V_Ed = q_Ed·B·(c - d). Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD13-T2-CF",
           "solverVerificationId": "SOLVER-MOD13-T2-Q4",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD13-T2-Q5",
@@ -282,10 +350,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Gross bearing pressure on the soil must support both the column load and the pad self-weight, but internal pad bending is driven by the net upward pressure from the concentrated column load.",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T2",
+            "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+            "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+            "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+            "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+            "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish pad self-weight treatment in serviceability bearing vs ULS bending.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish pad self-weight treatment in serviceability bearing vs ULS bending.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+            "Second Hint (Analytical Elimination Criterion): Compute eccentricity e = M / N (middle-third rule e <= B/6 keeps full base in compression with q_max = (N/B²)·(1 + 6e/B)); for structural RC design use cantilever projection c = (B - b_col)/2, M_Ed = q_Ed·B·c²/2, and V_Ed = q_Ed·B·(c - d). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10)."
           ],
           "caseFamilyId": "MOD13-T2-CF",
           "reviewStatus": "Draft",
@@ -323,10 +399,18 @@
           "correctAnswer": 0.333,
           "tolerance": 0.005,
           "explanation": "Ka = (1 - 0.50) / (1 + 0.50) = 0.50 / 1.50 = 0.333. Step-by-step verification for \"Calculate Rankine active earth pressure coefficient Ka.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.333 ratio, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T3",
+            "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+            "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+            "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+            "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate Rankine active earth pressure coefficient Ka.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Ka = (1 - 0.50) / (1 + 0.50) = 0.50 / 1.50 = ?. Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Calculate Rankine active earth pressure coefficient Ka.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+            "Second Hint (Symbolic Formula & Unit Setup): Ka = (1 - 0.50) / (1 + 0.50) = 0.50 / 1.50 = ?. (express final result in ratio)."
           ],
           "caseFamilyId": "MOD13-T3-CF",
           "reviewStatus": "Draft",
@@ -344,15 +428,22 @@
           "correctAnswer": 27,
           "tolerance": 0.2,
           "explanation": "P_a = 0.5 * (1/3) * 18 * 3.0^2 = 3.0 * 9.0 = 27.0 kN/m. Step-by-step verification for \"Calculate total active horizontal earth thrust per metre run of wall.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 27 kN/m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T3",
+            "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+            "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+            "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+            "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate total active horizontal earth thrust per metre run of wall.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: P_a = 0.5 * (1/3) * 18 * 3.0^2 = 3.0 * 9.0 = ?. Express your final numeric answer in kN/m."
+            "First Hint (Physical Principle & Idealisation: Calculate total active horizontal earth thrust per metre run of wall.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+            "Second Hint (Symbolic Formula & Unit Setup): P_a = 0.5 * (1/3) * 18 * 3.0^2 = 3.0 * 9.0 = ?.0 kN/m. (express final result in kN/m)."
           ],
           "caseFamilyId": "MOD13-T3-CF",
           "solverVerificationId": "SOLVER-MOD13-T3-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD13-T3-Q3",
@@ -366,15 +457,22 @@
           "correctAnswer": 27,
           "tolerance": 0.2,
           "explanation": "Lever arm z = 3.0 / 3 = 1.0 m. M_ovt = 27.0 * 1.0 = 27.0 kNm/m. Step-by-step verification for \"Calculate overturning moment about the wall base from triangular active earth pressure.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 27 kNm/m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T3",
+            "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+            "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+            "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+            "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate overturning moment about the wall base from triangular active earth pressure.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Lever arm z = 3.0 / 3 = ?. Express your final numeric answer in kNm/m."
+            "First Hint (Physical Principle & Idealisation: Calculate overturning moment about the wall base from triangular active earth pressure.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use Rankine active coefficient K_a = (1 - sin φ′)/(1 + sin φ′), horizontal triangular soil thrust P_a = 0.5 · K_a · γ · H² acting at H/3 above the base, and overturning moment M_ovt = P_a · (H/3). Express your final calculated value in kNm/m."
           ],
           "caseFamilyId": "MOD13-T3-CF",
           "solverVerificationId": "SOLVER-MOD13-T3-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD13-T3-Q4",
@@ -388,10 +486,18 @@
           "correctAnswer": 10,
           "tolerance": 0.2,
           "explanation": "P_q = (1/3) * 10 * 3.0 = 10.0 kN/m (acting at mid-height H/2 = 1.5 m). Step-by-step verification for \"Calculate horizontal thrust from a uniform surface surcharge behind a retaining wall.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 10 kN/m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T3",
+            "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+            "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+            "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+            "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate horizontal thrust from a uniform surface surcharge behind a retaining wall.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: P_q = (1/3) * 10 * 3.0 = 10.0 kN/m (acting at mid-height H/2 = 1.5 m). Express your final numeric answer in kN/m."
+            "First Hint (Physical Principle & Idealisation: Calculate horizontal thrust from a uniform surface surcharge behind a retaining wall.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+            "Second Hint (Symbolic Formula & Unit Setup): P_q = (1/3) * ? * 3.0 = ?.0 kN/m (acting at mid-height H/2 = 1.5 m). (express final result in kN/m)."
           ],
           "caseFamilyId": "MOD13-T3-CF",
           "reviewStatus": "Draft",
@@ -414,10 +520,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Active pressure Ka is a lower-bound limit state requiring outward wall movement (~0.1% to 0.4% of wall height). Unyielding propped walls experience higher at-rest pressures K0.",
-          "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+          "citation": {
+            "moduleId": "MOD-13",
+            "topicId": "MOD13-T3",
+            "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+            "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+            "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+            "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+            "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain when at-rest earth pressure (K0) must be used instead of active pressure (Ka).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain when at-rest earth pressure (K0) must be used instead of active pressure (Ka).): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+            "Second Hint (Analytical Elimination Criterion): Use Rankine active coefficient K_a = (1 - sin φ′)/(1 + sin φ′), horizontal triangular soil thrust P_a = 0.5 · K_a · γ · H² acting at H/3 above the base, and overturning moment M_ovt = P_a · (H/3). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9)."
           ],
           "caseFamilyId": "MOD13-T3-CF",
           "reviewStatus": "Draft",
@@ -454,10 +568,18 @@
       "correctAnswer": 0.9,
       "tolerance": 0.02,
       "explanation": "B = 135 / 150 = 0.90 m. Step-by-step verification for \"Calculate required width of a strip footing.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.9 m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T1",
+        "sourceTitle": "Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "M.J. Tomlinson & R. Boorman (Pearson) / BSI",
+        "clauseOrSection": "Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4",
+        "pageReference": "pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)",
+        "formatted": "M.J. Tomlinson & R. Boorman (Pearson) / BSI, Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1, Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4, pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required width of a strip footing.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: B = 135 / 150 = ?. Express your final numeric answer in m."
+        "First Hint (Physical Principle & Idealisation: Calculate required width of a strip footing.): Select foundation systems (strip, pad, raft, or piles with ground beams) to transfer building loads past compressible/shrinkable upper soils into a competent bearing stratum.",
+        "Second Hint (Symbolic Formula & Unit Setup): Match foundation depth and type to the Ground Investigation profile, groundwater regime, clay shrinkage/tree-heave zone, and allowable differential settlement. Express your final calculated value in m."
       ],
       "caseFamilyId": "MOD13-T1-CF",
       "reviewStatus": "Draft",
@@ -475,10 +597,18 @@
       "correctAnswer": 381.6,
       "tolerance": 2,
       "explanation": "R_bu = 9 * 150 * 0.2827 = 1350 * 0.2827 = 381.6 kN. Step-by-step verification for \"Calculate ultimate end-bearing capacity of a bored pile.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 381.6 kN, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T1",
+        "sourceTitle": "Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "M.J. Tomlinson & R. Boorman (Pearson) / BSI",
+        "clauseOrSection": "Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4",
+        "pageReference": "pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)",
+        "formatted": "M.J. Tomlinson & R. Boorman (Pearson) / BSI, Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1, Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4, pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate ultimate end-bearing capacity of a bored pile.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: R_bu = 9 * 150 * 0.2827 = 1350 * 0.2827 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate ultimate end-bearing capacity of a bored pile.): Select foundation systems (strip, pad, raft, or piles with ground beams) to transfer building loads past compressible/shrinkable upper soils into a competent bearing stratum.",
+        "Second Hint (Symbolic Formula & Unit Setup): R_bu = 9 * 150 * 0.2827 = 1350 * 0.2827 = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD13-T1-CF",
       "reviewStatus": "Draft",
@@ -496,10 +626,18 @@
       "correctAnswer": 0.5,
       "tolerance": 0.01,
       "explanation": "e_max = 3.0 / 6 = 0.50 m. Step-by-step verification for \"Calculate middle-third limiting eccentricity for a rectangular pad.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.5 m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T2",
+        "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+        "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+        "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+        "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+        "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate middle-third limiting eccentricity for a rectangular pad.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: e_max = 3.0 / 6 = ?. Express your final numeric answer in m."
+        "First Hint (Physical Principle & Idealisation: Calculate middle-third limiting eccentricity for a rectangular pad.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+        "Second Hint (Symbolic Formula & Unit Setup): Compute eccentricity e = M / N (middle-third rule e <= B/6 keeps full base in compression with q_max = (N/B²)·(1 + 6e/B)); for structural RC design use cantilever projection c = (B - b_col)/2, M_Ed = q_Ed·B·c²/2, and V_Ed = q_Ed·B·(c - d). Express your final calculated value in m."
       ],
       "caseFamilyId": "MOD13-T2-CF",
       "reviewStatus": "Draft",
@@ -517,10 +655,18 @@
       "correctAnswer": 50,
       "tolerance": 0.5,
       "explanation": "N / A = 600 / 6.0 = 100 kPa. Factor (1 - 6*0.25 / 3.0) = 1 - 0.50 = 0.50. q_min = 100 * 0.50 = 50.0 kPa. Step-by-step verification for \"Calculate minimum edge pressure under eccentric loading within the middle third.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 50 kPa, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T2",
+        "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+        "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+        "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+        "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+        "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate minimum edge pressure under eccentric loading within the middle third.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: N / A = 600 / 6.0 = ?. Express your final numeric answer in kPa."
+        "First Hint (Physical Principle & Idealisation: Calculate minimum edge pressure under eccentric loading within the middle third.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+        "Second Hint (Symbolic Formula & Unit Setup): Compute eccentricity e = M / N (middle-third rule e <= B/6 keeps full base in compression with q_max = (N/B²)·(1 + 6e/B)); for structural RC design use cantilever projection c = (B - b_col)/2, M_Ed = q_Ed·B·c²/2, and V_Ed = q_Ed·B·(c - d). Express your final calculated value in kPa."
       ],
       "caseFamilyId": "MOD13-T2-CF",
       "reviewStatus": "Draft",
@@ -538,10 +684,18 @@
       "correctAnswer": 200,
       "tolerance": 1,
       "explanation": "Compressed length = 3 * 0.75 = 2.25 m. Compressed area = 2.25 * 2.0 = 4.50 m^2. Average pressure on compressed zone = 450 / 4.50 = 100 kPa; peak triangular pressure q_max = 2 * 100 = 200.0 kPa.",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T2",
+        "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+        "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+        "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+        "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+        "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate maximum edge bearing pressure when eccentricity exceeds L/6 (triangular bearing block).\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Compressed length = 3 * 0.75 = ?. Express your final numeric answer in kPa."
+        "First Hint (Physical Principle & Idealisation: Calculate maximum edge bearing pressure when eccentricity exceeds L/6 (triangular bearing block).): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+        "Second Hint (Symbolic Formula & Unit Setup): Compute eccentricity e = M / N (middle-third rule e <= B/6 keeps full base in compression with q_max = (N/B²)·(1 + 6e/B)); for structural RC design use cantilever projection c = (B - b_col)/2, M_Ed = q_Ed·B·c²/2, and V_Ed = q_Ed·B·(c - d). Express your final calculated value in kPa."
       ],
       "caseFamilyId": "MOD13-T2-CF",
       "reviewStatus": "Draft",
@@ -559,10 +713,18 @@
       "correctAnswer": 6.63,
       "tolerance": 0.05,
       "explanation": "2*d = 0.80 m. u_1 = 4*(0.40) + 2 * 3.1416 * 0.80 = 1.60 + 5.0265 = 6.63 m. Step-by-step verification for \"Calculate basic punching shear perimeter u_1 at 2d from a square column.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 6.63 m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T2",
+        "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+        "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+        "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+        "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+        "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate basic punching shear perimeter u_1 at 2d from a square column.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 2*d = ?. Express your final numeric answer in m."
+        "First Hint (Physical Principle & Idealisation: Calculate basic punching shear perimeter u_1 at 2d from a square column.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+        "Second Hint (Symbolic Formula & Unit Setup): Compute eccentricity e = M / N (middle-third rule e <= B/6 keeps full base in compression with q_max = (N/B²)·(1 + 6e/B)); for structural RC design use cantilever projection c = (B - b_col)/2, M_Ed = q_Ed·B·c²/2, and V_Ed = q_Ed·B·(c - d). Express your final calculated value in m."
       ],
       "caseFamilyId": "MOD13-T2-CF",
       "reviewStatus": "Draft",
@@ -580,10 +742,18 @@
       "correctAnswer": 178,
       "tolerance": 0.5,
       "explanation": "R_hd = 400 * 0.445 = 178.0 kN (which exceeds H_d = 120 kN). Step-by-step verification for \"Check horizontal sliding resistance of a pad foundation.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 178 kN, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T2",
+        "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+        "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+        "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+        "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+        "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Check horizontal sliding resistance of a pad foundation.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: R_hd = 400 * 0.445 = 178.0 kN (which exceeds H_d = 120 kN). Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Check horizontal sliding resistance of a pad foundation.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+        "Second Hint (Symbolic Formula & Unit Setup): R_hd = 400 * 0.445 = ?.0 kN (which exceeds H_d = 120 kN). (express final result in kN)."
       ],
       "caseFamilyId": "MOD13-T2-CF",
       "reviewStatus": "Draft",
@@ -601,10 +771,18 @@
       "correctAnswer": 3,
       "tolerance": 0.02,
       "explanation": "Kp = 1.50 / 0.50 = 3.00. Step-by-step verification for \"Calculate Rankine passive earth pressure coefficient Kp.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3 ratio, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate Rankine passive earth pressure coefficient Kp.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Kp = 1.50 / 0.50 = ?. Express your final numeric answer in ratio."
+        "First Hint (Governing Mechanics Principle): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Symbolic Equation & SI Units): Write out the governing equilibrium and compatibility equation in symbolic form, convert all given parameters into consistent SI base units, and evaluate the final numerical quantity in ratio."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -622,10 +800,18 @@
       "correctAnswer": 0.5,
       "tolerance": 0.01,
       "explanation": "K0 = 1 - 0.50 = 0.50. Step-by-step verification for \"Calculate at-rest earth pressure coefficient K0 using Jaky’s formula.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.5 ratio, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate at-rest earth pressure coefficient K0 using Jaky’s formula.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: K0 = 1 - 0.50 = ?. Express your final numeric answer in ratio."
+        "First Hint (Governing Mechanics Principle): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Symbolic Equation & SI Units): Write out the governing equilibrium and compatibility equation in symbolic form, convert all given parameters into consistent SI base units, and evaluate the final numerical quantity in ratio."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -643,10 +829,18 @@
       "correctAnswer": 43.2,
       "tolerance": 0.2,
       "explanation": "P_a = 0.5 * 0.30 * 18 * 4.0^2 = 2.7 * 16 = 43.2 kN/m. Step-by-step verification for \"Calculate active earth thrust on a 4.0 m high retaining wall.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 43.2 kN/m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate active earth thrust on a 4.0 m high retaining wall.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: P_a = 0.5 * 0.30 * 18 * 4.0^2 = 2.7 * 16 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate active earth thrust on a 4.0 m high retaining wall.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Symbolic Formula & Unit Setup): P_a = 0.5 * 0.30 * 18 * 4.0^2 = 2.7 * 16 = ?. (express final result in kN/m)."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -664,10 +858,18 @@
       "correctAnswer": 57.6,
       "tolerance": 0.3,
       "explanation": "M_ovt = 43.2 * (4.0 / 3) = 57.6 kNm/m. Step-by-step verification for \"Calculate overturning moment at the base of the 4.0 m wall.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 57.6 kNm/m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate overturning moment at the base of the 4.0 m wall.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_ovt = 43.2 * (4.0 / 3) = ?. Express your final numeric answer in kNm/m."
+        "First Hint (Physical Principle & Idealisation: Calculate overturning moment at the base of the 4.0 m wall.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_ovt = 43.2 * (4.0 / 3) = ?. (express final result in kNm/m)."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -685,10 +887,18 @@
       "correctAnswer": 60,
       "tolerance": 0.5,
       "explanation": "Effective soil thrust P'_soil = 0.5 * (1/3) * 10 * 3.0^2 = 15.0 kN/m. Hydrostatic water thrust P_water = 0.5 * 10 * 3.0^2 = 45.0 kN/m. Total thrust P_total = 15.0 + 45.0 = 60.0 kN/m (more than double the 27 kN/m dry thrust!).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Compare total horizontal thrust when weepholes clog and groundwater rises to the top of the wall.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Effective soil thrust P'_soil = 0.5 * (1/3) * 10 * 3.0^2 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Compare total horizontal thrust when weepholes clog and groundwater rises to the top of the wall.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use Rankine active coefficient K_a = (1 - sin φ′)/(1 + sin φ′), horizontal triangular soil thrust P_a = 0.5 · K_a · γ · H² acting at H/3 above the base, and overturning moment M_ovt = P_a · (H/3). Express your final calculated value in kN/m."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -706,10 +916,18 @@
       "correctAnswer": 138,
       "tolerance": 0.5,
       "explanation": "M_stab = 120 * 1.15 = 138.0 kNm/m. Step-by-step verification for \"Calculate stabilising moment about the toe of a gravity retaining wall.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 138 kNm/m, and cross-check the magnitude and sign against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate stabilising moment about the toe of a gravity retaining wall.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_stab = 120 * 1.15 = ?. Express your final numeric answer in kNm/m."
+        "First Hint (Physical Principle & Idealisation: Calculate stabilising moment about the toe of a gravity retaining wall.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_stab = 120 * 1.15 = ?.0 kNm/m. (express final result in kNm/m)."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -727,10 +945,18 @@
       "correctAnswer": 1,
       "tolerance": 0.02,
       "explanation": "Net moment about toe = 225 - 75 = 150 kNm/m. Distance from toe x_R = 150 / 150 = 1.00 m (eccentricity from base centreline e = 1.20 - 1.00 = 0.20 m <= B/6 = 0.40 m).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Locate the resultant vertical reaction on a retaining wall base.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Net moment about toe = 225 - 75 = ?. Express your final numeric answer in m."
+        "First Hint (Physical Principle & Idealisation: Locate the resultant vertical reaction on a retaining wall base.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Symbolic Formula & Unit Setup): Net moment about toe = 225 - 75 = ?. (express final result in m)."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -753,10 +979,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Full passive resistance requires large horizontal displacement (often 1%–4% of embedment depth) and shallow front cover is vulnerable to future utility trenching or shrinkage cracks.",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why passive resistance in front of a shallow retaining wall toe is often ignored or heavily reduced.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why passive resistance in front of a shallow retaining wall toe is often ignored or heavily reduced.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Analytical Elimination Criterion): Use Rankine active coefficient K_a = (1 - sin φ′)/(1 + sin φ′), horizontal triangular soil thrust P_a = 0.5 · K_a · γ · H² acting at H/3 above the base, and overturning moment M_ovt = P_a · (H/3). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9)."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -779,10 +1013,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "A base key shifts the potential sliding surface down into intact ground (soil-on-soil shearing) and engages a deeper passive resistance zone. Engineering synthesis for \"Identify the structural role of a shear key beneath a cantilever retaining wall base.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1997-1:2004+A1 (Eurocode 7: Spread Foundations Cl. 6 & Retaining Structures Cl. 9).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the structural role of a shear key beneath a cantilever retaining wall base.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify the structural role of a shear key beneath a cantilever retaining wall base.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Analytical Elimination Criterion): Use Rankine active coefficient K_a = (1 - sin φ′)/(1 + sin φ′), horizontal triangular soil thrust P_a = 0.5 · K_a · γ · H² acting at H/3 above the base, and overturning moment M_ovt = P_a · (H/3). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9)."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -805,10 +1047,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Horizontal earth pressure pushes the stem forward as a vertical cantilever fixed at the base, placing the rear (backfill) face in vertical tension.",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Locate the primary tension reinforcement face in an L-shaped cantilever retaining wall stem.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Locate the primary tension reinforcement face in an L-shaped cantilever retaining wall stem.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Analytical Elimination Criterion): Use Rankine active coefficient K_a = (1 - sin φ′)/(1 + sin φ′), horizontal triangular soil thrust P_a = 0.5 · K_a · γ · H² acting at H/3 above the base, and overturning moment M_ovt = P_a · (H/3). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9)."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -831,10 +1081,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "The front toe bends upward (bottom tension), whereas the rear heel is typically weighed down by the heavy prism of backfill above it while bearing pressure at the heel is low, bending the heel downward (top tension).",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T3",
+        "sourceTitle": "Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "J.A. Knappett & R.F. Craig / BSI",
+        "clauseOrSection": "Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9",
+        "pageReference": "pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)",
+        "formatted": "J.A. Knappett & R.F. Craig / BSI, Craig's Soil Mechanics (9th ed.) & BS EN 1997-1:2004+A1, Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9, pp. 359–398 (Craig) / pp. 103–114 (EN 1997-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Locate the primary tension reinforcement face in the heel slab of a cantilever retaining wall.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Locate the primary tension reinforcement face in the heel slab of a cantilever retaining wall.): Retaining walls must resist lateral active earth pressure plus any un-drained hydrostatic water pressure against overturning about the toe, base sliding, and bearing failure.",
+        "Second Hint (Analytical Elimination Criterion): Use Rankine active coefficient K_a = (1 - sin φ′)/(1 + sin φ′), horizontal triangular soil thrust P_a = 0.5 · K_a · γ · H² acting at H/3 above the base, and overturning moment M_ovt = P_a · (H/3). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Craig Ch. 11, §11.1–11.6 & BS EN 1997-1 Cl. 9)."
       ],
       "caseFamilyId": "MOD13-T3-CF",
       "reviewStatus": "Draft",
@@ -857,10 +1115,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Boundary constraints force an isolated pad to be heavily eccentric; combining it with an internal column or linking via a stiff strap beam centres the ground reaction.",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T1",
+        "sourceTitle": "Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1",
+        "authorOrBody": "M.J. Tomlinson & R. Boorman (Pearson) / BSI",
+        "clauseOrSection": "Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4",
+        "pageReference": "pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)",
+        "formatted": "M.J. Tomlinson & R. Boorman (Pearson) / BSI, Foundation Design and Construction (7th ed.) & BS EN 1997-1:2004+A1, Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4, pp. 39–158 (Tomlinson) / pp. 63–66 (EN 1997-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify when a combined pad or strap footing is used.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify when a combined pad or strap footing is used.): Select foundation systems (strip, pad, raft, or piles with ground beams) to transfer building loads past compressible/shrinkable upper soils into a competent bearing stratum.",
+        "Second Hint (Analytical Elimination Criterion): Match foundation depth and type to the Ground Investigation profile, groundwater regime, clay shrinkage/tree-heave zone, and allowable differential settlement. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Tomlinson Ch. 2–4 & BS EN 1997-1 Cl. 6.1–6.4)."
       ],
       "caseFamilyId": "MOD13-T1-CF",
       "reviewStatus": "Draft",
@@ -883,10 +1149,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "A structurally strong pad or wall can still slide, overturn, or punch into weak soil, and a geotechnically large base can still snap in bending or shear if under-reinforced.",
-      "citation": "BS EN 1997-1:2004 Cl. 6.5 & Cl. 9 / UK National Annex Design Approach 1",
+      "citation": {
+        "moduleId": "MOD-13",
+        "topicId": "MOD13-T2",
+        "sourceTitle": "BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7",
+        "authorOrBody": "BSI / A. Bond & A. Harris (Taylor & Francis)",
+        "clauseOrSection": "BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10",
+        "pageReference": "pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)",
+        "formatted": "BSI / A. Bond & A. Harris (Taylor & Francis), BS EN 1997-1:2004+A1, BS EN 1992-1-1:2004 & Decoding Eurocode 7, BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10, pp. 66–71 (EN 1997-1) / pp. 99–111 (EN 1992-1-1) / pp. 255–292 (Bond)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 13 Learning Gate: Synthesise external geotechnical stability and internal structural checks.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Pass the Module 13 Learning Gate: Synthesise external geotechnical stability and internal structural checks.): Pad foundations must satisfy geotechnical bearing and sliding under eccentric loading as well as structural RC cantilever bending, one-way beam shear (at d from column face), and punching shear (at 2d).",
+        "Second Hint (Analytical Elimination Criterion): Compute eccentricity e = M / N (middle-third rule e <= B/6 keeps full base in compression with q_max = (N/B²)·(1 + 6e/B)); for structural RC design use cantilever projection c = (B - b_col)/2, M_Ed = q_Ed·B·c²/2, and V_Ed = q_Ed·B·(c - d). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1997-1 Cl. 6.5, BS EN 1992-1-1 Cl. 6.4 & Bond Ch. 10)."
       ],
       "caseFamilyId": "MOD13-T2-CF",
       "reviewStatus": "Draft",

@@ -23,6 +23,15 @@ export const QuestionDiagram: React.FC<QuestionDiagramProps> = ({
   const [zoomed, setZoomed] = useState(false);
   const resolvedType = diagramType || type || 'beam-udl';
 
+  React.useEffect(() => {
+    if (!zoomed) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setZoomed(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [zoomed]);
+
   // Compute real mechanics points using the general 1D determinate beam solver (B6)
   const beamResult = useMemo(() => {
     if (resolvedType === 'section-rect' || resolvedType === 'rectangular_section_stress') {
@@ -43,7 +52,7 @@ export const QuestionDiagram: React.FC<QuestionDiagramProps> = ({
       return (
         <svg
           viewBox="0 0 640 215"
-          className={`w-full ${isLarge ? 'h-96' : 'h-48'} select-none`}
+          className={`w-full ${isLarge ? 'h-96' : 'h-40'} select-none`}
           role="img"
           aria-label="Rectangular cross-section 100 mm by 200 mm with neutral axis and linear flexural stress distribution"
         >
@@ -162,7 +171,7 @@ export const QuestionDiagram: React.FC<QuestionDiagramProps> = ({
     return (
       <svg
         viewBox="0 0 640 215"
-        className={`w-full ${isLarge ? 'h-96' : 'h-48'} select-none`}
+        className={`w-full ${isLarge ? 'h-96' : 'h-40'} select-none`}
         role="img"
         aria-label={`Simply supported beam spanning ${spanM} m with UDL ${udlKnPerM} kN/m and dynamic Bending Moment Diagram`}
       >
@@ -222,29 +231,29 @@ export const QuestionDiagram: React.FC<QuestionDiagramProps> = ({
 
         {/* Pinned Support A */}
         <polygon points={`${xStart},${yBeam + 3} ${xStart - 10},${yBeam + 21} ${xStart + 10},${yBeam + 21}`} fill="#F59E0B" />
-        <text x={xStart - 22} y={yBeam + 35} fill="#FBBF24" fontSize="10.5" fontFamily="IBM Plex Mono, monospace">
-          A (R_A={formatEngineeringNumber(rA)} kN)
+        <text x={xStart - 12} y={yBeam + 33} fill="#FBBF24" fontSize="10" fontFamily="IBM Plex Mono, monospace">
+          R_A = {formatEngineeringNumber(rA)} kN
         </text>
 
         {/* Roller Support B */}
         <polygon points={`${xEnd},${yBeam + 3} ${xEnd - 10},${yBeam + 18} ${xEnd + 10},${yBeam + 18}`} fill="#38BDF8" />
         <circle cx={xEnd - 5} cy={yBeam + 21} r="2.5" fill="#38BDF8" />
         <circle cx={xEnd + 5} cy={yBeam + 21} r="2.5" fill="#38BDF8" />
-        <text x={xEnd - 45} y={yBeam + 35} fill="#38BDF8" fontSize="10.5" fontFamily="IBM Plex Mono, monospace">
-          B (R_B={formatEngineeringNumber(rB)} kN)
+        <text x={xEnd - 58} y={yBeam + 33} fill="#38BDF8" fontSize="10" fontFamily="IBM Plex Mono, monospace">
+          R_B = {formatEngineeringNumber(rB)} kN
         </text>
 
         {/* Span Dimension Line */}
-        <line x1={xStart} y1="118" x2={xEnd} y2="118" stroke="#64748B" strokeWidth="1.2" strokeDasharray="4 3" />
+        <line x1={xStart} y1="116" x2={xEnd} y2="116" stroke="#64748B" strokeWidth="1.2" strokeDasharray="4 3" />
         <text
           x={(xStart + xEnd) / 2}
-          y="113"
+          y="130"
           textAnchor="middle"
           fill="#CBD5E1"
-          fontSize="10.5"
+          fontSize="10"
           fontFamily="IBM Plex Mono, monospace"
         >
-          Span L = {spanM.toFixed(1)} m (Midspan cut x = {(spanM / 2).toFixed(1)} m)
+          Span L = {spanM.toFixed(1)} m (Midspan x = {(spanM / 2).toFixed(1)} m)
         </text>
 
         {/* Dynamic Bending Moment Diagram (Drawn on tension face - bottom) */}
@@ -295,8 +304,8 @@ export const QuestionDiagram: React.FC<QuestionDiagramProps> = ({
   };
 
   return (
-    <div className="relative rounded-xl border border-slate-800/90 bg-[#080E1C] p-2.5 shadow-inner">
-      <div className="flex items-center justify-between px-2 pb-1.5">
+    <div className="relative rounded-xl border border-slate-800/90 bg-[#080E1C] p-2 shadow-inner">
+      <div className="flex items-center justify-between px-2 pb-1">
         <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400">
           Structural Idealisation &amp; Solver Diagram (UK Convention: BMD on Tension Face)
         </span>

@@ -382,8 +382,15 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
                   </span>
                 </div>
                 {q.citation && (
-                  <span className="font-mono text-[11px]">
-                    Ref: {typeof q.citation === 'string' ? q.citation : q.citation.clauseOrSection}
+                  <span
+                    data-testid={`assessment-citation-${q.id}`}
+                    className="font-mono text-[11px] bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-2.5 py-0.5 rounded-md border border-slate-200 dark:border-slate-700"
+                  >
+                    Ref:{' '}
+                    {typeof q.citation === 'string'
+                      ? q.citation
+                      : q.citation.formatted ||
+                        `${q.citation.sourceTitle} (${q.citation.clauseOrSection}, ${q.citation.pageReference})`}
                   </span>
                 )}
               </div>
@@ -435,7 +442,8 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
                     <div className="rounded-xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 p-3 space-y-1 text-xs text-amber-900 dark:text-amber-200">
                       {q.hints.slice(0, hintCount).map((h, i) => (
                         <div key={i}>
-                          <strong>Hint {i + 1}:</strong> {h}
+                          <strong>Hint {i + 1}:</strong>{' '}
+                          {h.replace(/^(?:First|Second) Hint\s*/i, '')}
                         </div>
                       ))}
                     </div>
@@ -491,7 +499,11 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
                   )}
                 </div>
               ) : (
-                <div className="space-y-2 pt-1">
+                <div
+                  role="radiogroup"
+                  aria-label={`Multiple choice options for question ${q.id}`}
+                  className="space-y-2 pt-1"
+                >
                   {displayOptions.map((optText, optIdx) => {
                     const isSelected = Number(userAnswers[q.id]) === optIdx;
                     const isCorrectOpt =

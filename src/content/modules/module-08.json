@@ -41,7 +41,11 @@
         "Convert beam mass per metre (kg/m) into characteristic self-weight line load (kN/m) and explain thickness effect on fy.",
         "Distinguish EC3 Section Classes 1, 2, 3, and 4 and state which section modulus each class permits."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD08-T1-Q1",
@@ -55,10 +59,18 @@
           "correctAnswer": 0.45,
           "tolerance": 0.00675,
           "explanation": "g_k,sw = 46.1 kg/m × 9.81 m/s² = 452.24 N/m = 0.452 kN/m ≈ 0.45 kN/m. Step-by-step verification for \"Convert UB mass per metre (kg/m) into characteristic self-weight (kN/m)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.45 kN/m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Convert UB mass per metre (kg/m) into characteristic self-weight (kN/m)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: g_k,sw = 46.1 kg/m × 9.81 m/s² = 452.24 N/m = 0.452 kN/m ≈ 0.45 kN/m. Express your final numeric answer in kN/m."
+            "First Hint (Physical Principle & Idealisation: Convert UB mass per metre (kg/m) into characteristic self-weight (kN/m)): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Symbolic Formula & Unit Setup): g_k,sw = 46.1 kg/m × 9.81 m/s² = 452.24 N/m = ?.45 kN/m. (express final result in kN/m)."
           ],
           "caseFamilyId": "MOD08-T1-CF",
           "reviewStatus": "Draft",
@@ -76,10 +88,18 @@
           "correctAnswer": 0.81,
           "tolerance": 0.0122,
           "explanation": "ε = √(235 / 355) = √0.66197 = 0.8136 ≈ 0.81. Step-by-step verification for \"Calculate EC3 section classification parameter ε = √(235 / f_y)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.81 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate EC3 section classification parameter ε = √(235 / f_y)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: ε = √(235 / 355) = √0.66197 = 0.8136 ≈ 0.81. Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Calculate EC3 section classification parameter ε = √(235 / f_y)): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Symbolic Formula & Unit Setup): ε = √(235 / 355) = √0.66197 = ?.81. (express final result in ratio)."
           ],
           "caseFamilyId": "MOD08-T1-CF",
           "reviewStatus": "Draft",
@@ -102,10 +122,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Section classification checks local plate buckling (c/t ratios of flange and web), not global member buckling. Engineering synthesis for \"Distinguish EC3 Section Classes 1, 2, 3, and 4\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish EC3 Section Classes 1, 2, 3, and 4\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish EC3 Section Classes 1, 2, 3, and 4): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Analytical Elimination Criterion): Classify the section first: Class 1/2 sections develop full plastic moment M_pl,Rd using W_pl, Class 3 reaches first yield M_el,Rd using W_el, and Class 4 requires effective width W_eff due to local buckling before yield. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4)."
           ],
           "caseFamilyId": "MOD08-T1-CF",
           "reviewStatus": "Draft",
@@ -128,10 +156,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Metallurgical cooling rate and rolling reduction govern grain size (Hall-Petch relationship); always check the governing element thickness t before writing down fy!",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why yield strength f_y reduces as plate/flange thickness t increases\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why yield strength f_y reduces as plate/flange thickness t increases): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Analytical Elimination Criterion): Classify the section first: Class 1/2 sections develop full plastic moment M_pl,Rd using W_pl, Class 3 reaches first yield M_el,Rd using W_el, and Class 4 requires effective width W_eff due to local buckling before yield. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4)."
           ],
           "caseFamilyId": "MOD08-T1-CF",
           "reviewStatus": "Draft",
@@ -154,10 +190,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Higher fy demands greater compressive strain to reach yield while E is unchanged, hence ε = √(235/fy) reduces the allowable c/t ratio. Engineering synthesis for \"Explain why higher yield strength S355 has stricter c/t local buckling limits (ε = 0.81)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why higher yield strength S355 has stricter c/t local buckling limits (ε = 0.81)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why higher yield strength S355 has stricter c/t local buckling limits (ε = 0.81)): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Analytical Elimination Criterion): Classify the section first: Class 1/2 sections develop full plastic moment M_pl,Rd using W_pl, Class 3 reaches first yield M_el,Rd using W_el, and Class 4 requires effective width W_eff due to local buckling before yield. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4)."
           ],
           "caseFamilyId": "MOD08-T1-CF",
           "reviewStatus": "Draft",
@@ -182,7 +226,11 @@
         "Calculate M_c,Rd and V_pl,Rd for a laterally restrained steel beam using supplied section properties.",
         "Check whether V_Ed exceeds 50% of V_pl,Rd and explain why √3 appears in the shear resistance formula."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD08-T2-Q1",
@@ -196,15 +244,22 @@
           "correctAnswer": 75,
           "tolerance": 1.13,
           "explanation": "M_Ed = (24.0 × 5.0²) / 8 = 600 / 8 = 75.0 kN·m. Step-by-step verification for \"Calculate ULS design bending moment M_Ed on the Module 8 Capstone beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 75 kN·m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+            "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate ULS design bending moment M_Ed on the Module 8 Capstone beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: M_Ed = (24.0 × 5.0²) / 8 = 600 / 8 = ?. Express your final numeric answer in kN·m."
+            "First Hint (Physical Principle & Idealisation: Calculate ULS design bending moment M_Ed on the Module 8 Capstone beam): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+            "Second Hint (Symbolic Formula & Unit Setup): M_Ed = (24.0 × 5.0²) / 8 = 600 / 8 = ?.0 kN·m. (express final result in kN·m)."
           ],
           "caseFamilyId": "MOD08-T2-CF",
           "solverVerificationId": "SOLVER-MOD08-T2-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD08-T2-Q2",
@@ -218,15 +273,22 @@
           "correctAnswer": 113.6,
           "tolerance": 1.7,
           "explanation": "M_c,Rd = (320,000 mm³ × 355 N/mm²) / 1.00 = 113,600,000 N·mm = 113.6 kN·m. Step-by-step verification for \"Calculate design plastic bending resistance M_c,Rd of a Class 1 UB\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 113.6 kN·m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+            "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate design plastic bending resistance M_c,Rd of a Class 1 UB\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: M_c,Rd = (320,000 mm³ × 355 N/mm²) / 1.00 = 113,600,000 N·mm = ?. Express your final numeric answer in kN·m."
+            "First Hint (Physical Principle & Idealisation: Calculate design plastic bending resistance M_c,Rd of a Class 1 UB): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+            "Second Hint (Symbolic Formula & Unit Setup): M_c,Rd = (320,000 mm³ × 355 N/mm²) / 1.00 = 113,600,000 N·mm = ?. (express final result in kN·m)."
           ],
           "caseFamilyId": "MOD08-T2-CF",
           "solverVerificationId": "SOLVER-MOD08-T2-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD08-T2-Q3",
@@ -240,15 +302,22 @@
           "correctAnswer": 368.9,
           "tolerance": 5.53,
           "explanation": "f_y / √3 = 355 / 1.73205 = 204.96 N/mm². V_pl,Rd = 1,800 mm² × 204.96 N/mm² / 1.00 = 368,926 N ≈ 368.9 kN. Step-by-step verification for \"Calculate design plastic shear resistance V_pl,Rd\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 368.9 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+            "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate design plastic shear resistance V_pl,Rd\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: f_y / √3 = 355 / 1.73205 = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate design plastic shear resistance V_pl,Rd): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use M_c,Rd = W_pl,y · f_y / (γ_M0 · 10⁶) [in kN·m with W_pl,y in mm³] and V_pl,Rd = A_v · (f_y / √3) / (γ_M0 · 10³) [in kN with A_v in mm²]; check whether V_Ed / V_pl,Rd <= 0.5. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD08-T2-CF",
           "solverVerificationId": "SOLVER-MOD08-T2-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD08-T2-Q4",
@@ -267,10 +336,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Because the flanges carry almost all the bending moment while the web carries the shear, moderate web shear (≤ 50% of V_pl,Rd) barely reduces the total plastic moment of an I-section.",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+            "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand bending and shear interaction threshold (V_Ed ≤ 0.5 V_pl,Rd)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand bending and shear interaction threshold (V_Ed ≤ 0.5 V_pl,Rd)): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+            "Second Hint (Analytical Elimination Criterion): Use M_c,Rd = W_pl,y · f_y / (γ_M0 · 10⁶) [in kN·m with W_pl,y in mm³] and V_pl,Rd = A_v · (f_y / √3) / (γ_M0 · 10³) [in kN with A_v in mm²]; check whether V_Ed / V_pl,Rd <= 0.5. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5)."
           ],
           "caseFamilyId": "MOD08-T2-CF",
           "reviewStatus": "Draft",
@@ -293,10 +370,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Under pure shear (σ_x = σ_y = 0, τ_xy = τ), von Mises equivalent stress is σ_eq = √(3 τ²); setting σ_eq = f_y gives τ_y = f_y / √3. Engineering synthesis for \"Explain why √3 appears in the steel plastic shear resistance formula V_pl,Rd = A_v(f_y/√3)/γ_M0\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T2",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+            "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why √3 appears in the steel plastic shear resistance formula V_pl,Rd = A_v(f_y/√3)/γ_M0\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why √3 appears in the steel plastic shear resistance formula V_pl,Rd = A_v(f_y/√3)/γ_M0): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+            "Second Hint (Analytical Elimination Criterion): Use M_c,Rd = W_pl,y · f_y / (γ_M0 · 10⁶) [in kN·m with W_pl,y in mm³] and V_pl,Rd = A_v · (f_y / √3) / (γ_M0 · 10³) [in kN with A_v in mm²]; check whether V_Ed / V_pl,Rd <= 0.5. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5)."
           ],
           "caseFamilyId": "MOD08-T2-CF",
           "reviewStatus": "Draft",
@@ -321,7 +406,11 @@
         "Evaluate whether a real floor detail satisfies the \"laterally restrained\" assumption.",
         "Check support padstone bearing stresses and explain every item in the 17-part Capstone calculation note."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD08-T3-Q1",
@@ -340,10 +429,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "If the compression flange is unrestrained over part of the span (due to a floor opening) or during construction, LTB can govern and M_b,Rd can be much lower than M_c,Rd!",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T3",
+            "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+            "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+            "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+            "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+            "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Evaluate what makes a beam truly \"laterally restrained\" (Module 8 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Evaluate what makes a beam truly \"laterally restrained\" (Module 8 Gate)): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+            "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
           ],
           "caseFamilyId": "MOD08-T3-CF",
           "reviewStatus": "Draft",
@@ -361,15 +458,22 @@
           "correctAnswer": 400,
           "tolerance": 6,
           "explanation": "Required padstone area A_req = F_Ed / f_d = 60,000 N / 1.5 N/mm² = 40,000 mm². Since width b = 100 mm, minimum length L_pad = 40,000 / 100 = 400 mm.",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T3",
+            "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+            "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+            "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+            "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+            "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate required padstone plan area for a masonry support bearing\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Required padstone area A_req = F_Ed / f_d = 60,000 N / 1.5 N/mm² = 40,000 mm². Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate required padstone plan area for a masonry support bearing): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+            "Second Hint (Symbolic Formula & Unit Setup): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Express your final calculated value in mm."
           ],
           "caseFamilyId": "MOD08-T3-CF",
           "solverVerificationId": "SOLVER-MOD08-T3-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD08-T3-Q3",
@@ -388,10 +492,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "If a \"pinned\" connection is detailed too stiffly without designing the bolts/supporting column for the resulting moment, the connection or column can fail prematurely.",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T3",
+            "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+            "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+            "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+            "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+            "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand what a \"simple support / nominal pin connection\" requires in detailing\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand what a \"simple support / nominal pin connection\" requires in detailing): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+            "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
           ],
           "caseFamilyId": "MOD08-T3-CF",
           "reviewStatus": "Draft",
@@ -414,10 +526,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "When supported by web cleats/end-plates, the reaction is transferred directly by shear into the web depth; when seated on the bottom flange, the reaction must pass vertically through the thin web root.",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T3",
+            "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+            "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+            "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+            "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+            "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify when web bearing / web buckling checks and stiffeners are needed at supports\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify when web bearing / web buckling checks and stiffeners are needed at supports): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+            "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
           ],
           "caseFamilyId": "MOD08-T3-CF",
           "reviewStatus": "Draft",
@@ -440,10 +560,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "A calculation note is a communication document for a checking engineer and detailer; equations without load paths, restraint details, and stated assumptions are incomplete and unsafe.",
-          "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T3",
+            "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+            "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+            "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+            "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+            "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify essential items in the 17-part Capstone calculation note (Module 8 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify essential items in the 17-part Capstone calculation note (Module 8 Gate)): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+            "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
           ],
           "caseFamilyId": "MOD08-T3-CF",
           "reviewStatus": "Draft",
@@ -483,15 +611,22 @@
       "correctAnswer": 11,
       "tolerance": 0.165,
       "explanation": "g_k = (3.5 kN/m² × 3.0 m) + 0.5 kN/m = 10.5 + 0.5 = 11.0 kN/m. Step-by-step verification for \"Calculate characteristic permanent line load for the 5.0 m Capstone beam (3.0 m tributary width)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 11 kN/m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T1",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "BSI / N.S. Trahair et al.",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+        "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+        "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate characteristic permanent line load for the 5.0 m Capstone beam (3.0 m tributary width)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: g_k = (3.5 kN/m² × 3.0 m) + 0.5 kN/m = 10.5 + 0.5 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate characteristic permanent line load for the 5.0 m Capstone beam (3.0 m tributary width)): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+        "Second Hint (Symbolic Formula & Unit Setup): g_k = (3.5 kN/m² × 3.0 m) + 0.5 kN/m = 10.5 + 0.5 = ?.0 kN/m. (express final result in kN/m)."
       ],
       "caseFamilyId": "MOD08-T1-CF",
       "solverVerificationId": "SOLVER-MOD08-E01",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD08-E02",
@@ -505,15 +640,22 @@
       "correctAnswer": 9,
       "tolerance": 0.135,
       "explanation": "q_k = 3.0 kN/m² × 3.0 m = 9.0 kN/m. Step-by-step verification for \"Calculate characteristic imposed line load for the 5.0 m Capstone beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 9 kN/m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T1",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "BSI / N.S. Trahair et al.",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+        "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+        "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate characteristic imposed line load for the 5.0 m Capstone beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: q_k = 3.0 kN/m² × 3.0 m = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate characteristic imposed line load for the 5.0 m Capstone beam): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+        "Second Hint (Symbolic Formula & Unit Setup): q_k = 3.0 kN/m² × 3.0 m = ?.0 kN/m. (express final result in kN/m)."
       ],
       "caseFamilyId": "MOD08-T1-CF",
       "solverVerificationId": "SOLVER-MOD08-E02",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD08-E03",
@@ -527,15 +669,22 @@
       "correctAnswer": 28.35,
       "tolerance": 0.425,
       "explanation": "w_Ed = (1.35 × 11.0) + (1.50 × 9.0) = 14.85 + 13.50 = 28.35 kN/m. Step-by-step verification for \"Calculate ULS design line load w_Ed for the Capstone beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 28.35 kN/m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+        "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate ULS design line load w_Ed for the Capstone beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: w_Ed = (1.35 × 11.0) + (1.50 × 9.0) = 14.85 + 13.50 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate ULS design line load w_Ed for the Capstone beam): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+        "Second Hint (Symbolic Formula & Unit Setup): w_Ed = (1.35 × 11.0) + (1.50 × 9.0) = 14.85 + 13.50 = ?. (express final result in kN/m)."
       ],
       "caseFamilyId": "MOD08-T2-CF",
       "solverVerificationId": "SOLVER-MOD08-E03",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD08-E04",
@@ -549,15 +698,22 @@
       "correctAnswer": 70.88,
       "tolerance": 1.06,
       "explanation": "R_Ed = V_Ed = (28.35 × 5.0) / 2 = 70.875 kN ≈ 70.88 kN. Step-by-step verification for \"Calculate ULS support reaction R_Ed (= V_Ed) for the 5.0 m Capstone beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 70.88 kN, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+        "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate ULS support reaction R_Ed (= V_Ed) for the 5.0 m Capstone beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: R_Ed = V_Ed = (28.35 × 5.0) / 2 = 70.875 kN ≈ 70.88 kN. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate ULS support reaction R_Ed (= V_Ed) for the 5.0 m Capstone beam): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+        "Second Hint (Symbolic Formula & Unit Setup): R_Ed = V_Ed = (28.35 × 5.0) / 2 = 70.875 kN = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD08-T2-CF",
       "solverVerificationId": "SOLVER-MOD08-E04",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD08-E05",
@@ -571,15 +727,22 @@
       "correctAnswer": 88.59,
       "tolerance": 1.33,
       "explanation": "M_Ed = (28.35 × 5.0²) / 8 = 708.75 / 8 = 88.59375 kN·m ≈ 88.59 kN·m. Step-by-step verification for \"Calculate ULS design bending moment M_Ed for the 5.0 m Capstone beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 88.59 kN·m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+        "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate ULS design bending moment M_Ed for the 5.0 m Capstone beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_Ed = (28.35 × 5.0²) / 8 = 708.75 / 8 = 88.59375 kN·m ≈ 88.59 kN·m. Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate ULS design bending moment M_Ed for the 5.0 m Capstone beam): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_Ed = (28.35 × 5.0²) / 8 = 708.75 / 8 = ?.59 kN·m. (express final result in kN·m)."
       ],
       "caseFamilyId": "MOD08-T2-CF",
       "solverVerificationId": "SOLVER-MOD08-E05",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD08-E06",
@@ -593,10 +756,18 @@
       "correctAnswer": 249.5,
       "tolerance": 3.74,
       "explanation": "W_pl,req = (88.59 × 10⁶ N·mm) / 355 N/mm² = 249,549 mm³ ≈ 249.5 cm³. Step-by-step verification for \"Calculate minimum required plastic section modulus W_pl,req for S355 steel\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 249.5 cm³, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+        "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate minimum required plastic section modulus W_pl,req for S355 steel\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: W_pl,req = (88.59 × 10⁶ N·mm) / 355 N/mm² = 249,549 mm³ ≈ 249.5 cm³. Express your final numeric answer in cm³."
+        "First Hint (Physical Principle & Idealisation: Calculate minimum required plastic section modulus W_pl,req for S355 steel): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+        "Second Hint (Symbolic Formula & Unit Setup): W_pl,req = (88.59 × 10⁶ N·mm) / 355 N/mm² = 249,549 mm³ = ?. (express final result in cm³)."
       ],
       "caseFamilyId": "MOD08-T2-CF",
       "reviewStatus": "Draft",
@@ -614,10 +785,18 @@
       "correctAnswer": 0.76,
       "tolerance": 0.0114,
       "explanation": "88.59 / 116.80 = 0.7585 ≈ 0.76 (76% utilisation). Step-by-step verification for \"Calculate bending utilisation ratio for a selected trial UB\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.76 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+        "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate bending utilisation ratio for a selected trial UB\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 88.59 / 116.80 = 0.7585 ≈ 0.76 (76% utilisation). Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate bending utilisation ratio for a selected trial UB): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+        "Second Hint (Symbolic Formula & Unit Setup): 88.59 / 116.80 = 0.7585 = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD08-T2-CF",
       "reviewStatus": "Draft",
@@ -635,10 +814,18 @@
       "correctAnswer": 8.2,
       "tolerance": 0.123,
       "explanation": "Numerator = 5 × 9.0 × 5,000⁴ = 2.8125 × 10¹⁶. Denominator = 384 × 210,000 × 42.5 × 10⁶ = 3.4272 × 10¹⁵. δ_Q = 28.125 / 3.4272 = 8.206 mm ≈ 8.20 mm (compared to L/360 = 13.89 mm, so it passes!).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+        "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate variable-load SLS deflection of the selected trial UB\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Numerator = 5 × 9.0 × 5,000⁴ = 2.8125 × 10¹⁶. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate variable-load SLS deflection of the selected trial UB): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use M_c,Rd = W_pl,y · f_y / (γ_M0 · 10⁶) [in kN·m with W_pl,y in mm³] and V_pl,Rd = A_v · (f_y / √3) / (γ_M0 · 10³) [in kN with A_v in mm²]; check whether V_Ed / V_pl,Rd <= 0.5. Express your final calculated value in mm."
       ],
       "caseFamilyId": "MOD08-T2-CF",
       "reviewStatus": "Draft",
@@ -656,10 +843,18 @@
       "correctAnswer": 0.76,
       "tolerance": 0.0114,
       "explanation": "max(0.76, 0.20, 0.59) = 0.76 (ULS bending governs this 5.0 m span beam, with SLS deflection second at 0.59). Step-by-step verification for \"Determine which check has the highest utilisation ratio (bending, shear, or SLS deflection)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.76 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+        "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Determine which check has the highest utilisation ratio (bending, shear, or SLS deflection)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: max(0.76, 0.20, 0.59) = 0.76 (ULS bending governs this 5.0 m span beam, with SLS deflection second at 0.59). Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Determine which check has the highest utilisation ratio (bending, shear, or SLS deflection)): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+        "Second Hint (Symbolic Formula & Unit Setup): max(?, 0.20, 0.59) = ?.0 m span beam, with SLS deflection second at 0.59). (express final result in ratio)."
       ],
       "caseFamilyId": "MOD08-T2-CF",
       "reviewStatus": "Draft",
@@ -677,10 +872,18 @@
       "correctAnswer": 6.79,
       "tolerance": 0.102,
       "explanation": "c = (165 − 6.0 − 2 × 10.2) / 2 = (165 − 26.4) / 2 = 138.6 / 2 = 69.3 mm. Ratio c / t_f = 69.3 / 10.2 = 6.794 ≈ 6.79. Step-by-step verification for \"Calculate c/t_f outstand flange slenderness ratio\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 6.79 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T1",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "BSI / N.S. Trahair et al.",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+        "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+        "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate c/t_f outstand flange slenderness ratio\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: c = (165 − 6.0 − 2 × 10.2) / 2 = (165 − 26.4) / 2 = 138.6 / 2 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate c/t_f outstand flange slenderness ratio): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+        "Second Hint (Symbolic Formula & Unit Setup): Classify the section first: Class 1/2 sections develop full plastic moment M_pl,Rd using W_pl, Class 3 reaches first yield M_el,Rd using W_el, and Class 4 requires effective width W_eff due to local buckling before yield. Express your final calculated value in ratio."
       ],
       "caseFamilyId": "MOD08-T1-CF",
       "reviewStatus": "Draft",
@@ -703,10 +906,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Local plate buckling depends on the flat unsupported plate width between stiffened boundaries. Engineering synthesis for \"Understand why the root radius r is subtracted when finding clear web depth c_w and flange outstand c_f\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T1",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+        "authorOrBody": "BSI / N.S. Trahair et al.",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+        "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+        "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why the root radius r is subtracted when finding clear web depth c_w and flange outstand c_f\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand why the root radius r is subtracted when finding clear web depth c_w and flange outstand c_f): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+        "Second Hint (Analytical Elimination Criterion): Classify the section first: Class 1/2 sections develop full plastic moment M_pl,Rd using W_pl, Class 3 reaches first yield M_el,Rd using W_el, and Class 4 requires effective width W_eff due to local buckling before yield. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4)."
       ],
       "caseFamilyId": "MOD08-T1-CF",
       "reviewStatus": "Draft",
@@ -729,10 +940,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Hot-rolled UBs rarely suffer web shear buckling, whereas deep thin-webbed plate girders require shear buckling checks and transverse stiffeners. Engineering synthesis for \"Identify when shear buckling of a slender web must be checked\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+        "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify when shear buckling of a slender web must be checked\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify when shear buckling of a slender web must be checked): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+        "Second Hint (Analytical Elimination Criterion): Use M_c,Rd = W_pl,y · f_y / (γ_M0 · 10⁶) [in kN·m with W_pl,y in mm³] and V_pl,Rd = A_v · (f_y / √3) / (γ_M0 · 10³) [in kN with A_v in mm²]; check whether V_Ed / V_pl,Rd <= 0.5. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5)."
       ],
       "caseFamilyId": "MOD08-T2-CF",
       "reviewStatus": "Draft",
@@ -755,10 +974,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Restraint assumptions in calculations must be backed up by physical contact/fixing details on drawings (Module 8 & Module 17 Gate). Engineering synthesis for \"Evaluate whether timber joists notched into the web restrain the top compression flange\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T3",
+        "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+        "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+        "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+        "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+        "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Evaluate whether timber joists notched into the web restrain the top compression flange\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Evaluate whether timber joists notched into the web restrain the top compression flange): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+        "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
       ],
       "caseFamilyId": "MOD08-T3-CF",
       "reviewStatus": "Draft",
@@ -781,10 +1008,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Standard EC3 major-axis bending assumes loads act through the shear centre (in the plane of the web) without inducing torsion. Engineering synthesis for \"Understand eccentric loading on a beam flange (torsion risk)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T3",
+        "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+        "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+        "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+        "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+        "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand eccentric loading on a beam flange (torsion risk)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand eccentric loading on a beam flange (torsion risk)): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+        "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
       ],
       "caseFamilyId": "MOD08-T3-CF",
       "reviewStatus": "Draft",
@@ -807,10 +1042,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "In UK practice, fabricators cannot safely design fin plates or end plates unless the engineer states the ULS end reactions and tying forces on the GA drawings/schedules.",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T3",
+        "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+        "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+        "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+        "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+        "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify minimum practical connection information required on a drawing/calculation handover\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify minimum practical connection information required on a drawing/calculation handover): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+        "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
       ],
       "caseFamilyId": "MOD08-T3-CF",
       "reviewStatus": "Draft",
@@ -833,10 +1076,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Module 8 Learn item: corrosion/fire requirements awareness. Engineering synthesis for \"Understand fire resistance and corrosion protection awareness for steel beams\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T3",
+        "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+        "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+        "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+        "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+        "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand fire resistance and corrosion protection awareness for steel beams\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand fire resistance and corrosion protection awareness for steel beams): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+        "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
       ],
       "caseFamilyId": "MOD08-T3-CF",
       "reviewStatus": "Draft",
@@ -854,10 +1105,18 @@
       "correctAnswer": 149.1,
       "tolerance": 2.24,
       "explanation": "Because the section is Class 3, local buckling prevents full plastification so W_el,y (420 cm³) MUST be used instead of W_pl,y: M_c,Rd = 420,000 mm³ × 355 N/mm² / 1.00 = 149.1 kN·m.",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T2",
+        "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+        "authorOrBody": "BSI / Steel Construction Institute (SCI)",
+        "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5",
+        "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)",
+        "formatted": "BSI / Steel Construction Institute (SCI), BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes, BS EN 1993-1-1 Cl. 6.2.5, Cl. 6.2.6, Cl. 6.2.8 & SCI P362 §4.2–4.5, pp. 48–52 (EN 1993-1-1) / pp. 27–38 (SCI P362)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate elastic bending resistance M_el,Rd of a Class 3 section\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Because the section is Class 3, local buckling prevents full plastification so W_el,y (420 cm³) MUST be used instead of W_pl,y: M_c,Rd = 420,000 mm³ × 355 N/mm² / 1.00 = 149.1 kN·m.. Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate elastic bending resistance M_el,Rd of a Class 3 section): For a laterally restrained beam, verify cross-sectional bending resistance M_c,Rd, plastic shear resistance V_pl,Rd of the web, and high-shear moment reduction if V_Ed exceeds 0.5 · V_pl,Rd.",
+        "Second Hint (Symbolic Formula & Unit Setup): Because the section is Class 3, local buckling prevents full plastification so W_el,y (420 cm³) MUST be used instead of W_pl,y: M_c,Rd = 420,000 mm³ × 355 N/mm² / 1.00 = ?. (express final result in kN·m)."
       ],
       "caseFamilyId": "MOD08-T2-CF",
       "reviewStatus": "Draft",
@@ -875,10 +1134,18 @@
       "correctAnswer": 100,
       "tolerance": 1.5,
       "explanation": "Area of web root resisting bearing = 100 mm × 8.0 mm = 800 mm². σ_z,Ed = 80,000 N / 800 mm² = 100 N/mm². Step-by-step verification for \"Check web bearing stress under a concentrated support reaction\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 100 N/mm², and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T3",
+        "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+        "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+        "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+        "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+        "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Check web bearing stress under a concentrated support reaction\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Area of web root resisting bearing = 100 mm × 8.0 mm = ?. Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Check web bearing stress under a concentrated support reaction): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+        "Second Hint (Symbolic Formula & Unit Setup): Area of web root resisting bearing = ?.0 mm = 800 mm². (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD08-T3-CF",
       "reviewStatus": "Draft",
@@ -901,10 +1168,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Module 8 Learn item: fabrication and erection tolerances awareness. Engineering synthesis for \"Understand fabrication and erection tolerances in beam-to-column interfaces\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T3",
+        "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+        "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+        "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+        "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+        "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand fabrication and erection tolerances in beam-to-column interfaces\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand fabrication and erection tolerances in beam-to-column interfaces): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+        "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
       ],
       "caseFamilyId": "MOD08-T3-CF",
       "reviewStatus": "Draft",
@@ -927,10 +1202,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Final requirement of the Module 8 Learning Gate. Engineering synthesis for \"Identify what must be independently checked before a learning calculation is used in practice (Module 8 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
-      "citation": "BS EN 1993-1-1:2005 Design of Steel Structures Cl. 5.5 & Cl. 6.2",
+      "citation": {
+        "moduleId": "MOD-08",
+        "topicId": "MOD08-T3",
+        "sourceTitle": "SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005",
+        "authorOrBody": "Steel Construction Institute (SCI) / BSI",
+        "clauseOrSection": "SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3",
+        "pageReference": "pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)",
+        "formatted": "Steel Construction Institute (SCI) / BSI, SCI Publication P358 Simple Joints to EC3 & BS EN 1996-1-1:2005, SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3, pp. 11–88 (SCI P358) / pp. 62–65 (EN 1996-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what must be independently checked before a learning calculation is used in practice (Module 8 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify what must be independently checked before a learning calculation is used in practice (Module 8 Gate)): A beam design is incomplete until its compression flange restraint is verified in reality and its end reactions F_Ed are safely transferred through connections and padstones into the supporting structure.",
+        "Second Hint (Analytical Elimination Criterion): Size bearing padstones using required contact area A_pad = F_Ed / f_b,Rd = b_wall × L_pad (converting F_Ed from kN to N by multiplying by 10³ so dimensions are in mm and stress in N/mm²). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: SCI P358 §2–5 & BS EN 1996-1-1 Cl. 6.1.3)."
       ],
       "caseFamilyId": "MOD08-T3-CF",
       "reviewStatus": "Draft",

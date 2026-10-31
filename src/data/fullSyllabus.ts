@@ -4,6 +4,7 @@ import type {
   WorkedExampleItem,
   AssessmentQuestion,
 } from '../types/syllabus';
+import { verifyQuestionWithSolver } from '../utils/verificationRegistry';
 
 import mod00 from '../content/modules/module-00.json';
 import mod01 from '../content/modules/module-01.json';
@@ -31,6 +32,7 @@ function normalizeQuestion(
   moduleNumber: number,
   fallbackTopicId: string
 ): AssessmentQuestion {
+  const id = String(q.id ?? '');
   const type = q.type === 'mcq' ? 'mcq' : 'numeric';
   const correctOptionIndex =
     type === 'mcq'
@@ -40,22 +42,34 @@ function normalizeQuestion(
     type === 'mcq'
       ? Number(correctOptionIndex ?? 0)
       : Number(q.correctAnswer ?? 0);
+  const tolerance =
+    q.tolerance !== undefined ? Number(q.tolerance) : undefined;
 
-  const reviewStatus =
-    (q.reviewStatus as AssessmentQuestion['reviewStatus']) ?? 'Draft';
-  const solverVerificationId = q.solverVerificationId
-    ? String(q.solverVerificationId)
+  // Dynamically run the deterministic Solver Verification Registry (N5).
+  // A question is ONLY marked 'Verified' if its solver spec dynamically computes
+  // and matches `correctAnswer` within tolerance. Otherwise it strictly stays 'Draft'.
+  const solverAudit = verifyQuestionWithSolver({
+    id,
+    type,
+    correctAnswer,
+    tolerance,
+    solverVerificationId: q.solverVerificationId
+      ? String(q.solverVerificationId)
+      : undefined,
+  });
+
+  const reviewStatus: AssessmentQuestion['reviewStatus'] =
+    solverAudit.isVerified ? 'Verified' : 'Draft';
+  const solverVerificationId = solverAudit.isVerified
+    ? solverAudit.solverId
     : undefined;
 
-  const reviewNotice = String(
-    q.reviewNotice ??
-      (reviewStatus === 'Verified'
-        ? `Engine-verified against deterministic mechanics solver (${solverVerificationId ?? 'SI-Verified'}).`
-        : 'Learning question in Draft review state: verify against controlled Eurocode / UK NA clauses before project use.')
-  );
+  const reviewNotice = solverAudit.isVerified
+    ? solverAudit.reason
+    : 'Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use.';
 
   return {
-    id: String(q.id ?? ''),
+    id,
     moduleNumber,
     topicId: String(q.topicId ?? fallbackTopicId),
     learningObjective: String(q.learningObjective ?? ''),
@@ -68,7 +82,7 @@ function normalizeQuestion(
       : ['Linear elastic behaviour and consistent SI units'],
     unit: q.unit ? String(q.unit) : undefined,
     correctAnswer,
-    tolerance: q.tolerance !== undefined ? Number(q.tolerance) : undefined,
+    tolerance,
     options: Array.isArray(q.options) ? (q.options as string[]) : undefined,
     correctOptionIndex,
     explanation: String(q.explanation ?? ''),

@@ -38,7 +38,11 @@
         "Calculate centroids and second moments of area for rectangles and built-up sections.",
         "Explain why the A·d² parallel-axis term makes I-section flanges so effective."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD04-T1-Q1",
@@ -52,15 +56,22 @@
           "correctAnswer": 71.19,
           "tolerance": 1.07,
           "explanation": "I = (75 × 225³) / 12 = (75 × 11,390,625) / 12 = 71,191,406 mm⁴ ≈ 71.19 × 10⁶ mm⁴. Step-by-step verification for \"Calculate second moment of area of 75 × 225 mm timber section (Example 4.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 71.19 10⁶ mm⁴, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+            "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate second moment of area of 75 × 225 mm timber section (Example 4.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: I = (75 × 225³) / 12 = (75 × 11,390,625) / 12 = 71,191,406 mm⁴ ≈ 71.19 × 10⁶ mm⁴. Express your final numeric answer in 10⁶ mm⁴."
+            "First Hint (Physical Principle & Idealisation: Calculate second moment of area of 75 × 225 mm timber section (Example 4.1)): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+            "Second Hint (Symbolic Formula & Unit Setup): I = (75 × 225³) / 12 = (75 × 11,390,625) / 12 = 71,191,406 mm⁴ = ?. (express final result in 10⁶ mm⁴)."
           ],
           "caseFamilyId": "MOD04-T1-CF",
           "solverVerificationId": "SOLVER-MOD04-T1-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD04-T1-Q2",
@@ -74,15 +85,22 @@
           "correctAnswer": 168.75,
           "tolerance": 2.53,
           "explanation": "I = (75 × 300³) / 12 = (75 × 27,000,000) / 12 = 168,750,000 mm⁴ = 168.75 × 10⁶ mm⁴. Step-by-step verification for \"Calculate increased I when timber depth increases from 225 mm to 300 mm (Example 4.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 168.75 10⁶ mm⁴, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+            "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate increased I when timber depth increases from 225 mm to 300 mm (Example 4.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: I = (75 × 300³) / 12 = (75 × 27,000,000) / 12 = 168,750,000 mm⁴ = 168.75 × 10⁶ mm⁴. Express your final numeric answer in 10⁶ mm⁴."
+            "First Hint (Physical Principle & Idealisation: Calculate increased I when timber depth increases from 225 mm to 300 mm (Example 4.1)): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+            "Second Hint (Symbolic Formula & Unit Setup): I = (75 × 300³) / 12 = (75 × 27,000,000) / 12 = 168,750,000 mm⁴ = ?. (express final result in 10⁶ mm⁴)."
           ],
           "caseFamilyId": "MOD04-T1-CF",
           "solverVerificationId": "SOLVER-MOD04-T1-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD04-T1-Q3",
@@ -96,10 +114,18 @@
           "correctAnswer": 31.96,
           "tolerance": 0.479,
           "explanation": "Web: I_web = 10 × 180³ / 12 = 4.86 × 10⁶ mm⁴. Each flange has A_f = 1,500 mm² with centroid at d = 95 mm from NA: 2 × [150 × 10³ / 12 + 1,500 × 95²] = 2 × [0.0125 × 10⁶ + 13.5375 × 10⁶] = 27.10 × 10⁶ mm⁴. Total I_xx = 4.86 + 27.10 = 31.96 × 10⁶ mm⁴ (checked by outer-minus-inner box: (150 × 200³ − 140 × 180³)/12 = 31.96 × 10⁶ mm⁴).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+            "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Apply parallel-axis theorem to a symmetric built-up I-section (Example 4.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Web: I_web = 10 × 180³ / 12 = 4.86 × 10⁶ mm⁴. Express your final numeric answer in 10⁶ mm⁴."
+            "First Hint (Physical Principle & Idealisation: Apply parallel-axis theorem to a symmetric built-up I-section (Example 4.2)): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+            "Second Hint (Symbolic Formula & Unit Setup): For a rectangle about its centroidal major axis use I = b·d³/12; for composite I-sections apply the Parallel-Axis Theorem I_total = Σ(I_i + A_i·d_i²); for radius of gyration use i = √(I / A). Express your final calculated value in 10⁶ mm⁴."
           ],
           "caseFamilyId": "MOD04-T1-CF",
           "reviewStatus": "Draft",
@@ -117,10 +143,18 @@
           "correctAnswer": 132.1,
           "tolerance": 1.98,
           "explanation": "Take moments of area about the bottom (y = 0): A_web = 100 × 150 = 15,000 mm² at y_1 = 75 mm. A_flange = 400 × 50 = 20,000 mm² at y_2 = 150 + 25 = 175 mm. Total A = 35,000 mm². y_bar = (15,000 × 75 + 20,000 × 175) / 35,000 = 4,625,000 / 35,000 = 132.14 mm ≈ 132.1 mm.",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+            "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate centroid height of an unsymmetrical T-section\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Take moments of area about the bottom (y = 0): A_web = 100 × 150 = 15,000 mm² at y_1 = ?. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate centroid height of an unsymmetrical T-section): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+            "Second Hint (Symbolic Formula & Unit Setup): For a rectangle about its centroidal major axis use I = b·d³/12; for composite I-sections apply the Parallel-Axis Theorem I_total = Σ(I_i + A_i·d_i²); for radius of gyration use i = √(I / A). Express your final calculated value in mm."
           ],
           "caseFamilyId": "MOD04-T1-CF",
           "reviewStatus": "Draft",
@@ -138,15 +172,22 @@
           "correctAnswer": 47.43,
           "tolerance": 0.711,
           "explanation": "i_z = √(11,250,000 / 5,000) = √2,250 = 47.434 mm ≈ 47.43 mm. Step-by-step verification for \"Calculate radius of gyration i from I and A\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 47.43 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+            "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate radius of gyration i from I and A\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: i_z = √(11,250,000 / 5,000) = √2,250 = 47.434 mm ≈ 47.43 mm. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate radius of gyration i from I and A): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+            "Second Hint (Symbolic Formula & Unit Setup): i_z = √(11,250,000 / 5,000) = √2,250 = ?.43 mm. (express final result in mm)."
           ],
           "caseFamilyId": "MOD04-T1-CF",
           "solverVerificationId": "SOLVER-MOD04-T1-Q5",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         }
       ]
     },
@@ -168,7 +209,11 @@
         "Calculate Z_el, W_pl, and elastic bending stress σ for rectangular and I-sections.",
         "Explain the three stages of Example 4.4 and why stability can limit plastic hinge development."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD04-T2-Q1",
@@ -182,15 +227,22 @@
           "correctAnswer": 632.8,
           "tolerance": 9.49,
           "explanation": "Z = (75 × 225²) / 6 = (75 × 50,625) / 6 = 632,812.5 mm³ ≈ 632.8 × 10³ mm³ (632.8 cm³). Step-by-step verification for \"Calculate elastic section modulus Z of 75 × 225 mm timber section (Example 4.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 632.8 cm³, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+            "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate elastic section modulus Z of 75 × 225 mm timber section (Example 4.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Z = (75 × 225²) / 6 = (75 × 50,625) / 6 = 632,812.5 mm³ ≈ 632.8 × 10³ mm³ (632.8 cm³). Express your final numeric answer in cm³."
+            "First Hint (Physical Principle & Idealisation: Calculate elastic section modulus Z of 75 × 225 mm timber section (Example 4.1)): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+            "Second Hint (Symbolic Formula & Unit Setup): Z = (75 × 225²) / 6 = (75 × 50,625) / 6 = 632,812.5 mm³ = ?.8 cm³). (express final result in cm³)."
           ],
           "caseFamilyId": "MOD04-T2-CF",
           "solverVerificationId": "SOLVER-MOD04-T2-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD04-T2-Q2",
@@ -204,15 +256,22 @@
           "correctAnswer": 12.64,
           "tolerance": 0.19,
           "explanation": "σ = M / Z = (8.0 × 10⁶ N·mm) / 632,812.5 mm³ = 12.642 N/mm² ≈ 12.64 N/mm². Step-by-step verification for \"Calculate bending stress in 75 × 225 mm section under M = 8 kN·m (Example 4.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 12.64 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+            "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate bending stress in 75 × 225 mm section under M = 8 kN·m (Example 4.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: σ = M / Z = (8.0 × 10⁶ N·mm) / 632,812.5 mm³ = 12.642 N/mm² ≈ 12.64 N/mm². Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Calculate bending stress in 75 × 225 mm section under M = 8 kN·m (Example 4.1)): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+            "Second Hint (Symbolic Formula & Unit Setup): σ = M / Z = (8.0 × 10⁶ N·mm) / 632,812.5 mm³ = ?.64 N/mm². (express final result in N/mm²)."
           ],
           "caseFamilyId": "MOD04-T2-CF",
           "solverVerificationId": "SOLVER-MOD04-T2-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD04-T2-Q3",
@@ -226,15 +285,22 @@
           "correctAnswer": 150,
           "tolerance": 2.25,
           "explanation": "W_pl = (60 × 100²) / 4 = 600,000 / 4 = 150,000 mm³ = 150 cm³ (whereas Z_el = bd²/6 = 100 cm³, giving shape factor W_pl / Z_el = 1.5). Step-by-step verification for \"Calculate plastic section modulus W_pl of a rectangular steel plate\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 150 cm³, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+            "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate plastic section modulus W_pl of a rectangular steel plate\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: W_pl = (60 × 100²) / 4 = 600,000 / 4 = 150,000 mm³ = 150 cm³ (whereas Z_el = bd²/6 = 100 cm³, giving shape factor W_pl / Z_el = 1.5). Express your final numeric answer in cm³."
+            "First Hint (Physical Principle & Idealisation: Calculate plastic section modulus W_pl of a rectangular steel plate): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+            "Second Hint (Symbolic Formula & Unit Setup): W_pl = (60 × 100²) / 4 = 600,000 / 4 = ?.5). (express final result in cm³)."
           ],
           "caseFamilyId": "MOD04-T2-CF",
           "solverVerificationId": "SOLVER-MOD04-T2-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD04-T2-Q4",
@@ -253,10 +319,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Reaching and rotating at M_pl requires the compression elements to be sufficiently stocky (Class 1 or 2) to sustain compressive yield strains without local buckling, and the beam to be laterally restrained against LTB.",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+            "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why local buckling or LTB prevents full plastic moment M_pl (Example 4.4)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why local buckling or LTB prevents full plastic moment M_pl (Example 4.4)): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+            "Second Hint (Analytical Elimination Criterion): For a rectangle use W_el = b·d²/6 and W_pl = b·d²/4 (shape factor 1.5); compute extreme-fibre stress σ = M / W_el with M in N·mm (1 kN·m = 10⁶ N·mm) and W in mm³ (1 cm³ = 10³ mm³). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5)."
           ],
           "caseFamilyId": "MOD04-T2-CF",
           "reviewStatus": "Draft",
@@ -279,10 +353,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "I measures stiffness (second moment), Z_el measures elastic bending strength, and W_pl measures full plastic bending strength. Engineering synthesis for \"Distinguish I, Z_el, and W_pl (Module 4 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "R.C. Hibbeler / BSI",
+            "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+            "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+            "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish I, Z_el, and W_pl (Module 4 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish I, Z_el, and W_pl (Module 4 Gate)): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+            "Second Hint (Analytical Elimination Criterion): For a rectangle use W_el = b·d²/6 and W_pl = b·d²/4 (shape factor 1.5); compute extreme-fibre stress σ = M / W_el with M in N·mm (1 kN·m = 10⁶ N·mm) and W in mm³ (1 cm³ = 10³ mm³). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5)."
           ],
           "caseFamilyId": "MOD04-T2-CF",
           "reviewStatus": "Draft",
@@ -307,7 +389,11 @@
         "Explain why I-sections are efficient and what happens if a UB is loaded about its minor axis (Example 4.3).",
         "Prove quantitatively why beam depth governs stiffness while steel grade does not."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD04-T3-Q1",
@@ -326,10 +412,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Material near the neutral axis is lightly stressed in bending; moving mass to the extreme fibres maximises lever arm and second moment of area per kilogram of steel.",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T3",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+            "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+            "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+            "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+            "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why I-sections are structurally efficient in bending (Module 4 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why I-sections are structurally efficient in bending (Module 4 Gate)): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+            "Second Hint (Analytical Elimination Criterion): Compare major-axis properties (I_y, W_el,y, W_pl,y) against minor-axis properties (I_z, W_el,z, i_z) and verify that primary gravity bending acts about the major axis. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables)."
           ],
           "caseFamilyId": "MOD04-T3-CF",
           "reviewStatus": "Draft",
@@ -347,10 +441,18 @@
           "correctAnswer": 8,
           "tolerance": 0.12,
           "explanation": "Ratio = W_el,y / W_el,z = 600 / 75 = 8.0. Installed flat, it can only carry one-eighth of the bending moment! Step-by-step verification for \"Compare major vs minor axis elastic bending capacity of a UB (Example 4.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 8 factor, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T3",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+            "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+            "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+            "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+            "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Compare major vs minor axis elastic bending capacity of a UB (Example 4.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Ratio = W_el,y / W_el,z = 600 / 75 = ?. Express your final numeric answer in factor."
+            "First Hint (Physical Principle & Idealisation: Compare major vs minor axis elastic bending capacity of a UB (Example 4.3)): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+            "Second Hint (Symbolic Formula & Unit Setup): Ratio = W_el,y / W_el,z = 600 / 75 = ?.0. (express final result in factor)."
           ],
           "caseFamilyId": "MOD04-T3-CF",
           "reviewStatus": "Draft",
@@ -368,10 +470,18 @@
           "correctAnswer": 20,
           "tolerance": 0.3,
           "explanation": "Since deflection δ is inversely proportional to I, δ_minor / δ_major = I_y / I_z = 9,000 / 450 = 20 times greater deflection! Step-by-step verification for \"Compare major vs minor axis flexural stiffness of a UB (Example 4.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 20 times, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T3",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+            "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+            "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+            "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+            "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Compare major vs minor axis flexural stiffness of a UB (Example 4.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Since deflection δ is inversely proportional to I, δ_minor / δ_major = I_y / I_z = 9,000 / 450 = 20 times greater deflection! Step-by-step verification for \"Compare major vs minor axis flexural stiffness of a UB (Example 4.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 20 times, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).. Express your final numeric answer in times."
+            "First Hint (Physical Principle & Idealisation: Compare major vs minor axis flexural stiffness of a UB (Example 4.3)): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+            "Second Hint (Symbolic Formula & Unit Setup): Since deflection δ is inversely proportional to I, δ_minor / δ_major = I_y / I_z = 9,000 / 450 = ?.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain ? times, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress). (express final result in times)."
           ],
           "caseFamilyId": "MOD04-T3-CF",
           "reviewStatus": "Draft",
@@ -394,10 +504,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "In δ = 5wL⁴/(384EI), f_y does not appear at all! Only geometry (I) or support/span arrangement can reduce elastic deflection for a given material E.",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T3",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+            "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+            "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+            "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+            "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why a deeper beam beats a higher steel grade when deflection governs (Module 4 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why a deeper beam beats a higher steel grade when deflection governs (Module 4 Gate)): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+            "Second Hint (Analytical Elimination Criterion): Compare major-axis properties (I_y, W_el,y, W_pl,y) against minor-axis properties (I_z, W_el,z, i_z) and verify that primary gravity bending acts about the major axis. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables)."
           ],
           "caseFamilyId": "MOD04-T3-CF",
           "reviewStatus": "Draft",
@@ -415,10 +533,18 @@
           "correctAnswer": 9,
           "tolerance": 0.135,
           "explanation": "I_edge / I_flat = (75 × 225³ / 12) / (225 × 75³ / 12) = (225 / 75)² = 3² = 9.0. Step-by-step verification for \"Compare major vs minor axis bending stiffness of a 75 × 225 mm timber joist\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 9 factor, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-          "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+          "citation": {
+            "moduleId": "MOD-04",
+            "topicId": "MOD04-T3",
+            "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+            "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+            "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+            "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+            "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Compare major vs minor axis bending stiffness of a 75 × 225 mm timber joist\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: I_edge / I_flat = (75 × 225³ / 12) / (225 × 75³ / 12) = (225 / 75)² = 3² = ?. Express your final numeric answer in factor."
+            "First Hint (Physical Principle & Idealisation: Compare major vs minor axis bending stiffness of a 75 × 225 mm timber joist): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+            "Second Hint (Symbolic Formula & Unit Setup): I_edge / I_flat = (75 × 225³ / 12) / (225 × 75³ / 12) = (225 / 75)² = 3² = ?.0. (express final result in factor)."
           ],
           "caseFamilyId": "MOD04-T3-CF",
           "reviewStatus": "Draft",
@@ -484,10 +610,18 @@
       "correctAnswer": 71.19,
       "tolerance": 1.07,
       "explanation": "I = 75 × 225³ / 12 = 71.191 × 10⁶ mm⁴. Step-by-step verification for \"Calculate I for 75 × 225 mm rectangular section (Example 4.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 71.19 10⁶ mm⁴, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+        "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate I for 75 × 225 mm rectangular section (Example 4.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: I = 75 × 225³ / 12 = 71.191 × 10⁶ mm⁴. Express your final numeric answer in 10⁶ mm⁴."
+        "First Hint (Physical Principle & Idealisation: Calculate I for 75 × 225 mm rectangular section (Example 4.1)): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+        "Second Hint (Symbolic Formula & Unit Setup): For a rectangle about its centroidal major axis use I = b·d³/12; for composite I-sections apply the Parallel-Axis Theorem I_total = Σ(I_i + A_i·d_i²); for radius of gyration use i = √(I / A). Express your final calculated value in 10⁶ mm⁴."
       ],
       "caseFamilyId": "MOD04-T1-CF",
       "reviewStatus": "Draft",
@@ -505,10 +639,18 @@
       "correctAnswer": 7.11,
       "tolerance": 0.107,
       "explanation": "σ = (8.0 × 10⁶ N·mm) / 1,125,000 mm³ = 7.111 N/mm² ≈ 7.11 N/mm². Step-by-step verification for \"Calculate bending stress for 75 × 300 mm section under M = 8 kN·m (Example 4.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 7.11 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+        "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate bending stress for 75 × 300 mm section under M = 8 kN·m (Example 4.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: σ = (8.0 × 10⁶ N·mm) / 1,125,000 mm³ = 7.111 N/mm² ≈ 7.11 N/mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate bending stress for 75 × 300 mm section under M = 8 kN·m (Example 4.1)): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+        "Second Hint (Symbolic Formula & Unit Setup): σ = (8.0 × 10⁶ N·mm) / 1,125,000 mm³ = ?.11 N/mm². (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD04-T2-CF",
       "reviewStatus": "Draft",
@@ -526,10 +668,18 @@
       "correctAnswer": 2.37,
       "tolerance": 0.0355,
       "explanation": "I_300 / I_225 = (300 / 225)³ = (4 / 3)³ = 64 / 27 = 2.370. Step-by-step verification for \"Calculate factor decrease in deflection when depth increases from 225 mm to 300 mm (Example 4.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.37 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+        "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate factor decrease in deflection when depth increases from 225 mm to 300 mm (Example 4.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: I_300 / I_225 = (300 / 225)³ = (4 / 3)³ = 64 / 27 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate factor decrease in deflection when depth increases from 225 mm to 300 mm (Example 4.1)): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+        "Second Hint (Symbolic Formula & Unit Setup): I_300 / I_225 = (300 / 225)³ = (4 / 3)³ = 64 / 27 = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD04-T1-CF",
       "reviewStatus": "Draft",
@@ -547,10 +697,18 @@
       "correctAnswer": 16.67,
       "tolerance": 0.25,
       "explanation": "About the minor axis, the dimension parallel to bending is 100 mm: I_minor = 200 × 100³ / 12 = 16.667 × 10⁶ mm⁴ (compared to I_major = 100 × 200³ / 12 = 66.67 × 10⁶ mm⁴).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+        "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate minor-axis second moment of area of a rectangular section\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: About the minor axis, the dimension parallel to bending is 100 mm: I_minor = 200 × 100³ / 12 = 16.667 × 10⁶ mm⁴ (compared to I_major = 100 × 200³ / 12 = 66.67 × 10⁶ mm⁴).. Express your final numeric answer in 10⁶ mm⁴."
+        "First Hint (Physical Principle & Idealisation: Calculate minor-axis second moment of area of a rectangular section): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+        "Second Hint (Symbolic Formula & Unit Setup): For a rectangle about its centroidal major axis use I = b·d³/12; for composite I-sections apply the Parallel-Axis Theorem I_total = Σ(I_i + A_i·d_i²); for radius of gyration use i = √(I / A). Express your final calculated value in 10⁶ mm⁴."
       ],
       "caseFamilyId": "MOD04-T1-CF",
       "reviewStatus": "Draft",
@@ -568,10 +726,18 @@
       "correctAnswer": 67.5,
       "tolerance": 1.01,
       "explanation": "A × d² = 3,000 mm² × (150 mm)² = 3,000 × 22,500 = 67,500,000 mm⁴ = 67.5 × 10⁶ mm⁴. Step-by-step verification for \"Apply parallel-axis theorem to a single flange plate\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 67.5 10⁶ mm⁴, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+        "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Apply parallel-axis theorem to a single flange plate\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: A × d² = 3,000 mm² × (150 mm)² = 3,000 × 22,500 = 67,500,000 mm⁴ = 67.5 × 10⁶ mm⁴. Express your final numeric answer in 10⁶ mm⁴."
+        "First Hint (Physical Principle & Idealisation: Apply parallel-axis theorem to a single flange plate): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+        "Second Hint (Symbolic Formula & Unit Setup): A × d² = 3,000 mm² × (150 mm)² = 3,000 × 22,500 = 67,500,000 mm⁴ = ?. (express final result in 10⁶ mm⁴)."
       ],
       "caseFamilyId": "MOD04-T1-CF",
       "reviewStatus": "Draft",
@@ -589,10 +755,18 @@
       "correctAnswer": 45.85,
       "tolerance": 0.688,
       "explanation": "I = (B·D³ − b·d³) / 12 = (200⁴ − 180⁴) / 12 = (1,600,000,000 − 1,049,760,000) / 12 = 550,240,000 / 12 = 45.853 × 10⁶ mm⁴ ≈ 45.85 × 10⁶ mm⁴. Step-by-step verification for \"Calculate I of a symmetric hollow box section (RHS/SHS)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 45.85 10⁶ mm⁴, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+        "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate I of a symmetric hollow box section (RHS/SHS)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: I = (B·D³ − b·d³) / 12 = (200⁴ − 180⁴) / 12 = (1,600,000,000 − 1,049,760,000) / 12 = 550,240,000 / 12 = 45.853 × 10⁶ mm⁴ ≈ 45.85 × 10⁶ mm⁴. Express your final numeric answer in 10⁶ mm⁴."
+        "First Hint (Physical Principle & Idealisation: Calculate I of a symmetric hollow box section (RHS/SHS)): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+        "Second Hint (Symbolic Formula & Unit Setup): I = (B·D³ − b·d³) / 12 = (200⁴ − 180⁴) / 12 = (1,600,000,000 − 1,049,760,000) / 12 = 550,240,000 / 12 = ?.85 × 10⁶ mm⁴. (express final result in 10⁶ mm⁴)."
       ],
       "caseFamilyId": "MOD04-T1-CF",
       "reviewStatus": "Draft",
@@ -610,10 +784,18 @@
       "correctAnswer": 30,
       "tolerance": 0.45,
       "explanation": "σ(y) = M × y / I = (40 × 10⁶ N·mm × 60 mm) / (80 × 10⁶ mm⁴) = 30.0 N/mm² (tension). Step-by-step verification for \"Calculate bending stress at an interior point y from the neutral axis\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+        "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate bending stress at an interior point y from the neutral axis\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: σ(y) = M × y / I = (40 × 10⁶ N·mm × 60 mm) / (80 × 10⁶ mm⁴) = 30.0 N/mm² (tension). Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate bending stress at an interior point y from the neutral axis): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+        "Second Hint (Symbolic Formula & Unit Setup): σ(y) = M × y / I = (40 × 10⁶ N·mm × 60 mm) / (80 × 10⁶ mm⁴) = ?.0 N/mm² (tension). (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD04-T2-CF",
       "reviewStatus": "Draft",
@@ -631,15 +813,22 @@
       "correctAnswer": 177.5,
       "tolerance": 2.66,
       "explanation": "M_el = Z_el × f_y = 500,000 mm³ × 355 N/mm² = 177,500,000 N·mm = 177.5 kN·m. Step-by-step verification for \"Calculate elastic yield moment M_el of a section\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 177.5 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+        "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate elastic yield moment M_el of a section\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_el = Z_el × f_y = 500,000 mm³ × 355 N/mm² = 177,500,000 N·mm = ?. Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate elastic yield moment M_el of a section): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+        "Second Hint (Symbolic Formula & Unit Setup): M_el = Z_el × f_y = 500,000 mm³ × 355 N/mm² = 177,500,000 N·mm = ?. (express final result in kN·m)."
       ],
       "caseFamilyId": "MOD04-T2-CF",
       "solverVerificationId": "SOLVER-MOD04-E08",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD04-E09",
@@ -653,15 +842,22 @@
       "correctAnswer": 204.13,
       "tolerance": 3.06,
       "explanation": "M_pl = W_pl × f_y = 575,000 mm³ × 355 N/mm² = 204,125,000 N·mm ≈ 204.13 kN·m. Step-by-step verification for \"Calculate full plastic moment M_pl of a Class 1 steel section\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 204.13 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+        "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate full plastic moment M_pl of a Class 1 steel section\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_pl = W_pl × f_y = 575,000 mm³ × 355 N/mm² = 204,125,000 N·mm ≈ 204.13 kN·m. Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate full plastic moment M_pl of a Class 1 steel section): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+        "Second Hint (Symbolic Formula & Unit Setup): M_pl = W_pl × f_y = 575,000 mm³ × 355 N/mm² = 204,125,000 N·mm = ?. (express final result in kN·m)."
       ],
       "caseFamilyId": "MOD04-T2-CF",
       "solverVerificationId": "SOLVER-MOD04-E09",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD04-E10",
@@ -675,10 +871,18 @@
       "correctAnswer": 40,
       "tolerance": 0.6,
       "explanation": "σ_bot = M × y_bot / I = (30 × 10⁶ × 160) / (120 × 10⁶) = 40.0 N/mm² tension (while the top fibre has σ_top = 30 × 80 / 120 = 20.0 N/mm² compression).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+        "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate extreme fibre stresses in an unsymmetrical T-section\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: σ_bot = M × y_bot / I = (30 × 10⁶ × 160) / (120 × 10⁶) = 40.0 N/mm² tension (while the top fibre has σ_top = 30 × 80 / 120 = 20.0 N/mm² compression).. Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate extreme fibre stresses in an unsymmetrical T-section): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+        "Second Hint (Symbolic Formula & Unit Setup): σ_bot = M × y_bot / I = (30 × 10⁶ × 160) / (120 × 10⁶) = ?.0 N/mm² tension (while the top fibre has σ_top = 30 × 80 / 120 = 20.0 N/mm² compression). (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD04-T2-CF",
       "reviewStatus": "Draft",
@@ -701,10 +905,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Zero first moment of area ∫ y dA = 0 is the exact definition of the centroidal axis. Engineering synthesis for \"Explain why the neutral axis passes through the centroid in pure elastic bending\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4",
+        "pageReference": "pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Mechanics of Materials (10th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4, pp. 798–816 (Hibbeler) / pp. 252–264 (Megson)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why the neutral axis passes through the centroid in pure elastic bending\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why the neutral axis passes through the centroid in pure elastic bending): Second moment of area I measures how far cross-sectional area is distributed from the neutral axis of bending, scaling with the cube of depth d³.",
+        "Second Hint (Analytical Elimination Criterion): For a rectangle about its centroidal major axis use I = b·d³/12; for composite I-sections apply the Parallel-Axis Theorem I_total = Σ(I_i + A_i·d_i²); for radius of gyration use i = √(I / A). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Appendix A, §A.1–A.3 & Megson Ch. 9, §9.4)."
       ],
       "caseFamilyId": "MOD04-T1-CF",
       "reviewStatus": "Draft",
@@ -727,10 +939,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "When the entire section reaches ±f_y, horizontal force equilibrium C = T requires A_c·f_y = A_t·f_y, so A_c = A_t = A/2 (the equal-area axis). Engineering synthesis for \"Distinguish elastic centroidal axis from plastic equal-area axis in an asymmetric section\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+        "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish elastic centroidal axis from plastic equal-area axis in an asymmetric section\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish elastic centroidal axis from plastic equal-area axis in an asymmetric section): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+        "Second Hint (Analytical Elimination Criterion): For a rectangle use W_el = b·d²/6 and W_pl = b·d²/4 (shape factor 1.5); compute extreme-fibre stress σ = M / W_el with M in N·mm (1 kN·m = 10⁶ N·mm) and W in mm³ (1 cm³ = 10³ mm³). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5)."
       ],
       "caseFamilyId": "MOD04-T2-CF",
       "reviewStatus": "Draft",
@@ -753,10 +973,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Flanges have large area at maximum lever arm from the NA (carrying M), whereas vertical shear stress τ = VQ/(It) is concentrated in the narrow vertical web.",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T3",
+        "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+        "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+        "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+        "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+        "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand how bending moment and shear force are carried across an I-section\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand how bending moment and shear force are carried across an I-section): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+        "Second Hint (Analytical Elimination Criterion): Compare major-axis properties (I_y, W_el,y, W_pl,y) against minor-axis properties (I_z, W_el,z, i_z) and verify that primary gravity bending acts about the major axis. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables)."
       ],
       "caseFamilyId": "MOD04-T3-CF",
       "reviewStatus": "Draft",
@@ -779,10 +1007,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Directly addresses the final question in Syllabus Example 4.1 (\"Write what changed: bending stress; stiffness; likely deflection; practical limitations\").",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T3",
+        "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+        "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+        "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+        "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+        "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify practical limitations of choosing a much deeper beam section (Example 4.1)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify practical limitations of choosing a much deeper beam section (Example 4.1)): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+        "Second Hint (Analytical Elimination Criterion): Compare major-axis properties (I_y, W_el,y, W_pl,y) against minor-axis properties (I_z, W_el,z, i_z) and verify that primary gravity bending acts about the major axis. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables)."
       ],
       "caseFamilyId": "MOD04-T3-CF",
       "reviewStatus": "Draft",
@@ -805,10 +1041,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Plane sections remain plane gives linear strain ε ∝ y; combined with Hooke’s law σ = Eε, this produces the linear stress distribution σ = My/I. Engineering synthesis for \"State the core assumptions of Engineer’s Simple Bending Theory (σ = My/I)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+        "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"State the core assumptions of Engineer’s Simple Bending Theory (σ = My/I)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: State the core assumptions of Engineer’s Simple Bending Theory (σ = My/I)): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+        "Second Hint (Analytical Elimination Criterion): For a rectangle use W_el = b·d²/6 and W_pl = b·d²/4 (shape factor 1.5); compute extreme-fibre stress σ = M / W_el with M in N·mm (1 kN·m = 10⁶ N·mm) and W in mm³ (1 cm³ = 10³ mm³). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5)."
       ],
       "caseFamilyId": "MOD04-T2-CF",
       "reviewStatus": "Draft",
@@ -826,10 +1070,18 @@
       "correctAnswer": 110,
       "tolerance": 1.65,
       "explanation": "σ_axial = N / A = 240,000 / 4,000 = 60 N/mm² (compression). σ_bending = M / Z = 10,000,000 / 200,000 = 50 N/mm². Maximum compression = 60 + 50 = 110 N/mm² (minimum stress on opposite face = 60 − 50 = 10 N/mm² compression).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+        "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate combined axial and bending stress at an extreme fibre\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: σ_axial = N / A = 240,000 / 4,000 = 60 N/mm² (compression). Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate combined axial and bending stress at an extreme fibre): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+        "Second Hint (Symbolic Formula & Unit Setup): For a rectangle use W_el = b·d²/6 and W_pl = b·d²/4 (shape factor 1.5); compute extreme-fibre stress σ = M / W_el with M in N·mm (1 kN·m = 10⁶ N·mm) and W in mm³ (1 cm³ = 10³ mm³). Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD04-T2-CF",
       "reviewStatus": "Draft",
@@ -847,10 +1099,18 @@
       "correctAnswer": 700,
       "tolerance": 10.5,
       "explanation": "F_flange = M / z = 350 kN·m / 0.50 m = 700 kN (top flange in 700 kN compression, bottom flange in 700 kN tension under sagging). Step-by-step verification for \"Estimate flange axial force in an I-beam using the lever-arm approximation\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 700 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T3",
+        "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+        "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+        "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+        "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+        "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Estimate flange axial force in an I-beam using the lever-arm approximation\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: F_flange = M / z = 350 kN·m / 0.50 m = 700 kN (top flange in 700 kN compression, bottom flange in 700 kN tension under sagging). Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Estimate flange axial force in an I-beam using the lever-arm approximation): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+        "Second Hint (Symbolic Formula & Unit Setup): F_flange = M / z = 350 kN·m / 0.50 m = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD04-T3-CF",
       "reviewStatus": "Draft",
@@ -873,10 +1133,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Open sections made of thin rectangles have very low torsional constant J = Σ(b·t³/3) and a weak minor axis z-z, whereas closed hollow sections resist torsion by shear flow around the enclosed area and have symmetric flexural stiffness.",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T3",
+        "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+        "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+        "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+        "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+        "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why a square hollow section (SHS) resists torsion and minor-axis bending better than an I-section\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify why a square hollow section (SHS) resists torsion and minor-axis bending better than an I-section): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+        "Second Hint (Analytical Elimination Criterion): Compare major-axis properties (I_y, W_el,y, W_pl,y) against minor-axis properties (I_z, W_el,z, i_z) and verify that primary gravity bending acts about the major axis. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables)."
       ],
       "caseFamilyId": "MOD04-T3-CF",
       "reviewStatus": "Draft",
@@ -894,10 +1162,18 @@
       "correctAnswer": 1.5,
       "tolerance": 0.0225,
       "explanation": "(bd²/4) / (bd²/6) = 6 / 4 = 1.50. Step-by-step verification for \"Calculate shape factor of a solid rectangular section\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 4 (Section Properties, Elastic & Plastic Bending Stress).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "R.C. Hibbeler / BSI",
+        "clauseOrSection": "Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5",
+        "pageReference": "pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)",
+        "formatted": "R.C. Hibbeler / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1993-1-1:2005, Hibbeler Ch. 6, §6.4, §6.9 & BS EN 1993-1-1 Cl. 6.2.5, pp. 296–312, 344–356 (Hibbeler) / pp. 48–49 (EN 1993-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate shape factor of a solid rectangular section\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: (bd²/4) / (bd²/6) = 6 / 4 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate shape factor of a solid rectangular section): Distinguish first-yield elastic bending resistance (governed by elastic section modulus W_el = I / y_max) from full plastic hinge resistance in Class 1/2 sections (governed by plastic section modulus W_pl).",
+        "Second Hint (Symbolic Formula & Unit Setup): (bd²/4) / (bd²/6) = 6 / 4 = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD04-T2-CF",
       "reviewStatus": "Draft",
@@ -920,10 +1196,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "At midspan of a UDL beam, M is maximum and V is zero; removing flange area directly reduces Z where bending stress is peak, whereas the neutral axis at mid-depth has σ ≈ 0 (though any web opening must still be checked for local Vierendeel/shear action).",
-      "citation": "Parallel Axis Theorem, Elastic/Plastic Section Analysis & BS EN 1993-1-1 Cl. 6.2.5",
+      "citation": {
+        "moduleId": "MOD-04",
+        "topicId": "MOD04-T3",
+        "sourceTitle": "The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book",
+        "authorOrBody": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI",
+        "clauseOrSection": "Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables",
+        "pageReference": "pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)",
+        "formatted": "N.S. Trahair, M.A. Bradford, D.A. Nethercot & L. Gardner / SCI, The Behaviour and Design of Steel Structures to EC3 (4th ed.) & SCI P363 Blue Book, Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables, pp. 135–152 (Trahair) / pp. B-12 to B-28 (SCI P363)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise consequences of cutting holes in I-beam flanges vs web at midspan\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Recognise consequences of cutting holes in I-beam flanges vs web at midspan): An I-section concentrates flange area at maximum lever arm from the major axis (y-y) while the web resists vertical shear, making I_yy >> I_zz.",
+        "Second Hint (Analytical Elimination Criterion): Compare major-axis properties (I_y, W_el,y, W_pl,y) against minor-axis properties (I_z, W_el,z, i_z) and verify that primary gravity bending acts about the major axis. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Trahair Ch. 5, §5.1–5.3 & SCI P363 Section Tables)."
       ],
       "caseFamilyId": "MOD04-T3-CF",
       "reviewStatus": "Draft",

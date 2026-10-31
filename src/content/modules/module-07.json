@@ -42,7 +42,11 @@
         "Explain E_d ≤ R_d and why characteristic values are multiplied or divided by partial factors.",
         "Explain why a Eurocode part must always be read alongside its applicable National Annex."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD07-T1-Q1",
@@ -61,10 +65,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "γ_F = γ_f × γ_Sd covers both statistical variability of the load magnitude (γ_f) and uncertainty in the structural/load model (γ_Sd). Engineering synthesis for \"Explain why characteristic actions differ from design actions (Module 7 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T1",
+            "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+            "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+            "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+            "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+            "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why characteristic actions differ from design actions (Module 7 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why characteristic actions differ from design actions (Module 7 Gate)): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+            "Second Hint (Analytical Elimination Criterion): Use F_d = γ_F · F_k for design actions and X_d = X_k / γ_M for design material properties, consulting the UK National Annex for Nationally Determined Parameters (NDPs). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4)."
           ],
           "caseFamilyId": "MOD07-T1-CF",
           "reviewStatus": "Draft",
@@ -87,10 +99,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Action -> Factored Design Action (F_d) -> Structural Analysis -> Design Action Effect (E_d), which is compared against Member Capacity -> Design Resistance (R_d).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T1",
+            "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+            "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+            "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+            "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+            "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish Design Action Effect E_d from Design Resistance R_d (Module 7 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish Design Action Effect E_d from Design Resistance R_d (Module 7 Gate)): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+            "Second Hint (Analytical Elimination Criterion): Use F_d = γ_F · F_k for design actions and X_d = X_k / γ_M for design material properties, consulting the UK National Annex for Nationally Determined Parameters (NDPs). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4)."
           ],
           "caseFamilyId": "MOD07-T1-CF",
           "reviewStatus": "Draft",
@@ -113,10 +133,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Whenever a Eurocode clause permits a Nationally Determined Parameter (NDP), the value or method in the UK National Annex governs for UK projects.",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T1",
+            "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+            "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+            "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+            "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+            "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the mandatory role of the National Annex in Eurocode design\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand the mandatory role of the National Annex in Eurocode design): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+            "Second Hint (Analytical Elimination Criterion): Use F_d = γ_F · F_k for design actions and X_d = X_k / γ_M for design material properties, consulting the UK National Annex for Nationally Determined Parameters (NDPs). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4)."
           ],
           "caseFamilyId": "MOD07-T1-CF",
           "reviewStatus": "Draft",
@@ -139,10 +167,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Temporary works and construction-stage checks fall under transient design situations. Engineering synthesis for \"Distinguish persistent, transient, and accidental design situations\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T1",
+            "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+            "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+            "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+            "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+            "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish persistent, transient, and accidental design situations\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish persistent, transient, and accidental design situations): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+            "Second Hint (Analytical Elimination Criterion): Use F_d = γ_F · F_k for design actions and X_d = X_k / γ_M for design material properties, consulting the UK National Annex for Nationally Determined Parameters (NDPs). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4)."
           ],
           "caseFamilyId": "MOD07-T1-CF",
           "reviewStatus": "Draft",
@@ -160,10 +196,18 @@
           "correctAnswer": 20,
           "tolerance": 0.3,
           "explanation": "f_d = f_k / γ_M = 30 / 1.50 = 20.0 N/mm². Step-by-step verification for \"Calculate design material strength from characteristic strength and partial factor γ_M\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 20 N/mm², and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T1",
+            "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+            "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+            "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+            "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+            "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate design material strength from characteristic strength and partial factor γ_M\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: f_d = f_k / γ_M = 30 / 1.50 = ?. Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Calculate design material strength from characteristic strength and partial factor γ_M): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+            "Second Hint (Symbolic Formula & Unit Setup): f_d = f_k / γ_M = 30 / 1.50 = ?.0 N/mm². (express final result in N/mm²)."
           ],
           "caseFamilyId": "MOD07-T1-CF",
           "reviewStatus": "Draft",
@@ -188,7 +232,11 @@
         "Classify actions correctly and explain why simultaneous unrelated variable actions use a combination factor ψ_0.",
         "Explain why favourable dead weight in an uplift or overturning check must be multiplied by a factor ≤ 1.0 (never 1.35!)."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD07-T2-Q1",
@@ -207,10 +255,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "When permanent weight helps prevent failure (favourable action), overestimating its weight is unsafe; BS EN 1990 assigns a lower partial factor (γ_G,fav) to favourable permanent actions.",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T2",
+            "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+            "authorOrBody": "British Standards Institution (BSI)",
+            "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+            "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+            "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise dangerous error of applying γ_G,unfav = 1.35 to a favourable stabilising dead load\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Recognise dangerous error of applying γ_G,unfav = 1.35 to a favourable stabilising dead load): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+            "Second Hint (Analytical Elimination Criterion): For ULS STR evaluate w_Ed = γ_G·g_k + γ_Q·q_k (or the worse of Eq. 6.10a: 1.35·g_k + 1.5·ψ_0·q_k and Eq. 6.10b: ξ·1.35·g_k + 1.5·q_k); for SLS characteristic combination use g_k + q_k with partial factors of 1.0. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B))."
           ],
           "caseFamilyId": "MOD07-T2-CF",
           "reviewStatus": "Draft",
@@ -233,10 +289,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Turkstra’s rule in structural reliability: one variable action is taken as the leading variable action at full γ_Q·Q_k,1 while accompanying independent variable actions are taken at γ_Q·ψ_0,i·Q_k,i.",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T2",
+            "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+            "authorOrBody": "British Standards Institution (BSI)",
+            "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+            "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+            "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain physical rationale for combination factor ψ_0 on accompanying variable actions\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain physical rationale for combination factor ψ_0 on accompanying variable actions): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+            "Second Hint (Analytical Elimination Criterion): For ULS STR evaluate w_Ed = γ_G·g_k + γ_Q·q_k (or the worse of Eq. 6.10a: 1.35·g_k + 1.5·ψ_0·q_k and Eq. 6.10b: ξ·1.35·g_k + 1.5·q_k); for SLS characteristic combination use g_k + q_k with partial factors of 1.0. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B))."
           ],
           "caseFamilyId": "MOD07-T2-CF",
           "reviewStatus": "Draft",
@@ -259,10 +323,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "ψ_2·Q_k represents the time-averaged sustained portion of variable load that acts over a large fraction of the structure’s life, driving creep and consolidation.",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T2",
+            "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+            "authorOrBody": "British Standards Institution (BSI)",
+            "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+            "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+            "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish characteristic, frequent, and quasi-permanent SLS combinations\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish characteristic, frequent, and quasi-permanent SLS combinations): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+            "Second Hint (Analytical Elimination Criterion): For ULS STR evaluate w_Ed = γ_G·g_k + γ_Q·q_k (or the worse of Eq. 6.10a: 1.35·g_k + 1.5·ψ_0·q_k and Eq. 6.10b: ξ·1.35·g_k + 1.5·q_k); for SLS characteristic combination use g_k + q_k with partial factors of 1.0. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B))."
           ],
           "caseFamilyId": "MOD07-T2-CF",
           "reviewStatus": "Draft",
@@ -280,10 +352,18 @@
           "correctAnswer": 85.5,
           "tolerance": 1.28,
           "explanation": "F_d = (1.35 × 20) + (1.50 × 30) + (1.50 × 0.60 × 15) = 27.0 + 45.0 + 13.5 = 85.5 kN. Step-by-step verification for \"Calculate ULS design load with one leading and one accompanying variable action\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 85.5 kN, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T2",
+            "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+            "authorOrBody": "British Standards Institution (BSI)",
+            "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+            "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+            "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate ULS design load with one leading and one accompanying variable action\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: F_d = (1.35 × 20) + (1.50 × 30) + (1.50 × 0.60 × 15) = 27.0 + 45.0 + 13.5 = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate ULS design load with one leading and one accompanying variable action): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+            "Second Hint (Symbolic Formula & Unit Setup): F_d = (1.35 × 20) + (1.50 × 30) + (1.50 × 0.60 × 15) = 27.0 + 45.0 + 13.5 = ?. (express final result in kN)."
           ],
           "caseFamilyId": "MOD07-T2-CF",
           "reviewStatus": "Draft",
@@ -306,10 +386,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Construction loads (personnel, concreting equipment, stacked materials) are variable actions in a transient design situation covered by BS EN 1991-1-6.",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T2",
+            "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+            "authorOrBody": "British Standards Institution (BSI)",
+            "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+            "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+            "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Classify earth, groundwater, thermal, and construction loads\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Classify earth, groundwater, thermal, and construction loads): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+            "Second Hint (Analytical Elimination Criterion): For ULS STR evaluate w_Ed = γ_G·g_k + γ_Q·q_k (or the worse of Eq. 6.10a: 1.35·g_k + 1.5·ψ_0·q_k and Eq. 6.10b: ξ·1.35·g_k + 1.5·q_k); for SLS characteristic combination use g_k + q_k with partial factors of 1.0. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B))."
           ],
           "caseFamilyId": "MOD07-T2-CF",
           "reviewStatus": "Draft",
@@ -333,7 +421,11 @@
         "Complete every step of Syllabus Example 7.1 accurately.",
         "Order and explain the 9 steps of a professional structural calculation."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD07-T3-Q1",
@@ -347,15 +439,22 @@
           "correctAnswer": 2.4,
           "tolerance": 0.036,
           "explanation": "Floor permanent line load = 1.0 kN/m² × 2.0 m = 2.0 kN/m. Adding beam self-weight allowance of 0.4 kN/m gives g_k,total = 2.0 + 0.4 = 2.4 kN/m. Step-by-step verification for \"Calculate total characteristic permanent line load including beam self-weight (Example 7.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.4 kN/m, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T3",
+            "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate total characteristic permanent line load including beam self-weight (Example 7.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Floor permanent line load = 1.0 kN/m² × 2.0 m = ?. Express your final numeric answer in kN/m."
+            "First Hint (Physical Principle & Idealisation: Calculate total characteristic permanent line load including beam self-weight (Example 7.1)): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+            "Second Hint (Symbolic Formula & Unit Setup): Compute g_k,total = g_k,floor · b_trib + g_sw and q_k = q_k,floor · b_trib; then evaluate w_Ed = 1.35·g_k,total + 1.50·q_k, V_Ed = w_Ed·L/2, M_Ed = w_Ed·L²/8, and SLS δ = 5·q_k·L⁴/(384·E·I). Express your final calculated value in kN/m."
           ],
           "caseFamilyId": "MOD07-T3-CF",
           "solverVerificationId": "SOLVER-MOD07-T3-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD07-T3-Q2",
@@ -369,15 +468,22 @@
           "correctAnswer": 7.74,
           "tolerance": 0.116,
           "explanation": "w_Ed = (1.35 × 2.4) + (1.50 × 3.0) = 3.24 + 4.50 = 7.74 kN/m. Step-by-step verification for \"Calculate basic ULS design line load w_Ed (Example 7.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 7.74 kN/m, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T3",
+            "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate basic ULS design line load w_Ed (Example 7.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: w_Ed = (1.35 × 2.4) + (1.50 × 3.0) = 3.24 + 4.50 = ?. Express your final numeric answer in kN/m."
+            "First Hint (Physical Principle & Idealisation: Calculate basic ULS design line load w_Ed (Example 7.1)): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+            "Second Hint (Symbolic Formula & Unit Setup): w_Ed = (1.35 × 2.4) + (1.50 × 3.0) = 3.24 + 4.50 = ?. (express final result in kN/m)."
           ],
           "caseFamilyId": "MOD07-T3-CF",
           "solverVerificationId": "SOLVER-MOD07-T3-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD07-T3-Q3",
@@ -391,15 +497,22 @@
           "correctAnswer": 24.19,
           "tolerance": 0.363,
           "explanation": "M_Ed = (7.74 × 5.0²) / 8 = (7.74 × 25) / 8 = 193.5 / 8 = 24.1875 kN·m ≈ 24.19 kN·m. Step-by-step verification for \"Calculate ULS design bending moment M_Ed on the 5 m floor beam (Example 7.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 24.19 kN·m, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T3",
+            "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate ULS design bending moment M_Ed on the 5 m floor beam (Example 7.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: M_Ed = (7.74 × 5.0²) / 8 = (7.74 × 25) / 8 = 193.5 / 8 = 24.1875 kN·m ≈ 24.19 kN·m. Express your final numeric answer in kN·m."
+            "First Hint (Physical Principle & Idealisation: Calculate ULS design bending moment M_Ed on the 5 m floor beam (Example 7.1)): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+            "Second Hint (Symbolic Formula & Unit Setup): M_Ed = (7.74 × 5.0²) / 8 = (7.74 × 25) / 8 = 193.5 / 8 = 24.1875 kN·m = ?. (express final result in kN·m)."
           ],
           "caseFamilyId": "MOD07-T3-CF",
           "solverVerificationId": "SOLVER-MOD07-T3-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD07-T3-Q4",
@@ -413,15 +526,22 @@
           "correctAnswer": 19.35,
           "tolerance": 0.29,
           "explanation": "V_Ed = (7.74 × 5.0) / 2 = 19.35 kN. Step-by-step verification for \"Calculate ULS design shear force V_Ed on the 5 m floor beam (Example 7.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 19.35 kN, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T3",
+            "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate ULS design shear force V_Ed on the 5 m floor beam (Example 7.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: V_Ed = (7.74 × 5.0) / 2 = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate ULS design shear force V_Ed on the 5 m floor beam (Example 7.1)): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+            "Second Hint (Symbolic Formula & Unit Setup): V_Ed = (7.74 × 5.0) / 2 = ?. (express final result in kN)."
           ],
           "caseFamilyId": "MOD07-T3-CF",
           "solverVerificationId": "SOLVER-MOD07-T3-Q4",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD07-T3-Q5",
@@ -440,10 +560,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Directly answers the final prompt of Syllabus Example 7.1 (\"state which checks the line loads will be used for\"). Engineering synthesis for \"Match ULS and SLS line loads to their respective design checks (Example 7.1)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-          "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+          "citation": {
+            "moduleId": "MOD-07",
+            "topicId": "MOD07-T3",
+            "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+            "authorOrBody": "IStructE / BSI",
+            "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+            "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+            "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Match ULS and SLS line loads to their respective design checks (Example 7.1)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Match ULS and SLS line loads to their respective design checks (Example 7.1)): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+            "Second Hint (Analytical Elimination Criterion): Compute g_k,total = g_k,floor · b_trib + g_sw and q_k = q_k,floor · b_trib; then evaluate w_Ed = 1.35·g_k,total + 1.50·q_k, V_Ed = w_Ed·L/2, M_Ed = w_Ed·L²/8, and SLS δ = 5·q_k·L⁴/(384·E·I). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1)."
           ],
           "caseFamilyId": "MOD07-T3-CF",
           "reviewStatus": "Draft",
@@ -482,10 +610,18 @@
       "correctAnswer": 7.74,
       "tolerance": 0.116,
       "explanation": "w_Ed = 1.35 × 2.4 + 1.50 × 3.0 = 3.24 + 4.50 = 7.74 kN/m. Step-by-step verification for \"Calculate ULS design line load for Example 7.1 floor beam\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 7.74 kN/m, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T3",
+        "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate ULS design line load for Example 7.1 floor beam\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: w_Ed = 1.35 × 2.4 + 1.50 × 3.0 = 3.24 + 4.50 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate ULS design line load for Example 7.1 floor beam): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+        "Second Hint (Symbolic Formula & Unit Setup): w_Ed = 1.35 × 2.4 + 1.50 × 3.0 = 3.24 + 4.50 = ?. (express final result in kN/m)."
       ],
       "caseFamilyId": "MOD07-T3-CF",
       "reviewStatus": "Draft",
@@ -503,15 +639,22 @@
       "correctAnswer": 7.5,
       "tolerance": 0.112,
       "explanation": "Eq 6.10a = 1.35(2.4) + 1.5(0.7)(3.0) = 3.24 + 3.15 = 6.39 kN/m. Eq 6.10b = 0.925 × 1.35 × 2.4 + 1.5(3.0) = 2.997 + 4.50 = 7.497 kN/m ≈ 7.50 kN/m. Governing is max(6.39, 7.50) = 7.50 kN/m.",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T3",
+        "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Compare ULS line load under twin expressions 6.10a and 6.10b\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Eq 6.10a = 1.35(2.4) + 1.5(0.7)(3.0) = 3.24 + 3.15 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Compare ULS line load under twin expressions 6.10a and 6.10b): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+        "Second Hint (Symbolic Formula & Unit Setup): Compute g_k,total = g_k,floor · b_trib + g_sw and q_k = q_k,floor · b_trib; then evaluate w_Ed = 1.35·g_k,total + 1.50·q_k, V_Ed = w_Ed·L/2, M_Ed = w_Ed·L²/8, and SLS δ = 5·q_k·L⁴/(384·E·I). Express your final calculated value in kN/m."
       ],
       "caseFamilyId": "MOD07-T3-CF",
       "solverVerificationId": "SOLVER-MOD07-E02",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD07-E03",
@@ -525,15 +668,22 @@
       "correctAnswer": 5.4,
       "tolerance": 0.081,
       "explanation": "w_SLS,char = 2.4 + 3.0 = 5.4 kN/m. Step-by-step verification for \"Calculate characteristic SLS total line load (Example 7.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 5.4 kN/m, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T3",
+        "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate characteristic SLS total line load (Example 7.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: w_SLS,char = 2.4 + 3.0 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate characteristic SLS total line load (Example 7.1)): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+        "Second Hint (Symbolic Formula & Unit Setup): w_SLS,char = 2.4 + 3.0 = ?. (express final result in kN/m)."
       ],
       "caseFamilyId": "MOD07-T3-CF",
       "solverVerificationId": "SOLVER-MOD07-E03",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD07-E04",
@@ -547,10 +697,18 @@
       "correctAnswer": 11.8,
       "tolerance": 0.177,
       "explanation": "w_QP = 10.0 + (0.30 × 6.0) = 11.8 kN/m. Step-by-step verification for \"Calculate quasi-permanent SLS line load for long-term creep\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 11.8 kN/m, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T2",
+        "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+        "authorOrBody": "British Standards Institution (BSI)",
+        "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+        "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+        "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate quasi-permanent SLS line load for long-term creep\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: w_QP = 10.0 + (0.30 × 6.0) = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate quasi-permanent SLS line load for long-term creep): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+        "Second Hint (Symbolic Formula & Unit Setup): w_QP = 10.0 + (0.30 × 6.0) = ?. (express final result in kN/m)."
       ],
       "caseFamilyId": "MOD07-T2-CF",
       "reviewStatus": "Draft",
@@ -568,10 +726,18 @@
       "correctAnswer": 14,
       "tolerance": 0.21,
       "explanation": "N_Ed = γ_Q · Q_k,wind − γ_G,fav · G_k = (1.50 × 36) − (1.00 × 40) = 54 − 40 = 14.0 kN upward tension. Step-by-step verification for \"Calculate net ULS uplift force on a canopy tie\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 14 kN, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T2",
+        "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+        "authorOrBody": "British Standards Institution (BSI)",
+        "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+        "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+        "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate net ULS uplift force on a canopy tie\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: N_Ed = γ_Q · Q_k,wind − γ_G,fav · G_k = (1.50 × 36) − (1.00 × 40) = 54 − 40 = 14.0 kN upward tension. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate net ULS uplift force on a canopy tie): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+        "Second Hint (Symbolic Formula & Unit Setup): N_Ed = γ_Q · Q_k,wind − γ_G,fav · G_k = (1.50 × 36) − (1.00 × 40) = 54 − 40 = ?.0 kN upward tension. (express final result in kN)."
       ],
       "caseFamilyId": "MOD07-T2-CF",
       "reviewStatus": "Draft",
@@ -589,10 +755,18 @@
       "correctAnswer": 0.9,
       "tolerance": 0.0135,
       "explanation": "Utilisation = M_Ed / M_Rd = 144 / 160 = 0.90 (≤ 1.00, so the check passes with 10% spare capacity). Step-by-step verification for \"Calculate utilisation ratio E_d / R_d\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.9 ratio, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T1",
+        "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+        "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+        "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+        "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+        "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate utilisation ratio E_d / R_d\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Utilisation = M_Ed / M_Rd = 144 / 160 = 0.90 (≤ 1.00, so the check passes with 10% spare capacity). Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate utilisation ratio E_d / R_d): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+        "Second Hint (Symbolic Formula & Unit Setup): Utilisation = M_Ed / M_Rd = 144 / 160 = ?.00, so the check passes with 10% spare capacity). (express final result in ratio)."
       ],
       "caseFamilyId": "MOD07-T1-CF",
       "reviewStatus": "Draft",
@@ -610,15 +784,22 @@
       "correctAnswer": 2.58,
       "tolerance": 0.0387,
       "explanation": "Numerator = 5 × 3.0 × 5,000⁴ = 9.375 × 10¹⁵. Denominator = 384 × 210,000 × 45 × 10⁶ = 3.6288 × 10¹⁵. δ_Q = 9.375 / 3.6288 = 2.583 mm ≈ 2.58 mm. Step-by-step verification for \"Calculate midspan deflection of Example 7.1 floor beam under variable SLS load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.58 mm, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T3",
+        "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate midspan deflection of Example 7.1 floor beam under variable SLS load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Numerator = 5 × 3.0 × 5,000⁴ = 9.375 × 10¹⁵. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate midspan deflection of Example 7.1 floor beam under variable SLS load): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+        "Second Hint (Symbolic Formula & Unit Setup): Compute g_k,total = g_k,floor · b_trib + g_sw and q_k = q_k,floor · b_trib; then evaluate w_Ed = 1.35·g_k,total + 1.50·q_k, V_Ed = w_Ed·L/2, M_Ed = w_Ed·L²/8, and SLS δ = 5·q_k·L⁴/(384·E·I). Express your final calculated value in mm."
       ],
       "caseFamilyId": "MOD07-T3-CF",
       "solverVerificationId": "SOLVER-MOD07-E07",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD07-E08",
@@ -632,10 +813,18 @@
       "correctAnswer": 309,
       "tolerance": 4.63,
       "explanation": "Comb A (floor leading): 1.35(100) + 1.50(80) + 1.50(0.50)(60) = 135 + 120 + 45 = 300 kN. Comb B (snow leading): 1.35(100) + 1.50(60) + 1.50(0.70)(80) = 135 + 90 + 84 = 309 kN. Governing is max(300, 309) = 309 kN.",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T2",
+        "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+        "authorOrBody": "British Standards Institution (BSI)",
+        "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+        "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+        "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Identify governing ULS combination when swapping leading and accompanying variable actions\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Comb A (floor leading): 1.35(100) + 1.50(80) + 1.50(0.50)(60) = 135 + 120 + 45 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Identify governing ULS combination when swapping leading and accompanying variable actions): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+        "Second Hint (Symbolic Formula & Unit Setup): For ULS STR evaluate w_Ed = γ_G·g_k + γ_Q·q_k (or the worse of Eq. 6.10a: 1.35·g_k + 1.5·ψ_0·q_k and Eq. 6.10b: ξ·1.35·g_k + 1.5·q_k); for SLS characteristic combination use g_k + q_k with partial factors of 1.0. Express your final calculated value in kN."
       ],
       "caseFamilyId": "MOD07-T2-CF",
       "reviewStatus": "Draft",
@@ -658,10 +847,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "You cannot calculate internal action effects (M_Ed, V_Ed) until the structural system, actions, and combinations are defined. Engineering synthesis for \"Identify the correct sequence of the 9-step Eurocode calculation workflow\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T3",
+        "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the correct sequence of the 9-step Eurocode calculation workflow\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify the correct sequence of the 9-step Eurocode calculation workflow): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+        "Second Hint (Analytical Elimination Criterion): Compute g_k,total = g_k,floor · b_trib + g_sw and q_k = q_k,floor · b_trib; then evaluate w_Ed = 1.35·g_k,total + 1.50·q_k, V_Ed = w_Ed·L/2, M_Ed = w_Ed·L²/8, and SLS δ = 5·q_k·L⁴/(384·E·I). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD07-T3-CF",
       "reviewStatus": "Draft",
@@ -684,10 +881,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "A calculation assuming a \"laterally restrained simply supported beam\" is invalid on site unless the drawings specify the restraint detail and simple connection.",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T3",
+        "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why Step 8 (Detailing/restraint requirements) and Step 9 (Assumptions/limitations) are part of the calculation workflow\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why Step 8 (Detailing/restraint requirements) and Step 9 (Assumptions/limitations) are part of the calculation workflow): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+        "Second Hint (Analytical Elimination Criterion): Compute g_k,total = g_k,floor · b_trib + g_sw and q_k = q_k,floor · b_trib; then evaluate w_Ed = 1.35·g_k,total + 1.50·q_k, V_Ed = w_Ed·L/2, M_Ed = w_Ed·L²/8, and SLS δ = 5·q_k·L⁴/(384·E·I). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD07-T3-CF",
       "reviewStatus": "Draft",
@@ -710,10 +915,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Note: partial factors cover statistical variability and idealisation model uncertainty; they do NOT cover gross human errors or unit mistakes! Engineering synthesis for \"Understand model uncertainty in Eurocode partial factors\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T1",
+        "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+        "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+        "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+        "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+        "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand model uncertainty in Eurocode partial factors\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand model uncertainty in Eurocode partial factors): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+        "Second Hint (Analytical Elimination Criterion): Use F_d = γ_F · F_k for design actions and X_d = X_k / γ_M for design material properties, consulting the UK National Annex for Nationally Determined Parameters (NDPs). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4)."
       ],
       "caseFamilyId": "MOD07-T1-CF",
       "reviewStatus": "Draft",
@@ -736,10 +949,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "BS EN 1990 explicitly states that gross human errors are mitigated by quality management, competence, and independent checking, not by partial factors.",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T1",
+        "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+        "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+        "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+        "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+        "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why partial safety factors do not protect against gross human error\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand why partial safety factors do not protect against gross human error): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+        "Second Hint (Analytical Elimination Criterion): Use F_d = γ_F · F_k for design actions and X_d = X_k / γ_M for design material properties, consulting the UK National Annex for Nationally Determined Parameters (NDPs). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4)."
       ],
       "caseFamilyId": "MOD07-T1-CF",
       "reviewStatus": "Draft",
@@ -762,10 +983,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "EQU, STR, and GEO use specific sets of partial factors tailored to rigid-body equilibrium, structural strength, and geotechnical resistance respectively.",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T2",
+        "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+        "authorOrBody": "British Standards Institution (BSI)",
+        "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+        "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+        "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish EQU, STR, and GEO ultimate limit states in BS EN 1990\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish EQU, STR, and GEO ultimate limit states in BS EN 1990): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+        "Second Hint (Analytical Elimination Criterion): For ULS STR evaluate w_Ed = γ_G·g_k + γ_Q·q_k (or the worse of Eq. 6.10a: 1.35·g_k + 1.5·ψ_0·q_k and Eq. 6.10b: ξ·1.35·g_k + 1.5·q_k); for SLS characteristic combination use g_k + q_k with partial factors of 1.0. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B))."
       ],
       "caseFamilyId": "MOD07-T2-CF",
       "reviewStatus": "Draft",
@@ -788,10 +1017,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Basement/excavation props experience primary load from soil and groundwater (often dominating soil pressure!) plus significant axial force changes from seasonal temperature swings.",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T2",
+        "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+        "authorOrBody": "British Standards Institution (BSI)",
+        "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+        "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+        "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify when thermal actions and earth/water pressures must be considered\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify when thermal actions and earth/water pressures must be considered): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+        "Second Hint (Analytical Elimination Criterion): For ULS STR evaluate w_Ed = γ_G·g_k + γ_Q·q_k (or the worse of Eq. 6.10a: 1.35·g_k + 1.5·ψ_0·q_k and Eq. 6.10b: ξ·1.35·g_k + 1.5·q_k); for SLS characteristic combination use g_k + q_k with partial factors of 1.0. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B))."
       ],
       "caseFamilyId": "MOD07-T2-CF",
       "reviewStatus": "Draft",
@@ -814,10 +1051,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Characteristic strengths represent a cautious lower bound (typically 5th percentile), whereas characteristic unfavourable actions represent a cautious upper bound.",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T1",
+        "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+        "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+        "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+        "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+        "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand characteristic material value fractiles (5% vs 95%)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand characteristic material value fractiles (5% vs 95%)): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+        "Second Hint (Analytical Elimination Criterion): Use F_d = γ_F · F_k for design actions and X_d = X_k / γ_M for design material properties, consulting the UK National Annex for Nationally Determined Parameters (NDPs). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4)."
       ],
       "caseFamilyId": "MOD07-T1-CF",
       "reviewStatus": "Draft",
@@ -835,10 +1080,18 @@
       "correctAnswer": 220,
       "tolerance": 3.3,
       "explanation": "M_pl,Rd = (800,000 × 275) / 1.00 = 220,000,000 N·mm = 220 kN·m. Step-by-step verification for \"Calculate design resistance of a steel cross-section using γ_M0 = 1.00\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 220 kN·m, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T1",
+        "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+        "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+        "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+        "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+        "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate design resistance of a steel cross-section using γ_M0 = 1.00\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_pl,Rd = (800,000 × 275) / 1.00 = 220,000,000 N·mm = ?. Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate design resistance of a steel cross-section using γ_M0 = 1.00): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+        "Second Hint (Symbolic Formula & Unit Setup): M_pl,Rd = (800,000 × 275) / 1.00 = ?. (express final result in kN·m)."
       ],
       "caseFamilyId": "MOD07-T1-CF",
       "reviewStatus": "Draft",
@@ -856,10 +1109,18 @@
       "correctAnswer": 9.9,
       "tolerance": 0.148,
       "explanation": "Total imposed surface load = 2.5 + 0.8 = 3.3 kN/m². Line load q_k = 3.3 kN/m² × 3.0 m = 9.9 kN/m. Step-by-step verification for \"Calculate characteristic line load from lightweight movable partitions\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 9.9 kN/m, and cross-check the magnitude and sign against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T2",
+        "sourceTitle": "BS EN 1990:2002+A1 & UK National Annex to BS EN 1990",
+        "authorOrBody": "British Standards Institution (BSI)",
+        "clauseOrSection": "BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B)",
+        "pageReference": "pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)",
+        "formatted": "British Standards Institution (BSI), BS EN 1990:2002+A1 & UK National Annex to BS EN 1990, BS EN 1990 Cl. 6.4.3.2 (Eq. 6.10, 6.10a/b), Cl. 6.5.3 & UK NA Table NA.A1.2(B), pp. 47–53 (EN 1990) / pp. 4–8 (UK NA)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate characteristic line load from lightweight movable partitions\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Total imposed surface load = 2.5 + 0.8 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate characteristic line load from lightweight movable partitions): Distinguish Ultimate Limit State (ULS: STR, EQU, GEO, FAT) factored combinations from Serviceability Limit State (SLS: Characteristic, Frequent, Quasi-Permanent) combinations.",
+        "Second Hint (Symbolic Formula & Unit Setup): For ULS STR evaluate w_Ed = γ_G·g_k + γ_Q·q_k (or the worse of Eq. 6.10a: 1.35·g_k + 1.5·ψ_0·q_k and Eq. 6.10b: ξ·1.35·g_k + 1.5·q_k); for SLS characteristic combination use g_k + q_k with partial factors of 1.0. Express your final calculated value in kN/m."
       ],
       "caseFamilyId": "MOD07-T2-CF",
       "reviewStatus": "Draft",
@@ -882,10 +1143,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Design working life sets the exposure window for durability specifications, fatigue cycles, and environmental action return periods. Engineering synthesis for \"Understand design working life and return periods\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T1",
+        "sourceTitle": "Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1",
+        "authorOrBody": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI",
+        "clauseOrSection": "Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4",
+        "pageReference": "pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)",
+        "formatted": "H. Gulvanessian, J.-A. Calgaro & M. Holický (Thomas Telford) / BSI, Designers' Guide to EN 1990: Eurocode Basis of Structural Design & BS EN 1990:2002+A1, Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4, pp. 15–68 (Gulvanessian) / pp. 17–38 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand design working life and return periods\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand design working life and return periods): Semi-probabilistic Limit State Design verifies E_d <= R_d by applying partial safety factors γ_F to characteristic actions (95% fractile) and γ_M to characteristic material strengths (5% fractile).",
+        "Second Hint (Analytical Elimination Criterion): Use F_d = γ_F · F_k for design actions and X_d = X_k / γ_M for design material properties, consulting the UK National Annex for Nationally Determined Parameters (NDPs). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Gulvanessian Ch. 2–4 & BS EN 1990 Cl. 1–4)."
       ],
       "caseFamilyId": "MOD07-T1-CF",
       "reviewStatus": "Draft",
@@ -908,10 +1177,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Directly enforces the syllabus rule: do not try to memorise or invent standards; consult controlled copies and state what requires verification. Engineering synthesis for \"Identify why standard editions and National Annexes must never be guessed\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1990:2002+A1 (Eurocode 0: Basis of Structural Design, Cl. 6.4.3.2 & UK NA).",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T3",
+        "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why standard editions and National Annexes must never be guessed\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify why standard editions and National Annexes must never be guessed): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+        "Second Hint (Analytical Elimination Criterion): Compute g_k,total = g_k,floor · b_trib + g_sw and q_k = q_k,floor · b_trib; then evaluate w_Ed = 1.35·g_k,total + 1.50·q_k, V_Ed = w_Ed·L/2, M_Ed = w_Ed·L²/8, and SLS δ = 5·q_k·L⁴/(384·E·I). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD07-T3-CF",
       "reviewStatus": "Draft",
@@ -934,10 +1211,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Module 7 establishes the entire \"action and action-effect\" side (E_d and SLS loads) so Module 8 can focus on EC3 member resistance (R_d), serviceability, and detailing.",
-      "citation": "BS EN 1990:2002+A1 Cl. 6.4.3.2 & UK National Annex Load Combinations",
+      "citation": {
+        "moduleId": "MOD-07",
+        "topicId": "MOD07-T3",
+        "sourceTitle": "Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002",
+        "authorOrBody": "IStructE / BSI",
+        "clauseOrSection": "IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1",
+        "pageReference": "pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)",
+        "formatted": "IStructE / BSI, Manual for the Design of Steelwork Building Structures to Eurocode 3 & BS EN 1991-1-1:2002, IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1, pp. 9–28 (IStructE) / pp. 26–31 (EN 1991-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Synthesise the purpose of Module 7 before starting Module 8\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Synthesise the purpose of Module 7 before starting Module 8): Follow the structured 9-part calculation workflow: convert characteristic area actions (kN/m²) via tributary width into line actions (kN/m), add self-weight, apply ULS/SLS factors, and compute design internal actions.",
+        "Second Hint (Analytical Elimination Criterion): Compute g_k,total = g_k,floor · b_trib + g_sw and q_k = q_k,floor · b_trib; then evaluate w_Ed = 1.35·g_k,total + 1.50·q_k, V_Ed = w_Ed·L/2, M_Ed = w_Ed·L²/8, and SLS δ = 5·q_k·L⁴/(384·E·I). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Manual Ch. 2–3 & BS EN 1991-1-1 Cl. 6.3.1)."
       ],
       "caseFamilyId": "MOD07-T3-CF",
       "reviewStatus": "Draft",

@@ -49,10 +49,18 @@
           "correctAnswer": 9,
           "tolerance": 0,
           "explanation": "Every calculation note in the syllabus has 9 mandatory sections: (1) Title/Scope, (2) Design Basis/Standards, (3) Geometry/Materials, (4) Actions/Combinations, (5) Load Path/Static Scheme, (6) Step-by-Step Calculations, (7) Independent Sanity Check, (8) Assumptions/Limitations, and (9) Conclusion & Utilisation.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T1",
+            "sourceTitle": "IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4",
+            "pageReference": "pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1, IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4, pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Verify calculation package completeness across the 9 mandatory syllabus sections.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Every calculation note in the syllabus has 9 mandatory sections: (1) Title/Scope, (2) Design Basis/Standards, (3) Geometry/Materials, (4) Actions/Combinations, (5) Load Path/Static Scheme, (6) Step-by-Step Calculations, (7) Independent Sanity Check, (8) Assumptions/Limitations, and (9) Conclusion & Utilisation.. Express your final numeric answer in sections."
+            "First Hint (Governing Mechanics Principle): Define the exact scope of deliverables, design responsibilities, exclusions, and pre-design information (GI report, topographical survey) in writing before starting detailed calculations.",
+            "Second Hint (Symbolic Equation & SI Units): Write out the governing equilibrium and compatibility equation in symbolic form, convert all given parameters into consistent SI base units, and evaluate the final numerical quantity in sections."
           ],
           "caseFamilyId": "MOD19-T1-CF",
           "reviewStatus": "Draft",
@@ -70,10 +78,18 @@
           "correctAnswer": 1,
           "tolerance": 0.01,
           "explanation": "A compliant design check requires Demand / Capacity <= 1.00 (100% utilisation). Step-by-step verification for \"Check maximum acceptable utilisation ratio for a compliant design conclusion.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 ratio, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T1",
+            "sourceTitle": "IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4",
+            "pageReference": "pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1, IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4, pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Check maximum acceptable utilisation ratio for a compliant design conclusion.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: A compliant design check requires Demand / Capacity <= 1.00 (100% utilisation). Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Check maximum acceptable utilisation ratio for a compliant design conclusion.): Define the exact scope of deliverables, design responsibilities, exclusions, and pre-design information (GI report, topographical survey) in writing before starting detailed calculations.",
+            "Second Hint (Symbolic Formula & Unit Setup): A compliant design check requires Demand / Capacity <= ?.00 (100% utilisation). (express final result in ratio)."
           ],
           "caseFamilyId": "MOD19-T1-CF",
           "reviewStatus": "Draft",
@@ -96,10 +112,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Many construction failures and disputes happen in the gap between disciplines (e.g. between permanent and temporary works, or structure and geotechnics). Clear interface schedules ensure every item has an assigned owner.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T1",
+            "sourceTitle": "IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4",
+            "pageReference": "pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1, IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4, pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why explicit exclusions and interface boundaries must be stated in an engineering scope.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why explicit exclusions and interface boundaries must be stated in an engineering scope.): Define the exact scope of deliverables, design responsibilities, exclusions, and pre-design information (GI report, topographical survey) in writing before starting detailed calculations.",
+            "Second Hint (Analytical Elimination Criterion): Structure calculation notes with explicit Design Basis assumptions, load paths, Eurocode clauses, units, and Status A/B/C tracking so no unverified assumption reaches Construction Issue. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4)."
           ],
           "caseFamilyId": "MOD19-T1-CF",
           "reviewStatus": "Draft",
@@ -122,10 +146,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Finalising foundation construction drawings without site-specific ground investigation and utility searches exposes the project to bearing failure, settlement, or striking live utilities.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T1",
+            "sourceTitle": "IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4",
+            "pageReference": "pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1, IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4, pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify essential Pre-Design Information required before finalising foundation design.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify essential Pre-Design Information required before finalising foundation design.): Define the exact scope of deliverables, design responsibilities, exclusions, and pre-design information (GI report, topographical survey) in writing before starting detailed calculations.",
+            "Second Hint (Analytical Elimination Criterion): Structure calculation notes with explicit Design Basis assumptions, load paths, Eurocode clauses, units, and Status A/B/C tracking so no unverified assumption reaches Construction Issue. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4)."
           ],
           "caseFamilyId": "MOD19-T1-CF",
           "reviewStatus": "Draft",
@@ -148,10 +180,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Assumptions that require site verification must be visibly flagged on the drawing itself and prevented from being built unverified via status stamps and Hold Points.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T1",
+            "sourceTitle": "IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4",
+            "pageReference": "pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1, IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4, pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain how provisional assumptions must be tracked on drawings.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain how provisional assumptions must be tracked on drawings.): Define the exact scope of deliverables, design responsibilities, exclusions, and pre-design information (GI report, topographical survey) in writing before starting detailed calculations.",
+            "Second Hint (Analytical Elimination Criterion): Structure calculation notes with explicit Design Basis assumptions, load paths, Eurocode clauses, units, and Status A/B/C tracking so no unverified assumption reaches Construction Issue. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4)."
           ],
           "caseFamilyId": "MOD19-T1-CF",
           "reviewStatus": "Draft",
@@ -189,10 +229,18 @@
           "correctAnswer": 162,
           "tolerance": 0.5,
           "explanation": "M_Ed = 25 * 51.84 / 8 = 162.0 kNm (the original calculation underestimated the bending moment by 44% because the designer used an outdated 6.0 m span instead of the 7.2 m span on the drawing!).",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T2",
+            "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+            "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+            "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+            "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+            "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Spot a load-takedown error during an independent Category 2 check.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: M_Ed = 25 * 51.84 / 8 = 162.0 kNm (the original calculation underestimated the bending moment by 44% because the designer used an outdated 6.0 m span instead of the 7.2 m span on the drawing!).. Express your final numeric answer in kNm."
+            "First Hint (Physical Principle & Idealisation: Spot a load-takedown error during an independent Category 2 check.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+            "Second Hint (Symbolic Formula & Unit Setup): M_Ed = 25 * 51.84 / 8 = ?.0 kNm (the original calculation underestimated the bending moment by 44% because the designer used an outdated 6.0 m span instead of the 7.2 m span on the drawing!). (express final result in kNm)."
           ],
           "caseFamilyId": "MOD19-T2-CF",
           "reviewStatus": "Draft",
@@ -210,10 +258,18 @@
           "correctAnswer": 320,
           "tolerance": 1,
           "explanation": "True tributary width for an internal beam is 2.0 + 2.0 = 4.0 m. True line load = 10 * 4.0 = 40 kN/m. True total load W_true = 40 * 8.0 = 320.0 kN (twice the designer’s 160 kN!).",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T2",
+            "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+            "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+            "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+            "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+            "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Spot a tributary width factor-of-two error during an independent check.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: True tributary width for an internal beam is 2.0 + 2.0 = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Spot a tributary width factor-of-two error during an independent check.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+            "Second Hint (Symbolic Formula & Unit Setup): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD19-T2-CF",
           "reviewStatus": "Draft",
@@ -236,10 +292,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Merely following the original designer’s lines of arithmetic (\"tick-and-bash\") leads to confirmation bias and misses omitted failure modes or drawing mismatches. A Category 2 check verifies the structure independently from the brief and drawings (and the project’s specific governing standard must always be confirmed).",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T2",
+            "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+            "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+            "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+            "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+            "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain the fundamental principle of a Category 2 design check ([UI1]).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain the fundamental principle of a Category 2 design check ([UI1]).): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+            "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
           ],
           "caseFamilyId": "MOD19-T2-CF",
           "reviewStatus": "Draft",
@@ -262,10 +326,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Transcription errors between calculations and drawings (or calculation assumptions not reflected on drawings) are among the most common sources of structural defects.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T2",
+            "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+            "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+            "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+            "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+            "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why checking the drawings is at least as important as checking the calculations.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why checking the drawings is at least as important as checking the calculations.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+            "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
           ],
           "caseFamilyId": "MOD19-T2-CF",
           "reviewStatus": "Draft",
@@ -288,10 +360,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Designers must first try to eliminate hazards at source (e.g. prefabrication at ground level, cast-in sockets instead of overhead drilling), then reduce risk, and clearly communicate significant residual site-specific risks on the drawings.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T2",
+            "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+            "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+            "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+            "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+            "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Apply the hierarchy of Design Risk Management (Eliminate -> Reduce -> Inform).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Apply the hierarchy of Design Risk Management (Eliminate -> Reduce -> Inform).): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+            "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
           ],
           "caseFamilyId": "MOD19-T2-CF",
           "reviewStatus": "Draft",
@@ -329,10 +409,18 @@
           "correctAnswer": 225,
           "tolerance": 1,
           "explanation": "Increase in characteristic imposed load = 7.5 - 2.5 = 5.0 kPa. Over 30 m^2 with gamma_Q = 1.50, delta_F_Ed = 1.50 * 5.0 * 30 = 225.0 kN (a change at floor level cascades all the way down the load path to the foundations!).",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T3",
+            "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+            "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Trace the cascade impact of a late architectural load change across linked calculations.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Increase in characteristic imposed load = 7.5 - 2.5 = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Trace the cascade impact of a late architectural load change across linked calculations.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+            "Second Hint (Symbolic Formula & Unit Setup): Issue clear, unambiguous engineering instructions when calculations or site inspections reveal an unsafe condition, and never sign off a Construction Issue certificate while critical design checks remain outstanding. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD19-T3-CF",
           "reviewStatus": "Draft",
@@ -355,10 +443,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Never reissue a modified document under the same revision code; revision clouds, incremented revision numbers, and transmittal records prevent contractors fabricating from superseded information.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T3",
+            "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+            "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify mandatory document control practice when revising an issued \"For Construction\" drawing.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify mandatory document control practice when revising an issued \"For Construction\" drawing.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+            "Second Hint (Analytical Elimination Criterion): Issue clear, unambiguous engineering instructions when calculations or site inspections reveal an unsafe condition, and never sign off a Construction Issue certificate while critical design checks remain outstanding. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3))."
           ],
           "caseFamilyId": "MOD19-T3-CF",
           "reviewStatus": "Draft",
@@ -381,10 +477,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Working strictly within your verified competence, and escalating geotechnical, dynamic, prestressed, complex temporary works, or high-risk structures to specialists, is a core ethical duty.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T3",
+            "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+            "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Define professional engineering competence boundaries.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Define professional engineering competence boundaries.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+            "Second Hint (Analytical Elimination Criterion): Issue clear, unambiguous engineering instructions when calculations or site inspections reveal an unsafe condition, and never sign off a Construction Issue certificate while critical design checks remain outstanding. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3))."
           ],
           "caseFamilyId": "MOD19-T3-CF",
           "reviewStatus": "Draft",
@@ -407,10 +511,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Explain, Sketch, Calculate with units, Check against a reliable source/bound, and State assumptions and limitations. Engineering synthesis for \"Apply the Five Study & Engineering Rules across the whole course.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T3",
+            "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+            "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Apply the Five Study & Engineering Rules across the whole course.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Apply the Five Study & Engineering Rules across the whole course.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+            "Second Hint (Analytical Elimination Criterion): Issue clear, unambiguous engineering instructions when calculations or site inspections reveal an unsafe condition, and never sign off a Construction Issue certificate while critical design checks remain outstanding. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3))."
           ],
           "caseFamilyId": "MOD19-T3-CF",
           "reviewStatus": "Draft",
@@ -433,10 +545,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Checking from the drawing back to an independent hand calculation after a break catches the errors that familiarity hides. Engineering synthesis for \"Pass the Module 19 Learning Gate: Self-checking after a break and independent review.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-          "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+          "citation": {
+            "moduleId": "MOD-19",
+            "topicId": "MOD19-T3",
+            "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+            "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+            "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+            "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+            "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 19 Learning Gate: Self-checking after a break and independent review.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Pass the Module 19 Learning Gate: Self-checking after a break and independent review.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+            "Second Hint (Analytical Elimination Criterion): Issue clear, unambiguous engineering instructions when calculations or site inspections reveal an unsafe condition, and never sign off a Construction Issue certificate while critical design checks remain outstanding. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3))."
           ],
           "caseFamilyId": "MOD19-T3-CF",
           "reviewStatus": "Draft",
@@ -473,10 +593,18 @@
       "correctAnswer": 45,
       "tolerance": 0.5,
       "explanation": "Reaction transferred at midspan P = 30.0 kN. Trimmer midspan moment M = 30.0 * 6.0 / 4 = 45.0 kNm. Step-by-step verification for \"Perform an independent load takedown check on a roof trimmer beam.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 45 kNm, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Perform an independent load takedown check on a roof trimmer beam.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Reaction transferred at midspan P = ?. Express your final numeric answer in kNm."
+        "First Hint (Physical Principle & Idealisation: Perform an independent load takedown check on a roof trimmer beam.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Symbolic Formula & Unit Setup): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Express your final calculated value in kNm."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "reviewStatus": "Draft",
@@ -494,10 +622,18 @@
       "correctAnswer": 4250,
       "tolerance": 5,
       "explanation": "42.5 x 10^6 mm^4 / 10^4 = 4250 cm^4 (a classic checking error is misreading 10^3 instead of 10^4 when converting mm^4 to cm^4!). Step-by-step verification for \"Catch a unit conversion error during a calculation check.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4250 cm^4, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Catch a unit conversion error during a calculation check.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 42.5 x 10^6 mm^4 / 10^4 = 4250 cm^4 (a classic checking error is misreading 10^3 instead of 10^4 when converting mm^4 to cm^4!). Express your final numeric answer in cm^4."
+        "First Hint (Physical Principle & Idealisation: Catch a unit conversion error during a calculation check.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Symbolic Formula & Unit Setup): 42.5 x 10^6 mm^4 / 10^4 = ?. (express final result in cm^4)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "reviewStatus": "Draft",
@@ -515,15 +651,22 @@
       "correctAnswer": 0.95,
       "tolerance": 0.005,
       "explanation": "Utilisation = 1140 / 1200 = 0.950 (95% <= 1.00, Pass). Step-by-step verification for \"Check utilisation ratio from independent demand and capacity.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.95 ratio, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Check utilisation ratio from independent demand and capacity.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Utilisation = 1140 / 1200 = 0.950 (95% <= 1.00, Pass). Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Check utilisation ratio from independent demand and capacity.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Symbolic Formula & Unit Setup): Utilisation = 1140 / 1200 = ?.00, Pass). (express final result in ratio)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "solverVerificationId": "SOLVER-MOD19-E03",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD19-E04",
@@ -537,15 +680,22 @@
       "correctAnswer": 1.15,
       "tolerance": 0.01,
       "explanation": "0.95 + (36 / 180) = 0.95 + 0.20 = 1.15 (> 1.00, FAIL, the independent check caught an omitted eccentric moment that pushed the column over capacity!).",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Detect an overloaded member where utilisation exceeds 1.00.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 0.95 + (36 / 180) = 0.95 + 0.20 = 1.15 (> 1.00, FAIL, the independent check caught an omitted eccentric moment that pushed the column over capacity!).. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Detect an overloaded member where utilisation exceeds 1.00.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Symbolic Formula & Unit Setup): 0.95 + (36 / 180) = 0.95 + 0.20 = ?.00, FAIL, the independent check caught an omitted eccentric moment that pushed the column over capacity!). (express final result in ratio)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "solverVerificationId": "SOLVER-MOD19-E04",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD19-E05",
@@ -559,10 +709,18 @@
       "correctAnswer": 230,
       "tolerance": 0.5,
       "explanation": "Total applied vertical load = (18 * 10) + 50 = 180 + 50 = 230.0 kN. Step-by-step verification for \"Verify reaction equilibrium in Section 7 (Independent Sanity Check) of a calculation note.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 230 kN, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T1",
+        "sourceTitle": "IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1",
+        "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+        "clauseOrSection": "IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4",
+        "pageReference": "pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)",
+        "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1, IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4, pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Verify reaction equilibrium in Section 7 (Independent Sanity Check) of a calculation note.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Total applied vertical load = (18 * 10) + 50 = 180 + 50 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Verify reaction equilibrium in Section 7 (Independent Sanity Check) of a calculation note.): Define the exact scope of deliverables, design responsibilities, exclusions, and pre-design information (GI report, topographical survey) in writing before starting detailed calculations.",
+        "Second Hint (Symbolic Formula & Unit Setup): Total applied vertical load = (18 * 10) + 50 = 180 + 50 = ?.0 kN. (express final result in kN)."
       ],
       "caseFamilyId": "MOD19-T1-CF",
       "reviewStatus": "Draft",
@@ -580,10 +738,18 @@
       "correctAnswer": 4,
       "tolerance": 0.05,
       "explanation": "A_new = 600 / 150 = 4.00 m^2 (e.g. increasing from 1.75 m square to 2.00 m square). Step-by-step verification for \"Quantify foundation pad area increase required after a late design change.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4 m^2, and cross-check the magnitude and sign against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T3",
+        "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+        "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+        "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+        "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+        "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Quantify foundation pad area increase required after a late design change.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: A_new = 600 / 150 = 4.00 m^2 (e.g. Express your final numeric answer in m^2."
+        "First Hint (Physical Principle & Idealisation: Quantify foundation pad area increase required after a late design change.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+        "Second Hint (Symbolic Formula & Unit Setup): A_new = 600 / 150 = ?.00 m^2 (e.g. (express final result in m^2)."
       ],
       "caseFamilyId": "MOD19-T3-CF",
       "reviewStatus": "Draft",
@@ -606,10 +772,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Stating the governing code suite and UK National Annex parameters upfront ensures consistent partial factors and prevents dangerous mixing of permissible-stress and ultimate-limit-state rules.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T1",
+        "sourceTitle": "IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1",
+        "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+        "clauseOrSection": "IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4",
+        "pageReference": "pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)",
+        "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1, IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4, pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why every calculation note must state its Design Basis, Codes, and National Annexes.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify why every calculation note must state its Design Basis, Codes, and National Annexes.): Define the exact scope of deliverables, design responsibilities, exclusions, and pre-design information (GI report, topographical survey) in writing before starting detailed calculations.",
+        "Second Hint (Analytical Elimination Criterion): Structure calculation notes with explicit Design Basis assumptions, load paths, Eurocode clauses, units, and Status A/B/C tracking so no unverified assumption reaches Construction Issue. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4)."
       ],
       "caseFamilyId": "MOD19-T1-CF",
       "reviewStatus": "Draft",
@@ -632,10 +806,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Checking categories (Cat 0, 1, 2, 3) have precise legal/procedural meanings that vary slightly between BS 5975, DMRB CS 450, Network Rail, and Building Control procedures; always verify the governing scheme and provide an independent check from brief and drawings.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Clarify the syllabus requirement on Category 2 checking ([UI1]).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Clarify the syllabus requirement on Category 2 checking ([UI1]).): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "reviewStatus": "Draft",
@@ -658,10 +840,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "A line-by-line yellow/green highlighter mark-up of the issue drawings against the calculation summary catches transcription mismatches before steel is ordered.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Perform a drawing-to-calculation check: identify a critical transcription error.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Perform a drawing-to-calculation check: identify a critical transcription error.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "reviewStatus": "Draft",
@@ -684,10 +874,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Blind independent checking from the brief and drawings ensures that two independent engineering minds derive the load paths and capacities separately.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what information should be withheld initially in a strict independent design check.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify what information should be withheld initially in a strict independent design check.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "reviewStatus": "Draft",
@@ -710,10 +908,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Eliminating the need for workers to enter deep excavations or use hand-held breakers in confined spaces addresses the hazard at the design stage.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Apply CDM design risk reduction to deep foundation construction.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Apply CDM design risk reduction to deep foundation construction.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "reviewStatus": "Draft",
@@ -736,10 +942,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Residual risk notes on drawings should highlight non-obvious, project-specific structural hazards (temporary instability, prestressed tendons, fragile elements, sequence constraints) rather than generic boilerplate.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what belongs on a Drawing \"Design Risk / Residual Hazard Note\".\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify what belongs on a Drawing \"Design Risk / Residual Hazard Note\".): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "reviewStatus": "Draft",
@@ -762,10 +976,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "BS 5975 separates procedural coordination/control on site (TWC) from technical engineering design (TWD) and independent design checking (TW Checker).",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T1",
+        "sourceTitle": "IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1",
+        "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+        "clauseOrSection": "IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4",
+        "pageReference": "pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)",
+        "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1, IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4, pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish between a Temporary Works Designer (TWD) and a Temporary Works Coordinator (TWC) under BS 5975.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish between a Temporary Works Designer (TWD) and a Temporary Works Coordinator (TWC) under BS 5975.): Define the exact scope of deliverables, design responsibilities, exclusions, and pre-design information (GI report, topographical survey) in writing before starting detailed calculations.",
+        "Second Hint (Analytical Elimination Criterion): Structure calculation notes with explicit Design Basis assumptions, load paths, Eurocode clauses, units, and Status A/B/C tracking so no unverified assumption reaches Construction Issue. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4)."
       ],
       "caseFamilyId": "MOD19-T1-CF",
       "reviewStatus": "Draft",
@@ -788,10 +1010,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Once concrete is poured, misplaced or unverified reinforcement is buried permanently; safety-critical Hold Points must never be waived under time pressure.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T3",
+        "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+        "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+        "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+        "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+        "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Manage a situation where a contractor builds something on site before the design check is completed.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Manage a situation where a contractor builds something on site before the design check is completed.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+        "Second Hint (Analytical Elimination Criterion): Issue clear, unambiguous engineering instructions when calculations or site inspections reveal an unsafe condition, and never sign off a Construction Issue certificate while critical design checks remain outstanding. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3))."
       ],
       "caseFamilyId": "MOD19-T3-CF",
       "reviewStatus": "Draft",
@@ -814,10 +1044,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Clients need clear, unambiguous plain-English conclusions first, backed up by rigorous technical evidence and clearly stated limitations. Engineering synthesis for \"Communicate technical findings clearly to a non-engineer client.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T3",
+        "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+        "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+        "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+        "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+        "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Communicate technical findings clearly to a non-engineer client.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Communicate technical findings clearly to a non-engineer client.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+        "Second Hint (Analytical Elimination Criterion): Issue clear, unambiguous engineering instructions when calculations or site inspections reveal an unsafe condition, and never sign off a Construction Issue certificate while critical design checks remain outstanding. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3))."
       ],
       "caseFamilyId": "MOD19-T3-CF",
       "reviewStatus": "Draft",
@@ -840,10 +1078,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Sound engineering judgement uses mechanics, upper/lower bounds, and physical insight to frame problems, validate calculations, and manage uncertainty safely.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T1",
+        "sourceTitle": "IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1",
+        "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+        "clauseOrSection": "IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4",
+        "pageReference": "pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)",
+        "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Structural Plan of Work 2020 & BS EN 1990:2002+A1, IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4, pp. 8–22 (IStructE) / pp. 18–20 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why \"Engineering Judgement\" is not a synonym for \"Guessing\".\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why \"Engineering Judgement\" is not a synonym for \"Guessing\".): Define the exact scope of deliverables, design responsibilities, exclusions, and pre-design information (GI report, topographical survey) in writing before starting detailed calculations.",
+        "Second Hint (Analytical Elimination Criterion): Structure calculation notes with explicit Design Basis assumptions, load paths, Eurocode clauses, units, and Status A/B/C tracking so no unverified assumption reaches Construction Issue. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Plan of Work Stages 1–3 & BS EN 1990 Cl. 1.3–1.4)."
       ],
       "caseFamilyId": "MOD19-T1-CF",
       "reviewStatus": "Draft",
@@ -866,10 +1112,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Milestones A to F integrate the individual syllabus modules into realistic end-to-end engineering design and checking projects. Engineering synthesis for \"Identify how the Integrated Project Milestones (A to F) complement the module assessments.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T3",
+        "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+        "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+        "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+        "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+        "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify how the Integrated Project Milestones (A to F) complement the module assessments.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify how the Integrated Project Milestones (A to F) complement the module assessments.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+        "Second Hint (Analytical Elimination Criterion): Issue clear, unambiguous engineering instructions when calculations or site inspections reveal an unsafe condition, and never sign off a Construction Issue certificate while critical design checks remain outstanding. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3))."
       ],
       "caseFamilyId": "MOD19-T3-CF",
       "reviewStatus": "Draft",
@@ -892,10 +1146,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "A 10^3 unit error is catastrophic; tracking units explicitly at every line of a calculation prevents order-of-magnitude blunders. Engineering synthesis for \"Check unit consistency as the first step of any calculation audit.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Check unit consistency as the first step of any calculation audit.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Check unit consistency as the first step of any calculation audit.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "reviewStatus": "Draft",
@@ -918,10 +1180,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Learning from Confidential Reporting on Structural Safety (CROSS) alerts and updated guidance prevents repeating industry mistakes. Engineering synthesis for \"Maintain Continuing Professional Development (CPD) and technical currency.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against IStructE Guidelines for Structural Design Checking (Cat 1/2/3) & Institution Code of Conduct.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T3",
+        "sourceTitle": "IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B",
+        "authorOrBody": "Institution of Structural Engineers (IStructE) / BSI",
+        "clauseOrSection": "IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3)",
+        "pageReference": "pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)",
+        "formatted": "Institution of Structural Engineers (IStructE) / BSI, IStructE Code of Conduct and Guidance Notes & BS EN 1990:2002+A1 Annex B, IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3), pp. 1–28 (IStructE) / pp. 71–75 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Maintain Continuing Professional Development (CPD) and technical currency.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Maintain Continuing Professional Development (CPD) and technical currency.): Maintain strict revision control on drawings and calculation packages, operate strictly within your verified competence boundary, and escalate immediately when a site defect or overload is discovered.",
+        "Second Hint (Analytical Elimination Criterion): Issue clear, unambiguous engineering instructions when calculations or site inspections reveal an unsafe condition, and never sign off a Construction Issue certificate while critical design checks remain outstanding. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Guidance Notes GN 1–4 & BS EN 1990 Annex B (Table B3))."
       ],
       "caseFamilyId": "MOD19-T3-CF",
       "reviewStatus": "Draft",
@@ -944,10 +1214,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Well-rounded structural engineering competence combines load-path clarity, first-principles hand calculation, material & geotechnical understanding, buildable detailing, and rigorous independent checking.",
-      "citation": "IStructE Design Manual & BS 5975 Category 0–3 Design Check Governance",
+      "citation": {
+        "moduleId": "MOD-19",
+        "topicId": "MOD19-T2",
+        "sourceTitle": "BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking",
+        "authorOrBody": "BSI / Standing Committee on Structural Safety (SCOSS)",
+        "clauseOrSection": "BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide",
+        "pageReference": "pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)",
+        "formatted": "BSI / Standing Committee on Structural Safety (SCOSS), BS 5975:2019 Temporary Works & SCOSS / IStructE Guidance on Design Checking, BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide, pp. 42–46 (BS 5975) / pp. 1–16 (SCOSS)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 19 Learning Gate: Complete the 20-module foundation with independent verification discipline.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Pass the Module 19 Learning Gate: Complete the 20-module foundation with independent verification discipline.): Independent Category 2 and Category 3 design checks must evaluate global stability, load paths, and member capacities from drawings and design briefs alone, without copying the original designer’s calculation file.",
+        "Second Hint (Analytical Elimination Criterion): Match check category to structural consequence and complexity (Cat 0/1 internal check, Cat 2 independent engineer in same organisation without original calcs, Cat 3 independent external organisation), and check combined interaction ratios. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 11.2, Table 1 (Categories 0–3) & SCOSS Checking Guide)."
       ],
       "caseFamilyId": "MOD19-T2-CF",
       "reviewStatus": "Draft",

@@ -36,7 +36,11 @@
         "Calculate normal stress and strain for axial ties and struts (Syllabus Example 3.1).",
         "Interpret stress–strain curves and explain why ductility is vital for structural safety."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD03-T1-Q1",
@@ -50,15 +54,22 @@
           "correctAnswer": 100,
           "tolerance": 1.5,
           "explanation": "F = 100 kN = 100,000 N. σ = F / A = 100,000 N / 1,000 mm² = 100 N/mm² (100 MPa). Step-by-step verification for \"Calculate normal stress in a steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 100 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+            "pageReference": "pp. 24–38, 85–102",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate normal stress in a steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: F = 100 kN = 100,000 N. Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Calculate normal stress in a steel tie (Example 3.1)): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+            "Second Hint (Symbolic Formula & Unit Setup): Convert axial force into Newtons (1 kN = 10³ N), compute normal stress σ = F / A in N/mm², and evaluate axial strain ε = σ / E (multiply by 10³ if reporting in mm/m). Express your final calculated value in N/mm²."
           ],
           "caseFamilyId": "MOD03-T1-CF",
           "solverVerificationId": "SOLVER-MOD03-T1-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD03-T1-Q2",
@@ -72,15 +83,22 @@
           "correctAnswer": 0.5,
           "tolerance": 0.0075,
           "explanation": "ε = σ / E = 100 / 200,000 = 0.0005 (dimensionless) = 0.5 × 10⁻³ = 0.5 mm/m. Step-by-step verification for \"Calculate axial strain in a steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.5 mm/m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+            "pageReference": "pp. 24–38, 85–102",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate axial strain in a steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: ε = σ / E = 100 / 200,000 = 0.0005 (dimensionless) = 0.5 × 10⁻³ = ?. Express your final numeric answer in mm/m."
+            "First Hint (Physical Principle & Idealisation: Calculate axial strain in a steel tie (Example 3.1)): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+            "Second Hint (Symbolic Formula & Unit Setup): ε = σ / E = 100 / 200,000 = 0.0005 (dimensionless) = ?.5 mm/m. (express final result in mm/m)."
           ],
           "caseFamilyId": "MOD03-T1-CF",
           "solverVerificationId": "SOLVER-MOD03-T1-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD03-T1-Q3",
@@ -94,15 +112,22 @@
           "correctAnswer": 1.5,
           "tolerance": 0.0225,
           "explanation": "ΔL = PL / (AE) = (100,000 N × 3,000 mm) / (1,000 mm² × 200,000 N/mm²) = 300,000,000 / 200,000,000 = 1.5 mm. Step-by-step verification for \"Calculate axial extension of a steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+            "pageReference": "pp. 24–38, 85–102",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate axial extension of a steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: ΔL = PL / (AE) = (100,000 N × 3,000 mm) / (1,000 mm² × 200,000 N/mm²) = 300,000,000 / 200,000,000 = ?. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate axial extension of a steel tie (Example 3.1)): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+            "Second Hint (Symbolic Formula & Unit Setup): ΔL = PL / (AE) = (100,000 N × 3,000 mm) / (1,000 mm² × 200,000 N/mm²) = 300,000,000 / 200,000,000 = ?. (express final result in mm)."
           ],
           "caseFamilyId": "MOD03-T1-CF",
           "solverVerificationId": "SOLVER-MOD03-T1-Q3",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD03-T1-Q4",
@@ -121,10 +146,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Ductile yielding allows stress redistribution and gives visible deformation warning before collapse, whereas brittle fracture is sudden and catastrophic.",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+            "pageReference": "pp. 24–38, 85–102",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish yielding from fracture\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish yielding from fracture): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+            "Second Hint (Analytical Elimination Criterion): Convert axial force into Newtons (1 kN = 10³ N), compute normal stress σ = F / A in N/mm², and evaluate axial strain ε = σ / E (multiply by 10³ if reporting in mm/m). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain))."
           ],
           "caseFamilyId": "MOD03-T1-CF",
           "reviewStatus": "Draft",
@@ -147,10 +180,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Elastic strain (σ/E) is recovered upon unloading, while plastic slip of crystal planes remains as permanent set. Engineering synthesis for \"Understand elastic vs plastic unloading behaviour\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+            "pageReference": "pp. 24–38, 85–102",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand elastic vs plastic unloading behaviour\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand elastic vs plastic unloading behaviour): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+            "Second Hint (Analytical Elimination Criterion): Convert axial force into Newtons (1 kN = 10³ N), compute normal stress σ = F / A in N/mm², and evaluate axial strain ε = σ / E (multiply by 10³ if reporting in mm/m). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain))."
           ],
           "caseFamilyId": "MOD03-T1-CF",
           "reviewStatus": "Draft",
@@ -175,7 +216,11 @@
         "Compare axial deformations of different materials (Example 3.2) and explain E vs G.",
         "Apply the isotropic relationship E = 2G(1 + ν) accurately."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD03-T2-Q1",
@@ -189,15 +234,22 @@
           "correctAnswer": 3.6,
           "tolerance": 0.054,
           "explanation": "Since ΔL = PL/(AE) is inversely proportional to E, and E_steel / E_alu = 210 / 70 = 3.0, the aluminium bar extends 3 times as much: 3 × 1.2 mm = 3.6 mm.",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+            "pageReference": "pp. 89–114, 129–144",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Compare extensions of steel and aluminium bars (Example 3.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Since ΔL = PL/(AE) is inversely proportional to E, and E_steel / E_alu = 210 / 70 = 3.0, the aluminium bar extends 3 times as much: 3 × 1.2 mm = 3.6 mm.. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Compare extensions of steel and aluminium bars (Example 3.2)): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+            "Second Hint (Symbolic Formula & Unit Setup): Since ΔL = PL/(AE) is inversely proportional to E, and E_steel / E_alu = 210 / 70 = 3.0, the aluminium bar extends 3 times as much: 3 × 1.2 mm = ?. (express final result in mm)."
           ],
           "caseFamilyId": "MOD03-T2-CF",
           "solverVerificationId": "SOLVER-MOD03-T2-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD03-T2-Q2",
@@ -211,10 +263,18 @@
           "correctAnswer": 80800,
           "tolerance": 1210,
           "explanation": "G = E / [2(1 + ν)] = 210,000 / (2 × 1.30) = 210,000 / 2.60 = 80,769 N/mm² ≈ 80,800 N/mm² (EN 1993-1-1 rounds this to 81,000 N/mm²). Step-by-step verification for \"Calculate shear modulus G from E and Poisson’s ratio ν\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 80800 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+            "pageReference": "pp. 89–114, 129–144",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate shear modulus G from E and Poisson’s ratio ν\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: G = E / [2(1 + ν)] = 210,000 / (2 × 1.30) = 210,000 / 2.60 = 80,769 N/mm² ≈ 80,800 N/mm² (EN 1993-1-1 rounds this to 81,000 N/mm²). Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Calculate shear modulus G from E and Poisson’s ratio ν): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+            "Second Hint (Symbolic Formula & Unit Setup): G = E / [2(1 + ν)] = 210,000 / (2 × 1.30) = 210,000 / 2.60 = 80,769 N/mm² = ?. (express final result in N/mm²)."
           ],
           "caseFamilyId": "MOD03-T2-CF",
           "reviewStatus": "Draft",
@@ -237,10 +297,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "E = σ/ε relates normal stress to axial strain, whereas G = τ/γ relates shear stress to angular shear strain. Engineering synthesis for \"Explain physical meaning of E and G (Module 3 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+            "pageReference": "pp. 89–114, 129–144",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain physical meaning of E and G (Module 3 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain physical meaning of E and G (Module 3 Gate)): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+            "Second Hint (Analytical Elimination Criterion): Use ΔL = (F · L) / (E · A) with F in N, L in mm, E in N/mm², and A in mm² so ΔL emerges directly in mm; for isotropic materials relate shear modulus via G = E / [2(1 + ν)]. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants))."
           ],
           "caseFamilyId": "MOD03-T2-CF",
           "reviewStatus": "Draft",
@@ -258,10 +326,18 @@
           "correctAnswer": 0.06,
           "tolerance": 0.0009,
           "explanation": "ε_lat = −ν × ε_axial = −0.30 × 0.0010 = −0.0003. Width change Δb = 200 mm × 0.0003 = 0.06 mm contraction. Step-by-step verification for \"Calculate lateral contraction using Poisson’s ratio\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.06 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+            "pageReference": "pp. 89–114, 129–144",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate lateral contraction using Poisson’s ratio\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: ε_lat = −ν × ε_axial = −0.30 × 0.0010 = −0.0003. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate lateral contraction using Poisson’s ratio): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use ΔL = (F · L) / (E · A) with F in N, L in mm, E in N/mm², and A in mm² so ΔL emerges directly in mm; for isotropic materials relate shear modulus via G = E / [2(1 + ν)]. Express your final calculated value in mm."
           ],
           "caseFamilyId": "MOD03-T2-CF",
           "reviewStatus": "Draft",
@@ -284,10 +360,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Higher steel grade increases yield strength fy (allowing higher load before yielding), but Young’s modulus E is an atomic-bond stiffness property that remains ~210 GPa across S235, S275, S355, and S460.",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T2",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+            "pageReference": "pp. 89–114, 129–144",
+            "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand effect of steel grade on Young’s modulus E\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand effect of steel grade on Young’s modulus E): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+            "Second Hint (Analytical Elimination Criterion): Use ΔL = (F · L) / (E · A) with F in N, L in mm, E in N/mm², and A in mm² so ΔL emerges directly in mm; for isotropic materials relate shear modulus via G = E / [2(1 + ν)]. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants))."
           ],
           "caseFamilyId": "MOD03-T2-CF",
           "reviewStatus": "Draft",
@@ -312,7 +396,11 @@
         "Answer all four questions in Syllabus Example 3.3 clearly and accurately.",
         "Explain why a steel member’s material strength does not guarantee its stability in compression."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD03-T3-Q1",
@@ -331,10 +419,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "In reinforced concrete, compression is resisted primarily by the concrete and tension is carried by the bonded steel reinforcement. Engineering synthesis for \"Explain why reinforced concrete needs steel reinforcement (Example 3.3)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T3",
+            "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+            "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+            "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+            "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why reinforced concrete needs steel reinforcement (Example 3.3)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why reinforced concrete needs steel reinforcement (Example 3.3)): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+            "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
           ],
           "caseFamilyId": "MOD03-T3-CF",
           "reviewStatus": "Draft",
@@ -357,10 +453,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Buckling is a geometric stability failure governed by stiffness (EI) and slenderness (L_cr / i), not purely by material yield strength f_y. Engineering synthesis for \"Explain why a steel member’s strength does not guarantee its stability (Module 3 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T3",
+            "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+            "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+            "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+            "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why a steel member’s strength does not guarantee its stability (Module 3 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why a steel member’s strength does not guarantee its stability (Module 3 Gate)): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+            "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
           ],
           "caseFamilyId": "MOD03-T3-CF",
           "reviewStatus": "Draft",
@@ -383,10 +487,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Loading timber parallel to the longitudinal wood fibres engages strong axial tracheid/fibre walls, whereas loading perpendicular to the grain crushes hollow cell tubes sideways.",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T3",
+            "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+            "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+            "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+            "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why timber properties vary with grain direction and moisture (Example 3.3)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why timber properties vary with grain direction and moisture (Example 3.3)): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+            "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
           ],
           "caseFamilyId": "MOD03-T3-CF",
           "reviewStatus": "Draft",
@@ -409,10 +521,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Both are time-dependent deformations, but creep is stress-driven (increasing long-term beam deflection under permanent load) while shrinkage is moisture/hydration-driven (causing restraint cracking).",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T3",
+            "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+            "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+            "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+            "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish creep from shrinkage in concrete and timber\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish creep from shrinkage in concrete and timber): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+            "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
           ],
           "caseFamilyId": "MOD03-T3-CF",
           "reviewStatus": "Draft",
@@ -435,10 +555,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Masonry acts as a compression-dominated assemblage; tensile flexural capacity across bed joints is very small and cannot be relied upon for primary tension.",
-          "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+          "citation": {
+            "moduleId": "MOD-03",
+            "topicId": "MOD03-T3",
+            "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+            "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+            "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+            "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+            "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why unreinforced masonry is compression-dominated\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify why unreinforced masonry is compression-dominated): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+            "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
           ],
           "caseFamilyId": "MOD03-T3-CF",
           "reviewStatus": "Draft",
@@ -496,15 +624,22 @@
       "correctAnswer": 100,
       "tolerance": 1.5,
       "explanation": "σ = 100,000 N / 1,000 mm² = 100 N/mm². Step-by-step verification for \"Calculate normal stress in steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 100 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+        "pageReference": "pp. 24–38, 85–102",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate normal stress in steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: σ = 100,000 N / 1,000 mm² = ?. Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate normal stress in steel tie (Example 3.1)): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert axial force into Newtons (1 kN = 10³ N), compute normal stress σ = F / A in N/mm², and evaluate axial strain ε = σ / E (multiply by 10³ if reporting in mm/m). Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD03-T1-CF",
       "solverVerificationId": "SOLVER-MOD03-E01",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD03-E02",
@@ -518,15 +653,22 @@
       "correctAnswer": 1.5,
       "tolerance": 0.0225,
       "explanation": "ΔL = PL / (AE) = (100,000 × 3,000) / (1,000 × 200,000) = 1.5 mm. Step-by-step verification for \"Calculate elastic extension in steel tie (Example 3.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+        "pageReference": "pp. 24–38, 85–102",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate elastic extension in steel tie (Example 3.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: ΔL = PL / (AE) = (100,000 × 3,000) / (1,000 × 200,000) = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate elastic extension in steel tie (Example 3.1)): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+        "Second Hint (Symbolic Formula & Unit Setup): ΔL = PL / (AE) = (100,000 × 3,000) / (1,000 × 200,000) = ?. (express final result in mm)."
       ],
       "caseFamilyId": "MOD03-T1-CF",
       "solverVerificationId": "SOLVER-MOD03-E02",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD03-E03",
@@ -540,10 +682,18 @@
       "correctAnswer": 12,
       "tolerance": 0.18,
       "explanation": "Area A = 300 × 400 = 120,000 mm². Stress σ = 1,440,000 N / 120,000 mm² = 12.0 N/mm². Step-by-step verification for \"Calculate axial compressive stress in a short concrete column\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 12 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+        "pageReference": "pp. 24–38, 85–102",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate axial compressive stress in a short concrete column\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Area A = 300 × 400 = 120,000 mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate axial compressive stress in a short concrete column): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert axial force into Newtons (1 kN = 10³ N), compute normal stress σ = F / A in N/mm², and evaluate axial strain ε = σ / E (multiply by 10³ if reporting in mm/m). Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD03-T1-CF",
       "reviewStatus": "Draft",
@@ -561,10 +711,18 @@
       "correctAnswer": 1500,
       "tolerance": 22.5,
       "explanation": "Rearranging ΔL = PL / (AE) gives A = PL / (E × ΔL) = (150,000 × 4,200) / (210,000 × 2.0) = 630,000,000 / 420,000 = 1,500 mm². Step-by-step verification for \"Calculate required cross-sectional area to limit axial extension\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1500 mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+        "pageReference": "pp. 89–114, 129–144",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required cross-sectional area to limit axial extension\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Rearranging ΔL = PL / (AE) gives A = PL / (E × ΔL) = (150,000 × 4,200) / (210,000 × 2.0) = 630,000,000 / 420,000 = 1,500 mm². Express your final numeric answer in mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate required cross-sectional area to limit axial extension): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+        "Second Hint (Symbolic Formula & Unit Setup): Rearranging ΔL = PL / (AE) gives A = PL / (E × ΔL) = (150,000 × 4,200) / (210,000 × 2.0) = 630,000,000 / 420,000 = ?. (express final result in mm²)."
       ],
       "caseFamilyId": "MOD03-T2-CF",
       "reviewStatus": "Draft",
@@ -582,10 +740,18 @@
       "correctAnswer": 3,
       "tolerance": 0.045,
       "explanation": "ΔL_alu / ΔL_steel = E_steel / E_alu = 210 / 70 = 3.0. Step-by-step verification for \"Compare extensions of steel and aluminium bars (Example 3.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3 ratio, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+        "pageReference": "pp. 89–114, 129–144",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Compare extensions of steel and aluminium bars (Example 3.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: ΔL_alu / ΔL_steel = E_steel / E_alu = 210 / 70 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Compare extensions of steel and aluminium bars (Example 3.2)): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+        "Second Hint (Symbolic Formula & Unit Setup): ΔL_alu / ΔL_steel = E_steel / E_alu = 210 / 70 = ?.0. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD03-T2-CF",
       "reviewStatus": "Draft",
@@ -603,10 +769,18 @@
       "correctAnswer": 122.45,
       "tolerance": 1.84,
       "explanation": "Total shear area = 3 × 245 = 735 mm². Average shear stress τ = 90,000 N / 735 mm² = 122.449 N/mm² ≈ 122.45 N/mm². Step-by-step verification for \"Calculate average shear stress in a single-shear bolt\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 122.45 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+        "pageReference": "pp. 89–114, 129–144",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate average shear stress in a single-shear bolt\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Total shear area = 3 × 245 = ?. Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate average shear stress in a single-shear bolt): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use ΔL = (F · L) / (E · A) with F in N, L in mm, E in N/mm², and A in mm² so ΔL emerges directly in mm; for isotropic materials relate shear modulus via G = E / [2(1 + ν)]. Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD03-T2-CF",
       "reviewStatus": "Draft",
@@ -624,10 +798,18 @@
       "correctAnswer": 200,
       "tolerance": 3,
       "explanation": "In double shear, two cross-sections resist the force: Total shear area = 2 × 314.16 = 628.32 mm². τ = 125,660 N / 628.32 mm² = 200.0 N/mm². Step-by-step verification for \"Calculate average shear stress in a double-shear clevis pin\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 200 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+        "pageReference": "pp. 89–114, 129–144",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate average shear stress in a double-shear clevis pin\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: In double shear, two cross-sections resist the force: Total shear area = 2 × 314.16 = ?. Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate average shear stress in a double-shear clevis pin): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use ΔL = (F · L) / (E · A) with F in N, L in mm, E in N/mm², and A in mm² so ΔL emerges directly in mm; for isotropic materials relate shear modulus via G = E / [2(1 + ν)]. Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD03-T2-CF",
       "reviewStatus": "Draft",
@@ -645,10 +827,18 @@
       "correctAnswer": 0.25,
       "tolerance": 0.00375,
       "explanation": "γ = τ / G = 0.25 / 1.0 = 0.25 rad. Step-by-step verification for \"Calculate shear strain from shear stress and shear modulus G\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.25 rad, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+        "pageReference": "pp. 89–114, 129–144",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate shear strain from shear stress and shear modulus G\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: γ = τ / G = 0.25 / 1.0 = ?. Express your final numeric answer in rad."
+        "First Hint (Physical Principle & Idealisation: Calculate shear strain from shear stress and shear modulus G): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use ΔL = (F · L) / (E · A) with F in N, L in mm, E in N/mm², and A in mm² so ΔL emerges directly in mm; for isotropic materials relate shear modulus via G = E / [2(1 + ν)]. Express your final calculated value in rad."
       ],
       "caseFamilyId": "MOD03-T2-CF",
       "reviewStatus": "Draft",
@@ -666,10 +856,18 @@
       "correctAnswer": 200,
       "tolerance": 3,
       "explanation": "E = 2 × 80 × (1 + 0.25) = 160 × 1.25 = 200 GPa. Step-by-step verification for \"Calculate Young’s modulus E from G and Poisson’s ratio ν\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 200 GPa, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+        "pageReference": "pp. 89–114, 129–144",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate Young’s modulus E from G and Poisson’s ratio ν\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: E = 2 × 80 × (1 + 0.25) = 160 × 1.25 = ?. Express your final numeric answer in GPa."
+        "First Hint (Physical Principle & Idealisation: Calculate Young’s modulus E from G and Poisson’s ratio ν): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+        "Second Hint (Symbolic Formula & Unit Setup): E = 2 × 80 × (1 + 0.25) = 160 × 1.25 = ?. (express final result in GPa)."
       ],
       "caseFamilyId": "MOD03-T2-CF",
       "reviewStatus": "Draft",
@@ -687,10 +885,18 @@
       "correctAnswer": 1,
       "tolerance": 0.015,
       "explanation": "ΔL = PL / (AE) = (84,000 × 3,500) / (1,400 × 210,000) = 294,000,000 / 294,000,000 = 1.0 mm. Step-by-step verification for \"Calculate axial shortening of a tubular temporary works prop\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+        "pageReference": "pp. 24–38, 85–102",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate axial shortening of a tubular temporary works prop\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: ΔL = PL / (AE) = (84,000 × 3,500) / (1,400 × 210,000) = 294,000,000 / 294,000,000 = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate axial shortening of a tubular temporary works prop): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+        "Second Hint (Symbolic Formula & Unit Setup): ΔL = PL / (AE) = (84,000 × 3,500) / (?,400 × 210,000) = 294,000,000 / 294,000,000 = ?.0 mm. (express final result in mm)."
       ],
       "caseFamilyId": "MOD03-T1-CF",
       "reviewStatus": "Draft",
@@ -713,10 +919,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Internal force F is the total resultant (kN), whereas stress σ = F/A is force intensity per unit area (N/mm²). Engineering synthesis for \"Distinguish stress vs internal force\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+        "pageReference": "pp. 24–38, 85–102",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish stress vs internal force\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish stress vs internal force): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+        "Second Hint (Analytical Elimination Criterion): Convert axial force into Newtons (1 kN = 10³ N), compute normal stress σ = F / A in N/mm², and evaluate axial strain ε = σ / E (multiply by 10³ if reporting in mm/m). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain))."
       ],
       "caseFamilyId": "MOD03-T1-CF",
       "reviewStatus": "Draft",
@@ -739,10 +953,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Plastic plateau capacity provides energy absorption, warning, and plastic redistribution. Engineering synthesis for \"Identify why ductile failure modes are preferred in structural design\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+        "pageReference": "pp. 24–38, 85–102",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify why ductile failure modes are preferred in structural design\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify why ductile failure modes are preferred in structural design): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+        "Second Hint (Analytical Elimination Criterion): Convert axial force into Newtons (1 kN = 10³ N), compute normal stress σ = F / A in N/mm², and evaluate axial strain ε = σ / E (multiply by 10³ if reporting in mm/m). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain))."
       ],
       "caseFamilyId": "MOD03-T1-CF",
       "reviewStatus": "Draft",
@@ -765,10 +987,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Compressive strength perpendicular to grain (f_c,90,k) is typically an order of magnitude lower than parallel to grain (f_c,0,k). Engineering synthesis for \"Explain why timber bearing perpendicular to the grain has much lower capacity than parallel to the grain\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T3",
+        "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+        "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+        "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+        "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why timber bearing perpendicular to the grain has much lower capacity than parallel to the grain\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why timber bearing perpendicular to the grain has much lower capacity than parallel to the grain): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+        "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
       ],
       "caseFamilyId": "MOD03-T3-CF",
       "reviewStatus": "Draft",
@@ -791,10 +1021,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Concrete creep increases curvature and long-term SLS deflection under quasi-permanent actions. Engineering synthesis for \"Understand the effect of sustained long-term loading (creep) on concrete deflection\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T3",
+        "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+        "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+        "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+        "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the effect of sustained long-term loading (creep) on concrete deflection\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand the effect of sustained long-term loading (creep) on concrete deflection): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+        "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
       ],
       "caseFamilyId": "MOD03-T3-CF",
       "reviewStatus": "Draft",
@@ -817,10 +1055,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Fatigue fractures occur at stress concentrations (such as weld toes) under repeated cyclic stress ranges Δσ even when peak stress is below static yield.",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T3",
+        "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+        "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+        "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+        "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify fatigue risk in temporary and permanent structures\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify fatigue risk in temporary and permanent structures): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+        "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
       ],
       "caseFamilyId": "MOD03-T3-CF",
       "reviewStatus": "Draft",
@@ -843,10 +1089,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Geometric discontinuities and point-load introductions cause local stress peaks; by Saint-Venant’s principle, stresses smooth out to F/A at a distance of roughly one member width away.",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+        "pageReference": "pp. 24–38, 85–102",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand Saint-Venant’s principle near concentrated loads and holes\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand Saint-Venant’s principle near concentrated loads and holes): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+        "Second Hint (Analytical Elimination Criterion): Convert axial force into Newtons (1 kN = 10³ N), compute normal stress σ = F / A in N/mm², and evaluate axial strain ε = σ / E (multiply by 10³ if reporting in mm/m). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain))."
       ],
       "caseFamilyId": "MOD03-T1-CF",
       "reviewStatus": "Draft",
@@ -864,10 +1118,18 @@
       "correctAnswer": 200,
       "tolerance": 3,
       "explanation": "Net width = 100 − 22 = 78 mm. Net area A_net = 78 mm × 10 mm = 780 mm². Net stress σ_net = 156,000 N / 780 mm² = 200 N/mm². Step-by-step verification for \"Calculate net section stress at a bolt hole in a tension flat bar\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 200 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain)",
+        "pageReference": "pp. 24–38, 85–102",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 1, §1.3–1.5 & Ch. 3, §3.1–3.4 (Normal Stress & Axial Strain), pp. 24–38, 85–102"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate net section stress at a bolt hole in a tension flat bar\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Net width = 100 − 22 = ?. Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate net section stress at a bolt hole in a tension flat bar): Distinguish external axial force F (in N or kN) from internal stress intensity σ (in N/mm² = MPa) and dimensionless normal strain ε = ΔL / L.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert axial force into Newtons (1 kN = 10³ N), compute normal stress σ = F / A in N/mm², and evaluate axial strain ε = σ / E (multiply by 10³ if reporting in mm/m). Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD03-T1-CF",
       "reviewStatus": "Draft",
@@ -885,10 +1147,18 @@
       "correctAnswer": 1.5,
       "tolerance": 0.0225,
       "explanation": "ΔL_total = ΔL_1 + ΔL_2 = (50,000 × 2,000)/(1,000 × 200,000) + (50,000 × 2,000)/(500 × 200,000) = 0.5 mm + 1.0 mm = 1.5 mm. Step-by-step verification for \"Calculate total extension of a two-segment stepped tie bar\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T2",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants)",
+        "pageReference": "pp. 89–114, 129–144",
+        "formatted": "R.C. Hibbeler (Pearson), Mechanics of Materials (10th SI ed.), Ch. 3, §3.2, §3.6–3.7 & Ch. 4, §4.2 (Axial Deformation & Elastic Constants), pp. 89–114, 129–144"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate total extension of a two-segment stepped tie bar\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: ΔL_total = ΔL_1 + ΔL_2 = (50,000 × 2,000)/(1,000 × 200,000) + (50,000 × 2,000)/(500 × 200,000) = 0.5 mm + 1.0 mm = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate total extension of a two-segment stepped tie bar): In the linear-elastic regime below yield, axial extension is governed by axial rigidity E·A and member length L.",
+        "Second Hint (Symbolic Formula & Unit Setup): ΔL_total = ΔL_1 + ΔL_2 = (50,000 × 2,000)/(1,000 × 200,000) + (50,000 × 2,000)/(500 × 200,000) = 0.5 mm + 1.0 mm = ?. (express final result in mm)."
       ],
       "caseFamilyId": "MOD03-T2-CF",
       "reviewStatus": "Draft",
@@ -911,10 +1181,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Without local plastic yielding at a crack tip, stress concentration drives rapid cleavage fracture. Engineering synthesis for \"Explain why brittle materials are dangerous in tension or impact\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T3",
+        "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+        "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+        "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+        "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why brittle materials are dangerous in tension or impact\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why brittle materials are dangerous in tension or impact): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+        "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
       ],
       "caseFamilyId": "MOD03-T3-CF",
       "reviewStatus": "Draft",
@@ -937,10 +1215,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Every hand formula rests on physical idealisations; stating them explicitly is Study Rule 5 of the syllabus. Engineering synthesis for \"Connect material properties to the five syllabus study rules\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 3 (Stress, Strain, Hooke’s Law & Material Behaviour).",
-      "citation": "Hooke’s Law, Mechanics of Materials & BS EN 1993-1-1 / BS EN 1996-1-1",
+      "citation": {
+        "moduleId": "MOD-03",
+        "topicId": "MOD03-T3",
+        "sourceTitle": "Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005",
+        "authorOrBody": "P. Domone & J. Illston (Spon Press) / BSI",
+        "clauseOrSection": "Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2",
+        "pageReference": "pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)",
+        "formatted": "P. Domone & J. Illston (Spon Press) / BSI, Construction Materials: Their Nature and Behaviour (4th ed.) & BS EN 1993-1-1:2005, Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2, pp. 75–340 (Domone) / pp. 26–28 (EN 1993-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Connect material properties to the five syllabus study rules\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Connect material properties to the five syllabus study rules): Compare structural materials by their ductility, tensile vs compressive strength symmetry, anisotropy, and time-dependent creep/shrinkage behaviour.",
+        "Second Hint (Analytical Elimination Criterion): Contrast ductile steel (symmetric yield f_y, E ≈ 210 GPa) with quasi-brittle concrete and masonry (high compressive strength, low tensile strength requiring reinforcement or precompression) and orthotropic timber (grain direction dependence). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Domone Parts 2–5 & BS EN 1993-1-1 Cl. 3.2)."
       ],
       "caseFamilyId": "MOD03-T3-CF",
       "reviewStatus": "Draft",

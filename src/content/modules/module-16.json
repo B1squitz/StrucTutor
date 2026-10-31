@@ -49,10 +49,18 @@
           "correctAnswer": 80,
           "tolerance": 0.5,
           "explanation": "M_flawed = 30 * 8.0^2 / 24 = 1920 / 24 = 80.0 kNm (underestimating the true midspan moment of 240 kNm by a factor of 3, while transferring 160 kNm hogging into connections not designed for moment!).",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T1",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+            "pageReference": "pp. 29–88",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Quantify midspan moment error when a pinned beam is accidentally modelled with fixed ends.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: M_flawed = 30 * 8.0^2 / 24 = 1920 / 24 = 80.0 kNm (underestimating the true midspan moment of 240 kNm by a factor of 3, while transferring 160 kNm hogging into connections not designed for moment!).. Express your final numeric answer in kNm."
+            "First Hint (Physical Principle & Idealisation: Quantify midspan moment error when a pinned beam is accidentally modelled with fixed ends.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+            "Second Hint (Symbolic Formula & Unit Setup): M_flawed = 30 * 8.0^2 / 24 = 1920 / 24 = ?.0 kNm (underestimating the true midspan moment of 240 kNm by a factor of 3, while transferring 160 kNm hogging into connections not designed for moment!). (express final result in kNm)."
           ],
           "caseFamilyId": "MOD16-T1-CF",
           "reviewStatus": "Draft",
@@ -70,10 +78,18 @@
           "correctAnswer": 100000,
           "tolerance": 500,
           "explanation": "K_z = 25,000 kN/m^3 * 4.0 m^2 = 100,000 kN/m (or 100 kN/mm). Step-by-step verification for \"Calculate vertical spring stiffness k_z for a pad foundation on elastic ground.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 100000 kN/m, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T1",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+            "pageReference": "pp. 29–88",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate vertical spring stiffness k_z for a pad foundation on elastic ground.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: K_z = 25,000 kN/m^3 * 4.0 m^2 = 100,000 kN/m (or 100 kN/mm). Express your final numeric answer in kN/m."
+            "First Hint (Physical Principle & Idealisation: Calculate vertical spring stiffness k_z for a pad foundation on elastic ground.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+            "Second Hint (Symbolic Formula & Unit Setup): K_z = 25,000 kN/m^3 * 4.0 m^2 = ?. (express final result in kN/m)."
           ],
           "caseFamilyId": "MOD16-T1-CF",
           "reviewStatus": "Draft",
@@ -91,10 +107,18 @@
           "correctAnswer": 8,
           "tolerance": 0.1,
           "explanation": "delta_z = 800 kN / (100 kN/mm) = 8.0 mm. Step-by-step verification for \"Calculate vertical settlement of the modelled spring support.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 8 mm, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T1",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+            "pageReference": "pp. 29–88",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate vertical settlement of the modelled spring support.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: delta_z = 800 kN / (100 kN/mm) = ?. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate vertical settlement of the modelled spring support.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+            "Second Hint (Symbolic Formula & Unit Setup): Verify that member end releases match physical connection detailing without creating unstable mechanisms (such as releasing torsional rotation θ_x at both ends of a 3D beam). Express your final calculated value in mm."
           ],
           "caseFamilyId": "MOD16-T1-CF",
           "reviewStatus": "Draft",
@@ -117,10 +141,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "A 3D beam element must have torsional rotation Rx restrained at least at one end; releasing Mx at both ends creates a rigid-body rotational mechanism about the member axis.",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T1",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+            "pageReference": "pp. 29–88",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Diagnose a solver instability warning caused by torsional releases.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Diagnose a solver instability warning caused by torsional releases.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+            "Second Hint (Analytical Elimination Criterion): Verify that member end releases match physical connection detailing without creating unstable mechanisms (such as releasing torsional rotation θ_x at both ends of a 3D beam). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints))."
           ],
           "caseFamilyId": "MOD16-T1-CF",
           "reviewStatus": "Draft",
@@ -143,10 +175,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "On a wireframe stick view, a column rotated by 90 degrees looks identical, yet bending about the minor axis has vastly lower stiffness and strength.",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T1",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+            "pageReference": "pp. 29–88",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify local axis orientation (beta angle) of columns in a 3D model.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Verify local axis orientation (beta angle) of columns in a 3D model.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+            "Second Hint (Analytical Elimination Criterion): Verify that member end releases match physical connection detailing without creating unstable mechanisms (such as releasing torsional rotation θ_x at both ends of a 3D beam). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints))."
           ],
           "caseFamilyId": "MOD16-T1-CF",
           "reviewStatus": "Draft",
@@ -184,10 +224,18 @@
           "correctAnswer": 30,
           "tolerance": 0.2,
           "explanation": "M_ecc = 250 kN * 0.12 m = 30.0 kNm. Step-by-step verification for \"Calculate parasitic bending moment induced by an eccentric member offset.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kNm, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T2",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+            "pageReference": "pp. 89–142",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate parasitic bending moment induced by an eccentric member offset.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: M_ecc = 250 kN * 0.12 m = ?. Express your final numeric answer in kNm."
+            "First Hint (Physical Principle & Idealisation: Calculate parasitic bending moment induced by an eccentric member offset.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+            "Second Hint (Symbolic Formula & Unit Setup): M_ecc = 250 kN * 0.12 m = ?.0 kNm. (express final result in kNm)."
           ],
           "caseFamilyId": "MOD16-T2-CF",
           "reviewStatus": "Draft",
@@ -205,10 +253,18 @@
           "correctAnswer": 540,
           "tolerance": 1,
           "explanation": "Area = 12.0 * 7.5 = 90.0 m^2. Total vertical load = 90.0 * 6.0 = 540.0 kN (always check this in the solver table to ensure no area panel load was lost due to an unclosed polygon or wrong span direction).",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T2",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+            "pageReference": "pp. 89–142",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate total applied floor load from area pressure to verify software load decomposition.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Area = 12.0 * 7.5 = 90.0 m^2. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate total applied floor load from area pressure to verify software load decomposition.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+            "Second Hint (Symbolic Formula & Unit Setup): Integrate FE slab moments across design strips rather than designing for unsmoothed single-node peak spikes, and run non-linear load combinations directly rather than superposing individual load cases. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD16-T2-CF",
           "reviewStatus": "Draft",
@@ -231,10 +287,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "A rigid diaphragm locks relative in-plane distance between nodes, meaning floor beams report zero axial force even when acting as wind drag struts or bracing collectors.",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T2",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+            "pageReference": "pp. 89–142",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what a \"master-slave rigid floor diaphragm\" constraint hides in a 3D frame model.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify what a \"master-slave rigid floor diaphragm\" constraint hides in a 3D frame model.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+            "Second Hint (Analytical Elimination Criterion): Integrate FE slab moments across design strips rather than designing for unsmoothed single-node peak spikes, and run non-linear load combinations directly rather than superposing individual load cases. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence))."
           ],
           "caseFamilyId": "MOD16-T2-CF",
           "reviewStatus": "Draft",
@@ -257,10 +321,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "In non-linear (tension-only or P-Delta) analysis, the stiffness depends on the combined load state; full factored combinations must be solved directly.",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T2",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+            "pageReference": "pp. 89–142",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why linear superposition of individual load cases is invalid in a tension-only bracing or P-Delta analysis.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why linear superposition of individual load cases is invalid in a tension-only bracing or P-Delta analysis.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+            "Second Hint (Analytical Elimination Criterion): Integrate FE slab moments across design strips rather than designing for unsmoothed single-node peak spikes, and run non-linear load combinations directly rather than superposing individual load cases. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence))."
           ],
           "caseFamilyId": "MOD16-T2-CF",
           "reviewStatus": "Draft",
@@ -283,10 +355,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "A concentrated reaction at a single node creates a theoretical stress singularity; engineers use finite column footprints/rigid links or integrate design moments across EC2 column strip widths.",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T2",
+            "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+            "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+            "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+            "pageReference": "pp. 89–142",
+            "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Interpret finite element stress singularities over point supports in 2D slab meshes.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Interpret finite element stress singularities over point supports in 2D slab meshes.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+            "Second Hint (Analytical Elimination Criterion): Integrate FE slab moments across design strips rather than designing for unsmoothed single-node peak spikes, and run non-linear load combinations directly rather than superposing individual load cases. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence))."
           ],
           "caseFamilyId": "MOD16-T2-CF",
           "reviewStatus": "Draft",
@@ -324,10 +404,18 @@
           "correctAnswer": 1200,
           "tolerance": 5,
           "explanation": "Expected total imposed load = 1200 m^2 * 4.0 kPa = 4800 kN. Reported reaction = 3600 kN. Missing load = 4800 - 3600 = 1200 kN (exactly one full floor of load is missing or unrestrained!).",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T3",
+            "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+            "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+            "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+            "pageReference": "pp. 143–178",
+            "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Audit global vertical equilibrium of a software model.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Expected total imposed load = 1200 m^2 * 4.0 kPa = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Audit global vertical equilibrium of a software model.): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+            "Second Hint (Symbolic Formula & Unit Setup): Expected total imposed load = ?.0 kPa = 4800 kN. (express final result in kN)."
           ],
           "caseFamilyId": "MOD16-T3-CF",
           "reviewStatus": "Draft",
@@ -345,10 +433,18 @@
           "correctAnswer": 760,
           "tolerance": 1,
           "explanation": "M_ovt = (20 * 4) + (40 * 8) + (30 * 12) = 80 + 320 + 360 = 760.0 kNm. Step-by-step verification for \"Audit global overturning equilibrium of a lateral wind load case.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 760 kNm, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T3",
+            "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+            "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+            "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+            "pageReference": "pp. 143–178",
+            "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Audit global overturning equilibrium of a lateral wind load case.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: M_ovt = (20 * 4) + (40 * 8) + (30 * 12) = 80 + 320 + 360 = ?. Express your final numeric answer in kNm."
+            "First Hint (Physical Principle & Idealisation: Audit global overturning equilibrium of a lateral wind load case.): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+            "Second Hint (Symbolic Formula & Unit Setup): M_ovt = (20 * 4) + (40 * 8) + (30 * 12) = 80 + 320 + 360 = ?.0 kNm. (express final result in kNm)."
           ],
           "caseFamilyId": "MOD16-T3-CF",
           "reviewStatus": "Draft",
@@ -371,10 +467,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "The 7 mandatory syllabus validation questions verify equilibrium, physical buildability of releases/supports, deflected shape, hand-calculation bounds, parameter sensitivity, unmodelled failure modes, and site constructability.",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T3",
+            "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+            "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+            "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+            "pageReference": "pp. 143–178",
+            "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify all 7 Mandatory Model Validation Questions required by the syllabus.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify all 7 Mandatory Model Validation Questions required by the syllabus.): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+            "Second Hint (Analytical Elimination Criterion): Apply the 7 mandatory software gate checks: zero ill-conditioning warnings, exact reaction sum, continuous deflected shape, boundary-condition match, hand-formula bounding (wL²/8), and soil/connection stiffness sensitivity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits))."
           ],
           "caseFamilyId": "MOD16-T3-CF",
           "reviewStatus": "Draft",
@@ -397,10 +501,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Stick models check member cross-section/buckling rules based on assumed effective lengths, but cannot see local connection geometry, notches, bearing stiffener requirements, or temporary erection stability.",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T3",
+            "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+            "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+            "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+            "pageReference": "pp. 143–178",
+            "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Answer Validation Question 6: \"What failure mode is the software NOT checking?\"\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Answer Validation Question 6: \"What failure mode is the software NOT checking?\"): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+            "Second Hint (Analytical Elimination Criterion): Apply the 7 mandatory software gate checks: zero ill-conditioning warnings, exact reaction sum, continuous deflected shape, boundary-condition match, hand-formula bounding (wL²/8), and soil/connection stiffness sensitivity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits))."
           ],
           "caseFamilyId": "MOD16-T3-CF",
           "reviewStatus": "Draft",
@@ -423,10 +535,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Displacements of metres or kilometres in a linear elastic solver indicate either a near-mechanism (stabilised only by solver spring tolerance) or a 10^3 / 10^6 unit error.",
-          "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+          "citation": {
+            "moduleId": "MOD-16",
+            "topicId": "MOD16-T3",
+            "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+            "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+            "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+            "pageReference": "pp. 143–178",
+            "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Diagnose a wildly unrealistic software deflection (e.g. 42,000 mm on a 6 m beam).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Diagnose a wildly unrealistic software deflection (e.g. 42,000 mm on a 6 m beam).): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+            "Second Hint (Analytical Elimination Criterion): Apply the 7 mandatory software gate checks: zero ill-conditioning warnings, exact reaction sum, continuous deflected shape, boundary-condition match, hand-formula bounding (wL²/8), and soil/connection stiffness sensitivity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits))."
           ],
           "caseFamilyId": "MOD16-T3-CF",
           "reviewStatus": "Draft",
@@ -472,10 +592,18 @@
       "correctAnswer": 5,
       "tolerance": 0.1,
       "explanation": "delta_fixed = 25.0 / 5 = 5.0 mm (a 500% unconservative underestimation of deflection if the real site connection is a simple fin plate!). Step-by-step verification for \"Compare midspan deflection of a pinned-pinned vs fixed-fixed beam in a software model.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 5 mm, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T1",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+        "pageReference": "pp. 29–88",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Compare midspan deflection of a pinned-pinned vs fixed-fixed beam in a software model.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: delta_fixed = 25.0 / 5 = 5.0 mm (a 500% unconservative underestimation of deflection if the real site connection is a simple fin plate!). Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Compare midspan deflection of a pinned-pinned vs fixed-fixed beam in a software model.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+        "Second Hint (Symbolic Formula & Unit Setup): delta_fixed = 25.0 / ? = ?.0 mm (a 500% unconservative underestimation of deflection if the real site connection is a simple fin plate!). (express final result in mm)."
       ],
       "caseFamilyId": "MOD16-T1-CF",
       "reviewStatus": "Draft",
@@ -493,10 +621,18 @@
       "correctAnswer": 26,
       "tolerance": 0.2,
       "explanation": "Base rotation contribution = 0.0035 * 4000 = 14.0 mm. Total tip deflection = 12.0 + 14.0 = 26.0 mm (more than double the rigid-base model prediction).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T1",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+        "pageReference": "pp. 29–88",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Compare cantilever tip deflection when rotational base flexibility is neglected.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Base rotation contribution = 0.0035 * 4000 = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Compare cantilever tip deflection when rotational base flexibility is neglected.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+        "Second Hint (Symbolic Formula & Unit Setup): Verify that member end releases match physical connection detailing without creating unstable mechanisms (such as releasing torsional rotation θ_x at both ends of a 3D beam). Express your final calculated value in mm."
       ],
       "caseFamilyId": "MOD16-T1-CF",
       "reviewStatus": "Draft",
@@ -514,10 +650,18 @@
       "correctAnswer": 9000,
       "tolerance": 20,
       "explanation": "K_theta = 45 / 0.005 = 9000 kNm/rad. Step-by-step verification for \"Calculate rotational spring stiffness K_theta for a pinned vs nominal baseplate check.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 9000 kNm/rad, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T1",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+        "pageReference": "pp. 29–88",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate rotational spring stiffness K_theta for a pinned vs nominal baseplate check.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: K_theta = 45 / 0.005 = ?. Express your final numeric answer in kNm/rad."
+        "First Hint (Physical Principle & Idealisation: Calculate rotational spring stiffness K_theta for a pinned vs nominal baseplate check.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+        "Second Hint (Symbolic Formula & Unit Setup): K_theta = 45 / 0.005 = ?. (express final result in kNm/rad)."
       ],
       "caseFamilyId": "MOD16-T1-CF",
       "reviewStatus": "Draft",
@@ -535,10 +679,18 @@
       "correctAnswer": 2,
       "tolerance": 0.05,
       "explanation": "I_eff = 0.50 * 4.0 = 2.0 x 10^9 mm^4 (ignoring cracking in RC models overestimates stiffness and underestimates deflections by ~100%). Step-by-step verification for \"Quantify stiffness reduction of cracked vs uncracked RC sections in FE models.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2 10^9 mm^4, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T1",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+        "pageReference": "pp. 29–88",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Quantify stiffness reduction of cracked vs uncracked RC sections in FE models.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: I_eff = 0.50 * 4.0 = 2.0 x 10^9 mm^4 (ignoring cracking in RC models overestimates stiffness and underestimates deflections by ~100%). Express your final numeric answer in 10^9 mm^4."
+        "First Hint (Physical Principle & Idealisation: Quantify stiffness reduction of cracked vs uncracked RC sections in FE models.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+        "Second Hint (Symbolic Formula & Unit Setup): I_eff = 0.50 * 4.0 = ?.0 x 10^9 mm^4 (ignoring cracking in RC models overestimates stiffness and underestimates deflections by ~100%). (express final result in 10^9 mm^4)."
       ],
       "caseFamilyId": "MOD16-T1-CF",
       "reviewStatus": "Draft",
@@ -556,10 +708,18 @@
       "correctAnswer": 600,
       "tolerance": 1,
       "explanation": "Area = 30 * 16 = 480 m^2. Total horizontal wind force = 480 * 1.25 = 600.0 kN. Step-by-step verification for \"Verify total horizontal wind reaction in a 3D model audit.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 600 kN, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T2",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+        "pageReference": "pp. 89–142",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Verify total horizontal wind reaction in a 3D model audit.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Area = 30 * 16 = 480 m^2. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Verify total horizontal wind reaction in a 3D model audit.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+        "Second Hint (Symbolic Formula & Unit Setup): Integrate FE slab moments across design strips rather than designing for unsmoothed single-node peak spikes, and run non-linear load combinations directly rather than superposing individual load cases. Express your final calculated value in kN."
       ],
       "caseFamilyId": "MOD16-T2-CF",
       "reviewStatus": "Draft",
@@ -577,10 +737,18 @@
       "correctAnswer": 216,
       "tolerance": 0.5,
       "explanation": "Line load w = 8.0 * 3.0 = 24.0 kN/m. Total beam load = 24.0 * 9.0 = 216.0 kN. Step-by-step verification for \"Check tributary load on an internal secondary beam in a one-way deck model.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 216 kN, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T2",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+        "pageReference": "pp. 89–142",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Check tributary load on an internal secondary beam in a one-way deck model.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Line load w = 8.0 * 3.0 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Check tributary load on an internal secondary beam in a one-way deck model.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+        "Second Hint (Symbolic Formula & Unit Setup): Integrate FE slab moments across design strips rather than designing for unsmoothed single-node peak spikes, and run non-linear load combinations directly rather than superposing individual load cases. Express your final calculated value in kN."
       ],
       "caseFamilyId": "MOD16-T2-CF",
       "reviewStatus": "Draft",
@@ -598,10 +766,18 @@
       "correctAnswer": 57,
       "tolerance": 0.5,
       "explanation": "M_x* = 42 + |15| = 57.0 kNm/m (ignoring twisting moment M_xy in a 2D FE slab plot is unconservative!). Step-by-step verification for \"Calculate Wood-Armer design moment M_x* in a 2D FE slab element.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 57 kNm/m, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T2",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+        "pageReference": "pp. 89–142",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate Wood-Armer design moment M_x* in a 2D FE slab element.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_x* = 42 + |15| = 57.0 kNm/m (ignoring twisting moment M_xy in a 2D FE slab plot is unconservative!). Express your final numeric answer in kNm/m."
+        "First Hint (Physical Principle & Idealisation: Calculate Wood-Armer design moment M_x* in a 2D FE slab element.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_x* = 42 + |15| = ?.0 kNm/m (ignoring twisting moment M_xy in a 2D FE slab plot is unconservative!). (express final result in kNm/m)."
       ],
       "caseFamilyId": "MOD16-T2-CF",
       "reviewStatus": "Draft",
@@ -619,10 +795,18 @@
       "correctAnswer": 225,
       "tolerance": 1,
       "explanation": "M_0 = 32 * 56.25 / 8 = 225.0 kNm. In the software output, the midspan sagging moment plus the average of the two end hogging moments MUST equal 225.0 kNm.",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T3",
+        "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+        "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+        "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+        "pageReference": "pp. 143–178",
+        "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Check hand-bound bracket for an internal continuous beam span.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_0 = 32 * 56.25 / 8 = ?. Express your final numeric answer in kNm."
+        "First Hint (Physical Principle & Idealisation: Check hand-bound bracket for an internal continuous beam span.): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_0 = 32 * 56.25 / 8 = ?.0 kNm. (express final result in kNm)."
       ],
       "caseFamilyId": "MOD16-T3-CF",
       "reviewStatus": "Draft",
@@ -640,10 +824,18 @@
       "correctAnswer": 125,
       "tolerance": 0.5,
       "explanation": "Average support hogging = (90 + 110) / 2 = 100 kNm. Therefore midspan sagging = 225 - 100 = 125.0 kNm. Step-by-step verification for \"Verify static moment height from software output values.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 125 kNm, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T3",
+        "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+        "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+        "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+        "pageReference": "pp. 143–178",
+        "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Verify static moment height from software output values.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Average support hogging = (90 + 110) / 2 = ?. Express your final numeric answer in kNm."
+        "First Hint (Physical Principle & Idealisation: Verify static moment height from software output values.): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+        "Second Hint (Symbolic Formula & Unit Setup): Apply the 7 mandatory software gate checks: zero ill-conditioning warnings, exact reaction sum, continuous deflected shape, boundary-condition match, hand-formula bounding (wL²/8), and soil/connection stiffness sensitivity. Express your final calculated value in kNm."
       ],
       "caseFamilyId": "MOD16-T3-CF",
       "reviewStatus": "Draft",
@@ -661,10 +853,18 @@
       "correctAnswer": 2250,
       "tolerance": 5,
       "explanation": "Load per floor = 36 * 12.5 = 450 kN. Over 5 floors, N_Ed = 5 * 450 = 2250.0 kN. Step-by-step verification for \"Check axial load takedown in a ground-floor column against tributary area hand estimate.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2250 kN, and cross-check the magnitude and sign against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T3",
+        "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+        "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+        "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+        "pageReference": "pp. 143–178",
+        "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Check axial load takedown in a ground-floor column against tributary area hand estimate.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Load per floor = 36 * 12.5 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Check axial load takedown in a ground-floor column against tributary area hand estimate.): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+        "Second Hint (Symbolic Formula & Unit Setup): Apply the 7 mandatory software gate checks: zero ill-conditioning warnings, exact reaction sum, continuous deflected shape, boundary-condition match, hand-formula bounding (wL²/8), and soil/connection stiffness sensitivity. Express your final calculated value in kN."
       ],
       "caseFamilyId": "MOD16-T3-CF",
       "reviewStatus": "Draft",
@@ -687,10 +887,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Every member release in the analytical model must match the connection detail shown on the structural drawings. Engineering synthesis for \"Explain the danger of leaving default \"fully fixed\" member end conditions on all steel beams in a 3D frame.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T1",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+        "pageReference": "pp. 29–88",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain the danger of leaving default \"fully fixed\" member end conditions on all steel beams in a 3D frame.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain the danger of leaving default \"fully fixed\" member end conditions on all steel beams in a 3D frame.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+        "Second Hint (Analytical Elimination Criterion): Verify that member end releases match physical connection detailing without creating unstable mechanisms (such as releasing torsional rotation θ_x at both ends of a 3D beam). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints))."
       ],
       "caseFamilyId": "MOD16-T1-CF",
       "reviewStatus": "Draft",
@@ -713,10 +921,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Finite element and frame solvers only transfer force through shared nodes, intersecting split elements, or explicit rigid/master-slave links. Unmerged CAD tolerance gaps break the load path.",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T1",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+        "pageReference": "pp. 29–88",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what happens when two nodes are accidentally created 2 mm apart without merging.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify what happens when two nodes are accidentally created 2 mm apart without merging.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+        "Second Hint (Analytical Elimination Criterion): Verify that member end releases match physical connection detailing without creating unstable mechanisms (such as releasing torsional rotation θ_x at both ends of a 3D beam). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints))."
       ],
       "caseFamilyId": "MOD16-T1-CF",
       "reviewStatus": "Draft",
@@ -739,10 +955,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Principal moments act at an angle to the orthogonal bar grid; Wood-Armer resolves M_x, M_y, and M_xy into safe orthogonal design moments M_x* and M_y*.",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T2",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+        "pageReference": "pp. 89–142",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why Wood-Armer or Denton-Burgoyne moments are required when designing reinforcement from 2D FE slab models.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why Wood-Armer or Denton-Burgoyne moments are required when designing reinforcement from 2D FE slab models.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+        "Second Hint (Analytical Elimination Criterion): Integrate FE slab moments across design strips rather than designing for unsmoothed single-node peak spikes, and run non-linear load combinations directly rather than superposing individual load cases. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence))."
       ],
       "caseFamilyId": "MOD16-T2-CF",
       "reviewStatus": "Draft",
@@ -765,10 +989,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Plan asymmetry between the line of action of lateral loads and the centre of lateral stiffness creates plan torsion that couples frames in 3D. Engineering synthesis for \"Identify when a 2D planar frame model is insufficient and a 3D model (or torsional hand calculation) is needed.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T2",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+        "pageReference": "pp. 89–142",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify when a 2D planar frame model is insufficient and a 3D model (or torsional hand calculation) is needed.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify when a 2D planar frame model is insufficient and a 3D model (or torsional hand calculation) is needed.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+        "Second Hint (Analytical Elimination Criterion): Integrate FE slab moments across design strips rather than designing for unsmoothed single-node peak spikes, and run non-linear load combinations directly rather than superposing individual load cases. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence))."
       ],
       "caseFamilyId": "MOD16-T2-CF",
       "reviewStatus": "Draft",
@@ -791,10 +1023,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Bounding uncertain parameters (e.g. pinned vs fixed, cracked vs uncracked, stiff vs soft soil) reveals which elements are sensitive and ensures safe design across both bounds.",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T3",
+        "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+        "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+        "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+        "pageReference": "pp. 143–178",
+        "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain Validation Question 5: \"Which assumption is the model most sensitive to?\"\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain Validation Question 5: \"Which assumption is the model most sensitive to?\"): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+        "Second Hint (Analytical Elimination Criterion): Apply the 7 mandatory software gate checks: zero ill-conditioning warnings, exact reaction sum, continuous deflected shape, boundary-condition match, hand-formula bounding (wL²/8), and soil/connection stiffness sensitivity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits))."
       ],
       "caseFamilyId": "MOD16-T3-CF",
       "reviewStatus": "Draft",
@@ -817,10 +1057,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Extreme stiffness ratios or near-mechanisms cause loss of numerical precision when inverting/factorising the global stiffness matrix. Engineering synthesis for \"Interpret an \"ill-conditioned stiffness matrix\" warning.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T3",
+        "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+        "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+        "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+        "pageReference": "pp. 143–178",
+        "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Interpret an \"ill-conditioned stiffness matrix\" warning.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Interpret an \"ill-conditioned stiffness matrix\" warning.): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+        "Second Hint (Analytical Elimination Criterion): Apply the 7 mandatory software gate checks: zero ill-conditioning warnings, exact reaction sum, continuous deflected shape, boundary-condition match, hand-formula bounding (wL²/8), and soil/connection stiffness sensitivity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits))."
       ],
       "caseFamilyId": "MOD16-T3-CF",
       "reviewStatus": "Draft",
@@ -843,10 +1091,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Checking the Permanent Load reaction sum against a manual tonnage/volume estimate immediately catches omitted or double-counted self-weight. Engineering synthesis for \"Check automatic self-weight status in a software load case.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS 5975:2019 (Code of Practice for Temporary Works Procedures & Permissible Stress Design).",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T2",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence)",
+        "pageReference": "pp. 89–142",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence), pp. 89–142"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Check automatic self-weight status in a software load case.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Check automatic self-weight status in a software load case.): Distinguish rigid vs flexible floor diaphragm assumptions, check mesh refinement near 2D slab singularities (columns/re-entrant corners), and recognize that superposition fails in non-linear P-Δ or tension-only analyses.",
+        "Second Hint (Analytical Elimination Criterion): Integrate FE slab moments across design strips rather than designing for unsmoothed single-node peak spikes, and run non-linear load combinations directly rather than superposing individual load cases. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 6–8 (Load Cases, Floor Diaphragms, Offsets & Mesh Convergence))."
       ],
       "caseFamilyId": "MOD16-T2-CF",
       "reviewStatus": "Draft",
@@ -869,10 +1125,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Subdividing a member at intermediate nodes reduces the element length L_el; unless the physical unbraced restraint spacing is assigned, buckling capacity will be grossly overestimated.",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T1",
+        "sourceTitle": "Modern Structural Analysis: Modelling Process and Guidance",
+        "authorOrBody": "I.A. MacLeod (IStructE / Thomas Telford, 2005)",
+        "clauseOrSection": "Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints)",
+        "pageReference": "pp. 29–88",
+        "formatted": "I.A. MacLeod (IStructE / Thomas Telford, 2005), Modern Structural Analysis: Modelling Process and Guidance, Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints), pp. 29–88"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify effective buckling length factors (L_cr / L) in automated code-check post-processors.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Verify effective buckling length factors (L_cr / L) in automated code-check post-processors.): Every finite-element or frame model is an idealisation: incorrect member end releases, local axis orientations, or unphysically rigid pin/fixed supports will produce wrong internal force paths.",
+        "Second Hint (Analytical Elimination Criterion): Verify that member end releases match physical connection detailing without creating unstable mechanisms (such as releasing torsional rotation θ_x at both ends of a 3D beam). Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Element Selection, Local Axes, End Releases & Support Restraints))."
       ],
       "caseFamilyId": "MOD16-T1-CF",
       "reviewStatus": "Draft",
@@ -895,10 +1159,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Visual inspection of the deflected shape is the fastest way to spot accidental nodal restraints, disconnected members, or missed load assignments.",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T3",
+        "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+        "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+        "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+        "pageReference": "pp. 143–178",
+        "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Evaluate graphical deflected shape discontinuities.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Evaluate graphical deflected shape discontinuities.): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+        "Second Hint (Analytical Elimination Criterion): Apply the 7 mandatory software gate checks: zero ill-conditioning warnings, exact reaction sum, continuous deflected shape, boundary-condition match, hand-formula bounding (wL²/8), and soil/connection stiffness sensitivity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits))."
       ],
       "caseFamilyId": "MOD16-T3-CF",
       "reviewStatus": "Draft",
@@ -921,10 +1193,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Software is a calculator, not an engineer. Hand equilibrium and bounding checks prove that the model’s geometry, loads, and boundary conditions are trustworthy.",
-      "citation": "BS 5975:2019 Code of Practice for Temporary Works Procedures & Falsework",
+      "citation": {
+        "moduleId": "MOD-16",
+        "topicId": "MOD16-T3",
+        "sourceTitle": "Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis",
+        "authorOrBody": "IStructE (2002) / I.A. MacLeod (2005)",
+        "clauseOrSection": "MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits)",
+        "pageReference": "pp. 143–178",
+        "formatted": "IStructE (2002) / I.A. MacLeod (2005), Guidelines for the Use of Computers for Engineering Calculations & Modern Structural Analysis, MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits), pp. 143–178"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 16 Learning Gate: Never accept a software model without passing all 7 validation questions.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Pass the Module 16 Learning Gate: Never accept a software model without passing all 7 validation questions.): Never extract member forces from structural software until you have audited solver warnings, verified global reaction equilibrium (ΣF = Applied Loads), inspected deflected shapes, and checked hand-calculation bounds.",
+        "Second Hint (Analytical Elimination Criterion): Apply the 7 mandatory software gate checks: zero ill-conditioning warnings, exact reaction sum, continuous deflected shape, boundary-condition match, hand-formula bounding (wL²/8), and soil/connection stiffness sensitivity. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: MacLeod Ch. 9–10 (Verification, Validation, Equilibrium & Sensitivity Audits))."
       ],
       "caseFamilyId": "MOD16-T3-CF",
       "reviewStatus": "Draft",

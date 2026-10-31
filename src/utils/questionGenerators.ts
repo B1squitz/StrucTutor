@@ -3,6 +3,10 @@ import {
   solveDeterminateBeam,
   solveRectangleSection,
 } from './beamEngine';
+import {
+  buildPedagogicalHintsForQuestion,
+  buildStructuredCitation,
+} from '../data/citationAndHintCatalog';
 
 export interface ParametricGeneratorSpec {
   generatorId: string;
@@ -418,10 +422,22 @@ export function generateParametricQuestionVariants(
   for (let i = 0; i < count; i++) {
     const gen = generators[i % generators.length];
     const q = gen.generate(seedBase + i * 17 + moduleNumber * 31);
-    variants.push({
+    const enriched: AssessmentQuestion = {
       ...q,
       moduleNumber,
-    });
+      citation: buildStructuredCitation({
+        id: q.id,
+        moduleNumber,
+        topicId: q.topicId,
+        learningObjective: q.learningObjective,
+        prompt: q.prompt,
+      }),
+      hints: buildPedagogicalHintsForQuestion({
+        ...q,
+        moduleNumber,
+      }),
+    };
+    variants.push(enriched);
   }
   return variants;
 }

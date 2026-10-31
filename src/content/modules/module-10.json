@@ -37,7 +37,11 @@
         "Calculate EC5 design strength f_d from supplied f_k, k_mod, k_sys, and γ_M.",
         "Select the correct Service Class and explain why short-term loads have a higher k_mod than permanent loads."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD10-T1-Q1",
@@ -51,10 +55,18 @@
           "correctAnswer": 14.77,
           "tolerance": 0.222,
           "explanation": "f_m,d = (0.80 × 24.0) / 1.30 = 19.2 / 1.30 = 14.769 N/mm² ≈ 14.77 N/mm². Step-by-step verification for \"Calculate EC5 design bending strength f_m,d using k_mod and γ_M\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 14.77 N/mm², and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T1",
+            "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+            "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+            "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+            "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+            "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate EC5 design bending strength f_m,d using k_mod and γ_M\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: f_m,d = (0.80 × 24.0) / 1.30 = 19.2 / 1.30 = 14.769 N/mm² ≈ 14.77 N/mm². Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Calculate EC5 design bending strength f_m,d using k_mod and γ_M): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+            "Second Hint (Symbolic Formula & Unit Setup): f_m,d = (0.80 × 24.0) / 1.30 = 19.2 / 1.30 = 14.769 N/mm² = ?. (express final result in N/mm²)."
           ],
           "caseFamilyId": "MOD10-T1-CF",
           "reviewStatus": "Draft",
@@ -72,10 +84,18 @@
           "correctAnswer": 16.25,
           "tolerance": 0.244,
           "explanation": "1.10 × 14.769 = 16.246 N/mm² ≈ 16.25 N/mm². Step-by-step verification for \"Apply load-sharing system factor k_sys = 1.1 to closely spaced floor joists\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 16.25 N/mm², and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T1",
+            "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+            "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+            "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+            "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+            "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Apply load-sharing system factor k_sys = 1.1 to closely spaced floor joists\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: 1.10 × 14.769 = 16.246 N/mm² ≈ 16.25 N/mm². Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Apply load-sharing system factor k_sys = 1.1 to closely spaced floor joists): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+            "Second Hint (Symbolic Formula & Unit Setup): 1.10 × 14.769 = 16.246 N/mm² = ?. (express final result in N/mm²)."
           ],
           "caseFamilyId": "MOD10-T1-CF",
           "reviewStatus": "Draft",
@@ -98,10 +118,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Note: when a load combination contains actions of different durations (e.g. Permanent G + Medium-term Q), k_mod is chosen corresponding to the action with the shortest duration in that combination!",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T1",
+            "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+            "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+            "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+            "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+            "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why load duration and moisture affect timber design strength (Module 10 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why load duration and moisture affect timber design strength (Module 10 Gate)): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+            "Second Hint (Analytical Elimination Criterion): Convert characteristic strength f_k into design strength using f_d = k_mod · f_k / γ_M, selecting k_mod for the shortest-duration action present in the load combination. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1)."
           ],
           "caseFamilyId": "MOD10-T1-CF",
           "reviewStatus": "Draft",
@@ -124,10 +152,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Classic EC5 subtlety: utilisation is E_d / R_d(k_mod), so a lower load divided by a lower k_mod can give a higher utilisation ratio! Engineering synthesis for \"Identify which action governs k_mod in a combined load case\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T1",
+            "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+            "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+            "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+            "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+            "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify which action governs k_mod in a combined load case\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify which action governs k_mod in a combined load case): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+            "Second Hint (Analytical Elimination Criterion): Convert characteristic strength f_k into design strength using f_d = k_mod · f_k / γ_M, selecting k_mod for the shortest-duration action present in the load combination. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1)."
           ],
           "caseFamilyId": "MOD10-T1-CF",
           "reviewStatus": "Draft",
@@ -150,10 +186,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Defect dispersion and controlled kiln drying prior to lamination reduce statistical variability and enable long-span beams. Engineering synthesis for \"Compare engineered timber (Glulam / LVL) with solid sawn timber\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T1",
+            "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+            "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+            "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+            "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+            "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Compare engineered timber (Glulam / LVL) with solid sawn timber\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Compare engineered timber (Glulam / LVL) with solid sawn timber): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+            "Second Hint (Analytical Elimination Criterion): Convert characteristic strength f_k into design strength using f_d = k_mod · f_k / γ_M, selecting k_mod for the shortest-duration action present in the load combination. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1)."
           ],
           "caseFamilyId": "MOD10-T1-CF",
           "reviewStatus": "Draft",
@@ -177,7 +221,11 @@
         "Calculate peak rectangular shear stress τ = 1.5 V / (bd) and bearing stress σ_c,90,d (Project 10.1).",
         "Explain why timber beams use elastic modulus Z = bd²/6 and why notches at supports are critical."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD10-T2-Q1",
@@ -191,15 +239,22 @@
           "correctAnswer": 1.8,
           "tolerance": 0.027,
           "explanation": "Average shear V/A = 12,000 / 10,000 = 1.20 N/mm². For a rectangular cross-section, peak parabolic shear stress at mid-depth is 1.5 × (V/A) = 1.5 × 1.20 = 1.80 N/mm².",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T2",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+            "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate peak shear stress τ_d = 1.5 V_d / (b·d) in a rectangular timber joist\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Average shear V/A = 12,000 / 10,000 = ?. Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Calculate peak shear stress τ_d = 1.5 V_d / (b·d) in a rectangular timber joist): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use τ_d = 1.5 · V_d / (b_ef · d) for rectangular shear, σ_c,90,d = F_c,90,d / (b · l_eff) for bearing perpendicular to the grain (converting kN to N), and apply reduction factor k_v at notched supports. Express your final calculated value in N/mm²."
           ],
           "caseFamilyId": "MOD10-T2-CF",
           "solverVerificationId": "SOLVER-MOD10-T2-Q1",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD10-T2-Q2",
@@ -213,15 +268,22 @@
           "correctAnswer": 2.67,
           "tolerance": 0.04,
           "explanation": "Contact area = 50 mm × 90 mm = 4,500 mm². σ_c,90,d = 12,000 N / 4,500 mm² = 2.667 N/mm² ≈ 2.67 N/mm². Step-by-step verification for \"Calculate bearing stress perpendicular to the grain σ_c,90,d\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.67 N/mm², and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T2",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+            "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate bearing stress perpendicular to the grain σ_c,90,d\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Contact area = 50 mm × 90 mm = 4,500 mm². Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Calculate bearing stress perpendicular to the grain σ_c,90,d): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use τ_d = 1.5 · V_d / (b_ef · d) for rectangular shear, σ_c,90,d = F_c,90,d / (b · l_eff) for bearing perpendicular to the grain (converting kN to N), and apply reduction factor k_v at notched supports. Express your final calculated value in N/mm²."
           ],
           "caseFamilyId": "MOD10-T2-CF",
           "solverVerificationId": "SOLVER-MOD10-T2-Q2",
-          "reviewStatus": "Verified",
-          "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+          "reviewStatus": "Verified"
         },
         {
           "id": "MOD10-T2-Q3",
@@ -240,10 +302,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "EC5 accounts for this mode-I splitting fracture by applying a severe notch reduction factor k_v < 1.0 to the shear strength of the remaining depth h_ef.",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T2",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+            "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why notches near supports are critical in timber beams (Module 10 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why notches near supports are critical in timber beams (Module 10 Gate)): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+            "Second Hint (Analytical Elimination Criterion): Use τ_d = 1.5 · V_d / (b_ef · d) for rectangular shear, σ_c,90,d = F_c,90,d / (b · l_eff) for bearing perpendicular to the grain (converting kN to N), and apply reduction factor k_v at notched supports. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4)."
           ],
           "caseFamilyId": "MOD10-T2-CF",
           "reviewStatus": "Draft",
@@ -266,10 +336,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Full plastic hinge theory requires ductile yielding in both tension and compression; timber tension rupture is sudden and brittle. Engineering synthesis for \"Explain why timber bending design uses elastic modulus Z_el = bd²/6 rather than plastic modulus W_pl = bd²/4\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T2",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+            "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why timber bending design uses elastic modulus Z_el = bd²/6 rather than plastic modulus W_pl = bd²/4\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why timber bending design uses elastic modulus Z_el = bd²/6 rather than plastic modulus W_pl = bd²/4): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+            "Second Hint (Analytical Elimination Criterion): Use τ_d = 1.5 · V_d / (b_ef · d) for rectangular shear, σ_c,90,d = F_c,90,d / (b · l_eff) for bearing perpendicular to the grain (converting kN to N), and apply reduction factor k_v at notched supports. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4)."
           ],
           "caseFamilyId": "MOD10-T2-CF",
           "reviewStatus": "Draft",
@@ -292,10 +370,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Following industry guidance (e.g. TRADA / NHBC), small holes are restricted to the neutral axis zone within 0.25L to 0.4L from supports where both mid-depth bending stress and shear are moderate.",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T2",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+            "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the safest zone for small service holes in a uniformly loaded timber joist\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify the safest zone for small service holes in a uniformly loaded timber joist): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+            "Second Hint (Analytical Elimination Criterion): Use τ_d = 1.5 · V_d / (b_ef · d) for rectangular shear, σ_c,90,d = F_c,90,d / (b · l_eff) for bearing perpendicular to the grain (converting kN to N), and apply reduction factor k_v at notched supports. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4)."
           ],
           "caseFamilyId": "MOD10-T2-CF",
           "reviewStatus": "Draft",
@@ -320,7 +406,11 @@
         "Calculate final long-term deflection of a timber beam using k_def (Projects 10.1 and 10.2).",
         "Explain why connection edge/end distances, ventilation against rot, and residual section charring govern practical timber engineering."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD10-T3-Q1",
@@ -334,10 +424,18 @@
           "correctAnswer": 9,
           "tolerance": 0.135,
           "explanation": "δ_fin,G = 5.0 mm × (1 + 0.80) = 5.0 × 1.80 = 9.0 mm. Step-by-step verification for \"Calculate final long-term permanent deflection δ_fin,G using k_def\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 9 mm, and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T3",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+            "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate final long-term permanent deflection δ_fin,G using k_def\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: δ_fin,G = 5.0 mm × (1 + 0.80) = 5.0 × 1.80 = ?. Express your final numeric answer in mm."
+            "First Hint (Physical Principle & Idealisation: Calculate final long-term permanent deflection δ_fin,G using k_def): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+            "Second Hint (Symbolic Formula & Unit Setup): δ_fin,G = 5.0 mm × (1 + 0.80) = 5.0 × 1.80 = ?.0 mm. (express final result in mm)."
           ],
           "caseFamilyId": "MOD10-T3-CF",
           "reviewStatus": "Draft",
@@ -360,10 +458,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Preventing premature brittle row shear-out or splitting is essential so the connection fails ductilely by dowel embedding and bolt bending. Engineering synthesis for \"Explain why minimum bolt/screw end and edge distances are much larger in timber than in steel\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T3",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+            "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why minimum bolt/screw end and edge distances are much larger in timber than in steel\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why minimum bolt/screw end and edge distances are much larger in timber than in steel): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+            "Second Hint (Analytical Elimination Criterion): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4)."
           ],
           "caseFamilyId": "MOD10-T3-CF",
           "reviewStatus": "Draft",
@@ -386,10 +492,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Keeping timber dry (below ~20% moisture content) by DPC wrapping, joist hangers, or ventilated air gaps is the primary defence against fungal rot.",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T3",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+            "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand fungal decay risk at embedded timber joist/lintel ends (Project 10.2)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand fungal decay risk at embedded timber joist/lintel ends (Project 10.2)): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+            "Second Hint (Analytical Elimination Criterion): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4)."
           ],
           "caseFamilyId": "MOD10-T3-CF",
           "reviewStatus": "Draft",
@@ -412,10 +526,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Note, however, that any exposed steel connector plates/bolts in timber joints will conduct heat into the wood unless recessed and plugged or fire-protected!",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T3",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+            "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand how heavy timber resists fire (charring concept)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand how heavy timber resists fire (charring concept)): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+            "Second Hint (Analytical Elimination Criterion): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4)."
           ],
           "caseFamilyId": "MOD10-T3-CF",
           "reviewStatus": "Draft",
@@ -438,10 +560,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Deep narrow joists (e.g. 47 × 220 mm) have high depth-to-breadth ratios (d/b ≈ 4.7) and rely on top decking plus rotational strutting at supports and midspan.",
-          "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+          "citation": {
+            "moduleId": "MOD-10",
+            "topicId": "MOD10-T3",
+            "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+            "authorOrBody": "BSI / J. Porteous & A. Kermani",
+            "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+            "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+            "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand the role of solid blocking / herringbone strutting between floor joists\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand the role of solid blocking / herringbone strutting between floor joists): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+            "Second Hint (Analytical Elimination Criterion): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4)."
           ],
           "caseFamilyId": "MOD10-T3-CF",
           "reviewStatus": "Draft",
@@ -489,15 +619,22 @@
       "correctAnswer": 1.359,
       "tolerance": 0.0204,
       "explanation": "Factored surface load = (1.35 × 0.85) + (1.50 × 1.50) = 1.1475 + 2.250 = 3.3975 kN/m². Multiplying by tributary spacing 0.40 m gives w_d = 3.3975 × 0.40 = 1.359 kN/m.",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T1",
+        "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+        "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+        "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+        "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+        "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate ULS line load on a timber floor joist at 400 mm centres (Project 10.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Factored surface load = (1.35 × 0.85) + (1.50 × 1.50) = 1.1475 + 2.250 = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate ULS line load on a timber floor joist at 400 mm centres (Project 10.1)): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert characteristic strength f_k into design strength using f_d = k_mod · f_k / γ_M, selecting k_mod for the shortest-duration action present in the load combination. Express your final calculated value in kN/m."
       ],
       "caseFamilyId": "MOD10-T1-CF",
       "solverVerificationId": "SOLVER-MOD10-E01",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD10-E02",
@@ -511,15 +648,22 @@
       "correctAnswer": 2.72,
       "tolerance": 0.0408,
       "explanation": "M_d = (1.359 × 4.0²) / 8 = 21.744 / 8 = 2.718 kN·m ≈ 2.72 kN·m. Step-by-step verification for \"Calculate ULS bending moment M_d on the 4.0 m floor joist\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.72 kN·m, and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T2",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+        "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate ULS bending moment M_d on the 4.0 m floor joist\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M_d = (1.359 × 4.0²) / 8 = 21.744 / 8 = 2.718 kN·m ≈ 2.72 kN·m. Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate ULS bending moment M_d on the 4.0 m floor joist): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+        "Second Hint (Symbolic Formula & Unit Setup): M_d = (1.359 × 4.0²) / 8 = 21.744 / 8 = ?. (express final result in kN·m)."
       ],
       "caseFamilyId": "MOD10-T2-CF",
       "solverVerificationId": "SOLVER-MOD10-E02",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD10-E03",
@@ -533,10 +677,18 @@
       "correctAnswer": 9.12,
       "tolerance": 0.137,
       "explanation": "σ_m,d = (2.718 × 10⁶ N·mm) / 297,862.5 mm³ = 9.125 N/mm² ≈ 9.12 N/mm². Step-by-step verification for \"Calculate extreme-fibre bending stress σ_m,d in a 47 × 195 mm C24 joist\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 9.12 N/mm², and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T2",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+        "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate extreme-fibre bending stress σ_m,d in a 47 × 195 mm C24 joist\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: σ_m,d = (2.718 × 10⁶ N·mm) / 297,862.5 mm³ = 9.125 N/mm² ≈ 9.12 N/mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate extreme-fibre bending stress σ_m,d in a 47 × 195 mm C24 joist): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+        "Second Hint (Symbolic Formula & Unit Setup): σ_m,d = (2.718 × 10⁶ N·mm) / 297,862.5 mm³ = ?.12 N/mm². (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD10-T2-CF",
       "reviewStatus": "Draft",
@@ -554,10 +706,18 @@
       "correctAnswer": 0.66,
       "tolerance": 0.0099,
       "explanation": "τ_d = (1.5 × 2,720 N) / (31.49 mm × 195 mm) = 4,080 / 6,140.55 = 0.664 N/mm² ≈ 0.66 N/mm². Step-by-step verification for \"Calculate design shear stress τ_d in a timber joist using effective crack width factor k_cr\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.66 N/mm², and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T2",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+        "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate design shear stress τ_d in a timber joist using effective crack width factor k_cr\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: τ_d = (1.5 × 2,720 N) / (31.49 mm × 195 mm) = 4,080 / 6,140.55 = 0.664 N/mm² ≈ 0.66 N/mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate design shear stress τ_d in a timber joist using effective crack width factor k_cr): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+        "Second Hint (Symbolic Formula & Unit Setup): τ_d = (1.5 × 2,720 N) / (31.49 mm × 195 mm) = 4,080 / 6,140.55 = ?.66 N/mm². (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD10-T2-CF",
       "reviewStatus": "Draft",
@@ -575,10 +735,18 @@
       "correctAnswer": 0.76,
       "tolerance": 0.0114,
       "explanation": "Permanent-only utilisation = 8.4 / 11.08 = 0.758 ≈ 0.76, which is HIGHER than the combined snow case utilisation of 10.5 / 14.77 = 0.711! Thus the permanent-only case governs.",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T1",
+        "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+        "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+        "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+        "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+        "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Compare permanent-only vs medium-term utilisation ratio in EC5\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Permanent-only utilisation = 8.4 / 11.08 = 0.758 ≈ 0.76, which is HIGHER than the combined snow case utilisation of 10.5 / 14.77 = 0.711! Thus the permanent-only case governs.. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Compare permanent-only vs medium-term utilisation ratio in EC5): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+        "Second Hint (Symbolic Formula & Unit Setup): Permanent-only utilisation = 8.4 / 11.08 = 0.758 = ?.5 / 14.77 = 0.711! Thus the permanent-only case governs. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD10-T1-CF",
       "reviewStatus": "Draft",
@@ -596,10 +764,18 @@
       "correctAnswer": 2.4,
       "tolerance": 0.036,
       "explanation": "Area = 150 × 150 = 22,500 mm². σ_c,90,d = 54,000 N / 22,500 mm² = 2.40 N/mm². Step-by-step verification for \"Calculate bearing stress under a steel prop on a timber soleboard (Temporary Works)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 2.4 N/mm², and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T2",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+        "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate bearing stress under a steel prop on a timber soleboard (Temporary Works)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Area = 150 × 150 = 22,500 mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate bearing stress under a steel prop on a timber soleboard (Temporary Works)): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use τ_d = 1.5 · V_d / (b_ef · d) for rectangular shear, σ_c,90,d = F_c,90,d / (b · l_eff) for bearing perpendicular to the grain (converting kN to N), and apply reduction factor k_v at notched supports. Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD10-T2-CF",
       "reviewStatus": "Draft",
@@ -617,10 +793,18 @@
       "correctAnswer": 13.48,
       "tolerance": 0.202,
       "explanation": "δ_fin,G = 4.0 × (1 + 0.60) = 6.40 mm. δ_fin,Q = 6.0 × (1 + 0.30 × 0.60) = 6.0 × 1.18 = 7.08 mm. Total δ_fin = 6.40 + 7.08 = 13.48 mm. Step-by-step verification for \"Calculate final creep deflection δ_fin under combined permanent and variable loads\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 13.48 mm, and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T3",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+        "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate final creep deflection δ_fin under combined permanent and variable loads\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: δ_fin,G = 4.0 × (1 + 0.60) = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate final creep deflection δ_fin under combined permanent and variable loads): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+        "Second Hint (Symbolic Formula & Unit Setup): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Express your final calculated value in mm."
       ],
       "caseFamilyId": "MOD10-T3-CF",
       "reviewStatus": "Draft",
@@ -638,10 +822,18 @@
       "correctAnswer": 98,
       "tolerance": 1.47,
       "explanation": "Char depth on each side d_char = 0.70 mm/min × 30 min = 21.0 mm. Since both left and right sides are exposed, b_fi = 140 − (2 × 21.0) = 140 − 42 = 98 mm.",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T3",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+        "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate residual width of a timber beam after 30 minutes of fire charring\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Char depth on each side d_char = 0.70 mm/min × 30 min = ?. Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate residual width of a timber beam after 30 minutes of fire charring): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+        "Second Hint (Symbolic Formula & Unit Setup): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Express your final calculated value in mm."
       ],
       "caseFamilyId": "MOD10-T3-CF",
       "reviewStatus": "Draft",
@@ -659,10 +851,18 @@
       "correctAnswer": 3.02,
       "tolerance": 0.0453,
       "explanation": "V_Rd = (2/3) × 33.5 × 150 × 0.45 × 2.0 = 3,015 N ≈ 3.02 kN (compared to 8.93 kN un-notched, a 66% loss of shear capacity from a 25% notch!). Step-by-step verification for \"Calculate reduced shear capacity of a notched timber beam using k_v\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 3.02 kN, and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T2",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+        "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate reduced shear capacity of a notched timber beam using k_v\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: V_Rd = (2/3) × 33.5 × 150 × 0.45 × 2.0 = 3,015 N ≈ 3.02 kN (compared to 8.93 kN un-notched, a 66% loss of shear capacity from a 25% notch!). Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate reduced shear capacity of a notched timber beam using k_v): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+        "Second Hint (Symbolic Formula & Unit Setup): V_Rd = (2/?) × 33.5 × 150 × 0.45 × 2.0 = ?.93 kN un-notched, a 66% loss of shear capacity from a 25% notch!). (express final result in kN)."
       ],
       "caseFamilyId": "MOD10-T2-CF",
       "reviewStatus": "Draft",
@@ -680,10 +880,18 @@
       "correctAnswer": 8.4,
       "tolerance": 0.126,
       "explanation": "21.0 / 2.5 = 8.40. Step-by-step verification for \"Compare parallel vs perpendicular to grain compressive strength ratio in C24 softwood\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 8.4 ratio, and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T1",
+        "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+        "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+        "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+        "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+        "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Compare parallel vs perpendicular to grain compressive strength ratio in C24 softwood\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 21.0 / 2.5 = ?. Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Compare parallel vs perpendicular to grain compressive strength ratio in C24 softwood): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+        "Second Hint (Symbolic Formula & Unit Setup): Convert characteristic strength f_k into design strength using f_d = k_mod · f_k / γ_M, selecting k_mod for the shortest-duration action present in the load combination. Express your final calculated value in ratio."
       ],
       "caseFamilyId": "MOD10-T1-CF",
       "reviewStatus": "Draft",
@@ -706,10 +914,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Service Class 1 = dry heated interior; Service Class 2 = covered/protected but unheated ambient humidity; Service Class 3 = exposed to weather/high moisture.",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T1",
+        "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+        "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+        "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+        "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+        "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Select the appropriate EC5 Service Class for different structural environments\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Select the appropriate EC5 Service Class for different structural environments): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+        "Second Hint (Analytical Elimination Criterion): Convert characteristic strength f_k into design strength using f_d = k_mod · f_k / γ_M, selecting k_mod for the shortest-duration action present in the load combination. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1)."
       ],
       "caseFamilyId": "MOD10-T1-CF",
       "reviewStatus": "Draft",
@@ -732,10 +948,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "EC5 gives a higher (less penalising) notch factor k_v when the notch is tapered smoothly, or fully threaded screws can carry the perpendicular tensile splitting force.",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T2",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+        "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand how tapered/bevelled notches reduce splitting stress concentration\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand how tapered/bevelled notches reduce splitting stress concentration): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+        "Second Hint (Analytical Elimination Criterion): Use τ_d = 1.5 · V_d / (b_ef · d) for rectangular shear, σ_c,90,d = F_c,90,d / (b · l_eff) for bearing perpendicular to the grain (converting kN to N), and apply reduction factor k_v at notched supports. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4)."
       ],
       "caseFamilyId": "MOD10-T2-CF",
       "reviewStatus": "Draft",
@@ -758,10 +982,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Connections delivering downward loads into the side of a timber beam should be positioned near the top zone (or use full-depth hangers/reinforcing screws) to avoid pulling the timber apart perpendicular to the grain.",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T3",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+        "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise tension-perpendicular-to-grain splitting risk at low-slung connections\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Recognise tension-perpendicular-to-grain splitting risk at low-slung connections): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+        "Second Hint (Analytical Elimination Criterion): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4)."
       ],
       "caseFamilyId": "MOD10-T3-CF",
       "reviewStatus": "Draft",
@@ -784,10 +1016,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Note that in out-of-plane bending of CLT, rolling shear in the cross-layers (shear perpendicular to the grain of the transverse boards) is often a governing check!",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T1",
+        "sourceTitle": "Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2",
+        "authorOrBody": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI",
+        "clauseOrSection": "Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1",
+        "pageReference": "pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)",
+        "formatted": "J. Porteous & A. Kermani (Wiley-Blackwell) / BSI, Structural Timber Design to Eurocode 5 (2nd ed.) & BS EN 1995-1-1:2004+A2, Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1, pp. 1–64 (Porteous) / pp. 18–26 (EN 1995-1-1)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand why Cross-Laminated Timber (CLT) panels work as two-way slabs and shear walls\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand why Cross-Laminated Timber (CLT) panels work as two-way slabs and shear walls): Timber is an cellular, orthotropic material whose design strength f_d depends on moisture Service Class (1, 2, or 3), Load Duration Class, and the load-sharing system factor k_sys.",
+        "Second Hint (Analytical Elimination Criterion): Convert characteristic strength f_k into design strength using f_d = k_mod · f_k / γ_M, selecting k_mod for the shortest-duration action present in the load combination. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Porteous Ch. 1–2 & BS EN 1995-1-1 Cl. 2.3.1–2.4.1, Table 3.1)."
       ],
       "caseFamilyId": "MOD10-T1-CF",
       "reviewStatus": "Draft",
@@ -810,10 +1050,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Because buckling is a ULS safety collapse mode, EC5 uses the 5th-percentile stiffness E_0,05 to compute critical buckling stresses, whereas average floor deflection uses E_0,mean.",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T3",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+        "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish E_0,mean and E_0,05 in EC5 serviceability vs stability checks\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish E_0,mean and E_0,05 in EC5 serviceability vs stability checks): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+        "Second Hint (Analytical Elimination Criterion): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4)."
       ],
       "caseFamilyId": "MOD10-T3-CF",
       "reviewStatus": "Draft",
@@ -836,10 +1084,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Project 10.2 explicitly highlights load path, bearings, wall interaction, and temporary support considerations. Engineering synthesis for \"Assess temporary support considerations when replacing a decayed timber lintel (Project 10.2)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T3",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+        "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Assess temporary support considerations when replacing a decayed timber lintel (Project 10.2)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Assess temporary support considerations when replacing a decayed timber lintel (Project 10.2)): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+        "Second Hint (Analytical Elimination Criterion): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4)."
       ],
       "caseFamilyId": "MOD10-T3-CF",
       "reviewStatus": "Draft",
@@ -857,10 +1113,18 @@
       "correctAnswer": 1.93,
       "tolerance": 0.0289,
       "explanation": "k_c,90 × f_c,90,d = 1.25 × 1.54 = 1.925 N/mm² ≈ 1.93 N/mm². Step-by-step verification for \"Calculate enhanced bearing capacity perpendicular to grain using k_c,90\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.93 N/mm², and cross-check the magnitude and sign against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T2",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+        "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate enhanced bearing capacity perpendicular to grain using k_c,90\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: k_c,90 × f_c,90,d = 1.25 × 1.54 = 1.925 N/mm² ≈ 1.93 N/mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Calculate enhanced bearing capacity perpendicular to grain using k_c,90): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+        "Second Hint (Symbolic Formula & Unit Setup): k_c,90 × f_c,90,d = 1.25 × 1.54 = ?. (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD10-T2-CF",
       "reviewStatus": "Draft",
@@ -883,10 +1147,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Cross-grain shrinkage is roughly 20–40 times greater than parallel-to-grain shrinkage; platform joints accumulate cross-grain movement over multiple storeys.",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T3",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+        "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand moisture movement (shrinkage/swelling) across the grain in timber detailing\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Understand moisture movement (shrinkage/swelling) across the grain in timber detailing): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+        "Second Hint (Analytical Elimination Criterion): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4)."
       ],
       "caseFamilyId": "MOD10-T3-CF",
       "reviewStatus": "Draft",
@@ -909,10 +1181,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Module 10 durability and connections interface. Engineering synthesis for \"Identify corrosion hazard of steel fasteners in wet or treated timber\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T3",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4",
+        "pageReference": "pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2, BS EN 1995-1-2:2004 & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4, pp. 16–17, 26, 48–50, 67–94 (EN 1995-1-1) / pp. 18–24 (EN 1995-1-2)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify corrosion hazard of steel fasteners in wet or treated timber\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify corrosion hazard of steel fasteners in wet or treated timber): Long-term timber deflection increases significantly due to moisture-dependent creep (k_def), while dowel-type connections require minimum edge/end distances to prevent brittle splitting along the grain.",
+        "Second Hint (Analytical Elimination Criterion): Compute final creep deflection using u_fin = u_inst · (1 + k_def) for permanent actions and u_inst,Q · (1 + ψ_2 · k_def) for variable actions; for fire design reduce cross-section by charring depth d_char = β_0 · t. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 2.2.3, Table 3.2, Cl. 6.3.3, Ch. 8 & EN 1995-1-2 Cl. 3.4)."
       ],
       "caseFamilyId": "MOD10-T3-CF",
       "reviewStatus": "Draft",
@@ -935,10 +1215,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Complete synthesis of the Module 10 Learning Gate. Engineering synthesis for \"Summarise the complete check sequence for a simple timber member (Module 10 Gate)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1995-1-1:2004+A2 (Eurocode 5: Design of Timber Structures, Cl. 2.4 & Cl. 6.1).",
-      "citation": "BS EN 1995-1-1:2004+A2 (Eurocode 5) Design of Timber Structures",
+      "citation": {
+        "moduleId": "MOD-10",
+        "topicId": "MOD10-T2",
+        "sourceTitle": "BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.)",
+        "authorOrBody": "BSI / J. Porteous & A. Kermani",
+        "clauseOrSection": "BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4",
+        "pageReference": "pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)",
+        "formatted": "BSI / J. Porteous & A. Kermani, BS EN 1995-1-1:2004+A2 (Eurocode 5) & Structural Timber Design to EC5 (2nd ed.), BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4, pp. 37–43, 52–54 (EN 1995-1-1) / pp. 73–112 (Porteous)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Summarise the complete check sequence for a simple timber member (Module 10 Gate)\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Summarise the complete check sequence for a simple timber member (Module 10 Gate)): In rectangular timber joists, longitudinal shear at the neutral axis is parabolic (peaking at 1.5× average shear), while bearing at supports acts perpendicular to the weak tubular grain.",
+        "Second Hint (Analytical Elimination Criterion): Use τ_d = 1.5 · V_d / (b_ef · d) for rectangular shear, σ_c,90,d = F_c,90,d / (b · l_eff) for bearing perpendicular to the grain (converting kN to N), and apply reduction factor k_v at notched supports. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1995-1-1 Cl. 6.1.4, Cl. 6.1.6, Cl. 6.1.7, Cl. 6.5.2 & Porteous Ch. 4)."
       ],
       "caseFamilyId": "MOD10-T2-CF",
       "reviewStatus": "Draft",

@@ -1,4 +1,6 @@
 import type { AssessmentQuestion, SyllabusModule } from '../types/syllabus';
+import { verifyQuestionWithSolver } from './verificationRegistry';
+import { doesQuestionHintLeakAnswer } from '../data/citationAndHintCatalog';
 
 export interface SchemaValidationReport {
   valid: boolean;
@@ -71,14 +73,29 @@ export function validateQuestionSchema(rawQ: Record<string, unknown>): string[] 
   if (typeof rawQ.explanation !== 'string' || rawQ.explanation.trim().length < 80) {
     errs.push(`${id}: explanation must be at least 80 characters (got ${String(rawQ.explanation || '').length})`);
   }
-  const hasCitation =
-    (typeof rawQ.citation === 'string' && rawQ.citation.trim().length > 0) ||
-    (rawQ.citation && typeof rawQ.citation === 'object');
-  if (!hasCitation) {
-    errs.push(`${id}: missing citation`);
+  const citObj =
+    rawQ.citation && typeof rawQ.citation === 'object'
+      ? (rawQ.citation as Record<string, unknown>)
+      : null;
+  const hasStructuredCitation =
+    (citObj !== null &&
+      typeof citObj.sourceTitle === 'string' &&
+      citObj.sourceTitle.trim().length > 0 &&
+      typeof citObj.clauseOrSection === 'string' &&
+      citObj.clauseOrSection.trim().length > 0 &&
+      typeof citObj.pageReference === 'string' &&
+      citObj.pageReference.trim().length > 0) ||
+    (typeof rawQ.citation === 'string' && rawQ.citation.trim().length > 0);
+  if (!hasStructuredCitation) {
+    errs.push(`${id}: missing structured book/clause/page citation`);
   }
   if (!Array.isArray(rawQ.hints) || rawQ.hints.length < 2) {
     errs.push(`${id}: must include at least 2 progressive hints`);
+  } else {
+    const leakAudit = doesQuestionHintLeakAnswer(rawQ as unknown as AssessmentQuestion);
+    if (leakAudit.leaked) {
+      errs.push(`${id}: hint leaks answer (${leakAudit.reason})`);
+    }
   }
   if (typeof rawQ.caseFamilyId !== 'string' || !rawQ.caseFamilyId.trim()) {
     errs.push(`${id}: missing caseFamilyId`);
@@ -93,8 +110,20 @@ export function validateQuestionSchema(rawQ: Record<string, unknown>): string[] 
   ) {
     errs.push(`${id}: invalid reviewStatus "${String(rawQ.reviewStatus)}"`);
   }
-  if (rawQ.reviewStatus === 'Verified' && !rawQ.solverVerificationId) {
-    errs.push(`${id}: reviewStatus is "Verified" without a solverVerificationId`);
+  if (rawQ.reviewStatus === 'Verified') {
+    if (!rawQ.solverVerificationId) {
+      errs.push(`${id}: reviewStatus is "Verified" without a solverVerificationId`);
+    }
+    const solverCheck = verifyQuestionWithSolver({
+      id,
+      type: rawQ.type === 'mcq' ? 'mcq' : rawQ.type === 'scenario' ? 'scenario' : 'numeric',
+      correctAnswer: Number(rawQ.correctAnswer ?? 0),
+      tolerance: rawQ.tolerance !== undefined ? Number(rawQ.tolerance) : undefined,
+      solverVerificationId: rawQ.solverVerificationId ? String(rawQ.solverVerificationId) : undefined,
+    });
+    if (!solverCheck.isVerified) {
+      errs.push(`${id}: reviewStatus is "Verified" but failed deterministic solver check (${solverCheck.reason})`);
+    }
   }
 
   if (rawQ.type === 'numeric') {
@@ -167,11 +196,20 @@ export function validateAllModulesSchema(modules: SyllabusModule[]): SchemaValid
         ? q.assumptions.join(' ')
         : String(q.assumptions || '');
 
+      const citationText =
+        typeof q.citation === 'string'
+          ? q.citation
+          : q.citation
+          ? `${q.citation.sourceTitle} ${q.citation.authorOrBody} ${q.citation.clauseOrSection} ${q.citation.pageReference} ${q.citation.formatted}`
+          : '';
+
       const combinedText = [
         q.prompt,
         q.explanation,
         assumptionsText,
         q.learningObjective,
+        citationText,
+        ...(q.hints || []),
         ...(q.options || []),
       ].join(' ');
 

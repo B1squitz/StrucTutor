@@ -69,7 +69,7 @@ function singleFileHtmlPlugin(): Plugin {
 
       const outPath = path.join(distDir, 'StructTutor.html');
       fs.writeFileSync(outPath, html, 'utf-8');
-      fs.writeFileSync(indexHtmlPath, html, 'utf-8');
+      fs.rmSync(indexHtmlPath, {force: true});
     },
   };
 }

@@ -49,10 +49,18 @@
           "correctAnswer": 0.149,
           "tolerance": 0.005,
           "explanation": "delta / t = 32 / 215 = 0.149 (nearly t/6, where the line of vertical thrust approaches the middle-third boundary of the wall thickness!). Step-by-step verification for \"Evaluate out-of-plumb masonry wall eccentricity from a verticality survey.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.149 ratio, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T1",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+            "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+            "pageReference": "pp. 19–62",
+            "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Evaluate out-of-plumb masonry wall eccentricity from a verticality survey.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: delta / t = 32 / 215 = 0.149 (nearly t/6, where the line of vertical thrust approaches the middle-third boundary of the wall thickness!). Express your final numeric answer in ratio."
+            "First Hint (Physical Principle & Idealisation: Evaluate out-of-plumb masonry wall eccentricity from a verticality survey.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+            "Second Hint (Symbolic Formula & Unit Setup): delta / t = 32 / 215 = ?. (express final result in ratio)."
           ],
           "caseFamilyId": "MOD18-T1-CF",
           "reviewStatus": "Draft",
@@ -70,10 +78,18 @@
           "correctAnswer": 1.2,
           "tolerance": 0.02,
           "explanation": "sigma_b = 79,200 N / 66,000 mm^2 = 1.20 MPa. Step-by-step verification for \"Calculate actual bearing stress under a new steel beam on an existing brick pier verified by opening up.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.2 MPa, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T1",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+            "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+            "pageReference": "pp. 19–62",
+            "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate actual bearing stress under a new steel beam on an existing brick pier verified by opening up.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: sigma_b = 79,200 N / 66,000 mm^2 = ?. Express your final numeric answer in MPa."
+            "First Hint (Physical Principle & Idealisation: Calculate actual bearing stress under a new steel beam on an existing brick pier verified by opening up.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+            "Second Hint (Symbolic Formula & Unit Setup): sigma_b = 79,200 N / 66,000 mm^2 = ?. (express final result in MPa)."
           ],
           "caseFamilyId": "MOD18-T1-CF",
           "reviewStatus": "Draft",
@@ -96,10 +112,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Historic drawings frequently omit site substitutions, builder shortcuts, or later structural knock-throughs; critical loadbearing assumptions must be verified on site.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T1",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+            "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+            "pageReference": "pp. 19–62",
+            "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"State the engineering status of historic \"Record\" or \"For Construction\" drawings of an existing building.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: State the engineering status of historic \"Record\" or \"For Construction\" drawings of an existing building.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+            "Second Hint (Analytical Elimination Criterion): Measure actual span geometry, section sizes, and support bearing conditions on site, and design temporary propping before cutting investigative trial pockets in load-bearing elements. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation))."
           ],
           "caseFamilyId": "MOD18-T1-CF",
           "reviewStatus": "Draft",
@@ -122,10 +146,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Floorboards span across joists; however, because double-boarding or modern sheet subfloors can exist, intrusive lifting of a board is still required to confirm joist size, spacing, and bearing.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T1",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+            "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+            "pageReference": "pp. 19–62",
+            "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify non-invasive visual clues to floor joist span direction before lifting floorboards.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify non-invasive visual clues to floor joist span direction before lifting floorboards.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+            "Second Hint (Analytical Elimination Criterion): Measure actual span geometry, section sizes, and support bearing conditions on site, and design temporary propping before cutting investigative trial pockets in load-bearing elements. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation))."
           ],
           "caseFamilyId": "MOD18-T1-CF",
           "reviewStatus": "Draft",
@@ -148,10 +180,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "Undercutting or excavating long trenches below the base level of an existing shallow foundation removes its bearing wedge and triggers immediate settlement or collapse.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T1",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+            "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+            "pageReference": "pp. 19–62",
+            "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why trial pits alongside existing foundations must be small and backfilled promptly.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why trial pits alongside existing foundations must be small and backfilled promptly.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+            "Second Hint (Analytical Elimination Criterion): Measure actual span geometry, section sizes, and support bearing conditions on site, and design temporary propping before cutting investigative trial pockets in load-bearing elements. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation))."
           ],
           "caseFamilyId": "MOD18-T1-CF",
           "reviewStatus": "Draft",
@@ -189,10 +229,18 @@
           "correctAnswer": 27.8,
           "tolerance": 0.3,
           "explanation": "Loss = (314.2 - 227.0) / 314.2 = 87.2 / 314.2 = 27.75% (note how a seemingly modest 1.5 mm radius loss removes nearly 28% of the bar’s strength!).",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T2",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+            "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+            "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+            "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+            "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate percentage loss of tensile area due to reinforcement corrosion.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Loss = (314.2 - 227.0) / 314.2 = 87.2 / 314.2 = 27.75% (note how a seemingly modest 1.5 mm radius loss removes nearly 28% of the bar’s strength!).. Express your final numeric answer in %."
+            "First Hint (Physical Principle & Idealisation: Calculate percentage loss of tensile area due to reinforcement corrosion.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+            "Second Hint (Symbolic Formula & Unit Setup): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Express your final calculated value in %."
           ],
           "caseFamilyId": "MOD18-T2-CF",
           "reviewStatus": "Draft",
@@ -210,10 +258,18 @@
           "correctAnswer": 240.8,
           "tolerance": 1,
           "explanation": "Wy,eff = 50 * 28,900 / 6 = 240,833 mm^3 = 240.8 x 10^3 mm^3 (a 15% depth loss causes a 27.7% loss of bending capacity and a 38.6% loss of stiffness I!).",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T2",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+            "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+            "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+            "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+            "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate reduced section modulus of a timber joist after damp rot is cut back.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Wy,eff = 50 * 28,900 / 6 = 240,833 mm^3 = 240.8 x 10^3 mm^3 (a 15% depth loss causes a 27.7% loss of bending capacity and a 38.6% loss of stiffness I!).. Express your final numeric answer in 10^3 mm^3."
+            "First Hint (Physical Principle & Idealisation: Calculate reduced section modulus of a timber joist after damp rot is cut back.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+            "Second Hint (Symbolic Formula & Unit Setup): Wy,eff = 50 * 28,900 / 6 = 240,833 mm^3 = ?.7% loss of bending capacity and a 38.6% loss of stiffness I!). (express final result in 10^3 mm^3)."
           ],
           "caseFamilyId": "MOD18-T2-CF",
           "reviewStatus": "Draft",
@@ -236,10 +292,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Cast iron has tensile strength only ~20%–25% of its compressive strength, so Victorian beams were cast with large bottom tension flanges and small top compression flanges.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T2",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+            "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+            "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+            "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+            "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish a 19th-century brittle cast-iron beam from a rolled steel I-beam on site.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Distinguish a 19th-century brittle cast-iron beam from a rolled steel I-beam on site.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+            "Second Hint (Analytical Elimination Criterion): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251)."
           ],
           "caseFamilyId": "MOD18-T2-CF",
           "reviewStatus": "Draft",
@@ -262,10 +326,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "When the end of a wall subsides downward and rotates outward, the crack acts like a hinge near the base and opens widest at the top. Engineering synthesis for \"Diagnose a stepped diagonal crack in an external brick wall that is wider at the top than at the bottom.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T2",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+            "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+            "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+            "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+            "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Diagnose a stepped diagonal crack in an external brick wall that is wider at the top than at the bottom.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Diagnose a stepped diagonal crack in an external brick wall that is wider at the top than at the bottom.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+            "Second Hint (Analytical Elimination Criterion): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251)."
           ],
           "caseFamilyId": "MOD18-T2-CF",
           "reviewStatus": "Draft",
@@ -288,10 +360,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Expansive corrosion products exert high radial/vertical jacking pressures, producing horizontal bed-joint cracking in masonry and delamination spalling in RC.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T2",
+            "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+            "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+            "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+            "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+            "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why corroding steel embedded in masonry or concrete causes \"rust jacking\" and spalling.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Explain why corroding steel embedded in masonry or concrete causes \"rust jacking\" and spalling.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+            "Second Hint (Analytical Elimination Criterion): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251)."
           ],
           "caseFamilyId": "MOD18-T2-CF",
           "reviewStatus": "Draft",
@@ -329,10 +409,18 @@
           "correctAnswer": 21,
           "tolerance": 0.2,
           "explanation": "Load per prop = 42.0 / 2 = 21.0 kN (which must then be checked against the prop capacity at the actual extended height and eccentricity, AND the bearing capacity of the floor/ground beneath the sole plate!).",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+            "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate axial load in temporary Acrow props supporting a needle beam during a wall knock-through.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Load per prop = 42.0 / 2 = 21.0 kN (which must then be checked against the prop capacity at the actual extended height and eccentricity, AND the bearing capacity of the floor/ground beneath the sole plate!).. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate axial load in temporary Acrow props supporting a needle beam during a wall knock-through.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+            "Second Hint (Symbolic Formula & Unit Setup): Load per prop = 42.0 / 2 = ?.0 kN (which must then be checked against the prop capacity at the actual extended height and eccentricity, AND the bearing capacity of the floor/ground beneath the sole plate!). (express final result in kN)."
           ],
           "caseFamilyId": "MOD18-T3-CF",
           "reviewStatus": "Draft",
@@ -350,10 +438,18 @@
           "correctAnswer": 124.4,
           "tolerance": 0.5,
           "explanation": "Total load on sole plate = 42 kN. Bearing pressure q = 42 / 0.3375 = 124.4 kPa. Step-by-step verification for \"Check bearing pressure beneath a timber sole plate supporting temporary props.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 124.4 kPa, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+            "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Check bearing pressure beneath a timber sole plate supporting temporary props.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Total load on sole plate = ?. Express your final numeric answer in kPa."
+            "First Hint (Physical Principle & Idealisation: Check bearing pressure beneath a timber sole plate supporting temporary props.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+            "Second Hint (Symbolic Formula & Unit Setup): Verify how lateral restraint, arch thrust, and vertical load paths will be maintained at every step of an alteration before any existing structural element is cut or removed. Express your final calculated value in kPa."
           ],
           "caseFamilyId": "MOD18-T3-CF",
           "reviewStatus": "Draft",
@@ -376,10 +472,18 @@
           "correctOptionIndex": 0,
           "correctAnswer": 0,
           "explanation": "The overhead load path must be supported continuously before demolition, and transferred fully via cured padstones and dry-pack mortar before temporary needles are struck.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+            "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"State the mandatory sequence for removing a loadbearing wall and installing a new steel beam.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: State the mandatory sequence for removing a loadbearing wall and installing a new steel beam.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+            "Second Hint (Analytical Elimination Criterion): Verify how lateral restraint, arch thrust, and vertical load paths will be maintained at every step of an alteration before any existing structural element is cut or removed. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11)."
           ],
           "caseFamilyId": "MOD18-T3-CF",
           "reviewStatus": "Draft",
@@ -402,10 +506,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Never guess hidden structural systems or delegate structural engineering design responsibility via vague \"Contractor to verify\" notes on uninvestigated critical elements.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+            "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify what an engineer must refuse to assume without opening up or specialist verification.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Identify what an engineer must refuse to assume without opening up or specialist verification.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+            "Second Hint (Analytical Elimination Criterion): Verify how lateral restraint, arch thrust, and vertical load paths will be maintained at every step of an alteration before any existing structural element is cut or removed. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11)."
           ],
           "caseFamilyId": "MOD18-T3-CF",
           "reviewStatus": "Draft",
@@ -428,10 +540,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "RAAC panels (common in 1950s–1980s roofs) lack coarse aggregate, rely on transverse welded anchorage bars near the ends, and require specialist appraisal and often immediate propping.",
-          "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+          "citation": {
+            "moduleId": "MOD-18",
+            "topicId": "MOD18-T3",
+            "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+            "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+            "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+            "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+            "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Recognise specialist escalation triggers in existing buildings (RAAC, HAC, Post-Tensioned Concrete).\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Recognise specialist escalation triggers in existing buildings (RAAC, HAC, Post-Tensioned Concrete).): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+            "Second Hint (Analytical Elimination Criterion): Verify how lateral restraint, arch thrust, and vertical load paths will be maintained at every step of an alteration before any existing structural element is cut or removed. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11)."
           ],
           "caseFamilyId": "MOD18-T3-CF",
           "reviewStatus": "Draft",
@@ -468,10 +588,18 @@
       "correctAnswer": 0.837,
       "tolerance": 0.02,
       "explanation": "sigma = 180,000 / 215,000 = 0.837 MPa (nearly double the original 0.419 MPa stress). Step-by-step verification for \"Calculate masonry pier compressive stress before and after forming an adjacent doorway.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.837 MPa, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T1",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+        "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+        "pageReference": "pp. 19–62",
+        "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate masonry pier compressive stress before and after forming an adjacent doorway.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: sigma = 180,000 / 215,000 = 0.837 MPa (nearly double the original 0.419 MPa stress). Express your final numeric answer in MPa."
+        "First Hint (Physical Principle & Idealisation: Calculate masonry pier compressive stress before and after forming an adjacent doorway.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+        "Second Hint (Symbolic Formula & Unit Setup): sigma = 180,000 / 215,000 = ?.419 MPa stress). (express final result in MPa)."
       ],
       "caseFamilyId": "MOD18-T1-CF",
       "reviewStatus": "Draft",
@@ -489,10 +617,18 @@
       "correctAnswer": 19.2,
       "tolerance": 0.2,
       "explanation": "M = 48 * 1.6 / 4 = 19.2 kNm. Step-by-step verification for \"Calculate needle beam bending moment during temporary propping.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 19.2 kNm, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T1",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+        "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+        "pageReference": "pp. 19–62",
+        "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate needle beam bending moment during temporary propping.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: M = 48 * 1.6 / 4 = ?. Express your final numeric answer in kNm."
+        "First Hint (Physical Principle & Idealisation: Calculate needle beam bending moment during temporary propping.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+        "Second Hint (Symbolic Formula & Unit Setup): Measure actual span geometry, section sizes, and support bearing conditions on site, and design temporary propping before cutting investigative trial pockets in load-bearing elements. Express your final calculated value in kNm."
       ],
       "caseFamilyId": "MOD18-T1-CF",
       "reviewStatus": "Draft",
@@ -510,10 +646,18 @@
       "correctAnswer": 180,
       "tolerance": 1,
       "explanation": "q = 117 / 0.65 = 180.0 kPa. Step-by-step verification for \"Verify existing strip footing bearing pressure under increased column/pier load.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 180 kPa, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T1",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+        "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+        "pageReference": "pp. 19–62",
+        "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Verify existing strip footing bearing pressure under increased column/pier load.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: q = 117 / 0.65 = ?. Express your final numeric answer in kPa."
+        "First Hint (Physical Principle & Idealisation: Verify existing strip footing bearing pressure under increased column/pier load.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+        "Second Hint (Symbolic Formula & Unit Setup): q = 117 / 0.65 = ?.0 kPa. (express final result in kPa)."
       ],
       "caseFamilyId": "MOD18-T1-CF",
       "reviewStatus": "Draft",
@@ -531,10 +675,18 @@
       "correctAnswer": 7,
       "tolerance": 0.1,
       "explanation": "t_w,rem = 10.2 - 3.2 = 7.0 mm (a 31.4% reduction in web shear and bearing area). Step-by-step verification for \"Calculate remaining web thickness after double-sided atmospheric corrosion of an existing steel beam.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 7 mm, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T2",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+        "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+        "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+        "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+        "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate remaining web thickness after double-sided atmospheric corrosion of an existing steel beam.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: t_w,rem = 10.2 - 3.2 = 7.0 mm (a 31.4% reduction in web shear and bearing area). Express your final numeric answer in mm."
+        "First Hint (Physical Principle & Idealisation: Calculate remaining web thickness after double-sided atmospheric corrosion of an existing steel beam.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+        "Second Hint (Symbolic Formula & Unit Setup): t_w,rem = 10.2 - 3.2 = ?.0 mm (a 31.4% reduction in web shear and bearing area). (express final result in mm)."
       ],
       "caseFamilyId": "MOD18-T2-CF",
       "reviewStatus": "Draft",
@@ -552,10 +704,18 @@
       "correctAnswer": 0.422,
       "tolerance": 0.005,
       "explanation": "(150 / 200)^3 = 0.75^3 = 0.4219 (a 25% notch at midspan destroys nearly 58% of the joist’s bending stiffness and 44% of its bending strength!). Step-by-step verification for \"Calculate reduced second moment of area of a notched existing timber joist.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.422 ratio, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T2",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+        "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+        "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+        "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+        "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate reduced second moment of area of a notched existing timber joist.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: (150 / 200)^3 = 0.75^3 = 0.4219 (a 25% notch at midspan destroys nearly 58% of the joist’s bending stiffness and 44% of its bending strength!). Express your final numeric answer in ratio."
+        "First Hint (Physical Principle & Idealisation: Calculate reduced second moment of area of a notched existing timber joist.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+        "Second Hint (Symbolic Formula & Unit Setup): (150 / 200)^3 = 0.75^3 = ?. (express final result in ratio)."
       ],
       "caseFamilyId": "MOD18-T2-CF",
       "reviewStatus": "Draft",
@@ -573,10 +733,18 @@
       "correctAnswer": 4,
       "tolerance": 0.1,
       "explanation": "168 / 42 = 4.0 needle pairs (8 props in total). Step-by-step verification for \"Calculate required number of temporary props for a given needle line load.\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 4 pairs, and cross-check the magnitude and sign against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+        "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required number of temporary props for a given needle line load.\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 168 / 42 = 4.0 needle pairs (8 props in total). Express your final numeric answer in pairs."
+        "First Hint (Physical Principle & Idealisation: Calculate required number of temporary props for a given needle line load.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+        "Second Hint (Symbolic Formula & Unit Setup): 168 / 42 = ?.0 needle pairs (8 props in total). (express final result in pairs)."
       ],
       "caseFamilyId": "MOD18-T3-CF",
       "reviewStatus": "Draft",
@@ -599,10 +767,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Never assume a ground floor is a solid concrete slab; lifting a floorboard frequently reveals a suspended timber floor over a void that must be bypassed onto solid ground.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T1",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+        "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+        "pageReference": "pp. 19–62",
+        "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why existing suspended timber ground floors fail when temporary props are placed directly on them.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why existing suspended timber ground floors fail when temporary props are placed directly on them.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+        "Second Hint (Analytical Elimination Criterion): Measure actual span geometry, section sizes, and support bearing conditions on site, and design temporary propping before cutting investigative trial pockets in load-bearing elements. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation))."
       ],
       "caseFamilyId": "MOD18-T1-CF",
       "reviewStatus": "Draft",
@@ -625,10 +801,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Historic masonry buildings often used timber inner lintels behind decorative outer brick arches; when the timber rots, the inner wall loses support.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T1",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+        "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+        "pageReference": "pp. 19–62",
+        "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the structural role of historic timber \"bonding timbers\" or built-in lintels hidden behind plaster.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify the structural role of historic timber \"bonding timbers\" or built-in lintels hidden behind plaster.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+        "Second Hint (Analytical Elimination Criterion): Measure actual span geometry, section sizes, and support bearing conditions on site, and design temporary propping before cutting investigative trial pockets in load-bearing elements. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation))."
       ],
       "caseFamilyId": "MOD18-T1-CF",
       "reviewStatus": "Draft",
@@ -651,10 +835,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Inspecting edge freshness, previous repair history, and seasonal tell-tale/level monitoring differentiates active subsidence/heave from historic initial settlement.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T2",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+        "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+        "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+        "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+        "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish active progressive foundation movement from historic dormant settlement.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish active progressive foundation movement from historic dormant settlement.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+        "Second Hint (Analytical Elimination Criterion): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251)."
       ],
       "caseFamilyId": "MOD18-T2-CF",
       "reviewStatus": "Draft",
@@ -677,10 +869,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "In traditional lime masonry, mortar is softer and more permeable than the brick, acting as a sacrificial cushion and evaporation path. Engineering synthesis for \"Explain why repointing soft historic lime-mortar brickwork with hard modern dense cement mortar causes damage.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T2",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+        "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+        "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+        "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+        "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why repointing soft historic lime-mortar brickwork with hard modern dense cement mortar causes damage.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why repointing soft historic lime-mortar brickwork with hard modern dense cement mortar causes damage.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+        "Second Hint (Analytical Elimination Criterion): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251)."
       ],
       "caseFamilyId": "MOD18-T2-CF",
       "reviewStatus": "Draft",
@@ -703,10 +903,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Pre-1981 galvanized steel fishtail/strip wall ties had thin zinc coatings; when they rust, expansive oxide bursts the bed joints every 450 mm and leaves the outer leaf unrestrained.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T2",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+        "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+        "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+        "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+        "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Diagnose horizontal cracking every 450 mm along the bed joints of a 1970s cavity wall.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Diagnose horizontal cracking every 450 mm along the bed joints of a 1970s cavity wall.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+        "Second Hint (Analytical Elimination Criterion): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251)."
       ],
       "caseFamilyId": "MOD18-T2-CF",
       "reviewStatus": "Draft",
@@ -729,10 +937,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Old chimney breasts contain hollow flues and weak mortar; gallows brackets induce pull-out tension and overturning unless a full-span steel beam bears onto verified piers/walls.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T2",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+        "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+        "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+        "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+        "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify the structural hazard of removing a ground-floor chimney breast while leaving the upper stack corbelled.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify the structural hazard of removing a ground-floor chimney breast while leaving the upper stack corbelled.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+        "Second Hint (Analytical Elimination Criterion): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251)."
       ],
       "caseFamilyId": "MOD18-T2-CF",
       "reviewStatus": "Draft",
@@ -755,10 +971,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Removing internal return walls can leave external walls unbuttressed (exceeding slenderness limits) or remove the building’s lateral racking stability; a sway portal frame or retained piers may be required.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+        "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain why lateral stability of the whole building must be checked before removing an internal cross-wall.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain why lateral stability of the whole building must be checked before removing an internal cross-wall.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+        "Second Hint (Analytical Elimination Criterion): Verify how lateral restraint, arch thrust, and vertical load paths will be maintained at every step of an alteration before any existing structural element is cut or removed. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11)."
       ],
       "caseFamilyId": "MOD18-T3-CF",
       "reviewStatus": "Draft",
@@ -781,10 +1005,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Without tight dry-packing/wedging and curing before needle removal, the overhead masonry drops onto the beam to take up slack, cracking the superstructure.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+        "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Explain the purpose of \"dry-pack\" non-shrink mortar above a newly installed steel beam in an existing wall.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Explain the purpose of \"dry-pack\" non-shrink mortar above a newly installed steel beam in an existing wall.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+        "Second Hint (Analytical Elimination Criterion): Verify how lateral restraint, arch thrust, and vertical load paths will be maintained at every step of an alteration before any existing structural element is cut or removed. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11)."
       ],
       "caseFamilyId": "MOD18-T3-CF",
       "reviewStatus": "Draft",
@@ -807,10 +1039,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Adjustable steel props are slender compression struts whose capacity drops rapidly with height and eccentricity (~1.5 deg out-of-plumb or eccentric loading); lacing and proper pins/sole plates are vital.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+        "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Check temporary prop slenderness, verticality, and lacing in high-bay knock-throughs.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Check temporary prop slenderness, verticality, and lacing in high-bay knock-throughs.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+        "Second Hint (Analytical Elimination Criterion): Verify how lateral restraint, arch thrust, and vertical load paths will be maintained at every step of an alteration before any existing structural element is cut or removed. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11)."
       ],
       "caseFamilyId": "MOD18-T3-CF",
       "reviewStatus": "Draft",
@@ -833,10 +1073,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Wrought iron is ductile along the direction of rolling but contains laminar slag stringers that delaminate under welding thermal stresses or through-thickness pull.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T1",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "Institution of Structural Engineers (IStructE, 2010)",
+        "clauseOrSection": "Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation)",
+        "pageReference": "pp. 19–62",
+        "formatted": "Institution of Structural Engineers (IStructE, 2010), Appraisal of Existing Structures (3rd ed.), Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation), pp. 19–62"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish wrought iron from modern mild steel in an existing structure.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish wrought iron from modern mild steel in an existing structure.): Historic record drawings are unverified hypotheses until confirmed on site: alterations, notches, and hidden bearings must be verified by targeted visual and intrusive opening-up surveys.",
+        "Second Hint (Analytical Elimination Criterion): Measure actual span geometry, section sizes, and support bearing conditions on site, and design temporary propping before cutting investigative trial pockets in load-bearing elements. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 3–5 (Desk Study, Visual Inspection & Intrusive Investigation))."
       ],
       "caseFamilyId": "MOD18-T1-CF",
       "reviewStatus": "Draft",
@@ -859,10 +1107,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "HAC conversion (especially in warm/humid environments like roofs, kitchens, and pools) causes severe loss of concrete compressive/shear strength.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T2",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+        "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+        "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+        "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+        "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify High Alumina Cement (HAC) concrete hazard awareness.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify High Alumina Cement (HAC) concrete hazard awareness.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+        "Second Hint (Analytical Elimination Criterion): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251)."
       ],
       "caseFamilyId": "MOD18-T2-CF",
       "reviewStatus": "Draft",
@@ -885,10 +1141,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "When a lintel sags or is missing above a replacement window, the triangular wedge of masonry below the natural corbelled arch detaches and drops.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T2",
+        "sourceTitle": "Appraisal of Existing Structures (3rd ed.) & BRE Digest 251",
+        "authorOrBody": "IStructE (2010) / Building Research Establishment (BRE)",
+        "clauseOrSection": "IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251",
+        "pageReference": "pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)",
+        "formatted": "IStructE (2010) / Building Research Establishment (BRE), Appraisal of Existing Structures (3rd ed.) & BRE Digest 251, IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251, pp. 63–128 (IStructE) / pp. 1–12 (BRE Digest 251)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Diagnose arch-shaped stepped cracking above a ground-floor window opening.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Diagnose arch-shaped stepped cracking above a ground-floor window opening.): Distinguish brittle historic cast iron (weak in tension, Thick tensile bottom flange) from wrought iron and modern steel, and diagnose active vs historic movement from crack width tapering and pathology.",
+        "Second Hint (Analytical Elimination Criterion): Account for section loss at corroded steel web ends and fungal rot in embedded timber joist ends, where support shear and bearing stresses are highest. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: IStructE Appraisal Guide Ch. 6–8 & BRE Digest 251)."
       ],
       "caseFamilyId": "MOD18-T2-CF",
       "reviewStatus": "Draft",
@@ -911,10 +1175,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "Clearly separating verified facts from provisional assumptions with a mandatory Hold Point protects safety, cost transparency, and buildability. Engineering synthesis for \"Manage uncertainty when foundation depth cannot be verified before tender.\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against CDM Regulations 2015, IStructE Buildability Guidance & Temporary Works Forum (TWf) Guides.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+        "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Manage uncertainty when foundation depth cannot be verified before tender.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Manage uncertainty when foundation depth cannot be verified before tender.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+        "Second Hint (Analytical Elimination Criterion): Verify how lateral restraint, arch thrust, and vertical load paths will be maintained at every step of an alteration before any existing structural element is cut or removed. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11)."
       ],
       "caseFamilyId": "MOD18-T3-CF",
       "reviewStatus": "Draft",
@@ -937,10 +1209,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "Permanent and temporary works in refurbishment are inseparable; safe engineering requires verifying what is actually there before cutting into the load path.",
-      "citation": "IStructE Appraisal of Existing Structures & Conservation Engineering Practice",
+      "citation": {
+        "moduleId": "MOD-18",
+        "topicId": "MOD18-T3",
+        "sourceTitle": "BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.)",
+        "authorOrBody": "BSI / Institution of Structural Engineers (IStructE)",
+        "clauseOrSection": "BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11",
+        "pageReference": "pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)",
+        "formatted": "BSI / Institution of Structural Engineers (IStructE), BS 5975:2019 Temporary Works & IStructE Appraisal of Existing Structures (3rd ed.), BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11, pp. 112–120 (BS 5975) / pp. 129–164 (IStructE)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Pass the Module 18 Learning Gate: Produce a structural appraisal checklist and state what you would refuse to assume without opening up.\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Pass the Module 18 Learning Gate: Produce a structural appraisal checklist and state what you would refuse to assume without opening up.): Refuse to guess hidden structural capacity when stability is at stake: either specify intrusive opening-up with temporary propping, bound the worst credible load path conservatively, or escalate to a specialist.",
+        "Second Hint (Analytical Elimination Criterion): Verify how lateral restraint, arch thrust, and vertical load paths will be maintained at every step of an alteration before any existing structural element is cut or removed. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS 5975:2019 Cl. 19 & IStructE Appraisal Guide Ch. 9–11)."
       ],
       "caseFamilyId": "MOD18-T3-CF",
       "reviewStatus": "Draft",

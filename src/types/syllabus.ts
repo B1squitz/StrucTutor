@@ -6,8 +6,11 @@ export type QuestionReviewStatus = ReviewStatus;
 export interface QuestionCitation {
   moduleId: string;
   topicId: string;
-  clauseOrSection: string;
   sourceTitle: string;
+  authorOrBody: string;
+  clauseOrSection: string;
+  pageReference: string;
+  formatted: string;
 }
 
 export interface AssessmentQuestion {

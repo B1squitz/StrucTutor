@@ -33,7 +33,11 @@
         "Convert bending moments, pressures, line loads, and section properties into consistent (mm, N) base units.",
         "Spot 10³ and 10⁶ power-of-ten errors before they invalidate stress or deflection calculations."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD00-T1-Q1",
@@ -47,14 +51,22 @@
           "correctAnswer": 200000,
           "tolerance": 3000,
           "explanation": "1 GPa = 10⁹ Pa = 1,000 MPa. Since 1 MPa = 1 N/mm², 200 GPa = 200 × 1,000 = 200,000 N/mm². Step-by-step verification for \"Convert elastic modulus from GPa to N/mm² (Example 0.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 200000 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+            "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+            "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+            "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+            "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Convert elastic modulus from GPa to N/mm² (Example 0.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: 1 GPa = 10⁹ Pa = 1,000 MPa. Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Convert elastic modulus from GPa to N/mm² (Example 0.1)): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use the identities 1 kN = 10³ N, 1 MN = 10⁶ N, 1 m = 10³ mm, 1 m² = 10⁶ mm², 1 kN·m = 10⁶ N·mm, and 1 MPa = 1 N/mm²; cancel numerator and denominator length powers systematically. Express your final calculated value in N/mm²."
           ],
           "caseFamilyId": "MOD00-T1-CF",
-          "reviewStatus": "Draft",
-          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+          "reviewStatus": "Verified",
+          "solverVerificationId": "SOLVER-MOD00-T1-Q1"
         },
         {
           "id": "MOD00-T1-Q2",
@@ -68,14 +80,22 @@
           "correctAnswer": 0.025,
           "tolerance": 0.0001,
           "explanation": "25 kN/m² = 25,000 N / (1,000 mm × 1,000 mm) = 25,000 N / 1,000,000 mm² = 0.025 N/mm². Step-by-step verification for \"Convert floor surface pressure from kN/m² into N/mm² (Example 0.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.025 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+            "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+            "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+            "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+            "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Convert floor surface pressure from kN/m² into N/mm² (Example 0.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: 25 kN/m² = 25,000 N / (1,000 mm × 1,000 mm) = 25,000 N / 1,000,000 mm² = ?. Express your final numeric answer in N/mm²."
+            "First Hint (Physical Principle & Idealisation: Convert floor surface pressure from kN/m² into N/mm² (Example 0.1)): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+            "Second Hint (Symbolic Formula & Unit Setup): 25 kN/m² = 25,000 N / (1,000 mm × 1,000 mm) = 25,000 N / 1,000,000 mm² = ?. (express final result in N/mm²)."
           ],
           "caseFamilyId": "MOD00-T1-CF",
-          "reviewStatus": "Draft",
-          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+          "reviewStatus": "Verified",
+          "solverVerificationId": "SOLVER-MOD00-T1-Q2"
         },
         {
           "id": "MOD00-T1-Q3",
@@ -89,14 +109,22 @@
           "correctAnswer": 5000000,
           "tolerance": 75000,
           "explanation": "1 kN = 1,000 N and 1 m = 1,000 mm, so 1 kN·m = 10³ N × 10³ mm = 10⁶ N·mm. Thus 5 kN·m = 5,000,000 N·mm. Step-by-step verification for \"Convert bending moment from kN·m into N·mm (Example 0.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 5000000 N·mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+            "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+            "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+            "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+            "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Convert bending moment from kN·m into N·mm (Example 0.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: 1 kN = 1,000 N and 1 m = 1,000 mm, so 1 kN·m = 10³ N × 10³ mm = 10⁶ N·mm. Express your final numeric answer in N·mm."
+            "First Hint (Physical Principle & Idealisation: Convert bending moment from kN·m into N·mm (Example 0.1)): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+            "Second Hint (Symbolic Formula & Unit Setup): Use the identities 1 kN = 10³ N, 1 MN = 10⁶ N, 1 m = 10³ mm, 1 m² = 10⁶ mm², 1 kN·m = 10⁶ N·mm, and 1 MPa = 1 N/mm²; cancel numerator and denominator length powers systematically. Express your final calculated value in N·mm."
           ],
           "caseFamilyId": "MOD00-T1-CF",
-          "reviewStatus": "Draft",
-          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+          "reviewStatus": "Verified",
+          "solverVerificationId": "SOLVER-MOD00-T1-Q3"
         },
         {
           "id": "MOD00-T1-Q4",
@@ -110,14 +138,22 @@
           "correctAnswer": 7.5,
           "tolerance": 0.112,
           "explanation": "7.5 kN/m = (7.5 × 1,000 N) / (1,000 mm) = 7.5 N/mm. The 10³ factors in numerator and denominator cancel exactly. Step-by-step verification for \"Convert UDL line load from kN/m into N/mm (Example 0.1)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 7.5 N/mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+            "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+            "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+            "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+            "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Convert UDL line load from kN/m into N/mm (Example 0.1)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: 7.5 kN/m = (7.5 × 1,000 N) / (1,000 mm) = ?. Express your final numeric answer in N/mm."
+            "First Hint (Physical Principle & Idealisation: Convert UDL line load from kN/m into N/mm (Example 0.1)): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+            "Second Hint (Symbolic Formula & Unit Setup): ? kN/m = (? × 1,000 N) / (1,000 mm) = ?. (express final result in N/mm)."
           ],
           "caseFamilyId": "MOD00-T1-CF",
-          "reviewStatus": "Draft",
-          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+          "reviewStatus": "Verified",
+          "solverVerificationId": "SOLVER-MOD00-T1-Q4"
         },
         {
           "id": "MOD00-T1-Q5",
@@ -136,10 +172,18 @@
           "correctOptionIndex": 1,
           "correctAnswer": 1,
           "explanation": "Numerator [w][L⁴] = (N/mm) × mm⁴ = N·mm³. Denominator [E][I] = (N/mm²) × mm⁴ = N·mm². Ratio = (N·mm³) / (N·mm²) = mm. Engineering synthesis for \"Verify dimensional homogeneity of beam deflection equations\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T1",
+            "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+            "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+            "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+            "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+            "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Verify dimensional homogeneity of beam deflection equations\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Verify dimensional homogeneity of beam deflection equations): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+            "Second Hint (Analytical Elimination Criterion): Use the identities 1 kN = 10³ N, 1 MN = 10⁶ N, 1 m = 10³ mm, 1 m² = 10⁶ mm², 1 kN·m = 10⁶ N·mm, and 1 MPa = 1 N/mm²; cancel numerator and denominator length powers systematically. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C)."
           ],
           "caseFamilyId": "MOD00-T1-CF",
           "reviewStatus": "Draft",
@@ -165,7 +209,11 @@
         "Apply trigonometry and Pythagoras to find member lengths and force components.",
         "Relate the slope and area of structural diagrams to differentiation and integration."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD00-T2-Q1",
@@ -179,14 +227,22 @@
           "correctAnswer": 6,
           "tolerance": 0.09,
           "explanation": "By Pythagoras, L = √(3.6² + 4.8²) = √(12.96 + 23.04) = √36.0 = 6.0 m (a 3-4-5 triangle scaled by 1.2). Step-by-step verification for \"Use Pythagoras to determine inclined bracing length\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 6 m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T2",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+            "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Use Pythagoras to determine inclined bracing length\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: By Pythagoras, L = √(3.6² + 4.8²) = √(12.96 + 23.04) = √36.0 = 6.0 m (a 3-4-5 triangle scaled by 1.2). Express your final numeric answer in m."
+            "First Hint (Physical Principle & Idealisation: Use Pythagoras to determine inclined bracing length): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+            "Second Hint (Symbolic Formula & Unit Setup): By Pythagoras, L = √(3.6² + 4.8²) = √(12.96 + 23.04) = √36.0 = ?.0 m (a 3-4-5 triangle scaled by 1.2). (express final result in m)."
           ],
           "caseFamilyId": "MOD00-T2-CF",
-          "reviewStatus": "Draft",
-          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+          "reviewStatus": "Verified",
+          "solverVerificationId": "SOLVER-MOD00-T2-Q1"
         },
         {
           "id": "MOD00-T2-Q2",
@@ -200,14 +256,22 @@
           "correctAnswer": 0.286,
           "tolerance": 0.00429,
           "explanation": "θ (deg) = 0.005 × (180 / π) = 0.28648° ≈ 0.286°. Step-by-step verification for \"Convert rotation angle from radians to degrees\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.286 deg, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T2",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+            "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Convert rotation angle from radians to degrees\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: θ (deg) = 0.005 × (180 / π) = 0.28648° ≈ 0.286°. Express your final numeric answer in deg."
+            "First Hint (Physical Principle & Idealisation: Convert rotation angle from radians to degrees): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+            "Second Hint (Symbolic Formula & Unit Setup): θ (deg) = 0.005 × (180 / π) = ?.286°. (express final result in deg)."
           ],
           "caseFamilyId": "MOD00-T2-CF",
-          "reviewStatus": "Draft",
-          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+          "reviewStatus": "Verified",
+          "solverVerificationId": "SOLVER-MOD00-T2-Q2"
         },
         {
           "id": "MOD00-T2-Q3",
@@ -226,10 +290,18 @@
           "correctOptionIndex": 2,
           "correctAnswer": 2,
           "explanation": "Since V = dM/dx, integrating both sides gives M(x₂) − M(x₁) = ∫ V(x) dx, which is the signed area under the shear force diagram between x₁ and x₂.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T2",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+            "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Interpret differential/integral meaning on shear and moment diagrams\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Interpret differential/integral meaning on shear and moment diagrams): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+            "Second Hint (Analytical Elimination Criterion): Apply Pythagoras L = √(Δx² + Δy²), radian-degree conversion θ_deg = θ_rad × (180/π), or differential relations dV/dx = -w and dM/dx = V. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4)."
           ],
           "caseFamilyId": "MOD00-T2-CF",
           "reviewStatus": "Draft",
@@ -247,10 +319,18 @@
           "correctAnswer": 200,
           "tolerance": 3,
           "explanation": "Rearranging gives Z = M / σ = (36 × 10⁶ N·mm) / (180 N/mm²) = 200,000 mm³ = 200 cm³. Step-by-step verification for \"Rearrange elastic bending equation to solve for required section modulus\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 200 cm³, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T2",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+            "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Rearrange elastic bending equation to solve for required section modulus\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Rearranging gives Z = M / σ = (36 × 10⁶ N·mm) / (180 N/mm²) = 200,000 mm³ = ?. Express your final numeric answer in cm³."
+            "First Hint (Physical Principle & Idealisation: Rearrange elastic bending equation to solve for required section modulus): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+            "Second Hint (Symbolic Formula & Unit Setup): Rearranging gives Z = M / σ = (36 × 10⁶ N·mm) / (180 N/mm²) = ?. (express final result in cm³)."
           ],
           "caseFamilyId": "MOD00-T2-CF",
           "reviewStatus": "Draft",
@@ -268,10 +348,18 @@
           "correctAnswer": 20,
           "tolerance": 0.3,
           "explanation": "sin(60°) = 0.866025. Thus 2 × 0.866025 × T = 1.73205 × T = 34.64 kN, giving T = 34.64 / 1.73205 = 20.0 kN. Step-by-step verification for \"Solve simultaneous equilibrium equations\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 20 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T2",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+            "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+            "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+            "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+            "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Solve simultaneous equilibrium equations\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: sin(60°) = ?. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Solve simultaneous equilibrium equations): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+            "Second Hint (Symbolic Formula & Unit Setup): Apply Pythagoras L = √(Δx² + Δy²), radian-degree conversion θ_deg = θ_rad × (180/π), or differential relations dV/dx = -w and dM/dx = V. Express your final calculated value in kN."
           ],
           "caseFamilyId": "MOD00-T2-CF",
           "reviewStatus": "Draft",
@@ -296,7 +384,11 @@
         "Complete Syllabus Worked Examples 0.2 and 0.3 accurately by hand.",
         "Convert mass in kg or tonnes into characteristic gravity weight in kN."
       ],
-      "futureExpansion": "[object Object]",
+      "futureExpansion": [
+        "Expanded textbook commentary and Eurocode clause walkthroughs",
+        "Step-by-step hand calculation sheets with sensitivity checks",
+        "Additional practice problem variations"
+      ],
       "questions": [
         {
           "id": "MOD00-T3-Q1",
@@ -310,10 +402,18 @@
           "correctAnswer": 16.38,
           "tolerance": 0.246,
           "explanation": "F_x = F × cos(35°) = 20 kN × 0.81915 = 16.383 kN ≈ 16.38 kN. Step-by-step verification for \"Resolve inclined tie force into horizontal component (Example 0.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 16.38 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T3",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+            "pageReference": "pp. 119–182",
+            "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Resolve inclined tie force into horizontal component (Example 0.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: F_x = F × cos(35°) = 20 kN × 0.81915 = 16.383 kN ≈ 16.38 kN. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Resolve inclined tie force into horizontal component (Example 0.2)): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+            "Second Hint (Symbolic Formula & Unit Setup): F_x = F × cos(35°) = 20 kN × 0.81915 = ?.38 kN. (express final result in kN)."
           ],
           "caseFamilyId": "MOD00-T3-CF",
           "reviewStatus": "Draft",
@@ -331,10 +431,18 @@
           "correctAnswer": 11.47,
           "tolerance": 0.172,
           "explanation": "F_y = F × sin(35°) = 20 kN × 0.57358 = 11.472 kN ≈ 11.47 kN. Step-by-step verification for \"Resolve inclined tie force into vertical component (Example 0.2)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 11.47 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T3",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+            "pageReference": "pp. 119–182",
+            "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Resolve inclined tie force into vertical component (Example 0.2)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: F_y = F × sin(35°) = 20 kN × 0.57358 = 11.472 kN ≈ 11.47 kN. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Resolve inclined tie force into vertical component (Example 0.2)): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+            "Second Hint (Symbolic Formula & Unit Setup): F_y = F × sin(35°) = 20 kN × 0.57358 = ?.47 kN. (express final result in kN)."
           ],
           "caseFamilyId": "MOD00-T3-CF",
           "reviewStatus": "Draft",
@@ -352,10 +460,18 @@
           "correctAnswer": 48,
           "tolerance": 0.72,
           "explanation": "W = w × L = 8 kN/m × 6 m = 48 kN, acting at midspan (3.0 m from either end). Step-by-step verification for \"Calculate resultant point load of a UDL (Example 0.3)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 48 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T3",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+            "pageReference": "pp. 119–182",
+            "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Calculate resultant point load of a UDL (Example 0.3)\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: W = w × L = 8 kN/m × 6 m = 48 kN, acting at midspan (3.0 m from either end). Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Calculate resultant point load of a UDL (Example 0.3)): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+            "Second Hint (Symbolic Formula & Unit Setup): W = w × L = 8 kN/m × 6 m = ?.0 m from either end). (express final result in kN)."
           ],
           "caseFamilyId": "MOD00-T3-CF",
           "reviewStatus": "Draft",
@@ -373,10 +489,18 @@
           "correctAnswer": 44.15,
           "tolerance": 0.662,
           "explanation": "Weight W = m × g = 4,500 kg × 9.81 m/s² = 44,145 N = 44.145 kN ≈ 44.15 kN. Step-by-step verification for \"Convert mass of a precast concrete unit into gravity weight in kN\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 44.15 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T3",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+            "pageReference": "pp. 119–182",
+            "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+          },
           "hints": [
-            "Identify the governing equilibrium or mechanics equation for \"Convert mass of a precast concrete unit into gravity weight in kN\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-            "Calculation setup: Weight W = m × g = 4,500 kg × 9.81 m/s² = 44,145 N = 44.145 kN ≈ 44.15 kN. Express your final numeric answer in kN."
+            "First Hint (Physical Principle & Idealisation: Convert mass of a precast concrete unit into gravity weight in kN): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+            "Second Hint (Symbolic Formula & Unit Setup): Weight W = m × g = 4,500 kg × 9.81 m/s² = 44,145 N = ?. (express final result in kN)."
           ],
           "caseFamilyId": "MOD00-T3-CF",
           "reviewStatus": "Draft",
@@ -399,10 +523,18 @@
           "correctOptionIndex": 3,
           "correctAnswer": 3,
           "explanation": "Statically equivalent resultants preserve external global equilibrium (reactions), but internal shear V(x) and moment M(x) within the loaded region depend on the actual load distribution (wL²/8 for UDL vs WL/4 = wL²/4 for a midspan point load).",
-          "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+          "citation": {
+            "moduleId": "MOD-00",
+            "topicId": "MOD00-T3",
+            "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+            "authorOrBody": "R.C. Hibbeler (Pearson)",
+            "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+            "pageReference": "pp. 119–182",
+            "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+          },
           "hints": [
-            "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Understand limitations of replacing a UDL with a single resultant point load\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-            "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+            "First Hint (Governing Structural Principle: Understand limitations of replacing a UDL with a single resultant point load): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+            "Second Hint (Analytical Elimination Criterion): For a rectangular UDL use R = w·L at x = L/2; for a triangular pressure distribution use R = 0.5·p_max·H acting at H/3 from the heavy base; for inclined forces resolve F_x = F·cos θ and F_y = F·sin θ. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads))."
           ],
           "caseFamilyId": "MOD00-T3-CF",
           "reviewStatus": "Draft",
@@ -459,10 +591,18 @@
       "correctAnswer": 210000,
       "tolerance": 3150,
       "explanation": "1 GPa = 1,000 MPa = 1,000 N/mm². Therefore 210 GPa = 210,000 N/mm². Step-by-step verification for \"Convert steel elastic modulus from GPa to N/mm²\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 210000 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+        "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+        "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+        "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+        "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Convert steel elastic modulus from GPa to N/mm²\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 1 GPa = 1,000 MPa = 1,000 N/mm². Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Convert steel elastic modulus from GPa to N/mm²): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use the identities 1 kN = 10³ N, 1 MN = 10⁶ N, 1 m = 10³ mm, 1 m² = 10⁶ mm², 1 kN·m = 10⁶ N·mm, and 1 MPa = 1 N/mm²; cancel numerator and denominator length powers systematically. Express your final calculated value in N/mm²."
       ],
       "caseFamilyId": "MOD00-T1-CF",
       "reviewStatus": "Draft",
@@ -480,10 +620,18 @@
       "correctAnswer": 42500000,
       "tolerance": 638000,
       "explanation": "42.5 kN·m × 10⁶ (N·mm per kN·m) = 42,500,000 N·mm. Step-by-step verification for \"Convert bending moment from kN·m to N·mm\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 42500000 N·mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+        "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+        "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+        "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+        "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Convert bending moment from kN·m to N·mm\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 42.5 kN·m × 10⁶ (N·mm per kN·m) = 42,500,000 N·mm. Express your final numeric answer in N·mm."
+        "First Hint (Physical Principle & Idealisation: Convert bending moment from kN·m to N·mm): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+        "Second Hint (Symbolic Formula & Unit Setup): 42.5 kN·m × 10⁶ (N·mm per kN·m) = ?. (express final result in N·mm)."
       ],
       "caseFamilyId": "MOD00-T1-CF",
       "reviewStatus": "Draft",
@@ -501,10 +649,18 @@
       "correctAnswer": 1.5,
       "tolerance": 0.0225,
       "explanation": "1,500 kN/m² ÷ 1,000 = 1.5 N/mm² (1.5 MPa). Step-by-step verification for \"Convert surface pressure from kN/m² to N/mm²\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1.5 N/mm², and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+        "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+        "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+        "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+        "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Convert surface pressure from kN/m² to N/mm²\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 1,500 kN/m² ÷ 1,000 = 1.5 N/mm² (1.5 MPa). Express your final numeric answer in N/mm²."
+        "First Hint (Physical Principle & Idealisation: Convert surface pressure from kN/m² to N/mm²): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+        "Second Hint (Symbolic Formula & Unit Setup): 1,500 kN/m² ÷ 1,000 = ?.5 MPa). (express final result in N/mm²)."
       ],
       "caseFamilyId": "MOD00-T1-CF",
       "reviewStatus": "Draft",
@@ -522,10 +678,18 @@
       "correctAnswer": 85000000,
       "tolerance": 1280000,
       "explanation": "Since 1 cm = 10 mm, 1 cm⁴ = (10 mm)⁴ = 10⁴ mm⁴ = 10,000 mm⁴. Thus 8,500 × 10,000 = 85,000,000 mm⁴. Step-by-step verification for \"Convert second moment of area from cm⁴ to mm⁴\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 85000000 mm⁴, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+        "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+        "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+        "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+        "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Convert second moment of area from cm⁴ to mm⁴\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Since 1 cm = 10 mm, 1 cm⁴ = (10 mm)⁴ = 10⁴ mm⁴ = 10,000 mm⁴. Express your final numeric answer in mm⁴."
+        "First Hint (Physical Principle & Idealisation: Convert second moment of area from cm⁴ to mm⁴): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use the identities 1 kN = 10³ N, 1 MN = 10⁶ N, 1 m = 10³ mm, 1 m² = 10⁶ mm², 1 kN·m = 10⁶ N·mm, and 1 MPa = 1 N/mm²; cancel numerator and denominator length powers systematically. Express your final calculated value in mm⁴."
       ],
       "caseFamilyId": "MOD00-T1-CF",
       "reviewStatus": "Draft",
@@ -543,10 +707,18 @@
       "correctAnswer": 625000,
       "tolerance": 9380,
       "explanation": "Since 1 cm = 10 mm, 1 cm³ = (10 mm)³ = 1,000 mm³. Thus 625 × 1,000 = 625,000 mm³. Step-by-step verification for \"Convert elastic section modulus from cm³ to mm³\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 625000 mm³, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+        "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+        "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+        "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+        "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Convert elastic section modulus from cm³ to mm³\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Since 1 cm = 10 mm, 1 cm³ = (10 mm)³ = 1,000 mm³. Express your final numeric answer in mm³."
+        "First Hint (Physical Principle & Idealisation: Convert elastic section modulus from cm³ to mm³): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+        "Second Hint (Symbolic Formula & Unit Setup): Use the identities 1 kN = 10³ N, 1 MN = 10⁶ N, 1 m = 10³ mm, 1 m² = 10⁶ mm², 1 kN·m = 10⁶ N·mm, and 1 MPa = 1 N/mm²; cancel numerator and denominator length powers systematically. Express your final calculated value in mm³."
       ],
       "caseFamilyId": "MOD00-T1-CF",
       "reviewStatus": "Draft",
@@ -564,10 +736,18 @@
       "correctAnswer": 18.4,
       "tolerance": 0.276,
       "explanation": "1 kN/m = 1,000 N / 1,000 mm = 1 N/mm, so 18.4 kN/m = 18.4 N/mm. Step-by-step verification for \"Convert line load from kN/m to N/mm\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 18.4 N/mm, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+        "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+        "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+        "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+        "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Convert line load from kN/m to N/mm\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: 1 kN/m = 1,000 N / 1,000 mm = 1 N/mm, so 18.4 kN/m = ?. Express your final numeric answer in N/mm."
+        "First Hint (Physical Principle & Idealisation: Convert line load from kN/m to N/mm): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+        "Second Hint (Symbolic Formula & Unit Setup): 1 kN/m = 1,000 N / 1,000 mm = 1 N/mm, so ? kN/m = ?. (express final result in N/mm)."
       ],
       "caseFamilyId": "MOD00-T1-CF",
       "reviewStatus": "Draft",
@@ -585,10 +765,18 @@
       "correctAnswer": 23.54,
       "tolerance": 0.353,
       "explanation": "γ = ρ × g = 2,400 kg/m³ × 9.81 m/s² = 23,544 N/m³ = 23.544 kN/m³ ≈ 23.54 kN/m³. Step-by-step verification for \"Convert mass density kg/m³ to unit weight kN/m³\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 23.54 kN/m³, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+        "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+        "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+        "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+        "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Convert mass density kg/m³ to unit weight kN/m³\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: γ = ρ × g = 2,400 kg/m³ × 9.81 m/s² = 23,544 N/m³ = 23.544 kN/m³ ≈ 23.54 kN/m³. Express your final numeric answer in kN/m³."
+        "First Hint (Physical Principle & Idealisation: Convert mass density kg/m³ to unit weight kN/m³): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+        "Second Hint (Symbolic Formula & Unit Setup): γ = ρ × g = 2,400 kg/m³ × 9.81 m/s² = 23,544 N/m³ = ?.54 kN/m³. (express final result in kN/m³)."
       ],
       "caseFamilyId": "MOD00-T1-CF",
       "reviewStatus": "Draft",
@@ -611,10 +799,18 @@
       "correctOptionIndex": 0,
       "correctAnswer": 0,
       "explanation": "[A][E]/[L] = (mm² × N/mm²) / mm = N/mm, which is force per unit extension. Engineering synthesis for \"Identify dimensional homogeneity in axial stiffness\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+        "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+        "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+        "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+        "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Identify dimensional homogeneity in axial stiffness\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Identify dimensional homogeneity in axial stiffness): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+        "Second Hint (Analytical Elimination Criterion): Use the identities 1 kN = 10³ N, 1 MN = 10⁶ N, 1 m = 10³ mm, 1 m² = 10⁶ mm², 1 kN·m = 10⁶ N·mm, and 1 MPa = 1 N/mm²; cancel numerator and denominator length powers systematically. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C)."
       ],
       "caseFamilyId": "MOD00-T1-CF",
       "reviewStatus": "Draft",
@@ -632,15 +828,22 @@
       "correctAnswer": 30,
       "tolerance": 0.45,
       "explanation": "F_x = 50 × cos(53.13°) = 50 × 0.600 = 30.0 kN. Step-by-step verification for \"Apply trigonometry to find horizontal tie reaction\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T2",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+        "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Apply trigonometry to find horizontal tie reaction\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: F_x = 50 × cos(53.13°) = 50 × 0.600 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Apply trigonometry to find horizontal tie reaction): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+        "Second Hint (Symbolic Formula & Unit Setup): F_x = 50 × cos(53.13°) = 50 × 0.600 = ?.0 kN. (express final result in kN)."
       ],
       "caseFamilyId": "MOD00-T2-CF",
       "solverVerificationId": "SOLVER-MOD00-E09",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD00-E10",
@@ -654,15 +857,22 @@
       "correctAnswer": 40,
       "tolerance": 0.6,
       "explanation": "F_y = 50 × sin(53.13°) = 50 × 0.800 = 40.0 kN. Step-by-step verification for \"Apply trigonometry to find vertical prop capacity component\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 40 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T2",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+        "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Apply trigonometry to find vertical prop capacity component\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: F_y = 50 × sin(53.13°) = 50 × 0.800 = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Apply trigonometry to find vertical prop capacity component): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+        "Second Hint (Symbolic Formula & Unit Setup): F_y = 50 × sin(53.13°) = 50 × 0.800 = ?.0 kN. (express final result in kN)."
       ],
       "caseFamilyId": "MOD00-T2-CF",
       "solverVerificationId": "SOLVER-MOD00-E10",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD00-E11",
@@ -676,10 +886,18 @@
       "correctAnswer": 42.43,
       "tolerance": 0.636,
       "explanation": "Vertical equilibrium: 2 × T × sin(45°) = 60 kN => T = 30 / sin(45°) = 30 / 0.70711 = 42.426 kN ≈ 42.43 kN. Step-by-step verification for \"Calculate required inclined sling tension for a vertical lift\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 42.43 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T2",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+        "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate required inclined sling tension for a vertical lift\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Vertical equilibrium: 2 × T × sin(45°) = 60 kN => T = 30 / sin(45°) = 30 / 0.70711 = 42.426 kN ≈ 42.43 kN. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate required inclined sling tension for a vertical lift): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+        "Second Hint (Symbolic Formula & Unit Setup): Vertical equilibrium: 2 × T × sin(45°) = 60 kN => T = 30 / sin(45°) = 30 / 0.70711 = ?. (express final result in kN)."
       ],
       "caseFamilyId": "MOD00-T2-CF",
       "reviewStatus": "Draft",
@@ -697,10 +915,18 @@
       "correctAnswer": 225,
       "tolerance": 3.38,
       "explanation": "I = (100 × 300³) / 12 = (100 × 27,000,000) / 12 = 225,000,000 mm⁴ = 225 × 10⁶ mm⁴. Step-by-step verification for \"Rearrange rectangular second moment of area equation\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 225 10⁶ mm⁴, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T2",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+        "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Rearrange rectangular second moment of area equation\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: I = (100 × 300³) / 12 = (100 × 27,000,000) / 12 = 225,000,000 mm⁴ = 225 × 10⁶ mm⁴. Express your final numeric answer in 10⁶ mm⁴."
+        "First Hint (Physical Principle & Idealisation: Rearrange rectangular second moment of area equation): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+        "Second Hint (Symbolic Formula & Unit Setup): I = (100 × 300³) / 12 = (100 × 27,000,000) / 12 = ?. (express final result in 10⁶ mm⁴)."
       ],
       "caseFamilyId": "MOD00-T2-CF",
       "reviewStatus": "Draft",
@@ -723,10 +949,18 @@
       "correctOptionIndex": 1,
       "correctAnswer": 1,
       "explanation": "Because V(x) = dM/dx, a zero gradient on the bending moment diagram means V(x) = 0 (pure bending region). Engineering synthesis for \"Interpret gradient of bending moment diagram\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T2",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.)",
+        "authorOrBody": "R.C. Hibbeler / T.H.G. Megson",
+        "clauseOrSection": "Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4",
+        "pageReference": "pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)",
+        "formatted": "R.C. Hibbeler / T.H.G. Megson, Engineering Mechanics: Statics (14th SI ed.) & Structural and Stress Analysis (4th ed.), Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4, pp. 19–42 (Hibbeler) / pp. 58–66 (Megson)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Interpret gradient of bending moment diagram\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Interpret gradient of bending moment diagram): Sketch the right-angled geometry or differential load-shear-moment relationship first, identifying which side is adjacent, opposite, or the hypotenuse.",
+        "Second Hint (Analytical Elimination Criterion): Apply Pythagoras L = √(Δx² + Δy²), radian-degree conversion θ_deg = θ_rad × (180/π), or differential relations dV/dx = -w and dM/dx = V. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Hibbeler Ch. 2, §2.1–2.4 & Megson Ch. 3, §3.4)."
       ],
       "caseFamilyId": "MOD00-T2-CF",
       "reviewStatus": "Draft",
@@ -744,10 +978,18 @@
       "correctAnswer": 30,
       "tolerance": 0.45,
       "explanation": "W = w × L = 4.0 kN/m × 7.5 m = 30.0 kN. Step-by-step verification for \"Calculate resultant of a full-span UDL\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 30 kN, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T3",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+        "pageReference": "pp. 119–182",
+        "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate resultant of a full-span UDL\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: W = w × L = 4.0 kN/m × 7.5 m = ?. Express your final numeric answer in kN."
+        "First Hint (Physical Principle & Idealisation: Calculate resultant of a full-span UDL): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+        "Second Hint (Symbolic Formula & Unit Setup): W = w × L = 4.0 kN/m × 7.5 m = ?.0 kN. (express final result in kN)."
       ],
       "caseFamilyId": "MOD00-T3-CF",
       "reviewStatus": "Draft",
@@ -765,15 +1007,22 @@
       "correctAnswer": 27,
       "tolerance": 0.405,
       "explanation": "Resultant = area of triangle = 0.5 × base × height = 0.5 × 18 kN/m² × 3.0 m = 27.0 kN/m. Step-by-step verification for \"Calculate resultant of a triangular hydrostatic/earth pressure distribution\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 27 kN/m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T3",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+        "pageReference": "pp. 119–182",
+        "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate resultant of a triangular hydrostatic/earth pressure distribution\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: Resultant = area of triangle = 0.5 × base × height = 0.5 × 18 kN/m² × 3.0 m = ?. Express your final numeric answer in kN/m."
+        "First Hint (Physical Principle & Idealisation: Calculate resultant of a triangular hydrostatic/earth pressure distribution): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+        "Second Hint (Symbolic Formula & Unit Setup): Resultant = area of triangle = 0.5 × base × height = 0.5 × 18 kN/m² × 3.0 m = ?.0 kN/m. (express final result in kN/m)."
       ],
       "caseFamilyId": "MOD00-T3-CF",
       "solverVerificationId": "SOLVER-MOD00-E15",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD00-E16",
@@ -787,15 +1036,22 @@
       "correctAnswer": 1,
       "tolerance": 0.015,
       "explanation": "The centroid of a right-angled triangle lies at one-third of its height from the heavy (base) end: H/3 = 3.0 / 3 = 1.0 m above the base. Step-by-step verification for \"Locate line of action of a triangular distributed load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 1 m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T3",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+        "pageReference": "pp. 119–182",
+        "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Locate line of action of a triangular distributed load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: The centroid of a right-angled triangle lies at one-third of its height from the heavy (base) end: H/3 = 3.0 / 3 = 1.0 m above the base. Express your final numeric answer in m."
+        "First Hint (Physical Principle & Idealisation: Locate line of action of a triangular distributed load): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+        "Second Hint (Symbolic Formula & Unit Setup): The centroid of a right-angled triangle lies at one-third of its height from the heavy (base) end: H/3 = 3.0 / 3 = ?.0 m above the base. (express final result in m)."
       ],
       "caseFamilyId": "MOD00-T3-CF",
       "solverVerificationId": "SOLVER-MOD00-E16",
-      "reviewStatus": "Verified",
-      "reviewNotice": "Verified against independent StructTutor deterministic mechanics/code solver."
+      "reviewStatus": "Verified"
     },
     {
       "id": "MOD00-E17",
@@ -809,10 +1065,18 @@
       "correctAnswer": 18.7,
       "tolerance": 0.28,
       "explanation": "e = 220 mm = 0.22 m. Moment M = F × e = 85 kN × 0.22 m = 18.7 kN·m. Step-by-step verification for \"Calculate moment of an eccentric vertical load\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 18.7 kN·m, and cross-check the magnitude and sign against StructTutor Syllabus Mod 0 (Units, Vectors & Equilibrium) & BS EN 1990 Basis of Structural Design.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T3",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+        "pageReference": "pp. 119–182",
+        "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Calculate moment of an eccentric vertical load\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: e = 220 mm = ?. Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Calculate moment of an eccentric vertical load): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+        "Second Hint (Symbolic Formula & Unit Setup): For a rectangular UDL use R = w·L at x = L/2; for a triangular pressure distribution use R = 0.5·p_max·H acting at H/3 from the heavy base; for inclined forces resolve F_x = F·cos θ and F_y = F·sin θ. Express your final calculated value in kN·m."
       ],
       "caseFamilyId": "MOD00-T3-CF",
       "reviewStatus": "Draft",
@@ -835,10 +1099,18 @@
       "correctOptionIndex": 2,
       "correctAnswer": 2,
       "explanation": "Stiffness (such as AE/L in axial loading or EI/L³ in bending) relates force to elastic displacement, whereas strength (f_y, f_u) governs material failure.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T3",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+        "pageReference": "pp. 119–182",
+        "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Distinguish stiffness from strength in engineering terminology\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Distinguish stiffness from strength in engineering terminology): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+        "Second Hint (Analytical Elimination Criterion): For a rectangular UDL use R = w·L at x = L/2; for a triangular pressure distribution use R = 0.5·p_max·H acting at H/3 from the heavy base; for inclined forces resolve F_x = F·cos θ and F_y = F·sin θ. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads))."
       ],
       "caseFamilyId": "MOD00-T3-CF",
       "reviewStatus": "Draft",
@@ -861,10 +1133,18 @@
       "correctOptionIndex": 3,
       "correctAnswer": 3,
       "explanation": "18 kN·m = 18 × 10⁶ N·mm. Dividing 18,000,000 N·mm by 600,000 mm³ gives 30 N/mm². Omitting the m-to-mm factor of 1,000 produced a dangerous 10⁻³ error.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T1",
+        "sourceTitle": "Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1",
+        "authorOrBody": "R.C. Hibbeler (Pearson) / BSI",
+        "clauseOrSection": "Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C",
+        "pageReference": "pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)",
+        "formatted": "R.C. Hibbeler (Pearson) / BSI, Mechanics of Materials (10th SI ed.) & BS EN 1990:2002+A1, Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C, pp. 12–21 (Hibbeler) / pp. 21–24 (EN 1990)"
+      },
       "hints": [
-        "Consider the physical load path, equilibrium boundary conditions, and deformation compatibility for \"Detect common power-of-ten unit error in bending stress calculation\". Distinguish carefully between ULS strength/stability checks and SLS deflection/cracking behaviour.",
-        "Engineering principle check: eliminate options that violate static equilibrium, ignore construction-stage instability, or confuse elastic stiffness (E·I) with material yield strength (f_y)."
+        "First Hint (Governing Structural Principle: Detect common power-of-ten unit error in bending stress calculation): Write out each compound SI unit in base structural terms of Newtons (N) and millimetres (mm) before applying power-of-ten prefixes.",
+        "Second Hint (Analytical Elimination Criterion): Use the identities 1 kN = 10³ N, 1 MN = 10⁶ N, 1 m = 10³ mm, 1 m² = 10⁶ mm², 1 kN·m = 10⁶ N·mm, and 1 MPa = 1 N/mm²; cancel numerator and denominator length powers systematically. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: Ch. 1, §1.3–1.4 & BS EN 1990 Cl. 1.6, Annex C)."
       ],
       "caseFamilyId": "MOD00-T1-CF",
       "reviewStatus": "Draft",
@@ -882,10 +1162,18 @@
       "correctAnswer": 80,
       "tolerance": 1.2,
       "explanation": "UDL resultant = 5 × 4 = 20 kN acting at 2.0 m from the fixed root (moment = 20 × 2 = 40 kN·m). Tip load moment = 10 × 4.0 = 40 kN·m. Total fixed-end moment = 40 + 40 = 80 kN·m.",
-      "citation": "BS EN 1990:2002+A1 Basis of Structural Design & SI Unit Conventions",
+      "citation": {
+        "moduleId": "MOD-00",
+        "topicId": "MOD00-T3",
+        "sourceTitle": "Engineering Mechanics: Statics (14th SI ed.)",
+        "authorOrBody": "R.C. Hibbeler (Pearson)",
+        "clauseOrSection": "Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads)",
+        "pageReference": "pp. 119–182",
+        "formatted": "R.C. Hibbeler (Pearson), Engineering Mechanics: Statics (14th SI ed.), Ch. 4, §4.1–4.9 (Force System Resultants & Distributed Loads), pp. 119–182"
+      },
       "hints": [
-        "Identify the governing equilibrium or mechanics equation for \"Combine UDL resultant and point load moment about a support\" and convert all given dimensions and loads into consistent SI units (N, mm, or kN, m) before calculating.",
-        "Calculation setup: UDL resultant = 5 × 4 = 20 kN acting at 2.0 m from the fixed root (moment = 20 × 2 = 40 kN·m). Express your final numeric answer in kN·m."
+        "First Hint (Physical Principle & Idealisation: Combine UDL resultant and point load moment about a support): Replace any distributed pressure diagram with an equivalent resultant force equal to the area of the loading diagram acting through its geometric centroid.",
+        "Second Hint (Symbolic Formula & Unit Setup): For a rectangular UDL use R = w·L at x = L/2; for a triangular pressure distribution use R = 0.5·p_max·H acting at H/3 from the heavy base; for inclined forces resolve F_x = F·cos θ and F_y = F·sin θ. Express your final calculated value in kN·m."
       ],
       "caseFamilyId": "MOD00-T3-CF",
       "reviewStatus": "Draft",
