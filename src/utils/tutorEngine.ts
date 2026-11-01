@@ -56,6 +56,7 @@ export interface QuestionSpec {
   promptTitle: string;
   promptLead: string;
   promptBody: string;
+  imageUrl?: string;
   promptFormula?: {
     lhs: string;
     num: string;

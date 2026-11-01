@@ -8,6 +8,7 @@ import { LearningMapView } from './components/LearningMapView';
 import { AssessmentView } from './components/AssessmentView';
 import { CoverageAndMilestonesView } from './components/CoverageAndMilestonesView';
 import { SettingsView } from './components/SettingsView';
+import { AiTutorView } from './components/AiTutorView';
 import { WorkedSolutionDrawer } from './components/WorkedSolutionDrawer';
 import {
   CalculatorPopover,
@@ -243,6 +244,8 @@ export default function App() {
               onResetAllProgress={ws.handleResetAllProgress}
             />
           )}
+
+          {ws.activeView === 'ai-tutor' && <AiTutorView />}
         </main>
 
         <WorkedSolutionDrawer

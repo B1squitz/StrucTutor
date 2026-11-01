@@ -694,6 +694,13 @@ export const TutorSessionView: React.FC<TutorSessionViewProps> = ({
             <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed">
               {activeQuestion.promptLead}
             </p>
+            {activeQuestion.imageUrl && (
+              <img
+                src={activeQuestion.imageUrl}
+                alt={activeQuestion.title || 'Question diagram'}
+                className="max-w-full h-auto rounded-xl my-4 border border-slate-200 dark:border-slate-800"
+              />
+            )}
           </div>
 
           {/* Formatted Engineering Math Fraction & Given Parameters (N9 Fixed) */}

@@ -40,7 +40,8 @@ export type MainView =
   | 'map'
   | 'coverage'
   | 'assessment'
-  | 'settings';
+  | 'settings'
+  | 'ai-tutor';
 
 export interface ActiveAssessmentTarget {
   moduleNumber: number;

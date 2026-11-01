@@ -98,6 +98,7 @@ function normalizeQuestion(
     solverVerificationId,
     reviewStatus,
     reviewNotice,
+    imageUrl: q.imageUrl ? String(q.imageUrl) : undefined,
   };
 }
 

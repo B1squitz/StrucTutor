@@ -433,6 +433,14 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
                 {q.prompt}
               </p>
 
+              {q.imageUrl && (
+                <img
+                  src={q.imageUrl}
+                  alt={q.prompt || 'Question extract'}
+                  className="max-w-full h-auto rounded-xl my-4 border border-slate-200 dark:border-slate-800"
+                />
+              )}
+
               {/* Assumptions & Limitations */}
               {q.assumptions && q.assumptions.length > 0 && (
                 <div className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-3 text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2">

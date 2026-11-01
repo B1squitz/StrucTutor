@@ -43,6 +43,11 @@ export function validateQuestionSchema(rawQ: Record<string, unknown>): string[] 
     }
   }
 
+  // Optional imageUrl field: allowed if undefined or valid string
+  if (rawQ.imageUrl !== undefined && typeof rawQ.imageUrl !== 'string') {
+    errs.push(`${id}: imageUrl must be a string if provided`);
+  }
+
   if (typeof rawQ.id !== 'string' || !rawQ.id.trim()) {
     errs.push(`${id}: missing non-empty id`);
   }

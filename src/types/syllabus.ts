@@ -33,6 +33,7 @@ export interface AssessmentQuestion {
   solverVerificationId?: string;
   reviewStatus: ReviewStatus;
   reviewNotice: string;
+  imageUrl?: string;
 }
 
 export interface WorkedExampleItem {
