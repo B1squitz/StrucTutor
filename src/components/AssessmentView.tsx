@@ -25,6 +25,7 @@ import {
   shuffleMcqOptionsWithSeed,
 } from '../utils/assessmentEngine';
 import { generateParametricQuestionVariants } from '../utils/questionGenerators';
+import { QuestionChat } from './QuestionChat';
 
 export interface AssessmentViewProps {
   module: NormalizedSyllabusModule;
@@ -537,6 +538,20 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
             </p>
           </div>
         )}
+
+        {/* Inline Per-Question AI Tutor Chat */}
+        <QuestionChat
+          question={q}
+          userDraft={
+            q.type === 'numeric'
+              ? (userAnswers[q.id] ? `${userAnswers[q.id]} ${currentUnit || q.unit || ''}`.trim() : undefined)
+              : (userAnswers[q.id] !== undefined && displayOptions[Number(userAnswers[q.id])]
+                  ? displayOptions[Number(userAnswers[q.id])]
+                  : undefined)
+          }
+          revealedHints={q.hints ? q.hints.slice(0, revealedHints[q.id] ?? 0) : []}
+          solutionUnlocked={Boolean(submissionResult)}
+        />
       </div>
     );
   };

@@ -26,6 +26,7 @@ import { SESSION_QUESTIONS } from '../utils/tutorEngine';
 import type { MainView } from '../hooks/useStructTutorWorkspace';
 import { MathFraction, UnitBadge } from './MathFormula';
 import { QuestionDiagram } from './QuestionDiagram';
+import { QuestionChat } from './QuestionChat';
 
 export interface TutorSessionViewProps {
   activeModule: NormalizedSyllabusModule;
@@ -852,6 +853,14 @@ export const TutorSessionView: React.FC<TutorSessionViewProps> = ({
               )}
             </div>
           )}
+
+          {/* Inline Per-Question AI Tutor Chat */}
+          <QuestionChat
+            question={activeQuestion}
+            userDraft={answerInput ? `${answerInput} ${selectedUnit}` : undefined}
+            revealedHints={activeQuestion.hints.slice(0, hintsRevealed)}
+            solutionUnlocked={stepStatuses[currentStep] === 'mastered' || stepStatuses[currentStep] === 'assisted' || Boolean(gradeOutcome?.isCorrect)}
+          />
         </div>
       )}
 

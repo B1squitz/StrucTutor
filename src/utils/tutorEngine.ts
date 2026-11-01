@@ -355,8 +355,8 @@ export function tryConvertEngineeringUnit(
   fromUnit: string,
   toUnit: string
 ):
-  | { ok: true; convertedValue: number; factor: number }
-  | { ok: false; error: string } {
+  | { ok: true; convertedValue: number; factor: number; error?: string }
+  | { ok: false; error: string; convertedValue?: number; factor?: number } {
   try {
     const convertedValue = convertEngineeringUnit(value, fromUnit, toUnit);
     const factor = value !== 0 ? convertedValue / value : 1;

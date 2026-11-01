@@ -1712,14 +1712,14 @@ export const SOLVER_VERIFICATION_REGISTRY: Record<string, SolverVerificationSpec
     kind: 'beam_solver',
     supportType: 'simply_supported',
     spanM: 6.0,
-    udls: [{ startM: 0, endM: 6.0, wKnPerM: 31.5 }],
+    udls: [{ xStartM: 0, xEndM: 6.0, wKnPerM: 31.5 }],
     metric: 'm_max_sagging_knm',
   },
   'MOD08-T1-Q8': {
     kind: 'beam_solver',
     supportType: 'simply_supported',
     spanM: 6.0,
-    udls: [{ startM: 0, endM: 6.0, wKnPerM: 31.5 }],
+    udls: [{ xStartM: 0, xEndM: 6.0, wKnPerM: 31.5 }],
     metric: 'ra_kn',
   },
 };
