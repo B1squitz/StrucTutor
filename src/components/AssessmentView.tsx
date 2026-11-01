@@ -4,6 +4,8 @@ import {
   Award,
   BookOpen,
   CheckCircle2,
+  FileText,
+  Layers,
   Lightbulb,
   RotateCcw,
   ShieldAlert,
@@ -139,6 +141,77 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
     }));
   };
 
+  const questionRenderGroups = useMemo(() => {
+    const familyCounts: Record<string, number> = {};
+    for (const q of activeQuestions) {
+      if (q.caseFamilyId && q.caseFamilyId.trim()) {
+        familyCounts[q.caseFamilyId] = (familyCounts[q.caseFamilyId] || 0) + 1;
+      }
+    }
+
+    const groups: {
+      type: 'scenario' | 'single';
+      caseFamilyId?: string;
+      items: {
+        question: AssessmentQuestion;
+        globalIndex: number;
+        partLetter: string;
+      }[];
+    }[] = [];
+
+    let currentGroup: (typeof groups)[0] | null = null;
+
+    activeQuestions.forEach((q, idx) => {
+      const isSharedFamily = Boolean(
+        q.caseFamilyId &&
+          q.caseFamilyId.trim() &&
+          familyCounts[q.caseFamilyId] > 1
+      );
+
+      if (isSharedFamily) {
+        if (
+          currentGroup &&
+          currentGroup.type === 'scenario' &&
+          currentGroup.caseFamilyId === q.caseFamilyId
+        ) {
+          const partIndex = currentGroup.items.length;
+          currentGroup.items.push({
+            question: q,
+            globalIndex: idx,
+            partLetter: String.fromCharCode(65 + (partIndex % 26)),
+          });
+        } else {
+          currentGroup = {
+            type: 'scenario',
+            caseFamilyId: q.caseFamilyId,
+            items: [
+              {
+                question: q,
+                globalIndex: idx,
+                partLetter: 'A',
+              },
+            ],
+          };
+          groups.push(currentGroup);
+        }
+      } else {
+        currentGroup = null;
+        groups.push({
+          type: 'single',
+          items: [
+            {
+              question: q,
+              globalIndex: idx,
+              partLetter: '',
+            },
+          ],
+        });
+      }
+    });
+
+    return groups;
+  }, [activeQuestions]);
+
   const handleSubmitAssessment = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     const evaluated = evaluateAssessmentSubmission(
@@ -180,6 +253,293 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
     window.addEventListener('keydown', onKeyDown);
     return () => window.removeEventListener('keydown', onKeyDown);
   });
+
+  const renderQuestionCard = (
+    q: AssessmentQuestion,
+    qIdx: number,
+    partLetter?: string
+  ) => {
+    const outcome = submissionResult?.questionOutcomes[q.id];
+    const shuffled = q.type === 'mcq' ? shuffledMcqMap[q.id] : undefined;
+    const displayOptions = shuffled?.options ?? q.options ?? [];
+    const effectiveReviewStatus: ReviewStatus =
+      questionReviewOverrides[q.id] ?? q.reviewStatus;
+    const hintCount = revealedHints[q.id] ?? 0;
+    const compatibleUnits =
+      q.unit && COMPATIBLE_UNITS_MAP[q.unit]
+        ? COMPATIBLE_UNITS_MAP[q.unit]
+        : q.unit
+        ? [q.unit]
+        : [];
+    const currentUnit = selectedUnits[q.id] ?? q.unit ?? '';
+
+    return (
+      <div
+        key={q.id}
+        data-testid={`assessment-question-card-${q.id}`}
+        className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4"
+      >
+        {/* Question Header */}
+        <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200 dark:border-slate-800">
+          <div className="flex flex-wrap items-center gap-2">
+            {partLetter && (
+              <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-blue-600 text-white shadow-2xs">
+                Part {partLetter}
+              </span>
+            )}
+            <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
+              Q{qIdx + 1} of {activeQuestions.length}
+            </span>
+            <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300">
+              {q.type === 'numeric'
+                ? 'Numeric Hand Calculation'
+                : 'Conceptual & Analytical MCQ'}
+            </span>
+            {/* Honest Verification Badge (N5) */}
+            <span
+              title={q.reviewNotice}
+              className={`text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-lg border ${
+                effectiveReviewStatus === 'Verified'
+                  ? 'bg-emerald-50 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-500/30'
+                  : 'bg-amber-50 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-500/30'
+              }`}
+            >
+              {effectiveReviewStatus === 'Verified'
+                ? 'Solver Verified'
+                : effectiveReviewStatus}
+            </span>
+          </div>
+          <span className="text-xs font-mono text-slate-400">
+            ID: {q.id}
+          </span>
+        </div>
+
+        {/* Objective & Citation */}
+        <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-1.5">
+            <BookOpen className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400 shrink-0" />
+            <span>
+              <strong>{partLetter ? `Part ${partLetter} Objective:` : 'Objective:'}</strong> {q.learningObjective}
+            </span>
+          </div>
+          {q.citation && (
+            <span
+              data-testid={`assessment-citation-${q.id}`}
+              className="font-mono text-[11px] bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-2.5 py-0.5 rounded-md border border-slate-200 dark:border-slate-700"
+            >
+              Ref:{' '}
+              {typeof q.citation === 'string'
+                ? q.citation
+                : q.citation.formatted ||
+                  `${q.citation.sourceTitle} (${q.citation.clauseOrSection}, ${q.citation.pageReference})`}
+            </span>
+          )}
+        </div>
+
+        {/* Prompt */}
+        <p className="text-sm sm:text-base font-medium text-slate-900 dark:text-slate-100 leading-relaxed">
+          {q.prompt}
+        </p>
+
+        {q.imageUrl && (
+          <img
+            src={q.imageUrl}
+            alt={q.prompt || 'Question extract'}
+            className="max-w-full h-auto rounded-xl my-4 border border-slate-200 dark:border-slate-800"
+          />
+        )}
+
+        {/* Assumptions & Limitations */}
+        {q.assumptions &&
+          (Array.isArray(q.assumptions)
+            ? q.assumptions.length > 0
+            : Boolean(q.assumptions)) && (
+            <div className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-3 text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2">
+              <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+              <div>
+                <strong className="text-slate-800 dark:text-slate-200">
+                  Assumptions &amp; Idealisation:{' '}
+                </strong>
+                {Array.isArray(q.assumptions)
+                  ? q.assumptions.join('; ')
+                  : q.assumptions}
+              </div>
+            </div>
+          )}
+
+        {/* Progressive Hints (N6) */}
+        {q.hints && q.hints.length > 0 && !submissionResult && (
+          <div className="space-y-2">
+            <button
+              type="button"
+              onClick={() =>
+                setRevealedHints((prev) => ({
+                  ...prev,
+                  [q.id]: Math.min(q.hints.length, (prev[q.id] ?? 0) + 1),
+                }))
+              }
+              disabled={hintCount >= q.hints.length}
+              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold bg-amber-50 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-slate-700 hover:bg-amber-100 disabled:opacity-50 cursor-pointer"
+            >
+              <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
+              <span>
+                {hintCount === 0
+                  ? `Show Hint (1/${q.hints.length})`
+                  : hintCount < q.hints.length
+                  ? `Show Next Hint (${hintCount + 1}/${q.hints.length})`
+                  : `All Hints Shown (${q.hints.length}/${q.hints.length})`}
+              </span>
+            </button>
+            {hintCount > 0 && (
+              <div className="rounded-xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 p-3 space-y-1 text-xs text-amber-900 dark:text-amber-200">
+                {q.hints.slice(0, hintCount).map((h, i) => (
+                  <div key={i}>
+                    <strong>Hint {i + 1}:</strong>{' '}
+                    {h.replace(/^(?:First|Second) Hint\s*/i, '')}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Answer Input Area */}
+        {q.type === 'numeric' ? (
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <label
+              htmlFor={`input-${q.id}`}
+              className="text-xs font-semibold text-slate-700 dark:text-slate-300"
+            >
+              Numerical Value:
+            </label>
+            <input
+              id={`input-${q.id}`}
+              type="text"
+              inputMode="decimal"
+              disabled={Boolean(submissionResult)}
+              value={userAnswers[q.id] ?? ''}
+              onChange={(e) => handleSelectAnswer(q.id, e.target.value)}
+              placeholder={`Enter value in ${currentUnit || 'SI units'}`}
+              data-testid={`assessment-input-${q.id}`}
+              className="w-48 px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 font-mono text-sm text-slate-900 dark:text-white focus:border-blue-600 focus:outline-none"
+            />
+            {compatibleUnits.length > 1 ? (
+              <select
+                aria-label={`Select unit for ${q.id}`}
+                disabled={Boolean(submissionResult)}
+                value={currentUnit}
+                onChange={(e) =>
+                  setSelectedUnits((prev) => ({
+                    ...prev,
+                    [q.id]: e.target.value,
+                  }))
+                }
+                className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 font-mono text-xs font-semibold text-slate-900 dark:text-white"
+              >
+                {compatibleUnits.map((u) => (
+                  <option key={u} value={u}>
+                    {u}
+                  </option>
+                ))}
+              </select>
+            ) : (
+              q.unit && (
+                <span className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
+                  {q.unit}
+                </span>
+              )
+            )}
+          </div>
+        ) : (
+          <div
+            role="radiogroup"
+            aria-label={`Multiple choice options for question ${q.id}`}
+            className="space-y-2 pt-1"
+          >
+            {displayOptions.map((optText, optIdx) => {
+              const isSelected = Number(userAnswers[q.id]) === optIdx;
+              const isCorrectOpt =
+                submissionResult &&
+                shuffled &&
+                optIdx === shuffled.correctOptionIndex;
+
+              let optionStyle =
+                'bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/70';
+              if (submissionResult) {
+                if (isCorrectOpt) {
+                  optionStyle =
+                    'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 dark:border-emerald-500/50 text-emerald-950 dark:text-emerald-100 font-semibold';
+                } else if (isSelected && !isCorrectOpt) {
+                  optionStyle =
+                    'bg-rose-50 dark:bg-rose-950/40 border-rose-400 dark:border-rose-500/50 text-rose-950 dark:text-rose-100';
+                }
+              } else if (isSelected) {
+                optionStyle =
+                  'bg-blue-50 dark:bg-sky-500/20 border-blue-500 dark:border-sky-400 text-blue-950 dark:text-white font-semibold';
+              }
+
+              return (
+                <label
+                  key={optIdx}
+                  data-testid={`assessment-mcq-option-${q.id}-${optIdx}`}
+                  className={`flex items-start gap-3 p-3.5 rounded-xl border text-xs sm:text-sm transition-colors cursor-pointer ${optionStyle}`}
+                >
+                  <input
+                    type="radio"
+                    name={`mcq-${q.id}`}
+                    disabled={Boolean(submissionResult)}
+                    checked={isSelected}
+                    onChange={() => handleSelectAnswer(q.id, optIdx)}
+                    className="mt-1 accent-blue-600"
+                  />
+                  <span className="leading-relaxed">
+                    <strong className="font-mono mr-1.5">
+                      {String.fromCharCode(65 + optIdx)}.
+                    </strong>
+                    {optText}
+                  </span>
+                </label>
+              );
+            })}
+          </div>
+        )}
+
+        {/* Graded Explanation & Diagnostic Box */}
+        {submissionResult && outcome && (
+          <div
+            className={`rounded-xl border p-4 text-xs sm:text-sm space-y-2 ${
+              outcome.isCorrect
+                ? 'bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800/60 text-emerald-950 dark:text-emerald-100'
+                : 'bg-rose-50/80 dark:bg-rose-950/30 border-rose-200 dark:border-rose-800/60 text-rose-950 dark:text-rose-100'
+            }`}
+          >
+            <div className="flex items-center justify-between gap-2 font-bold">
+              <span className="inline-flex items-center gap-1.5">
+                {outcome.isCorrect ? (
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                ) : (
+                  <XCircle className="w-4 h-4 text-rose-600 dark:text-rose-400" />
+                )}
+                <span>
+                  {outcome.isCorrect
+                    ? 'Correct'
+                    : `Incorrect - Expected: ${outcome.expectedDisplay}`}
+                </span>
+              </span>
+            </div>
+            {outcome.unitDiagnostic && (
+              <p className="font-mono text-xs text-amber-800 dark:text-amber-300">
+                Unit Diagnostic: {outcome.unitDiagnostic}
+              </p>
+            )}
+            <p className="leading-relaxed text-slate-700 dark:text-slate-200">
+              <strong>Worked Explanation:</strong> {outcome.explanation}
+            </p>
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
     <div
@@ -354,278 +714,104 @@ export const AssessmentView: React.FC<AssessmentViewProps> = ({
       )}
 
       {/* Questions List */}
-      <form onSubmit={handleSubmitAssessment} className="space-y-5">
-        {activeQuestions.map((q, qIdx) => {
-          const outcome = submissionResult?.questionOutcomes[q.id];
-          const shuffled = q.type === 'mcq' ? shuffledMcqMap[q.id] : undefined;
-          const displayOptions = shuffled?.options ?? q.options ?? [];
-          const effectiveReviewStatus: ReviewStatus =
-            questionReviewOverrides[q.id] ?? q.reviewStatus;
-          const hintCount = revealedHints[q.id] ?? 0;
-          const compatibleUnits =
-            q.unit && COMPATIBLE_UNITS_MAP[q.unit]
-              ? COMPATIBLE_UNITS_MAP[q.unit]
-              : q.unit
-              ? [q.unit]
-              : [];
-          const currentUnit = selectedUnits[q.id] ?? q.unit ?? '';
+      <form onSubmit={handleSubmitAssessment} className="space-y-6">
+        {questionRenderGroups.map((group, groupIdx) => {
+          if (group.type === 'single') {
+            const item = group.items[0];
+            return renderQuestionCard(item.question, item.globalIndex);
+          }
+
+          const firstQ = group.items[0].question;
 
           return (
             <div
-              key={q.id}
-              data-testid={`assessment-question-card-${q.id}`}
-              className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-xs space-y-4"
+              key={`case-family-${group.caseFamilyId}-${groupIdx}`}
+              data-testid={`design-brief-group-${group.caseFamilyId}`}
+              className="border-2 border-blue-200 dark:border-sky-800/70 rounded-3xl bg-slate-50/50 dark:bg-slate-900/40 p-5 sm:p-7 shadow-xs space-y-6"
             >
-              {/* Question Header */}
-              <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-200 dark:border-slate-800">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200">
-                    Q{qIdx + 1} of {activeQuestions.length}
-                  </span>
-                  <span className="text-xs font-mono px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-sky-500/15 text-blue-700 dark:text-sky-300">
-                    {q.type === 'numeric'
-                      ? 'Numeric Hand Calculation'
-                      : 'Conceptual & Analytical MCQ'}
-                  </span>
-                  {/* Honest Verification Badge (N5) */}
-                  <span
-                    title={q.reviewNotice}
-                    className={`text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-lg border ${
-                      effectiveReviewStatus === 'Verified'
-                        ? 'bg-emerald-50 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-500/30'
-                        : 'bg-amber-50 dark:bg-amber-500/15 text-amber-800 dark:text-amber-300 border-amber-200 dark:border-amber-500/30'
-                    }`}
-                  >
-                    {effectiveReviewStatus === 'Verified'
-                      ? 'Solver Verified'
-                      : effectiveReviewStatus}
-                  </span>
+              {/* Single "Design Brief" Header */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-200 dark:border-slate-800">
+                <div className="flex items-center gap-3">
+                  <div className="p-2.5 rounded-xl bg-blue-600 text-white shadow-xs">
+                    <Layers className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-blue-600 dark:text-sky-400">
+                        Multi-Step Design Scenario
+                      </span>
+                      <span className="text-[10px] font-mono px-2 py-0.5 rounded-md bg-blue-100 dark:bg-sky-950 text-blue-800 dark:text-sky-300 border border-blue-200 dark:border-sky-800/50">
+                        {group.caseFamilyId}
+                      </span>
+                    </div>
+                    <h2 className="font-display text-xl font-bold text-slate-900 dark:text-white">
+                      Design Brief
+                    </h2>
+                  </div>
                 </div>
-                <span className="text-xs font-mono text-slate-400">
-                  ID: {q.id}
+                <span className="text-xs font-mono font-semibold px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 shadow-2xs">
+                  {group.items.length} Calculation Steps (Parts A–
+                  {String.fromCharCode(64 + group.items.length)})
                 </span>
               </div>
 
-              {/* Objective & Citation */}
-              <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400">
-                <div className="flex items-center gap-1.5">
-                  <BookOpen className="w-3.5 h-3.5 text-blue-600 dark:text-sky-400 shrink-0" />
-                  <span>
-                    <strong>Objective:</strong> {q.learningObjective}
-                  </span>
-                </div>
-                {q.citation && (
-                  <span
-                    data-testid={`assessment-citation-${q.id}`}
-                    className="font-mono text-[11px] bg-slate-100 dark:bg-slate-800/80 text-slate-700 dark:text-slate-300 px-2.5 py-0.5 rounded-md border border-slate-200 dark:border-slate-700"
-                  >
-                    Ref:{' '}
-                    {typeof q.citation === 'string'
-                      ? q.citation
-                      : q.citation.formatted ||
-                        `${q.citation.sourceTitle} (${q.citation.clauseOrSection}, ${q.citation.pageReference})`}
-                  </span>
-                )}
-              </div>
-
-              {/* Prompt */}
-              <p className="text-sm sm:text-base font-medium text-slate-900 dark:text-slate-100 leading-relaxed">
-                {q.prompt}
-              </p>
-
-              {q.imageUrl && (
-                <img
-                  src={q.imageUrl}
-                  alt={q.prompt || 'Question extract'}
-                  className="max-w-full h-auto rounded-xl my-4 border border-slate-200 dark:border-slate-800"
-                />
-              )}
-
-              {/* Assumptions & Limitations */}
-              {q.assumptions && q.assumptions.length > 0 && (
-                <div className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-3 text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2">
-                  <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-slate-800 dark:text-slate-200">
-                      Assumptions &amp; Idealisation:{' '}
-                    </strong>
-                    {Array.isArray(q.assumptions)
-                      ? q.assumptions.join('; ')
-                      : q.assumptions}
-                  </div>
-                </div>
-              )}
-
-              {/* Progressive Hints (N6) */}
-              {q.hints && q.hints.length > 0 && !submissionResult && (
-                <div className="space-y-2">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setRevealedHints((prev) => ({
-                        ...prev,
-                        [q.id]: Math.min(q.hints.length, (prev[q.id] ?? 0) + 1),
-                      }))
-                    }
-                    disabled={hintCount >= q.hints.length}
-                    className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold bg-amber-50 dark:bg-slate-800 text-amber-800 dark:text-amber-300 border border-amber-200 dark:border-slate-700 hover:bg-amber-100 disabled:opacity-50 cursor-pointer"
-                  >
-                    <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
-                    <span>
-                      {hintCount === 0
-                        ? `Show Hint (1/${q.hints.length})`
-                        : hintCount < q.hints.length
-                        ? `Show Next Hint (${hintCount + 1}/${q.hints.length})`
-                        : `All Hints Shown (${q.hints.length}/${q.hints.length})`}
+              {/* Larger text box for the "Scenario Brief" */}
+              <div
+                data-testid={`scenario-brief-${group.caseFamilyId}`}
+                className="rounded-2xl bg-white dark:bg-slate-900 border border-blue-200 dark:border-sky-800/80 p-5 sm:p-6 shadow-xs space-y-3"
+              >
+                <div className="flex items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-2.5">
+                  <div className="flex items-center gap-2">
+                    <FileText className="w-4 h-4 text-blue-600 dark:text-sky-400 shrink-0" />
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-blue-800 dark:text-sky-300">
+                      Scenario Brief
                     </span>
-                  </button>
-                  {hintCount > 0 && (
-                    <div className="rounded-xl bg-amber-50/80 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-800/60 p-3 space-y-1 text-xs text-amber-900 dark:text-amber-200">
-                      {q.hints.slice(0, hintCount).map((h, i) => (
-                        <div key={i}>
-                          <strong>Hint {i + 1}:</strong>{' '}
-                          {h.replace(/^(?:First|Second) Hint\s*/i, '')}
-                        </div>
-                      ))}
+                  </div>
+                  <span className="text-[11px] font-mono text-slate-400 dark:text-slate-500">
+                    Primary Design Context
+                  </span>
+                </div>
+                <p className="text-base sm:text-lg font-medium text-slate-900 dark:text-slate-100 leading-relaxed">
+                  {firstQ.prompt}
+                </p>
+                {firstQ.imageUrl && (
+                  <img
+                    src={firstQ.imageUrl}
+                    alt={firstQ.prompt || 'Design scenario illustration'}
+                    className="max-w-full h-auto rounded-xl my-4 border border-slate-200 dark:border-slate-800"
+                  />
+                )}
+                {firstQ.assumptions &&
+                  (Array.isArray(firstQ.assumptions)
+                    ? firstQ.assumptions.length > 0
+                    : Boolean(firstQ.assumptions)) && (
+                    <div className="rounded-xl bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 p-3 text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2">
+                      <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="text-slate-800 dark:text-slate-200">
+                          Design Assumptions &amp; Idealisation:{' '}
+                        </strong>
+                        {Array.isArray(firstQ.assumptions)
+                          ? firstQ.assumptions.join('; ')
+                          : firstQ.assumptions}
+                      </div>
                     </div>
                   )}
-                </div>
-              )}
+              </div>
 
-              {/* Answer Input Area */}
-              {q.type === 'numeric' ? (
-                <div className="flex flex-wrap items-center gap-3 pt-1">
-                  <label
-                    htmlFor={`input-${q.id}`}
-                    className="text-xs font-semibold text-slate-700 dark:text-slate-300"
-                  >
-                    Numerical Value:
-                  </label>
-                  <input
-                    id={`input-${q.id}`}
-                    type="text"
-                    inputMode="decimal"
-                    disabled={Boolean(submissionResult)}
-                    value={userAnswers[q.id] ?? ''}
-                    onChange={(e) => handleSelectAnswer(q.id, e.target.value)}
-                    placeholder={`Enter value in ${currentUnit || 'SI units'}`}
-                    data-testid={`assessment-input-${q.id}`}
-                    className="w-48 px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-300 dark:border-slate-700 font-mono text-sm text-slate-900 dark:text-white focus:border-blue-600 focus:outline-none"
-                  />
-                  {compatibleUnits.length > 1 ? (
-                    <select
-                      aria-label={`Select unit for ${q.id}`}
-                      disabled={Boolean(submissionResult)}
-                      value={currentUnit}
-                      onChange={(e) =>
-                        setSelectedUnits((prev) => ({
-                          ...prev,
-                          [q.id]: e.target.value,
-                        }))
-                      }
-                      className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 font-mono text-xs font-semibold text-slate-900 dark:text-white"
-                    >
-                      {compatibleUnits.map((u) => (
-                        <option key={u} value={u}>
-                          {u}
-                        </option>
-                      ))}
-                    </select>
-                  ) : (
-                    q.unit && (
-                      <span className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        {q.unit}
-                      </span>
-                    )
-                  )}
+              {/* Individual Calculation Steps / Sub-parts */}
+              <div className="space-y-4 pt-1">
+                <div className="flex items-center gap-2 px-1">
+                  <span className="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                    Individual Calculation Steps
+                  </span>
+                  <div className="h-px bg-slate-200 dark:bg-slate-800 flex-1" />
                 </div>
-              ) : (
-                <div
-                  role="radiogroup"
-                  aria-label={`Multiple choice options for question ${q.id}`}
-                  className="space-y-2 pt-1"
-                >
-                  {displayOptions.map((optText, optIdx) => {
-                    const isSelected = Number(userAnswers[q.id]) === optIdx;
-                    const isCorrectOpt =
-                      submissionResult &&
-                      shuffled &&
-                      optIdx === shuffled.correctOptionIndex;
 
-                    let optionStyle =
-                      'bg-slate-50 dark:bg-slate-950/60 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800/70';
-                    if (submissionResult) {
-                      if (isCorrectOpt) {
-                        optionStyle =
-                          'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 dark:border-emerald-500/50 text-emerald-950 dark:text-emerald-100 font-semibold';
-                      } else if (isSelected && !isCorrectOpt) {
-                        optionStyle =
-                          'bg-rose-50 dark:bg-rose-950/40 border-rose-400 dark:border-rose-500/50 text-rose-950 dark:text-rose-100';
-                      }
-                    } else if (isSelected) {
-                      optionStyle =
-                        'bg-blue-50 dark:bg-sky-500/20 border-blue-500 dark:border-sky-400 text-blue-950 dark:text-white font-semibold';
-                    }
-
-                    return (
-                      <label
-                        key={optIdx}
-                        data-testid={`assessment-mcq-option-${q.id}-${optIdx}`}
-                        className={`flex items-start gap-3 p-3.5 rounded-xl border text-xs sm:text-sm transition-colors cursor-pointer ${optionStyle}`}
-                      >
-                        <input
-                          type="radio"
-                          name={`mcq-${q.id}`}
-                          disabled={Boolean(submissionResult)}
-                          checked={isSelected}
-                          onChange={() => handleSelectAnswer(q.id, optIdx)}
-                          className="mt-1 accent-blue-600"
-                        />
-                        <span className="leading-relaxed">
-                          <strong className="font-mono mr-1.5">
-                            {String.fromCharCode(65 + optIdx)}.
-                          </strong>
-                          {optText}
-                        </span>
-                      </label>
-                    );
-                  })}
-                </div>
-              )}
-
-              {/* Graded Explanation & Diagnostic Box */}
-              {submissionResult && outcome && (
-                <div
-                  className={`rounded-xl border p-4 text-xs sm:text-sm space-y-2 ${
-                    outcome.isCorrect
-                      ? 'bg-emerald-50/80 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800/60 text-emerald-950 dark:text-emerald-100'
-                      : 'bg-rose-50/80 dark:bg-rose-950/30 border-rose-200 dark:border-rose-800/60 text-rose-950 dark:text-rose-100'
-                  }`}
-                >
-                  <div className="flex items-center justify-between gap-2 font-bold">
-                    <span className="inline-flex items-center gap-1.5">
-                      {outcome.isCorrect ? (
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                      ) : (
-                        <XCircle className="w-4 h-4 text-rose-600 dark:text-rose-400" />
-                      )}
-                      <span>
-                        {outcome.isCorrect
-                          ? 'Correct'
-                          : `Incorrect - Expected: ${outcome.expectedDisplay}`}
-                      </span>
-                    </span>
-                  </div>
-                  {outcome.unitDiagnostic && (
-                    <p className="font-mono text-xs text-amber-800 dark:text-amber-300">
-                      Unit Diagnostic: {outcome.unitDiagnostic}
-                    </p>
-                  )}
-                  <p className="leading-relaxed text-slate-700 dark:text-slate-200">
-                    <strong>Worked Explanation:</strong> {outcome.explanation}
-                  </p>
-                </div>
-              )}
+                {group.items.map(({ question: q, globalIndex: qIdx, partLetter }) =>
+                  renderQuestionCard(q, qIdx, partLetter)
+                )}
+              </div>
             </div>
           );
         })}

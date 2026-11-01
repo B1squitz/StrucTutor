@@ -22,6 +22,7 @@ function singleFileHtmlPlugin(): Plugin {
         const assetFiles = fs.readdirSync(assetsDir);
         const cssFiles = assetFiles.filter((f) => f.endsWith('.css'));
         const jsFiles = assetFiles.filter((f) => f.endsWith('.js'));
+        const mjsFiles = assetFiles.filter((f) => f.endsWith('.mjs'));
 
         let inlineCss = cssFiles
           .map((f) => fs.readFileSync(path.join(assetsDir, f), 'utf-8'))
@@ -40,11 +41,27 @@ function singleFileHtmlPlugin(): Plugin {
           fs.rmSync(fontsDir, {recursive: true, force: true});
         }
 
-        const assetsInDist = path.join(distDir, 'assets');
-        const inlineJs = jsFiles
+        let inlineMjs = '';
+        const mjsDataUris = new Map<string, string>();
+        for (const mjsFile of mjsFiles) {
+          const mjsPath = path.join(assetsDir, mjsFile);
+          const mjsContent = fs.readFileSync(mjsPath, 'utf-8');
+          const b64 = Buffer.from(mjsContent).toString('base64');
+          const dataUri = `data:text/javascript;base64,${b64}`;
+          mjsDataUris.set(mjsFile, dataUri);
+          inlineMjs += mjsContent.replace(/<\/script>/gi, () => '<\\/script>') + '\n';
+        }
+
+        let inlineJs = jsFiles
           .map((f) => fs.readFileSync(path.join(assetsDir, f), 'utf-8'))
           .join('\n')
           .replace(/<\/script>/gi, () => '<\\/script>');
+
+        for (const [mjsFile, dataUri] of mjsDataUris.entries()) {
+          inlineJs = inlineJs.split(`/assets/${mjsFile}`).join(dataUri);
+          inlineJs = inlineJs.split(`assets/${mjsFile}`).join(dataUri);
+          inlineJs = inlineJs.split(mjsFile).join(dataUri);
+        }
 
         html = html.replace(/<link[^>]*rel="stylesheet"[^>]*>/gi, () => '');
         html = html.replace(/<script[^>]*type="module"[^>]*><\/script>/gi, () => '');
@@ -52,13 +69,20 @@ function singleFileHtmlPlugin(): Plugin {
         if (inlineCss) {
           html = html.replace('</head>', () => `<style>\n${inlineCss}\n</style>\n</head>`);
         }
+        if (inlineMjs) {
+          html = html.replace(
+            '</body>',
+            () => `<script type="module">\n${inlineMjs}\n</script>\n</body>`
+          );
+        }
         if (inlineJs) {
           html = html.replace(
             '</body>',
-            () => `<script>\n(function(){\n${inlineJs}\n})();\n</script>\n</body>`
+            () => `<script type="module">\n${inlineJs}\n</script>\n</body>`
           );
         }
 
+        const assetsInDist = path.join(distDir, 'assets');
         fs.rmSync(assetsInDist, {recursive: true, force: true});
       }
 
