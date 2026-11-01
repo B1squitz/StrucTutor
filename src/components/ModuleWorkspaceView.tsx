@@ -285,7 +285,7 @@ export const ModuleWorkspaceView: React.FC<ModuleWorkspaceViewProps> = ({
                 </span>
               </h2>
               <span className="text-xs font-mono text-slate-400">
-                Each topic has a 5-question assessment (90% pass mark)
+                End-of-topic assessments (90% pass mark)
               </span>
             </div>
 

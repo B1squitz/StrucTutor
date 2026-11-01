@@ -434,13 +434,13 @@ test('Verification 11: Coverage map, Five Study Rules, 9-Part Calculation Note, 
   assert.equal(COURSE_DEVELOPMENT_REQUIREMENTS.length, 5);
 });
 
-test('Verification 12 (N1): MCQ Fairness Gate - deterministic option shuffling and longest-is-correct ratio <= 35% across all 320 MCQs', () => {
+test('Verification 12 (N1): MCQ Fairness Gate - deterministic option shuffling and longest-is-correct ratio <= 35% across all 333 MCQs', () => {
   const allMcqs = ALL_SYLLABUS_MODULES.flatMap((m) => [
     ...m.topics.flatMap((t) => t.assessmentQuestions),
     ...m.moduleAssessment,
   ]).filter((q) => q.type === 'mcq');
 
-  assert.equal(allMcqs.length, 320);
+  assert.equal(allMcqs.length, 333);
 
   let longestIsCorrectCount = 0;
   const storedIndexCounts = [0, 0, 0, 0];
@@ -617,10 +617,10 @@ test('Verification 15 (N7, B1, C8): Non-destructive storage migration across rev
   }
 });
 
-test('Verification 16 (N10, N12, B3, B9, A8): Schema validation across all 710 questions, zero imperial units, zero cross-question prompts, zero em dashes', () => {
+test('Verification 16 (N10, N12, B3, B9, A8): Schema validation across all 763 questions, zero imperial units, zero cross-question prompts, zero em dashes', () => {
   const report = validateAllModulesSchema(ALL_SYLLABUS_MODULES);
   assert.equal(report.totalModules, 20);
-  assert.equal(report.totalQuestions, 710);
+  assert.equal(report.totalQuestions, 763);
   assert.equal(
     report.errors.length,
     0,
@@ -698,7 +698,7 @@ test('Verification 19 (N5): Real deterministic Solver Verification Registry dyna
   } = await import('./verificationRegistry');
 
   const registryIds = Object.keys(SOLVER_VERIFICATION_REGISTRY);
-  assert.equal(registryIds.length, 113);
+  assert.equal(registryIds.length, 116);
 
   for (const qId of registryIds) {
     const spec = SOLVER_VERIFICATION_REGISTRY[qId];
@@ -719,7 +719,7 @@ test('Verification 19 (N5): Real deterministic Solver Verification Registry dyna
     ...m.topics.flatMap((t) => t.assessmentQuestions),
     ...m.moduleAssessment,
   ]);
-  assert.equal(allQs.length, 710);
+  assert.equal(allQs.length, 763);
 
   let verifiedCount = 0;
   let draftCount = 0;
@@ -753,11 +753,11 @@ test('Verification 19 (N5): Real deterministic Solver Verification Registry dyna
     }
   }
 
-  assert.equal(verifiedCount, 113);
-  assert.equal(draftCount, 597);
+  assert.equal(verifiedCount, 116);
+  assert.equal(draftCount, 647);
 });
 
-test('Verification 20 (N2): Zero hints leak the final answer across all 710 questions, and every citation has book/standard, clause, and page numbers', async () => {
+test('Verification 20 (N2): Zero hints leak the final answer across all 763 questions, and every citation has book/standard, clause, and page numbers', async () => {
   const { doesQuestionHintLeakAnswer } = await import(
     '../data/citationAndHintCatalog'
   );
@@ -766,7 +766,7 @@ test('Verification 20 (N2): Zero hints leak the final answer across all 710 ques
     ...m.topics.flatMap((t) => t.assessmentQuestions),
     ...m.moduleAssessment,
   ]);
-  assert.equal(allQs.length, 710);
+  assert.equal(allQs.length, 763);
 
   for (const q of allQs) {
     // 1. Hints must climb in steps and never leak the final answer

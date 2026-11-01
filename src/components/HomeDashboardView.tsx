@@ -377,7 +377,7 @@ export const HomeDashboardView: React.FC<HomeDashboardViewProps> = ({
                 </div>
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
                   All course progress starts at 0% with zero fabricated
-                  activity. Complete a guided lesson or submit any Topic (5 Qs)
+                  activity. Complete a guided lesson or submit any Topic
                   or Module (20 Qs) Assessment to log your progress here.
                 </p>
                 <div className="pt-1">

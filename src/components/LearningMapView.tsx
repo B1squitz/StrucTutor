@@ -79,7 +79,7 @@ export const LearningMapView: React.FC<LearningMapViewProps> = ({
             <p className="text-sm text-slate-600 dark:text-slate-300 mt-1">
               Structured around all 20 syllabus modules across 3 stages. Expand
               any module to study its topics, inspect its learning gate, or take
-              its 5-question Topic Assessments and 20-question End-of-Module
+              its End-of-Topic Assessments and 20-question End-of-Module
               Exam (90% pass mark).
             </p>
           </div>

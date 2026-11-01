@@ -1697,6 +1697,31 @@ export const SOLVER_VERIFICATION_REGISTRY: Record<string, SolverVerificationSpec
     mbRdKnm: 180,
     metric: 'combined_utilization',
   },
+
+  // Module 8 Design Scenario (TEST-DESIGN-01)
+  'MOD08-T1-Q6': {
+    kind: 'tributary_loading',
+    tributaryWidthM: 1.0,
+    gkFloorKpa: 10.0,
+    qkFloorKpa: 12.0,
+    gammaG: 1.35,
+    gammaQ: 1.5,
+    metric: 'uls_line_load_knm',
+  },
+  'MOD08-T1-Q7': {
+    kind: 'beam_solver',
+    supportType: 'simply_supported',
+    spanM: 6.0,
+    udls: [{ startM: 0, endM: 6.0, wKnPerM: 31.5 }],
+    metric: 'm_max_sagging_knm',
+  },
+  'MOD08-T1-Q8': {
+    kind: 'beam_solver',
+    supportType: 'simply_supported',
+    spanM: 6.0,
+    udls: [{ startM: 0, endM: 6.0, wKnPerM: 31.5 }],
+    metric: 'ra_kn',
+  },
 };
 
 export interface QuestionVerificationAuditItem {

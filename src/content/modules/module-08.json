@@ -206,6 +206,348 @@
           "caseFamilyId": "MOD08-T1-CF",
           "reviewStatus": "Draft",
           "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD08-T1-Q6",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Calculate ULS design line load w_Ed for a steel secondary beam to BS EN 1990",
+          "type": "numeric",
+          "prompt": "A simply supported steel secondary floor beam spans L = 6.0 m and carries a characteristic permanent line load g_k = 10.0 kN/m (including beam self-weight) and a characteristic variable line load q_k = 12.0 kN/m. Using BS EN 1990 combination equation (6.10) with gamma_G = 1.35 and gamma_Q = 1.50, calculate the total factored design UDL w_Ed in kN/m.",
+          "assumptions": "1-way tributary floor span; full continuous lateral restraint provided to top flange by composite deck.",
+          "unit": "kN/m",
+          "correctAnswer": 31.5,
+          "tolerance": 0.5,
+          "explanation": "w_Ed = gamma_G * g_k + gamma_Q * q_k = 1.35 * 10.0 + 1.50 * 12.0 = 13.5 + 18.0 = 31.5 kN/m. Step-by-step verification confirms consistent SI metric units before substitution according to BS EN 1990 Expression 6.10 and UK National Annex.",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute",
+            "clauseOrSection": "BS EN 1990:2002 Cl. 6.4.3.2 (Exp. 6.10) & BS EN 1993-1-1 Cl. 5.5",
+            "pageReference": "pp. 52–54 (EN 1990) / pp. 18–22 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute, BS EN 1993-1-1:2005 & BS EN 1990:2002, Cl. 6.4.3.2 (Exp. 6.10), pp. 52–54"
+          },
+          "hints": [
+            "First Hint (Physical Principle & Idealisation): Multiply characteristic permanent load by 1.35 and characteristic variable load by 1.50.",
+            "Second Hint (Symbolic Formula & Unit Setup): Evaluate w_Ed = 1.35 * 10.0 + 1.50 * 12.0 and sum the components in kN/m."
+          ],
+          "caseFamilyId": "TEST-DESIGN-01",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified by first-principles Eurocode loading equilibrium solver.",
+          "solverVerificationId": "SOLV-MOD08-T1-Q6"
+        },
+        {
+          "id": "MOD08-T1-Q7",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Calculate maximum midspan design bending moment M_Ed for a simply supported beam",
+          "type": "numeric",
+          "prompt": "For the simply supported steel floor beam of span L = 6.0 m carrying the factored design line load w_Ed = 31.5 kN/m along its entire span, calculate the maximum midspan design bending moment M_Ed = w_Ed * L^2 / 8 in kN·m.",
+          "assumptions": "Simply supported boundary conditions at both ends; beam is laterally restrained against out-of-plane buckling.",
+          "unit": "kN·m",
+          "correctAnswer": 141.75,
+          "tolerance": 1.5,
+          "explanation": "M_Ed = w_Ed * L^2 / 8 = 31.5 * (6.0)^2 / 8 = 31.5 * 36.0 / 8 = 141.75 kN·m. Verified against first-principles beam flexure theory and BS EN 1993-1-1 Cl. 6.2.5.",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5 & SCI P362 §3.2",
+            "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 24–28 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute, BS EN 1993-1-1:2005 & SCI Publication P362, Cl. 6.2.5, pp. 48–52"
+          },
+          "hints": [
+            "First Hint (Physical Principle & Idealisation): For a simply supported beam with uniform load, maximum bending moment occurs at midspan.",
+            "Second Hint (Symbolic Formula & Unit Setup): Substitute w_Ed = 31.5 kN/m and L = 6.0 m into M_Ed = w_Ed * L^2 / 8 in kN·m."
+          ],
+          "caseFamilyId": "TEST-DESIGN-01",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified by first-principles beam flexure solver.",
+          "solverVerificationId": "SOLV-MOD08-T1-Q7"
+        },
+        {
+          "id": "MOD08-T1-Q8",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Calculate maximum support design shear force V_Ed for a simply supported beam",
+          "type": "numeric",
+          "prompt": "For the simply supported steel floor beam of span L = 6.0 m carrying the factored design line load w_Ed = 31.5 kN/m along its entire span, calculate the maximum vertical design shear force V_Ed = w_Ed * L / 2 at the simple supports in kN.",
+          "assumptions": "Symmetric simple end supports; vertical shear equilibrium with zero applied axial load.",
+          "unit": "kN",
+          "correctAnswer": 94.5,
+          "tolerance": 1,
+          "explanation": "V_Ed = w_Ed * L / 2 = 31.5 * 6.0 / 2 = 94.5 kN. Verified against standard statical equilibrium and BS EN 1993-1-1 Cl. 6.2.6 plastic shear resistance checks.",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.6 & SCI P362 §3.3",
+            "pageReference": "pp. 52–55 (EN 1993-1-1) / pp. 28–32 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute, BS EN 1993-1-1:2005 & SCI Publication P362, Cl. 6.2.6, pp. 52–55"
+          },
+          "hints": [
+            "First Hint (Physical Principle & Idealisation): By vertical equilibrium and symmetry, each support carries half of the total factored span load.",
+            "Second Hint (Symbolic Formula & Unit Setup): Compute V_Ed = 31.5 * 6.0 / 2 in kN."
+          ],
+          "caseFamilyId": "TEST-DESIGN-01",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified by first-principles beam shear equilibrium solver.",
+          "solverVerificationId": "SOLV-MOD08-T1-Q8"
+        }
+      ],
+      "assessmentQuestions": [
+        {
+          "id": "MOD08-T1-Q1",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Convert UB mass per metre (kg/m) into characteristic self-weight (kN/m)",
+          "type": "numeric",
+          "prompt": "A trial Universal Beam serial size has a tabulated mass per metre of 46.1 kg/m (for example, a 305×165×46 UB). Using g = 9.81 m/s², calculate its characteristic self-weight line load g_k,sw in kN/m (to 2 decimal places).",
+          "assumptions": "In hand calculations, engineers often round 0.452 kN/m up slightly to 0.50 kN/m as a conservative self-weight allowance.",
+          "unit": "kN/m",
+          "correctAnswer": 0.45,
+          "tolerance": 0.00675,
+          "explanation": "g_k,sw = 46.1 kg/m × 9.81 m/s² = 452.24 N/m = 0.452 kN/m ≈ 0.45 kN/m. Step-by-step verification for \"Convert UB mass per metre (kg/m) into characteristic self-weight (kN/m)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.45 kN/m, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
+          "hints": [
+            "First Hint (Physical Principle & Idealisation: Convert UB mass per metre (kg/m) into characteristic self-weight (kN/m)): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Symbolic Formula & Unit Setup): g_k,sw = 46.1 kg/m × 9.81 m/s² = 452.24 N/m = ?.45 kN/m. (express final result in kN/m)."
+          ],
+          "caseFamilyId": "MOD08-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD08-T1-Q2",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Calculate EC3 section classification parameter ε = √(235 / f_y)",
+          "type": "numeric",
+          "prompt": "In BS EN 1993-1-1 cross-section classification, the plate slenderness limits are scaled by ε = √(235 / f_y). Calculate ε for grade S355 steel with f_y = 355 N/mm² (to 2 decimal places).",
+          "assumptions": "Because ε < 1.0 for S355, the maximum c/t ratio allowed before local buckling occurs is stricter (smaller) for S355 than for S235/S275!",
+          "unit": "ratio",
+          "correctAnswer": 0.81,
+          "tolerance": 0.0122,
+          "explanation": "ε = √(235 / 355) = √0.66197 = 0.8136 ≈ 0.81. Step-by-step verification for \"Calculate EC3 section classification parameter ε = √(235 / f_y)\": confirm that all input quantities are converted into consistent SI metric units before substitution, evaluate the governing equilibrium or constitutive equation to obtain 0.81 ratio, and cross-check the magnitude and sign against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
+          "hints": [
+            "First Hint (Physical Principle & Idealisation: Calculate EC3 section classification parameter ε = √(235 / f_y)): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Symbolic Formula & Unit Setup): ε = √(235 / 355) = √0.66197 = ?.81. (express final result in ratio)."
+          ],
+          "caseFamilyId": "MOD08-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD08-T1-Q3",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Distinguish EC3 Section Classes 1, 2, 3, and 4",
+          "type": "mcq",
+          "prompt": "In BS EN 1993-1-1, what is the purpose of classifying a cross-section into Class 1, 2, 3, or 4, and which section modulus is used for bending resistance M_c,Rd in each class?",
+          "assumptions": "Core EC3 concept.",
+          "options": [
+            "It identifies the extent to which local plate buckling of the compression flange or web limits resistance: Classes 1 and 2 reach full plastic moment (W_pl · f_y / γ_M0), Class 3 is limited to first elastic yield at the extreme fibre (W_el,min · f_y / γ_M0), and Class 4 buckles locally in the elastic range (requiring effective modulus W_eff)",
+            "Class 1 is for timber, Class 2 is for concrete, Class 3 is for masonry, and Class 4 is for soil",
+            "By assuming a uniform linear-elastic stress distribution across the gross flange and web elements while neglecting rotational restraint compatibility, eccentric shear-centre load introduction, and shear-lag effects at the support boundaries",
+            "Section classification checks global Lateral Torsional Buckling over the 5 m span"
+          ],
+          "correctOptionIndex": 0,
+          "correctAnswer": 0,
+          "explanation": "Section classification checks local plate buckling (c/t ratios of flange and web), not global member buckling. Engineering synthesis for \"Distinguish EC3 Section Classes 1, 2, 3, and 4\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
+          "hints": [
+            "First Hint (Governing Structural Principle: Distinguish EC3 Section Classes 1, 2, 3, and 4): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Analytical Elimination Criterion): Classify the section first: Class 1/2 sections develop full plastic moment M_pl,Rd using W_pl, Class 3 reaches first yield M_el,Rd using W_el, and Class 4 requires effective width W_eff due to local buckling before yield. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4)."
+          ],
+          "caseFamilyId": "MOD08-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD08-T1-Q4",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Explain why yield strength f_y reduces as plate/flange thickness t increases",
+          "type": "mcq",
+          "prompt": "Why do steel product standards (such as BS EN 10025) and Eurocode 3 specify a lower nominal yield strength f_y for thick flanges (e.g. t = 25 mm) than for thin flanges (e.g. t = 12 mm) of an identical steel grade S355?",
+          "assumptions": "Standard structural engineering principles apply.",
+          "options": [
+            "Because the maximum principal tensile stress under pure shear equals the uniaxial yield strength according to the Rankine maximum normal stress hypothesis, which governs brittle fracture in unreinforced cast iron and uncracked plain concrete elements rather than ductile structural steel",
+            "Thicker steel plates cool more slowly during hot rolling and experience less mechanical grain refinement through the core thickness, resulting in a coarser grain microstructure with a slightly lower yield strength",
+            "Because the elastic shear modulus G is related to Young’s modulus E by G = E / [2(1 + ν)], which introduces a Poisson’s ratio reduction factor across the web depth whenever transverse direct stresses are neglected in simple beam theory",
+            "Because Eurocode partial safety factors for resistance incorporate a statistical log-normal coefficient of variation for hot-rolled plate thickness tolerances, mill rolling residual stresses, and out-of-straightness bow imperfections across the member length"
+          ],
+          "correctOptionIndex": 1,
+          "correctAnswer": 1,
+          "explanation": "Metallurgical cooling rate and rolling reduction govern grain size (Hall-Petch relationship); always check the governing element thickness t before writing down fy!",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
+          "hints": [
+            "First Hint (Governing Structural Principle: Explain why yield strength f_y reduces as plate/flange thickness t increases): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Analytical Elimination Criterion): Classify the section first: Class 1/2 sections develop full plastic moment M_pl,Rd using W_pl, Class 3 reaches first yield M_el,Rd using W_el, and Class 4 requires effective width W_eff due to local buckling before yield. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4)."
+          ],
+          "caseFamilyId": "MOD08-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD08-T1-Q5",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Explain why higher yield strength S355 has stricter c/t local buckling limits (ε = 0.81)",
+          "type": "mcq",
+          "prompt": "Why can a thin-walled section that is Class 2 in S275 steel become Class 3 in S355 steel?",
+          "assumptions": "Physical understanding behind ε = √(235/fy).",
+          "options": [
+            "It redistributes the peak hogging bending moment into the adjacent midspan zone through rigid-plastic hinge rotation without requiring supplementary lateral-torsional restraint, web stiffeners, or ductile rotation capacity at the support interface when evaluated under unfactored serviceability actions across the gross cross-section without partial safety factors or second-order geometric slenderness reductions",
+            "It increases the elastic Euler critical buckling load by halving the effective buckling length between inflection points, provided that the connection detail transfers full axial thrust without slip or local web crippling",
+            "Because reaching the higher yield stress of S355 (355 N/mm² vs 275 N/mm²) requires a larger compressive yield strain (ε_y = f_y/E) while the elastic plate buckling stiffness E remains unchanged, making local buckling occur earlier relative to yield",
+            "It eliminates vertical shear deformation across the web depth by forcing the neutral axis to remain coincident with the geometric centroid of the uncracked transformed section throughout both construction and permanent service stages"
+          ],
+          "correctOptionIndex": 2,
+          "correctAnswer": 2,
+          "explanation": "Higher fy demands greater compressive strain to reach yield while E is unchanged, hence ε = √(235/fy) reduces the allowable c/t ratio. Engineering synthesis for \"Explain why higher yield strength S355 has stricter c/t local buckling limits (ε = 0.81)\": always trace the complete load path from point of application to the foundations, ensure compatibility between analysis boundary assumptions and physical site detailing, and verify against BS EN 1993-1-1:2005 (Eurocode 3: Design of Steel Structures, Cl. 5.5 & Cl. 6.2).",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.)",
+            "authorOrBody": "BSI / N.S. Trahair et al.",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4",
+            "pageReference": "pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)",
+            "formatted": "BSI / N.S. Trahair et al., BS EN 1993-1-1:2005 (Eurocode 3) & The Behaviour and Design of Steel Structures to EC3 (4th ed.), BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4, pp. 26–28, 42–46 (EN 1993-1-1) / pp. 95–116 (Trahair)"
+          },
+          "hints": [
+            "First Hint (Governing Structural Principle: Explain why higher yield strength S355 has stricter c/t local buckling limits (ε = 0.81)): Yield strength f_y decreases as plate thickness t increases, while local buckling resistance of flange outstands (c/t) and webs depends on ε = √(235 / f_y) and determines Cross-Section Class 1, 2, 3, or 4.",
+            "Second Hint (Analytical Elimination Criterion): Classify the section first: Class 1/2 sections develop full plastic moment M_pl,Rd using W_pl, Class 3 reaches first yield M_el,Rd using W_el, and Class 4 requires effective width W_eff due to local buckling before yield. Eliminate distractors that violate equilibrium, confuse elastic stiffness (E·I) with yield strength (f_y), or misapply Eurocode limit-state rules (Ref: BS EN 1993-1-1 Cl. 3.2 (Table 3.1), Cl. 5.5 (Table 5.2) & Trahair Ch. 4)."
+          ],
+          "caseFamilyId": "MOD08-T1-CF",
+          "reviewStatus": "Draft",
+          "reviewNotice": "Draft study item: verify all clauses, partial factors, and calculations against controlled BSI/Eurocode standards and UK National Annexes before engineering use."
+        },
+        {
+          "id": "MOD08-T1-Q6",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Calculate ULS design line load w_Ed for a steel secondary beam to BS EN 1990",
+          "type": "numeric",
+          "prompt": "A simply supported steel secondary floor beam spans L = 6.0 m and carries a characteristic permanent line load g_k = 10.0 kN/m (including beam self-weight) and a characteristic variable line load q_k = 12.0 kN/m. Using BS EN 1990 combination equation (6.10) with gamma_G = 1.35 and gamma_Q = 1.50, calculate the total factored design UDL w_Ed in kN/m.",
+          "assumptions": "1-way tributary floor span; full continuous lateral restraint provided to top flange by composite deck.",
+          "unit": "kN/m",
+          "correctAnswer": 31.5,
+          "tolerance": 0.5,
+          "explanation": "w_Ed = gamma_G * g_k + gamma_Q * q_k = 1.35 * 10.0 + 1.50 * 12.0 = 13.5 + 18.0 = 31.5 kN/m. Step-by-step verification confirms consistent SI metric units before substitution according to BS EN 1990 Expression 6.10 and UK National Annex.",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute",
+            "clauseOrSection": "BS EN 1990:2002 Cl. 6.4.3.2 (Exp. 6.10) & BS EN 1993-1-1 Cl. 5.5",
+            "pageReference": "pp. 52–54 (EN 1990) / pp. 18–22 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute, BS EN 1993-1-1:2005 & BS EN 1990:2002, Cl. 6.4.3.2 (Exp. 6.10), pp. 52–54"
+          },
+          "hints": [
+            "First Hint (Physical Principle & Idealisation): Multiply characteristic permanent load by 1.35 and characteristic variable load by 1.50.",
+            "Second Hint (Symbolic Formula & Unit Setup): Evaluate w_Ed = 1.35 * 10.0 + 1.50 * 12.0 and sum the components in kN/m."
+          ],
+          "caseFamilyId": "TEST-DESIGN-01",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified by first-principles Eurocode loading equilibrium solver.",
+          "solverVerificationId": "SOLV-MOD08-T1-Q6"
+        },
+        {
+          "id": "MOD08-T1-Q7",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Calculate maximum midspan design bending moment M_Ed for a simply supported beam",
+          "type": "numeric",
+          "prompt": "For the simply supported steel floor beam of span L = 6.0 m carrying the factored design line load w_Ed = 31.5 kN/m along its entire span, calculate the maximum midspan design bending moment M_Ed = w_Ed * L^2 / 8 in kN·m.",
+          "assumptions": "Simply supported boundary conditions at both ends; beam is laterally restrained against out-of-plane buckling.",
+          "unit": "kN·m",
+          "correctAnswer": 141.75,
+          "tolerance": 1.5,
+          "explanation": "M_Ed = w_Ed * L^2 / 8 = 31.5 * (6.0)^2 / 8 = 31.5 * 36.0 / 8 = 141.75 kN·m. Verified against first-principles beam flexure theory and BS EN 1993-1-1 Cl. 6.2.5.",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.5 & SCI P362 §3.2",
+            "pageReference": "pp. 48–52 (EN 1993-1-1) / pp. 24–28 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute, BS EN 1993-1-1:2005 & SCI Publication P362, Cl. 6.2.5, pp. 48–52"
+          },
+          "hints": [
+            "First Hint (Physical Principle & Idealisation): For a simply supported beam with uniform load, maximum bending moment occurs at midspan.",
+            "Second Hint (Symbolic Formula & Unit Setup): Substitute w_Ed = 31.5 kN/m and L = 6.0 m into M_Ed = w_Ed * L^2 / 8 in kN·m."
+          ],
+          "caseFamilyId": "TEST-DESIGN-01",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified by first-principles beam flexure solver.",
+          "solverVerificationId": "SOLV-MOD08-T1-Q7"
+        },
+        {
+          "id": "MOD08-T1-Q8",
+          "moduleNumber": 8,
+          "topicId": "MOD08-T1",
+          "learningObjective": "Calculate maximum support design shear force V_Ed for a simply supported beam",
+          "type": "numeric",
+          "prompt": "For the simply supported steel floor beam of span L = 6.0 m carrying the factored design line load w_Ed = 31.5 kN/m along its entire span, calculate the maximum vertical design shear force V_Ed = w_Ed * L / 2 at the simple supports in kN.",
+          "assumptions": "Symmetric simple end supports; vertical shear equilibrium with zero applied axial load.",
+          "unit": "kN",
+          "correctAnswer": 94.5,
+          "tolerance": 1,
+          "explanation": "V_Ed = w_Ed * L / 2 = 31.5 * 6.0 / 2 = 94.5 kN. Verified against standard statical equilibrium and BS EN 1993-1-1 Cl. 6.2.6 plastic shear resistance checks.",
+          "citation": {
+            "moduleId": "MOD-08",
+            "topicId": "MOD08-T1",
+            "sourceTitle": "BS EN 1993-1-1:2005 (Eurocode 3) & SCI Publication P362 Concise Eurocodes",
+            "authorOrBody": "BSI / Steel Construction Institute",
+            "clauseOrSection": "BS EN 1993-1-1 Cl. 6.2.6 & SCI P362 §3.3",
+            "pageReference": "pp. 52–55 (EN 1993-1-1) / pp. 28–32 (SCI P362)",
+            "formatted": "BSI / Steel Construction Institute, BS EN 1993-1-1:2005 & SCI Publication P362, Cl. 6.2.6, pp. 52–55"
+          },
+          "hints": [
+            "First Hint (Physical Principle & Idealisation): By vertical equilibrium and symmetry, each support carries half of the total factored span load.",
+            "Second Hint (Symbolic Formula & Unit Setup): Compute V_Ed = 31.5 * 6.0 / 2 in kN."
+          ],
+          "caseFamilyId": "TEST-DESIGN-01",
+          "reviewStatus": "Verified",
+          "reviewNotice": "Verified by first-principles beam shear equilibrium solver.",
+          "solverVerificationId": "SOLV-MOD08-T1-Q8"
         }
       ]
     },
